@@ -32,14 +32,14 @@
 
 /* === RESET & BASE === */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 body {
   background: var(--bg);
   color: var(--text);
   font-family: 'DM Sans', sans-serif;
   font-weight: 300;
   line-height: 1.7;
-  overflow-x: hidden;
+  overflow-x: clip;
   overflow-wrap: break-word;
   word-wrap: break-word;
 }
@@ -114,7 +114,7 @@ nav {
 .sidebar {
   background: var(--surface); border-right: 1px solid var(--border);
   padding: 2rem 0; position: sticky; top: 58px; height: calc(100vh - 58px);
-  overflow-y: auto;
+  overflow-y: auto; align-self: start;
 }
 .sidebar-title {
   font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em;
