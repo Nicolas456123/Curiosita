@@ -80,7 +80,7 @@ def make_page(filepath, title, breadcrumb_parent, breadcrumb_parent_link, breadc
 </head>
 <body>
 <nav>
-  <a href="../../curiosita.html" class="logo">Curiosita.</a>
+  <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../musique-page.html">Musique</a> \u203a <a href="{breadcrumb_parent_link}">{breadcrumb_parent}</a> \u203a <span>{breadcrumb_current}</span></div>
 </nav>
 <div class="hero">

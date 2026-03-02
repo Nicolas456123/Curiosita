@@ -5,7 +5,7 @@ Educational website in French — "Tout ce qui peut être appris" (Everything th
 ## Site Hierarchy
 
 ```
-curiosita.html (landing page — 7 grand themes)
+index.html (landing page — 7 grand themes)
 ├── sciences-exactes.html        🔬 Sciences exactes & Informatique
 │   ├── maths-page.html              Mathématiques (16 hubs)
 │   └── informatique-page.html       Informatique
@@ -30,7 +30,7 @@ Navigation: Landing → Grand thème → Discipline (`*-page.html`) → Hub → 
 
 ## Project Structure
 
-- `curiosita.html` — Main landing page (7 grand theme cards + dynamic search)
+- `index.html` — Main landing page (7 grand theme cards + dynamic search)
 - `style.css` — Shared stylesheet for all pages (variables, layout, components)
 - `mobile.js` — Mobile hamburger menu + sidebar drawer (included on all pages)
 - Grand theme pages (`sciences-exactes.html`, etc.) — Intermediate pages listing disciplines
@@ -78,7 +78,7 @@ Navigation: Landing → Grand thème → Discipline (`*-page.html`) → Hub → 
 - `style.css` defines `:root` with dark theme defaults and all CSS variables
 - Each page overrides only `--accent`, `--accent2`, `--accent-dim` + hero background
 - Psychologie overrides the full palette (different dark base: `#0f0d14`)
-- Landing page (`curiosita.html`) uses `style.css` for reset/base + its own inline styles
+- Landing page (`index.html`) uses `style.css` for reset/base + its own inline styles
 - Grand theme pages reuse the same CSS classes as discipline pages
 
 ### Key CSS Variables
@@ -105,7 +105,7 @@ Navigation: Landing → Grand thème → Discipline (`*-page.html`) → Hub → 
 
 ## Search
 
-- `curiosita.html` has a dynamic search that builds an index by fetching pages at runtime
+- `index.html` has a dynamic search that builds an index by fetching pages at runtime
 - Traverses the full tree: grand theme → discipline → hub → course
 - Cached in `sessionStorage` for 10 minutes
 - Search results show type badges: thème, matière, domaine, cours

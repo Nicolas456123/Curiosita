@@ -70,7 +70,7 @@ ${opts}
 </head>
 <body>
 <nav>
-  <a href="../../curiosita.html" class="logo">Curiosita.</a>
+  <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb">
     <a href="../../${disciplineFile}">${breadcrumbDiscipline}</a> &rsaquo; <a href="../${hubFile}">${breadcrumbHub}</a> &rsaquo; <span>${title}</span>
   </div>
