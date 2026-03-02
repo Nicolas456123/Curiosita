@@ -15,255 +15,166 @@
 .hero { background: radial-gradient(ellipse 70% 60% at 30% 50%, rgba(232,201,122,0.06) 0%, transparent 70%); }
 .hero-deco { color: rgba(232,201,122,0.04); }
 
-/* ── Catalog-specific styles ── */
-
-.catalog-stats {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin: 2rem 0 0;
+/* ── Search bar ── */
+.search-bar {
+  max-width: 600px;
+  margin: 2.5rem 0 0;
+  position: relative;
 }
-.cstat {
+.search-bar input {
+  width: 100%;
+  background: var(--surface, #141418);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.2rem 0.85rem 2.8rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.search-bar input::placeholder { color: var(--muted); }
+.search-bar input:focus { border-color: var(--accent); }
+.search-bar .search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: var(--muted);
+  pointer-events: none;
+}
+.search-bar .search-clear {
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 1rem;
+  display: none;
+  padding: 0.2rem;
+}
+.search-bar .search-clear.visible { display: block; }
+.search-bar .search-clear:hover { color: var(--text); }
+
+.search-results-panel {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0; right: 0;
+  background: var(--surface2, #1c1c22);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  max-height: 380px;
+  overflow-y: auto;
+  z-index: 50;
+  display: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.12) transparent;
+}
+.search-results-panel.visible { display: block; }
+.search-result-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.75rem 1.2rem;
+  text-decoration: none;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.search-result-item:last-child { border-bottom: none; }
+.search-result-item:hover { background: var(--surface, #141418); }
+.sr-icon { font-size: 1rem; flex-shrink: 0; }
+.sr-name { font-size: 0.88rem; flex: 1; }
+.sr-meta { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+.sr-cat { font-size: 0.7rem; color: var(--accent); }
+.sr-type {
+  font-size: 0.58rem;
+  padding: 0.12rem 0.4rem;
+  border-radius: 3px;
+  background: var(--border);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.search-empty {
+  padding: 1.2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ── Stats band ── */
+.stats-band {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-top: 2.5rem;
+}
+.stat-cell {
+  background: var(--bg, #0c0c0e);
+  padding: 1.2rem;
   text-align: center;
 }
-.cstat-val {
+.stat-val {
   font-family: 'Playfair Display', serif;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 900;
   color: var(--accent);
   line-height: 1;
 }
-.cstat-lab {
-  font-size: 0.72rem;
+.stat-lab {
+  font-size: 0.68rem;
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-top: 0.3rem;
 }
 
-/* Legend */
-.legend {
-  display: flex;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-  font-size: 0.82rem;
+/* ── Progress bar ── */
+.global-progress {
+  margin-top: 1.5rem;
 }
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: var(--muted);
-}
-.legend-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-.legend-dot.done { background: #7ae88a; }
-.legend-dot.planned { background: var(--muted); opacity: 0.4; border: 1px dashed var(--muted); }
-
-/* Grand theme sections */
-.grand-theme {
-  margin-bottom: 3rem;
-}
-.grand-theme-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 0;
-  border-bottom: 2px solid var(--border);
-  margin-bottom: 1.5rem;
-  cursor: pointer;
-  user-select: none;
-}
-.grand-theme-header:hover { border-bottom-color: var(--accent); }
-.gt-icon { font-size: 1.8rem; }
-.gt-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--text);
-}
-.gt-count {
-  margin-left: auto;
-  font-size: 0.75rem;
-  color: var(--muted);
-  letter-spacing: 0.04em;
-}
-.gt-chevron {
-  font-size: 0.7rem;
-  color: var(--muted);
-  transition: transform 0.3s;
-}
-.gt-chevron.open { transform: rotate(90deg); }
-.gt-link {
-  font-size: 0.75rem;
-  color: var(--accent);
-  text-decoration: none;
-  margin-left: 0.5rem;
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-.grand-theme-header:hover .gt-link { opacity: 1; }
-
-/* Discipline blocks */
-.gt-body { /* collapsible */ }
-.discipline-block {
-  margin-bottom: 2rem;
-  padding-left: 0.5rem;
-  border-left: 2px solid var(--border);
-}
-.discipline-header {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.5rem 0.8rem;
-  margin-bottom: 0.5rem;
-}
-.disc-icon { font-size: 1.1rem; }
-.disc-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.15rem;
-  font-weight: 700;
-  font-style: italic;
-  color: var(--text);
-  text-decoration: none;
-}
-.disc-name:hover { color: var(--accent); }
-.disc-count {
-  margin-left: auto;
-  font-size: 0.7rem;
-  color: var(--muted);
-}
-
-/* Hub/domain */
-.hub-block {
-  margin-left: 1rem;
-  margin-bottom: 0.8rem;
-}
-.hub-header {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.6rem;
+.progress-track {
+  height: 4px;
+  background: var(--surface2, #1c1c22);
   border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.15s;
-}
-.hub-header:hover { background: var(--surface2); }
-.hub-chevron {
-  font-size: 0.45rem;
-  color: var(--muted);
-  transition: transform 0.2s;
-  width: 10px;
-  text-align: center;
-}
-.hub-chevron.open { transform: rotate(90deg); }
-.hub-name {
-  font-size: 0.9rem;
-  color: var(--text);
-  text-decoration: none;
-}
-.hub-name:hover { color: var(--accent); }
-.hub-count {
-  margin-left: auto;
-  font-size: 0.65rem;
-  color: var(--muted);
-}
-
-/* Course list */
-.course-list {
-  margin-left: 1.8rem;
-  border-left: 1px solid var(--border);
-  padding-left: 0.8rem;
-  display: none;
-}
-.course-list.open { display: block; }
-.course-item {
-  padding: 0.2rem 0;
-}
-.course-link {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.82rem;
-  color: var(--muted);
-  text-decoration: none;
-  padding: 0.25rem 0.4rem;
-  border-radius: 3px;
-  transition: all 0.15s;
-}
-.course-link:hover { color: var(--accent); background: rgba(255,255,255,0.03); }
-.course-link.done { color: var(--text); }
-.course-bullet { font-size: 0.5rem; }
-.course-bullet.done { color: #7ae88a; }
-.course-bullet.planned { color: var(--muted); opacity: 0.4; }
-.course-status {
-  margin-left: auto;
-  font-size: 0.6rem;
-  padding: 0.1rem 0.35rem;
-  border-radius: 3px;
-  flex-shrink: 0;
-}
-.course-status.done { background: rgba(122,232,138,0.1); color: #7ae88a; }
-.course-status.planned { background: rgba(122,120,112,0.1); color: var(--muted); }
-
-/* Progress bar */
-.progress-bar {
-  height: 3px;
-  background: var(--surface2);
-  border-radius: 3px;
   overflow: hidden;
-  margin-top: 0.4rem;
-  margin-bottom: 0.5rem;
 }
 .progress-fill {
   height: 100%;
   background: linear-gradient(90deg, #7ae88a, var(--accent));
-  border-radius: 3px;
-  transition: width 0.5s ease;
+  border-radius: 4px;
+  transition: width 0.8s ease;
 }
-
-/* Summary cards */
-.summary-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  margin-top: 1.5rem;
-}
-.summary-card {
-  background: var(--bg);
-  padding: 1.5rem;
-  text-align: center;
-}
-.summary-val {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
-  font-weight: 900;
-  color: var(--accent);
-  line-height: 1;
-}
-.summary-lab {
+.progress-text {
   font-size: 0.75rem;
   color: var(--muted);
-  margin-top: 0.3rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  margin-top: 0.4rem;
 }
 
-/* Filter bar */
-.filter-bar {
+/* ── View toggle ── */
+.view-controls {
   display: flex;
-  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
-  margin-bottom: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
-.filter-btn {
-  font-size: 0.75rem;
-  padding: 0.35rem 0.8rem;
+.filter-pills {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.filter-pill {
+  font-size: 0.72rem;
+  padding: 0.3rem 0.8rem;
   border: 1px solid var(--border);
   border-radius: 100px;
   color: var(--muted);
@@ -272,22 +183,290 @@
   transition: all 0.2s;
   font-family: 'DM Sans', sans-serif;
 }
-.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
-.filter-btn.active { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.filter-pill:hover { border-color: var(--accent); color: var(--accent); }
+.filter-pill.active { background: var(--accent); color: var(--bg, #0c0c0e); border-color: var(--accent); }
 
+/* ── Discipline grid ── */
+.disc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.disc-card {
+  background: var(--bg, #0c0c0e);
+  padding: 1.8rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.disc-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--disc-accent, var(--accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.disc-card:hover { background: var(--surface, #141418); }
+.disc-card:hover::before { transform: scaleX(1); }
+
+.disc-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+.dc-icon { font-size: 1.6rem; flex-shrink: 0; line-height: 1; }
+.dc-info { flex: 1; min-width: 0; }
+.dc-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+.dc-theme {
+  font-size: 0.68rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.dc-arrow {
+  width: 24px; height: 24px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  color: var(--muted);
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: all 0.3s;
+}
+.disc-card:hover .dc-arrow { opacity: 1; transform: translateX(0); }
+
+.dc-stats {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.8rem;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.dc-progress {
+  height: 2px;
+  background: var(--surface2, #1c1c22);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 0.6rem;
+}
+.dc-progress-fill {
+  height: 100%;
+  background: var(--disc-accent, var(--accent));
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+
+/* ── Expanded card ── */
+.disc-card.expanded {
+  grid-column: 1 / -1;
+  background: var(--surface, #141418);
+  cursor: default;
+}
+.disc-card.expanded::before { transform: scaleX(1); }
+.disc-card.expanded .dc-arrow { display: none; }
+
+.dtree-container {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
+  margin-top: 1.2rem;
+  border-top: 1px solid var(--border);
+  padding-top: 0;
+}
+.dtree-container.open { padding-top: 1rem; }
+
+.dtree-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+.dtree-link {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--disc-accent, var(--accent));
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.dtree-link:hover { color: var(--text); text-decoration: underline; }
+.dtree-close {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.7rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.dtree-close:hover { border-color: var(--disc-accent, var(--accent)); color: var(--text); }
+
+.dtree-hub { margin-bottom: 0.3rem; }
+.dtree-hub-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.4rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+  user-select: none;
+}
+.dtree-hub-header:hover { background: var(--surface2, #1c1c22); }
+.dtree-chevron {
+  font-size: 0.45rem;
+  color: var(--muted);
+  transition: transform 0.2s;
+  width: 12px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.dtree-chevron.open { transform: rotate(90deg); }
+.dtree-hub-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--text);
+  text-decoration: none;
+}
+.dtree-hub-name:hover { color: var(--disc-accent, var(--accent)); }
+.dtree-hub-count {
+  margin-left: auto;
+  font-size: 0.62rem;
+  color: var(--muted);
+}
+
+.dtree-courses {
+  padding-left: 1.2rem;
+  border-left: 1px solid var(--border);
+  margin-left: 0.6rem;
+  display: none;
+}
+.dtree-courses.open { display: block; }
+
+.dtree-course {
+  padding: 0.15rem 0;
+}
+.dtree-course-link {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.25rem 0.4rem;
+  border-radius: 3px;
+  transition: all 0.15s;
+}
+.dtree-course-link:hover { color: var(--disc-accent, var(--accent)); background: rgba(255,255,255,0.03); }
+.dtree-bullet { font-size: 0.5rem; color: var(--border); }
+
+.dtree-empty {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-style: italic;
+  padding: 0.5rem 0;
+}
+
+/* ── Theme separator in grid ── */
+.theme-separator {
+  grid-column: 1 / -1;
+  background: var(--surface, #141418);
+  padding: 1.2rem 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s;
+}
+.theme-separator:hover { background: var(--surface2, #1c1c22); }
+.ts-icon { font-size: 1.3rem; }
+.ts-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.ts-count {
+  margin-left: auto;
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+.ts-chevron {
+  font-size: 0.6rem;
+  color: var(--muted);
+  transition: transform 0.3s;
+}
+.ts-chevron.open { transform: rotate(90deg); }
+
+.disc-card.theme-hidden { display: none; }
+
+/* ── Loading state ── */
+.loading-overlay {
+  text-align: center;
+  padding: 4rem 2rem;
+  grid-column: 1 / -1;
+  background: var(--bg, #0c0c0e);
+}
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 1rem;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-text {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ── Responsive ── */
 @media (max-width: 768px) {
-  .gt-title { font-size: 1.2rem; }
-  .catalog-stats { gap: 1rem; }
-  .cstat-val { font-size: 1.5rem; }
-  .summary-grid { grid-template-columns: repeat(2, 1fr); }
-  .gt-link { display: none; }
+  .disc-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+  .stats-band { grid-template-columns: repeat(3, 1fr); }
+  .stat-val { font-size: 1.4rem; }
+  .dc-name { font-size: 1rem; }
+  .ts-name { font-size: 1rem; }
+  .dtree-courses { padding-left: 0.8rem; }
 }
 @media (max-width: 480px) {
-  .gt-title { font-size: 1.05rem; }
-  .disc-name { font-size: 1rem; }
-  .summary-grid { grid-template-columns: 1fr 1fr; }
-  .filter-bar { gap: 0.3rem; }
-  .filter-btn { font-size: 0.65rem; padding: 0.25rem 0.6rem; }
+  .disc-grid { grid-template-columns: 1fr; }
+  .stats-band { grid-template-columns: repeat(2, 1fr); }
+  .stat-val { font-size: 1.2rem; }
+  .stat-lab { font-size: 0.6rem; }
+  .dc-name { font-size: 0.92rem; }
+  .ts-name { font-size: 0.92rem; }
+  .filter-pills { gap: 0.25rem; }
+  .filter-pill { font-size: 0.65rem; padding: 0.25rem 0.6rem; }
+  .view-controls { gap: 0.6rem; }
+  .search-bar input { font-size: 0.85rem; padding: 0.75rem 1rem 0.75rem 2.4rem; }
+  .dtree-hub-count { display: none; }
 }
 </style>
 </head>
@@ -307,12 +486,25 @@
     <span class="tag-level">Tous niveaux</span>
   </div>
   <h1>Tous les<br><em>cours</em></h1>
-  <p class="hero-desc">Répertoire complet de tous les cours disponibles et à venir sur Curiosita. Explorez par thème, par discipline ou parcourez la liste complète.</p>
-  <div class="catalog-stats">
-    <div class="cstat"><div class="cstat-val">7</div><div class="cstat-lab">Thèmes</div></div>
-    <div class="cstat"><div class="cstat-val">33</div><div class="cstat-lab">Disciplines</div></div>
-    <div class="cstat"><div class="cstat-val">133</div><div class="cstat-lab">Domaines</div></div>
-    <div class="cstat"><div class="cstat-val" id="totalCours">140</div><div class="cstat-lab">Cours créés</div></div>
+  <p class="hero-desc">Explorez l'intégralité du catalogue Curiosita. Recherchez un sujet, parcourez par discipline, ou naviguez dans l'arborescence.</p>
+
+  <div class="search-bar">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Rechercher un cours, un domaine, une discipline…" autocomplete="off">
+    <button class="search-clear" id="searchClear" aria-label="Effacer">✕</button>
+    <div class="search-results-panel" id="searchResults"></div>
+  </div>
+
+  <div class="stats-band" id="statsBand">
+    <div class="stat-cell"><div class="stat-val" id="sThemes">7</div><div class="stat-lab">Thèmes</div></div>
+    <div class="stat-cell"><div class="stat-val" id="sDisc">—</div><div class="stat-lab">Disciplines</div></div>
+    <div class="stat-cell"><div class="stat-val" id="sDomains">—</div><div class="stat-lab">Domaines</div></div>
+    <div class="stat-cell"><div class="stat-val" id="sCourses">—</div><div class="stat-lab">Cours</div></div>
+  </div>
+
+  <div class="global-progress" id="globalProgressWrap" style="display:none">
+    <div class="progress-track"><div class="progress-fill" id="globalFill" style="width:0"></div></div>
+    <p class="progress-text" id="progressText"></p>
   </div>
 </div>
 
@@ -320,1106 +512,526 @@
   <aside class="sidebar">
     <a class="sidebar-link" href="index.html" style="color:var(--accent)">← Accueil</a>
     <p class="sidebar-title">Grands thèmes</p>
-    <a class="sidebar-link" href="#sciences-exactes" data-section="sciences-exactes" onclick="goTo('sciences-exactes',this);return false">🔬 Sciences exactes</a>
-    <a class="sidebar-link" href="#sciences-nature" data-section="sciences-nature" onclick="goTo('sciences-nature',this);return false">🌱 Sciences de la nature</a>
-    <a class="sidebar-link" href="#sciences-humaines" data-section="sciences-humaines" onclick="goTo('sciences-humaines',this);return false">🌍 Sciences humaines</a>
-    <a class="sidebar-link" href="#lettres-langues" data-section="lettres-langues" onclick="goTo('lettres-langues',this);return false">📚 Lettres & Langues</a>
-    <a class="sidebar-link" href="#arts-culture" data-section="arts-culture" onclick="goTo('arts-culture',this);return false">🎨 Arts & Culture</a>
-    <a class="sidebar-link" href="#droit-politique" data-section="droit-politique" onclick="goTo('droit-politique',this);return false">⚖️ Droit & Politique</a>
-    <a class="sidebar-link" href="#savoir-faire" data-section="savoir-faire" onclick="goTo('savoir-faire',this);return false">🔧 Savoir-faire</a>
-    <p class="sidebar-title" style="margin-top:1.5rem">Filtres</p>
-    <a class="sidebar-link" href="#" onclick="filterAll();return false">📋 Tout afficher</a>
-    <a class="sidebar-link" href="#" onclick="filterDone();return false">✅ Cours créés</a>
-    <a class="sidebar-link" href="#" onclick="filterPlanned();return false">⬜ Cours prévus</a>
+    <div id="sidebarThemes"></div>
+    <p class="sidebar-title" style="margin-top:1.5rem">Actions</p>
+    <a class="sidebar-link" href="#" onclick="expandAllThemes();return false">📂 Tout déplier</a>
+    <a class="sidebar-link" href="#" onclick="collapseAllThemes();return false">📁 Tout replier</a>
   </aside>
 
-  <main class="main">
-
-    <section class="content-section" id="overview">
+  <main class="main" id="mainContent">
+    <section class="content-section">
       <div class="section-header">
         <div class="section-num">01</div>
         <div class="section-info">
-          <h2>Vue d'ensemble</h2>
-          <p>Progression globale du catalogue</p>
+          <h2>Catalogue des disciplines</h2>
+          <p>Cliquez sur une discipline pour explorer ses domaines et cours</p>
         </div>
       </div>
 
-      <div class="legend">
-        <div class="legend-item"><span class="legend-dot done"></span> Cours créé</div>
-        <div class="legend-item"><span class="legend-dot planned"></span> Prévu</div>
+      <div class="view-controls">
+        <div class="filter-pills">
+          <button class="filter-pill active" data-filter="all" onclick="setThemeFilter('all', this)">Toutes</button>
+        </div>
       </div>
 
-      <div class="progress-bar" style="height:6px">
-        <div class="progress-fill" id="globalProgress" style="width:40%"></div>
-      </div>
-      <p style="font-size:0.78rem;color:var(--muted);margin-bottom:2rem"><span id="progressText">140 cours créés sur ~355 prévus</span></p>
-
-      <div class="summary-grid">
-        <div class="summary-card"><div class="summary-val">7</div><div class="summary-lab">Grands thèmes</div></div>
-        <div class="summary-card"><div class="summary-val">33</div><div class="summary-lab">Disciplines</div></div>
-        <div class="summary-card"><div class="summary-val">133</div><div class="summary-lab">Domaines</div></div>
-        <div class="summary-card"><div class="summary-val">140</div><div class="summary-lab">Cours créés</div></div>
-        <div class="summary-card"><div class="summary-val">~215</div><div class="summary-lab">Cours prévus</div></div>
-        <div class="summary-card"><div class="summary-val">~355</div><div class="summary-lab">Objectif total</div></div>
+      <div class="disc-grid" id="discGrid">
+        <div class="loading-overlay" id="loadingState">
+          <div class="loading-spinner"></div>
+          <div class="loading-text">Construction du catalogue…</div>
+        </div>
       </div>
     </section>
-
-    <!-- ═══════ SCIENCES EXACTES ═══════ -->
-    <section class="content-section" id="sciences-exactes">
-      <div class="section-header">
-        <div class="section-num">02</div>
-        <div class="section-info">
-          <h2>Sciences exactes & Informatique</h2>
-          <p>6 disciplines · Maths, Informatique, Python, Physique, Chimie, Statistiques</p>
-        </div>
-      </div>
-
-      <div class="grand-theme" data-theme="sciences-exactes">
-
-        <!-- Maths -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🔢</span>
-            <a class="disc-name" href="maths-page.html">Mathématiques</a>
-            <span class="disc-count">5 domaines · 11 cours</span>
-          </div>
-
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="maths/arithmetique.html" onclick="event.stopPropagation()">Arithmétique</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="maths/arithmetique/nombres-premiers.html"><span class="course-bullet done">●</span> Les nombres premiers <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="maths/arithmetique/divisibilite.html"><span class="course-bullet done">●</span> Divisibilité, PGCD et PPCM <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="maths/arithmetique/fractions.html"><span class="course-bullet done">●</span> Fractions et opérations <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="maths/arithmetique/puissances.html"><span class="course-bullet done">●</span> Puissances et racines <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="maths/arithmetique/bases-numeration.html"><span class="course-bullet done">●</span> Bases de numération <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><span class="course-link"><span class="course-bullet planned">○</span> Congruences et arithmétique modulaire <span class="course-status planned">prévu</span></span></div>
-            </div>
-          </div>
-
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="maths/algebre.html" onclick="event.stopPropagation()">Algèbre</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="maths/algebre/equations.html"><span class="course-bullet done">●</span> Équations du 1er et 2nd degré <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="maths/algebre/systemes.html"><span class="course-bullet done">●</span> Systèmes d'équations <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="maths/algebre/polynomes.html"><span class="course-bullet done">●</span> Polynômes et factorisation <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="maths/algebre/matrices.html"><span class="course-bullet done">●</span> Matrices et déterminants <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="maths/algebre/nombres-complexes.html"><span class="course-bullet done">●</span> Nombres complexes <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><span class="course-link"><span class="course-bullet planned">○</span> Espaces vectoriels <span class="course-status planned">prévu</span></span></div>
-            </div>
-          </div>
-
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="maths/geometrie.html" onclick="event.stopPropagation()">Géométrie</a>
-              <span class="hub-count">1 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="maths/geometrie/triangles.html"><span class="course-bullet done">●</span> Triangles et théorèmes <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><span class="course-link"><span class="course-bullet planned">○</span> Trigonométrie <span class="course-status planned">prévu</span></span></div>
-              <div class="course-item"><span class="course-link"><span class="course-bullet planned">○</span> Cercles, aires et volumes <span class="course-status planned">prévu</span></span></div>
-            </div>
-          </div>
-
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="maths/analyse.html" onclick="event.stopPropagation()">Analyse</a>
-              <span class="hub-count">hub seul</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><span class="course-link"><span class="course-bullet planned">○</span> Limites et continuité <span class="course-status planned">prévu</span></span></div>
-              <div class="course-item"><span class="course-link"><span class="course-bullet planned">○</span> Dérivées <span class="course-status planned">prévu</span></span></div>
-              <div class="course-item"><span class="course-link"><span class="course-bullet planned">○</span> Intégrales <span class="course-status planned">prévu</span></span></div>
-            </div>
-          </div>
-
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="maths/probabilites.html" onclick="event.stopPropagation()">Probabilités</a>
-              <span class="hub-count">hub seul</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><span class="course-link"><span class="course-bullet planned">○</span> Dénombrement et combinatoire <span class="course-status planned">prévu</span></span></div>
-              <div class="course-item"><span class="course-link"><span class="course-bullet planned">○</span> Probabilités conditionnelles <span class="course-status planned">prévu</span></span></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Informatique -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">💻</span>
-            <a class="disc-name" href="informatique-page.html">Informatique</a>
-            <span class="disc-count">4 domaines · 5 cours</span>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="informatique/algorithmes.html" onclick="event.stopPropagation()">Algorithmes</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="informatique/algorithmes/tri.html"><span class="course-bullet done">●</span> Algorithmes de tri <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="informatique/algorithmes/recherche.html"><span class="course-bullet done">●</span> Algorithmes de recherche <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="informatique/algorithmes/complexite.html"><span class="course-bullet done">●</span> Complexité algorithmique <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="informatique/algorithmes/dynamique.html"><span class="course-bullet done">●</span> Programmation dynamique <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="informatique/algorithmes/arbres-graphes.html"><span class="course-bullet done">●</span> Arbres et graphes <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="informatique/web.html">Développement web</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="informatique/ia.html">Intelligence artificielle</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="informatique/cybersecurite.html">Cybersécurité</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Python -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🐍</span>
-            <a class="disc-name" href="python-page.html">Python</a>
-            <span class="disc-count">4 domaines · 10 cours</span>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="python/bases.html" onclick="event.stopPropagation()">Les bases</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="python/bases/variables-types.html"><span class="course-bullet done">●</span> Variables et types <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="python/bases/operateurs.html"><span class="course-bullet done">●</span> Opérateurs et expressions <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="python/bases/conditions.html"><span class="course-bullet done">●</span> Conditions et booléens <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="python/bases/boucles.html"><span class="course-bullet done">●</span> Boucles for et while <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="python/bases/entrees-sorties.html"><span class="course-bullet done">●</span> Entrées/sorties <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="python/structures.html" onclick="event.stopPropagation()">Structures de données</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="python/structures/fonctions.html"><span class="course-bullet done">●</span> Fonctions <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="python/structures/listes.html"><span class="course-bullet done">●</span> Listes et tuples <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="python/structures/dictionnaires.html"><span class="course-bullet done">●</span> Dictionnaires et ensembles <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="python/structures/comprehensions.html"><span class="course-bullet done">●</span> Compréhensions de listes <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="python/structures/fichiers.html"><span class="course-bullet done">●</span> Manipulation de fichiers <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="python/poo.html">Programmation orientée objet</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="python/avance.html">Python avancé</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Physique -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">⚛️</span>
-            <a class="disc-name" href="physique-page.html">Physique</a>
-            <span class="disc-count">5 domaines · 2 cours</span>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="physique/mecanique.html" onclick="event.stopPropagation()">Mécanique</a>
-              <span class="hub-count">2 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="physique/mecanique/forces.html"><span class="course-bullet done">●</span> Les forces <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="physique/mecanique/energie.html"><span class="course-bullet done">●</span> L'énergie <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="physique/thermodynamique.html">Thermodynamique</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="physique/electromagnetisme.html">Électromagnétisme</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="physique/optique.html">Optique</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="physique/moderne.html">Physique moderne</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Chimie -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🧪</span>
-            <a class="disc-name" href="chimie-page.html">Chimie</a>
-            <span class="disc-count">5 domaines · 3 cours</span>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="chimie/generale.html" onclick="event.stopPropagation()">Chimie générale</a>
-              <span class="hub-count">3 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="chimie/generale/atome.html"><span class="course-bullet done">●</span> L'atome <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="chimie/generale/liaisons.html"><span class="course-bullet done">●</span> Les liaisons chimiques <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="chimie/generale/tableau-periodique.html"><span class="course-bullet done">●</span> Le tableau périodique <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="chimie/organique.html">Chimie organique</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="chimie/inorganique.html">Chimie inorganique</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="chimie/biochimie.html">Biochimie</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="chimie/analytique.html">Chimie analytique</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Statistiques -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">📊</span>
-            <a class="disc-name" href="statistiques-page.html">Statistiques</a>
-            <span class="disc-count">5 domaines · 5 cours</span>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="statistiques/descriptives.html" onclick="event.stopPropagation()">Statistiques descriptives</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="statistiques/descriptives/tendance-centrale.html"><span class="course-bullet done">●</span> Tendance centrale <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="statistiques/descriptives/dispersion.html"><span class="course-bullet done">●</span> Mesures de dispersion <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="statistiques/descriptives/distributions.html"><span class="course-bullet done">●</span> Distributions <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="statistiques/descriptives/graphiques.html"><span class="course-bullet done">●</span> Représentations graphiques <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="statistiques/descriptives/aberrantes.html"><span class="course-bullet done">●</span> Valeurs aberrantes <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="statistiques/inference.html">Inférence statistique</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="statistiques/regression.html">Régression</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="statistiques/probabilites.html">Probabilités appliquées</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="statistiques/analyse-donnees.html">Analyse de données</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ═══════ SCIENCES DE LA NATURE ═══════ -->
-    <section class="content-section" id="sciences-nature">
-      <div class="section-header">
-        <div class="section-num">03</div>
-        <div class="section-info">
-          <h2>Sciences de la nature</h2>
-          <p>4 disciplines · Biologie, Écologie, Astronomie, Sciences de la Terre</p>
-        </div>
-      </div>
-
-      <div class="grand-theme" data-theme="sciences-nature">
-
-        <!-- Biologie -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🧬</span>
-            <a class="disc-name" href="biologie-page.html">Biologie</a>
-            <span class="disc-count">4 domaines · 10 cours</span>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="biologie/cellule.html" onclick="event.stopPropagation()">La cellule</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="biologie/cellule/structure.html"><span class="course-bullet done">●</span> Structure et organites <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="biologie/cellule/division.html"><span class="course-bullet done">●</span> Division cellulaire <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="biologie/cellule/adn.html"><span class="course-bullet done">●</span> ADN et génétique <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="biologie/cellule/proteines.html"><span class="course-bullet done">●</span> Protéines et expression génique <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="biologie/cellule/metabolisme.html"><span class="course-bullet done">●</span> Métabolisme cellulaire <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="biologie/corps-humain.html" onclick="event.stopPropagation()">Corps humain</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="biologie/corps-humain/systeme-nerveux.html"><span class="course-bullet done">●</span> Le système nerveux <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="biologie/corps-humain/systeme-cardiovasculaire.html"><span class="course-bullet done">●</span> Le système cardiovasculaire <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="biologie/corps-humain/systeme-digestif.html"><span class="course-bullet done">●</span> Le système digestif <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="biologie/corps-humain/systeme-immunitaire.html"><span class="course-bullet done">●</span> Le système immunitaire <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="biologie/corps-humain/systeme-endocrinien.html"><span class="course-bullet done">●</span> Le système endocrinien <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="biologie/evolution.html">Évolution</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="biologie/ecologie.html">Écologie (biologie)</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Écologie -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🌿</span>
-            <a class="disc-name" href="ecologie-page.html">Écologie</a>
-            <span class="disc-count">4 domaines</span>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="ecologie/ecosystemes.html">Écosystèmes</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="ecologie/biodiversite.html">Biodiversité</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="ecologie/climat.html">Climat et énergie</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="ecologie/developpement-durable.html">Développement durable</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Astronomie -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🔭</span>
-            <a class="disc-name" href="astronomie-page.html">Astronomie</a>
-            <span class="disc-count">4 domaines</span>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="astronomie/systeme-solaire.html">Système solaire</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="astronomie/etoiles.html">Étoiles et galaxies</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="astronomie/cosmologie.html">Cosmologie</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="astronomie/observation.html">Observation</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Terre -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🌍</span>
-            <a class="disc-name" href="terre-page.html">Sciences de la Terre</a>
-            <span class="disc-count">4 domaines · 1 cours</span>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="terre/geologie.html" onclick="event.stopPropagation()">Géologie</a>
-              <span class="hub-count">1 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="terre/geologie/mineraux.html"><span class="course-bullet done">●</span> Minéraux et roches <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="terre/volcanisme.html">Volcanisme</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="terre/oceanographie.html">Océanographie</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="terre/meteorologie.html">Météorologie</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ═══════ SCIENCES HUMAINES ═══════ -->
-    <section class="content-section" id="sciences-humaines">
-      <div class="section-header">
-        <div class="section-num">04</div>
-        <div class="section-info">
-          <h2>Sciences humaines & sociales</h2>
-          <p>6 disciplines · Histoire, Économie, Psychologie, Sociologie, Géographie, Anthropologie</p>
-        </div>
-      </div>
-
-      <div class="grand-theme" data-theme="sciences-humaines">
-
-        <!-- Histoire -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">📜</span>
-            <a class="disc-name" href="histoire-page.html">Histoire</a>
-            <span class="disc-count">4 domaines · 15 cours</span>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="histoire/antiquite.html" onclick="event.stopPropagation()">Antiquité</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="histoire/antiquite/mesopotamie.html"><span class="course-bullet done">●</span> La Mésopotamie <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="histoire/antiquite/egypte.html"><span class="course-bullet done">●</span> L'Égypte ancienne <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="histoire/antiquite/grece.html"><span class="course-bullet done">●</span> La Grèce antique <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="histoire/antiquite/rome.html"><span class="course-bullet done">●</span> Rome et l'Empire romain <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="histoire/antiquite/chine-inde.html"><span class="course-bullet done">●</span> Chine et Inde anciennes <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="histoire/moyen-age.html" onclick="event.stopPropagation()">Moyen Âge</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="histoire/moyen-age/empire-byzantin.html"><span class="course-bullet done">●</span> L'Empire byzantin <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="histoire/moyen-age/islam-medieval.html"><span class="course-bullet done">●</span> L'Islam médiéval <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="histoire/moyen-age/feodalite.html"><span class="course-bullet done">●</span> La féodalité <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="histoire/moyen-age/croisades.html"><span class="course-bullet done">●</span> Les croisades <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="histoire/moyen-age/grandes-decouvertes.html"><span class="course-bullet done">●</span> Les grandes découvertes <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="histoire/moderne.html" onclick="event.stopPropagation()">Époque moderne</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="histoire/moderne/renaissance.html"><span class="course-bullet done">●</span> La Renaissance <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="histoire/moderne/lumieres.html"><span class="course-bullet done">●</span> Les Lumières <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="histoire/moderne/revolution-francaise.html"><span class="course-bullet done">●</span> La Révolution française <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="histoire/moderne/revolution-industrielle.html"><span class="course-bullet done">●</span> La Révolution industrielle <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="histoire/moderne/colonisation.html"><span class="course-bullet done">●</span> La colonisation <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="histoire/contemporaine.html">Époque contemporaine</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Économie -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">💰</span>
-            <a class="disc-name" href="economie-page.html">Économie</a>
-            <span class="disc-count">3 domaines · 10 cours</span>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="economie/microeconomie.html" onclick="event.stopPropagation()">Microéconomie</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="economie/microeconomie/offre-demande.html"><span class="course-bullet done">●</span> Offre et demande <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="economie/microeconomie/elasticite.html"><span class="course-bullet done">●</span> Élasticité <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="economie/microeconomie/marches.html"><span class="course-bullet done">●</span> Structures de marché <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="economie/microeconomie/concurrence.html"><span class="course-bullet done">●</span> Concurrence et monopole <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="economie/microeconomie/externalites.html"><span class="course-bullet done">●</span> Externalités et biens publics <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="economie/macroeconomie.html" onclick="event.stopPropagation()">Macroéconomie</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="economie/macroeconomie/pib.html"><span class="course-bullet done">●</span> Le PIB et la croissance <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="economie/macroeconomie/inflation.html"><span class="course-bullet done">●</span> L'inflation <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="economie/macroeconomie/chomage.html"><span class="course-bullet done">●</span> Le chômage <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="economie/macroeconomie/politique-monetaire.html"><span class="course-bullet done">●</span> Politique monétaire <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="economie/macroeconomie/politique-budgetaire.html"><span class="course-bullet done">●</span> Politique budgétaire <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="economie/finance.html">Finance</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Psychologie -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🧠</span>
-            <a class="disc-name" href="psychologie-page.html">Psychologie</a>
-            <span class="disc-count">4 domaines · 10 cours</span>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="psychologie/cognitive.html" onclick="event.stopPropagation()">Psychologie cognitive</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="psychologie/cognitive/perception.html"><span class="course-bullet done">●</span> La perception <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="psychologie/cognitive/memoire.html"><span class="course-bullet done">●</span> La mémoire <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="psychologie/cognitive/attention.html"><span class="course-bullet done">●</span> L'attention <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="psychologie/cognitive/langage.html"><span class="course-bullet done">●</span> Le langage <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="psychologie/cognitive/prise-decision.html"><span class="course-bullet done">●</span> Prise de décision <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="psychologie/clinique.html" onclick="event.stopPropagation()">Psychologie clinique</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="psychologie/clinique/troubles-anxieux.html"><span class="course-bullet done">●</span> Les troubles anxieux <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="psychologie/clinique/depression.html"><span class="course-bullet done">●</span> La dépression <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="psychologie/clinique/psychanalyse.html"><span class="course-bullet done">●</span> La psychanalyse <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="psychologie/clinique/tcc.html"><span class="course-bullet done">●</span> Les TCC <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="psychologie/clinique/psychopharmacologie.html"><span class="course-bullet done">●</span> Psychopharmacologie <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="psychologie/sociale.html">Psychologie sociale</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="psychologie/developpement.html">Développement</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Sociologie -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🏛️</span>
-            <a class="disc-name" href="sociologie-page.html">Sociologie</a>
-            <span class="disc-count">4 domaines</span>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="sociologie/fondements.html">Fondements</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="sociologie/structures.html">Structures sociales</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="sociologie/culture.html">Culture et société</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="sociologie/contemporaine.html">Sociologie contemporaine</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Géographie -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🗺️</span>
-            <a class="disc-name" href="geographie-page.html">Géographie</a>
-            <span class="disc-count">4 domaines</span>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="geographie/physique.html">Géographie physique</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="geographie/humaine.html">Géographie humaine</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="geographie/geopolitique.html">Géopolitique</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="geographie/cartographie.html">Cartographie</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Anthropologie -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🏺</span>
-            <a class="disc-name" href="anthropologie-page.html">Anthropologie</a>
-            <span class="disc-count">4 domaines</span>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="anthropologie/culturelle.html">Anthropologie culturelle</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="anthropologie/physique.html">Anthropologie physique</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="anthropologie/ethnologie.html">Ethnologie</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="anthropologie/archeologie.html">Archéologie</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ═══════ LETTRES & LANGUES ═══════ -->
-    <section class="content-section" id="lettres-langues">
-      <div class="section-header">
-        <div class="section-num">05</div>
-        <div class="section-info">
-          <h2>Lettres, Langues & Philosophie</h2>
-          <p>5 disciplines · Philosophie, Langues, Littérature fr., Littérature mondiale, Rhétorique</p>
-        </div>
-      </div>
-
-      <div class="grand-theme" data-theme="lettres-langues">
-
-        <!-- Philosophie -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">💭</span>
-            <a class="disc-name" href="philosophie-page.html">Philosophie</a>
-            <span class="disc-count">3 domaines · 9 cours</span>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="philosophie/antiquite.html" onclick="event.stopPropagation()">Antiquité</a>
-              <span class="hub-count">6 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="philosophie/antiquite/presocratiques.html"><span class="course-bullet done">●</span> Les présocratiques <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="philosophie/antiquite/socrate.html"><span class="course-bullet done">●</span> Socrate et la maïeutique <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="philosophie/antiquite/platon.html"><span class="course-bullet done">●</span> Platon et le monde des Idées <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="philosophie/antiquite/aristote.html"><span class="course-bullet done">●</span> Aristote et la logique <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="philosophie/antiquite/stoicisme.html"><span class="course-bullet done">●</span> Le stoïcisme <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="philosophie/antiquite/epicurisme.html"><span class="course-bullet done">●</span> L'épicurisme <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="philosophie/moderne.html" onclick="event.stopPropagation()">Philosophie moderne</a>
-              <span class="hub-count">3 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="philosophie/moderne/descartes.html"><span class="course-bullet done">●</span> Descartes et le rationalisme <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="philosophie/moderne/kant.html"><span class="course-bullet done">●</span> Kant et la critique <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="philosophie/moderne/hegel.html"><span class="course-bullet done">●</span> Hegel et la dialectique <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="philosophie/concepts.html">Concepts fondamentaux</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Langues -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🌍</span>
-            <a class="disc-name" href="langues-page.html">Langues</a>
-            <span class="disc-count">3 domaines · 13 cours</span>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="langues/anglais.html" onclick="event.stopPropagation()">Anglais</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="langues/anglais/grammaire.html"><span class="course-bullet done">●</span> Grammaire anglaise <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="langues/anglais/vocabulaire.html"><span class="course-bullet done">●</span> Vocabulaire essentiel <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="langues/anglais/prononciation.html"><span class="course-bullet done">●</span> Prononciation <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="langues/anglais/expressions.html"><span class="course-bullet done">●</span> Expressions idiomatiques <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="langues/anglais/redaction.html"><span class="course-bullet done">●</span> Rédaction et style <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="langues/espagnol.html" onclick="event.stopPropagation()">Espagnol</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="langues/espagnol/grammaire.html"><span class="course-bullet done">●</span> Grammaire espagnole <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="langues/espagnol/vocabulaire.html"><span class="course-bullet done">●</span> Vocabulaire essentiel <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="langues/espagnol/conjugaison.html"><span class="course-bullet done">●</span> Conjugaison <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="langues/espagnol/expressions.html"><span class="course-bullet done">●</span> Expressions idiomatiques <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="langues/espagnol/culture.html"><span class="course-bullet done">●</span> Culture hispanique <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="langues/linguistique.html" onclick="event.stopPropagation()">Linguistique</a>
-              <span class="hub-count">3 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="langues/linguistique/phonetique.html"><span class="course-bullet done">●</span> Phonétique <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="langues/linguistique/syntaxe.html"><span class="course-bullet done">●</span> Syntaxe <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="langues/linguistique/semantique.html"><span class="course-bullet done">●</span> Sémantique <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Littérature française -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">📖</span>
-            <a class="disc-name" href="litterature-fr-page.html">Littérature française</a>
-            <span class="disc-count">4 domaines · 1 cours</span>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="litterature-fr/moyen-age.html" onclick="event.stopPropagation()">Moyen Âge</a>
-              <span class="hub-count">1 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="litterature-fr/moyen-age/chanson-geste.html"><span class="course-bullet done">●</span> La chanson de geste <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="litterature-fr/classicisme.html">Classicisme</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="litterature-fr/xixe.html">XIXe siècle</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="litterature-fr/xxe.html">XXe siècle</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Littérature mondiale -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🌐</span>
-            <a class="disc-name" href="litterature-monde-page.html">Littérature mondiale</a>
-            <span class="disc-count">4 domaines</span>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="litterature-monde/anglophone.html">Littérature anglophone</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="litterature-monde/russe.html">Littérature russe</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="litterature-monde/asiatique.html">Littérature asiatique</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="litterature-monde/latino-americaine.html">Littérature latino-américaine</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Rhétorique -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🎙️</span>
-            <a class="disc-name" href="rhetorique-page.html">Rhétorique & Communication</a>
-            <span class="disc-count">4 domaines</span>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="rhetorique/argumentation.html">L'argumentation</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="rhetorique/art-oratoire.html">L'art oratoire</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="rhetorique/ecriture.html">L'écriture persuasive</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="rhetorique/communication.html">Communication</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ═══════ ARTS & CULTURE ═══════ -->
-    <section class="content-section" id="arts-culture">
-      <div class="section-header">
-        <div class="section-num">06</div>
-        <div class="section-info">
-          <h2>Arts & Culture</h2>
-          <p>5 disciplines · Arts visuels, Musique, Cinéma, Design, Spectacle</p>
-        </div>
-      </div>
-
-      <div class="grand-theme" data-theme="arts-culture">
-
-        <!-- Arts -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🎨</span>
-            <a class="disc-name" href="arts-page.html">Arts visuels</a>
-            <span class="disc-count">3 domaines · 10 cours</span>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="arts/peinture.html" onclick="event.stopPropagation()">Peinture</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="arts/peinture/renaissance.html"><span class="course-bullet done">●</span> La Renaissance <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="arts/peinture/impressionnisme.html"><span class="course-bullet done">●</span> L'Impressionnisme <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="arts/peinture/cubisme.html"><span class="course-bullet done">●</span> Le Cubisme <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="arts/peinture/art-abstrait.html"><span class="course-bullet done">●</span> L'art abstrait <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="arts/peinture/art-contemporain.html"><span class="course-bullet done">●</span> L'art contemporain <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="arts/sculpture.html" onclick="event.stopPropagation()">Sculpture</a>
-              <span class="hub-count">4 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="arts/sculpture/antiquite.html"><span class="course-bullet done">●</span> Sculpture antique <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="arts/sculpture/classique.html"><span class="course-bullet done">●</span> Sculpture classique <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="arts/sculpture/moderne.html"><span class="course-bullet done">●</span> Sculpture moderne <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="arts/sculpture/contemporaine.html"><span class="course-bullet done">●</span> Sculpture contemporaine <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="arts/photographie.html" onclick="event.stopPropagation()">Photographie</a>
-              <span class="hub-count">1 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="arts/photographie/histoire.html"><span class="course-bullet done">●</span> Histoire de la photographie <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Musique -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🎵</span>
-            <a class="disc-name" href="musique-page.html">Musique</a>
-            <span class="disc-count">4 domaines · 14 cours</span>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="musique/theorie.html" onclick="event.stopPropagation()">Théorie musicale</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="musique/theorie/solfege.html"><span class="course-bullet done">●</span> Le solfège <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="musique/theorie/gammes.html"><span class="course-bullet done">●</span> Gammes et tonalités <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="musique/theorie/accords.html"><span class="course-bullet done">●</span> Accords et harmonie <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="musique/theorie/rythme.html"><span class="course-bullet done">●</span> Rythme et mesure <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="musique/theorie/composition.html"><span class="course-bullet done">●</span> Écriture et composition <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="musique/histoire.html" onclick="event.stopPropagation()">Histoire de la musique</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="musique/histoire/baroque.html"><span class="course-bullet done">●</span> Le Baroque <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="musique/histoire/classique.html"><span class="course-bullet done">●</span> Le Classicisme <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="musique/histoire/romantique.html"><span class="course-bullet done">●</span> Le Romantisme <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="musique/histoire/moderne.html"><span class="course-bullet done">●</span> Le XXe siècle <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="musique/histoire/contemporain.html"><span class="course-bullet done">●</span> Musique contemporaine <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="musique/instruments.html" onclick="event.stopPropagation()">Instruments</a>
-              <span class="hub-count">4 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="musique/instruments/piano.html"><span class="course-bullet done">●</span> Le piano <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="musique/instruments/guitare.html"><span class="course-bullet done">●</span> La guitare <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="musique/instruments/voix.html"><span class="course-bullet done">●</span> La voix <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="musique/instruments/orchestre.html"><span class="course-bullet done">●</span> L'orchestre <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="musique/production.html">Production musicale</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Cinéma -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🎬</span>
-            <a class="disc-name" href="cinema-page.html">Cinéma & Audiovisuel</a>
-            <span class="disc-count">4 domaines · 20 cours</span>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="cinema/animation.html" onclick="event.stopPropagation()">Animation</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="cinema/animation/traditionnelle.html"><span class="course-bullet done">●</span> Animation traditionnelle <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="cinema/animation/japonaise.html"><span class="course-bullet done">●</span> Animation japonaise <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="cinema/animation/numerique.html"><span class="course-bullet done">●</span> Animation numérique <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="cinema/animation/stop-motion.html"><span class="course-bullet done">●</span> Stop-motion <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="cinema/animation/animation-3d.html"><span class="course-bullet done">●</span> Animation 3D <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="cinema/histoire.html" onclick="event.stopPropagation()">Histoire du cinéma</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="cinema/histoire/naissance.html"><span class="course-bullet done">●</span> Naissance du cinéma <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="cinema/histoire/hollywood.html"><span class="course-bullet done">●</span> Hollywood classique <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="cinema/histoire/nouvelle-vague.html"><span class="course-bullet done">●</span> La Nouvelle Vague <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="cinema/histoire/cinema-mondial.html"><span class="course-bullet done">●</span> Cinéma mondial <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="cinema/histoire/contemporain.html"><span class="course-bullet done">●</span> Cinéma contemporain <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="cinema/montage.html" onclick="event.stopPropagation()">Montage</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="cinema/montage/principes.html"><span class="course-bullet done">●</span> Principes du montage <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="cinema/montage/narratif.html"><span class="course-bullet done">●</span> Montage narratif <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="cinema/montage/etalonnage.html"><span class="course-bullet done">●</span> Étalonnage <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="cinema/montage/post-son.html"><span class="course-bullet done">●</span> Post-production son <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="cinema/montage/effets-visuels.html"><span class="course-bullet done">●</span> Effets visuels <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="cinema/realisation.html" onclick="event.stopPropagation()">Réalisation</a>
-              <span class="hub-count">5 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="cinema/realisation/scenario.html"><span class="course-bullet done">●</span> Le scénario <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="cinema/realisation/mise-en-scene.html"><span class="course-bullet done">●</span> La mise en scène <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="cinema/realisation/cinematographie.html"><span class="course-bullet done">●</span> Cinématographie <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="cinema/realisation/direction-acteurs.html"><span class="course-bullet done">●</span> Direction d'acteurs <span class="course-status done">✅</span></a></div>
-              <div class="course-item"><a class="course-link done" href="cinema/realisation/son-musique.html"><span class="course-bullet done">●</span> Son et musique <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Design -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🖌️</span>
-            <a class="disc-name" href="design-page.html">Design & Architecture</a>
-            <span class="disc-count">4 domaines</span>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="design/graphique.html">Design graphique</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="design/architecture.html">Architecture</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="design/interieur.html">Design d'intérieur</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="design/industriel.html">Design industriel</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Spectacle -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🎭</span>
-            <a class="disc-name" href="spectacle-page.html">Arts du spectacle</a>
-            <span class="disc-count">4 domaines</span>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="spectacle/theatre.html">Théâtre</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="spectacle/danse.html">Danse</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="spectacle/opera.html">Opéra</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="spectacle/cirque.html">Cirque</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ═══════ DROIT & POLITIQUE ═══════ -->
-    <section class="content-section" id="droit-politique">
-      <div class="section-header">
-        <div class="section-num">07</div>
-        <div class="section-info">
-          <h2>Droit, Politique & Société</h2>
-          <p>3 disciplines · Droit, Sciences politiques, Éducation civique</p>
-        </div>
-      </div>
-
-      <div class="grand-theme" data-theme="droit-politique">
-
-        <!-- Droit -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">⚖️</span>
-            <a class="disc-name" href="droit-page.html">Droit</a>
-            <span class="disc-count">4 domaines · 1 cours</span>
-          </div>
-          <div class="hub-block">
-            <div class="hub-header" onclick="toggleHub(this)">
-              <span class="hub-chevron">&#9654;</span>
-              <a class="hub-name" href="droit/civil.html" onclick="event.stopPropagation()">Droit civil</a>
-              <span class="hub-count">1 cours</span>
-            </div>
-            <div class="course-list">
-              <div class="course-item"><a class="course-link done" href="droit/civil/personnes.html"><span class="course-bullet done">●</span> Droit des personnes <span class="course-status done">✅</span></a></div>
-            </div>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="droit/constitutionnel.html">Droit constitutionnel</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="droit/penal.html">Droit pénal</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="droit/international.html">Droit international</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Sciences-po -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🏛️</span>
-            <a class="disc-name" href="sciences-po-page.html">Sciences politiques</a>
-            <span class="disc-count">4 domaines</span>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="sciences-po/theorie.html">Théorie politique</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="sciences-po/systemes.html">Systèmes politiques</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="sciences-po/relations.html">Relations internationales</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="sciences-po/france.html">Politique française</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Civique -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🏫</span>
-            <a class="disc-name" href="civique-page.html">Éducation civique</a>
-            <span class="disc-count">4 domaines</span>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="civique/citoyennete.html">Citoyenneté</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="civique/droits.html">Droits et libertés</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="civique/republique.html">République et démocratie</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="civique/enjeux.html">Enjeux contemporains</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ═══════ SAVOIR-FAIRE ═══════ -->
-    <section class="content-section" id="savoir-faire">
-      <div class="section-header">
-        <div class="section-num">08</div>
-        <div class="section-info">
-          <h2>Savoir-faire & Vie pratique</h2>
-          <p>4 disciplines · Artisanat, Cuisine, Santé, Gestion</p>
-        </div>
-      </div>
-
-      <div class="grand-theme" data-theme="savoir-faire">
-
-        <!-- Artisanat -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🪵</span>
-            <a class="disc-name" href="artisanat-page.html">Artisanat</a>
-            <span class="disc-count">4 domaines</span>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="artisanat/menuiserie.html">Menuiserie</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="artisanat/couture.html">Couture et textile</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="artisanat/poterie.html">Poterie et céramique</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="artisanat/metal.html">Travail du métal</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Cuisine -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🍳</span>
-            <a class="disc-name" href="cuisine-page.html">Cuisine & Gastronomie</a>
-            <span class="disc-count">4 domaines</span>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="cuisine/techniques.html">Techniques culinaires</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="cuisine/patisserie.html">Pâtisserie</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="cuisine/monde.html">Cuisines du monde</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="cuisine/nutrition.html">Nutrition</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Santé -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">🏥</span>
-            <a class="disc-name" href="sante-page.html">Santé & Bien-être</a>
-            <span class="disc-count">4 domaines</span>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="sante/medecine.html">Médecine préventive</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="sante/mentale.html">Santé mentale</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="sante/premiers-secours.html">Premiers secours</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="sante/sport.html">Sport & activité physique</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-        <!-- Gestion -->
-        <div class="discipline-block">
-          <div class="discipline-header">
-            <span class="disc-icon">📋</span>
-            <a class="disc-name" href="gestion-page.html">Gestion & Organisation</a>
-            <span class="disc-count">4 domaines</span>
-          </div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="gestion/finances.html">Finances personnelles</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="gestion/organisation.html">Organisation</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="gestion/productivite.html">Productivité numérique</a><span class="hub-count">hub seul</span></div></div>
-          <div class="hub-block"><div class="hub-header"><a class="hub-name" href="gestion/developpement.html">Développement personnel</a><span class="hub-count">hub seul</span></div></div>
-        </div>
-
-      </div>
-    </section>
-
   </main>
 </div>
 
 <script>
-function goTo(id, el) {
-  document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
-  document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
-  if (el) el.classList.add('active');
+/* ═════════════════════════════════════════════════
+   DYNAMIC COURSE CATALOG — Curiosita
+   Builds the entire discipline grid from live data
+   by scanning theme → discipline → hub → course pages.
+   ═════════════════════════════════════════════════ */
+
+let searchData = [];
+let searchReady = false;
+let themesData = []; // { name, icon, href, accent, disciplines: [...] }
+
+// Theme accents (match index.html)
+const THEME_ACCENTS = {
+  'Sciences exactes & Informatique': '#4fc3f7',
+  'Sciences de la nature': '#7ae8d8',
+  'Sciences humaines & sociales': '#7ae88a',
+  'Lettres, Langues & Philosophie': '#9b7ae8',
+  'Arts & Culture': '#e87a7a',
+  'Droit, Politique & Société': '#e87a9b',
+  'Savoir-faire & Vie pratique': '#8ae87a'
+};
+
+const THEME_ICONS = {
+  'Sciences exactes & Informatique': '🔬',
+  'Sciences de la nature': '🌱',
+  'Sciences humaines & sociales': '🌍',
+  'Lettres, Langues & Philosophie': '📚',
+  'Arts & Culture': '🎨',
+  'Droit, Politique & Société': '⚖️',
+  'Savoir-faire & Vie pratique': '🔧'
+};
+
+const THEME_PAGES = [
+  'sciences-exactes.html',
+  'sciences-nature.html',
+  'sciences-humaines.html',
+  'lettres-langues.html',
+  'arts-culture.html',
+  'droit-politique.html',
+  'savoir-faire.html'
+];
+
+const THEME_NAMES = [
+  'Sciences exactes & Informatique',
+  'Sciences de la nature',
+  'Sciences humaines & sociales',
+  'Lettres, Langues & Philosophie',
+  'Arts & Culture',
+  'Droit, Politique & Société',
+  'Savoir-faire & Vie pratique'
+];
+
+function normalize(str) {
+  return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 }
 
-function toggleHub(header) {
-  const courseList = header.parentElement.querySelector('.course-list');
-  const chevron = header.querySelector('.hub-chevron');
-  if (!courseList) return;
-  if (courseList.classList.contains('open')) {
-    courseList.classList.remove('open');
-    if (chevron) chevron.classList.remove('open');
+async function fetchDoc(url) {
+  const resp = await fetch(url);
+  if (!resp.ok) throw new Error(resp.status);
+  return new DOMParser().parseFromString(await resp.text(), 'text/html');
+}
+
+function resolveUrl(href, base) {
+  if (href.startsWith('/') || href.startsWith('http')) return href;
+  const dir = base.includes('/') ? base.substring(0, base.lastIndexOf('/') + 1) : '';
+  return dir + href;
+}
+
+function extractCourseCards(doc, basePath) {
+  const cards = [];
+  doc.querySelectorAll('.course-card[href]').forEach(card => {
+    const href = card.getAttribute('href');
+    const name = card.querySelector('h3')?.textContent?.trim();
+    const desc = card.querySelector('p')?.textContent?.trim() || '';
+    if (name && href) cards.push({ name, desc, url: resolveUrl(href, basePath) });
+  });
+  return cards;
+}
+
+async function buildCatalog() {
+  const cached = sessionStorage.getItem('curiosita_catalog');
+  if (cached) {
+    try {
+      const { themes, search, ts } = JSON.parse(cached);
+      if (Date.now() - ts < 10 * 60 * 1000) {
+        themesData = themes;
+        searchData = search;
+        searchReady = true;
+        renderCatalog();
+        return;
+      }
+    } catch (e) {}
+  }
+
+  const themes = [];
+  const index = [];
+
+  // 1. Fetch all 7 theme pages
+  const themeResults = await Promise.allSettled(THEME_PAGES.map(async (href, i) => {
+    const themeName = THEME_NAMES[i];
+    const themeIcon = THEME_ICONS[themeName];
+    const accent = THEME_ACCENTS[themeName];
+
+    index.push({ name: themeName, cat: 'Curiosita', url: href, type: 'thème', icon: themeIcon, keywords: themeName });
+
+    let disciplines = [];
+    try {
+      const doc = await fetchDoc(href);
+      const cards = extractCourseCards(doc, href);
+      for (const card of cards) {
+        if (card.url.endsWith('-page.html')) {
+          disciplines.push({ name: card.name, desc: card.desc, url: card.url, icon: themeIcon, hubs: [] });
+          index.push({ name: card.name, cat: themeName, url: card.url, type: 'matière', icon: themeIcon, keywords: `${themeName} ${card.name}` });
+        }
+      }
+    } catch (e) {}
+
+    return { name: themeName, icon: themeIcon, href, accent, disciplines };
+  }));
+
+  for (const r of themeResults) {
+    if (r.status === 'fulfilled') themes.push(r.value);
+  }
+
+  // 2. Fetch all discipline pages in parallel
+  const discFetches = [];
+  for (const theme of themes) {
+    for (const disc of theme.disciplines) {
+      discFetches.push(
+        fetchDoc(disc.url).then(doc => {
+          const hubs = extractCourseCards(doc, disc.url);
+          disc.hubs = hubs.map(h => ({ name: h.name, desc: h.desc, url: h.url, courses: [] }));
+          for (const hub of disc.hubs) {
+            index.push({ name: hub.name, cat: disc.name, url: hub.url, type: 'domaine', icon: disc.icon, keywords: `${disc.name} ${hub.name} ${hub.desc}` });
+          }
+        }).catch(() => {})
+      );
+    }
+  }
+  await Promise.allSettled(discFetches);
+
+  // 3. Fetch all hub pages in parallel
+  const hubFetches = [];
+  for (const theme of themes) {
+    for (const disc of theme.disciplines) {
+      for (const hub of disc.hubs) {
+        hubFetches.push(
+          fetchDoc(hub.url).then(hubDoc => {
+            const courses = extractCourseCards(hubDoc, hub.url);
+            hub.courses = courses.map(c => ({ name: c.name, url: c.url }));
+            for (const c of hub.courses) {
+              index.push({ name: c.name, cat: `${disc.name} › ${hub.name}`, url: c.url, type: 'cours', icon: disc.icon, keywords: `${disc.name} ${hub.name} ${c.name}` });
+            }
+          }).catch(() => {})
+        );
+      }
+    }
+  }
+  await Promise.allSettled(hubFetches);
+
+  themesData = themes;
+  searchData = index;
+  searchReady = true;
+
+  try {
+    sessionStorage.setItem('curiosita_catalog', JSON.stringify({ themes, search: index, ts: Date.now() }));
+  } catch (e) {}
+
+  renderCatalog();
+}
+
+/* ─── Rendering ─── */
+
+function renderCatalog() {
+  const grid = document.getElementById('discGrid');
+  const loading = document.getElementById('loadingState');
+  if (loading) loading.remove();
+
+  // Build theme filter pills
+  const pills = document.querySelector('.filter-pills');
+  themesData.forEach((theme, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-pill';
+    btn.dataset.filter = i;
+    btn.textContent = theme.icon + ' ' + theme.name.split(' ')[0];
+    btn.onclick = function() { setThemeFilter(String(i), this); };
+    pills.appendChild(btn);
+  });
+
+  // Build sidebar links
+  const sidebarThemes = document.getElementById('sidebarThemes');
+  themesData.forEach((theme, i) => {
+    const a = document.createElement('a');
+    a.className = 'sidebar-link';
+    a.href = '#';
+    a.textContent = theme.icon + ' ' + theme.name.split('&')[0].trim();
+    a.onclick = function(e) {
+      e.preventDefault();
+      setThemeFilter(String(i), document.querySelector(`.filter-pill[data-filter="${i}"]`));
+      const sep = document.querySelector(`.theme-separator[data-theme-idx="${i}"]`);
+      if (sep) sep.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    sidebarThemes.appendChild(a);
+  });
+
+  // Compute stats
+  let totalDisc = 0, totalDomains = 0, totalCourses = 0;
+  themesData.forEach(theme => {
+    theme.disciplines.forEach(disc => {
+      totalDisc++;
+      disc.hubs.forEach(hub => {
+        totalDomains++;
+        totalCourses += hub.courses.length;
+      });
+    });
+  });
+
+  document.getElementById('sDisc').textContent = totalDisc;
+  document.getElementById('sDomains').textContent = totalDomains;
+  document.getElementById('sCourses').textContent = totalCourses;
+
+  // Render discipline cards grouped by theme
+  let html = '';
+  themesData.forEach((theme, ti) => {
+    const discCount = theme.disciplines.length;
+    let themeCourseCount = 0;
+    theme.disciplines.forEach(d => d.hubs.forEach(h => themeCourseCount += h.courses.length));
+
+    html += `<div class="theme-separator" data-theme-idx="${ti}" onclick="toggleThemeGroup(${ti})">
+      <span class="ts-icon">${theme.icon}</span>
+      <span class="ts-name">${theme.name}</span>
+      <span class="ts-count">${discCount} discipline${discCount > 1 ? 's' : ''} · ${themeCourseCount} cours</span>
+      <span class="ts-chevron open" id="tsChev${ti}">&#9654;</span>
+    </div>`;
+
+    theme.disciplines.forEach((disc, di) => {
+      const hubCount = disc.hubs.length;
+      let courseCount = 0;
+      disc.hubs.forEach(h => courseCount += h.courses.length);
+
+      html += `<div class="disc-card" data-theme-idx="${ti}" data-disc-idx="${di}" style="--disc-accent:${theme.accent}" onclick="handleDiscClick(event, ${ti}, ${di})">
+        <div class="disc-card-top">
+          <span class="dc-icon">${disc.icon}</span>
+          <div class="dc-info">
+            <div class="dc-name">${disc.name}</div>
+            <div class="dc-theme">${theme.name.split('&')[0].trim()}</div>
+          </div>
+          <div class="dc-arrow">→</div>
+        </div>
+        <div class="dc-stats">
+          <span>${hubCount} domaine${hubCount > 1 ? 's' : ''}</span>
+          <span>${courseCount} cours</span>
+        </div>
+        ${courseCount > 0 ? `<div class="dc-progress"><div class="dc-progress-fill" style="width:100%"></div></div>` : ''}
+      </div>`;
+    });
+  });
+
+  grid.innerHTML = html;
+}
+
+/* ─── Card expand/collapse ─── */
+
+function handleDiscClick(e, ti, di) {
+  if (e.target.closest('.dtree-link, .dtree-hub-name, .dtree-course-link')) return;
+  if (e.target.closest('.dtree-close')) { collapseDisc(ti, di); return; }
+
+  const toggleHeader = e.target.closest('.dtree-hub-header');
+  if (toggleHeader) {
+    e.stopPropagation();
+    const courses = toggleHeader.nextElementSibling;
+    const chev = toggleHeader.querySelector('.dtree-chevron');
+    if (courses.classList.contains('open')) {
+      courses.classList.remove('open');
+      chev.classList.remove('open');
+    } else {
+      courses.classList.add('open');
+      chev.classList.add('open');
+    }
+    const container = toggleHeader.closest('.dtree-container');
+    if (container) container.style.maxHeight = container.scrollHeight + 'px';
+    return;
+  }
+
+  const card = e.target.closest('.disc-card');
+  if (!card) return;
+
+  if (card.classList.contains('expanded')) {
+    collapseDisc(ti, di);
+    return;
+  }
+
+  // Collapse any other expanded card
+  const prev = document.querySelector('.disc-card.expanded');
+  if (prev) {
+    const pti = prev.dataset.themeIdx;
+    const pdi = prev.dataset.discIdx;
+    collapseDisc(pti, pdi);
+  }
+
+  expandDisc(card, ti, di);
+}
+
+function expandDisc(card, ti, di) {
+  const disc = themesData[ti].disciplines[di];
+  const accent = themesData[ti].accent;
+
+  card.classList.add('expanded');
+
+  const container = document.createElement('div');
+  container.className = 'dtree-container';
+
+  let hubsHtml = '';
+  if (disc.hubs.length === 0) {
+    hubsHtml = '<div class="dtree-empty">Aucun domaine répertorié pour le moment.</div>';
   } else {
-    courseList.classList.add('open');
-    if (chevron) chevron.classList.add('open');
+    disc.hubs.forEach(hub => {
+      const n = hub.courses.length;
+      let coursesHtml = '';
+      if (n > 0) {
+        coursesHtml = hub.courses.map(c =>
+          `<div class="dtree-course"><a href="${c.url}" class="dtree-course-link"><span class="dtree-bullet">•</span> ${c.name}</a></div>`
+        ).join('');
+      } else {
+        coursesHtml = '<div class="dtree-course"><span class="dtree-course-link" style="cursor:default"><span class="dtree-bullet" style="color:var(--muted);opacity:0.4">○</span> <em style="color:var(--muted)">Cours à venir</em></span></div>';
+      }
+      hubsHtml += `<div class="dtree-hub">
+        <div class="dtree-hub-header">
+          <span class="dtree-chevron">&#9654;</span>
+          <a href="${hub.url}" class="dtree-hub-name" onclick="event.stopPropagation()">${hub.name}</a>
+          <span class="dtree-hub-count">${n > 0 ? n + ' cours' : 'hub seul'}</span>
+        </div>
+        <div class="dtree-courses">${coursesHtml}</div>
+      </div>`;
+    });
+  }
+
+  container.innerHTML = `
+    <div class="dtree-header">
+      <a href="${disc.url}" class="dtree-link" onclick="event.stopPropagation()">Voir la page discipline →</a>
+      <button class="dtree-close" aria-label="Fermer" onclick="event.stopPropagation()">✕</button>
+    </div>
+    <div class="dtree-body">${hubsHtml}</div>
+  `;
+
+  card.appendChild(container);
+  requestAnimationFrame(() => {
+    container.classList.add('open');
+    container.style.maxHeight = container.scrollHeight + 'px';
+    container.style.opacity = '1';
+  });
+
+  setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+}
+
+function collapseDisc(ti, di) {
+  const card = document.querySelector(`.disc-card[data-theme-idx="${ti}"][data-disc-idx="${di}"]`);
+  if (!card) return;
+  const container = card.querySelector('.dtree-container');
+  if (container) {
+    container.style.maxHeight = '0';
+    container.style.opacity = '0';
+    container.classList.remove('open');
+    container.addEventListener('transitionend', () => container.remove(), { once: true });
+  }
+  card.classList.remove('expanded');
+}
+
+/* ─── Theme group toggle ─── */
+
+function toggleThemeGroup(idx) {
+  const cards = document.querySelectorAll(`.disc-card[data-theme-idx="${idx}"]`);
+  const chev = document.getElementById('tsChev' + idx);
+  const isHidden = cards.length > 0 && cards[0].classList.contains('theme-hidden');
+
+  cards.forEach(c => {
+    if (isHidden) c.classList.remove('theme-hidden');
+    else c.classList.add('theme-hidden');
+  });
+
+  if (chev) {
+    if (isHidden) chev.classList.add('open');
+    else chev.classList.remove('open');
   }
 }
 
-function openAllHubs() {
-  document.querySelectorAll('.course-list').forEach(cl => cl.classList.add('open'));
-  document.querySelectorAll('.hub-chevron').forEach(ch => ch.classList.add('open'));
+function expandAllThemes() {
+  document.querySelectorAll('.disc-card.theme-hidden').forEach(c => c.classList.remove('theme-hidden'));
+  document.querySelectorAll('.ts-chevron').forEach(c => c.classList.add('open'));
 }
 
-function closeAllHubs() {
-  document.querySelectorAll('.course-list').forEach(cl => cl.classList.remove('open'));
-  document.querySelectorAll('.hub-chevron').forEach(ch => ch.classList.remove('open'));
+function collapseAllThemes() {
+  document.querySelectorAll('.disc-card[data-theme-idx]').forEach(c => c.classList.add('theme-hidden'));
+  document.querySelectorAll('.ts-chevron').forEach(c => c.classList.remove('open'));
 }
 
-function filterAll() {
-  document.querySelectorAll('.course-item').forEach(el => el.style.display = '');
-  document.querySelectorAll('.hub-block, .discipline-block').forEach(el => el.style.display = '');
-  openAllHubs();
+/* ─── Theme filter ─── */
+
+function setThemeFilter(filter, btn) {
+  document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+
+  if (filter === 'all') {
+    document.querySelectorAll('.theme-separator, .disc-card').forEach(el => el.style.display = '');
+    document.querySelectorAll('.disc-card.theme-hidden').forEach(c => c.classList.remove('theme-hidden'));
+    document.querySelectorAll('.ts-chevron').forEach(c => c.classList.add('open'));
+  } else {
+    const idx = parseInt(filter);
+    document.querySelectorAll('.theme-separator').forEach(el => {
+      el.style.display = parseInt(el.dataset.themeIdx) === idx ? '' : 'none';
+    });
+    document.querySelectorAll('.disc-card').forEach(el => {
+      if (parseInt(el.dataset.themeIdx) === idx) {
+        el.style.display = '';
+        el.classList.remove('theme-hidden');
+      } else {
+        el.style.display = 'none';
+      }
+    });
+    const chev = document.getElementById('tsChev' + idx);
+    if (chev) chev.classList.add('open');
+  }
 }
 
-function filterDone() {
-  openAllHubs();
-  document.querySelectorAll('.course-item').forEach(el => {
-    const link = el.querySelector('.course-link');
-    el.style.display = link && link.classList.contains('done') ? '' : 'none';
-  });
-}
+/* ─── Search ─── */
 
-function filterPlanned() {
-  openAllHubs();
-  document.querySelectorAll('.course-item').forEach(el => {
-    const link = el.querySelector('.course-link');
-    el.style.display = link && !link.classList.contains('done') ? '' : 'none';
-  });
-}
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+const searchClear = document.getElementById('searchClear');
+
+searchInput.addEventListener('input', () => {
+  const q = searchInput.value.trim();
+  searchClear.classList.toggle('visible', q.length > 0);
+
+  if (!q) { searchResults.classList.remove('visible'); return; }
+  if (!searchReady) {
+    searchResults.innerHTML = '<div class="search-empty">Construction de l\'index…</div>';
+    searchResults.classList.add('visible');
+    return;
+  }
+
+  const qn = normalize(q);
+  const words = qn.split(/\s+/).filter(Boolean);
+
+  const scored = searchData.map(d => {
+    const nameN = normalize(d.name);
+    const kwN = normalize(d.keywords || '');
+    let score = 0;
+    for (const w of words) {
+      if (nameN.includes(w)) score += 10;
+      else if (kwN.includes(w)) score += 3;
+    }
+    if (nameN === qn) score += 50;
+    if (nameN.startsWith(qn)) score += 20;
+    return { ...d, score };
+  }).filter(s => s.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 10);
+
+  if (!scored.length) {
+    searchResults.innerHTML = `<div class="search-empty">Aucun résultat pour « ${q} »</div>`;
+    searchResults.classList.add('visible');
+    return;
+  }
+
+  searchResults.innerHTML = scored.map(d => `
+    <a href="${d.url}" class="search-result-item">
+      <span class="sr-icon">${d.icon}</span>
+      <span class="sr-name">${d.name}</span>
+      <span class="sr-meta">
+        <span class="sr-cat">${d.cat}</span>
+        <span class="sr-type">${d.type}</span>
+      </span>
+    </a>
+  `).join('');
+  searchResults.classList.add('visible');
+});
+
+searchClear.addEventListener('click', () => {
+  searchInput.value = '';
+  searchClear.classList.remove('visible');
+  searchResults.classList.remove('visible');
+  searchInput.focus();
+});
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-bar')) searchResults.classList.remove('visible');
+});
 
 // Sidebar scroll tracking
 (function() {
@@ -1437,6 +1049,9 @@ function filterPlanned() {
     }
   }, { passive: true });
 })();
+
+// Launch catalog build
+buildCatalog();
 </script>
 <script src="mobile.js"></script>
 </body>
