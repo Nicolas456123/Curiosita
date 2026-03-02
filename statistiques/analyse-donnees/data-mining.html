@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data mining — Analyse de données — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #4fc3f7;
+  --accent2: #81d4fa;
+  --accent-dim: rgba(79,195,247,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../statistiques-page.html">Statistiques</a> › <a href="../analyse-donnees.html">Analyse de données</a> › <span>Data mining</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">⛏️ Analyse de données</span>
+    <span class="tag-level">Avancé</span>
+    <span class="tag-time">⏱ ~50 min</span>
+  </div>
+  <h1><em>Data mining</em></h1>
+  <p class="hero-desc">Extraire des pépites d'information dans de vastes bases de données — règles d'association, arbres de décision et détection d'anomalies.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../analyse-donnees.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Analyse de données</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="acp.html">Analyse en composantes principales</a>
+    <a class="sidebar-link" href="classification.html">Classification</a>
+    <a class="sidebar-link" href="series-temporelles.html">Séries temporelles</a>
+    <a class="sidebar-link active" href="#">Data mining</a>
+    <a class="sidebar-link" href="bayesiennes.html">Statistiques bayésiennes</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Fouiller les données pour découvrir des connaissances</p>
+        </div>
+      </div>
+      <p class="resume-text">Le <strong>data mining</strong> (fouille de données) est le processus d'extraction de motifs, de régularités et de connaissances utiles à partir de grandes quantités de données. Il se situe à l'intersection de la statistique, de l'intelligence artificielle et des bases de données.</p>
+      <div class="highlight-box">
+        <p><strong>L'idée fondamentale :</strong> dans un océan de données, il existe des structures cachées — des règles, des groupes, des anomalies — qui ne sont pas visibles à l'oeil nu. Le data mining fournit les outils pour les découvrir automatiquement et les transformer en décisions opérationnelles.</p>
+      </div>
+      <p class="resume-text">Le processus KDD (Knowledge Discovery in Databases) suit plusieurs étapes : sélection des données, nettoyage, transformation, application des algorithmes de data mining, puis interprétation et évaluation des résultats. Les applications vont de la recommandation de produits (Amazon, Netflix) à la détection de fraude bancaire, en passant par le diagnostic médical assisté.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Méthodes et algorithmes de fouille de données</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Règles d'association</h3>
+        <p>Les <strong>règles d'association</strong> découvrent des relations fréquentes entre les items dans des transactions. L'exemple classique est l'analyse du panier de la ménagère : « les clients qui achètent du pain et du beurre achètent souvent du lait ».</p>
+        <ul>
+          <li><strong>Support :</strong> fréquence d'apparition d'un ensemble d'items. support(A→B) = P(A∩B).</li>
+          <li><strong>Confiance :</strong> probabilité conditionnelle. confiance(A→B) = P(B|A) = support(A∩B)/support(A).</li>
+          <li><strong>Lift :</strong> mesure de dépendance. lift(A→B) = confiance(A→B)/support(B). Un lift > 1 indique une association positive.</li>
+        </ul>
+        <p>L'algorithme <strong>Apriori</strong> (Agrawal & Srikant, 1994) trouve efficacement les itemsets fréquents en exploitant la propriété anti-monotone : si un ensemble n'est pas fréquent, aucun de ses sur-ensembles ne l'est.</p>
+
+        <h3>Arbres de décision</h3>
+        <p>Les <strong>arbres de décision</strong> partitionnent récursivement les données selon les variables les plus discriminantes. Chaque noeud interne teste une variable, chaque branche correspond à une valeur, et chaque feuille donne une prédiction.</p>
+        <ul>
+          <li><strong>CART :</strong> arbre binaire, utilise l'indice de Gini pour le choix des coupures.</li>
+          <li><strong>C4.5 / C5.0 :</strong> utilise le gain d'information (entropie de Shannon).</li>
+          <li><strong>Élagage :</strong> on construit un arbre profond puis on élague pour éviter le surapprentissage.</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>L'indice de Gini</strong> mesure l'impureté d'un noeud : Gini = 1 - Σpₖ². Un noeud pur (une seule classe) a un Gini de 0. On choisit la coupure qui réduit le plus l'impureté totale.</p>
+        </div>
+
+        <h3>Détection d'anomalies</h3>
+        <p>La <strong>détection d'anomalies</strong> identifie les observations atypiques qui s'écartent significativement du comportement normal :</p>
+        <ul>
+          <li><strong>Méthodes statistiques :</strong> distance de Mahalanobis, score Z, modèles de mélange gaussien.</li>
+          <li><strong>Isolation Forest :</strong> isole les anomalies en construisant des arbres aléatoires — les anomalies nécessitent moins de coupures pour être isolées.</li>
+          <li><strong>LOF (Local Outlier Factor) :</strong> compare la densité locale d'un point à celle de ses voisins.</li>
+        </ul>
+        <p>Applications : détection de fraude bancaire, surveillance de réseaux informatiques, contrôle qualité industriel, diagnostic médical.</p>
+
+        <h3>Le processus CRISP-DM</h3>
+        <p>Le <strong>CRISP-DM</strong> (Cross-Industry Standard Process for Data Mining) est la méthodologie de référence :</p>
+        <ul>
+          <li><strong>Compréhension métier :</strong> définir les objectifs et les critères de succès.</li>
+          <li><strong>Compréhension des données :</strong> explorer et vérifier la qualité des données.</li>
+          <li><strong>Préparation :</strong> nettoyer, transformer, sélectionner les variables.</li>
+          <li><strong>Modélisation :</strong> appliquer les algorithmes et ajuster les paramètres.</li>
+          <li><strong>Évaluation :</strong> vérifier que les résultats répondent aux objectifs métier.</li>
+          <li><strong>Déploiement :</strong> mettre en production et surveiller le modèle.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">⛏️ Data mining — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">5</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 5</p>
+            <p class="q-text">Que mesure le « lift » d'une règle d'association A → B ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">La fréquence de A et B ensemble</div>
+              <div class="option" onclick="answer(this,true)">Le rapport entre la confiance de la règle et le support de B</div>
+              <div class="option" onclick="answer(this,false)">La probabilité de A sachant B</div>
+              <div class="option" onclick="answer(this,false)">Le nombre de transactions contenant A</div>
+            </div>
+            <div class="q-feedback">lift(A→B) = confiance(A→B) / support(B) = P(B|A) / P(B). Un lift > 1 signifie que A et B apparaissent ensemble plus souvent que si elles étaient indépendantes.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 5</p>
+            <p class="q-text">L'algorithme Apriori exploite quelle propriété pour être efficace ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">La propriété anti-monotone : si un ensemble n'est pas fréquent, ses sur-ensembles non plus</div>
+              <div class="option" onclick="answer(this,false)">La propriété de convexité des données</div>
+              <div class="option" onclick="answer(this,false)">La normalité des distributions</div>
+              <div class="option" onclick="answer(this,false)">La linéarité des relations entre items</div>
+            </div>
+            <div class="q-feedback">La propriété anti-monotone (ou de fermeture vers le bas) permet d'élaguer l'espace de recherche : si {pain, beurre} n'est pas fréquent, inutile de tester {pain, beurre, lait}.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 5</p>
+            <p class="q-text">L'indice de Gini d'un noeud contenant uniquement des individus de la même classe vaut :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">0</div>
+              <div class="option" onclick="answer(this,false)">1</div>
+              <div class="option" onclick="answer(this,false)">0,5</div>
+              <div class="option" onclick="answer(this,false)">Cela dépend du nombre d'individus</div>
+            </div>
+            <div class="q-feedback">Gini = 1 - Σpₖ². Si tous les individus sont de la même classe, p₁ = 1 et toutes les autres pₖ = 0, donc Gini = 1 - 1² = 0. Le noeud est pur.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 5</p>
+            <p class="q-text">Isolation Forest détecte les anomalies car :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Les anomalies sont toujours loin de la moyenne</div>
+              <div class="option" onclick="answer(this,true)">Les anomalies nécessitent moins de coupures pour être isolées dans un arbre</div>
+              <div class="option" onclick="answer(this,false)">Les anomalies ont toujours la plus grande variance</div>
+              <div class="option" onclick="answer(this,false)">Les anomalies forment des clusters denses</div>
+            </div>
+            <div class="q-feedback">Les points anomaux, étant isolés et distincts, sont rapidement séparés du reste des données par des coupures aléatoires. Leur profondeur moyenne dans les arbres est plus faible.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 5</p>
+            <p class="q-text">Dans le processus CRISP-DM, quelle est la première étape ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">La préparation des données</div>
+              <div class="option" onclick="answer(this,false)">La modélisation</div>
+              <div class="option" onclick="answer(this,true)">La compréhension métier</div>
+              <div class="option" onclick="answer(this,false)">L'évaluation</div>
+            </div>
+            <div class="q-feedback">CRISP-DM commence toujours par la compréhension métier : définir les objectifs, comprendre le contexte et formuler le problème en termes de data mining. C'est cette étape qui guide tout le processus.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/5</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Règles d'association</h3>
+        <p>Sur 100 transactions, {pain} apparaît 60 fois, {beurre} 40 fois, et {pain, beurre} 30 fois. Calculer le support, la confiance et le lift de la règle pain → beurre.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Support(pain→beurre) = 30/100 = <strong>0,30</strong>. Confiance(pain→beurre) = 30/60 = <strong>0,50</strong> (50 % des acheteurs de pain achètent aussi du beurre). Lift = 0,50 / 0,40 = <strong>1,25</strong> > 1 : il y a une association positive entre pain et beurre.</p></div>
+        </details>
+
+        <h3>Exercice 2 — Indice de Gini</h3>
+        <p>Un noeud contient 60 individus de classe A et 40 de classe B. Calculer l'indice de Gini.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>p_A = 60/100 = 0,6. p_B = 40/100 = 0,4. Gini = 1 - (0,6² + 0,4²) = 1 - (0,36 + 0,16) = 1 - 0,52 = <strong>0,48</strong>. Le Gini maximum pour 2 classes est 0,5 (quand p_A = p_B = 0,5), donc ce noeud est presque aussi impur que possible.</p></div>
+        </details>
+
+        <h3>Exercice 3 — Arbre de décision</h3>
+        <p>On veut prédire si un client va acheter un produit. Variable : âge (≤30, >30). Parmi les ≤30 ans : 20 achètent, 30 n'achètent pas. Parmi les >30 ans : 40 achètent, 10 n'achètent pas. Calculer le Gini avant et après la coupure par âge.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Avant : 60 achètent, 40 non. Gini = 1 - (0,6² + 0,4²) = 0,48. Après : Noeud ≤30 (50 ind.) : Gini = 1-(0,4²+0,6²) = 0,48. Noeud >30 (50 ind.) : Gini = 1-(0,8²+0,2²) = 0,32. Gini moyen après coupure = (50/100)×0,48 + (50/100)×0,32 = <strong>0,40</strong>. Gain = 0,48 - 0,40 = 0,08. La coupure réduit l'impureté.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="series-temporelles.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Séries temporelles</span>
+      </a>
+      <a href="bayesiennes.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Statistiques bayésiennes →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions = document.querySelectorAll('.question-block');
+let currentQ = 0, score = 0;
+let answered = new Array(questions.length).fill(false);
+const dotsContainer = document.getElementById('qDots');
+questions.forEach((_, i) => { const d = document.createElement('div'); d.className = 'q-dot' + (i === 0 ? ' current' : ''); dotsContainer.appendChild(d); });
+function updateDots() { document.querySelectorAll('.q-dot').forEach((d, i) => { d.className = 'q-dot'; if (answered[i]) d.classList.add('done'); if (i === currentQ) d.classList.add('current'); }); }
+function answer(el, ok) {
+  if (answered[currentQ]) return; answered[currentQ] = true;
+  el.closest('.question-block').querySelectorAll('.option').forEach(o => o.classList.add('disabled'));
+  el.classList.add(ok ? 'correct' : 'wrong');
+  if (!ok) el.closest('.question-block').querySelectorAll('.option').forEach(o => { if(o.onclick.toString().includes('true')) o.classList.add('correct'); });
+  else { score++; document.getElementById('scoreDisplay').textContent = score; }
+  el.closest('.question-block').querySelector('.q-feedback').classList.add('show', ok ? 'good' : 'bad');
+  document.getElementById('btnNext').disabled = false;
+  updateDots();
+}
+function nextQ() { if (currentQ < questions.length - 1) { questions[currentQ].classList.remove('active'); currentQ++; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = false; document.getElementById('btnNext').disabled = !answered[currentQ]; if (currentQ === questions.length - 1) document.getElementById('btnNext').textContent = 'Terminer'; updateDots(); } else { showResult(); } }
+function prevQ() { if (currentQ > 0) { questions[currentQ].classList.remove('active'); currentQ--; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = currentQ === 0; document.getElementById('btnNext').disabled = !answered[currentQ]; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); } }
+function showResult() { document.getElementById('quizBody').style.display = 'none'; document.getElementById('quizResult').style.display = 'block'; document.getElementById('resultScore').textContent = score + '/' + questions.length; var m = ['Continue !', 'Pas mal !', 'Très bien !', 'Parfait !']; document.getElementById('resultMsg').textContent = m[Math.min(score, 3)]; }
+function resetQuiz() { score = 0; currentQ = 0; answered = new Array(questions.length).fill(false); document.getElementById('scoreDisplay').textContent = 0; document.getElementById('quizBody').style.display = 'block'; document.getElementById('quizResult').style.display = 'none'; questions.forEach((q,i) => { q.classList.toggle('active', i===0); q.querySelectorAll('.option').forEach(o=>o.className='option'); q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback'); }); document.getElementById('btnPrev').disabled = true; document.getElementById('btnNext').disabled = true; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); }
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+</script>
+    <script src="../../mobile.js"></script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analyse en composantes principales — Analyse de données — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #4fc3f7;
+  --accent2: #81d4fa;
+  --accent-dim: rgba(79,195,247,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../statistiques-page.html">Statistiques</a> › <a href="../analyse-donnees.html">Analyse de données</a> › <span>ACP</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🔬 Analyse de données</span>
+    <span class="tag-level">Avancé</span>
+    <span class="tag-time">⏱ ~50 min</span>
+  </div>
+  <h1><em>Analyse en composantes principales</em></h1>
+  <p class="hero-desc">Réduire la dimensionnalité des données tout en conservant l'essentiel de l'information — valeurs propres, vecteurs propres et cercle des corrélations.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../analyse-donnees.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Analyse de données</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link active" href="#">Analyse en composantes principales</a>
+    <a class="sidebar-link" href="classification.html">Classification</a>
+    <a class="sidebar-link" href="series-temporelles.html">Séries temporelles</a>
+    <a class="sidebar-link" href="data-mining.html">Data mining</a>
+    <a class="sidebar-link" href="bayesiennes.html">Statistiques bayésiennes</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Pourquoi réduire la dimensionnalité ?</p>
+        </div>
+      </div>
+      <p class="resume-text">L'<strong>Analyse en Composantes Principales (ACP)</strong> est une méthode statistique qui transforme un ensemble de variables potentiellement corrélées en un ensemble plus petit de variables non corrélées appelées <strong>composantes principales</strong>. C'est la technique de réduction de dimensionnalité la plus utilisée en statistique et en science des données.</p>
+      <div class="highlight-box">
+        <p><strong>L'idée fondamentale :</strong> quand on observe 50 variables sur 1 000 individus, il est impossible de visualiser les données directement. L'ACP identifie les directions de plus grande variance et projette les données sur un petit nombre d'axes, permettant ainsi de « voir » l'essentiel de l'information en 2 ou 3 dimensions.</p>
+      </div>
+      <p class="resume-text">Inventée par Karl Pearson en 1901 et formalisée par Harold Hotelling en 1933, l'ACP est omniprésente : reconnaissance faciale, génomique, finance quantitative, contrôle qualité industriel, analyse sensorielle. Partout où les données sont multidimensionnelles, l'ACP permet de les comprendre et de les résumer.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Principes et méthodes de l'ACP</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Le principe géométrique</h3>
+        <p>L'ACP cherche les axes qui maximisent la <strong>variance projetée</strong> des données. Le premier axe principal est la direction de plus grande dispersion du nuage de points. Le deuxième axe est la direction de plus grande variance parmi celles qui sont orthogonales au premier axe, et ainsi de suite.</p>
+        <p>Mathématiquement, on travaille sur la <strong>matrice de corrélation</strong> (ou de covariance) des variables. Les composantes principales sont les <strong>vecteurs propres</strong> de cette matrice, et les <strong>valeurs propres</strong> correspondantes mesurent la quantité de variance expliquée par chaque composante.</p>
+
+        <h3>Les étapes de l'ACP</h3>
+        <ul>
+          <li><strong>Centrer et réduire</strong> les données : soustraire la moyenne et diviser par l'écart-type de chaque variable pour les rendre comparables.</li>
+          <li><strong>Calculer la matrice de corrélation</strong> R (ou de covariance si les données ne sont pas réduites).</li>
+          <li><strong>Diagonaliser</strong> la matrice R pour obtenir les valeurs propres λ₁ ≥ λ₂ ≥ ... ≥ λₚ et les vecteurs propres associés.</li>
+          <li><strong>Choisir le nombre d'axes</strong> à retenir (critère de Kaiser, éboulis des valeurs propres).</li>
+          <li><strong>Projeter</strong> les individus et les variables sur les axes retenus.</li>
+        </ul>
+
+        <h3>Valeurs propres et inertie</h3>
+        <p>Chaque valeur propre λₖ représente la part de variance (ou d'<strong>inertie</strong>) expliquée par la k-ième composante principale. L'inertie totale vaut la somme des valeurs propres, qui est égale au nombre de variables p quand on travaille sur la matrice de corrélation.</p>
+        <div class="highlight-box">
+          <p><strong>Critère de Kaiser :</strong> on retient les composantes dont la valeur propre est supérieure à 1 (elles expliquent plus de variance qu'une variable seule). Le <strong>critère du coude</strong> consiste à observer le graphique des valeurs propres et à retenir les axes avant la « cassure ».</p>
+        </div>
+
+        <h3>Le cercle des corrélations</h3>
+        <p>Le <strong>cercle des corrélations</strong> représente les variables sur le plan des deux premières composantes. Chaque variable est un point dont les coordonnées sont ses corrélations avec les axes. Les variables proches du cercle sont bien représentées ; celles proches l'une de l'autre sont positivement corrélées ; celles diamétralement opposées sont négativement corrélées.</p>
+
+        <h3>Interprétation des résultats</h3>
+        <p>L'ACP produit deux visualisations complémentaires :</p>
+        <ul>
+          <li><strong>Le plan des individus :</strong> chaque observation est projetée sur les composantes principales. Les individus proches ont des profils similaires.</li>
+          <li><strong>Le plan des variables :</strong> le cercle des corrélations montre les relations entre les variables et leur contribution aux axes.</li>
+        </ul>
+        <p>L'interprétation consiste à nommer les axes en fonction des variables qui y contribuent le plus. Par exemple, si les variables « taille » et « poids » contribuent fortement au premier axe, on peut l'interpréter comme un axe de « corpulence ».</p>
+
+        <h3>ACP et variables supplémentaires</h3>
+        <p>Les <strong>variables supplémentaires</strong> (ou illustratives) ne participent pas à la construction des axes mais sont projetées a posteriori pour enrichir l'interprétation. Les variables qualitatives peuvent servir de variables illustratives pour colorer les individus sur le plan factoriel.</p>
+
+        <h3>Pièges et limites</h3>
+        <ul>
+          <li><strong>Ne pas oublier de standardiser :</strong> si les variables ont des unités différentes, travailler sur la matrice de corrélation (données centrées-réduites), sinon les variables avec les plus grandes variances domineront artificiellement.</li>
+          <li><strong>Relations non linéaires :</strong> l'ACP ne capte que les relations linéaires. Pour des structures non linéaires, on utilise le kernel PCA ou t-SNE.</li>
+          <li><strong>Sensibilité aux valeurs aberrantes :</strong> les outliers peuvent déformer fortement les axes principaux.</li>
+          <li><strong>L'ACP n'est pas une fin en soi :</strong> c'est un outil exploratoire qui prépare souvent une classification ou une régression.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">🔬 ACP — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">5</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 5</p>
+            <p class="q-text">Que cherche à maximiser le premier axe principal de l'ACP ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">La corrélation entre les variables</div>
+              <div class="option" onclick="answer(this,true)">La variance projetée des données</div>
+              <div class="option" onclick="answer(this,false)">Le nombre d'individus projetés</div>
+              <div class="option" onclick="answer(this,false)">La distance entre les individus</div>
+            </div>
+            <div class="q-feedback">Le premier axe principal est la direction qui maximise la variance des projections des individus sur cet axe.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 5</p>
+            <p class="q-text">Selon le critère de Kaiser, on retient les composantes dont la valeur propre est :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Supérieure à 0</div>
+              <div class="option" onclick="answer(this,true)">Supérieure à 1</div>
+              <div class="option" onclick="answer(this,false)">Supérieure à la moyenne</div>
+              <div class="option" onclick="answer(this,false)">Supérieure à 0,5</div>
+            </div>
+            <div class="q-feedback">Le critère de Kaiser retient les composantes dont la valeur propre est supérieure à 1, car elles expliquent plus de variance qu'une variable seule dans une ACP normée.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 5</p>
+            <p class="q-text">Pourquoi faut-il centrer et réduire les données avant une ACP ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Pour accélérer les calculs</div>
+              <div class="option" onclick="answer(this,false)">Pour éliminer les valeurs aberrantes</div>
+              <div class="option" onclick="answer(this,true)">Pour rendre les variables comparables malgré des unités différentes</div>
+              <div class="option" onclick="answer(this,false)">Pour obtenir des valeurs propres positives</div>
+            </div>
+            <div class="q-feedback">Si les variables ont des unités et des échelles différentes, la standardisation empêche les variables avec les plus grandes variances de dominer artificiellement les axes.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 5</p>
+            <p class="q-text">Sur le cercle des corrélations, deux variables proches indiquent :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">Qu'elles sont positivement corrélées</div>
+              <div class="option" onclick="answer(this,false)">Qu'elles sont indépendantes</div>
+              <div class="option" onclick="answer(this,false)">Qu'elles mesurent la même chose exactement</div>
+              <div class="option" onclick="answer(this,false)">Qu'elles sont négativement corrélées</div>
+            </div>
+            <div class="q-feedback">Sur le cercle des corrélations, deux variables proches sont positivement corrélées. Deux variables diamétralement opposées sont négativement corrélées, et deux variables à 90° sont non corrélées.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 5</p>
+            <p class="q-text">L'inertie totale dans une ACP normée (sur matrice de corrélation) vaut :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">1</div>
+              <div class="option" onclick="answer(this,false)">Le nombre d'individus n</div>
+              <div class="option" onclick="answer(this,true)">Le nombre de variables p</div>
+              <div class="option" onclick="answer(this,false)">La trace de la matrice de covariance</div>
+            </div>
+            <div class="q-feedback">Dans une ACP normée, l'inertie totale est la somme des valeurs propres de la matrice de corrélation, qui vaut p (le nombre de variables), car chaque variable standardisée a une variance de 1.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/5</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Valeurs propres</h3>
+        <p>Une ACP normée sur 5 variables donne les valeurs propres : λ₁ = 2,8 ; λ₂ = 1,2 ; λ₃ = 0,6 ; λ₄ = 0,3 ; λ₅ = 0,1. Quel pourcentage d'inertie est expliqué par les deux premiers axes ? Combien d'axes retenir selon Kaiser ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Inertie totale = 5 (nombre de variables). Inertie des 2 premiers axes : 2,8 + 1,2 = 4,0. Pourcentage : 4,0/5 = <strong>80 %</strong>. Selon Kaiser (λ > 1), on retient <strong>2 axes</strong> (λ₁ = 2,8 et λ₂ = 1,2).</p></div>
+        </details>
+
+        <h3>Exercice 2 — Cercle des corrélations</h3>
+        <p>Sur le cercle des corrélations, la variable X₁ a pour coordonnées (0,9 ; 0,2) et la variable X₂ a pour coordonnées (-0,85 ; 0,3). Que peut-on dire de la relation entre X₁ et X₂ ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>X₁ est fortement corrélée positivement avec l'axe 1 (0,9). X₂ est fortement corrélée négativement avec l'axe 1 (-0,85). Les deux variables sont approximativement opposées sur le premier axe, donc elles sont <strong>négativement corrélées</strong> entre elles. La qualité de représentation est bonne : ||X₁||² = 0,81 + 0,04 = 0,85 et ||X₂||² = 0,72 + 0,09 = 0,81.</p></div>
+        </details>
+
+        <h3>Exercice 3 — Interprétation</h3>
+        <p>Une ACP sur des données de villes européennes (population, PIB, superficie, densité, taux de chômage) montre que le premier axe est corrélé positivement avec population, PIB et superficie. Comment interpréter cet axe ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Le premier axe oppose les grandes villes (population élevée, PIB élevé, grande superficie) aux petites villes. On peut l'interpréter comme un axe de <strong>taille/puissance économique</strong>. Les villes avec un score élevé sur cet axe sont les grandes métropoles (Paris, Londres, Berlin).</p></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <div></div>
+      <a href="classification.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Classification →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions = document.querySelectorAll('.question-block');
+let currentQ = 0, score = 0;
+let answered = new Array(questions.length).fill(false);
+const dotsContainer = document.getElementById('qDots');
+questions.forEach((_, i) => { const d = document.createElement('div'); d.className = 'q-dot' + (i === 0 ? ' current' : ''); dotsContainer.appendChild(d); });
+function updateDots() { document.querySelectorAll('.q-dot').forEach((d, i) => { d.className = 'q-dot'; if (answered[i]) d.classList.add('done'); if (i === currentQ) d.classList.add('current'); }); }
+function answer(el, ok) {
+  if (answered[currentQ]) return; answered[currentQ] = true;
+  el.closest('.question-block').querySelectorAll('.option').forEach(o => o.classList.add('disabled'));
+  el.classList.add(ok ? 'correct' : 'wrong');
+  if (!ok) el.closest('.question-block').querySelectorAll('.option').forEach(o => { if(o.onclick.toString().includes('true')) o.classList.add('correct'); });
+  else { score++; document.getElementById('scoreDisplay').textContent = score; }
+  el.closest('.question-block').querySelector('.q-feedback').classList.add('show', ok ? 'good' : 'bad');
+  document.getElementById('btnNext').disabled = false;
+  updateDots();
+}
+function nextQ() { if (currentQ < questions.length - 1) { questions[currentQ].classList.remove('active'); currentQ++; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = false; document.getElementById('btnNext').disabled = !answered[currentQ]; if (currentQ === questions.length - 1) document.getElementById('btnNext').textContent = 'Terminer'; updateDots(); } else { showResult(); } }
+function prevQ() { if (currentQ > 0) { questions[currentQ].classList.remove('active'); currentQ--; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = currentQ === 0; document.getElementById('btnNext').disabled = !answered[currentQ]; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); } }
+function showResult() { document.getElementById('quizBody').style.display = 'none'; document.getElementById('quizResult').style.display = 'block'; document.getElementById('resultScore').textContent = score + '/' + questions.length; var m = ['Continue !', 'Pas mal !', 'Très bien !', 'Parfait !']; document.getElementById('resultMsg').textContent = m[Math.min(score, 3)]; }
+function resetQuiz() { score = 0; currentQ = 0; answered = new Array(questions.length).fill(false); document.getElementById('scoreDisplay').textContent = 0; document.getElementById('quizBody').style.display = 'block'; document.getElementById('quizResult').style.display = 'none'; questions.forEach((q,i) => { q.classList.toggle('active', i===0); q.querySelectorAll('.option').forEach(o=>o.className='option'); q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback'); }); document.getElementById('btnPrev').disabled = true; document.getElementById('btnNext').disabled = true; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); }
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+</script>
+    <script src="../../mobile.js"></script>
+</body>
+</html>

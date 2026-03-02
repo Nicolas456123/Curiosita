@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Statistiques bayésiennes — Analyse de données — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #4fc3f7;
+  --accent2: #81d4fa;
+  --accent-dim: rgba(79,195,247,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../statistiques-page.html">Statistiques</a> › <a href="../analyse-donnees.html">Analyse de données</a> › <span>Statistiques bayésiennes</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🧠 Analyse de données</span>
+    <span class="tag-level">Avancé</span>
+    <span class="tag-time">⏱ ~55 min</span>
+  </div>
+  <h1><em>Statistiques bayésiennes</em></h1>
+  <p class="hero-desc">Une approche alternative et puissante — inférence bayésienne, lois a priori et a posteriori, MCMC et modélisation probabiliste.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../analyse-donnees.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Analyse de données</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="acp.html">Analyse en composantes principales</a>
+    <a class="sidebar-link" href="classification.html">Classification</a>
+    <a class="sidebar-link" href="series-temporelles.html">Séries temporelles</a>
+    <a class="sidebar-link" href="data-mining.html">Data mining</a>
+    <a class="sidebar-link active" href="#">Statistiques bayésiennes</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Mettre à jour ses croyances avec les données</p>
+        </div>
+      </div>
+      <p class="resume-text">L'approche <strong>bayésienne</strong> de la statistique considère les paramètres inconnus comme des <strong>variables aléatoires</strong> auxquelles on attribue une distribution de probabilité. On part d'une croyance initiale (la loi <em>a priori</em>), on observe des données, puis on met à jour cette croyance pour obtenir la loi <em>a posteriori</em> grâce au théorème de Bayes.</p>
+      <div class="highlight-box">
+        <p><strong>Le paradigme bayésien :</strong> P(θ|données) ∝ P(données|θ) × P(θ). La loi a posteriori est proportionnelle à la vraisemblance multipliée par la loi a priori. Les données transforment nos croyances initiales en croyances mises à jour.</p>
+      </div>
+      <p class="resume-text">Contrairement à l'approche fréquentiste (qui considère les paramètres comme des constantes inconnues), l'approche bayésienne permet d'intégrer naturellement des connaissances préalables, de quantifier l'incertitude sous forme de distributions complètes, et de prendre des décisions optimales. Elle est devenue incontournable en machine learning, en épidémiologie, en astrophysique et en intelligence artificielle.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Fondements et méthodes de l'inférence bayésienne</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Le théorème de Bayes revisité</h3>
+        <p>Pour un paramètre θ et des données D :</p>
+        <p><strong>P(θ|D) = P(D|θ) × P(θ) / P(D)</strong></p>
+        <ul>
+          <li><strong>P(θ) :</strong> loi a priori — ce qu'on sait (ou croit) avant d'observer les données.</li>
+          <li><strong>P(D|θ) :</strong> vraisemblance — la probabilité des données observées si θ était vrai.</li>
+          <li><strong>P(θ|D) :</strong> loi a posteriori — notre croyance mise à jour après observation.</li>
+          <li><strong>P(D) :</strong> evidence (constante de normalisation) — souvent calculée par intégration.</li>
+        </ul>
+
+        <h3>Choix de la loi a priori</h3>
+        <p>Le choix de la loi a priori est un aspect fondamental (et parfois controversé) de l'approche bayésienne :</p>
+        <ul>
+          <li><strong>Prior informatif :</strong> encode une connaissance réelle (études précédentes, expertise). Ex : Beta(50,50) pour une probabilité qu'on sait proche de 0,5.</li>
+          <li><strong>Prior vague (non informatif) :</strong> exprime une ignorance maximale. Ex : Beta(1,1) = Uniforme(0,1) pour une probabilité inconnue.</li>
+          <li><strong>Prior conjugué :</strong> choisi pour que la loi a posteriori soit de la même famille que la loi a priori. Ex : prior Beta + vraisemblance binomiale → posteriori Beta.</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Familles conjuguées classiques :</strong> Beta-Binomiale, Gamma-Poisson, Normale-Normale. Les priors conjugués simplifient considérablement les calculs car la loi a posteriori a une forme analytique connue.</p>
+        </div>
+
+        <h3>Estimation et intervalles de crédibilité</h3>
+        <p>L'inférence bayésienne produit une <strong>distribution complète</strong> pour le paramètre, pas simplement une estimation ponctuelle :</p>
+        <ul>
+          <li><strong>Moyenne a posteriori :</strong> E[θ|D] — l'estimateur bayésien sous perte quadratique.</li>
+          <li><strong>Mode a posteriori (MAP) :</strong> la valeur la plus probable de θ.</li>
+          <li><strong>Intervalle de crédibilité à 95 % :</strong> l'intervalle [a, b] tel que P(a ≤ θ ≤ b | D) = 0,95. Contrairement à l'intervalle de confiance fréquentiste, on peut dire : « il y a 95 % de probabilité que θ soit dans cet intervalle ».</li>
+        </ul>
+
+        <h3>Méthodes MCMC</h3>
+        <p>Quand la loi a posteriori n'a pas de forme analytique (cas fréquent en pratique), on utilise les méthodes de <strong>Monte Carlo par chaînes de Markov (MCMC)</strong> pour l'approcher :</p>
+        <ul>
+          <li><strong>Algorithme de Metropolis-Hastings :</strong> génère une chaîne de Markov dont la distribution stationnaire est la loi a posteriori.</li>
+          <li><strong>Échantillonneur de Gibbs :</strong> cas particulier où on échantillonne chaque paramètre conditionnellement aux autres.</li>
+          <li><strong>Hamiltonian Monte Carlo (HMC) :</strong> utilise le gradient de la log-posteriori pour explorer efficacement l'espace des paramètres.</li>
+        </ul>
+
+        <h3>Comparaison fréquentiste vs bayésien</h3>
+        <ul>
+          <li><strong>Fréquentiste :</strong> paramètre = constante fixe, probabilité = fréquence à long terme, résultat = estimation + intervalle de confiance.</li>
+          <li><strong>Bayésien :</strong> paramètre = variable aléatoire, probabilité = degré de croyance, résultat = distribution complète a posteriori.</li>
+          <li>Avec beaucoup de données, les deux approches convergent vers les mêmes conclusions (le prior a moins d'influence).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">🧠 Bayésien — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">5</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 5</p>
+            <p class="q-text">Dans la formule de Bayes, P(θ) représente :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">La vraisemblance</div>
+              <div class="option" onclick="answer(this,true)">La loi a priori</div>
+              <div class="option" onclick="answer(this,false)">La loi a posteriori</div>
+              <div class="option" onclick="answer(this,false)">L'evidence</div>
+            </div>
+            <div class="q-feedback">P(θ) est la loi a priori : elle encode nos croyances sur le paramètre avant d'observer les données. P(D|θ) est la vraisemblance, et P(θ|D) est la loi a posteriori.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 5</p>
+            <p class="q-text">Un prior conjugué est choisi pour que :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">La vraisemblance soit maximale</div>
+              <div class="option" onclick="answer(this,true)">La loi a posteriori appartienne à la même famille que la loi a priori</div>
+              <div class="option" onclick="answer(this,false)">Le prior soit toujours non informatif</div>
+              <div class="option" onclick="answer(this,false)">L'intervalle de crédibilité soit minimal</div>
+            </div>
+            <div class="q-feedback">Un prior conjugué garantit que la loi a posteriori est de la même famille de distributions que la loi a priori, ce qui simplifie les calculs. Ex : Beta(α,β) est conjugué de la vraisemblance binomiale.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 5</p>
+            <p class="q-text">L'intervalle de crédibilité à 95 % signifie :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">Il y a 95 % de probabilité que le paramètre soit dans cet intervalle</div>
+              <div class="option" onclick="answer(this,false)">95 % des échantillons donneraient un intervalle contenant le vrai paramètre</div>
+              <div class="option" onclick="answer(this,false)">La p-value est inférieure à 0,05</div>
+              <div class="option" onclick="answer(this,false)">L'erreur standard est de 5 %</div>
+            </div>
+            <div class="q-feedback">C'est l'interprétation directe et intuitive de l'intervalle bayésien : la probabilité que θ soit dans [a,b] vaut 0,95. L'intervalle de confiance fréquentiste ne permet pas cette interprétation.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 5</p>
+            <p class="q-text">Les méthodes MCMC servent à :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Maximiser la vraisemblance</div>
+              <div class="option" onclick="answer(this,false)">Tester des hypothèses fréquentistes</div>
+              <div class="option" onclick="answer(this,true)">Échantillonner la loi a posteriori quand elle n'a pas de forme analytique</div>
+              <div class="option" onclick="answer(this,false)">Calculer des p-values bayésiennes</div>
+            </div>
+            <div class="q-feedback">Les méthodes MCMC (Metropolis-Hastings, Gibbs, HMC) génèrent des échantillons de la distribution a posteriori quand celle-ci est trop complexe pour être calculée analytiquement.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 5</p>
+            <p class="q-text">Avec beaucoup de données, l'influence du prior :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">Diminue — la vraisemblance domine</div>
+              <div class="option" onclick="answer(this,false)">Augmente proportionnellement</div>
+              <div class="option" onclick="answer(this,false)">Reste constante</div>
+              <div class="option" onclick="answer(this,false)">Devient imprévisible</div>
+            </div>
+            <div class="q-feedback">Avec un grand échantillon, la vraisemblance concentre la loi a posteriori autour du maximum de vraisemblance, quel que soit le prior (tant qu'il est raisonnable). C'est la propriété de cohérence bayésienne.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/5</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Mise à jour bayésienne</h3>
+        <p>On lance une pièce dont on ignore si elle est truquée. Prior : θ ~ Beta(2,2). On observe 7 faces sur 10 lancers. Trouver la loi a posteriori et l'estimation bayésienne de θ.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Prior : Beta(2,2). Vraisemblance : Binomiale(10, θ), 7 succès. Prior conjugué : la posteriori est Beta(2+7, 2+3) = <strong>Beta(9, 5)</strong>. Moyenne a posteriori : E[θ|D] = 9/(9+5) = 9/14 ≈ <strong>0,643</strong>. Le prior tire l'estimation vers 0,5 (par rapport à la fréquence observée 0,7).</p></div>
+        </details>
+
+        <h3>Exercice 2 — Prior informatif vs vague</h3>
+        <p>Comparer les résultats de l'exercice 1 avec un prior vague Beta(1,1) et un prior très informatif Beta(50,50).</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Prior vague Beta(1,1) : posteriori = Beta(8,4). E[θ] = 8/12 = <strong>0,667</strong> (proche de la fréquence observée). Prior informatif Beta(50,50) : posteriori = Beta(57,53). E[θ] = 57/110 = <strong>0,518</strong> (le prior fort « tire » l'estimation vers 0,5). Plus le prior est informatif, plus il faut de données pour le « corriger ».</p></div>
+        </details>
+
+        <h3>Exercice 3 — Intervalle de crédibilité</h3>
+        <p>Avec la posteriori Beta(9,5) de l'exercice 1, l'intervalle de crédibilité à 95 % est approximativement [0,38 ; 0,86]. Comparer avec l'intervalle de confiance fréquentiste basé sur p̂ = 0,7.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>IC fréquentiste (Wald) : p̂ ± 1,96√(p̂(1-p̂)/n) = 0,7 ± 1,96×0,145 = <strong>[0,42 ; 0,98]</strong>. L'intervalle bayésien [0,38 ; 0,86] est plus centré et intègre l'information du prior Beta(2,2). L'IC fréquentiste dépasse 0,98 car il ne tient pas compte du prior, et sa borne supérieure frôle 1.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="data-mining.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Data mining</span>
+      </a>
+      <div></div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions = document.querySelectorAll('.question-block');
+let currentQ = 0, score = 0;
+let answered = new Array(questions.length).fill(false);
+const dotsContainer = document.getElementById('qDots');
+questions.forEach((_, i) => { const d = document.createElement('div'); d.className = 'q-dot' + (i === 0 ? ' current' : ''); dotsContainer.appendChild(d); });
+function updateDots() { document.querySelectorAll('.q-dot').forEach((d, i) => { d.className = 'q-dot'; if (answered[i]) d.classList.add('done'); if (i === currentQ) d.classList.add('current'); }); }
+function answer(el, ok) {
+  if (answered[currentQ]) return; answered[currentQ] = true;
+  el.closest('.question-block').querySelectorAll('.option').forEach(o => o.classList.add('disabled'));
+  el.classList.add(ok ? 'correct' : 'wrong');
+  if (!ok) el.closest('.question-block').querySelectorAll('.option').forEach(o => { if(o.onclick.toString().includes('true')) o.classList.add('correct'); });
+  else { score++; document.getElementById('scoreDisplay').textContent = score; }
+  el.closest('.question-block').querySelector('.q-feedback').classList.add('show', ok ? 'good' : 'bad');
+  document.getElementById('btnNext').disabled = false;
+  updateDots();
+}
+function nextQ() { if (currentQ < questions.length - 1) { questions[currentQ].classList.remove('active'); currentQ++; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = false; document.getElementById('btnNext').disabled = !answered[currentQ]; if (currentQ === questions.length - 1) document.getElementById('btnNext').textContent = 'Terminer'; updateDots(); } else { showResult(); } }
+function prevQ() { if (currentQ > 0) { questions[currentQ].classList.remove('active'); currentQ--; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = currentQ === 0; document.getElementById('btnNext').disabled = !answered[currentQ]; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); } }
+function showResult() { document.getElementById('quizBody').style.display = 'none'; document.getElementById('quizResult').style.display = 'block'; document.getElementById('resultScore').textContent = score + '/' + questions.length; var m = ['Continue !', 'Pas mal !', 'Très bien !', 'Parfait !']; document.getElementById('resultMsg').textContent = m[Math.min(score, 3)]; }
+function resetQuiz() { score = 0; currentQ = 0; answered = new Array(questions.length).fill(false); document.getElementById('scoreDisplay').textContent = 0; document.getElementById('quizBody').style.display = 'block'; document.getElementById('quizResult').style.display = 'none'; questions.forEach((q,i) => { q.classList.toggle('active', i===0); q.querySelectorAll('.option').forEach(o=>o.className='option'); q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback'); }); document.getElementById('btnPrev').disabled = true; document.getElementById('btnNext').disabled = true; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); }
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+</script>
+    <script src="../../mobile.js"></script>
+</body>
+</html>

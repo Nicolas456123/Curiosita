@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Télédétection — Cartographie — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #7ae88a;
+  --accent2: #a5d6a7;
+  --accent-dim: rgba(122,232,138,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../geographie-page.html">Géographie</a> › <a href="../cartographie.html">Cartographie</a> › <span>Télédétection</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🗺️ Cartographie</span>
+    <span class="tag-level">Intermédiaire → Avancé</span>
+    <span class="tag-time">⏱ ~45 min</span>
+  </div>
+  <h1><em>Télédétection</em></h1>
+  <p class="hero-desc">Satellites, imagerie aérienne, capteurs multispectraux, radar SAR et suivi environnemental depuis l'espace.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../cartographie.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Cartographie</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="histoire.html">Histoire de la cartographie</a>
+    <a class="sidebar-link" href="projections.html">Projections cartographiques</a>
+    <a class="sidebar-link" href="sig.html">Systèmes d'information géographique</a>
+    <a class="sidebar-link active" href="#">Télédétection</a>
+    <a class="sidebar-link" href="thematique.html">Cartographie thématique</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Observer la Terre depuis l'espace</p>
+        </div>
+      </div>
+      <p class="resume-text">La <strong>télédétection</strong> est la science qui consiste à acquérir des informations sur la surface terrestre à distance, sans contact physique, grâce à des capteurs embarqués sur des satellites, des avions ou des drones. Elle repose sur l'analyse du rayonnement électromagnétique réfléchi ou émis par les objets au sol.</p>
+      <div class="highlight-box">
+        <p><strong>Le principe physique :</strong> tout objet émet ou réfléchit un rayonnement électromagnétique dont la signature dépend de sa nature. L'eau absorbe l'infrarouge, la végétation saine réfléchit fortement le proche infrarouge, le béton a une signature spectrale distincte du sol nu. En analysant ces signatures dans différentes longueurs d'onde, on peut identifier et cartographier les objets à la surface de la Terre.</p>
+      </div>
+      <p class="resume-text">Depuis le lancement de Landsat 1 en 1972, la télédétection a révolutionné la géographie, l'environnement et l'aménagement du territoire. Les programmes <strong>Sentinel</strong> (Copernicus, Union européenne) fournissent aujourd'hui des images gratuites et libres de la Terre entière tous les 5 jours, avec une résolution de 10 mètres.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Capteurs, images et applications</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Types de capteurs</h3>
+        <p>On distingue deux grandes familles de capteurs :</p>
+        <ul>
+          <li><strong>Capteurs passifs :</strong> ils enregistrent le rayonnement naturel (solaire réfléchi ou thermique émis). Exemples : capteurs optiques (visible, infrarouge), capteurs thermiques. Limitation : ils ne fonctionnent pas à travers les nuages ni la nuit (sauf thermique).</li>
+          <li><strong>Capteurs actifs :</strong> ils émettent leur propre signal et enregistrent le retour. Exemples : radar (SAR), LiDAR. Avantage : ils fonctionnent de jour comme de nuit et traversent les nuages (radar).</li>
+        </ul>
+
+        <h3>Le spectre électromagnétique en télédétection</h3>
+        <ul>
+          <li><strong>Visible (0,4–0,7 µm) :</strong> bleu, vert, rouge. Perception humaine classique. Utile pour la cartographie générale et l'occupation du sol.</li>
+          <li><strong>Proche infrarouge (0,7–1,3 µm) :</strong> très sensible à la végétation. La chlorophylle réfléchit fortement dans cette bande. Indice NDVI = (PIR - Rouge) / (PIR + Rouge).</li>
+          <li><strong>Infrarouge moyen (1,3–3 µm) :</strong> sensible à l'humidité des sols et à la teneur en eau de la végétation.</li>
+          <li><strong>Infrarouge thermique (3–15 µm) :</strong> mesure la température de surface. Applications : îlots de chaleur urbains, suivi des volcans, détection d'incendies.</li>
+          <li><strong>Micro-ondes (1 mm–1 m) :</strong> utilisées par les radars (SAR). Traversent les nuages et la pluie. Applications : cartographie des glaces, surveillance des déformations du sol (InSAR).</li>
+        </ul>
+
+        <h3>Principaux programmes satellites</h3>
+        <ul>
+          <li><strong>Landsat (NASA/USGS) :</strong> depuis 1972. Plus longue série continue d'images. Résolution : 30 m (multispectral). Landsat 9 lancé en 2021.</li>
+          <li><strong>Sentinel (Copernicus/ESA) :</strong> programme européen. Sentinel-2 : optique 10 m, revisite 5 jours. Sentinel-1 : radar SAR. Données gratuites et ouvertes.</li>
+          <li><strong>SPOT (CNES) :</strong> satellites français depuis 1986. Résolution de 1,5 à 6 m. Remplacé par Pléiades (résolution 50 cm).</li>
+          <li><strong>Satellites commerciaux :</strong> WorldView (30 cm), Planet (3 m, revisite quotidienne). Résolution submétrique pour des applications de précision.</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Résolution spatiale vs temporelle :</strong> il existe un compromis entre la résolution spatiale (taille du pixel) et la fréquence de revisite. Un satellite à très haute résolution (50 cm) couvre une bande étroite et revient moins souvent. Un satellite à résolution moyenne (10-30 m) couvre de larges bandes et repasse tous les quelques jours.</p>
+        </div>
+
+        <h3>Traitements d'images</h3>
+        <p>Les images brutes doivent être traitées avant analyse :</p>
+        <ul>
+          <li><strong>Corrections atmosphériques :</strong> supprimer l'effet de l'atmosphère (diffusion, absorption) pour obtenir la réflectance réelle du sol.</li>
+          <li><strong>Classification :</strong> attribuer chaque pixel à une catégorie (eau, forêt, urbain, cultures). Supervisée (avec données d'entraînement) ou non supervisée (regroupement automatique).</li>
+          <li><strong>Indices spectraux :</strong> combinaisons de bandes pour mettre en évidence un phénomène. Le NDVI (Normalized Difference Vegetation Index) est le plus connu.</li>
+          <li><strong>Détection de changements :</strong> comparer deux images de dates différentes pour identifier les transformations (déforestation, urbanisation, recul glaciaire).</li>
+        </ul>
+
+        <h3>Applications</h3>
+        <ul>
+          <li><strong>Agriculture :</strong> suivi de la croissance des cultures, estimation des rendements, agriculture de précision.</li>
+          <li><strong>Environnement :</strong> surveillance de la déforestation, suivi des glaciers, cartographie des zones humides.</li>
+          <li><strong>Urbanisme :</strong> cartographie de l'étalement urbain, détection des îlots de chaleur.</li>
+          <li><strong>Gestion des catastrophes :</strong> évaluation des dégâts après inondation, séisme ou incendie.</li>
+          <li><strong>Océanographie :</strong> température de surface des océans, concentration en chlorophylle, niveau de la mer.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">🛰️ Télédétection — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quelle est la principale différence entre un capteur passif et un capteur actif ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Le capteur passif est plus précis</div>
+              <div class="option" onclick="answer(this,true)">Le capteur actif émet son propre signal</div>
+              <div class="option" onclick="answer(this,false)">Le capteur passif fonctionne la nuit</div>
+              <div class="option" onclick="answer(this,false)">Il n'y a pas de différence</div>
+            </div>
+            <div class="q-feedback">Un capteur actif émet un signal (ondes radar, impulsions laser) et mesure le retour. Un capteur passif se contente d'enregistrer le rayonnement naturel (solaire réfléchi ou thermique émis).</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Que mesure l'indice NDVI ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">La température du sol</div>
+              <div class="option" onclick="answer(this,false)">L'humidité de l'air</div>
+              <div class="option" onclick="answer(this,true)">L'activité de la végétation</div>
+              <div class="option" onclick="answer(this,false)">La profondeur de l'eau</div>
+            </div>
+            <div class="q-feedback">Le NDVI (Normalized Difference Vegetation Index) mesure la vigueur de la végétation en comparant la réflectance dans le rouge (absorbé par la chlorophylle) et le proche infrarouge (fortement réfléchi par les feuilles saines).</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Quel avantage majeur a le radar SAR par rapport aux capteurs optiques ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Meilleure résolution spatiale</div>
+              <div class="option" onclick="answer(this,false)">Images en couleurs</div>
+              <div class="option" onclick="answer(this,true)">Fonctionne à travers les nuages et la nuit</div>
+              <div class="option" onclick="answer(this,false)">Coût plus faible</div>
+            </div>
+            <div class="q-feedback">Le radar SAR utilise des micro-ondes qui traversent les nuages et la pluie, et il émet son propre signal, ce qui lui permet de fonctionner de jour comme de nuit. C'est un avantage décisif dans les régions tropicales souvent nuageuses.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Quel programme européen fournit des images satellites gratuites depuis 2014 ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Landsat</div>
+              <div class="option" onclick="answer(this,true)">Copernicus (Sentinel)</div>
+              <div class="option" onclick="answer(this,false)">SPOT</div>
+              <div class="option" onclick="answer(this,false)">Pléiades</div>
+            </div>
+            <div class="q-feedback">Le programme Copernicus de l'Union européenne, avec ses satellites Sentinel, fournit des images gratuites et en accès libre depuis 2014. Sentinel-2 offre des images optiques à 10 m de résolution tous les 5 jours.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quelle bande spectrale est la plus utile pour détecter la végétation saine ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Le bleu visible</div>
+              <div class="option" onclick="answer(this,false)">L'infrarouge thermique</div>
+              <div class="option" onclick="answer(this,true)">Le proche infrarouge</div>
+              <div class="option" onclick="answer(this,false)">Les micro-ondes</div>
+            </div>
+            <div class="q-feedback">La végétation saine réfléchit très fortement le proche infrarouge (0,7–1,3 µm) grâce à la structure cellulaire des feuilles. Cette propriété est la base du NDVI et de la plupart des indices de végétation.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Qu'est-ce que la « résolution temporelle » d'un satellite ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">La taille du plus petit objet détectable</div>
+              <div class="option" onclick="answer(this,false)">Le nombre de bandes spectrales</div>
+              <div class="option" onclick="answer(this,true)">La fréquence à laquelle il repasse au-dessus d'un même point</div>
+              <div class="option" onclick="answer(this,false)">La durée de vie du satellite</div>
+            </div>
+            <div class="q-feedback">La résolution temporelle (ou fréquence de revisite) est le temps entre deux passages du satellite au-dessus du même point. Sentinel-2 a une revisite de 5 jours, Planet de 1 jour. Plus la revisite est fréquente, mieux on peut suivre les changements rapides.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Choix de capteur</h3>
+        <p>Quel type de capteur (optique, radar SAR, thermique, LiDAR) choisiriez-vous pour : (a) cartographier la déforestation en Amazonie (zone très nuageuse), (b) mesurer les îlots de chaleur urbains, (c) créer un modèle 3D d'une forêt ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>(a) <strong>Radar SAR</strong> — traverse les nuages, détecte les changements de structure de la canopée. (b) <strong>Infrarouge thermique</strong> — mesure directement la température de surface. (c) <strong>LiDAR</strong> — fournit un nuage de points 3D précis, permettant de mesurer la hauteur des arbres et la structure de la canopée.</p></div>
+        </details>
+
+        <h3>Exercice 2 — Calcul du NDVI</h3>
+        <p>Un pixel a une réflectance de 0,08 dans le rouge et 0,45 dans le proche infrarouge. Calculez le NDVI et interprétez le résultat.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>NDVI = (PIR - Rouge) / (PIR + Rouge) = (0,45 - 0,08) / (0,45 + 0,08) = 0,37 / 0,53 ≈ <strong>0,70</strong>. Un NDVI de 0,70 indique une <strong>végétation dense et saine</strong>. Échelle : -1 à 0 = eau ou sol nu ; 0 à 0,2 = sol nu ou végétation éparse ; 0,2 à 0,5 = végétation modérée ; 0,5 à 1 = végétation dense.</p></div>
+        </details>
+
+        <h3>Exercice 3 — Résolution spatiale</h3>
+        <p>Un satellite a une résolution de 10 m. Peut-il distinguer : (a) une forêt d'un champ, (b) une voiture individuelle, (c) un bâtiment de 30 m de côté ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>(a) <strong>Oui</strong> — la limite forêt/champ est visible car les surfaces sont bien plus grandes que 10 m. (b) <strong>Non</strong> — une voiture mesure environ 4 m, elle est inférieure à la taille du pixel. (c) <strong>Oui</strong> — un bâtiment de 30 m couvre environ 9 pixels (3×3), ce qui est suffisant pour le détecter et reconnaître sa forme approximative.</p></div>
+        </details>
+
+        <h3>Exercice 4 — Détection de changements</h3>
+        <p>Vous disposez de deux images Sentinel-2 d'une même zone : une de janvier 2020 et une de janvier 2023. Décrivez une méthode pour détecter les zones déforestées entre ces deux dates.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>1. <strong>Calculer le NDVI</strong> pour les deux dates. 2. <strong>Soustraire</strong> : ΔNDVI = NDVI_2020 - NDVI_2023. 3. Les pixels où ΔNDVI est fortement positif (ex. > 0,3) correspondent à des zones où la végétation a disparu → probable déforestation. 4. <strong>Seuiller</strong> le résultat pour créer une carte binaire (déforestée / non déforestée). 5. <strong>Vérifier</strong> avec des données terrain ou des images à très haute résolution.</p></div>
+        </details>
+
+        <h3>Exercice 5 — Programme satellite</h3>
+        <p>Comparez Landsat et Sentinel-2 en termes de résolution spatiale, résolution temporelle et accessibilité des données.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p><strong>Landsat 8/9 :</strong> résolution spatiale 30 m (multispectral), revisite 16 jours (8 jours avec les deux satellites), données gratuites (USGS). Archive depuis 1972. <strong>Sentinel-2 :</strong> résolution spatiale 10 m (bandes visibles et PIR), revisite 5 jours (avec les deux satellites 2A et 2B), données gratuites (Copernicus). Archive depuis 2015. Sentinel-2 offre une meilleure résolution spatiale et temporelle, mais Landsat dispose d'un archive historique bien plus long.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="sig.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Systèmes d'information géographique</span>
+      </a>
+      <a href="thematique.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Cartographie thématique →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions = document.querySelectorAll('.question-block');
+let currentQ = 0, score = 0;
+let answered = new Array(questions.length).fill(false);
+const dotsContainer = document.getElementById('qDots');
+questions.forEach((_, i) => { const d = document.createElement('div'); d.className = 'q-dot' + (i === 0 ? ' current' : ''); dotsContainer.appendChild(d); });
+function updateDots() { document.querySelectorAll('.q-dot').forEach((d, i) => { d.className = 'q-dot'; if (answered[i]) d.classList.add('done'); if (i === currentQ) d.classList.add('current'); }); }
+function answer(el, ok) {
+  if (answered[currentQ]) return; answered[currentQ] = true;
+  el.closest('.question-block').querySelectorAll('.option').forEach(o => o.classList.add('disabled'));
+  el.classList.add(ok ? 'correct' : 'wrong');
+  if (!ok) el.closest('.question-block').querySelectorAll('.option').forEach(o => { if(o.onclick.toString().includes('true')) o.classList.add('correct'); });
+  else { score++; document.getElementById('scoreDisplay').textContent = score; }
+  el.closest('.question-block').querySelector('.q-feedback').classList.add('show', ok ? 'good' : 'bad');
+  document.getElementById('btnNext').disabled = false;
+  updateDots();
+}
+function nextQ() { if (currentQ < questions.length - 1) { questions[currentQ].classList.remove('active'); currentQ++; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = false; document.getElementById('btnNext').disabled = !answered[currentQ]; if (currentQ === questions.length - 1) document.getElementById('btnNext').textContent = 'Terminer'; updateDots(); } else { showResult(); } }
+function prevQ() { if (currentQ > 0) { questions[currentQ].classList.remove('active'); currentQ--; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = currentQ === 0; document.getElementById('btnNext').disabled = !answered[currentQ]; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); } }
+function showResult() { document.getElementById('quizBody').style.display = 'none'; document.getElementById('quizResult').style.display = 'block'; document.getElementById('resultScore').textContent = score + '/' + questions.length; var m = ['Continue !', 'Pas mal !', 'Très bien !', 'Parfait !']; document.getElementById('resultMsg').textContent = m[Math.min(score, 3)]; }
+function resetQuiz() { score = 0; currentQ = 0; answered = new Array(questions.length).fill(false); document.getElementById('scoreDisplay').textContent = 0; document.getElementById('quizBody').style.display = 'block'; document.getElementById('quizResult').style.display = 'none'; questions.forEach((q,i) => { q.classList.toggle('active', i===0); q.querySelectorAll('.option').forEach(o=>o.className='option'); q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback'); }); document.getElementById('btnPrev').disabled = true; document.getElementById('btnNext').disabled = true; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); }
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+</script>
+    <script src="../../mobile.js"></script>
+</body>
+</html>

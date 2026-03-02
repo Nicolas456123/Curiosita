@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Systèmes d'information géographique — Cartographie — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #7ae88a;
+  --accent2: #a5d6a7;
+  --accent-dim: rgba(122,232,138,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../geographie-page.html">Géographie</a> › <a href="../cartographie.html">Cartographie</a> › <span>Systèmes d'information géographique</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🗺️ Cartographie</span>
+    <span class="tag-level">Intermédiaire → Avancé</span>
+    <span class="tag-time">⏱ ~50 min</span>
+  </div>
+  <h1><em>Systèmes d'information géographique</em></h1>
+  <p class="hero-desc">SIG, bases de données spatiales, couches vectorielles et raster, analyses géospatiales avec QGIS.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../cartographie.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Cartographie</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="histoire.html">Histoire de la cartographie</a>
+    <a class="sidebar-link" href="projections.html">Projections cartographiques</a>
+    <a class="sidebar-link active" href="#">Systèmes d'information géographique</a>
+    <a class="sidebar-link" href="teledetection.html">Télédétection</a>
+    <a class="sidebar-link" href="thematique.html">Cartographie thématique</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Qu'est-ce qu'un SIG ?</p>
+        </div>
+      </div>
+      <p class="resume-text">Un <strong>Système d'Information Géographique</strong> (SIG) est un ensemble d'outils informatiques permettant de collecter, stocker, analyser et visualiser des données associées à une localisation sur la surface terrestre. Contrairement à une simple carte, un SIG superpose des <strong>couches d'information</strong> (relief, routes, population, végétation) et permet de croiser ces données pour répondre à des questions spatiales.</p>
+      <div class="highlight-box">
+        <p><strong>Le principe fondamental :</strong> dans un SIG, chaque donnée est géoréférencée — elle possède des coordonnées géographiques (latitude, longitude) ou projetées (x, y en mètres). Cela permet de superposer sur une même carte des informations de sources différentes : cadastre, démographie, réseau routier, zones inondables, etc.</p>
+      </div>
+      <p class="resume-text">Les SIG sont utilisés dans tous les domaines : urbanisme, environnement, agriculture, santé publique, gestion des risques, transport, marketing géolocalisé. Le logiciel libre <strong>QGIS</strong> et les solutions commerciales comme <strong>ArcGIS</strong> (Esri) sont les outils de référence.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Composants et fonctionnalités d'un SIG</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Données vectorielles et raster</h3>
+        <p>Un SIG manipule deux grands types de données spatiales :</p>
+        <ul>
+          <li><strong>Données vectorielles :</strong> représentent les objets géographiques par des points, des lignes et des polygones. Exemples : un point pour une ville, une ligne pour une route, un polygone pour un lac ou une commune. Chaque objet porte des attributs (nom, population, superficie). Formats courants : Shapefile (.shp), GeoJSON, GeoPackage.</li>
+          <li><strong>Données raster :</strong> représentent l'espace sous forme de grille de pixels (cellules), chaque pixel ayant une valeur. Exemples : images satellites, modèles numériques de terrain (MNT), cartes de température. La résolution spatiale (taille du pixel) détermine le niveau de détail. Formats courants : GeoTIFF, JPEG2000.</li>
+        </ul>
+
+        <h3>Les couches d'information</h3>
+        <p>Le concept central du SIG est la <strong>superposition de couches</strong> (layers). Chaque couche contient un type d'information géographique. Par exemple, pour un plan d'urbanisme :</p>
+        <ul>
+          <li>Couche 1 : fond de plan (photographie aérienne — raster)</li>
+          <li>Couche 2 : parcelles cadastrales (polygones — vecteur)</li>
+          <li>Couche 3 : réseau routier (lignes — vecteur)</li>
+          <li>Couche 4 : bâtiments (polygones — vecteur)</li>
+          <li>Couche 5 : zones inondables (polygones — vecteur)</li>
+        </ul>
+        <p>En superposant ces couches, on peut identifier par exemple les bâtiments situés en zone inondable, ou calculer la distance de chaque parcelle à la route la plus proche.</p>
+
+        <h3>Analyses spatiales</h3>
+        <p>Les SIG permettent des analyses puissantes :</p>
+        <ul>
+          <li><strong>Zones tampons (buffers) :</strong> créer une zone autour d'un objet (ex. : zone de 500 m autour d'une école).</li>
+          <li><strong>Intersection :</strong> identifier les zones communes à deux couches (ex. : forêts situées en zone protégée).</li>
+          <li><strong>Jointure spatiale :</strong> associer les données d'une couche aux objets d'une autre selon leur localisation.</li>
+          <li><strong>Analyse de réseau :</strong> calcul d'itinéraires optimaux, zones de chalandise.</li>
+          <li><strong>Interpolation :</strong> estimer des valeurs entre des points de mesure (ex. : température entre des stations météo).</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Exemple concret :</strong> une municipalité souhaite implanter une nouvelle école. Le SIG permet de croiser la densité d'enfants par quartier (couche démographique), les zones accessibles en moins de 15 minutes à pied (analyse de réseau), les terrains disponibles (couche cadastrale) et les contraintes environnementales (zones inondables, bruit). Le croisement de ces couches identifie les sites optimaux.</p>
+        </div>
+
+        <h3>Systèmes de coordonnées et géoréférencement</h3>
+        <p>Tout SIG repose sur un <strong>système de coordonnées de référence</strong> (SCR). Les deux principaux sont :</p>
+        <ul>
+          <li><strong>WGS 84 (EPSG:4326) :</strong> système géographique mondial utilisé par le GPS. Coordonnées en degrés (latitude, longitude).</li>
+          <li><strong>Systèmes projetés :</strong> coordonnées en mètres. En France, le Lambert-93 (EPSG:2154) est le système officiel. Aux USA, NAD83 avec les zones State Plane.</li>
+        </ul>
+        <p>Le <strong>géoréférencement</strong> consiste à associer des coordonnées à des données qui n'en possèdent pas (ex. : numériser une carte papier ancienne dans un SIG).</p>
+
+        <h3>Logiciels SIG</h3>
+        <ul>
+          <li><strong>QGIS :</strong> logiciel libre et open source, multiplateforme, très complet. Communauté active, nombreux plugins. Référence du SIG libre.</li>
+          <li><strong>ArcGIS (Esri) :</strong> solution commerciale leader, avec ArcGIS Pro (bureau) et ArcGIS Online (cloud). Très utilisé dans les grandes organisations.</li>
+          <li><strong>Google Earth Engine :</strong> plateforme cloud pour l'analyse de données satellites à grande échelle (recherche environnementale).</li>
+          <li><strong>PostGIS :</strong> extension spatiale de PostgreSQL pour stocker et interroger des données géographiques en SQL.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">💻 SIG — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quelle est la différence principale entre données vectorielles et raster ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">Vecteur = points/lignes/polygones ; raster = grille de pixels</div>
+              <div class="option" onclick="answer(this,false)">Vecteur = 2D ; raster = 3D</div>
+              <div class="option" onclick="answer(this,false)">Vecteur = images ; raster = texte</div>
+              <div class="option" onclick="answer(this,false)">Il n'y a pas de différence significative</div>
+            </div>
+            <div class="q-feedback">Les données vectorielles représentent les objets par des géométries (points, lignes, polygones) avec des attributs. Les données raster sont des grilles de pixels, chaque pixel portant une valeur numérique.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Qu'est-ce qu'une zone tampon (buffer) dans un SIG ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Une zone de mémoire informatique</div>
+              <div class="option" onclick="answer(this,true)">Une zone créée autour d'un objet à une distance donnée</div>
+              <div class="option" onclick="answer(this,false)">Une zone sans données</div>
+              <div class="option" onclick="answer(this,false)">Une zone de protection contre les virus</div>
+            </div>
+            <div class="q-feedback">Un buffer (zone tampon) crée un polygone à une distance définie autour d'un objet géographique. Par exemple, une zone de 200 m autour d'un cours d'eau pour identifier les bâtiments en zone à risque.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Quel système de coordonnées mondial est utilisé par le GPS ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Lambert-93</div>
+              <div class="option" onclick="answer(this,true)">WGS 84</div>
+              <div class="option" onclick="answer(this,false)">UTM zone 31</div>
+              <div class="option" onclick="answer(this,false)">NAD 83</div>
+            </div>
+            <div class="q-feedback">Le WGS 84 (World Geodetic System 1984, EPSG:4326) est le système de coordonnées de référence mondial utilisé par les satellites GPS. Il exprime les positions en degrés de latitude et longitude.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Quel logiciel SIG est libre et open source ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">ArcGIS Pro</div>
+              <div class="option" onclick="answer(this,true)">QGIS</div>
+              <div class="option" onclick="answer(this,false)">MapInfo</div>
+              <div class="option" onclick="answer(this,false)">Google Maps</div>
+            </div>
+            <div class="q-feedback">QGIS est le logiciel SIG libre et open source de référence. Il est développé par une communauté internationale et disponible gratuitement sur toutes les plateformes (Windows, Mac, Linux).</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quel format de fichier est le plus courant pour les données vectorielles SIG ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">Shapefile (.shp)</div>
+              <div class="option" onclick="answer(this,false)">GeoTIFF (.tif)</div>
+              <div class="option" onclick="answer(this,false)">CSV (.csv)</div>
+              <div class="option" onclick="answer(this,false)">PDF (.pdf)</div>
+            </div>
+            <div class="q-feedback">Le Shapefile (.shp) d'Esri est historiquement le format vectoriel le plus répandu en SIG, bien qu'il soit progressivement remplacé par le GeoPackage (.gpkg) et le GeoJSON.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Quel est le système de coordonnées officiel en France métropolitaine ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">WGS 84</div>
+              <div class="option" onclick="answer(this,false)">UTM zone 31N</div>
+              <div class="option" onclick="answer(this,true)">Lambert-93 (EPSG:2154)</div>
+              <div class="option" onclick="answer(this,false)">Mercator Web</div>
+            </div>
+            <div class="q-feedback">Le Lambert-93 (RGF93 / Lambert-93, code EPSG:2154) est le système de projection officiel pour la France métropolitaine depuis 2006. C'est une projection conique conforme.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Vecteur ou raster ?</h3>
+        <p>Pour chaque donnée, indiquez si le format le plus adapté est vectoriel ou raster : (a) réseau de transport en commun, (b) image satellite Landsat, (c) limites communales, (d) modèle numérique de terrain, (e) emplacement des hôpitaux.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>(a) <strong>Vecteur</strong> (lignes pour les tracés, points pour les arrêts). (b) <strong>Raster</strong> (grille de pixels multispectraux). (c) <strong>Vecteur</strong> (polygones). (d) <strong>Raster</strong> (grille d'altitudes). (e) <strong>Vecteur</strong> (points avec attributs : nom, capacité, spécialités).</p></div>
+        </details>
+
+        <h3>Exercice 2 — Analyse multicouche</h3>
+        <p>Une commune veut identifier les zones à risque d'inondation habitées. Quelles couches SIG sont nécessaires et quelle opération spatiale utiliser ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Couches nécessaires : 1. <strong>Zones inondables</strong> (polygones issus du Plan de Prévention des Risques). 2. <strong>Bâtiments résidentiels</strong> (polygones du cadastre). Opération : <strong>intersection</strong> entre les deux couches, qui donne les bâtiments situés dans les zones inondables. On peut aussi ajouter une couche de population pour estimer le nombre d'habitants concernés.</p></div>
+        </details>
+
+        <h3>Exercice 3 — Systèmes de coordonnées</h3>
+        <p>Un collègue vous envoie un fichier avec des coordonnées (651 000 ; 6 862 000). S'agit-il de coordonnées WGS 84 ou Lambert-93 ? Justifiez.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Il s'agit de coordonnées <strong>Lambert-93</strong>. Les coordonnées WGS 84 sont en degrés (latitude entre -90 et 90, longitude entre -180 et 180). Les valeurs 651 000 et 6 862 000 sont en mètres, typiques d'un système projeté. En Lambert-93, l'Est varie autour de 100 000 à 1 200 000 m et le Nord autour de 6 000 000 à 7 200 000 m pour la France métropolitaine.</p></div>
+        </details>
+
+        <h3>Exercice 4 — Application pratique</h3>
+        <p>Décrivez les étapes dans un SIG pour créer une carte de la densité de population par commune d'un département.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>1. <strong>Importer la couche vectorielle</strong> des limites communales (polygones). 2. <strong>Joindre les données de population</strong> (fichier INSEE) aux polygones via le code commune (jointure attributaire). 3. <strong>Calculer la densité</strong> : nouveau champ = population / superficie (en km²). 4. <strong>Appliquer une symbologie graduée</strong> (classification en classes de densité avec une palette de couleurs). 5. <strong>Ajouter les éléments cartographiques</strong> : titre, légende, échelle, nord, sources.</p></div>
+        </details>
+
+        <h3>Exercice 5 — Comparaison de logiciels</h3>
+        <p>Citez deux avantages de QGIS par rapport à ArcGIS et deux avantages d'ArcGIS par rapport à QGIS.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p><strong>QGIS :</strong> 1. Gratuit et open source — aucun coût de licence. 2. Multiplateforme (Windows, Mac, Linux). <strong>ArcGIS :</strong> 1. Écosystème complet (desktop, cloud, mobile, serveur) avec intégration fluide. 2. Support technique professionnel et documentation extensive. Certains secteurs (administrations, grandes entreprises) exigent ArcGIS par convention.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="projections.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Projections cartographiques</span>
+      </a>
+      <a href="teledetection.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Télédétection →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions = document.querySelectorAll('.question-block');
+let currentQ = 0, score = 0;
+let answered = new Array(questions.length).fill(false);
+const dotsContainer = document.getElementById('qDots');
+questions.forEach((_, i) => { const d = document.createElement('div'); d.className = 'q-dot' + (i === 0 ? ' current' : ''); dotsContainer.appendChild(d); });
+function updateDots() { document.querySelectorAll('.q-dot').forEach((d, i) => { d.className = 'q-dot'; if (answered[i]) d.classList.add('done'); if (i === currentQ) d.classList.add('current'); }); }
+function answer(el, ok) {
+  if (answered[currentQ]) return; answered[currentQ] = true;
+  el.closest('.question-block').querySelectorAll('.option').forEach(o => o.classList.add('disabled'));
+  el.classList.add(ok ? 'correct' : 'wrong');
+  if (!ok) el.closest('.question-block').querySelectorAll('.option').forEach(o => { if(o.onclick.toString().includes('true')) o.classList.add('correct'); });
+  else { score++; document.getElementById('scoreDisplay').textContent = score; }
+  el.closest('.question-block').querySelector('.q-feedback').classList.add('show', ok ? 'good' : 'bad');
+  document.getElementById('btnNext').disabled = false;
+  updateDots();
+}
+function nextQ() { if (currentQ < questions.length - 1) { questions[currentQ].classList.remove('active'); currentQ++; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = false; document.getElementById('btnNext').disabled = !answered[currentQ]; if (currentQ === questions.length - 1) document.getElementById('btnNext').textContent = 'Terminer'; updateDots(); } else { showResult(); } }
+function prevQ() { if (currentQ > 0) { questions[currentQ].classList.remove('active'); currentQ--; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = currentQ === 0; document.getElementById('btnNext').disabled = !answered[currentQ]; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); } }
+function showResult() { document.getElementById('quizBody').style.display = 'none'; document.getElementById('quizResult').style.display = 'block'; document.getElementById('resultScore').textContent = score + '/' + questions.length; var m = ['Continue !', 'Pas mal !', 'Très bien !', 'Parfait !']; document.getElementById('resultMsg').textContent = m[Math.min(score, 3)]; }
+function resetQuiz() { score = 0; currentQ = 0; answered = new Array(questions.length).fill(false); document.getElementById('scoreDisplay').textContent = 0; document.getElementById('quizBody').style.display = 'block'; document.getElementById('quizResult').style.display = 'none'; questions.forEach((q,i) => { q.classList.toggle('active', i===0); q.querySelectorAll('.option').forEach(o=>o.className='option'); q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback'); }); document.getElementById('btnPrev').disabled = true; document.getElementById('btnNext').disabled = true; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); }
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+</script>
+    <script src="../../mobile.js"></script>
+</body>
+</html>

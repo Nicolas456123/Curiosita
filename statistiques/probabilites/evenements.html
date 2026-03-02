@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Événements et espaces — Probabilités — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08); }
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../statistiques-page.html">Statistiques</a> › <a href="../probabilites.html">Probabilités</a> › <span>Événements et espaces</span>
+  </div>
+</nav>
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🎯 Probabilités</span>
+    <span class="tag-level">Intermédiaire</span>
+    <span class="tag-time">⏱ ~45 min</span>
+  </div>
+  <h1><em>Événements et espaces probabilistes</em></h1>
+  <p class="hero-desc">Les fondations du calcul probabiliste — univers, événements, opérations ensemblistes et axiomes de Kolmogorov.</p>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../probabilites.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Probabilités</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link active" href="#">Événements et espaces</a>
+    <a class="sidebar-link" href="conditionnelles.html">Probabilités conditionnelles</a>
+    <a class="sidebar-link" href="variables.html">Variables aléatoires</a>
+    <a class="sidebar-link" href="lois.html">Lois de probabilité</a>
+    <a class="sidebar-link" href="bayes.html">Théorème de Bayes</a>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="introduction">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Introduction</h2><p>Le cadre mathématique du hasard</p></div></div>
+      <p class="resume-text">Avant de calculer des probabilités, il faut poser un cadre mathématique rigoureux. Un <strong>espace probabilisé</strong> (Ω, A, P) est le triplet fondamental : l'<strong>univers</strong> Ω (l'ensemble de tous les résultats possibles), la <strong>tribu</strong> A (l'ensemble des événements auxquels on peut attribuer une probabilité) et la <strong>mesure de probabilité</strong> P (la fonction qui attribue un nombre entre 0 et 1 à chaque événement).</p>
+      <div class="highlight-box">
+        <p><strong>Les axiomes de Kolmogorov (1933) :</strong> (1) P(A) ≥ 0 pour tout événement A. (2) P(Ω) = 1. (3) Si A₁, A₂, ... sont deux à deux incompatibles, alors P(A₁ ∪ A₂ ∪ ...) = P(A₁) + P(A₂) + ... Ces trois axiomes suffisent à fonder toute la théorie des probabilités.</p>
+      </div>
+      <p class="resume-text">Ce formalisme, qui peut sembler abstrait, est d'une puissance remarquable. Il unifie les probabilités discrètes (lancers de dés, tirages de cartes) et continues (mesures physiques, temps d'attente) sous un même cadre et permet de démontrer rigoureusement tous les résultats de la théorie.</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Le cours</h2><p>Univers, événements et calcul des probabilités</p></div></div>
+      <div class="course-content">
+        <h3>L'univers et les événements</h3>
+        <p>L'<strong>univers</strong> Ω est l'ensemble de toutes les issues possibles d'une expérience aléatoire. Chaque élément ω ∈ Ω est un <strong>événement élémentaire</strong>. Un <strong>événement</strong> est un sous-ensemble de Ω.</p>
+        <p><strong>Exemples :</strong></p>
+        <ul>
+          <li>Lancer un dé : Ω = {1, 2, 3, 4, 5, 6}. L'événement « obtenir un nombre pair » = {2, 4, 6}.</li>
+          <li>Lancer une pièce deux fois : Ω = {PP, PF, FP, FF}.</li>
+          <li>Mesurer une durée de vie : Ω = [0, +∞[ (univers continu).</li>
+        </ul>
+        <h3>Opérations sur les événements</h3>
+        <ul>
+          <li><strong>Réunion A ∪ B :</strong> « A ou B » (au moins un des deux se réalise).</li>
+          <li><strong>Intersection A ∩ B :</strong> « A et B » (les deux se réalisent simultanément).</li>
+          <li><strong>Complémentaire Ā :</strong> « non A » (A ne se réalise pas). P(Ā) = 1 - P(A).</li>
+          <li><strong>Événements incompatibles :</strong> A ∩ B = ∅ (ils ne peuvent pas se réaliser en même temps).</li>
+        </ul>
+        <h3>Formules fondamentales</h3>
+        <div class="highlight-box">
+          <p><strong>Formule de la réunion :</strong> P(A ∪ B) = P(A) + P(B) - P(A ∩ B). Si A et B sont incompatibles : P(A ∪ B) = P(A) + P(B).</p>
+        </div>
+        <p><strong>Équiprobabilité :</strong> quand tous les événements élémentaires ont la même probabilité (univers fini), P(A) = |A| / |Ω| = nombre de cas favorables / nombre de cas possibles. C'est la définition classique de Laplace.</p>
+        <h3>Systèmes complets d'événements</h3>
+        <p>Un <strong>système complet</strong> (ou partition) de Ω est une famille d'événements B₁, B₂, ..., Bₙ deux à deux incompatibles dont la réunion est Ω. Pour tout événement A :</p>
+        <p><strong>Formule des probabilités totales :</strong> P(A) = Σ P(A ∩ Bᵢ) = Σ P(A|Bᵢ) × P(Bᵢ).</p>
+        <h3>Dénombrement</h3>
+        <p>Calculer |Ω| et |A| nécessite souvent des techniques de dénombrement :</p>
+        <ul>
+          <li><strong>Arrangements :</strong> Aₙₖ = n!/(n-k)! — k objets parmi n, l'ordre compte.</li>
+          <li><strong>Combinaisons :</strong> Cₙₖ = n!/(k!(n-k)!) — k objets parmi n, l'ordre ne compte pas.</li>
+          <li><strong>Permutations :</strong> n! — toutes les façons d'ordonner n objets.</li>
+        </ul>
+      </div>
+    </section>
+    <section class="content-section" id="quiz">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Quiz</h2><p>Testez votre compréhension</p></div></div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">🎯 Événements — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">5</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 5</p>
+            <p class="q-text">P(Ω) vaut toujours :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">0</div>
+              <div class="option" onclick="answer(this,true)">1</div>
+              <div class="option" onclick="answer(this,false)">0,5</div>
+              <div class="option" onclick="answer(this,false)">Cela dépend de l'expérience</div>
+            </div>
+            <div class="q-feedback">C'est le deuxième axiome de Kolmogorov : la probabilité de l'univers (l'événement certain) vaut toujours 1.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 5</p>
+            <p class="q-text">Si P(A) = 0,6 et P(B) = 0,5 et P(A ∩ B) = 0,3, alors P(A ∪ B) = ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">1,1</div>
+              <div class="option" onclick="answer(this,true)">0,8</div>
+              <div class="option" onclick="answer(this,false)">0,3</div>
+              <div class="option" onclick="answer(this,false)">0,2</div>
+            </div>
+            <div class="q-feedback">P(A ∪ B) = P(A) + P(B) - P(A ∩ B) = 0,6 + 0,5 - 0,3 = 0,8.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 5</p>
+            <p class="q-text">Combien de combinaisons de 3 éléments parmi 5 existe-t-il ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">10</div>
+              <div class="option" onclick="answer(this,false)">60</div>
+              <div class="option" onclick="answer(this,false)">15</div>
+              <div class="option" onclick="answer(this,false)">20</div>
+            </div>
+            <div class="q-feedback">C(5,3) = 5!/(3!×2!) = 120/(6×2) = 10. Il y a 10 façons de choisir 3 éléments parmi 5 sans tenir compte de l'ordre.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 5</p>
+            <p class="q-text">Deux événements A et B sont incompatibles si :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">P(A) + P(B) = 1</div>
+              <div class="option" onclick="answer(this,true)">A ∩ B = ∅</div>
+              <div class="option" onclick="answer(this,false)">P(A|B) = P(A)</div>
+              <div class="option" onclick="answer(this,false)">A = Ā</div>
+            </div>
+            <div class="q-feedback">Deux événements sont incompatibles (ou mutuellement exclusifs) si leur intersection est vide : ils ne peuvent pas se produire en même temps. Attention : incompatible ≠ indépendant !</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 5</p>
+            <p class="q-text">On tire une carte d'un jeu de 52. P(as ou coeur) = ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">17/52</div>
+              <div class="option" onclick="answer(this,true)">16/52</div>
+              <div class="option" onclick="answer(this,false)">4/52</div>
+              <div class="option" onclick="answer(this,false)">13/52</div>
+            </div>
+            <div class="q-feedback">P(as ∪ coeur) = P(as) + P(coeur) - P(as de coeur) = 4/52 + 13/52 - 1/52 = 16/52 = 4/13. Il ne faut pas compter l'as de coeur deux fois.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/5</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+    <section class="content-section" id="exercices">
+      <div class="section-header"><div class="section-num">04</div><div class="section-info"><h2>Exercices</h2><p>Mettez en pratique</p></div></div>
+      <div class="course-content">
+        <h3>Exercice 1 — Dénombrement</h3>
+        <p>On tire 2 cartes d'un jeu de 32 (sans remise). Quelle est la probabilité d'obtenir exactement un as ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Cas favorables : choisir 1 as parmi 4 et 1 non-as parmi 28 = C(4,1)×C(28,1) = 4×28 = 112. Cas possibles : C(32,2) = 32×31/2 = 496. P = 112/496 = <strong>28/124 ≈ 0,226</strong>.</p></div>
+        </details>
+        <h3>Exercice 2 — Formule de la réunion</h3>
+        <p>Dans une classe, 60 % des élèves aiment les maths, 45 % aiment la physique, 25 % aiment les deux. Quelle proportion aime au moins une des deux matières ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>P(M ∪ P) = P(M) + P(P) - P(M ∩ P) = 0,60 + 0,45 - 0,25 = <strong>0,80</strong>. 80 % des élèves aiment au moins une des deux matières.</p></div>
+        </details>
+        <h3>Exercice 3 — Probabilités totales</h3>
+        <p>Une usine a 3 machines : M₁ produit 50 % des pièces (2 % défaut), M₂ en produit 30 % (3 % défaut), M₃ en produit 20 % (5 % défaut). Quelle est la probabilité qu'une pièce tirée au hasard soit défectueuse ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>P(D) = P(D|M₁)P(M₁) + P(D|M₂)P(M₂) + P(D|M₃)P(M₃) = 0,02×0,50 + 0,03×0,30 + 0,05×0,20 = 0,010 + 0,009 + 0,010 = <strong>0,029</strong> soit 2,9 %.</p></div>
+        </details>
+      </div>
+    </section>
+    <div class="course-nav">
+      <div></div>
+      <a href="conditionnelles.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Probabilités conditionnelles →</span>
+      </a>
+    </div>
+  </main>
+</div>
+<script>
+const questions = document.querySelectorAll('.question-block');
+let currentQ = 0, score = 0;
+let answered = new Array(questions.length).fill(false);
+const dotsContainer = document.getElementById('qDots');
+questions.forEach((_, i) => { const d = document.createElement('div'); d.className = 'q-dot' + (i === 0 ? ' current' : ''); dotsContainer.appendChild(d); });
+function updateDots() { document.querySelectorAll('.q-dot').forEach((d, i) => { d.className = 'q-dot'; if (answered[i]) d.classList.add('done'); if (i === currentQ) d.classList.add('current'); }); }
+function answer(el, ok) { if (answered[currentQ]) return; answered[currentQ] = true; el.closest('.question-block').querySelectorAll('.option').forEach(o => o.classList.add('disabled')); el.classList.add(ok ? 'correct' : 'wrong'); if (!ok) el.closest('.question-block').querySelectorAll('.option').forEach(o => { if(o.onclick.toString().includes('true')) o.classList.add('correct'); }); else { score++; document.getElementById('scoreDisplay').textContent = score; } el.closest('.question-block').querySelector('.q-feedback').classList.add('show', ok ? 'good' : 'bad'); document.getElementById('btnNext').disabled = false; updateDots(); }
+function nextQ() { if (currentQ < questions.length - 1) { questions[currentQ].classList.remove('active'); currentQ++; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = false; document.getElementById('btnNext').disabled = !answered[currentQ]; if (currentQ === questions.length - 1) document.getElementById('btnNext').textContent = 'Terminer'; updateDots(); } else { showResult(); } }
+function prevQ() { if (currentQ > 0) { questions[currentQ].classList.remove('active'); currentQ--; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = currentQ === 0; document.getElementById('btnNext').disabled = !answered[currentQ]; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); } }
+function showResult() { document.getElementById('quizBody').style.display = 'none'; document.getElementById('quizResult').style.display = 'block'; document.getElementById('resultScore').textContent = score + '/' + questions.length; var m = ['Continue !', 'Pas mal !', 'Très bien !', 'Parfait !']; document.getElementById('resultMsg').textContent = m[Math.min(score, 3)]; }
+function resetQuiz() { score = 0; currentQ = 0; answered = new Array(questions.length).fill(false); document.getElementById('scoreDisplay').textContent = 0; document.getElementById('quizBody').style.display = 'block'; document.getElementById('quizResult').style.display = 'none'; questions.forEach((q,i) => { q.classList.toggle('active', i===0); q.querySelectorAll('.option').forEach(o=>o.className='option'); q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback'); }); document.getElementById('btnPrev').disabled = true; document.getElementById('btnNext').disabled = true; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); }
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+</script>
+    <script src="../../mobile.js"></script>
+</body>
+</html>

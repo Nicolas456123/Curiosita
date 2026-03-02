@@ -32,7 +32,15 @@
 
 /* === RESET & BASE === */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; overflow-x: clip; }
+html {
+  scroll-behavior: smooth; overflow-x: clip;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.15) var(--bg, #0c0c0e);
+}
+html::-webkit-scrollbar { width: 8px; }
+html::-webkit-scrollbar-track { background: var(--bg, #0c0c0e); }
+html::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+html::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.28); }
 body {
   background: var(--bg);
   color: var(--text);
@@ -115,7 +123,13 @@ nav {
   background: var(--surface); border-right: 1px solid var(--border);
   padding: 2rem 0; position: sticky; top: 58px; height: calc(100vh - 58px);
   overflow-y: auto; align-self: start;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.18) transparent;
 }
+.sidebar::-webkit-scrollbar { width: 6px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.18); border-radius: 4px; }
+.sidebar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.32); }
 .sidebar-title {
   font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em;
   color: var(--muted); padding: 0 1.5rem; margin-bottom: 0.8rem; margin-top: 1.2rem;
