@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuisine du monde — Cuisine & Gastronomie — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root { --accent: #8ae87a; --accent2: #a5f598; --accent-dim: rgba(138,232,122,0.08); }
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../cuisine-page.html">Cuisine & Gastronomie</a> › <span>Cuisine du monde</span></div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🍳 Cuisine & Gastronomie</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Cuisine du monde</em></h1>
+  <p class="hero-desc">Un voyage culinaire à travers les continents — saveurs, traditions et recettes emblématiques de chaque culture.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../cuisine-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Cuisine & Gastronomie</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="techniques.html">Techniques culinaires</a>
+    <a class="sidebar-link" href="patisserie.html">Pâtisserie</a>
+    <a class="sidebar-link active" href="#">Cuisine du monde</a>
+    <a class="sidebar-link" href="nutrition.html">Nutrition</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="presentation">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Découvrir les cuisines du monde</h2><p>Introduction et vue d'ensemble</p></div></div>
+      <p class="resume-text">Chaque culture a développé une cuisine unique, reflet de son <strong>terroir, de son histoire et de ses valeurs</strong>. Explorer les cuisines du monde, c'est voyager à travers les épices de l'Inde, les sauces du Mexique, les fermentations du Japon et les ragouts du Maghreb.</p>
+      <div class="highlight-box"><p><strong>L'idée fondamentale :</strong> la cuisine est le miroir d'une civilisation. Les ingrédients disponibles, le climat, la religion et les échanges commerciaux façonnent les goûts, les techniques et les rituels alimentaires de chaque peuple.</p></div>
+      <p class="resume-text">De la <strong>cuisine méditerranéenne</strong> (huile d'olive, tomate, herbes) à la <strong>cuisine asiatique</strong> (riz, soja, umami), chaque tradition possède ses ingrédients fétiches, ses techniques emblématiques et ses plats nationaux.</p>
+      <p class="resume-text">La mondialisation a favorisé les métissages culinaires (fusion food), mais aussi une prise de conscience de la richesse des patrimoines alimentaires locaux et de la nécessité de les préserver.</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Les cours de cuisine du monde</h2><p>Progressez étape par étape</p></div></div>
+      <div class="courses-grid">
+        <a href="monde/francaise.html" class="course-card"><span class="course-card-icon">🇫🇷</span><h3>Cuisine française</h3><p>Patrimoine UNESCO, régions, terroirs et grands classiques de la gastronomie française.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="monde/italienne.html" class="course-card"><span class="course-card-icon">🇮🇹</span><h3>Cuisine italienne</h3><p>Pasta, pizza, antipasti : la convivialité et les produits du terroir italien.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="monde/asiatique.html" class="course-card"><span class="course-card-icon">🇯🇵</span><h3>Cuisine asiatique</h3><p>Japon, Chine, Thaïlande, Inde : les grandes traditions culinaires d'Asie.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="monde/maghreb.html" class="course-card"><span class="course-card-icon">🇲🇦</span><h3>Cuisine du Maghreb et du Moyen-Orient</h3><p>Couscous, tajine, mezé : épices et hospitalité méditerranéennes.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="monde/ameriques.html" class="course-card"><span class="course-card-icon">🇲🇽</span><h3>Cuisine des Amériques</h3><p>Mexique, Pérou, États-Unis : piment, maïs, barbecue et cuisine Tex-Mex.</p><span class="course-card-link">Voir le cours →</span></a>
+      </div>
+    </section>
+    <section class="content-section" id="memo">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Fiche mémo</h2><p>L'essentiel en un coup d'oeil</p></div></div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top"><h3>🌍 Cuisine du monde — Fiche mémo</h3><p>Curiosita · Traditions, ingrédients et plats emblématiques</p></div>
+        <div class="memo-grid">
+          <div class="memo-section"><div class="memo-section-title">Cuisine française</div><div class="memo-item"><span class="mf">Bases</span> Beurre, crème, vin, herbes</div><div class="memo-item"><span class="mf">Plats</span> Coq au vin, bouillabaisse</div><div class="memo-item"><span class="mf">Régions</span> 13 régions, 400 fromages</div><div class="memo-item"><span class="mf">UNESCO</span> Repas gastronomique, 2010</div></div>
+          <div class="memo-section"><div class="memo-section-title">Cuisine asiatique</div><div class="memo-item"><span class="mf">Japon</span> Umami, riz, soja, délicatesse</div><div class="memo-item"><span class="mf">Chine</span> Wok, 8 cuisines régionales</div><div class="memo-item"><span class="mf">Inde</span> Épices, curry, dal, tandoori</div><div class="memo-item"><span class="mf">Thaïlande</span> Sucré-salé-acide-piquant</div></div>
+          <div class="memo-section"><div class="memo-section-title">Méditerranée</div><div class="memo-item"><span class="mf">Italie</span> Pates, tomate, huile, basilic</div><div class="memo-item"><span class="mf">Maghreb</span> Couscous, tajine, harissa</div><div class="memo-item"><span class="mf">Grèce</span> Feta, olive, tzatziki</div><div class="memo-item"><span class="mf">Liban</span> Mezé, houmous, taboulé</div></div>
+          <div class="memo-section"><div class="memo-section-title">Amériques</div><div class="memo-item"><span class="mf">Mexique</span> Piment, maïs, cacao, avocat</div><div class="memo-item"><span class="mf">Pérou</span> Ceviche, quinoa, pomme de terre</div><div class="memo-item"><span class="mf">Argentine</span> Asado, empanadas, dulce</div><div class="memo-item"><span class="mf">USA</span> BBQ, bagel, soul food</div></div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+  </main>
+</div>
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo(){var m=document.getElementById('memoCard').outerHTML;var html='<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Cuisine du monde \u2014 Fiche m\u00e9mo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#8ae87a;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#8ae87a;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>'+m+'</body></html>';var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download='cuisine-du-monde-fiche-memo.html';a.click();}
+</script>
+<script src="../mobile.js"></script>
+</body>
+</html>

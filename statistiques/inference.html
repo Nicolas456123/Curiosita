@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inference statistique — Statistiques — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #4fc3f7;
+  --accent2: #81d4fa;
+  --accent-dim: rgba(79,195,247,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../statistiques-page.html">Statistiques</a> › <span>Inference</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche memo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🔍 Statistiques</span>
+    <span class="tag-level">Intermediaire → Avance</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Inference statistique</em></h1>
+  <p class="hero-desc">Tirer des conclusions fiables sur une population entiere a partir d'un simple echantillon. Le coeur de la demarche scientifique moderne.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">25</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../statistiques-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Statistiques</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Presentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche memo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="descriptives.html">Descriptives</a>
+    <a class="sidebar-link" href="probabilites.html">Probabilites</a>
+    <a class="sidebar-link active" href="#">Inference</a>
+    <a class="sidebar-link" href="regression.html">Regression</a>
+    <a class="sidebar-link" href="analyse-donnees.html">Analyse de donnees</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que l'inference statistique ?</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">L'inference statistique est l'art de <strong>generaliser les observations d'un echantillon a une population entiere</strong>. C'est le pont entre la statistique descriptive (observer) et la prise de decision (conclure). Quand on dit qu'un medicament est « statistiquement efficace », c'est l'inference qui le permet.</p>
+      <div class="highlight-box">
+        <p><strong>L'idee fondamentale :</strong> on ne peut presque jamais observer toute une population. L'inference permet, a partir d'un echantillon representatif, d'estimer des parametres (estimation) et de verifier des hypotheses (tests) avec un niveau de confiance quantifie.</p>
+      </div>
+      <p class="resume-text">Les deux piliers de l'inference sont l'<strong>estimation</strong> (ponctuelle et par intervalle de confiance) et les <strong>tests d'hypotheses</strong> (test z, test t, test du chi-deux). Le theoreme central limite en est le fondement theorique : il garantit que la moyenne d'un grand echantillon suit approximativement une loi normale, ce qui rend les calculs possibles.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours d'inference statistique</h2>
+          <p>Progressez etape par etape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="inference/estimation.html" class="course-card">
+          <span class="course-card-icon">📍</span>
+          <h3>Estimation ponctuelle</h3>
+          <p>Estimateurs, biais, convergence, efficacite — comment obtenir la meilleure approximation d'un parametre.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="inference/intervalles.html" class="course-card">
+          <span class="course-card-icon">📏</span>
+          <h3>Intervalles de confiance</h3>
+          <p>Construire une plage de valeurs plausibles pour un parametre avec un niveau de confiance donne.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="inference/tests.html" class="course-card">
+          <span class="course-card-icon">⚖️</span>
+          <h3>Tests d'hypotheses</h3>
+          <p>H₀ vs H₁, statistique de test, p-valeur, seuil de significativite — la logique de la decision statistique.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="inference/erreurs.html" class="course-card">
+          <span class="course-card-icon">⚠️</span>
+          <h3>Erreurs statistiques</h3>
+          <p>Erreur de type I (faux positif), erreur de type II (faux negatif), compromis alpha-beta.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="inference/puissance.html" class="course-card">
+          <span class="course-card-icon">💪</span>
+          <h3>Puissance d'un test</h3>
+          <p>Probabilite de detecter un vrai effet, taille d'effet, calcul de taille d'echantillon.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche memo</h2>
+          <p>L'essentiel en un coup d'oeil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🔍 Inference statistique — Fiche memo</h3>
+          <p>Curiosita · Formules et concepts fondamentaux</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Intervalles de confiance</div>
+            <div class="memo-item"><span class="mf">IC 95% =</span> x̄ ± 1,96 σ/√n</div>
+            <div class="memo-item"><span class="mf">IC 99% =</span> x̄ ± 2,576 σ/√n</div>
+            <div class="memo-item"><span class="mf">σ inconnu :</span> utiliser t de Student</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Tests d'hypotheses</div>
+            <div class="memo-item"><span class="mf">z =</span> (x̄ - μ₀)/(σ/√n)</div>
+            <div class="memo-item"><span class="mf">t =</span> (x̄ - μ₀)/(s/√n)</div>
+            <div class="memo-item"><span class="mf">p &lt; α →</span> rejeter H₀</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Telecharger la fiche memo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Inference — Fiche memo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#4fc3f7;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#4fc3f7;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'inference-fiche-memo.html'; a.click();
+}
+</script>
+<script src="../mobile.js"></script>
+</body>
+</html>

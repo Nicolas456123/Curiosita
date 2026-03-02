@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthropologie culturelle — Anthropologie — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #7ae88a;
+  --accent2: #a5d6a7;
+  --accent-dim: rgba(122,232,138,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../anthropologie-page.html">Anthropologie</a> › <span>Anthropologie culturelle</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche memo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🏺 Anthropologie</span>
+    <span class="tag-level">Debutant → Avance</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Anthropologie culturelle</em></h1>
+  <p class="hero-desc">Rites, croyances, langues et systemes symboliques : comprendre la diversite des cultures humaines a travers le monde.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../anthropologie-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Anthropologie</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Presentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche memo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link active" href="#">Anthropologie culturelle</a>
+    <a class="sidebar-link" href="physique.html">Anthropologie physique</a>
+    <a class="sidebar-link" href="ethnologie.html">Ethnologie</a>
+    <a class="sidebar-link" href="archeologie.html">Archeologie</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que l'anthropologie culturelle ?</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">L'anthropologie culturelle (ou anthropologie sociale) etudie les <strong>systemes culturels des societes humaines</strong> : leurs croyances, leurs rites, leurs mythes, leurs langues, leurs structures de parente, leurs modes de production et leurs formes d'organisation politique. Elle cherche a comprendre comment les etres humains donnent du sens a leur existence a travers des systemes symboliques partages.</p>
+      <div class="highlight-box">
+        <p><strong>L'idee fondamentale :</strong> la culture n'est pas un vernis sur la nature humaine — c'est le mode d'existence propre a notre espece. Chaque societe produit un ensemble coherent de representations, de normes et de pratiques qui oriente le comportement de ses membres. L'anthropologue etudie ces systemes de l'interieur, par l'observation participante et l'immersion prolongee sur le terrain.</p>
+      </div>
+      <p class="resume-text">Les grandes figures de la discipline — <strong>Claude Levi-Strauss</strong> (structuralisme), <strong>Bronislaw Malinowski</strong> (fonctionnalisme), <strong>Franz Boas</strong> (particularisme historique), <strong>Marcel Mauss</strong> (le don) — ont montre que les cultures ne sont ni superieures ni inferieures les unes aux autres, mais constituent des reponses differentes aux memes problemes fondamentaux de l'existence humaine.</p>
+      <p class="resume-text">Ce domaine couvre les systemes de parente et d'alliance, les rites et ceremonies, les mythes et cosmogonies, les systemes economiques non marchands et l'anthropologie des religions.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours</h2>
+          <p>Progressez etape par etape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="culturelle/parente.html" class="course-card">
+          <span class="course-card-icon">👪</span>
+          <h3>Parente et alliance</h3>
+          <p>Systemes de filiation, tabou de l'inceste, mariage, echange de femmes et structures elementaires de la parente.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="culturelle/rites.html" class="course-card">
+          <span class="course-card-icon">🎉</span>
+          <h3>Rites et ceremonies</h3>
+          <p>Rites de passage, initiations, ceremonies religieuses, potlatch et pratiques rituelles a travers le monde.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="culturelle/mythes.html" class="course-card">
+          <span class="course-card-icon">📜</span>
+          <h3>Mythes et cosmogonies</h3>
+          <p>Recits fondateurs, structures mythiques, analyse structurale des mythes et pensee symbolique.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="culturelle/economie.html" class="course-card">
+          <span class="course-card-icon">🎁</span>
+          <h3>Economie du don</h3>
+          <p>L'Essai sur le don de Mauss, reciprocite, kula, potlatch et systemes d'echange non marchands.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="culturelle/religions.html" class="course-card">
+          <span class="course-card-icon">🕌</span>
+          <h3>Anthropologie des religions</h3>
+          <p>Animisme, totemisme, chamanisme, magie et sorcellerie : les formes du sacre dans les societes humaines.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche memo</h2>
+          <p>L'essentiel de l'anthropologie culturelle</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🏺 Anthropologie culturelle — Fiche memo</h3>
+          <p>Curiosita</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Fondateurs</div>
+            <div class="memo-item"><span class="mf">Boas →</span> relativisme culturel (1896)</div>
+            <div class="memo-item"><span class="mf">Malinowski →</span> observation participante</div>
+            <div class="memo-item"><span class="mf">Mauss →</span> Essai sur le don (1925)</div>
+            <div class="memo-item"><span class="mf">Levi-Strauss →</span> structuralisme (1949)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Concepts cles</div>
+            <div class="memo-item"><span class="mf">Culture →</span> systeme symbolique appris</div>
+            <div class="memo-item"><span class="mf">Ethnocentrisme →</span> juger depuis sa culture</div>
+            <div class="memo-item"><span class="mf">Relativisme →</span> comprendre de l'interieur</div>
+            <div class="memo-item"><span class="mf">Acculturation →</span> contact entre cultures</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Parente</div>
+            <div class="memo-item"><span class="mf">Filiation →</span> patrilineaire, matrilineaire</div>
+            <div class="memo-item"><span class="mf">Exogamie →</span> se marier hors du groupe</div>
+            <div class="memo-item"><span class="mf">Tabou →</span> prohibition de l'inceste</div>
+            <div class="memo-item"><span class="mf">Alliance →</span> echange matrimonial</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Rites et religions</div>
+            <div class="memo-item"><span class="mf">Rite de passage →</span> separation, marge, agregation</div>
+            <div class="memo-item"><span class="mf">Totemisme →</span> lien groupe-nature</div>
+            <div class="memo-item"><span class="mf">Chamanisme →</span> mediation avec les esprits</div>
+            <div class="memo-item"><span class="mf">Don →</span> donner, recevoir, rendre</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Telecharger la fiche memo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Anthropologie culturelle \u2014 Fiche memo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#7ae88a;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#7ae88a;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '\n</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'anthropologie-culturelle-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

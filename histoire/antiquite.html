@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antiquité — Histoire — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #7ae88a;
+  --accent2: #a5d6a7;
+  --accent-dim: rgba(122,232,138,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../histoire-page.html">Histoire</a> › <span>Antiquité</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">📜 Histoire</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~6h de lecture</span>
+  </div>
+  <h1><em>Antiquité</em></h1>
+  <p class="hero-desc">Des premières civilisations de Mésopotamie à la chute de Rome — cinq millénaires qui ont fondé le monde.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../histoire-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Histoire</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link active" href="#">Antiquité</a>
+    <a class="sidebar-link" href="moyen-age.html">Moyen Âge</a>
+    <a class="sidebar-link" href="moderne.html">Époque moderne</a>
+    <a class="sidebar-link" href="contemporaine.html">Époque contemporaine</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que l'Antiquité ?</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">L'Antiquité est la première grande période de l'histoire, qui s'étend de l'<strong>invention de l'écriture</strong> (vers 3300 av. J.-C. en Mésopotamie) jusqu'à la <strong>chute de l'Empire romain d'Occident</strong> en 476 apr. J.-C. — soit près de quatre millénaires de civilisations, de conquêtes et d'innovations fondatrices.</p>
+      <div class="highlight-box">
+        <p><strong>L'idée fondamentale :</strong> durant l'Antiquité, les sociétés humaines passent du village à la cité, de la tradition orale à l'écriture, du mythe à la philosophie. C'est le berceau de la politique, du droit, des sciences et des arts.</p>
+      </div>
+      <p class="resume-text">Des <strong>ziggurats de Sumer</strong> aux <strong>pyramides d'Égypte</strong>, de la <strong>démocratie athénienne</strong> au <strong>droit romain</strong>, en passant par les empires de Chine et d'Inde, l'Antiquité a produit les structures fondamentales sur lesquelles repose encore notre monde. La philosophie grecque, le monothéisme hébraïque, l'ingénierie romaine, les mathématiques indiennes — autant d'héritages qui façonnent notre quotidien.</p>
+      <p class="resume-text">Cette période est aussi marquée par des figures inoubliables : Hammurabi et son code de lois, Alexandre le Grand qui unifia un empire de la Grèce à l'Inde, Jules César qui transforma la République romaine en Empire, ou Confucius dont la pensée influence encore un milliard de personnes.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours d'Antiquité</h2>
+          <p>Progressez étape par étape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="antiquite/mesopotamie.html" class="course-card">
+          <span class="course-card-icon">🏛️</span>
+          <h3>Mésopotamie</h3>
+          <p>Sumer, Babylone, Assyrie. L'invention de l'écriture, le code de Hammurabi et les premières cités-États.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="antiquite/egypte.html" class="course-card">
+          <span class="course-card-icon">🔺</span>
+          <h3>Égypte ancienne</h3>
+          <p>Des pharaons aux pyramides, trois mille ans de civilisation le long du Nil.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="antiquite/grece.html" class="course-card">
+          <span class="course-card-icon">🏺</span>
+          <h3>Grèce antique</h3>
+          <p>Démocratie athénienne, guerres médiques, philosophie et héritage hellénistique.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="antiquite/rome.html" class="course-card">
+          <span class="course-card-icon">⚔️</span>
+          <h3>Rome antique</h3>
+          <p>De la République à l'Empire, le droit romain et la Pax Romana.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="antiquite/chine-inde.html" class="course-card">
+          <span class="course-card-icon">🐉</span>
+          <h3>Chine et Inde anciennes</h3>
+          <p>Dynasties chinoises, civilisation de l'Indus, bouddhisme et confucianisme.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel de l'Antiquité en un coup d'œil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>📜 Antiquité — Fiche mémo</h3>
+          <p>Curiosita · Dates et repères fondamentaux</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Mésopotamie</div>
+            <div class="memo-item"><span class="mf">~3300 av. J.-C.</span> Invention de l'écriture cunéiforme</div>
+            <div class="memo-item"><span class="mf">~1792 av. J.-C.</span> Code de Hammurabi</div>
+            <div class="memo-item"><span class="mf">~612 av. J.-C.</span> Chute de l'Empire assyrien</div>
+            <div class="memo-item"><span class="mf">~539 av. J.-C.</span> Cyrus conquiert Babylone</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Égypte</div>
+            <div class="memo-item"><span class="mf">~3100 av. J.-C.</span> Unification par Narmer</div>
+            <div class="memo-item"><span class="mf">~2560 av. J.-C.</span> Grande Pyramide de Gizeh</div>
+            <div class="memo-item"><span class="mf">~1274 av. J.-C.</span> Bataille de Qadesh</div>
+            <div class="memo-item"><span class="mf">30 av. J.-C.</span> Mort de Cléopâtre</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Grèce</div>
+            <div class="memo-item"><span class="mf">~508 av. J.-C.</span> Réformes de Clisthène</div>
+            <div class="memo-item"><span class="mf">480 av. J.-C.</span> Bataille de Salamine</div>
+            <div class="memo-item"><span class="mf">~440 av. J.-C.</span> Siècle de Périclès</div>
+            <div class="memo-item"><span class="mf">323 av. J.-C.</span> Mort d'Alexandre le Grand</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Rome</div>
+            <div class="memo-item"><span class="mf">509 av. J.-C.</span> Fondation de la République</div>
+            <div class="memo-item"><span class="mf">44 av. J.-C.</span> Assassinat de César</div>
+            <div class="memo-item"><span class="mf">27 av. J.-C.</span> Auguste, premier empereur</div>
+            <div class="memo-item"><span class="mf">476 apr. J.-C.</span> Chute de Rome</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Antiquité — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#7ae88a;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#7ae88a;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '
+</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'antiquite-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

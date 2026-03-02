@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Théâtre — Arts du spectacle — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #e87a7a;
+  --accent2: #ef9a9a;
+  --accent-dim: rgba(232,122,122,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../spectacle-page.html">Arts du spectacle</a> › <span>Théâtre</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🎭 Arts du spectacle</span>
+    <span class="tag-level">Débutant → Avancé</span>
+    <span class="tag-time">⏱ ~6h de lecture</span>
+  </div>
+  <h1><em>Théâtre</em></h1>
+  <p class="hero-desc">De la tragédie grecque aux expérimentations contemporaines — vingt-cinq siècles d'art dramatique qui interrogent la condition humaine.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../spectacle-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Arts du spectacle</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link active" href="#">Théâtre</a>
+    <a class="sidebar-link" href="danse.html">Danse</a>
+    <a class="sidebar-link" href="opera.html">Opéra</a>
+    <a class="sidebar-link" href="cirque.html">Cirque et arts de rue</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que le théâtre ?</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">Le théâtre est l'art de la <strong>représentation vivante</strong>. Né dans la Grèce antique au Ve siècle avant J.-C., il est le premier des arts du spectacle : un acteur, un texte, un public, et entre eux un espace où se joue la comédie humaine. Des amphithéâtres de Dionysos aux scènes contemporaines, le théâtre n'a cessé de se réinventer tout en conservant son essence — le jeu vivant, ici et maintenant.</p>
+      <div class="highlight-box">
+        <p><strong>L'idée fondamentale :</strong> le théâtre est un miroir de la société. Chaque époque invente ses formes dramatiques pour interroger le pouvoir, la morale, l'identité et les rapports humains. La scène est le lieu où une communauté se regarde elle-même.</p>
+      </div>
+      <p class="resume-text">L'histoire du théâtre occidental traverse des moments fondateurs : la <strong>tragédie grecque</strong> (Eschyle, Sophocle, Euripide), la <strong>commedia dell'arte</strong> italienne, le <strong>théâtre classique français</strong> (Molière, Racine, Corneille), puis les révolutions du <strong>théâtre moderne</strong> (Tchekhov, Brecht, Beckett, Ionesco) et les innovations de la <strong>mise en scène contemporaine</strong>.</p>
+      <p class="resume-text">Étudier le théâtre, c'est comprendre à la fois un art littéraire (le texte dramatique) et un art de la scène (le jeu, l'espace, la lumière, le son). C'est aussi saisir comment chaque civilisation a utilisé la représentation pour exprimer ses mythes, ses conflits et ses aspirations.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours de théâtre</h2>
+          <p>Progressez étape par étape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="theatre/tragedie-grecque.html" class="course-card">
+          <span class="course-card-icon">🏛️</span>
+          <h3>Tragédie grecque</h3>
+          <p>Eschyle, Sophocle, Euripide : les origines du théâtre occidental, le choeur, la catharsis et le destin tragique.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="theatre/commedia-dell-arte.html" class="course-card">
+          <span class="course-card-icon">🎭</span>
+          <h3>Commedia dell'arte</h3>
+          <p>Arlequin, Colombine, Pantalon : l'improvisation masquée de la Renaissance italienne et son héritage européen.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="theatre/classique-francais.html" class="course-card">
+          <span class="course-card-icon">👑</span>
+          <h3>Théâtre classique français</h3>
+          <p>Molière, Racine, Corneille : la règle des trois unités, la tragédie et la comédie du Grand Siècle.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="theatre/theatre-moderne.html" class="course-card">
+          <span class="course-card-icon">💡</span>
+          <h3>Théâtre moderne</h3>
+          <p>Du naturalisme à l'absurde : Ibsen, Tchekhov, Brecht, Beckett et la révolution dramaturgique du XXe siècle.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="theatre/mise-en-scene.html" class="course-card">
+          <span class="course-card-icon">🎬</span>
+          <h3>Mise en scène</h3>
+          <p>L'art du metteur en scène : direction d'acteurs, scénographie, lumière et dramaturgie de l'espace.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel du théâtre en un coup d'oeil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🎭 Théâtre — Fiche mémo</h3>
+          <p>Curiosita · Époques, genres et figures clés</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Tragédie grecque (Ve s. av. J.-C.)</div>
+            <div class="memo-item"><span class="mf">Eschyle</span> Les Perses, L'Orestie</div>
+            <div class="memo-item"><span class="mf">Sophocle</span> Antigone, Oedipe roi</div>
+            <div class="memo-item"><span class="mf">Euripide</span> Médée, Les Bacchantes</div>
+            <div class="memo-item"><span class="mf">Principe</span> Catharsis par la terreur et la pitié</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Commedia dell'arte (XVIe s.)</div>
+            <div class="memo-item"><span class="mf">Principe</span> Improvisation sur canevas</div>
+            <div class="memo-item"><span class="mf">Types fixes</span> Arlequin, Pantalon, Colombine</div>
+            <div class="memo-item"><span class="mf">Technique</span> Masques et lazzi</div>
+            <div class="memo-item"><span class="mf">Héritage</span> Molière, Goldoni, Marivaux</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Classique français (XVIIe s.)</div>
+            <div class="memo-item"><span class="mf">Règle</span> Trois unités (lieu, temps, action)</div>
+            <div class="memo-item"><span class="mf">Tragédie</span> Racine (Phèdre), Corneille (Le Cid)</div>
+            <div class="memo-item"><span class="mf">Comédie</span> Molière (Le Misanthrope, Tartuffe)</div>
+            <div class="memo-item"><span class="mf">Vraisemblance</span> Bienséance et alexandrin</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Théâtre moderne (XXe s.)</div>
+            <div class="memo-item"><span class="mf">Brecht</span> Distanciation, théâtre épique</div>
+            <div class="memo-item"><span class="mf">Beckett</span> En attendant Godot (absurde)</div>
+            <div class="memo-item"><span class="mf">Artaud</span> Théâtre de la cruauté</div>
+            <div class="memo-item"><span class="mf">Stanislavski</span> Méthode et jeu intérieur</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Théâtre — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#e87a7a;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#e87a7a;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'theatre-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

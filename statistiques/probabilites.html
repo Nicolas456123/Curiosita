@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Probabilites — Statistiques — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #4fc3f7;
+  --accent2: #81d4fa;
+  --accent-dim: rgba(79,195,247,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../statistiques-page.html">Statistiques</a> › <span>Probabilites</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche memo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🎲 Statistiques</span>
+    <span class="tag-level">Intermediaire</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Probabilites</em></h1>
+  <p class="hero-desc">Le langage mathematique du hasard et de l'incertitude. De la theorie des jeux a l'intelligence artificielle, les probabilites sont partout.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">25</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../statistiques-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Statistiques</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Presentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche memo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="descriptives.html">Descriptives</a>
+    <a class="sidebar-link active" href="#">Probabilites</a>
+    <a class="sidebar-link" href="inference.html">Inference</a>
+    <a class="sidebar-link" href="regression.html">Regression</a>
+    <a class="sidebar-link" href="analyse-donnees.html">Analyse de donnees</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que la probabilite ?</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">La theorie des probabilites est la branche des mathematiques qui etudie les <strong>phenomenes aleatoires</strong> — ceux dont le resultat est incertain. Elle fournit un cadre rigoureux pour quantifier l'incertitude, modeliser le hasard et prendre des decisions rationnelles face a l'inconnu.</p>
+      <div class="highlight-box">
+        <p><strong>L'idee fondamentale :</strong> attribuer a chaque evenement un nombre entre 0 (impossible) et 1 (certain) qui mesure sa « chance » de se realiser. La somme des probabilites de tous les resultats possibles vaut toujours 1.</p>
+      </div>
+      <p class="resume-text">Nees au XVIIe siecle des travaux de Blaise Pascal et Pierre de Fermat sur les jeux de hasard, les probabilites ont ete formalisees par Kolmogorov en 1933 avec ses celebres axiomes. Aujourd'hui, elles sont le fondement de l'inference statistique, de la physique quantique, de la finance, de l'intelligence artificielle et de la theorie de l'information.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours de probabilites</h2>
+          <p>Progressez etape par etape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="probabilites/evenements.html" class="course-card">
+          <span class="course-card-icon">🎯</span>
+          <h3>Evenements et espaces</h3>
+          <p>Univers, evenements, operations ensemblistes, axiomes de Kolmogorov — les fondations du calcul probabiliste.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="probabilites/conditionnelles.html" class="course-card">
+          <span class="course-card-icon">🔗</span>
+          <h3>Probabilites conditionnelles</h3>
+          <p>P(A|B), independance, formule des probabilites totales — raisonner quand l'information change.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="probabilites/variables.html" class="course-card">
+          <span class="course-card-icon">🔢</span>
+          <h3>Variables aleatoires</h3>
+          <p>Variables discretes et continues, esperance, variance — quantifier les resultats du hasard.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="probabilites/lois.html" class="course-card">
+          <span class="course-card-icon">📐</span>
+          <h3>Lois de probabilite</h3>
+          <p>Binomiale, Poisson, normale, exponentielle — les modeles mathematiques du hasard.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="probabilites/bayes.html" class="course-card">
+          <span class="course-card-icon">🧠</span>
+          <h3>Theoreme de Bayes</h3>
+          <p>Inference bayesienne, probabilites a posteriori — mettre a jour ses croyances avec les donnees.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche memo</h2>
+          <p>L'essentiel en un coup d'oeil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🎲 Probabilites — Fiche memo</h3>
+          <p>Curiosita · Formules et concepts fondamentaux</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Formules de base</div>
+            <div class="memo-item"><span class="mf">P(A∪B) =</span> P(A)+P(B)-P(A∩B)</div>
+            <div class="memo-item"><span class="mf">P(A|B) =</span> P(A∩B)/P(B)</div>
+            <div class="memo-item"><span class="mf">Independance :</span> P(A∩B)=P(A)P(B)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Lois classiques</div>
+            <div class="memo-item"><span class="mf">B(n,p) :</span> E=np, V=np(1-p)</div>
+            <div class="memo-item"><span class="mf">P(λ) :</span> E=λ, V=λ</div>
+            <div class="memo-item"><span class="mf">N(μ,σ²) :</span> E=μ, V=σ²</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Telecharger la fiche memo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Probabilites — Fiche memo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#4fc3f7;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#4fc3f7;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'probabilites-fiche-memo.html'; a.click();
+}
+</script>
+<script src="../mobile.js"></script>
+</body>
+</html>

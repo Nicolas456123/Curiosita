@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Éducation civique — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<style>
+:root {
+  --accent: #e87a9b;
+  --accent2: #f090b0;
+  --accent-dim: rgba(232,122,155,0.1);
+}
+.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(232,122,155,0.07) 0%, transparent 70%); }
+.hero-deco { color: rgba(232,122,155,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="droit-politique.html">Droit & Politique</a> › <span>Éducation civique</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-deco">🗳️</div>
+  <div class="hero-meta">
+    <span class="tag-domain">⚖️ Droit, Politique & Société</span>
+    <span class="tag-level">Tous niveaux</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1>Éducation<br><em>civique</em></h1>
+  <p class="hero-desc">Droits et devoirs du citoyen, fonctionnement de la démocratie, valeurs républicaines et engagement civique. Comprendre la République pour mieux y participer.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">4</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">8</div><div class="hstat-lab">Concepts</div></div>
+    <div class="hstat"><div class="hstat-val">10</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="resume" onclick="goTo('resume',this)">📖 Résumé</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="concepts" onclick="goTo('concepts',this)">🧩 Concepts clés</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="ressources" onclick="goTo('ressources',this)">🔗 Ressources</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Cours</p>
+    <a class="sidebar-link" href="civique/citoyennete.html">🏛️ Citoyenneté</a>
+    <a class="sidebar-link" href="civique/droits.html">⚖️ Droits et libertés</a>
+    <a class="sidebar-link" href="civique/republique.html">🇫🇷 République et démocratie</a>
+    <a class="sidebar-link" href="civique/enjeux.html">🌍 Enjeux contemporains</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="resume">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que l'éducation civique ?</h2>
+          <p>Être citoyen, ça s'apprend</p>
+        </div>
+      </div>
+      <p class="resume-text">L'éducation civique est l'ensemble des connaissances et des pratiques qui permettent à chaque individu de comprendre ses <strong>droits et devoirs</strong> en tant que citoyen, de participer activement à la vie démocratique et de contribuer au <strong>vivre-ensemble</strong>. Elle est au coeur du projet républicain français.</p>
+      <div class="highlight-box">
+        <p><strong>La devise républicaine « Liberté, Égalité, Fraternité » :</strong> Adoptée définitivement sous la IIIe République, elle résume les trois piliers du pacte social français. La liberté protège l'individu, l'égalité garantit la justice, la fraternité appelle à la solidarité entre citoyens.</p>
+      </div>
+      <p class="resume-text">En France, l'éducation civique s'appuie sur les grands textes fondateurs : la <strong>Déclaration des droits de l'homme et du citoyen</strong> (1789), le préambule de la Constitution de 1946 (droits sociaux), la <strong>Constitution de la Ve République</strong> (1958) et la <strong>Convention européenne des droits de l'homme</strong> (1950).</p>
+      <p class="resume-text">Être citoyen, ce n'est pas seulement voter : c'est s'informer, débattre, respecter les lois, payer ses impôts, défendre les libertés d'autrui et s'engager dans la vie associative ou politique. La démocratie n'est pas un acquis — elle se nourrit de la <strong>participation active</strong> de chacun.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Explorez les cours</h2>
+          <p>Les piliers de la citoyenneté</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="civique/citoyennete.html" class="course-card">
+          <span class="course-card-icon">🏛️</span>
+          <h3>Citoyenneté</h3>
+          <p>Droits et devoirs du citoyen, nationalité, participation à la vie publique.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="civique/droits.html" class="course-card">
+          <span class="course-card-icon">⚖️</span>
+          <h3>Droits et libertés</h3>
+          <p>Libertés fondamentales, droits de l'homme, laïcité, protection juridique.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="civique/republique.html" class="course-card">
+          <span class="course-card-icon">🇫🇷</span>
+          <h3>République et démocratie</h3>
+          <p>Valeurs républicaines, institutions de la Ve République, séparation des pouvoirs.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="civique/enjeux.html" class="course-card">
+          <span class="course-card-icon">🌍</span>
+          <h3>Enjeux contemporains</h3>
+          <p>Médias et désinformation, environnement, justice sociale, numérique et citoyenneté.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="concepts">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Concepts clés</h2>
+          <p>Le vocabulaire du citoyen éclairé</p>
+        </div>
+      </div>
+      <div class="concepts-grid">
+        <div class="concept-card"><div class="concept-title">Citoyenneté</div><div class="concept-desc">Statut juridique et politique qui confère des droits (vote, liberté d'expression) et des devoirs (respect des lois, impôts, défense). En France, liée à la nationalité.</div></div>
+        <div class="concept-card"><div class="concept-title">Laïcité</div><div class="concept-desc">Principe de séparation de l'État et des religions (loi de 1905). L'État est neutre, garantit la liberté de conscience et ne finance aucun culte. Pilier de la République française.</div></div>
+        <div class="concept-card"><div class="concept-title">Suffrage universel</div><div class="concept-desc">Droit de vote accordé à tous les citoyens majeurs sans condition de fortune, d'éducation ou de sexe. En France : hommes en 1848, femmes en 1944.</div></div>
+        <div class="concept-card"><div class="concept-title">État de droit</div><div class="concept-desc">Système où la puissance publique est elle-même soumise au droit. Les lois s'appliquent à tous, y compris aux gouvernants. Le contraire de l'arbitraire.</div></div>
+        <div class="concept-card"><div class="concept-title">Constitution</div><div class="concept-desc">Loi fondamentale d'un État qui organise les pouvoirs publics et garantit les droits des citoyens. La Constitution française de 1958 fonde la Ve République.</div></div>
+        <div class="concept-card"><div class="concept-title">Séparation des pouvoirs</div><div class="concept-desc">Principe selon lequel les pouvoirs législatif (Parlement), exécutif (gouvernement) et judiciaire (tribunaux) sont indépendants. Théorisé par Montesquieu pour éviter la tyrannie.</div></div>
+        <div class="concept-card"><div class="concept-title">Droits de l'homme</div><div class="concept-desc">Droits inhérents à tout être humain : vie, liberté, sûreté, propriété, expression, éducation. Proclamés en 1789 (DDHC) et en 1948 (Déclaration universelle de l'ONU).</div></div>
+        <div class="concept-card"><div class="concept-title">Solidarité nationale</div><div class="concept-desc">Principe selon lequel la collectivité protège les plus vulnérables : Sécurité sociale, allocations, services publics. Fondement de l'État-providence français depuis 1945.</div></div>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Quiz interactif</h2>
+          <p>10 questions — Éducation civique</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">🗳️ Testez vos connaissances citoyennes</span>
+          <span class="quiz-score">Score : <span id="quizScore">0</span>/10</span>
+        </div>
+        <div class="quiz-body">
+          <div class="question-block active" id="q0">
+            <div class="q-num">Question 1 / 10</div>
+            <div class="q-text">Quelle est la devise de la République française ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(0,0)">Unité, Travail, Progrès</div>
+              <div class="option" onclick="selectOption(0,1)">Liberté, Égalité, Fraternité</div>
+              <div class="option" onclick="selectOption(0,2)">Ordre et Progrès</div>
+              <div class="option" onclick="selectOption(0,3)">Paix, Justice, Liberté</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q1">
+            <div class="q-num">Question 2 / 10</div>
+            <div class="q-text">En France, à quel âge obtient-on le droit de vote ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(1,0)">16 ans</div>
+              <div class="option" onclick="selectOption(1,1)">18 ans</div>
+              <div class="option" onclick="selectOption(1,2)">21 ans</div>
+              <div class="option" onclick="selectOption(1,3)">25 ans</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q2">
+            <div class="q-num">Question 3 / 10</div>
+            <div class="q-text">La Déclaration des droits de l'homme et du citoyen date de :</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(2,0)">1776</div>
+              <div class="option" onclick="selectOption(2,1)">1789</div>
+              <div class="option" onclick="selectOption(2,2)">1848</div>
+              <div class="option" onclick="selectOption(2,3)">1948</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q3">
+            <div class="q-num">Question 4 / 10</div>
+            <div class="q-text">La loi de séparation des Églises et de l'État (laïcité) a été votée en :</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(3,0)">1789</div>
+              <div class="option" onclick="selectOption(3,1)">1882</div>
+              <div class="option" onclick="selectOption(3,2)">1905</div>
+              <div class="option" onclick="selectOption(3,3)">1946</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q4">
+            <div class="q-num">Question 5 / 10</div>
+            <div class="q-text">En France, qui promulgue les lois ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(4,0)">Le Premier ministre</div>
+              <div class="option" onclick="selectOption(4,1)">Le président de la République</div>
+              <div class="option" onclick="selectOption(4,2)">Le président de l'Assemblée nationale</div>
+              <div class="option" onclick="selectOption(4,3)">Le Conseil constitutionnel</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q5">
+            <div class="q-num">Question 6 / 10</div>
+            <div class="q-text">Quand les femmes françaises ont-elles obtenu le droit de vote ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(5,0)">1918</div>
+              <div class="option" onclick="selectOption(5,1)">1936</div>
+              <div class="option" onclick="selectOption(5,2)">1944</div>
+              <div class="option" onclick="selectOption(5,3)">1958</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q6">
+            <div class="q-num">Question 7 / 10</div>
+            <div class="q-text">Quel article de la Constitution affirme que « la France est une République indivisible, laïque, démocratique et sociale » ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(6,0)">Article 1er</div>
+              <div class="option" onclick="selectOption(6,1)">Article 5</div>
+              <div class="option" onclick="selectOption(6,2)">Article 16</div>
+              <div class="option" onclick="selectOption(6,3)">Article 49</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q7">
+            <div class="q-num">Question 8 / 10</div>
+            <div class="q-text">Qu'est-ce que le Conseil constitutionnel ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(7,0)">Le gouvernement réuni au complet</div>
+              <div class="option" onclick="selectOption(7,1)">L'organe qui vérifie la conformité des lois à la Constitution</div>
+              <div class="option" onclick="selectOption(7,2)">Le tribunal suprême des affaires pénales</div>
+              <div class="option" onclick="selectOption(7,3)">L'assemblée des maires de France</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q8">
+            <div class="q-num">Question 9 / 10</div>
+            <div class="q-text">Lequel de ces éléments n'est PAS un symbole de la République française ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(8,0)">Marianne</div>
+              <div class="option" onclick="selectOption(8,1)">Le coq gaulois</div>
+              <div class="option" onclick="selectOption(8,2)">L'aigle impérial</div>
+              <div class="option" onclick="selectOption(8,3)">La Marseillaise</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q9">
+            <div class="q-num">Question 10 / 10</div>
+            <div class="q-text">Qu'est-ce qu'un référendum ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(9,0)">Un vote du Parlement à la majorité absolue</div>
+              <div class="option" onclick="selectOption(9,1)">Une consultation directe des citoyens sur une question précise</div>
+              <div class="option" onclick="selectOption(9,2)">Une décision du Conseil d'État</div>
+              <div class="option" onclick="selectOption(9,3)">Un débat télévisé entre candidats</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+        </div>
+        <div class="quiz-nav">
+          <div class="q-dots">
+            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
+            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
+          </div>
+          <div style="display:flex;gap:.8rem">
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+          </div>
+        </div>
+        <div class="quiz-result">
+          <div class="result-score-big" id="finalScore"></div>
+          <div class="result-msg" id="finalMsg"></div>
+          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESSOURCES -->
+    <section class="content-section" id="ressources">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div class="section-info">
+          <h2>Ressources recommandées</h2>
+          <p>Pour approfondir vos connaissances citoyennes</p>
+        </div>
+      </div>
+      <div class="resources-grid">
+        <a class="resource-card" href="https://www.vie-publique.fr" target="_blank">
+          <span class="resource-icon">📰</span>
+          <div class="resource-info">
+            <div class="resource-name">Vie publique</div>
+            <div class="resource-desc">Le site officiel d'information citoyenne du gouvernement français. Fiches pédagogiques sur les institutions, les lois et la vie politique.</div>
+            <span class="resource-type type-doc">Site officiel</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.conseil-constitutionnel.fr" target="_blank">
+          <span class="resource-icon">⚖️</span>
+          <div class="resource-info">
+            <div class="resource-name">Conseil constitutionnel</div>
+            <div class="resource-desc">Le texte intégral de la Constitution, les décisions du Conseil et des ressources pédagogiques sur le droit constitutionnel français.</div>
+            <span class="resource-type type-doc">Site officiel</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.youtube.com/@HugoDecrypte" target="_blank">
+          <span class="resource-icon">▶️</span>
+          <div class="resource-info">
+            <div class="resource-name">Hugo Décrypte</div>
+            <div class="resource-desc">Actualité politique et citoyenne décryptée pour les jeunes. Clair, pédagogique et engageant.</div>
+            <span class="resource-type type-video">YouTube</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://fr.wikipedia.org/wiki/Citoyennet%C3%A9" target="_blank">
+          <span class="resource-icon">🌐</span>
+          <div class="resource-info">
+            <div class="resource-name">Citoyenneté — Wikipédia</div>
+            <div class="resource-desc">Article encyclopédique complet sur l'histoire et les principes de la citoyenneté, de l'Antiquité à nos jours.</div>
+            <span class="resource-type type-wiki">Wikipedia</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- MÉMO -->
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel en une page — téléchargeable</p>
+        </div>
+      </div>
+      <div class="memo-preview">
+        <div class="memo-top">
+          <h3>🗳️ Éducation civique — Fiche mémo</h3>
+          <p>Droits, devoirs et valeurs de la République</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Valeurs républicaines</div>
+            <div class="memo-item">Liberté — droits individuels garantis</div>
+            <div class="memo-item">Égalité — mêmes droits pour tous</div>
+            <div class="memo-item">Fraternité — solidarité nationale</div>
+            <div class="memo-item">Laïcité — séparation État/religions</div>
+            <div class="memo-item">Indivisibilité — République une</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Textes fondateurs</div>
+            <div class="memo-item"><strong>1789</strong> DDHC</div>
+            <div class="memo-item"><strong>1905</strong> Loi de laïcité</div>
+            <div class="memo-item"><strong>1944</strong> Vote des femmes</div>
+            <div class="memo-item"><strong>1946</strong> Droits sociaux (préambule)</div>
+            <div class="memo-item"><strong>1948</strong> DUDH (ONU)</div>
+            <div class="memo-item"><strong>1958</strong> Constitution Ve République</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Institutions clés</div>
+            <div class="memo-item"><strong>Président</strong> Chef de l'État, élu 5 ans</div>
+            <div class="memo-item"><strong>Assemblée</strong> 577 députés, vote les lois</div>
+            <div class="memo-item"><strong>Sénat</strong> 348 sénateurs, 2e chambre</div>
+            <div class="memo-item"><strong>Conseil constit.</strong> Gardien de la Constitution</div>
+            <div class="memo-item"><strong>Conseil d'État</strong> Juge administratif suprême</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Symboles de la République</div>
+            <div class="memo-item">🇫🇷 Drapeau tricolore (bleu, blanc, rouge)</div>
+            <div class="memo-item">🎵 La Marseillaise (hymne national)</div>
+            <div class="memo-item">👩 Marianne (allégorie de la République)</div>
+            <div class="memo-item">🐓 Le coq gaulois</div>
+            <div class="memo-item">⚜️ Devise : Liberté, Égalité, Fraternité</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML/PDF)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+const questions = [
+  { q:"Quelle est la devise de la République française ?", opts:["Unité, Travail, Progrès","Liberté, Égalité, Fraternité","Ordre et Progrès","Paix, Justice, Liberté"], ans:1, expl:"'Liberté, Égalité, Fraternité' est la devise de la République française. Elle apparaît pour la première fois pendant la Révolution française et est inscrite dans la Constitution depuis 1958." },
+  { q:"À quel âge obtient-on le droit de vote en France ?", opts:["16 ans","18 ans","21 ans","25 ans"], ans:1, expl:"En France, la majorité civile et le droit de vote sont fixés à 18 ans depuis 1974 (abaissé de 21 à 18 ans par Valéry Giscard d'Estaing). Certains pays européens envisagent de l'abaisser à 16 ans." },
+  { q:"La DDHC date de :", opts:["1776","1789","1848","1948"], ans:1, expl:"La Déclaration des droits de l'homme et du citoyen a été adoptée le 26 août 1789 par l'Assemblée constituante. Elle proclame les droits naturels et imprescriptibles : liberté, propriété, sûreté, résistance à l'oppression." },
+  { q:"La loi de laïcité a été votée en :", opts:["1789","1882","1905","1946"], ans:2, expl:"La loi du 9 décembre 1905 de séparation des Églises et de l'État établit la laïcité en France. L'État ne reconnaît, ne salarie ni ne subventionne aucun culte, mais garantit la liberté de conscience et le libre exercice des cultes." },
+  { q:"En France, qui promulgue les lois ?", opts:["Le Premier ministre","Le président de la République","Le président de l'Assemblée nationale","Le Conseil constitutionnel"], ans:1, expl:"Selon l'article 10 de la Constitution, le président de la République promulgue les lois dans les 15 jours suivant leur adoption définitive par le Parlement. Il peut aussi demander une nouvelle délibération." },
+  { q:"Les femmes françaises ont obtenu le droit de vote en :", opts:["1918","1936","1944","1958"], ans:2, expl:"L'ordonnance du 21 avril 1944 du Comité français de libération nationale accorde le droit de vote aux femmes. Elles votent pour la première fois aux élections municipales du 29 avril 1945." },
+  { q:"L'article 1er de la Constitution affirme que la France est :", opts:["Une République indivisible, laïque, démocratique et sociale","Une démocratie parlementaire","Un État fédéral","Une monarchie constitutionnelle"], ans:0, expl:"L'article 1er de la Constitution de 1958 définit la France comme une 'République indivisible, laïque, démocratique et sociale'. Ces quatre adjectifs résument les valeurs fondamentales de la République." },
+  { q:"Le Conseil constitutionnel :", opts:["Gouverne le pays","Vérifie la conformité des lois à la Constitution","Juge les affaires pénales","Réunit les maires"], ans:1, expl:"Le Conseil constitutionnel, créé en 1958, vérifie que les lois sont conformes à la Constitution. Depuis 2010, tout citoyen peut saisir le Conseil via la Question prioritaire de constitutionnalité (QPC)." },
+  { q:"Lequel n'est PAS un symbole de la République ?", opts:["Marianne","Le coq gaulois","L'aigle impérial","La Marseillaise"], ans:2, expl:"L'aigle impérial est le symbole de l'Empire napoléonien, pas de la République. Les symboles républicains sont : Marianne, le drapeau tricolore, la Marseillaise, le coq gaulois, le faisceau de licteur et la devise." },
+  { q:"Un référendum est :", opts:["Un vote du Parlement","Une consultation directe des citoyens","Une décision du Conseil d'État","Un débat télévisé"], ans:1, expl:"Le référendum est un mécanisme de démocratie directe permettant aux citoyens de se prononcer par oui ou non sur une question. En France, il peut être déclenché par le président (art. 11) ou pour réviser la Constitution (art. 89)." }
+];
+
+let current=0,score=0,answered=new Array(10).fill(null);
+
+function renderQuestion(){
+  document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));
+  document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});
+  document.getElementById('btnPrev').disabled=current===0;
+  document.getElementById('btnNext').textContent=current===9?'Voir résultats':'Suivant →';
+}
+function selectOption(qi,oi){
+  if(answered[qi]!==null)return;answered[qi]=oi;
+  const block=document.querySelectorAll('.question-block')[qi];
+  block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});
+  const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');
+  if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');
+}
+function nextQuestion(){if(current<9){current++;renderQuestion();}else showResult();}
+function prevQuestion(){if(current>0){current--;renderQuestion();}}
+function showResult(){
+  document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';
+  const r=document.querySelector('.quiz-result');r.style.display='block';
+  document.getElementById('finalScore').textContent=score+'/10';
+  document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Bien !','Très bien !','Excellent, citoyen modèle !'][score<=2?0:score<=4?1:score<=6?2:score<=8?3:4];
+}
+function restartQuiz(){
+  current=0;score=0;answered.fill(null);
+  document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';
+  document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');
+  document.getElementById('quizScore').textContent=0;renderQuestion();
+}
+function goTo(id,el){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');
+}
+// Scroll spy
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+const sections=['resume','cours','concepts','quiz','ressources','memo'];
+window.addEventListener('scroll',()=>{
+  let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});
+  document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';
+});
+function downloadMemo(){
+  const w=window.open('','_blank','width=900,height=700');
+  w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Éducation civique</title>
+  <style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#c4506e;border-bottom:3px solid #c4506e;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#c4506e;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #f0c6d4;padding:1rem;border-radius:4px;background:#fef5f8}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style>
+  </head><body><h1>🗳️ Fiche mémo — Éducation civique</h1>
+  <div class="grid">
+    <div class="box"><h2>Valeurs républicaines</h2><ul><li>Liberté — droits individuels garantis</li><li>Égalité — mêmes droits pour tous</li><li>Fraternité — solidarité nationale</li><li>Laïcité — séparation État/religions (1905)</li><li>Indivisibilité — République une et indivisible</li></ul></div>
+    <div class="box"><h2>Textes fondateurs</h2><ul><li>1789 — Déclaration des droits de l'homme</li><li>1905 — Loi de laïcité</li><li>1944 — Droit de vote des femmes</li><li>1946 — Droits sociaux (préambule)</li><li>1948 — Déclaration universelle (ONU)</li><li>1958 — Constitution Ve République</li></ul></div>
+    <div class="box"><h2>Institutions</h2><ul><li>Président — chef de l'État, élu 5 ans</li><li>Assemblée nationale — 577 députés</li><li>Sénat — 348 sénateurs</li><li>Conseil constitutionnel — gardien de la Constitution</li><li>Conseil d'État — juge administratif suprême</li></ul></div>
+    <div class="box"><h2>Symboles</h2><ul><li>Drapeau tricolore (bleu, blanc, rouge)</li><li>La Marseillaise (hymne)</li><li>Marianne (allégorie)</li><li>Le coq gaulois</li><li>Devise : Liberté, Égalité, Fraternité</li></ul></div>
+  </div>
+  <div class="footer">Curiosita — Fiche mémo Éducation civique — ${new Date().toLocaleDateString('fr-FR')}</div>
+  <button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#c4506e;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">Imprimer / PDF</button>
+</body></html>`);w.document.close();
+}
+renderQuestion();
+</script>
+    <script src="mobile.js"></script>
+</body>
+</html>

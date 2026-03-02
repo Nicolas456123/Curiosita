@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thermodynamique — Physique — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #4fc3f7;
+  --accent2: #81d4fa;
+  --accent-dim: rgba(79,195,247,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../physique-page.html">Physique</a> › <span>Thermodynamique</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">⚛️ Physique</span>
+    <span class="tag-level">Débutant → Avancé</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Thermodynamique</em></h1>
+  <p class="hero-desc">La science de la chaleur, de l'énergie et des transformations — des machines à vapeur à l'entropie de l'univers.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">25</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../physique-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Physique</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Branches</p>
+    <a class="sidebar-link" href="mecanique.html">Mécanique</a>
+    <a class="sidebar-link active" href="#">Thermodynamique</a>
+    <a class="sidebar-link" href="optique.html">Optique</a>
+    <a class="sidebar-link" href="electromagnetisme.html">Électromagnétisme</a>
+    <a class="sidebar-link" href="moderne.html">Physique moderne</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que la thermodynamique ?</h2>
+          <p>Énergie, chaleur et transformations</p>
+        </div>
+      </div>
+      <p class="resume-text">La thermodynamique est la branche de la physique qui étudie les <strong>échanges d'énergie</strong> sous forme de chaleur et de travail, ainsi que les <strong>transformations</strong> de la matière. Née au XIXe siècle avec la révolution industrielle et le perfectionnement des machines à vapeur, elle est devenue l'un des piliers de la physique moderne.</p>
+      <div class="highlight-box">
+        <p><strong>L'idée fondamentale :</strong> la thermodynamique repose sur quatre principes (ou lois) qui gouvernent tous les échanges d'énergie dans l'univers. Le premier principe affirme que l'énergie se conserve ; le second impose une direction irréversible aux processus naturels via l'entropie.</p>
+      </div>
+      <p class="resume-text">Ses applications sont immenses : moteurs thermiques, réfrigérateurs, climatisation, centrales électriques, chimie des réactions, biologie (métabolisme), cosmologie (mort thermique de l'univers). La thermodynamique statistique, développée par Boltzmann, fait le lien entre le comportement microscopique des atomes et les propriétés macroscopiques observables.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours de thermodynamique</h2>
+          <p>Progressez étape par étape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="thermodynamique/temperature.html" class="course-card">
+          <span class="course-card-icon">🌡️</span>
+          <h3>Température et chaleur</h3>
+          <p>Agitation thermique, échelles de température, capacité calorifique, transferts de chaleur.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="thermodynamique/lois.html" class="course-card">
+          <span class="course-card-icon">📜</span>
+          <h3>Lois de la thermodynamique</h3>
+          <p>Les quatre principes fondamentaux qui régissent l'énergie et l'entropie.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="thermodynamique/changements-etat.html" class="course-card">
+          <span class="course-card-icon">❄️</span>
+          <h3>Changements d'état</h3>
+          <p>Fusion, vaporisation, sublimation, diagrammes de phase et chaleur latente.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="thermodynamique/machines.html" class="course-card">
+          <span class="course-card-icon">🔧</span>
+          <h3>Machines thermiques</h3>
+          <p>Cycles de Carnot, moteurs, réfrigérateurs, rendement et pompes à chaleur.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="thermodynamique/entropie.html" class="course-card">
+          <span class="course-card-icon">🔀</span>
+          <h3>Entropie</h3>
+          <p>Désordre, irréversibilité, entropie statistique de Boltzmann et flèche du temps.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel de la thermodynamique</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🌡️ Thermodynamique — Fiche mémo</h3>
+          <p>Curiosita · Chaleur, énergie et entropie</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Principes</div>
+            <div class="memo-item"><span class="mf">0ème →</span> équilibre thermique</div>
+            <div class="memo-item"><span class="mf">1er →</span> ΔU = Q + W</div>
+            <div class="memo-item"><span class="mf">2ème →</span> ΔS ≥ 0 (irréversibilité)</div>
+            <div class="memo-item"><span class="mf">3ème →</span> S → 0 quand T → 0 K</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Formules clés</div>
+            <div class="memo-item"><span class="mf">Q = mcΔT</span> (chaleur)</div>
+            <div class="memo-item"><span class="mf">PV = nRT</span> (gaz parfait)</div>
+            <div class="memo-item"><span class="mf">η = 1 − Tf/Tc</span> (Carnot)</div>
+            <div class="memo-item"><span class="mf">S = k·ln(Ω)</span> (Boltzmann)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Changements d'état</div>
+            <div class="memo-item"><span class="mf">Fusion →</span> solide → liquide</div>
+            <div class="memo-item"><span class="mf">Vaporisation →</span> liquide → gaz</div>
+            <div class="memo-item"><span class="mf">Sublimation →</span> solide → gaz</div>
+            <div class="memo-item"><span class="mf">Q = mL</span> (chaleur latente)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Constantes</div>
+            <div class="memo-item"><span class="mf">R =</span> 8,314 J/(mol·K)</div>
+            <div class="memo-item"><span class="mf">k =</span> 1,381 × 10⁻²³ J/K</div>
+            <div class="memo-item"><span class="mf">0 K =</span> −273,15 °C</div>
+            <div class="memo-item"><span class="mf">1 atm =</span> 101 325 Pa</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo(){var memo=document.getElementById('memoCard').outerHTML;var html='<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Thermodynamique — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#4fc3f7;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#4fc3f7;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>'+memo+'</body></html>';var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download='thermodynamique-fiche-memo.html';a.click();}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

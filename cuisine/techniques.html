@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Techniques culinaires — Cuisine & Gastronomie — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root { --accent: #8ae87a; --accent2: #a5f598; --accent-dim: rgba(138,232,122,0.08); }
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../cuisine-page.html">Cuisine & Gastronomie</a> › <span>Techniques culinaires</span></div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🍳 Cuisine & Gastronomie</span>
+    <span class="tag-level">Débutant → Avancé</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Techniques culinaires</em></h1>
+  <p class="hero-desc">Les gestes fondamentaux en cuisine — coupes, cuissons, sauces et méthodes pour maîtriser les bases de l'art culinaire.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../cuisine-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Cuisine & Gastronomie</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link active" href="#">Techniques culinaires</a>
+    <a class="sidebar-link" href="patisserie.html">Pâtisserie</a>
+    <a class="sidebar-link" href="monde.html">Cuisine du monde</a>
+    <a class="sidebar-link" href="nutrition.html">Nutrition</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="presentation">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Les techniques culinaires</h2><p>Introduction et vue d'ensemble</p></div></div>
+      <p class="resume-text">Les techniques culinaires sont l'ensemble des <strong>gestes, méthodes et savoir-faire</strong> qui permettent de transformer les aliments en plats savoureux. De la découpe des légumes aux cuissons les plus complexes, chaque technique est un outil au service de la créativité du cuisinier.</p>
+      <div class="highlight-box"><p><strong>L'idée fondamentale :</strong> la cuisine est une science autant qu'un art. Comprendre les réactions chimiques de la cuisson (Maillard, caramelisation) et maîtriser les gestes de base permet de réussir n'importe quelle recette.</p></div>
+      <p class="resume-text">La cuisine française, classée au <strong>patrimoine immatériel de l'UNESCO</strong> depuis 2010, est réputée pour la rigueur de ses techniques : les <strong>fonds et sauces</strong> d'Escoffier, les tailles de légumes précises, les modes de cuisson maîtrisés.</p>
+      <p class="resume-text">Ce domaine couvre les fondamentaux : les coupes et préparations, les modes de cuisson, les sauces mères, les émulsions et les techniques de conservation.</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Les cours de techniques culinaires</h2><p>Progressez étape par étape</p></div></div>
+      <div class="courses-grid">
+        <a href="techniques/coupes.html" class="course-card"><span class="course-card-icon">🔪</span><h3>Coupes et préparations</h3><p>Brunoise, julienne, chiffonnade : les découpes fondamentales et la mise en place.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="techniques/cuissons.html" class="course-card"><span class="course-card-icon">🔥</span><h3>Modes de cuisson</h3><p>Sauter, braiser, rôtir, pocher, griller : maîtriser la chaleur et les textures.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="techniques/sauces.html" class="course-card"><span class="course-card-icon">🍲</span><h3>Sauces fondamentales</h3><p>Les cinq sauces mères, les fonds, les jus et les déglacés.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="techniques/emulsions.html" class="course-card"><span class="course-card-icon">🥚</span><h3>Émulsions et liaisons</h3><p>Mayonnaise, hollandaise, beurre blanc : la science des émulsions stables.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="techniques/conservation.html" class="course-card"><span class="course-card-icon">❄️</span><h3>Conservation</h3><p>Congélation, stérilisation, fermentation, sous-vide et déshydratation.</p><span class="course-card-link">Voir le cours →</span></a>
+      </div>
+    </section>
+    <section class="content-section" id="memo">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Fiche mémo</h2><p>L'essentiel en un coup d'oeil</p></div></div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top"><h3>🔪 Techniques culinaires — Fiche mémo</h3><p>Curiosita · Gestes, cuissons et sauces</p></div>
+        <div class="memo-grid">
+          <div class="memo-section"><div class="memo-section-title">Coupes fondamentales</div><div class="memo-item"><span class="mf">Brunoise</span> 2-3 mm, dés réguliers</div><div class="memo-item"><span class="mf">Julienne</span> Bâtonnets fins 3×30 mm</div><div class="memo-item"><span class="mf">Chiffonnade</span> Fines lanières (herbes)</div><div class="memo-item"><span class="mf">Mirepoix</span> Dés 1 cm, base de fonds</div></div>
+          <div class="memo-section"><div class="memo-section-title">Modes de cuisson</div><div class="memo-item"><span class="mf">Sauter</span> Feu vif, peu de gras, mouvement</div><div class="memo-item"><span class="mf">Braiser</span> Saisir + cuire lentement, liquide</div><div class="memo-item"><span class="mf">Rôtir</span> Four, chaleur sèche, envelopper</div><div class="memo-item"><span class="mf">Pocher</span> Liquide frémissant, douceur</div></div>
+          <div class="memo-section"><div class="memo-section-title">5 sauces mères</div><div class="memo-item"><span class="mf">Béchamel</span> Roux blanc + lait</div><div class="memo-item"><span class="mf">Velouté</span> Roux blond + fond blanc</div><div class="memo-item"><span class="mf">Espagnole</span> Roux brun + fond brun</div><div class="memo-item"><span class="mf">Hollandaise</span> Jaunes + beurre clarifié</div></div>
+          <div class="memo-section"><div class="memo-section-title">Températures clés</div><div class="memo-item"><span class="mf">Maillard</span> 140-165°C, saveurs grillées</div><div class="memo-item"><span class="mf">Caramel</span> 170°C, sucre ambré</div><div class="memo-item"><span class="mf">Pasteurisation</span> 63°C / 30 min</div><div class="memo-item"><span class="mf">Sous-vide</span> 55-85°C, précision</div></div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+  </main>
+</div>
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo(){var m=document.getElementById('memoCard').outerHTML;var html='<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Techniques culinaires \u2014 Fiche m\u00e9mo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#8ae87a;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#8ae87a;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>'+m+'</body></html>';var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download='techniques-culinaires-fiche-memo.html';a.click();}
+</script>
+<script src="../mobile.js"></script>
+</body>
+</html>

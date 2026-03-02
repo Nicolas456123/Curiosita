@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Histoire — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<style>
+:root {
+  --accent: #7ae88a;
+  --accent2: #a0f0ad;
+  --accent-dim: rgba(122,232,138,0.1);
+}
+.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(122,232,138,0.07) 0%, transparent 70%); }
+.hero-deco { color: rgba(122,232,138,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="sciences-humaines.html">Sciences humaines</a> › <span>Histoire</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-deco">∞</div>
+  <div class="hero-meta">
+    <span class="tag-domain">🌍 Sciences humaines & sociales</span>
+    <span class="tag-level">Tous niveaux</span>
+    <span class="tag-time">⏱ ~7h de lecture</span>
+  </div>
+  <h1>Comprendre le<br><em>présent.</em></h1>
+  <p class="hero-desc">L'histoire n'est pas une suite de dates à mémoriser : c'est la compréhension des forces qui façonnent nos sociétés. Civilisations, révolutions, guerres et idées — les leçons du passé éclairent chaque décision d'aujourd'hui.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">4</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">6</div><div class="hstat-lab">Quiz</div></div>
+    <div class="hstat"><div class="hstat-val">6</div><div class="hstat-lab">Ressources</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="resume" onclick="goTo('resume',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="periodes" onclick="goTo('periodes',this)">📅 Grandes périodes</a>
+    <a class="sidebar-link" data-section="concepts" onclick="goTo('concepts',this)">🧩 Concepts clés</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="ressources" onclick="goTo('ressources',this)">🔗 Ressources</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Cours</p>
+    <a class="sidebar-link" href="histoire/antiquite.html">Antiquité</a>
+    <a class="sidebar-link" href="histoire/moyen-age.html">Moyen Âge</a>
+    <a class="sidebar-link" href="histoire/moderne.html">Époque moderne</a>
+    <a class="sidebar-link" href="histoire/contemporaine.html">Époque contemporaine</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="resume">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Pourquoi étudier l'histoire ?</h2>
+          <p>Méthode, sources et utilité</p>
+        </div>
+      </div>
+      <p class="resume-text">L'histoire est la science qui étudie le passé humain à partir de <strong>sources</strong> (textes, objets, témoignages, images). Elle ne se contente pas de raconter : elle explique les causalités, analyse les structures sociales, économiques et politiques, et cherche à comprendre comment nous en sommes arrivés là.</p>
+      <div class="highlight-box">
+        <p><strong>"Ceux qui ne se souviennent pas du passé sont condamnés à le répéter."</strong> — Georges Santayana. L'étude de l'histoire développe l'esprit critique, permet de déjouer les manipulations politiques et d'appréhender la complexité du monde contemporain.</p>
+      </div>
+      <p class="resume-text">L'historien travaille avec des <strong>sources primaires</strong> (documents d'époque : lois, lettres, chroniques, fouilles archéologiques) qu'il critique et croise. Il produit une interprétation argumentée du passé, toujours révisable à la lumière de nouvelles découvertes. L'histoire est donc une discipline vivante et en perpétuelle reconstruction.</p>
+      <p class="resume-text">La <strong>géographie</strong> lui est indissociable : les territoires, les ressources, les frontières et les échanges commerciaux expliquent souvent pourquoi les empires naissent et disparaissent, pourquoi les guerres éclatent, pourquoi les migrations se produisent. Comprendre la carte du monde, c'est comprendre l'histoire.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Explorez les cours</h2>
+          <p>Plongez dans chaque domaine en détail</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="histoire/antiquite.html" class="course-card">
+          <span class="course-card-icon">🏛️</span>
+          <h3>Antiquité</h3>
+          <p>Mésopotamie, Égypte, Grèce, Rome. Les civilisations fondatrices.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="histoire/moyen-age.html" class="course-card">
+          <span class="course-card-icon">⚔️</span>
+          <h3>Moyen Âge</h3>
+          <p>Byzance, Islam médiéval, féodalité, croisades. Mille ans d'histoire.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="histoire/moderne.html" class="course-card">
+          <span class="course-card-icon">🔥</span>
+          <h3>Époque moderne</h3>
+          <p>Renaissance, Lumières, Révolution française et industrielle.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="histoire/contemporaine.html" class="course-card">
+          <span class="course-card-icon">🌍</span>
+          <h3>Époque contemporaine</h3>
+          <p>Guerres mondiales, Guerre froide, décolonisation, mondialisation.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="periodes">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Les grandes périodes</h2>
+          <p>De la Préhistoire à nos jours</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-date">−3,3 millions → −3000 av. J.-C.</div>
+          <div class="tl-title">Préhistoire</div>
+          <div class="tl-desc">Du premier outil en pierre taillée à l'invention de l'écriture. Homo sapiens, maîtrise du feu, sédentarisation, agriculture (révolution néolithique ~10 000 av. J.-C.).</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">−3000 → 476 apr. J.-C.</div>
+          <div class="tl-title">Antiquité</div>
+          <div class="tl-desc">Mésopotamie, Égypte, Grèce, Rome. Naissance de l'écriture, des religions monothéistes, de la démocratie, du droit, de la philosophie et des grandes cités.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">476 → 1492</div>
+          <div class="tl-title">Moyen Âge</div>
+          <div class="tl-desc">Féodalité, Islam, Croisades, épidémie de peste noire (1347), cathédrales gothiques, Magna Carta (1215), essor des universités.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">XVe — XVIIe siècle</div>
+          <div class="tl-title">Époque moderne</div>
+          <div class="tl-desc">Grandes découvertes, Renaissance italienne, Réforme protestante, guerres de religion, monarchies absolues, colonisation des Amériques.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">1789 → 1945</div>
+          <div class="tl-title">Époque contemporaine I</div>
+          <div class="tl-desc">Révolution française, Empire napoléonien, révolution industrielle, nationalisme, colonialisme, Première et Seconde Guerres mondiales, génocides.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">1945 → aujourd'hui</div>
+          <div class="tl-title">Époque contemporaine II</div>
+          <div class="tl-desc">Guerre froide, décolonisation, ONU, construction européenne, chute du mur de Berlin (1989), mondialisation, numérique.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="concepts">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Concepts clés</h2>
+          <p>Le vocabulaire essentiel de l'historien</p>
+        </div>
+      </div>
+      <div class="concepts-grid">
+        <div class="concept-card"><div class="concept-title">Civilisation</div><div class="concept-desc">Société complexe avec écriture, organisation politique, spécialisation des tâches, art et architecture monumentale. Ex : Mésopotamie, Égypte, Rome.</div></div>
+        <div class="concept-card"><div class="concept-title">Féodalité</div><div class="concept-desc">Système politique médiéval fondé sur des liens de vassalité : le seigneur offre protection et terres (fief), le vassal offre service militaire et fidélité.</div></div>
+        <div class="concept-card"><div class="concept-title">Révolution</div><div class="concept-desc">Changement brutal et profond d'un ordre politique, social ou économique. Distinguer : révolution politique (1789), industrielle (XIXe s.), scientifique (XVIIe s.).</div></div>
+        <div class="concept-card"><div class="concept-title">Colonisation</div><div class="concept-desc">Processus par lequel une puissance étrangère s'installe et contrôle un territoire, souvent par la force, exploitant ses ressources et imposant sa culture.</div></div>
+        <div class="concept-card"><div class="concept-title">Géopolitique</div><div class="concept-desc">Analyse des relations entre États selon leur géographie (frontières, ressources, accès à la mer). Explique les conflits, les alliances et les équilibres de puissance.</div></div>
+        <div class="concept-card"><div class="concept-title">Guerre froide</div><div class="concept-desc">Tension (1947-1991) entre les États-Unis (bloc capitaliste/OTAN) et l'URSS (bloc communiste/Pacte de Varsovie). Course aux armements, proxy wars, course à l'espace.</div></div>
+        <div class="concept-card"><div class="concept-title">Dialectique historique</div><div class="concept-desc">Selon Marx, l'histoire avance par lutte des classes (bourgeoisie vs prolétariat). Pour Hegel, par le développement de l'Esprit universel.</div></div>
+        <div class="concept-card"><div class="concept-title">Source historique</div><div class="concept-desc">Tout document permettant de reconstituer le passé : archive, monument, œuvre d'art, témoignage oral. L'historien les critique et les confronte.</div></div>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div class="section-info">
+          <h2>Quiz interactif</h2>
+          <p>6 questions pour tester vos connaissances</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">Quiz — Histoire</span>
+          <span class="quiz-score">Score : <span id="quizScore">0</span>/6</span>
+        </div>
+        <div class="quiz-body">
+          <div class="question-block active" id="q0">
+            <div class="q-num">Question 1 / 6</div>
+            <div class="q-text">En quelle année la Révolution française a-t-elle débuté avec la prise de la Bastille ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(0,0)">1776</div>
+              <div class="option" onclick="selectOption(0,1)">1789</div>
+              <div class="option" onclick="selectOption(0,2)">1793</div>
+              <div class="option" onclick="selectOption(0,3)">1804</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q1">
+            <div class="q-num">Question 2 / 6</div>
+            <div class="q-text">Quel traité a mis fin à la Première Guerre mondiale en 1919 ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(1,0)">Traité de Paris</div>
+              <div class="option" onclick="selectOption(1,1)">Traité de Vienne</div>
+              <div class="option" onclick="selectOption(1,2)">Traité de Versailles</div>
+              <div class="option" onclick="selectOption(1,3)">Traité de Genève</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q2">
+            <div class="q-num">Question 3 / 6</div>
+            <div class="q-text">Qui dirigeait l'URSS pendant la Seconde Guerre mondiale ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(2,0)">Lénine</div>
+              <div class="option" onclick="selectOption(2,1)">Khrouchtchev</div>
+              <div class="option" onclick="selectOption(2,2)">Trotski</div>
+              <div class="option" onclick="selectOption(2,3)">Staline</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q3">
+            <div class="q-num">Question 4 / 6</div>
+            <div class="q-text">La Renaissance italienne (Quattrocento) est née dans quelle ville ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(3,0)">Rome</div>
+              <div class="option" onclick="selectOption(3,1)">Venise</div>
+              <div class="option" onclick="selectOption(3,2)">Florence</div>
+              <div class="option" onclick="selectOption(3,3)">Milan</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q4">
+            <div class="q-num">Question 5 / 6</div>
+            <div class="q-text">Quel événement marque officiellement la fin de la Guerre froide ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(4,0)">La chute du mur de Berlin (1989)</div>
+              <div class="option" onclick="selectOption(4,1)">La dissolution de l'URSS (1991)</div>
+              <div class="option" onclick="selectOption(4,2)">Le retrait américain du Vietnam (1975)</div>
+              <div class="option" onclick="selectOption(4,3)">L'accord SALT II (1979)</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q5">
+            <div class="q-num">Question 6 / 6</div>
+            <div class="q-text">Lequel de ces empires a été le plus étendu en superficie de toute l'histoire ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(5,0)">Empire romain</div>
+              <div class="option" onclick="selectOption(5,1)">Empire britannique</div>
+              <div class="option" onclick="selectOption(5,2)">Empire mongol</div>
+              <div class="option" onclick="selectOption(5,3)">Empire ottoman</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+        </div>
+        <div class="quiz-nav">
+          <div class="q-dots">
+            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div>
+            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
+          </div>
+          <div style="display:flex;gap:.8rem">
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+          </div>
+        </div>
+        <div class="quiz-result">
+          <div class="result-score-big" id="finalScore"></div>
+          <div class="result-msg" id="finalMsg"></div>
+          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="ressources">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <div class="section-info">
+          <h2>Ressources externes</h2>
+          <p>Les meilleures sources pour approfondir</p>
+        </div>
+      </div>
+      <div class="resources-grid">
+        <a class="resource-card" href="https://www.youtube.com/@NotaBene" target="_blank">
+          <span class="resource-icon">▶️</span>
+          <div class="resource-info">
+            <div class="resource-name">Nota Bene</div>
+            <div class="resource-desc">La chaîne YouTube d'histoire francophone de référence. Documentaires animés rigoureux sur toutes les périodes. Indispensable.</div>
+            <span class="resource-type type-video">YouTube</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.herodote.net" target="_blank">
+          <span class="resource-icon">📰</span>
+          <div class="resource-info">
+            <div class="resource-name">Hérodote.net</div>
+            <div class="resource-desc">Site de référence en histoire française et mondiale. Fiches pays, chronologies, biographies des grands personnages historiques.</div>
+            <span class="resource-type type-doc">Site web</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://gallica.bnf.fr" target="_blank">
+          <span class="resource-icon">📚</span>
+          <div class="resource-info">
+            <div class="resource-name">Gallica — BNF</div>
+            <div class="resource-desc">Bibliothèque numérique de la BNF. Des millions de documents historiques numérisés : cartes anciennes, journaux, manuscrits.</div>
+            <span class="resource-type type-doc">Archives</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://fr.wikipedia.org/wiki/Histoire" target="_blank">
+          <span class="resource-icon">🌐</span>
+          <div class="resource-info">
+            <div class="resource-name">Wikipedia — Histoire</div>
+            <div class="resource-desc">Point d'entrée pratique avec des articles bien sourcés sur les événements, personnages et périodes de toute l'histoire mondiale.</div>
+            <span class="resource-type type-wiki">Wikipedia</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.coursera.org/courses?query=history" target="_blank">
+          <span class="resource-icon">🎓</span>
+          <div class="resource-info">
+            <div class="resource-name">Coursera — History</div>
+            <div class="resource-desc">Cours des universités mondiales : Princeton, Duke, Edinburgh. "The Modern World", "A History of the World since 1300"...</div>
+            <span class="resource-type type-course">Cours en ligne</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.youtube.com/@cestpassorcier" target="_blank">
+          <span class="resource-icon">🔭</span>
+          <div class="resource-info">
+            <div class="resource-name">C'est pas sorcier — Histoire</div>
+            <div class="resource-desc">Vulgarisation pédagogique et accessible sur des sujets historiques. Parfait pour une première approche ou une remise à niveau.</div>
+            <span class="resource-type type-video">YouTube</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel en une page — téléchargeable</p>
+        </div>
+      </div>
+      <div class="memo-preview">
+        <div class="memo-top">
+          <h3>📋 Histoire — Fiche mémo</h3>
+          <p>Périodes, dates clés et concepts essentiels</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Grandes périodes</div>
+            <div class="memo-item">Préhistoire — jusqu'à −3000 av. J.-C.</div>
+            <div class="memo-item">Antiquité — −3000 à 476</div>
+            <div class="memo-item">Moyen Âge — 476 à 1492</div>
+            <div class="memo-item">Époque moderne — 1492 à 1789</div>
+            <div class="memo-item">Époque contemporaine — 1789 à aujourd'hui</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Dates incontournables</div>
+            <div class="memo-item">−753 — Fondation de Rome</div>
+            <div class="memo-item">1215 — Magna Carta</div>
+            <div class="memo-item">1789 — Révolution française</div>
+            <div class="memo-item">1914-1918 — Première Guerre mondiale</div>
+            <div class="memo-item">1939-1945 — Seconde Guerre mondiale</div>
+            <div class="memo-item">1989 — Chute du mur de Berlin</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Empires majeurs</div>
+            <div class="memo-item">Empire romain — 27 av. J.-C. à 476</div>
+            <div class="memo-item">Empire mongol — 1206-1368 (le + étendu)</div>
+            <div class="memo-item">Empire ottoman — 1299-1922</div>
+            <div class="memo-item">Empire britannique — XIXe-XXe s.</div>
+            <div class="memo-item">Empire américain (influence) — XXe s.</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Révolutions clés</div>
+            <div class="memo-item">Néolithique — agriculture (~10 000 av. J.-C.)</div>
+            <div class="memo-item">Française — 1789, droits de l'homme</div>
+            <div class="memo-item">Industrielle — XVIIIe-XIXe s., vapeur</div>
+            <div class="memo-item">Russe — 1917, communisme</div>
+            <div class="memo-item">Numérique — XXe-XXIe s., internet</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML/PDF)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+const questions = [
+  { q:"En quelle année la Révolution française a-t-elle débuté ?", opts:["1776","1789","1793","1804"], ans:1, expl:"Le 14 juillet 1789, la prise de la Bastille marque le début de la Révolution française. L'Assemblée nationale avait déjà été proclamée le 17 juin et la Déclaration des droits de l'homme sera adoptée le 26 août 1789." },
+  { q:"Quel traité a mis fin à la Première Guerre mondiale ?", opts:["Traité de Paris","Traité de Vienne","Traité de Versailles","Traité de Genève"], ans:2, expl:"Signé le 28 juin 1919 au château de Versailles, ce traité imposait à l'Allemagne des conditions très dures (article 231 : clause de culpabilité de guerre), qui alimenteront le ressentiment menant à la Seconde Guerre mondiale." },
+  { q:"Qui dirigeait l'URSS pendant la Seconde Guerre mondiale ?", opts:["Lénine","Khrouchtchev","Trotski","Staline"], ans:3, expl:"Joseph Staline dirigea l'URSS de 1924 à 1953. Il mena le pays à la victoire sur le Troisième Reich avec un coût humain colossal : environ 27 millions de morts soviétiques, soit 13% de la population." },
+  { q:"La Renaissance italienne est née dans quelle ville ?", opts:["Rome","Venise","Florence","Milan"], ans:2, expl:"Florence (Quattrocento = XVe siècle) est le berceau de la Renaissance, sous la protection des Médicis. Léonard de Vinci, Botticelli, Michel-Ange y travaillèrent. Le terme 'Renaissance' fut popularisé par l'historien Jules Michelet au XIXe s." },
+  { q:"Quel événement marque officiellement la fin de la Guerre froide ?", opts:["La chute du mur de Berlin (1989)","La dissolution de l'URSS (1991)","Le retrait américain du Vietnam (1975)","L'accord SALT II (1979)"], ans:1, expl:"Si la chute du mur (novembre 1989) est le symbole le plus fort, c'est la dissolution officielle de l'Union soviétique le 25 décembre 1991 qui clôt juridiquement la Guerre froide. Les 15 républiques deviennent des États indépendants." },
+  { q:"Lequel de ces empires a été le plus étendu en superficie ?", opts:["Empire romain","Empire britannique","Empire mongol","Empire ottoman"], ans:2, expl:"L'Empire mongol de Gengis Khan et ses successeurs (XIIIe-XIVe s.) couvrait ~24 millions de km², soit 22% des terres émergées. C'est le plus grand empire contigu de l'histoire. L'Empire britannique était plus vaste mais non contigu (~35 millions km²)." }
+];
+
+let current=0,score=0,answered=new Array(6).fill(null);
+
+function renderQuestion(){
+  document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));
+  document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});
+  document.getElementById('btnPrev').disabled=current===0;
+  document.getElementById('btnNext').textContent=current===5?'Voir résultats':'Suivant →';
+}
+function selectOption(qi,oi){
+  if(answered[qi]!==null)return;answered[qi]=oi;
+  const block=document.querySelectorAll('.question-block')[qi];
+  block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});
+  const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');
+  if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');
+}
+function nextQuestion(){if(current<5){current++;renderQuestion();}else showResult();}
+function prevQuestion(){if(current>0){current--;renderQuestion();}}
+function showResult(){
+  document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';
+  const r=document.querySelector('.quiz-result');r.style.display='block';
+  document.getElementById('finalScore').textContent=score+'/6';
+  document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Très bien !','Excellent !'][score<=2?0:score<=4?1:score<=5?2:3];
+}
+function restartQuiz(){
+  current=0;score=0;answered.fill(null);
+  document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';
+  document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');
+  document.getElementById('quizScore').textContent=0;renderQuestion();
+}
+function goTo(id,el){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');
+}
+// Scroll spy
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+const sections=['resume','periodes','concepts','quiz','ressources','memo'];
+window.addEventListener('scroll',()=>{
+  let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});
+  document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';
+});
+function downloadMemo(){
+  const w=window.open('','_blank','width=900,height=700');
+  w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Histoire</title>
+  <style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#3d9e4a;border-bottom:3px solid #3d9e4a;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#3d9e4a;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #c8e6ca;padding:1rem;border-radius:4px;background:#f9fef9}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style>
+  </head><body><h1>🌍 Fiche mémo — Histoire & Géographie</h1>
+  <div class="grid">
+    <div class="box"><h2>Grandes périodes</h2><ul><li>Préhistoire — jusqu'à −3000 av. J.-C.</li><li>Antiquité — −3000 à 476</li><li>Moyen Âge — 476 à 1492</li><li>Époque moderne — 1492 à 1789</li><li>Époque contemporaine — 1789 à aujourd'hui</li></ul></div>
+    <div class="box"><h2>Dates incontournables</h2><ul><li>−753 — Fondation de Rome</li><li>1215 — Magna Carta</li><li>1492 — Découverte de l'Amérique</li><li>1789 — Révolution française</li><li>1914-1918 — 1ère Guerre mondiale</li><li>1939-1945 — 2ème Guerre mondiale</li><li>1989 — Chute du mur de Berlin</li></ul></div>
+    <div class="box"><h2>Grands empires</h2><ul><li>Empire perse (550-330 av. J.-C.)</li><li>Empire romain (27 av. J.-C.-476)</li><li>Empire mongol (1206-1368) — le + vaste</li><li>Empire ottoman (1299-1922)</li><li>Empire britannique (XIXe-XXe s.)</li></ul></div>
+    <div class="box"><h2>Révolutions majeures</h2><ul><li>Néolithique — agriculture ~10 000 av. J.-C.</li><li>Française — 1789</li><li>Industrielle — XVIIIe-XIXe s.</li><li>Américaine — 1776</li><li>Russe — 1917</li><li>Numérique — XXe-XXIe s.</li></ul></div>
+  </div>
+  <div class="footer">Curiosita — Fiche mémo Histoire — ${new Date().toLocaleDateString('fr-FR')}</div>
+  <button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#3d9e4a;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">🖨️ Imprimer / PDF</button>
+  
+</body></html>`);w.document.close();
+}
+renderQuestion();
+</script>
+    <script src="mobile.js"></script>
+</body>
+</html>

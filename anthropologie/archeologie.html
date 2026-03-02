@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Archeologie — Anthropologie — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #7ae88a;
+  --accent2: #a5d6a7;
+  --accent-dim: rgba(122,232,138,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../anthropologie-page.html">Anthropologie</a> › <span>Archeologie</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche memo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🏺 Anthropologie</span>
+    <span class="tag-level">Debutant → Avance</span>
+    <span class="tag-time">⏱ ~6h de lecture</span>
+  </div>
+  <h1><em>Archeologie</em></h1>
+  <p class="hero-desc">Fouilles, datation et civilisations anciennes : reconstituer le passe de l'humanite a partir de ses vestiges materiels.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../anthropologie-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Anthropologie</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Presentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche memo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="culturelle.html">Anthropologie culturelle</a>
+    <a class="sidebar-link" href="physique.html">Anthropologie physique</a>
+    <a class="sidebar-link" href="ethnologie.html">Ethnologie</a>
+    <a class="sidebar-link active" href="#">Archeologie</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que l'archeologie ?</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">L'archeologie est la <strong>science qui etudie les societes humaines a travers leurs vestiges materiels</strong> : outils, poteries, ossements, batiments, oeuvres d'art, dechets alimentaires. En fouillant methodiquement le sol, les archeologues reconstituent les modes de vie, les techniques, les croyances et l'organisation sociale des populations du passe.</p>
+      <div class="highlight-box">
+        <p><strong>L'idee fondamentale :</strong> l'archeologie est une science destructrice — une fouille ne peut etre refaite. Chaque couche de terre enlevee, chaque objet deplace est une information definitivement perdue si elle n'est pas rigoureusement enregistree. C'est pourquoi la methode stratigraphique — l'etude des couches successives du sol — est le principe fondamental de toute fouille.</p>
+      </div>
+      <p class="resume-text">Les methodes de <strong>datation</strong> ont revolucionne la discipline. Le <strong>carbone 14</strong> (C14) date les restes organiques jusqu'a ~50 000 ans. La <strong>thermoluminescence</strong> date les ceramiques et sediments. La <strong>dendrochronologie</strong> (anneaux des arbres) offre une precision a l'annee pres. Ces techniques permettent de construire une chronologie fiable du passe humain.</p>
+      <p class="resume-text">Ce domaine couvre les methodes de fouille et de datation, les grandes decouvertes archeologiques, les civilisations antiques (Mesopotamie, Egypte, Grece, Rome), l'archeologie prehistorique et l'archeologie contemporaine (archeologie industrielle, sous-marine, preventive).</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours</h2>
+          <p>Progressez etape par etape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="archeologie/methodes.html" class="course-card">
+          <span class="course-card-icon">🔬</span>
+          <h3>Methodes de fouille</h3>
+          <p>Stratigraphie, prospection, relevees, enregistrement et conservation du mobilier archeologique.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="archeologie/datation.html" class="course-card">
+          <span class="course-card-icon">⏳</span>
+          <h3>Datation</h3>
+          <p>Carbone 14, thermoluminescence, dendrochronologie, potassium-argon et chronologie relative.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="archeologie/prehistoire.html" class="course-card">
+          <span class="course-card-icon">🪨</span>
+          <h3>Prehistoire</h3>
+          <p>Paleolithique, Mesolithique, Neolithique : des premiers outils a l'invention de l'agriculture.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="archeologie/civilisations.html" class="course-card">
+          <span class="course-card-icon">🏛️</span>
+          <h3>Civilisations antiques</h3>
+          <p>Mesopotamie, Egypte, Indus, Chine, Grece, Rome : les grandes civilisations et leurs vestiges.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="archeologie/contemporaine.html" class="course-card">
+          <span class="course-card-icon">⚓</span>
+          <h3>Archeologie contemporaine</h3>
+          <p>Archeologie preventive, sous-marine, industrielle et forensique : les nouvelles frontieres.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche memo</h2>
+          <p>L'essentiel de l'archeologie</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>⏳ Archeologie — Fiche memo</h3>
+          <p>Curiosita</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Methodes de datation</div>
+            <div class="memo-item"><span class="mf">Carbone 14 →</span> organique, < 50 000 ans</div>
+            <div class="memo-item"><span class="mf">Thermoluminescence →</span> ceramique, sediments</div>
+            <div class="memo-item"><span class="mf">Dendrochronologie →</span> anneaux des arbres, precision annuelle</div>
+            <div class="memo-item"><span class="mf">Potassium-argon →</span> roches volcaniques, millions d'annees</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Periodes</div>
+            <div class="memo-item"><span class="mf">Paleolithique →</span> 3,3 Ma → 12 000 av. J.-C.</div>
+            <div class="memo-item"><span class="mf">Neolithique →</span> ~10 000 av. J.-C., agriculture</div>
+            <div class="memo-item"><span class="mf">Age du bronze →</span> ~3 300 av. J.-C., metallurgie</div>
+            <div class="memo-item"><span class="mf">Age du fer →</span> ~1 200 av. J.-C.</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Civilisations</div>
+            <div class="memo-item"><span class="mf">Sumer →</span> ~3 500 av. J.-C., ecriture</div>
+            <div class="memo-item"><span class="mf">Egypte →</span> ~3 100 av. J.-C., pyramides</div>
+            <div class="memo-item"><span class="mf">Indus →</span> ~2 600 av. J.-C., Mohenjo-daro</div>
+            <div class="memo-item"><span class="mf">Rome →</span> 753 av. J.-C. → 476 ap. J.-C.</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Decouvertes celebres</div>
+            <div class="memo-item"><span class="mf">Lascaux →</span> art parietal, ~17 000 ans</div>
+            <div class="memo-item"><span class="mf">Toutankhamon →</span> Howard Carter, 1922</div>
+            <div class="memo-item"><span class="mf">Pompei →</span> ensevelie en 79 ap. J.-C.</div>
+            <div class="memo-item"><span class="mf">Rosette →</span> Champollion, hieroglyphes (1822)</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Telecharger la fiche memo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Archeologie \u2014 Fiche memo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#7ae88a;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#7ae88a;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '\n</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'archeologie-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

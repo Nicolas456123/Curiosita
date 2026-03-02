@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geographie physique — Geographie — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #7ae88a;
+  --accent2: #a5d6a7;
+  --accent-dim: rgba(122,232,138,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../geographie-page.html">Geographie</a> › <span>Geographie physique</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche memo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🗺️ Geographie</span>
+    <span class="tag-level">Debutant → Avance</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Geographie physique</em></h1>
+  <p class="hero-desc">Les forces qui faconnent la Terre : tectonique des plaques, relief, hydrologie, climatologie et geomorphologie.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../geographie-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Geographie</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Presentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche memo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link active" href="#">Geographie physique</a>
+    <a class="sidebar-link" href="humaine.html">Geographie humaine</a>
+    <a class="sidebar-link" href="geopolitique.html">Geopolitique</a>
+    <a class="sidebar-link" href="cartographie.html">Cartographie</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>La geographie physique</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">La geographie physique etudie les <strong>composantes naturelles de la surface terrestre</strong> : le relief, les cours d'eau, les climats, les sols et la vegetation. Elle cherche a comprendre les processus qui faconnent les paysages et les milieux naturels, depuis les forces internes de la Terre (volcans, seismes) jusqu'aux agents externes (eau, vent, glace).</p>
+      <div class="highlight-box">
+        <p><strong>L'idee fondamentale :</strong> la surface terrestre est le produit d'un equilibre dynamique entre les forces internes (tectonique, volcanisme) qui creent le relief et les forces externes (erosion, transport, sedimentation) qui le sculptent. Cet equilibre evolue sur des echelles de temps allant de la seconde (seisme) au milliard d'annees (derive des continents).</p>
+      </div>
+      <p class="resume-text">La geographie physique se subdivise en plusieurs disciplines : la <strong>geomorphologie</strong> (formes du relief), la <strong>climatologie</strong> (systemes climatiques), l'<strong>hydrologie</strong> (cycle de l'eau), la <strong>biogeographie</strong> (repartition des especes) et la <strong>pedologie</strong> (etude des sols).</p>
+      <p class="resume-text">Ce domaine couvre la tectonique des plaques, la geomorphologie et les formes du relief, l'hydrologie et le cycle de l'eau, la climatologie et les zones climatiques, ainsi que les risques naturels.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours de geographie physique</h2>
+          <p>Progressez etape par etape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="physique/tectonique.html" class="course-card">
+          <span class="course-card-icon">🌋</span>
+          <h3>Tectonique des plaques</h3>
+          <p>Derive des continents, dorsales oceaniques, subduction, volcans et seismes.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="physique/geomorphologie.html" class="course-card">
+          <span class="course-card-icon">🏔️</span>
+          <h3>Geomorphologie</h3>
+          <p>Montagnes, plaines, plateaux, vallees : les formes du relief et leur formation.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="physique/hydrologie.html" class="course-card">
+          <span class="course-card-icon">💧</span>
+          <h3>Hydrologie</h3>
+          <p>Cycle de l'eau, bassins versants, fleuves, nappes phreatiques et oceans.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="physique/climatologie.html" class="course-card">
+          <span class="course-card-icon">🌤️</span>
+          <h3>Climatologie</h3>
+          <p>Zones climatiques, circulation atmospherique, moussons et phenomenes meteorologiques.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="physique/risques-naturels.html" class="course-card">
+          <span class="course-card-icon">⚠️</span>
+          <h3>Risques naturels</h3>
+          <p>Seismes, tsunamis, eruptions, inondations, cyclones : comprendre et prevenir les catastrophes.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche memo</h2>
+          <p>L'essentiel de la geographie physique</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🗺️ Geographie physique — Fiche memo</h3>
+          <p>Curiosita · Relief, climat et processus naturels</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Tectonique</div>
+            <div class="memo-item"><span class="mf">Plaques →</span> 15 plaques lithospheriques majeures</div>
+            <div class="memo-item"><span class="mf">Dorsale →</span> creation de croute oceanique</div>
+            <div class="memo-item"><span class="mf">Subduction →</span> plongement d'une plaque</div>
+            <div class="memo-item"><span class="mf">Collision →</span> formation de montagnes</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Relief</div>
+            <div class="memo-item"><span class="mf">Erosion →</span> eau, vent, glace, gravite</div>
+            <div class="memo-item"><span class="mf">Karst →</span> dissolution du calcaire</div>
+            <div class="memo-item"><span class="mf">Glaciaire →</span> vallees en U, moraines</div>
+            <div class="memo-item"><span class="mf">Fluvial →</span> vallees en V, meandres, deltas</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Hydrologie</div>
+            <div class="memo-item"><span class="mf">Cycle →</span> evaporation, precipitation, ruissellement</div>
+            <div class="memo-item"><span class="mf">Bassin versant →</span> aire drainee par un cours d'eau</div>
+            <div class="memo-item"><span class="mf">Nappe →</span> eau souterraine dans un aquifere</div>
+            <div class="memo-item"><span class="mf">97,5 % →</span> eau salee (2,5 % douce)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Zones climatiques</div>
+            <div class="memo-item"><span class="mf">Tropical →</span> chaud et humide toute l'annee</div>
+            <div class="memo-item"><span class="mf">Aride →</span> precipitations < 250 mm/an</div>
+            <div class="memo-item"><span class="mf">Tempere →</span> quatre saisons marquees</div>
+            <div class="memo-item"><span class="mf">Polaire →</span> T° moyenne < 0 °C</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Telecharger la fiche memo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Geographie physique — Fiche memo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#7ae88a;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#7ae88a;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '\n</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'geographie-physique-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

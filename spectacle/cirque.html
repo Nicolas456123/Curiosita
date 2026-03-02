@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cirque et arts de rue — Arts du spectacle — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #e87a7a;
+  --accent2: #ef9a9a;
+  --accent-dim: rgba(232,122,122,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../spectacle-page.html">Arts du spectacle</a> › <span>Cirque et arts de rue</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🎭 Arts du spectacle</span>
+    <span class="tag-level">Débutant → Avancé</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Cirque et arts de rue</em></h1>
+  <p class="hero-desc">Du chapiteau traditionnel au nouveau cirque — l'art de l'exploit physique, de la poésie du geste et du spectacle vivant hors les murs.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../spectacle-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Arts du spectacle</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="theatre.html">Théâtre</a>
+    <a class="sidebar-link" href="danse.html">Danse</a>
+    <a class="sidebar-link" href="opera.html">Opéra</a>
+    <a class="sidebar-link active" href="#">Cirque et arts de rue</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que le cirque ?</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">Le cirque est un art du <strong>spectacle vivant</strong> qui mêle prouesses physiques, poésie visuelle et émotion. Né au XVIIIe siècle avec Philip Astley et ses spectacles équestres à Londres, il a évolué du cirque traditionnel sous chapiteau — avec ses numéros d'acrobatie, de jonglage et de clown — vers le <strong>nouveau cirque</strong>, forme contemporaine qui intègre théâtre, danse et musique.</p>
+      <div class="highlight-box">
+        <p><strong>L'idée fondamentale :</strong> le cirque célèbre les limites du corps humain et les repousse. Il mêle le risque réel, la virtuosité technique et l'émotion poétique dans un spectacle où l'impossible devient visible sous les yeux du public.</p>
+      </div>
+      <p class="resume-text">Les <strong>arts de rue</strong> prolongent cette tradition dans l'espace public : théâtre de rue, marionnettes géantes, jongleurs, cracheurs de feu et compagnies itinérantes investissent places et rues pour offrir un art accessible à tous, sans barrière de prix ni de codes sociaux.</p>
+      <p class="resume-text">Le cirque contemporain français, avec des compagnies comme le Cirque du Soleil, les Arts Sauts ou la Compagnie XY, a renouvelé le genre et rayonne dans le monde entier, faisant de la France l'un des foyers les plus créatifs des arts circassiens.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours de cirque et arts de rue</h2>
+          <p>Progressez étape par étape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="cirque/arts-du-cirque.html" class="course-card">
+          <span class="course-card-icon">🎪</span>
+          <h3>Arts du cirque</h3>
+          <p>Acrobatie, trapèze, fil, jonglage : les disciplines fondamentales du cirque et leur histoire.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="cirque/nouveau-cirque.html" class="course-card">
+          <span class="course-card-icon">✨</span>
+          <h3>Nouveau cirque</h3>
+          <p>La révolution contemporaine : du Cirque du Soleil aux compagnies françaises, le cirque comme art total.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="cirque/marionnettes.html" class="course-card">
+          <span class="course-card-icon">🎎</span>
+          <h3>Marionnettes</h3>
+          <p>Guignol, bunraku, ombres chinoises : l'art universel de donner vie à la matière inerte.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="cirque/arts-de-rue.html" class="course-card">
+          <span class="course-card-icon">🏙️</span>
+          <h3>Arts de rue</h3>
+          <p>Théâtre de rue, performances urbaines, festivals : l'art vivant dans l'espace public.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="cirque/spectacle-vivant.html" class="course-card">
+          <span class="course-card-icon">🎭</span>
+          <h3>Spectacle vivant</h3>
+          <p>Économie, production et diffusion du spectacle vivant : métiers, institutions et enjeux.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel du cirque en un coup d'oeil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🎪 Cirque et arts de rue — Fiche mémo</h3>
+          <p>Curiosita · Disciplines, figures et repères</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Cirque traditionnel</div>
+            <div class="memo-item"><span class="mf">1768</span> Philip Astley, premier cirque</div>
+            <div class="memo-item"><span class="mf">Disciplines</span> Acrobatie, jonglage, clown</div>
+            <div class="memo-item"><span class="mf">Espace</span> Piste circulaire (13 m)</div>
+            <div class="memo-item"><span class="mf">Figures</span> Barnum, Bouglione, Gruss</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Nouveau cirque (dès 1970)</div>
+            <div class="memo-item"><span class="mf">Principe</span> Narration + disciplines circassiennes</div>
+            <div class="memo-item"><span class="mf">Compagnies</span> Cirque du Soleil, Archaos</div>
+            <div class="memo-item"><span class="mf">France</span> CNAC, École de Châlons</div>
+            <div class="memo-item"><span class="mf">Innovation</span> Pluridisciplinarité artistique</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Marionnettes</div>
+            <div class="memo-item"><span class="mf">Gaine</span> Guignol, Polichinelle</div>
+            <div class="memo-item"><span class="mf">Fils</span> Marionnette à fils, fantoccini</div>
+            <div class="memo-item"><span class="mf">Bunraku</span> Tradition japonaise, 3 manipulateurs</div>
+            <div class="memo-item"><span class="mf">Ombres</span> Théâtre d'ombres chinoises</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Arts de rue</div>
+            <div class="memo-item"><span class="mf">Principe</span> Art dans l'espace public</div>
+            <div class="memo-item"><span class="mf">Formes</span> Théâtre, danse, performance</div>
+            <div class="memo-item"><span class="mf">Festivals</span> Aurillac, Chalon dans la rue</div>
+            <div class="memo-item"><span class="mf">Royal de Luxe</span> Géants mécaniques, Nantes</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Cirque — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#e87a7a;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#e87a7a;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'cirque-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

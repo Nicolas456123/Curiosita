@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anglais — Langues — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #e8c97a;
+  --accent2: #f5dfa0;
+  --accent-dim: rgba(232,201,122,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,201,122,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../langues-page.html">Langues</a> › <span>Anglais</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🌍 Langues</span>
+    <span class="tag-level">Débutant → Avancé</span>
+    <span class="tag-time">⏱ ~6h de lecture</span>
+  </div>
+  <h1><em>Anglais</em></h1>
+  <p class="hero-desc">La langue internationale par excellence — maîtrisez sa grammaire, son vocabulaire et ses subtilités pour communiquer avec le monde entier.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../langues-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Langues</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link active" href="#">Anglais</a>
+    <a class="sidebar-link" href="espagnol.html">Espagnol</a>
+    <a class="sidebar-link" href="linguistique.html">Linguistique</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Pourquoi apprendre l'anglais ?</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">L'anglais est la <strong>langue la plus parlée au monde</strong> si l'on compte les locuteurs natifs et non natifs (environ 1,5 milliard de personnes). Langue germanique occidentale née en Angleterre, elle s'est diffusée à travers l'Empire britannique puis la domination culturelle et technologique des États-Unis.</p>
+      <div class="highlight-box">
+        <p><strong>L'atout clé :</strong> L'anglais est la lingua franca de la science, des affaires, de la diplomatie, du tourisme et d'Internet. Plus de 60 % du contenu web est rédigé en anglais.</p>
+      </div>
+      <p class="resume-text">Pour un francophone, l'anglais présente à la fois des facilités et des défis. Les facilités : un vocabulaire partagé massif grâce à l'influence normande (environ 30 % du vocabulaire anglais vient du français). Les défis : une <strong>prononciation irrégulière</strong> (l'orthographe ne reflète souvent pas la prononciation), un système de <strong>temps verbaux</strong> plus nuancé, et les redoutables <strong>phrasal verbs</strong>.</p>
+      <p class="resume-text">Ce module couvre les fondamentaux : grammaire, vocabulaire, prononciation, expressions idiomatiques et rédaction. Chaque cours est conçu pour un apprenant francophone, avec des comparaisons systématiques entre les deux langues.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours d'anglais</h2>
+          <p>Progressez étape par étape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="anglais/grammaire.html" class="course-card">
+          <span class="course-card-icon">📝</span>
+          <h3>Grammaire essentielle</h3>
+          <p>Temps verbaux, articles, prépositions. Les règles fondamentales pour construire des phrases correctes.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="anglais/vocabulaire.html" class="course-card">
+          <span class="course-card-icon">📚</span>
+          <h3>Vocabulaire courant</h3>
+          <p>Les mots essentiels, faux amis et familles lexicales pour enrichir votre expression au quotidien.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="anglais/prononciation.html" class="course-card">
+          <span class="course-card-icon">🔊</span>
+          <h3>Prononciation</h3>
+          <p>Phonèmes, accentuation, intonation. Maîtrisez les sons de l'anglais et ses pièges phonétiques.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="anglais/expressions.html" class="course-card">
+          <span class="course-card-icon">💬</span>
+          <h3>Expressions idiomatiques</h3>
+          <p>Phrasal verbs, idiomes et tournures courantes. Parlez comme un natif au-delà de la grammaire.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="anglais/redaction.html" class="course-card">
+          <span class="course-card-icon">✍️</span>
+          <h3>Rédaction</h3>
+          <p>Structure d'un essai, registres de langue, connecteurs logiques. Écrire en anglais avec clarté.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel de l'anglais en un coup d'œil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🌍 Anglais — Fiche mémo</h3>
+          <p>Curiosita · Règles et repères fondamentaux</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Temps verbaux clés</div>
+            <div class="memo-item"><span class="mf">Present simple →</span> habitudes, vérités</div>
+            <div class="memo-item"><span class="mf">Present continuous →</span> action en cours</div>
+            <div class="memo-item"><span class="mf">Present perfect →</span> lien passé-présent</div>
+            <div class="memo-item"><span class="mf">Past simple →</span> action révolue</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Faux amis courants</div>
+            <div class="memo-item"><span class="mf">actually ≠</span> actuellement (= en fait)</div>
+            <div class="memo-item"><span class="mf">library ≠</span> librairie (= bibliothèque)</div>
+            <div class="memo-item"><span class="mf">eventually ≠</span> éventuellement (= finalement)</div>
+            <div class="memo-item"><span class="mf">sensible ≠</span> sensible (= raisonnable)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Prononciation</div>
+            <div class="memo-item"><span class="mf">th (θ/ð) →</span> son absent en français</div>
+            <div class="memo-item"><span class="mf">-ed final →</span> /t/, /d/ ou /ɪd/</div>
+            <div class="memo-item"><span class="mf">stress →</span> accent tonique variable</div>
+            <div class="memo-item"><span class="mf">schwa /ə/ →</span> voyelle la plus fréquente</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Connecteurs</div>
+            <div class="memo-item"><span class="mf">However →</span> cependant</div>
+            <div class="memo-item"><span class="mf">Therefore →</span> par conséquent</div>
+            <div class="memo-item"><span class="mf">Moreover →</span> de plus</div>
+            <div class="memo-item"><span class="mf">Nevertheless →</span> néanmoins</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Anglais — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#e8c97a;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#e8c97a;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '
+</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'anglais-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecosystemes — Ecologie — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #7ae8d8;
+  --accent2: #80cbc4;
+  --accent-dim: rgba(122,232,216,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../ecologie-page.html">Ecologie</a> › <span>Ecosystemes</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche memo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🌿 Ecologie</span>
+    <span class="tag-level">Debutant → Avance</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Ecosystemes</em></h1>
+  <p class="hero-desc">Les grands systemes vivants de la planete : forets, oceans, deserts et zones humides — comprendre leurs fonctionnements et leurs equilibres.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../ecologie-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Ecologie</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Presentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche memo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link active" href="#">Ecosystemes</a>
+    <a class="sidebar-link" href="biodiversite.html">Biodiversite</a>
+    <a class="sidebar-link" href="climat.html">Climat et energie</a>
+    <a class="sidebar-link" href="developpement-durable.html">Developpement durable</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce qu'un ecosysteme ?</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">Un ecosysteme est un <strong>ensemble dynamique</strong> forme par une communaute d'etres vivants (biocenose) et son environnement physique (biotope), en interaction constante. Ces interactions — predation, competition, symbiose, decomposition — forment des reseaux complexes ou circulent la matiere et l'energie.</p>
+      <div class="highlight-box">
+        <p><strong>L'idee fondamentale :</strong> un ecosysteme fonctionne comme un systeme integre. L'energie solaire est captee par les producteurs (plantes), transmise aux consommateurs (herbivores, carnivores), puis recyclee par les decomposeurs. Tout est connecte : modifier un maillon affecte l'ensemble.</p>
+      </div>
+      <p class="resume-text">Les ecologistes distinguent les <strong>ecosystemes terrestres</strong> (forets tropicales, savanes, toundras, deserts) et les <strong>ecosystemes aquatiques</strong> (oceans, recifs coralliens, lacs, rivières, zones humides). Chacun possede des caracteristiques climatiques, une flore et une faune specifiques qui forment un biome.</p>
+      <p class="resume-text">Ce domaine couvre les chaines alimentaires et les cycles de la matiere, les grands biomes terrestres, les ecosystemes marins, les ecosystemes d'eau douce et les zones humides, ainsi que les perturbations ecologiques et la resilience des milieux naturels.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours sur les ecosystemes</h2>
+          <p>Progressez etape par etape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="ecosystemes/chaines-alimentaires.html" class="course-card">
+          <span class="course-card-icon">🔗</span>
+          <h3>Chaines alimentaires</h3>
+          <p>Producteurs, consommateurs, decomposeurs : les flux d'energie et les cycles biogeochimiques.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="ecosystemes/biomes-terrestres.html" class="course-card">
+          <span class="course-card-icon">🌲</span>
+          <h3>Biomes terrestres</h3>
+          <p>Forets tropicales, savanes, prairies, deserts, taigas et toundras : les grands milieux de vie.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="ecosystemes/ecosystemes-marins.html" class="course-card">
+          <span class="course-card-icon">🌊</span>
+          <h3>Ecosystemes marins</h3>
+          <p>Oceans, recifs coralliens, abysses et mangroves : la vie dans les milieux sales.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="ecosystemes/eau-douce.html" class="course-card">
+          <span class="course-card-icon">💧</span>
+          <h3>Eau douce et zones humides</h3>
+          <p>Lacs, rivieres, marais et tourbières : les ecosystemes d'eau douce et leur role ecologique.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="ecosystemes/perturbations.html" class="course-card">
+          <span class="course-card-icon">⚡</span>
+          <h3>Perturbations et resilience</h3>
+          <p>Incendies, invasions biologiques, deforestation : comment les ecosystemes reagissent et se regenerent.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche memo</h2>
+          <p>L'essentiel des ecosystemes en un coup d'oeil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🌿 Ecosystemes — Fiche memo</h3>
+          <p>Curiosita · Structures et fonctionnements ecologiques</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Niveaux trophiques</div>
+            <div class="memo-item"><span class="mf">Producteurs →</span> plantes, algues (photosynthese)</div>
+            <div class="memo-item"><span class="mf">Herbivores →</span> consommateurs primaires</div>
+            <div class="memo-item"><span class="mf">Carnivores →</span> consommateurs secondaires</div>
+            <div class="memo-item"><span class="mf">Decomposeurs →</span> bacteries, champignons</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Cycles biogeochimiques</div>
+            <div class="memo-item"><span class="mf">Carbone →</span> CO₂, photosynthese, respiration</div>
+            <div class="memo-item"><span class="mf">Azote →</span> fixation, nitrification, denitrification</div>
+            <div class="memo-item"><span class="mf">Eau →</span> evaporation, precipitation, ruissellement</div>
+            <div class="memo-item"><span class="mf">Phosphore →</span> roches, sols, organismes</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Biomes terrestres</div>
+            <div class="memo-item"><span class="mf">Foret tropicale →</span> plus riche biodiversite</div>
+            <div class="memo-item"><span class="mf">Savane →</span> herbes, arbres espaces, saisons</div>
+            <div class="memo-item"><span class="mf">Taiga →</span> coniferes, froid, plus grand biome</div>
+            <div class="memo-item"><span class="mf">Toundra →</span> pergelisol, vegetation rase</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Ecosystemes aquatiques</div>
+            <div class="memo-item"><span class="mf">Recifs →</span> 25 % des especes marines</div>
+            <div class="memo-item"><span class="mf">Mangroves →</span> nurseries, protection cotiere</div>
+            <div class="memo-item"><span class="mf">Abysses →</span> vie sans lumiere, chemosynthese</div>
+            <div class="memo-item"><span class="mf">Zones humides →</span> filtration, stockage carbone</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Telecharger la fiche memo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Ecosystemes — Fiche memo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#7ae8d8;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#7ae8d8;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '\n</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'ecosystemes-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

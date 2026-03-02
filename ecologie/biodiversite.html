@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biodiversite — Ecologie — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #7ae8d8;
+  --accent2: #80cbc4;
+  --accent-dim: rgba(122,232,216,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../ecologie-page.html">Ecologie</a> › <span>Biodiversite</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche memo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🌿 Ecologie</span>
+    <span class="tag-level">Debutant → Avance</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Biodiversite</em></h1>
+  <p class="hero-desc">La richesse du vivant sous toutes ses formes : diversite genetique, diversite des especes et diversite des ecosystemes.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../ecologie-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Ecologie</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Presentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche memo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="ecosystemes.html">Ecosystemes</a>
+    <a class="sidebar-link active" href="#">Biodiversite</a>
+    <a class="sidebar-link" href="climat.html">Climat et energie</a>
+    <a class="sidebar-link" href="developpement-durable.html">Developpement durable</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que la biodiversite ?</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">La biodiversite designe la <strong>variete du vivant a tous les niveaux d'organisation</strong> : diversite genetique au sein d'une espece, diversite des especes dans un milieu, et diversite des ecosystemes a l'echelle planetaire. On estime qu'il existe entre 8 et 10 millions d'especes sur Terre, dont seulement 1,5 million ont ete decrites par la science.</p>
+      <div class="highlight-box">
+        <p><strong>L'idee fondamentale :</strong> la biodiversite n'est pas un simple catalogue d'especes — c'est le tissu vivant qui assure les services ecosystemiques dont l'humanite depend : pollinisation, purification de l'eau, regulation du climat, fertilite des sols et ressources alimentaires.</p>
+      </div>
+      <p class="resume-text">Nous vivons actuellement la <strong>sixieme extinction de masse</strong>, causee principalement par les activites humaines : destruction des habitats, surexploitation, pollution, especes invasives et changement climatique. Le taux d'extinction actuel est 100 a 1 000 fois superieur au taux naturel.</p>
+      <p class="resume-text">Ce domaine couvre la classification du vivant, les hotspots de biodiversite, les menaces et extinctions, les strategies de conservation et les aires protegees a travers le monde.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours sur la biodiversite</h2>
+          <p>Progressez etape par etape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="biodiversite/classification.html" class="course-card">
+          <span class="course-card-icon">🔬</span>
+          <h3>Classification du vivant</h3>
+          <p>Taxonomie, phylogenie et arbre du vivant : comment les scientifiques organisent la diversite des especes.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="biodiversite/hotspots.html" class="course-card">
+          <span class="course-card-icon">🗺️</span>
+          <h3>Hotspots de biodiversite</h3>
+          <p>Les 36 points chauds de la planete : regions ou la richesse biologique est la plus menacee.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="biodiversite/menaces.html" class="course-card">
+          <span class="course-card-icon">⚠️</span>
+          <h3>Menaces et extinctions</h3>
+          <p>Destruction des habitats, surexploitation, especes invasives et les cinq grandes extinctions passees.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="biodiversite/conservation.html" class="course-card">
+          <span class="course-card-icon">🛡️</span>
+          <h3>Strategies de conservation</h3>
+          <p>Biologie de la conservation, plans d'action, reintroductions et restauration ecologique.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="biodiversite/aires-protegees.html" class="course-card">
+          <span class="course-card-icon">🏞️</span>
+          <h3>Aires protegees</h3>
+          <p>Parcs nationaux, reserves naturelles, corridors ecologiques et objectif 30x30.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche memo</h2>
+          <p>L'essentiel de la biodiversite en un coup d'oeil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🌿 Biodiversite — Fiche memo</h3>
+          <p>Curiosita · Richesse du vivant et conservation</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Niveaux de biodiversite</div>
+            <div class="memo-item"><span class="mf">Genetique →</span> variabilite au sein d'une espece</div>
+            <div class="memo-item"><span class="mf">Specifique →</span> nombre d'especes d'un milieu</div>
+            <div class="memo-item"><span class="mf">Ecosystemique →</span> variete des habitats</div>
+            <div class="memo-item"><span class="mf">~8-10 M</span> d'especes estimees sur Terre</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Classification</div>
+            <div class="memo-item"><span class="mf">Domaines →</span> Bacteries, Archees, Eucaryotes</div>
+            <div class="memo-item"><span class="mf">Regnes →</span> Animaux, Vegetaux, Champignons...</div>
+            <div class="memo-item"><span class="mf">Hierarchie →</span> Phylum → Classe → Ordre → Famille</div>
+            <div class="memo-item"><span class="mf">Binomiale →</span> Genre + espece (Linne, 1735)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Menaces</div>
+            <div class="memo-item"><span class="mf">Habitats →</span> deforestation, urbanisation</div>
+            <div class="memo-item"><span class="mf">Surexploitation →</span> peche, braconnage</div>
+            <div class="memo-item"><span class="mf">Invasives →</span> especes introduites</div>
+            <div class="memo-item"><span class="mf">Climat →</span> rechauffement, acidification</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Conservation</div>
+            <div class="memo-item"><span class="mf">UICN →</span> Liste rouge des especes menacees</div>
+            <div class="memo-item"><span class="mf">CITES →</span> commerce international des especes</div>
+            <div class="memo-item"><span class="mf">30x30 →</span> proteger 30 % des terres d'ici 2030</div>
+            <div class="memo-item"><span class="mf">Corridors →</span> connecter les habitats fragmentes</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Telecharger la fiche memo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Biodiversite — Fiche memo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#7ae8d8;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#7ae8d8;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '\n</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'biodiversite-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

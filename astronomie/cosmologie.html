@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosmologie — Astronomie — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #7ae8d8;
+  --accent2: #80cbc4;
+  --accent-dim: rgba(122,232,216,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../astronomie-page.html">Astronomie</a> › <span>Cosmologie</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche memo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🔭 Astronomie</span>
+    <span class="tag-level">Intermediaire → Avance</span>
+    <span class="tag-time">⏱ ~6h de lecture</span>
+  </div>
+  <h1><em>Cosmologie</em></h1>
+  <p class="hero-desc">L'etude de l'univers dans son ensemble : de sa naissance lors du Big Bang a son destin ultime, en passant par la matiere noire et l'energie sombre.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../astronomie-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Astronomie</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Presentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche memo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="systeme-solaire.html">Systeme solaire</a>
+    <a class="sidebar-link" href="etoiles.html">Etoiles et galaxies</a>
+    <a class="sidebar-link active" href="#">Cosmologie</a>
+    <a class="sidebar-link" href="observation.html">Observation</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que la cosmologie ?</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">La cosmologie est la branche de l'astronomie qui etudie l'<strong>univers dans sa globalite</strong> : son origine, sa structure a grande echelle, son evolution et son destin. Elle repose sur la relativite generale d'Einstein et sur les observations du fond diffus cosmologique, des supernovae lointaines et de la distribution des galaxies.</p>
+      <div class="highlight-box">
+        <p><strong>L'idee fondamentale :</strong> l'univers a eu un commencement — le Big Bang, il y a 13,8 milliards d'annees — et il est en expansion acceleree. Seulement 5 % de son contenu est de la matiere ordinaire ; le reste est compose de matiere noire (27 %) et d'energie sombre (68 %), dont la nature reste mysterieuse.</p>
+      </div>
+      <p class="resume-text">Le <strong>modele standard de la cosmologie</strong> (Lambda-CDM) decrit un univers ne d'une singularite initiale, passant par une phase d'inflation rapide, puis refroidissant progressivement pour former atomes, etoiles et galaxies. Ce modele est confirme par de multiples observations, mais des questions fondamentales demeurent ouvertes.</p>
+      <p class="resume-text">Ce domaine couvre le Big Bang et l'histoire thermique de l'univers, l'expansion cosmique et la loi de Hubble, la matiere noire, les trous noirs, et les scenarios possibles pour le destin ultime de l'univers.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours de cosmologie</h2>
+          <p>Progressez etape par etape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="cosmologie/big-bang.html" class="course-card">
+          <span class="course-card-icon">💥</span>
+          <h3>Le Big Bang</h3>
+          <p>Singularite initiale, inflation, nucleosynthese primordiale et fond diffus cosmologique.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="cosmologie/expansion.html" class="course-card">
+          <span class="course-card-icon">📏</span>
+          <h3>Expansion de l'univers</h3>
+          <p>Loi de Hubble, decalage vers le rouge, energie sombre et acceleration cosmique.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="cosmologie/matiere-noire.html" class="course-card">
+          <span class="course-card-icon">🔮</span>
+          <h3>Matiere noire</h3>
+          <p>Courbes de rotation, lentilles gravitationnelles, candidats particules et detection.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="cosmologie/trous-noirs.html" class="course-card">
+          <span class="course-card-icon">⚫</span>
+          <h3>Trous noirs</h3>
+          <p>Horizon des evenements, singularite, rayonnement de Hawking et trous noirs supermassifs.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="cosmologie/destin-univers.html" class="course-card">
+          <span class="course-card-icon">🔚</span>
+          <h3>Destin de l'univers</h3>
+          <p>Big Freeze, Big Crunch, Big Rip : les scenarios pour la fin de l'univers.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche memo</h2>
+          <p>L'essentiel de la cosmologie en un coup d'oeil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🔭 Cosmologie — Fiche memo</h3>
+          <p>Curiosita · Origines et structure de l'univers</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Big Bang</div>
+            <div class="memo-item"><span class="mf">t = 0 →</span> singularite initiale</div>
+            <div class="memo-item"><span class="mf">10⁻³⁶ s →</span> inflation cosmique</div>
+            <div class="memo-item"><span class="mf">3 min →</span> nucleosynthese (H, He, Li)</div>
+            <div class="memo-item"><span class="mf">380 000 ans →</span> fond diffus cosmologique</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Expansion</div>
+            <div class="memo-item"><span class="mf">Hubble →</span> v = H₀ × d</div>
+            <div class="memo-item"><span class="mf">H₀ →</span> ~70 km/s/Mpc</div>
+            <div class="memo-item"><span class="mf">Redshift →</span> decalage vers le rouge</div>
+            <div class="memo-item"><span class="mf">1998 →</span> decouverte de l'acceleration</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Composition</div>
+            <div class="memo-item"><span class="mf">5 % →</span> matiere ordinaire (baryonique)</div>
+            <div class="memo-item"><span class="mf">27 % →</span> matiere noire</div>
+            <div class="memo-item"><span class="mf">68 % →</span> energie sombre</div>
+            <div class="memo-item"><span class="mf">Age →</span> 13,8 milliards d'annees</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Trous noirs</div>
+            <div class="memo-item"><span class="mf">Stellaires →</span> 3 a 100 masses solaires</div>
+            <div class="memo-item"><span class="mf">Supermassifs →</span> millions a milliards M☉</div>
+            <div class="memo-item"><span class="mf">Horizon →</span> limite de non-retour</div>
+            <div class="memo-item"><span class="mf">Hawking →</span> evaporation quantique</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Telecharger la fiche memo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Cosmologie — Fiche memo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#7ae8d8;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#7ae8d8;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '\n</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'cosmologie-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donnees aberrantes — Statistiques descriptives — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08); }
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../../statistiques-page.html">Statistiques</a> › <a href="../descriptives.html">Descriptives</a> › <span>Aberrantes</span></div>
+</nav>
+<div class="hero">
+  <div class="hero-meta"><span class="tag-domain">⚠️ Statistiques descriptives</span><span class="tag-level">Intermediaire</span><span class="tag-time">⏱ ~35 min</span></div>
+  <h1><em>Donnees aberrantes</em></h1>
+  <p class="hero-desc">Detection, traitement et impact des outliers — ces valeurs extremes qui peuvent fausser toute une analyse statistique.</p>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../descriptives.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Descriptives</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="tendance-centrale.html">Tendance centrale</a>
+    <a class="sidebar-link" href="dispersion.html">Dispersion</a>
+    <a class="sidebar-link" href="graphiques.html">Graphiques</a>
+    <a class="sidebar-link" href="distributions.html">Distributions</a>
+    <a class="sidebar-link active" href="#">Donnees aberrantes</a>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="introduction">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Introduction</h2><p>Quand une donnee sort du lot</p></div></div>
+      <p class="resume-text">Une <strong>donnee aberrante</strong> (outlier) est une observation qui s'ecarte significativement du reste des donnees. Elle peut etre le resultat d'une erreur de mesure, d'une erreur de saisie, ou d'un phenomene rare mais reel. Les outliers peuvent fausser la moyenne, la variance et les modeles de regression.</p>
+      <div class="highlight-box">
+        <p><strong>Dilemme fondamental :</strong> faut-il supprimer les outliers ou les conserver ? La reponse depend de leur <em>cause</em>. Une erreur de saisie (age = 999 ans) doit etre corrigee. Une observation extreme mais reelle (salaire de PDG) peut etre conservee ou traitee separement.</p>
+      </div>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Le cours</h2><p>Outliers : detection et traitement</p></div></div>
+      <div class="course-content">
+        <h3>Methode de l'IQR (Tukey)</h3>
+        <p>La methode la plus courante definit un outlier comme toute valeur situee au-dela des « barrieres » :</p>
+        <div class="highlight-box">
+          <p><strong>Barriere inferieure :</strong> Q₁ - 1,5 × IQR<br><strong>Barriere superieure :</strong> Q₃ + 1,5 × IQR</p>
+          <p>Toute observation en dehors de ces barrieres est consideree comme aberrante. Le facteur 3 × IQR definit les outliers « extremes ».</p>
+        </div>
+        <p><strong>Exemple :</strong> Donnees : 2, 5, 7, 8, 9, 10, 11, 12, 45. Q₁ = 6, Q₃ = 11,5, IQR = 5,5. Barriere sup. = 11,5 + 8,25 = 19,75. La valeur 45 est un outlier.</p>
+
+        <h3>Methode du z-score</h3>
+        <p>Le z-score mesure combien d'ecarts-types une observation est eloignee de la moyenne : <strong>z = (x - x̄) / s</strong>. On considere generalement qu'une observation est aberrante si |z| > 2 ou |z| > 3.</p>
+        <p>Limite : cette methode suppose une distribution approximativement normale et est elle-meme sensible aux outliers (puisque la moyenne et l'ecart-type sont influences par eux).</p>
+
+        <h3>Detection visuelle</h3>
+        <p>Les <strong>boites a moustaches</strong> sont l'outil visuel par excellence : les outliers apparaissent comme des points isoles au-dela des moustaches. Les <strong>nuages de points</strong> revelent aussi les observations atypiques dans un contexte bivarie.</p>
+
+        <h3>Impact des outliers</h3>
+        <ul>
+          <li><strong>Sur la moyenne :</strong> impact fort (la moyenne est « tiree » vers l'outlier)</li>
+          <li><strong>Sur la mediane :</strong> impact negligeable (robuste par definition)</li>
+          <li><strong>Sur la variance et l'ecart-type :</strong> impact tres fort (les ecarts au carre amplifient l'effet)</li>
+          <li><strong>Sur la regression :</strong> un seul outlier peut modifier drastiquement la droite de regression</li>
+          <li><strong>Sur les tests statistiques :</strong> les outliers peuvent creer de faux positifs ou masquer de vrais effets</li>
+        </ul>
+
+        <h3>Strategies de traitement</h3>
+        <ul>
+          <li><strong>Correction :</strong> si l'outlier est une erreur identifiable, corriger la valeur</li>
+          <li><strong>Suppression :</strong> si l'outlier est aberrant et injustifiable, le retirer (avec documentation)</li>
+          <li><strong>Winsorisation :</strong> remplacer les valeurs extremes par les valeurs aux percentiles choisis (ex. 5e et 95e)</li>
+          <li><strong>Transformation :</strong> appliquer une transformation (log, racine) qui reduit l'impact des extremes</li>
+          <li><strong>Statistiques robustes :</strong> utiliser la mediane plutot que la moyenne, l'IQR plutot que l'ecart-type</li>
+          <li><strong>Analyse separee :</strong> analyser les outliers comme un sous-groupe d'interet</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Regle d'or :</strong> ne jamais supprimer un outlier sans avoir compris sa cause. Toujours documenter les decisions prises et verifier si les conclusions changent avec et sans les outliers.</p>
+        </div>
+      </div>
+    </section>
+    <section class="content-section" id="quiz">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Quiz</h2><p>Testez votre comprehension</p></div></div>
+      <div class="quiz-container">
+        <div class="quiz-header"><span class="quiz-title-text">⚠️ Outliers — Quiz</span><span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">5</span></span></div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 5</p><p class="q-text">Selon la methode de Tukey, un outlier est au-dela de :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Q₁ - IQR et Q₃ + IQR</div>
+              <div class="option" onclick="answer(this,true)">Q₁ - 1,5×IQR et Q₃ + 1,5×IQR</div>
+              <div class="option" onclick="answer(this,false)">Moyenne ± ecart-type</div>
+              <div class="option" onclick="answer(this,false)">Moyenne ± 2 × ecart-type</div>
+            </div>
+            <div class="q-feedback">Les barrieres de Tukey utilisent le facteur 1,5 × IQR au-dela de Q₁ et Q₃.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 5</p><p class="q-text">Le z-score d'un outlier est generalement :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Proche de 0</div>
+              <div class="option" onclick="answer(this,false)">Entre -1 et 1</div>
+              <div class="option" onclick="answer(this,true)">|z| > 2 ou |z| > 3</div>
+              <div class="option" onclick="answer(this,false)">Toujours negatif</div>
+            </div>
+            <div class="q-feedback">Un z-score en valeur absolue superieur a 2 ou 3 indique que l'observation est a plus de 2 ou 3 ecarts-types de la moyenne.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 5</p><p class="q-text">Quelle mesure est la moins affectee par les outliers ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">La moyenne</div>
+              <div class="option" onclick="answer(this,true)">La mediane</div>
+              <div class="option" onclick="answer(this,false)">La variance</div>
+              <div class="option" onclick="answer(this,false)">L'etendue</div>
+            </div>
+            <div class="q-feedback">La mediane est robuste : elle ne depend que de la position des valeurs centrales, pas de leur magnitude.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 5</p><p class="q-text">La winsorisation consiste a :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Supprimer les outliers</div>
+              <div class="option" onclick="answer(this,true)">Remplacer les extremes par des valeurs aux percentiles choisis</div>
+              <div class="option" onclick="answer(this,false)">Calculer la moyenne sans les outliers</div>
+              <div class="option" onclick="answer(this,false)">Appliquer un logarithme</div>
+            </div>
+            <div class="q-feedback">La winsorisation remplace les valeurs au-dela d'un certain percentile par la valeur du percentile, plutot que de les supprimer.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 5</p><p class="q-text">Faut-il toujours supprimer les outliers ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Oui, ils faussent toujours l'analyse</div>
+              <div class="option" onclick="answer(this,true)">Non, il faut d'abord comprendre leur cause</div>
+              <div class="option" onclick="answer(this,false)">Oui, si |z| > 2</div>
+              <div class="option" onclick="answer(this,false)">Non, il ne faut jamais les supprimer</div>
+            </div>
+            <div class="q-feedback">Un outlier peut etre une erreur (a corriger) ou un phenomene reel et important (a conserver). Il faut comprendre son origine avant de decider.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult"><div class="result-score-big" id="resultScore">0/5</div><div class="result-msg" id="resultMsg"></div><button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button></div>
+        <div class="quiz-nav"><button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Precedent</button><div class="q-dots" id="qDots"></div><button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button></div>
+      </div>
+    </section>
+    <section class="content-section" id="exercices">
+      <div class="section-header"><div class="section-num">04</div><div class="section-info"><h2>Exercices</h2><p>Mettez en pratique</p></div></div>
+      <div class="course-content">
+        <h3>Exercice 1 — Detection par IQR</h3>
+        <p>Donnees : 12, 15, 14, 13, 16, 14, 15, 50, 13, 14. Identifier les outliers par la methode de Tukey.</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>Ordonnees : 12, 13, 13, 14, 14, 14, 15, 15, 16, 50. Q₁ = 13, Q₃ = 15. IQR = 2. Barriere sup = 15 + 3 = 18. Barriere inf = 13 - 3 = 10. <strong>50 est un outlier</strong> (> 18). Toutes les autres valeurs sont dans les barrieres.</p></div></details>
+        <h3>Exercice 2 — Impact sur la moyenne</h3>
+        <p>Calculer la moyenne des donnees de l'exercice 1 avec et sans l'outlier.</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>Avec outlier : (12+15+14+13+16+14+15+50+13+14)/10 = 176/10 = <strong>17,6</strong>. Sans : 126/9 = <strong>14,0</strong>. L'outlier augmente la moyenne de 3,6 points. La mediane passe de 14 a 14 (inchangee).</p></div></details>
+        <h3>Exercice 3 — Z-score</h3>
+        <p>Avec les memes donnees (sans l'outlier), la moyenne est 14 et l'ecart-type est 1,22. Quel est le z-score de la valeur 50 ?</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>z = (50 - 14) / 1,22 = 36 / 1,22 ≈ <strong>29,5</strong>. Ce z-score enorme confirme que 50 est extremement aberrant (a presque 30 ecarts-types de la moyenne !).</p></div></details>
+      </div>
+    </section>
+    <div class="course-nav">
+      <a href="distributions.html" class="prev"><span class="course-nav-label">Cours precedent</span><span class="course-nav-title">← Distributions</span></a>
+      <div></div>
+    </div>
+  </main>
+</div>
+<script>
+const questions=document.querySelectorAll('.question-block');let currentQ=0,score=0;let answered=new Array(questions.length).fill(false);const dotsContainer=document.getElementById('qDots');questions.forEach((_,i)=>{const d=document.createElement('div');d.className='q-dot'+(i===0?' current':'');dotsContainer.appendChild(d)});function updateDots(){document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot';if(answered[i])d.classList.add('done');if(i===currentQ)d.classList.add('current')})}function answer(el,ok){if(answered[currentQ])return;answered[currentQ]=true;el.closest('.question-block').querySelectorAll('.option').forEach(o=>o.classList.add('disabled'));el.classList.add(ok?'correct':'wrong');if(!ok)el.closest('.question-block').querySelectorAll('.option').forEach(o=>{if(o.onclick.toString().includes('true'))o.classList.add('correct')});else{score++;document.getElementById('scoreDisplay').textContent=score}el.closest('.question-block').querySelector('.q-feedback').classList.add('show',ok?'good':'bad');document.getElementById('btnNext').disabled=false;updateDots()}function nextQ(){if(currentQ<questions.length-1){questions[currentQ].classList.remove('active');currentQ++;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=false;document.getElementById('btnNext').disabled=!answered[currentQ];if(currentQ===questions.length-1)document.getElementById('btnNext').textContent='Terminer';updateDots()}else{showResult()}}function prevQ(){if(currentQ>0){questions[currentQ].classList.remove('active');currentQ--;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=currentQ===0;document.getElementById('btnNext').disabled=!answered[currentQ];document.getElementById('btnNext').textContent='Suivant →';updateDots()}}function showResult(){document.getElementById('quizBody').style.display='none';document.getElementById('quizResult').style.display='block';document.getElementById('resultScore').textContent=score+'/'+questions.length;var m=['Continue !','Pas mal !','Tres bien !','Parfait !'];document.getElementById('resultMsg').textContent=m[Math.min(score,3)]}function resetQuiz(){score=0;currentQ=0;answered=new Array(questions.length).fill(false);document.getElementById('scoreDisplay').textContent=0;document.getElementById('quizBody').style.display='block';document.getElementById('quizResult').style.display='none';questions.forEach((q,i)=>{q.classList.toggle('active',i===0);q.querySelectorAll('.option').forEach(o=>o.className='option');q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback')});document.getElementById('btnPrev').disabled=true;document.getElementById('btnNext').disabled=true;document.getElementById('btnNext').textContent='Suivant →';updateDots()}function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active')}(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l});if(current){links.forEach(function(l){l.classList.remove('active')});current.classList.add('active')}},{passive:true})})();
+</script>
+<script src="../../mobile.js"></script>
+</body>
+</html>

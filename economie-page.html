@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Économie & Finance — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<style>
+:root {
+  --accent: #c97ae8;
+  --accent2: #dda0f5;
+  --accent-dim: rgba(201,122,232,0.1);
+}
+.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(201,122,232,0.07) 0%, transparent 70%); }
+.hero-deco { color: rgba(201,122,232,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="sciences-humaines.html">Sciences humaines</a> › <span>Économie</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-deco">$</div>
+  <div class="hero-meta">
+    <span class="tag-domain">🌍 Sciences humaines & sociales</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~6h de lecture</span>
+  </div>
+  <h1>Comprendre les<br><em>marchés.</em></h1>
+  <p class="hero-desc">De la loi de l'offre et de la demande aux marchés financiers mondiaux, l'économie explique comment les sociétés produisent, échangent et distribuent les richesses. Une boussole indispensable pour comprendre les crises et les décisions politiques.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">3</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">6</div><div class="hstat-lab">Quiz</div></div>
+    <div class="hstat"><div class="hstat-val">6</div><div class="hstat-lab">Ressources</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="resume" onclick="goTo('resume',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="micro-macro" onclick="goTo('micro-macro',this)">⚖️ Micro / Macro</a>
+    <a class="sidebar-link" data-section="concepts" onclick="goTo('concepts',this)">🧩 Concepts clés</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="ressources" onclick="goTo('ressources',this)">🔗 Ressources</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Cours</p>
+    <a class="sidebar-link" href="economie/microeconomie.html">Microéconomie</a>
+    <a class="sidebar-link" href="economie/macroeconomie.html">Macroéconomie</a>
+    <a class="sidebar-link" href="economie/finance.html">Finance</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="resume">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que l'économie ?</h2>
+          <p>Science de la rareté et des choix</p>
+        </div>
+      </div>
+      <p class="resume-text">L'économie est la science qui étudie comment les agents (individus, entreprises, États) <strong>allouent des ressources rares</strong> pour satisfaire des besoins illimités. Elle analyse la production, la distribution et la consommation des biens et services.</p>
+      <div class="highlight-box">
+        <p><strong>Les 4 questions fondamentales de toute économie :</strong> Que produire ? Comment produire ? Pour qui produire ? À quel prix échanger ? Les réponses varient selon les systèmes (marché libre, économie planifiée, économie mixte).</p>
+      </div>
+      <p class="resume-text">L'économie se divise en deux grandes branches : la <strong>microéconomie</strong> (comportement des agents individuels — ménages, entreprises) et la <strong>macroéconomie</strong> (comportement agrégé d'une économie entière — PIB, inflation, chômage). Ces deux approches sont complémentaires.</p>
+      <p class="resume-text">Comprendre l'économie, c'est aussi comprendre la <strong>finance</strong> : comment les marchés de capitaux fonctionnent, pourquoi les taux d'intérêt montent ou baissent, ce qu'est une bulle spéculative ou une crise bancaire. La crise de 2008 ou la flambée des prix post-Covid ne peuvent s'expliquer sans ces outils.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Explorez les cours</h2>
+          <p>Plongez dans chaque domaine en détail</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="economie/microeconomie.html" class="course-card">
+          <span class="course-card-icon">📊</span>
+          <h3>Microéconomie</h3>
+          <p>Offre et demande, élasticité, marchés, concurrence et externalités.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="economie/macroeconomie.html" class="course-card">
+          <span class="course-card-icon">🏦</span>
+          <h3>Macroéconomie</h3>
+          <p>PIB, inflation, chômage, politique monétaire et budgétaire.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="economie/finance.html" class="course-card">
+          <span class="course-card-icon">💹</span>
+          <h3>Finance</h3>
+          <p>Marchés financiers, investissement, banques et crypto.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="micro-macro">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Micro vs Macroéconomie</h2>
+          <p>Les deux grandes approches</p>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Microéconomie :</strong> Étudie les décisions individuelles. La loi de l'offre et de la demande fixe les prix. Les entreprises maximisent leur profit, les consommateurs leur utilité. Concepts : élasticité, coûts marginaux, concurrence parfaite, monopole, jeux stratégiques (théorie des jeux).</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Macroéconomie :</strong> Étudie l'économie dans sa globalité. Le PIB mesure la richesse produite. La banque centrale régule la monnaie et l'inflation via ses taux directeurs. L'État peut relancer ou freiner l'économie par la politique budgétaire (dépenses/impôts). Keynes vs Friedman : deux visions opposées du rôle de l'État.</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Finance :</strong> Pont entre l'économie et les marchés. Les marchés financiers (actions, obligations, forex, matières premières) permettent d'allouer le capital vers les projets les plus productifs — en théorie. En pratique, la spéculation peut créer des bulles et des crises systémiques.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="concepts">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Concepts clés</h2>
+          <p>Le vocabulaire économique essentiel</p>
+        </div>
+      </div>
+      <div class="concepts-grid">
+        <div class="concept-card"><div class="concept-title">PIB</div><div class="concept-desc">Produit Intérieur Brut : valeur totale des biens et services produits sur un territoire en un an. Principal indicateur de richesse, mais critiqué car il ne mesure ni inégalités ni bien-être.</div></div>
+        <div class="concept-card"><div class="concept-title">Inflation</div><div class="concept-desc">Hausse générale et durable des prix. Mesurée par l'IPC (Indice des Prix à la Consommation). La BCE vise 2% par an. Au-delà, le pouvoir d'achat s'érode. À 0%, risque de déflation.</div></div>
+        <div class="concept-card"><div class="concept-title">Taux directeur</div><div class="concept-desc">Taux auquel la banque centrale prête aux banques commerciales. En le relevant, elle freine le crédit et l'inflation. En le baissant, elle stimule l'économie. Principal outil de la BCE et de la Fed.</div></div>
+        <div class="concept-card"><div class="concept-title">Offre & Demande</div><div class="concept-desc">Loi fondamentale : le prix d'équilibre se fixe à l'intersection de la courbe d'offre (croissante avec le prix) et de demande (décroissante). Toute rupture crée tension sur les prix.</div></div>
+        <div class="concept-card"><div class="concept-title">Obligation</div><div class="concept-desc">Titre de dette émis par un État ou une entreprise. L'acheteur prête de l'argent et reçoit des intérêts (coupon). Moins risqué que les actions. Les obligations d'État (OAT) sont la référence.</div></div>
+        <div class="concept-card"><div class="concept-title">Action</div><div class="concept-desc">Part de propriété d'une entreprise cotée. L'actionnaire espère une hausse du cours et des dividendes. Plus risqué qu'une obligation, mais historiquement plus rentable sur le long terme.</div></div>
+        <div class="concept-card"><div class="concept-title">Chômage structurel</div><div class="concept-desc">Chômage dû à des inadéquations durables entre offre et demande de travail (compétences, géographie). S'oppose au chômage conjoncturel, lié au cycle économique.</div></div>
+        <div class="concept-card"><div class="concept-title">Externalité</div><div class="concept-desc">Effet d'une activité économique sur des tiers non impliqués, sans compensation. La pollution est une externalité négative. La vaccination crée une externalité positive. Justifie l'intervention de l'État.</div></div>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div class="section-info">
+          <h2>Quiz interactif</h2>
+          <p>6 questions pour tester vos connaissances</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">Quiz — Économie</span>
+          <span class="quiz-score">Score : <span id="quizScore">0</span>/6</span>
+        </div>
+        <div class="quiz-body">
+          <div class="question-block active" id="q0">
+            <div class="q-num">Question 1 / 6</div>
+            <div class="q-text">Qui a théorisé la "main invisible" du marché dans "La Richesse des nations" ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(0,0)">John Maynard Keynes</div>
+              <div class="option" onclick="selectOption(0,1)">Karl Marx</div>
+              <div class="option" onclick="selectOption(0,2)">Adam Smith</div>
+              <div class="option" onclick="selectOption(0,3)">Milton Friedman</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q1">
+            <div class="q-num">Question 2 / 6</div>
+            <div class="q-text">Que signifie l'acronyme PIB ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(1,0)">Prix Indicatif Brut</div>
+              <div class="option" onclick="selectOption(1,1)">Produit Intérieur Brut</div>
+              <div class="option" onclick="selectOption(1,2)">Pouvoir d'Investissement Bancaire</div>
+              <div class="option" onclick="selectOption(1,3)">Plan d'Intégration Budgétaire</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q2">
+            <div class="q-num">Question 3 / 6</div>
+            <div class="q-text">Qu'est-ce que l'inflation ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(2,0)">Une baisse du pouvoir d'achat uniquement</div>
+              <div class="option" onclick="selectOption(2,1)">Une augmentation des salaires</div>
+              <div class="option" onclick="selectOption(2,2)">Une hausse générale et durable des prix</div>
+              <div class="option" onclick="selectOption(2,3)">Une augmentation des réserves d'or</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q3">
+            <div class="q-num">Question 4 / 6</div>
+            <div class="q-text">La loi de l'offre et de la demande stipule que le prix d'équilibre se fixe...</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(3,0)">Par décision gouvernementale</div>
+              <div class="option" onclick="selectOption(3,1)">À l'intersection des courbes d'offre et de demande</div>
+              <div class="option" onclick="selectOption(3,2)">Toujours au plus bas prix possible</div>
+              <div class="option" onclick="selectOption(3,3)">En fonction du coût de production seul</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q4">
+            <div class="q-num">Question 5 / 6</div>
+            <div class="q-text">Qu'est-ce qu'une obligation financière ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(4,0)">Une action en bourse</div>
+              <div class="option" onclick="selectOption(4,1)">Un contrat d'assurance</div>
+              <div class="option" onclick="selectOption(4,2)">Un titre de dette émis par un État ou entreprise</div>
+              <div class="option" onclick="selectOption(4,3)">Un produit dérivé financier</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q5">
+            <div class="q-num">Question 6 / 6</div>
+            <div class="q-text">Qu'est-ce qu'une externalité négative ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(5,0)">Un impôt sur les sociétés étrangères</div>
+              <div class="option" onclick="selectOption(5,1)">Un coût subi par des tiers non impliqués dans une transaction</div>
+              <div class="option" onclick="selectOption(5,2)">Une perte boursière sur les marchés étrangers</div>
+              <div class="option" onclick="selectOption(5,3)">Un déficit budgétaire de l'État</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+        </div>
+        <div class="quiz-nav">
+          <div class="q-dots">
+            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div>
+            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
+          </div>
+          <div style="display:flex;gap:.8rem">
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+          </div>
+        </div>
+        <div class="quiz-result">
+          <div class="result-score-big" id="finalScore"></div>
+          <div class="result-msg" id="finalMsg"></div>
+          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="ressources">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <div class="section-info">
+          <h2>Ressources externes</h2>
+          <p>Les meilleures sources pour approfondir</p>
+        </div>
+      </div>
+      <div class="resources-grid">
+        <a class="resource-card" href="https://www.youtube.com/@DessineMoiLEconomie" target="_blank">
+          <span class="resource-icon">▶️</span>
+          <div class="resource-info">
+            <div class="resource-name">Dessine-moi l'éco</div>
+            <div class="resource-desc">Chaîne YouTube française qui explique les concepts économiques par l'animation. Accessibles et rigoureux.</div>
+            <span class="resource-type type-video">YouTube</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://fr.khanacademy.org/economics-finance-domain" target="_blank">
+          <span class="resource-icon">🎓</span>
+          <div class="resource-info">
+            <div class="resource-name">Khan Academy — Économie</div>
+            <div class="resource-desc">Cours complets et gratuits en micro, macroéconomie et finance. Exercices interactifs avec correction immédiate.</div>
+            <span class="resource-type type-course">Cours gratuit</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.economist.com" target="_blank">
+          <span class="resource-icon">📰</span>
+          <div class="resource-info">
+            <div class="resource-name">The Economist</div>
+            <div class="resource-desc">La référence mondiale de l'analyse économique et politique. Rigueur analytique et perspectives mondiales. En anglais.</div>
+            <span class="resource-type type-doc">Presse</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.investopedia.com" target="_blank">
+          <span class="resource-icon">📊</span>
+          <div class="resource-info">
+            <div class="resource-name">Investopedia</div>
+            <div class="resource-desc">Dictionnaire et guides complets sur tous les concepts financiers. Idéal pour comprendre la bourse, les produits financiers, la gestion de portefeuille.</div>
+            <span class="resource-type type-doc">Référence</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.coursera.org/courses?query=economics" target="_blank">
+          <span class="resource-icon">🎓</span>
+          <div class="resource-info">
+            <div class="resource-name">Coursera — Economics</div>
+            <div class="resource-desc">Cours des universités Yale, Chicago, Stanford. "Financial Markets" de Robert Shiller (Yale) est un classique.</div>
+            <span class="resource-type type-course">Cours en ligne</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://fr.wikipedia.org/wiki/Économie" target="_blank">
+          <span class="resource-icon">🌐</span>
+          <div class="resource-info">
+            <div class="resource-name">Wikipedia — Économie</div>
+            <div class="resource-desc">Articles solides sur les courants économiques, les théoriciens et les concepts. Bien sourcé et accessible.</div>
+            <span class="resource-type type-wiki">Wikipedia</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel en une page — téléchargeable</p>
+        </div>
+      </div>
+      <div class="memo-preview">
+        <div class="memo-top">
+          <h3>📋 Économie & Finance — Fiche mémo</h3>
+          <p>Concepts clés, théoriciens et formules essentielles</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Grands économistes</div>
+            <div class="memo-item">Adam Smith — main invisible, libre marché (1776)</div>
+            <div class="memo-item">Karl Marx — lutte des classes, plus-value (1867)</div>
+            <div class="memo-item">Keynes — relance par la demande (1936)</div>
+            <div class="memo-item">Friedman — monétarisme, libre marché (1976)</div>
+            <div class="memo-item">Hayek — ordre spontané, anti-planification</div>
+            <div class="memo-item">Piketty — inégalités et capital (2013)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Indicateurs macro</div>
+            <div class="memo-item">PIB = C + I + G + (X − M)</div>
+            <div class="memo-item">Inflation → mesurée par l'IPC (cible 2%)</div>
+            <div class="memo-item">Taux de chômage = chômeurs / actifs</div>
+            <div class="memo-item">Dette publique / PIB → ratio de soutenabilité</div>
+            <div class="memo-item">Balance commerciale = exports − imports</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Marchés financiers</div>
+            <div class="memo-item">Action → part de capital d'une entreprise</div>
+            <div class="memo-item">Obligation → titre de dette avec coupon</div>
+            <div class="memo-item">CAC 40 → 40 + grandes cap. françaises</div>
+            <div class="memo-item">S&P 500 → 500 grandes cap. américaines</div>
+            <div class="memo-item">ETF → fonds indiciel coté en bourse</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Concepts fondamentaux</div>
+            <div class="memo-item">Offre & Demande → prix d'équilibre</div>
+            <div class="memo-item">Élasticité → sensibilité quantité / prix</div>
+            <div class="memo-item">Externalité → effet non compensé sur tiers</div>
+            <div class="memo-item">Asymétrie d'info → marché des lemons</div>
+            <div class="memo-item">Coût d'opportunité → ce à quoi on renonce</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML/PDF)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+const questions = [
+  { q:"Qui a théorisé la «main invisible» du marché ?", opts:["John Maynard Keynes","Karl Marx","Adam Smith","Milton Friedman"], ans:2, expl:"Adam Smith (1723-1790), dans La Richesse des Nations (1776), décrit comment les intérêts individuels, guidés par une «main invisible», conduisent à l'intérêt général. C'est le fondement de l'économie de marché libérale." },
+  { q:"Que signifie l'acronyme PIB ?", opts:["Prix Indicatif Brut","Produit Intérieur Brut","Pouvoir d'Investissement Bancaire","Plan d'Intégration Budgétaire"], ans:1, expl:"Le Produit Intérieur Brut mesure la valeur totale des biens et services produits sur un territoire national en une année. C'est le principal indicateur de la taille d'une économie, mais critiqué car il ne mesure ni inégalités, ni bien-être, ni environnement." },
+  { q:"Qu'est-ce que l'inflation ?", opts:["Une baisse du pouvoir d'achat uniquement","Une augmentation des salaires","Une hausse générale et durable des prix","Une augmentation des réserves d'or"], ans:2, expl:"L'inflation est la hausse générale et durable des prix, mesurée par l'Indice des Prix à la Consommation (IPC). La BCE vise un taux de 2% par an. Trop d'inflation érode le pouvoir d'achat ; trop peu (déflation) paralyse l'économie." },
+  { q:"La loi de l'offre et de la demande...", opts:["Prix fixé par le gouvernement","Prix à l'intersection des courbes d'offre et de demande","Prix toujours au plus bas","Prix en fonction du coût seul"], ans:1, expl:"Lorsque la demande excède l'offre, le prix monte (signal pour les producteurs d'augmenter l'offre). Lorsque l'offre excède la demande, le prix baisse. Le point d'équilibre est atteint quand les deux courbes se croisent — c'est la loi fondamentale de la microéconomie." },
+  { q:"Qu'est-ce qu'une obligation financière ?", opts:["Une action en bourse","Un contrat d'assurance","Un titre de dette émis par un État ou entreprise","Un produit dérivé financier"], ans:2, expl:"Une obligation est un emprunt fractionné. L'émetteur (État ou entreprise) s'engage à rembourser le capital et à verser des intérêts (le «coupon»). Moins risqué qu'une action, mais généralement moins rentable à long terme." },
+  { q:"Qu'est-ce qu'une externalité négative ?", opts:["Un impôt sur les sociétés étrangères","Un coût subi par des tiers non impliqués dans une transaction","Une perte boursière sur les marchés étrangers","Un déficit budgétaire de l'État"], ans:1, expl:"Une externalité négative est un coût imposé à des tiers sans compensation. La pollution industrielle est l'exemple classique : la fabrique pollue la rivière, mais ce sont les riverains qui subissent le coût. Cela justifie des taxes (taxe carbone) ou des régulations." }
+];
+
+let current=0,score=0,answered=new Array(6).fill(null);
+function renderQuestion(){
+  document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));
+  document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});
+  document.getElementById('btnPrev').disabled=current===0;
+  document.getElementById('btnNext').textContent=current===5?'Voir résultats':'Suivant →';
+}
+function selectOption(qi,oi){
+  if(answered[qi]!==null)return;answered[qi]=oi;
+  const block=document.querySelectorAll('.question-block')[qi];
+  block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});
+  const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');
+  if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');
+}
+function nextQuestion(){if(current<5){current++;renderQuestion();}else showResult();}
+function prevQuestion(){if(current>0){current--;renderQuestion();}}
+function showResult(){
+  document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';
+  const r=document.querySelector('.quiz-result');r.style.display='block';
+  document.getElementById('finalScore').textContent=score+'/6';
+  document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Très bien !','Excellent !'][score<=2?0:score<=4?1:score<=5?2:3];
+}
+function restartQuiz(){
+  current=0;score=0;answered.fill(null);
+  document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';
+  document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');
+  document.getElementById('quizScore').textContent=0;renderQuestion();
+}
+function goTo(id,el){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');
+}
+// Scroll spy
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+const sections=['resume','micro-macro','concepts','quiz','ressources','memo'];
+window.addEventListener('scroll',()=>{
+  let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});
+  document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';
+});
+function downloadMemo(){
+  const w=window.open('','_blank','width=900,height=700');
+  w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Économie</title>
+  <style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#8b3fc5;border-bottom:3px solid #8b3fc5;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#8b3fc5;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #e0d0f0;padding:1rem;border-radius:4px;background:#fcf9ff}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style>
+  </head><body><h1>💰 Fiche mémo — Économie & Finance</h1>
+  <div class="grid">
+    <div class="box"><h2>Grands économistes</h2><ul><li><strong>Adam Smith</strong> — main invisible, libre marché (1776)</li><li><strong>Karl Marx</strong> — lutte des classes, plus-value (1867)</li><li><strong>Keynes</strong> — relance par la demande publique (1936)</li><li><strong>Friedman</strong> — monétarisme, contrôle masse monétaire</li><li><strong>Piketty</strong> — inégalités et capital (2013)</li></ul></div>
+    <div class="box"><h2>Indicateurs macroéconomiques</h2><ul><li>PIB = C + I + G + (X − M)</li><li>Inflation → IPC (cible BCE : 2%)</li><li>Chômage = chômeurs / population active</li><li>Balance commerciale = exports − imports</li><li>Taux directeur → outil de la banque centrale</li></ul></div>
+    <div class="box"><h2>Marchés financiers</h2><ul><li>Action → part du capital d'une entreprise</li><li>Obligation → titre de dette avec coupon</li><li>CAC 40 → 40 + grandes capitalisations FR</li><li>S&P 500 → 500 grandes cap. américaines</li><li>ETF → fonds indiciel coté (tracker)</li><li>Taux sans risque → OAT 10 ans</li></ul></div>
+    <div class="box"><h2>Concepts fondamentaux</h2><ul><li>Offre & Demande → prix d'équilibre de marché</li><li>Élasticité → sensibilité quantité / prix</li><li>Externalité négative → pollution, coût sur tiers</li><li>Coût d'opportunité → ce à quoi on renonce</li><li>Aléa moral → comportement risqué si assuré</li><li>Asymétrie d'info → marché des "lemons" (Akerlof)</li></ul></div>
+  </div>
+  <div class="footer">Curiosita — Fiche mémo Économie & Finance — ${new Date().toLocaleDateString('fr-FR')}</div>
+  <button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#8b3fc5;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">🖨️ Imprimer / PDF</button>
+  
+</body></html>`);w.document.close();
+}
+renderQuestion();
+</script>
+    <script src="mobile.js"></script>
+</body>
+</html>

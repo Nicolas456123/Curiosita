@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corps humain — Biologie — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #7ae8d8;
+  --accent2: #80cbc4;
+  --accent-dim: rgba(122,232,216,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../biologie-page.html">Biologie</a> › <span>Corps humain</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🧬 Biologie</span>
+    <span class="tag-level">Intermédiaire → Avancé</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Corps humain</em></h1>
+  <p class="hero-desc">Une machine d'une complexité prodigieuse — les systèmes physiologiques qui nous maintiennent en vie et en équilibre.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../biologie-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Biologie</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="cellule.html">La cellule</a>
+    <a class="sidebar-link active" href="#">Corps humain</a>
+    <a class="sidebar-link" href="evolution.html">Évolution</a>
+    <a class="sidebar-link" href="ecologie.html">Écologie</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Le corps humain</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">Le corps humain est un <strong>système biologique intégré</strong> composé de plusieurs niveaux d'organisation : cellules, tissus, organes et systèmes. Chaque système physiologique remplit une fonction vitale, et leur coordination assure l'<strong>homéostasie</strong> — le maintien d'un environnement interne stable malgré les variations extérieures.</p>
+      <div class="highlight-box">
+        <p><strong>L'idée fondamentale :</strong> le corps humain fonctionne comme un ensemble de systèmes interdépendants. Le système nerveux coordonne, le cardiovasculaire transporte, le digestif nourrit, l'immunitaire protège et l'endocrinien régule — tous travaillent en synergie.</p>
+      </div>
+      <p class="resume-text">L'anatomie et la physiologie humaines sont au carrefour de la médecine, de la biologie et des sciences du sport. Comprendre comment chaque système fonctionne — et dysfonctionnement — est essentiel pour appréhender la santé, les maladies et les traitements. Claude Bernard, physiologiste français du XIXᵉ siècle, a posé les bases de la médecine expérimentale et introduit le concept de « milieu intérieur ».</p>
+      <p class="resume-text">Ce domaine couvre les cinq grands systèmes du corps humain : nerveux, cardiovasculaire, digestif, immunitaire et endocrinien.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours sur le corps humain</h2>
+          <p>Progressez étape par étape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="corps-humain/systeme-nerveux.html" class="course-card">
+          <span class="course-card-icon">🧠</span>
+          <h3>Système nerveux</h3>
+          <p>Neurones, synapses, cerveau et moelle épinière. Le centre de commande du corps humain.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="corps-humain/systeme-cardiovasculaire.html" class="course-card">
+          <span class="course-card-icon">❤️</span>
+          <h3>Système cardiovasculaire</h3>
+          <p>Cœur, vaisseaux, circulation sanguine. Le réseau de transport vital de l'organisme.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="corps-humain/systeme-digestif.html" class="course-card">
+          <span class="course-card-icon">🫁</span>
+          <h3>Système digestif</h3>
+          <p>De la bouche au côlon — digestion mécanique et chimique, absorption des nutriments.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="corps-humain/systeme-immunitaire.html" class="course-card">
+          <span class="course-card-icon">🛡️</span>
+          <h3>Système immunitaire</h3>
+          <p>Immunité innée et adaptative, lymphocytes, anticorps. Les défenses de l'organisme.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="corps-humain/systeme-endocrinien.html" class="course-card">
+          <span class="course-card-icon">⚗️</span>
+          <h3>Système endocrinien</h3>
+          <p>Hormones, glandes, régulation. La communication chimique à longue distance.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel du corps humain en un coup d'œil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🧬 Corps humain — Fiche mémo</h3>
+          <p>Curiosita · Systèmes et fonctions vitales</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Système nerveux</div>
+            <div class="memo-item"><span class="mf">Neurone →</span> cellule nerveuse</div>
+            <div class="memo-item"><span class="mf">Synapse →</span> jonction neuronale</div>
+            <div class="memo-item"><span class="mf">SNC →</span> cerveau + moelle</div>
+            <div class="memo-item"><span class="mf">SNP →</span> nerfs périphériques</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Système cardiovasculaire</div>
+            <div class="memo-item"><span class="mf">Cœur →</span> 4 cavités, 2 pompes</div>
+            <div class="memo-item"><span class="mf">Artères →</span> sang oxygéné</div>
+            <div class="memo-item"><span class="mf">Veines →</span> sang désoxygéné</div>
+            <div class="memo-item"><span class="mf">Capillaires →</span> échanges</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Système immunitaire</div>
+            <div class="memo-item"><span class="mf">Innée →</span> réponse immédiate</div>
+            <div class="memo-item"><span class="mf">Adaptative →</span> spécifique, mémoire</div>
+            <div class="memo-item"><span class="mf">Lymphocytes B →</span> anticorps</div>
+            <div class="memo-item"><span class="mf">Lymphocytes T →</span> destruction</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Système endocrinien</div>
+            <div class="memo-item"><span class="mf">Hypothalamus →</span> chef d'orchestre</div>
+            <div class="memo-item"><span class="mf">Hypophyse →</span> glande maîtresse</div>
+            <div class="memo-item"><span class="mf">Thyroïde →</span> métabolisme</div>
+            <div class="memo-item"><span class="mf">Pancréas →</span> insuline/glucagon</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Corps humain — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#7ae8d8;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#7ae8d8;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '
+</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'corps-humain-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

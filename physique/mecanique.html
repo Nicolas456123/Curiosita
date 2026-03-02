@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mécanique — Physique — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #4fc3f7;
+  --accent2: #81d4fa;
+  --accent-dim: rgba(79,195,247,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../physique-page.html">Physique</a> › <span>Mécanique</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">⚛️ Physique</span>
+    <span class="tag-level">Débutant → Avancé</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Mécanique</em></h1>
+  <p class="hero-desc">L'étude du mouvement, des forces et de l'énergie — les fondements de la physique classique depuis Newton.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">25</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../physique-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Physique</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Branches</p>
+    <a class="sidebar-link active" href="#">Mécanique</a>
+    <a class="sidebar-link" href="thermodynamique.html">Thermodynamique</a>
+    <a class="sidebar-link" href="optique.html">Optique</a>
+    <a class="sidebar-link" href="electromagnetisme.html">Électromagnétisme</a>
+    <a class="sidebar-link" href="moderne.html">Physique moderne</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que la mécanique ?</h2>
+          <p>Le mouvement et ses causes</p>
+        </div>
+      </div>
+      <p class="resume-text">La mécanique est la branche de la physique qui étudie le <strong>mouvement des corps</strong> et les <strong>forces</strong> qui le provoquent ou le modifient. Fondée par Galilée et formalisée par Isaac Newton dans ses <em>Principia Mathematica</em> (1687), elle constitue le socle de la physique classique.</p>
+      <div class="highlight-box">
+        <p><strong>L'idée fondamentale :</strong> tout mouvement peut être décrit et prédit à partir de trois lois simples — les lois de Newton — et du principe de conservation de l'énergie. La mécanique permet de calculer la trajectoire d'une balle, l'orbite d'un satellite ou la résistance d'un pont.</p>
+      </div>
+      <p class="resume-text">On distingue la <strong>cinématique</strong> (description du mouvement sans se préoccuper de ses causes), la <strong>dynamique</strong> (étude des forces et de leurs effets) et la <strong>statique</strong> (équilibre des corps au repos). La mécanique s'étend aussi aux fluides, à la gravitation et aux systèmes énergétiques.</p>
+      <p class="resume-text">Ce domaine couvre les forces et le mouvement, l'énergie et le travail, la gravitation universelle, la cinématique et la dynamique des fluides — les outils fondamentaux pour comprendre le monde physique à notre échelle.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours de mécanique</h2>
+          <p>Progressez étape par étape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="mecanique/forces.html" class="course-card">
+          <span class="course-card-icon">💪</span>
+          <h3>Forces et mouvement</h3>
+          <p>Les trois lois de Newton, les types de forces, diagrammes de corps libre et applications.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="mecanique/energie.html" class="course-card">
+          <span class="course-card-icon">⚡</span>
+          <h3>Énergie et travail</h3>
+          <p>Travail d'une force, énergie cinétique et potentielle, conservation de l'énergie, puissance.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="mecanique/gravitation.html" class="course-card">
+          <span class="course-card-icon">🌍</span>
+          <h3>Gravitation</h3>
+          <p>Loi de la gravitation universelle, champs gravitationnels, orbites et satellites.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="mecanique/cinematique.html" class="course-card">
+          <span class="course-card-icon">📐</span>
+          <h3>Cinématique</h3>
+          <p>Position, vitesse, accélération, mouvements rectilignes et circulaires, projectiles.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="mecanique/fluides.html" class="course-card">
+          <span class="course-card-icon">🌊</span>
+          <h3>Dynamique des fluides</h3>
+          <p>Pression, principe de Pascal, poussée d'Archimède, équation de Bernoulli, viscosité.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel de la mécanique en un coup d'œil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>⚙️ Mécanique — Fiche mémo</h3>
+          <p>Curiosita · Forces, mouvement et énergie</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Lois de Newton</div>
+            <div class="memo-item"><span class="mf">1ère loi →</span> inertie (MRU sans force)</div>
+            <div class="memo-item"><span class="mf">2ème loi →</span> ΣF = ma</div>
+            <div class="memo-item"><span class="mf">3ème loi →</span> F₁₂ = −F₂₁</div>
+            <div class="memo-item"><span class="mf">Poids →</span> P = mg</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Cinématique</div>
+            <div class="memo-item"><span class="mf">v = v₀ + at</span></div>
+            <div class="memo-item"><span class="mf">x = x₀ + v₀t + ½at²</span></div>
+            <div class="memo-item"><span class="mf">v² = v₀² + 2a(x−x₀)</span></div>
+            <div class="memo-item"><span class="mf">MRU →</span> v constante, a = 0</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Énergie</div>
+            <div class="memo-item"><span class="mf">Ec = ½mv²</span> (cinétique)</div>
+            <div class="memo-item"><span class="mf">Ep = mgh</span> (potentielle)</div>
+            <div class="memo-item"><span class="mf">W = F·d·cos θ</span> (travail)</div>
+            <div class="memo-item"><span class="mf">P = W/t</span> (puissance)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Fluides</div>
+            <div class="memo-item"><span class="mf">P = F/A</span> (pression)</div>
+            <div class="memo-item"><span class="mf">Archimède →</span> Fa = ρVg</div>
+            <div class="memo-item"><span class="mf">Bernoulli →</span> P + ½ρv² + ρgh = cte</div>
+            <div class="memo-item"><span class="mf">Pascal →</span> pression transmise intégralement</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo(){var memo=document.getElementById('memoCard').outerHTML;var html='<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Mécanique — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#4fc3f7;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#4fc3f7;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>'+memo+'</body></html>';var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download='mecanique-fiche-memo.html';a.click();}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

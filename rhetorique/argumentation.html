@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'argumentation — Rhétorique — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #9b7ae8;
+  --accent2: #b89ff0;
+  --accent-dim: rgba(155,122,232,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(155,122,232,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../rhetorique-page.html">Rhétorique</a> › <span>Argumentation</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🎤 Rhétorique</span>
+    <span class="tag-level">Débutant → Avancé</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>L'argumentation</em></h1>
+  <p class="hero-desc">Logique formelle, raisonnement déductif et inductif, sophismes et biais cognitifs — les outils pour construire des arguments solides et détecter les raisonnements fallacieux.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../rhetorique-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Rhétorique</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link active" href="#">Argumentation</a>
+    <a class="sidebar-link" href="art-oratoire.html">Art oratoire</a>
+    <a class="sidebar-link" href="ecriture.html">Écriture persuasive</a>
+    <a class="sidebar-link" href="communication.html">Communication</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>L'art de l'argumentation</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">L'argumentation est le processus par lequel on cherche à convaincre un interlocuteur en enchaînant des raisons logiquement liées. Contrairement à la simple persuasion émotionnelle, l'argumentation repose sur le <strong>logos</strong> — la logique, les preuves, les données, le raisonnement structuré. C'est le fondement de toute discussion rationnelle, du débat démocratique à la recherche scientifique.</p>
+      <div class="highlight-box">
+        <p><strong>Deux types de raisonnement :</strong> Le raisonnement <strong>déductif</strong> part de prémisses générales pour tirer une conclusion nécessaire (syllogisme). Le raisonnement <strong>inductif</strong> part d'observations particulières pour formuler une conclusion probable (généralisation). Le premier est certain mais limité ; le second est puissant mais faillible.</p>
+      </div>
+      <p class="resume-text">Maîtriser l'argumentation implique aussi de savoir <strong>identifier les sophismes</strong> — ces raisonnements qui semblent logiques mais contiennent une erreur cachée. L'homme de paille, l'ad hominem, la pente glissante, le faux dilemme, l'appel à l'autorité : ces pièges rhétoriques sont omniprésents dans les débats publics et la communication quotidienne.</p>
+      <p class="resume-text">Enfin, les <strong>biais cognitifs</strong> — ces raccourcis mentaux qui déforment notre jugement — sont le talon d'Achille de tout argumentateur. Le biais de confirmation, l'effet de cadrage, l'ancrage, l'effet Dunning-Kruger : les connaître, c'est se protéger contre ses propres failles de raisonnement autant que contre la manipulation d'autrui.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours</h2>
+          <p>Explorez l'argumentation</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="#" class="course-card">
+          <span class="course-card-icon">🔗</span>
+          <h3>Logique et raisonnement</h3>
+          <p>Déduction, induction, abduction. Les formes valides du raisonnement et les règles de la logique formelle.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="#" class="course-card">
+          <span class="course-card-icon">⚠️</span>
+          <h3>Les sophismes</h3>
+          <p>Homme de paille, ad hominem, pente glissante, faux dilemme. Identifier et neutraliser les arguments fallacieux.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="#" class="course-card">
+          <span class="course-card-icon">🧠</span>
+          <h3>Biais cognitifs</h3>
+          <p>Biais de confirmation, ancrage, effet de cadrage, Dunning-Kruger. Comprendre nos propres failles de raisonnement.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="#" class="course-card">
+          <span class="course-card-icon">🏗️</span>
+          <h3>Construire un argument</h3>
+          <p>Thèse, prémisses, preuves, objections, réfutation. La structure d'un argumentaire solide et convaincant.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="#" class="course-card">
+          <span class="course-card-icon">⚔️</span>
+          <h3>La démonstration</h3>
+          <p>De la preuve mathématique à la démonstration juridique. Les standards de preuve selon les domaines.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel de l'argumentation</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🧠 Argumentation — Fiche mémo</h3>
+          <p>Curiosita · Logique, sophismes et biais cognitifs</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Types de raisonnement</div>
+            <div class="memo-item"><span class="mf">Déductif →</span> Général → particulier (certain)</div>
+            <div class="memo-item"><span class="mf">Inductif →</span> Particulier → général (probable)</div>
+            <div class="memo-item"><span class="mf">Abductif →</span> Meilleure explication possible</div>
+            <div class="memo-item"><span class="mf">Analogique →</span> Comparaison de situations</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Sophismes principaux</div>
+            <div class="memo-item"><span class="mf">Homme de paille →</span> Déformer l'argument</div>
+            <div class="memo-item"><span class="mf">Ad hominem →</span> Attaquer la personne</div>
+            <div class="memo-item"><span class="mf">Pente glissante →</span> Enchaînement d'effets</div>
+            <div class="memo-item"><span class="mf">Faux dilemme →</span> Seulement 2 options</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Biais cognitifs</div>
+            <div class="memo-item"><span class="mf">Confirmation →</span> Chercher ce qui confirme</div>
+            <div class="memo-item"><span class="mf">Ancrage →</span> Première info domine</div>
+            <div class="memo-item"><span class="mf">Cadrage →</span> Présentation influence le choix</div>
+            <div class="memo-item"><span class="mf">Dunning-Kruger →</span> Surestimer ses compétences</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Structure d'un argument</div>
+            <div class="memo-item"><span class="mf">1. Thèse →</span> Ce que l'on veut démontrer</div>
+            <div class="memo-item"><span class="mf">2. Prémisses →</span> Points de départ acceptés</div>
+            <div class="memo-item"><span class="mf">3. Preuves →</span> Données, exemples, études</div>
+            <div class="memo-item"><span class="mf">4. Conclusion →</span> Conséquence logique</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Argumentation — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#9b7ae8;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#9b7ae8;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '\n</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'argumentation-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

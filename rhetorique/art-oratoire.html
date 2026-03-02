@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'art oratoire — Rhétorique — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #9b7ae8;
+  --accent2: #b89ff0;
+  --accent-dim: rgba(155,122,232,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(155,122,232,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../rhetorique-page.html">Rhétorique</a> › <span>Art oratoire</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🎤 Rhétorique</span>
+    <span class="tag-level">Débutant → Avancé</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>L'art oratoire</em></h1>
+  <p class="hero-desc">Éloquence, prise de parole en public, structure du discours et techniques de persuasion orale — de Cicéron à Obama, l'art de captiver un auditoire par la parole.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">4</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">12</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../rhetorique-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Rhétorique</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="argumentation.html">Argumentation</a>
+    <a class="sidebar-link active" href="#">Art oratoire</a>
+    <a class="sidebar-link" href="ecriture.html">Écriture persuasive</a>
+    <a class="sidebar-link" href="communication.html">Communication</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>L'éloquence et la prise de parole</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">L'art oratoire est la capacité à s'exprimer avec <strong>éloquence</strong> devant un public. Depuis l'Antiquité, il est considéré comme l'un des arts les plus nobles. Cicéron, le plus grand orateur romain, affirmait que l'éloquence est la reine de tous les arts. Aujourd'hui, parler en public reste l'une des compétences les plus recherchées et les plus redoutées.</p>
+      <div class="highlight-box">
+        <p><strong>Les 5 canons de la rhétorique classique :</strong> 1. <strong>Inventio</strong> (trouver les arguments), 2. <strong>Dispositio</strong> (les organiser), 3. <strong>Elocutio</strong> (les formuler avec style), 4. <strong>Memoria</strong> (les mémoriser), 5. <strong>Actio</strong> (les délivrer avec le corps et la voix). Ces cinq étapes restent la base de toute prise de parole réussie.</p>
+      </div>
+      <p class="resume-text">Un discours efficace repose sur une <strong>structure claire</strong> — introduction captivante (captatio benevolentiae), développement organisé, conclusion mémorable — mais aussi sur des qualités vocales et corporelles : le rythme, les pauses, la modulation de la voix, le regard, la gestuelle. Les meilleurs orateurs maîtrisent à la fois le fond (arguments) et la forme (performance).</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours</h2>
+          <p>Explorez l'art oratoire</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="#" class="course-card">
+          <span class="course-card-icon">🏛️</span>
+          <h3>Histoire de l'éloquence</h3>
+          <p>De Démosthène à Obama, les grands orateurs qui ont changé l'histoire par la force de leurs discours.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="#" class="course-card">
+          <span class="course-card-icon">🎯</span>
+          <h3>Structure du discours</h3>
+          <p>Exorde, narration, argumentation, péroraison. Organiser ses idées pour un impact maximal.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="#" class="course-card">
+          <span class="course-card-icon">🗣️</span>
+          <h3>Techniques vocales et corporelles</h3>
+          <p>Voix, rythme, pauses, gestuelle, regard. L'art de la performance orale et du langage non verbal.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="#" class="course-card">
+          <span class="course-card-icon">💪</span>
+          <h3>Vaincre la peur de parler</h3>
+          <p>Glossophobie, trac, préparation mentale. Techniques pratiques pour prendre confiance devant un public.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel de l'art oratoire</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🎤 Art oratoire — Fiche mémo</h3>
+          <p>Curiosita · Éloquence et prise de parole</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">5 canons de la rhétorique</div>
+            <div class="memo-item"><span class="mf">Inventio →</span> Trouver les arguments</div>
+            <div class="memo-item"><span class="mf">Dispositio →</span> Les organiser</div>
+            <div class="memo-item"><span class="mf">Elocutio →</span> Les formuler avec style</div>
+            <div class="memo-item"><span class="mf">Memoria →</span> Les mémoriser</div>
+            <div class="memo-item"><span class="mf">Actio →</span> Les délivrer (voix, corps)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Structure du discours</div>
+            <div class="memo-item"><span class="mf">Exorde →</span> Capter l'attention</div>
+            <div class="memo-item"><span class="mf">Narration →</span> Exposer les faits</div>
+            <div class="memo-item"><span class="mf">Argumentation →</span> Développer les preuves</div>
+            <div class="memo-item"><span class="mf">Péroraison →</span> Conclure avec force</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Techniques vocales</div>
+            <div class="memo-item"><span class="mf">Rythme →</span> Varier la vitesse</div>
+            <div class="memo-item"><span class="mf">Pauses →</span> Le silence est puissant</div>
+            <div class="memo-item"><span class="mf">Volume →</span> Moduler l'intensité</div>
+            <div class="memo-item"><span class="mf">Timbre →</span> Voix grave = autorité</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Grands discours</div>
+            <div class="memo-item"><span class="mf">Cicéron →</span> Les Catilinaires (-63)</div>
+            <div class="memo-item"><span class="mf">Lincoln →</span> Gettysburg (1863)</div>
+            <div class="memo-item"><span class="mf">Churchill →</span> We Shall Fight (1940)</div>
+            <div class="memo-item"><span class="mf">M.L. King →</span> I Have a Dream (1963)</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Art oratoire — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#9b7ae8;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#9b7ae8;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '\n</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'art-oratoire-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

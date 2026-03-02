@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oceanographie — Sciences de la Terre — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root { --accent: #7ae8d8; --accent2: #a0f5ee; --accent-dim: rgba(122,232,216,0.08); }
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../terre-page.html">Sciences de la Terre</a> &rsaquo; <span>Oceanographie</span></div>
+  <button class="btn-memo" onclick="downloadMemo()">&#8595; Fiche memo</button>
+</nav>
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">&#127754; Sciences de la Terre</span>
+    <span class="tag-level">Debutant &rarr; Avance</span>
+    <span class="tag-time">&#9201; ~5h de lecture</span>
+  </div>
+  <h1><em>Oceanographie</em></h1>
+  <p class="hero-desc">L'etude des oceans : courants, ecosystemes marins, fonds oceaniques et impact humain sur les mers.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">25</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../terre-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">&larr; Sciences de la Terre</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">&#128214; Presentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">&#128218; Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">&#128203; Fiche memo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="geologie.html">Geologie</a>
+    <a class="sidebar-link" href="meteorologie.html">Meteorologie</a>
+    <a class="sidebar-link active" href="#">Oceanographie</a>
+    <a class="sidebar-link" href="volcanisme.html">Volcanisme et seismes</a>
+    <div class="sidebar-progress"><div class="progress-label">Progression</div><div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div></div>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="presentation">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Qu'est-ce que l'oceanographie ?</h2><p>La science des oceans et des mers</p></div></div>
+      <p class="resume-text">L'oceanographie etudie les oceans sous tous leurs aspects : physique (courants, marees, vagues), chimique (salinite, pH, gaz dissous), biologique (ecosystemes marins, plancton) et geologique (fonds oceaniques, dorsales, fosses). Les oceans couvrent 71% de la surface terrestre et contiennent 97% de l'eau de la planete.</p>
+      <div class="highlight-box"><p><strong>Role climatique majeur :</strong> les oceans absorbent environ 30% du CO2 emis par les activites humaines et stockent plus de 90% de l'exces de chaleur du au rechauffement climatique. Ils sont le principal regulateur du climat planetaire.</p></div>
+      <p class="resume-text">De l'exploration des grands fonds par les submersibles a la surveillance par satellites, l'oceanographie revele un monde encore largement inexplore : moins de 20% des fonds oceaniques ont ete cartographies en haute resolution.</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Les cours d'oceanographie</h2><p>Progressez etape par etape</p></div></div>
+      <div class="courses-grid">
+        <a href="oceanographie/oceans.html" class="course-card"><span class="course-card-icon">&#127754;</span><h3>Oceans et mers</h3><p>Les cinq oceans, proprietes de l'eau de mer, salinite et temperature.</p><span class="course-card-link">Voir le cours &rarr;</span></a>
+        <a href="oceanographie/courants.html" class="course-card"><span class="course-card-icon">&#127744;</span><h3>Courants marins</h3><p>Circulation thermohaline, Gulf Stream, courants de surface et profonds.</p><span class="course-card-link">Voir le cours &rarr;</span></a>
+        <a href="oceanographie/vie-marine.html" class="course-card"><span class="course-card-icon">&#128032;</span><h3>Vie marine</h3><p>Ecosystemes marins, plancton, recifs coralliens, chaines alimentaires.</p><span class="course-card-link">Voir le cours &rarr;</span></a>
+        <a href="oceanographie/fonds.html" class="course-card"><span class="course-card-icon">&#129704;</span><h3>Fonds oceaniques</h3><p>Dorsales, fosses, plaines abyssales, sources hydrothermales.</p><span class="course-card-link">Voir le cours &rarr;</span></a>
+        <a href="oceanographie/pollution.html" class="course-card"><span class="course-card-icon">&#9888;&#65039;</span><h3>Pollution marine</h3><p>Plastiques, marees noires, acidification, eutrophisation et solutions.</p><span class="course-card-link">Voir le cours &rarr;</span></a>
+      </div>
+    </section>
+    <section class="content-section" id="memo">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Fiche memo</h2><p>L'essentiel de l'oceanographie</p></div></div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top"><h3>&#127754; Oceanographie — Fiche memo</h3><p>Curiosita &middot; Oceans, courants et vie marine</p></div>
+        <div class="memo-grid">
+          <div class="memo-section"><div class="memo-section-title">Les 5 oceans</div><div class="memo-item"><span class="mf">Pacifique &rarr;</span> le plus grand (165 M km2)</div><div class="memo-item"><span class="mf">Atlantique &rarr;</span> 85 M km2</div><div class="memo-item"><span class="mf">Indien &rarr;</span> 70 M km2</div><div class="memo-item"><span class="mf">Austral + Arctique</span></div></div>
+          <div class="memo-section"><div class="memo-section-title">Proprietes</div><div class="memo-item"><span class="mf">Salinite &rarr;</span> 35 g/L en moyenne</div><div class="memo-item"><span class="mf">Profondeur moy. &rarr;</span> 3 688 m</div><div class="memo-item"><span class="mf">Fosse des Mariannes &rarr;</span> 10 994 m</div><div class="memo-item"><span class="mf">pH moyen &rarr;</span> 8,1 (en baisse)</div></div>
+          <div class="memo-section"><div class="memo-section-title">Courants</div><div class="memo-item"><span class="mf">Gulf Stream &rarr;</span> chaud, vers l'Europe</div><div class="memo-item"><span class="mf">Thermohaline &rarr;</span> tapis roulant mondial</div><div class="memo-item"><span class="mf">Upwelling &rarr;</span> remontee d'eau froide</div><div class="memo-item"><span class="mf">Coriolis &rarr;</span> devie les courants</div></div>
+          <div class="memo-section"><div class="memo-section-title">Enjeux</div><div class="memo-item"><span class="mf">Acidification &rarr;</span> CO2 dissous, pH baisse</div><div class="memo-item"><span class="mf">8 M tonnes &rarr;</span> plastique/an dans l'ocean</div><div class="memo-item"><span class="mf">Blanchiment &rarr;</span> coraux stresses par la T</div><div class="memo-item"><span class="mf">30% &rarr;</span> du CO2 absorbe par l'ocean</div></div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">&#8595; Telecharger la fiche memo (HTML)</button>
+      </div>
+    </section>
+  </main>
+</div>
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo(){var m=document.getElementById('memoCard').outerHTML;var w=window.open('','_blank');w.document.write('<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Oceanographie — Fiche memo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#7ae8d8;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#7ae8d8;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>'+m+'</body></html>');w.document.close();}
+</script>
+<script src="../mobile.js"></script>
+</body>
+</html>

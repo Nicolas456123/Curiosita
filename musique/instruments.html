@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instruments — Musique — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #e8b07a;
+  --accent2: #ffcc80;
+  --accent-dim: rgba(232,176,122,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,176,122,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../musique-page.html">Musique</a> › <span>Instruments</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🎵 Musique</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Instruments</em></h1>
+  <p class="hero-desc">Du piano à l'orchestre symphonique — découvrez les familles d'instruments, leur technique et leur rôle dans la musique.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">4</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">12</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../musique-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Musique</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="theorie.html">Théorie musicale</a>
+    <a class="sidebar-link" href="histoire.html">Histoire</a>
+    <a class="sidebar-link active" href="#">Instruments</a>
+    <a class="sidebar-link" href="production.html">Production</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Les instruments de musique</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">Les instruments de musique sont les <strong>outils physiques de l'expression musicale</strong>. Depuis les premières flûtes taillées dans l'os il y a 40 000 ans jusqu'aux synthétiseurs numériques, l'humanité n'a cessé d'inventer des moyens de produire et de moduler le son.</p>
+      <div class="highlight-box">
+        <p><strong>Classification :</strong> Le système Hornbostel-Sachs classe les instruments en quatre familles acoustiques : les cordophones (cordes), les aérophones (vent), les membranophones (peaux) et les idiophones (corps vibrant). Les électrophones constituent une cinquième famille moderne.</p>
+      </div>
+      <p class="resume-text">Ce parcours explore quatre grands domaines instrumentaux : le <strong>piano</strong>, instrument roi de la musique occidentale ; la <strong>guitare</strong>, l'instrument le plus joué au monde ; la <strong>voix</strong>, le premier et le plus naturel des instruments ; et l'<strong>orchestre</strong> symphonique, sommet de l'art instrumental collectif.</p>
+      <p class="resume-text">Chaque instrument possède ses techniques propres, son répertoire, son histoire et ses grands interprètes. Comprendre un instrument, c'est comprendre les possibilités et les limites du son qu'il produit.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours sur les instruments</h2>
+          <p>Progressez étape par étape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="instruments/piano.html" class="course-card">
+          <span class="course-card-icon">🎹</span>
+          <h3>Le piano</h3>
+          <p>Mécanique, technique, répertoire. L'instrument à clavier le plus polyvalent.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="instruments/guitare.html" class="course-card">
+          <span class="course-card-icon">🎸</span>
+          <h3>La guitare</h3>
+          <p>Classique, acoustique, électrique. Accords, arpèges et techniques de jeu.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="instruments/voix.html" class="course-card">
+          <span class="course-card-icon">🎤</span>
+          <h3>La voix</h3>
+          <p>Tessiture, technique vocale, registres. Le plus ancien et le plus expressif des instruments.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="instruments/orchestre.html" class="course-card">
+          <span class="course-card-icon">🎻</span>
+          <h3>L'orchestre symphonique</h3>
+          <p>Familles instrumentales, disposition, rôle du chef. L'art de jouer ensemble.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel des instruments en un coup d'œil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🎵 Instruments — Fiche mémo</h3>
+          <p>Curiosita · Familles et caractéristiques</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Piano</div>
+            <div class="memo-item"><span class="mf">Tessiture →</span> 88 touches, 7 octaves+</div>
+            <div class="memo-item"><span class="mf">Type →</span> cordophone à clavier</div>
+            <div class="memo-item"><span class="mf">Pédales →</span> sustain, una corda, sostenuto</div>
+            <div class="memo-item"><span class="mf">Inventeur →</span> Cristofori (~1700)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Guitare</div>
+            <div class="memo-item"><span class="mf">Cordes →</span> 6 (Mi-La-Ré-Sol-Si-Mi)</div>
+            <div class="memo-item"><span class="mf">Types →</span> classique, folk, électrique</div>
+            <div class="memo-item"><span class="mf">Frettes →</span> 19-24 demi-tons</div>
+            <div class="memo-item"><span class="mf">Accord std →</span> EADGBE</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Voix</div>
+            <div class="memo-item"><span class="mf">Soprano →</span> Do3 — Do5</div>
+            <div class="memo-item"><span class="mf">Alto →</span> Fa2 — Fa4</div>
+            <div class="memo-item"><span class="mf">Ténor →</span> Do2 — Do4</div>
+            <div class="memo-item"><span class="mf">Basse →</span> Mi1 — Mi3</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Orchestre</div>
+            <div class="memo-item"><span class="mf">Cordes →</span> violon, alto, violoncelle</div>
+            <div class="memo-item"><span class="mf">Bois →</span> flûte, hautbois, clarinette</div>
+            <div class="memo-item"><span class="mf">Cuivres →</span> trompette, cor, trombone</div>
+            <div class="memo-item"><span class="mf">Percussions →</span> timbales, cymbales</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Instruments — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#e8b07a;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#e8b07a;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '
+</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'instruments-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

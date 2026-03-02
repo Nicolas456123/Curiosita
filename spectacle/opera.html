@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opéra — Arts du spectacle — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #e87a7a;
+  --accent2: #ef9a9a;
+  --accent-dim: rgba(232,122,122,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../spectacle-page.html">Arts du spectacle</a> › <span>Opéra</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🎭 Arts du spectacle</span>
+    <span class="tag-level">Débutant → Avancé</span>
+    <span class="tag-time">⏱ ~6h de lecture</span>
+  </div>
+  <h1><em>Opéra</em></h1>
+  <p class="hero-desc">De Monteverdi aux créations contemporaines — quatre siècles d'art lyrique où la voix humaine rencontre la puissance de l'orchestre.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../spectacle-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Arts du spectacle</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="theatre.html">Théâtre</a>
+    <a class="sidebar-link" href="danse.html">Danse</a>
+    <a class="sidebar-link active" href="#">Opéra</a>
+    <a class="sidebar-link" href="cirque.html">Cirque et arts de rue</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que l'opéra ?</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">L'opéra est un <strong>art total</strong> qui fusionne musique, chant, théâtre, danse et arts visuels en un spectacle grandiose. Né à Florence vers 1600 avec la volonté de ressusciter le théâtre antique, il est devenu l'une des formes artistiques les plus ambitieuses de la culture occidentale, capable d'émouvoir par la seule puissance de la voix humaine.</p>
+      <div class="highlight-box">
+        <p><strong>L'idée fondamentale :</strong> l'opéra amplifie le drame par la musique. Là où le théâtre dit, l'opéra chante. L'émotion passe par la voix, l'orchestre et la mise en scène pour atteindre une intensité que le texte seul ne pourrait produire.</p>
+      </div>
+      <p class="resume-text">De <strong>Monteverdi</strong> (L'Orfeo, 1607) à <strong>Mozart</strong> (Don Giovanni, La Flûte enchantée), de <strong>Verdi</strong> (La Traviata, Aida) à <strong>Wagner</strong> (L'Anneau du Nibelung) et <strong>Puccini</strong> (La Bohème, Tosca), chaque époque a produit des chefs-d'oeuvre qui continuent de remplir les salles du monde entier.</p>
+      <p class="resume-text">L'opéra contemporain se réinvente constamment, intégrant nouvelles technologies, sujets actuels et formes hybrides comme la comédie musicale, héritière directe de la tradition lyrique.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours d'opéra</h2>
+          <p>Progressez étape par étape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="opera/histoire-opera.html" class="course-card">
+          <span class="course-card-icon">📜</span>
+          <h3>Histoire de l'opéra</h3>
+          <p>De la Camerata fiorentina au XXIe siècle : quatre cents ans d'évolution de l'art lyrique.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="opera/voix-technique.html" class="course-card">
+          <span class="course-card-icon">🎤</span>
+          <h3>Voix et technique</h3>
+          <p>Soprano, ténor, baryton, basse : les tessitures vocales, le bel canto et la technique lyrique.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="opera/grands-compositeurs.html" class="course-card">
+          <span class="course-card-icon">🎼</span>
+          <h3>Grands compositeurs</h3>
+          <p>Mozart, Verdi, Wagner, Puccini, Bizet : les génies qui ont façonné le répertoire lyrique.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="opera/opera-contemporain.html" class="course-card">
+          <span class="course-card-icon">🔮</span>
+          <h3>Opéra contemporain</h3>
+          <p>Nouvelles écritures, mises en scène audacieuses et création lyrique au XXIe siècle.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="opera/comedie-musicale.html" class="course-card">
+          <span class="course-card-icon">🌟</span>
+          <h3>Comédie musicale</h3>
+          <p>De Broadway à West End : l'héritage populaire de l'opéra, de Gershwin à Sondheim.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel de l'opéra en un coup d'oeil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🎤 Opéra — Fiche mémo</h3>
+          <p>Curiosita · Compositeurs, voix et oeuvres clés</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Époques de l'opéra</div>
+            <div class="memo-item"><span class="mf">Baroque</span> Monteverdi, Haendel, Rameau</div>
+            <div class="memo-item"><span class="mf">Classique</span> Gluck, Mozart</div>
+            <div class="memo-item"><span class="mf">Romantique</span> Verdi, Wagner, Puccini</div>
+            <div class="memo-item"><span class="mf">Moderne</span> Debussy, Berg, Britten</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Voix lyriques</div>
+            <div class="memo-item"><span class="mf">Soprano</span> Voix féminine la plus aiguë</div>
+            <div class="memo-item"><span class="mf">Mezzo</span> Voix féminine intermédiaire</div>
+            <div class="memo-item"><span class="mf">Ténor</span> Voix masculine la plus aiguë</div>
+            <div class="memo-item"><span class="mf">Baryton / Basse</span> Voix masculines graves</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Oeuvres incontournables</div>
+            <div class="memo-item"><span class="mf">Don Giovanni</span> Mozart (1787)</div>
+            <div class="memo-item"><span class="mf">La Traviata</span> Verdi (1853)</div>
+            <div class="memo-item"><span class="mf">Carmen</span> Bizet (1875)</div>
+            <div class="memo-item"><span class="mf">La Bohème</span> Puccini (1896)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Vocabulaire essentiel</div>
+            <div class="memo-item"><span class="mf">Aria</span> Air chanté par un soliste</div>
+            <div class="memo-item"><span class="mf">Récitatif</span> Déclamation chantée narrative</div>
+            <div class="memo-item"><span class="mf">Livret</span> Texte littéraire de l'opéra</div>
+            <div class="memo-item"><span class="mf">Ouverture</span> Pièce orchestrale d'introduction</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Opéra — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#e87a7a;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#e87a7a;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'opera-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

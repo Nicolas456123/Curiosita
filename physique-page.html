@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physique — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<style>
+:root {
+  --accent: #4fc3f7;
+  --accent2: #81d4fa;
+  --accent-dim: rgba(79,195,247,0.1);
+}
+.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(79,195,247,0.07) 0%, transparent 70%); }
+.hero-deco { color: rgba(79,195,247,0.04); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="sciences-exactes.html">Sciences exactes</a> › <span>Physique</span></div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-deco">⚛️</div>
+  <div class="hero-meta">
+    <span class="tag-domain">🔬 Sciences exactes & Informatique</span>
+    <span class="tag-level">Tous niveaux</span>
+    <span class="tag-time">⏱ ~12h de lecture</span>
+  </div>
+  <h1>La<br><em>Physique</em></h1>
+  <p class="hero-desc">Science fondamentale de la matière, de l'énergie et des forces qui régissent l'univers. De la mécanique classique de Newton à la relativité d'Einstein et aux mystères de la physique quantique, la physique décrypte les lois de la nature à toutes les échelles.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Branches</div></div>
+    <div class="hstat"><div class="hstat-val">10</div><div class="hstat-lab">Quiz</div></div>
+    <div class="hstat"><div class="hstat-val">8</div><div class="hstat-lab">Ressources</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="resume" onclick="goTo('resume',this)">📖 Résumé</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="lois" onclick="goTo('lois',this)">⚖️ Lois fondamentales</a>
+    <a class="sidebar-link" data-section="concepts" onclick="goTo('concepts',this)">🧩 Concepts clés</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="ressources" onclick="goTo('ressources',this)">🔗 Ressources</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Branches</p>
+    <a class="sidebar-link" href="physique/mecanique.html">Mécanique</a>
+    <a class="sidebar-link" href="physique/thermodynamique.html">Thermodynamique</a>
+    <a class="sidebar-link" href="physique/optique.html">Optique</a>
+    <a class="sidebar-link" href="physique/electromagnetisme.html">Électromagnétisme</a>
+    <a class="sidebar-link" href="physique/moderne.html">Physique moderne</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+  <main class="main">
+
+    <section class="content-section" id="resume">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info"><h2>La physique, science de la nature</h2><p>Comprendre les lois fondamentales de l'univers</p></div>
+      </div>
+      <p class="resume-text">La physique (du grec <em>physis</em> = nature) est la science qui étudie la matière, l'énergie, le mouvement, les forces et leurs interactions. Elle cherche à formuler des lois universelles capables de décrire et prédire les phénomènes naturels, de l'infiniment petit (particules subatomiques) à l'infiniment grand (galaxies et cosmologie).</p>
+      <div class="highlight-box">
+        <p><strong>L'ambition de la physique :</strong> réduire la complexité du monde observable à un petit nombre de principes fondamentaux, exprimés sous forme mathématique. La chute d'une pomme et l'orbite de la Lune obéissent à la même loi — c'est le génie de Newton d'avoir unifié ces phénomènes.</p>
+      </div>
+      <p class="resume-text">L'histoire de la physique est jalonnée de révolutions intellectuelles. La <strong>mécanique classique</strong> de Newton (1687) a posé les fondements du mouvement et de la gravitation. Au XIXe siècle, la <strong>thermodynamique</strong> a formalisé les échanges d'énergie et d'entropie, tandis que Maxwell unifiait l'électricité et le magnétisme dans ses célèbres <strong>équations de l'électromagnétisme</strong> (1865). Le XXe siècle a vu deux révolutions majeures : la <strong>relativité restreinte</strong> (1905) et <strong>générale</strong> (1915) d'Einstein, qui redéfinit l'espace, le temps et la gravitation, et la <strong>mécanique quantique</strong> (Planck, Bohr, Heisenberg, Schrödinger), qui révèle le comportement probabiliste de la matière à l'échelle atomique.</p>
+      <p class="resume-text">Aujourd'hui, la physique reste au cœur des plus grands défis scientifiques : la quête d'une théorie unifiée, la compréhension de la matière noire et de l'énergie sombre, la fusion nucléaire contrôlée, l'informatique quantique et la physique des matériaux avancés. Elle est aussi la base de toutes les technologies modernes : électronique, télécommunications, imagerie médicale, énergie nucléaire et laser.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Explorez les branches</h2>
+          <p>Cinq grands domaines de la physique</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="physique/mecanique.html" class="course-card">
+          <span class="course-card-icon">⚙️</span>
+          <h3>Mécanique</h3>
+          <p>Forces, mouvement, énergie, gravitation et dynamique des fluides — les fondements du mouvement.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="physique/thermodynamique.html" class="course-card">
+          <span class="course-card-icon">🌡️</span>
+          <h3>Thermodynamique</h3>
+          <p>Chaleur, température, lois de la thermodynamique, machines thermiques et entropie.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="physique/optique.html" class="course-card">
+          <span class="course-card-icon">🔭</span>
+          <h3>Optique</h3>
+          <p>Lumière, réflexion, réfraction, lentilles, interférences et spectre électromagnétique.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="physique/electromagnetisme.html" class="course-card">
+          <span class="course-card-icon">⚡</span>
+          <h3>Électromagnétisme</h3>
+          <p>Charges, champs, courant, circuits, magnétisme, induction et ondes électromagnétiques.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="physique/moderne.html" class="course-card">
+          <span class="course-card-icon">🔬</span>
+          <h3>Physique moderne</h3>
+          <p>Relativité, mécanique quantique, physique nucléaire, particules et radioactivité.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="lois">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info"><h2>Lois fondamentales</h2><p>Les piliers de la physique classique et moderne</p></div>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Première loi de Newton (inertie) :</strong> tout corps persévère dans son état de repos ou de mouvement rectiligne uniforme, à moins qu'une force extérieure ne le contraigne à changer d'état. Un objet en mouvement continue sur sa lancée indéfiniment en l'absence de force.</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Deuxième loi de Newton (F = ma) :</strong> l'accélération d'un corps est proportionnelle à la force nette qui lui est appliquée et inversement proportionnelle à sa masse. Cette loi est le cœur de la mécanique classique : elle permet de prédire le mouvement de tout objet connaissant les forces en jeu.</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Troisième loi de Newton (action-réaction) :</strong> à toute action correspond une réaction égale et opposée. Quand vous poussez un mur, le mur vous pousse avec la même force en sens contraire.</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Conservation de l'énergie :</strong> l'énergie totale d'un système isolé reste constante. Elle peut se transformer (cinétique en potentielle, chimique en thermique) mais ne peut être ni créée ni détruite. C'est le premier principe de la thermodynamique.</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Équivalence masse-énergie (E = mc²) :</strong> Einstein a montré que masse et énergie sont deux formes d'une même réalité. Une petite quantité de masse contient une énergie colossale, car c² (vitesse de la lumière au carré) vaut environ 9 × 10¹⁶ m²/s². C'est le principe à la base de l'énergie nucléaire.</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Loi de la gravitation universelle :</strong> deux masses s'attirent mutuellement avec une force proportionnelle au produit de leurs masses et inversement proportionnelle au carré de la distance qui les sépare : F = G·m₁·m₂/r². Cette loi explique aussi bien la chute des corps que les orbites planétaires.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="concepts">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info"><h2>Concepts clés</h2><p>Le vocabulaire essentiel du physicien</p></div>
+      </div>
+      <div class="concepts-grid">
+        <div class="concept-card"><div class="concept-title">Force</div><div class="concept-desc">Grandeur vectorielle qui modifie l'état de mouvement d'un corps. Unité : le newton (N). Exemples : gravité, friction, tension, force électromagnétique. F = ma est la relation fondamentale.</div></div>
+        <div class="concept-card"><div class="concept-title">Énergie</div><div class="concept-desc">Capacité d'un système à produire un travail ou un transfert de chaleur. Se conserve toujours. Formes : cinétique (½mv²), potentielle (mgh), thermique, électrique, nucléaire. Unité : le joule (J).</div></div>
+        <div class="concept-card"><div class="concept-title">Masse</div><div class="concept-desc">Mesure de la quantité de matière et de la résistance à l'accélération (inertie). Ne pas confondre avec le poids (force gravitationnelle : P = mg). Unité : le kilogramme (kg).</div></div>
+        <div class="concept-card"><div class="concept-title">Vitesse</div><div class="concept-desc">Taux de variation de la position par rapport au temps. Grandeur vectorielle (direction + norme). v = d/t en moyenne, v = dx/dt en instantané. Unité : m/s. La vitesse de la lumière (c ≈ 3×10⁸ m/s) est la limite absolue.</div></div>
+        <div class="concept-card"><div class="concept-title">Accélération</div><div class="concept-desc">Taux de variation de la vitesse par rapport au temps. a = dv/dt. L'accélération gravitationnelle terrestre vaut g ≈ 9,81 m/s². Unité : m/s².</div></div>
+        <div class="concept-card"><div class="concept-title">Pression</div><div class="concept-desc">Force exercée par unité de surface : P = F/A. Unité : le pascal (Pa). La pression atmosphérique au niveau de la mer vaut environ 101 325 Pa. Essentielle en thermodynamique et mécanique des fluides.</div></div>
+        <div class="concept-card"><div class="concept-title">Température</div><div class="concept-desc">Mesure de l'agitation thermique moyenne des particules d'un corps. Échelles : Celsius (°C), Kelvin (K), Fahrenheit (°F). Le zéro absolu (0 K = −273,15 °C) est la température minimale théorique.</div></div>
+        <div class="concept-card"><div class="concept-title">Onde</div><div class="concept-desc">Perturbation qui se propage dans l'espace et le temps, transportant de l'énergie sans transport de matière. Types : mécaniques (son) et électromagnétiques (lumière). Caractérisée par sa fréquence, longueur d'onde et amplitude.</div></div>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div class="section-info"><h2>Quiz interactif</h2><p>10 questions pour tester vos connaissances</p></div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">Quiz — Physique</span>
+          <span class="quiz-score">Score : <span id="quizScore">0</span>/10</span>
+        </div>
+        <div class="quiz-body">
+          <div class="question-block active" id="q0">
+            <div class="q-num">Question 1 / 10</div>
+            <div class="q-text">Quelle est l'unité de mesure de la force dans le Système International ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(0,0)">Le joule (J)</div>
+              <div class="option" onclick="selectOption(0,1)">Le newton (N)</div>
+              <div class="option" onclick="selectOption(0,2)">Le watt (W)</div>
+              <div class="option" onclick="selectOption(0,3)">Le pascal (Pa)</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q1">
+            <div class="q-num">Question 2 / 10</div>
+            <div class="q-text">Que stipule la première loi de Newton ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(1,0)">F = ma</div>
+              <div class="option" onclick="selectOption(1,1)">E = mc²</div>
+              <div class="option" onclick="selectOption(1,2)">Un corps reste au repos ou en mouvement rectiligne uniforme sans force extérieure</div>
+              <div class="option" onclick="selectOption(1,3)">Toute action entraîne une réaction égale et opposée</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q2">
+            <div class="q-num">Question 3 / 10</div>
+            <div class="q-text">Quelle est la valeur approximative de l'accélération gravitationnelle à la surface de la Terre ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(2,0)">3,14 m/s²</div>
+              <div class="option" onclick="selectOption(2,1)">9,81 m/s²</div>
+              <div class="option" onclick="selectOption(2,2)">6,67 m/s²</div>
+              <div class="option" onclick="selectOption(2,3)">1,62 m/s²</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q3">
+            <div class="q-num">Question 4 / 10</div>
+            <div class="q-text">Quelle formule relie l'énergie cinétique à la masse et la vitesse ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(3,0)">Ec = mv</div>
+              <div class="option" onclick="selectOption(3,1)">Ec = ½mv²</div>
+              <div class="option" onclick="selectOption(3,2)">Ec = mgh</div>
+              <div class="option" onclick="selectOption(3,3)">Ec = mc²</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q4">
+            <div class="q-num">Question 5 / 10</div>
+            <div class="q-text">Quelle est la vitesse de la lumière dans le vide ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(4,0)">3 × 10⁶ m/s</div>
+              <div class="option" onclick="selectOption(4,1)">3 × 10⁸ m/s</div>
+              <div class="option" onclick="selectOption(4,2)">3 × 10¹⁰ m/s</div>
+              <div class="option" onclick="selectOption(4,3)">3 × 10⁵ m/s</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q5">
+            <div class="q-num">Question 6 / 10</div>
+            <div class="q-text">Quel principe stipule que l'énergie totale d'un système isolé reste constante ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(5,0)">Le principe de conservation de l'énergie</div>
+              <div class="option" onclick="selectOption(5,1)">Le principe d'incertitude d'Heisenberg</div>
+              <div class="option" onclick="selectOption(5,2)">Le principe de relativité</div>
+              <div class="option" onclick="selectOption(5,3)">Le principe d'Archimède</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q6">
+            <div class="q-num">Question 7 / 10</div>
+            <div class="q-text">Qu'est-ce que le zéro absolu ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(6,0)">0 °C, la température de fusion de la glace</div>
+              <div class="option" onclick="selectOption(6,1)">−273,15 °C, la température la plus basse possible</div>
+              <div class="option" onclick="selectOption(6,2)">−100 °C, le point de congélation de l'azote</div>
+              <div class="option" onclick="selectOption(6,3)">0 °F, le point de congélation de l'eau salée</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q7">
+            <div class="q-num">Question 8 / 10</div>
+            <div class="q-text">Quelle célèbre équation d'Einstein relie masse et énergie ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(7,0)">F = ma</div>
+              <div class="option" onclick="selectOption(7,1)">PV = nRT</div>
+              <div class="option" onclick="selectOption(7,2)">E = mc²</div>
+              <div class="option" onclick="selectOption(7,3)">E = hf</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q8">
+            <div class="q-num">Question 9 / 10</div>
+            <div class="q-text">Quel physicien a unifié l'électricité et le magnétisme en un seul cadre théorique ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(8,0)">Isaac Newton</div>
+              <div class="option" onclick="selectOption(8,1)">James Clerk Maxwell</div>
+              <div class="option" onclick="selectOption(8,2)">Niels Bohr</div>
+              <div class="option" onclick="selectOption(8,3)">Michael Faraday</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q9">
+            <div class="q-num">Question 10 / 10</div>
+            <div class="q-text">Quelle propriété d'une onde détermine sa couleur dans le spectre visible ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(9,0)">Son amplitude</div>
+              <div class="option" onclick="selectOption(9,1)">Sa longueur d'onde (ou fréquence)</div>
+              <div class="option" onclick="selectOption(9,2)">Sa vitesse de propagation</div>
+              <div class="option" onclick="selectOption(9,3)">Sa polarisation</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+        </div>
+        <div class="quiz-nav">
+          <div class="q-dots">
+            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div>
+            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
+            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
+            <div class="q-dot"></div>
+          </div>
+          <div style="display:flex;gap:.8rem">
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+          </div>
+        </div>
+        <div class="quiz-result">
+          <div class="result-score-big" id="finalScore"></div>
+          <div class="result-msg" id="finalMsg"></div>
+          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="ressources">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <div class="section-info"><h2>Ressources externes</h2><p>Les meilleures sources pour approfondir</p></div>
+      </div>
+      <div class="resources-grid">
+        <a class="resource-card" href="https://www.youtube.com/@ScienceEtonnante" target="_blank">
+          <span class="resource-icon">▶️</span>
+          <div class="resource-info">
+            <div class="resource-name">Science Étonnante</div>
+            <div class="resource-desc">David Louapre explore la physique avec rigueur et pédagogie. Mécanique quantique, relativité, thermodynamique expliquées brillamment.</div>
+            <span class="resource-type type-video">YouTube</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://fr.khanacademy.org/science/physics" target="_blank">
+          <span class="resource-icon">🎓</span>
+          <div class="resource-info">
+            <div class="resource-name">Khan Academy — Physique</div>
+            <div class="resource-desc">Cours complets et gratuits : mécanique, ondes, électricité, magnétisme. Exercices interactifs et vidéos progressives.</div>
+            <span class="resource-type type-course">Cours gratuit</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.youtube.com/@Scilabus" target="_blank">
+          <span class="resource-icon">▶️</span>
+          <div class="resource-info">
+            <div class="resource-name">Scilabus</div>
+            <div class="resource-desc">Viviane Lalande explore des questions de physique du quotidien avec des expériences originales et une approche scientifique rigoureuse.</div>
+            <span class="resource-type type-video">YouTube</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://fr.wikipedia.org/wiki/Physique" target="_blank">
+          <span class="resource-icon">🌐</span>
+          <div class="resource-info">
+            <div class="resource-name">Wikipedia — Physique</div>
+            <div class="resource-desc">Articles détaillés sur tous les domaines de la physique avec formules, schémas et références académiques.</div>
+            <span class="resource-type type-wiki">Wikipedia</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.feynmanlectures.caltech.edu/" target="_blank">
+          <span class="resource-icon">📖</span>
+          <div class="resource-info">
+            <div class="resource-name">The Feynman Lectures on Physics</div>
+            <div class="resource-desc">Les célèbres cours de Richard Feynman au Caltech, accessibles gratuitement en ligne. Une référence mondiale en pédagogie de la physique.</div>
+            <span class="resource-type type-doc">Cours en ligne</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.youtube.com/@EspacedesSciences" target="_blank">
+          <span class="resource-icon">▶️</span>
+          <div class="resource-info">
+            <div class="resource-name">Espace des Sciences</div>
+            <div class="resource-desc">Conférences d'Étienne Klein, Roland Lehoucq et autres physiciens français. Cosmologie, physique quantique, philosophie des sciences.</div>
+            <span class="resource-type type-video">YouTube</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.coursera.org/courses?query=physics" target="_blank">
+          <span class="resource-icon">🎓</span>
+          <div class="resource-info">
+            <div class="resource-name">Coursera — Physics</div>
+            <div class="resource-desc">Cours de MIT, Stanford, EPFL. Mécanique, électromagnétisme, physique quantique, astrophysique pour tous niveaux.</div>
+            <span class="resource-type type-course">Cours en ligne</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.cea.fr/comprendre/Pages/physique.aspx" target="_blank">
+          <span class="resource-icon">🔬</span>
+          <div class="resource-info">
+            <div class="resource-name">CEA — Physique</div>
+            <div class="resource-desc">Le Commissariat à l'énergie atomique propose des dossiers pédagogiques sur la physique nucléaire, les particules et la fusion.</div>
+            <span class="resource-type type-doc">Recherche</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <div class="section-info"><h2>Fiche mémo</h2><p>L'essentiel en une page — téléchargeable</p></div>
+      </div>
+      <div class="memo-preview">
+        <div class="memo-top">
+          <h3>⚛️ Physique — Fiche mémo</h3>
+          <p>Lois, formules et constantes fondamentales</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Lois de Newton</div>
+            <div class="memo-item">1ère loi : inertie (repos ou MRU)</div>
+            <div class="memo-item">2ème loi : F = ma</div>
+            <div class="memo-item">3ème loi : action = −réaction</div>
+            <div class="memo-item">Gravitation : F = Gm₁m₂/r²</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Énergie</div>
+            <div class="memo-item">Cinétique : Ec = ½mv²</div>
+            <div class="memo-item">Potentielle : Ep = mgh</div>
+            <div class="memo-item">Mécanique : Em = Ec + Ep</div>
+            <div class="memo-item">Einstein : E = mc²</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Constantes</div>
+            <div class="memo-item">c = 3 × 10⁸ m/s (lumière)</div>
+            <div class="memo-item">g = 9,81 m/s² (pesanteur)</div>
+            <div class="memo-item">G = 6,674 × 10⁻¹¹ N·m²/kg²</div>
+            <div class="memo-item">h = 6,626 × 10⁻³⁴ J·s (Planck)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Thermodynamique</div>
+            <div class="memo-item">1er principe : conservation énergie</div>
+            <div class="memo-item">2ème principe : entropie croissante</div>
+            <div class="memo-item">0 K = −273,15 °C (zéro absolu)</div>
+            <div class="memo-item">PV = nRT (gaz parfait)</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML/PDF)</button>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+const questions=[
+  {q:"Quelle est l'unité de mesure de la force dans le Système International ?",opts:["Le joule (J)","Le newton (N)","Le watt (W)","Le pascal (Pa)"],ans:1,expl:"Le newton (N) est l'unité de force dans le SI. 1 N = 1 kg·m/s². Le joule mesure l'énergie, le watt la puissance et le pascal la pression."},
+  {q:"Que stipule la première loi de Newton ?",opts:["F = ma","E = mc²","Un corps reste au repos ou en mouvement rectiligne uniforme sans force extérieure","Toute action entraîne une réaction égale et opposée"],ans:2,expl:"La première loi de Newton, ou principe d'inertie, stipule qu'un corps persévère dans son état de repos ou de mouvement rectiligne uniforme à moins qu'une force extérieure ne le contraigne à changer."},
+  {q:"Quelle est la valeur approximative de l'accélération gravitationnelle à la surface de la Terre ?",opts:["3,14 m/s²","9,81 m/s²","6,67 m/s²","1,62 m/s²"],ans:1,expl:"L'accélération gravitationnelle à la surface de la Terre vaut g ≈ 9,81 m/s². La valeur 1,62 m/s² correspond à la Lune, et 6,674 × 10⁻¹¹ est la constante gravitationnelle G."},
+  {q:"Quelle formule relie l'énergie cinétique à la masse et la vitesse ?",opts:["Ec = mv","Ec = ½mv²","Ec = mgh","Ec = mc²"],ans:1,expl:"L'énergie cinétique est Ec = ½mv². Elle dépend du carré de la vitesse : doubler la vitesse quadruple l'énergie cinétique. mgh est l'énergie potentielle de pesanteur."},
+  {q:"Quelle est la vitesse de la lumière dans le vide ?",opts:["3 × 10⁶ m/s","3 × 10⁸ m/s","3 × 10¹⁰ m/s","3 × 10⁵ m/s"],ans:1,expl:"La vitesse de la lumière dans le vide est c ≈ 299 792 458 m/s, soit environ 3 × 10⁸ m/s. C'est la vitesse maximale dans l'univers selon la relativité restreinte d'Einstein."},
+  {q:"Quel principe stipule que l'énergie totale d'un système isolé reste constante ?",opts:["Le principe de conservation de l'énergie","Le principe d'incertitude d'Heisenberg","Le principe de relativité","Le principe d'Archimède"],ans:0,expl:"Le principe de conservation de l'énergie (premier principe de la thermodynamique) stipule que l'énergie ne peut être ni créée ni détruite, seulement transformée d'une forme à une autre."},
+  {q:"Qu'est-ce que le zéro absolu ?",opts:["0 °C, la température de fusion de la glace","−273,15 °C, la température la plus basse possible","−100 °C, le point de congélation de l'azote","0 °F, le point de congélation de l'eau salée"],ans:1,expl:"Le zéro absolu (0 K = −273,15 °C) est la température théorique minimale, où l'agitation thermique des particules est nulle. Il est impossible de l'atteindre exactement (troisième principe de la thermodynamique)."},
+  {q:"Quelle célèbre équation d'Einstein relie masse et énergie ?",opts:["F = ma","PV = nRT","E = mc²","E = hf"],ans:2,expl:"E = mc² (1905) montre l'équivalence masse-énergie. Une petite masse correspond à une énergie colossale car c² ≈ 9 × 10¹⁶ m²/s². E = hf relie l'énergie d'un photon à sa fréquence (relation de Planck-Einstein)."},
+  {q:"Quel physicien a unifié l'électricité et le magnétisme en un seul cadre théorique ?",opts:["Isaac Newton","James Clerk Maxwell","Niels Bohr","Michael Faraday"],ans:1,expl:"James Clerk Maxwell a publié ses quatre équations de l'électromagnétisme en 1865, unifiant les phénomènes électriques et magnétiques et prédisant l'existence des ondes électromagnétiques. Faraday avait découvert l'induction, mais Maxwell en a fait la synthèse mathématique."},
+  {q:"Quelle propriété d'une onde détermine sa couleur dans le spectre visible ?",opts:["Son amplitude","Sa longueur d'onde (ou fréquence)","Sa vitesse de propagation","Sa polarisation"],ans:1,expl:"La couleur perçue dépend de la longueur d'onde (ou de la fréquence) de l'onde lumineuse. Le spectre visible s'étend d'environ 380 nm (violet) à 780 nm (rouge). L'amplitude détermine l'intensité (luminosité), pas la couleur."}
+];
+let current=0,score=0,answered=new Array(10).fill(null);
+function renderQuestion(){document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});document.getElementById('btnPrev').disabled=current===0;document.getElementById('btnNext').textContent=current===9?'Voir résultats':'Suivant →';}
+function selectOption(qi,oi){if(answered[qi]!==null)return;answered[qi]=oi;const block=document.querySelectorAll('.question-block')[qi];block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');}
+function nextQuestion(){if(current<9){current++;renderQuestion();}else showResult();}
+function prevQuestion(){if(current>0){current--;renderQuestion();}}
+function showResult(){document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';const r=document.querySelector('.quiz-result');r.style.display='block';document.getElementById('finalScore').textContent=score+'/10';document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Bien !','Très bien !','Excellent !'][score<=3?0:score<=5?1:score<=7?2:score<=9?3:4];}
+function restartQuiz(){current=0;score=0;answered.fill(null);document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');document.getElementById('quizScore').textContent=0;renderQuestion();}
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+const sections=['resume','lois','concepts','quiz','ressources','memo'];
+window.addEventListener('scroll',()=>{let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';});
+function downloadMemo(){const w=window.open('','_blank','width=900,height=700');w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Physique</title><style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#0288d1;border-bottom:3px solid #0288d1;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#0288d1;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #b3e5fc;padding:1rem;border-radius:4px;background:#e1f5fe}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style></head><body><h1>⚛️ Fiche mémo — Physique</h1><div class="grid"><div class="box"><h2>Lois de Newton</h2><ul><li>1ère loi : inertie (repos ou MRU sans force)</li><li>2ème loi : F = ma (force = masse × accélération)</li><li>3ème loi : action = −réaction</li><li>Gravitation : F = Gm₁m₂/r²</li></ul></div><div class="box"><h2>Énergie</h2><ul><li>Cinétique : Ec = ½mv²</li><li>Potentielle pesanteur : Ep = mgh</li><li>Mécanique : Em = Ec + Ep (conservée)</li><li>Travail : W = F·d·cos(θ)</li><li>Puissance : P = W/t (watt)</li><li>Einstein : E = mc²</li></ul></div><div class="box"><h2>Constantes fondamentales</h2><ul><li>c = 299 792 458 m/s (lumière)</li><li>g = 9,81 m/s² (pesanteur terrestre)</li><li>G = 6,674 × 10⁻¹¹ N·m²/kg²</li><li>h = 6,626 × 10⁻³⁴ J·s (Planck)</li><li>k = 1,381 × 10⁻²³ J/K (Boltzmann)</li><li>e = 1,602 × 10⁻¹⁹ C (charge élémentaire)</li></ul></div><div class="box"><h2>Thermodynamique</h2><ul><li>1er principe : ΔU = Q + W (conservation)</li><li>2ème principe : entropie ≥ 0 (irréversibilité)</li><li>3ème principe : S → 0 quand T → 0 K</li><li>Gaz parfait : PV = nRT</li><li>0 K = −273,15 °C (zéro absolu)</li></ul></div></div><div class="footer">Curiosita — Fiche mémo Physique — ${new Date().toLocaleDateString('fr-FR')}</div><button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#0288d1;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">🖨️ Imprimer / PDF</button></body></html>`);w.document.close();}
+renderQuestion();
+</script>
+    <script src="mobile.js"></script>
+</body>
+</html>

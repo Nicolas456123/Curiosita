@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mesures de tendance centrale — Statistiques descriptives — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08); }
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../statistiques-page.html">Statistiques</a> › <a href="../descriptives.html">Descriptives</a> › <span>Tendance centrale</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">📏 Statistiques descriptives</span>
+    <span class="tag-level">Debutant</span>
+    <span class="tag-time">⏱ ~40 min</span>
+  </div>
+  <h1><em>Mesures de tendance centrale</em></h1>
+  <p class="hero-desc">Moyenne, mediane, mode — les trois indicateurs fondamentaux qui resument le centre d'une distribution de donnees.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../descriptives.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Descriptives</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link active" href="#">Tendance centrale</a>
+    <a class="sidebar-link" href="dispersion.html">Dispersion</a>
+    <a class="sidebar-link" href="graphiques.html">Graphiques</a>
+    <a class="sidebar-link" href="distributions.html">Distributions</a>
+    <a class="sidebar-link" href="aberrantes.html">Donnees aberrantes</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Pourquoi mesurer le centre des donnees ?</p>
+        </div>
+      </div>
+      <p class="resume-text">Face a un ensemble de donnees, la premiere question est souvent : <strong>« quelle est la valeur typique ? »</strong>. Les mesures de tendance centrale repondent a cette question en identifiant un point representatif autour duquel les donnees se concentrent. Elles condensent l'information d'un jeu de donnees entier en une seule valeur.</p>
+      <div class="highlight-box">
+        <p><strong>Les trois mesures principales :</strong> la <em>moyenne</em> (somme divisee par le nombre d'observations), la <em>mediane</em> (valeur du milieu) et le <em>mode</em> (valeur la plus frequente). Chacune a ses forces et ses limites.</p>
+      </div>
+      <p class="resume-text">Le choix de la bonne mesure depend du type de donnees et de leur distribution. Pour des donnees symetriques sans valeurs extremes, la moyenne convient parfaitement. Pour des donnees asymetriques (salaires, prix immobiliers), la mediane est plus fiable. Pour des donnees qualitatives, seul le mode est applicable.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Mesures de tendance centrale en detail</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>La moyenne arithmetique</h3>
+        <p>La moyenne arithmetique est la somme de toutes les valeurs divisee par le nombre d'observations :</p>
+        <div class="highlight-box">
+          <p><strong>x̄ = (x₁ + x₂ + ... + xₙ) / n = Σxᵢ / n</strong></p>
+        </div>
+        <p><strong>Exemple :</strong> Les notes de 5 etudiants sont : 12, 14, 8, 16, 10. La moyenne est (12 + 14 + 8 + 16 + 10) / 5 = 60 / 5 = <strong>12</strong>.</p>
+        <p>La moyenne possede des proprietes mathematiques elegantes : elle minimise la somme des ecarts au carre, et la somme des ecarts a la moyenne est toujours nulle (Σ(xᵢ - x̄) = 0). Cependant, elle est <strong>tres sensible aux valeurs extremes</strong>. Un seul outlier peut deplacer significativement la moyenne.</p>
+
+        <h3>La moyenne ponderee</h3>
+        <p>Quand certaines valeurs ont plus d'importance que d'autres, on utilise la <strong>moyenne ponderee</strong> :</p>
+        <div class="highlight-box">
+          <p><strong>x̄ₚ = Σ(wᵢ · xᵢ) / Σwᵢ</strong> ou wᵢ est le poids de la valeur xᵢ.</p>
+        </div>
+        <p><strong>Exemple :</strong> Un etudiant a 14/20 (coefficient 3) en maths et 16/20 (coefficient 2) en francais. Sa moyenne ponderee est (14×3 + 16×2) / (3+2) = (42 + 32) / 5 = 74/5 = <strong>14,8</strong>.</p>
+
+        <h3>La mediane</h3>
+        <p>La mediane est la valeur qui separe un ensemble ordonne en deux moities egales : 50 % des observations sont en dessous, 50 % au-dessus.</p>
+        <div class="highlight-box">
+          <p><strong>Calcul :</strong> on ordonne les donnees. Si n est impair, la mediane est la valeur du rang (n+1)/2. Si n est pair, c'est la moyenne des deux valeurs centrales.</p>
+        </div>
+        <p><strong>Exemple (n impair) :</strong> Les donnees 3, 7, 2, 9, 5 ordonnees donnent 2, 3, 5, 7, 9. La mediane est la 3e valeur : <strong>5</strong>.</p>
+        <p><strong>Exemple (n pair) :</strong> Les donnees 4, 8, 1, 6 ordonnees donnent 1, 4, 6, 8. La mediane est (4 + 6)/2 = <strong>5</strong>.</p>
+        <p>Le grand avantage de la mediane est sa <strong>robustesse aux valeurs extremes</strong>. Si l'on remplace 9 par 900 dans le premier exemple, la mediane reste 5, alors que la moyenne passerait de 5,2 a 184,2.</p>
+
+        <h3>Le mode</h3>
+        <p>Le mode est la valeur la plus frequente dans un ensemble de donnees. C'est la seule mesure de tendance centrale applicable aux <strong>donnees qualitatives</strong> (couleurs, categories, opinions).</p>
+        <p><strong>Exemple :</strong> Dans la serie 2, 3, 3, 5, 3, 7, 3, 8, le mode est <strong>3</strong> (apparait 4 fois).</p>
+        <p>Un jeu de donnees peut etre <strong>unimodal</strong> (un seul mode), <strong>bimodal</strong> (deux modes) ou <strong>multimodal</strong> (plusieurs modes). Une distribution bimodale suggere souvent la presence de deux sous-populations distinctes.</p>
+
+        <h3>Comparaison et interpretation</h3>
+        <p>La relation entre moyenne, mediane et mode revele la <strong>forme de la distribution</strong> :</p>
+        <ul>
+          <li><strong>Distribution symetrique :</strong> moyenne ≈ mediane ≈ mode</li>
+          <li><strong>Asymetrie a droite (positive) :</strong> mode &lt; mediane &lt; moyenne (tiree par les grandes valeurs)</li>
+          <li><strong>Asymetrie a gauche (negative) :</strong> moyenne &lt; mediane &lt; mode (tiree par les petites valeurs)</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Regle pratique :</strong> si la moyenne et la mediane sont tres differentes, la distribution est probablement asymetrique et la mediane est une meilleure representation du « centre » des donnees.</p>
+        </div>
+
+        <h3>Autres moyennes</h3>
+        <p>Au-dela de la moyenne arithmetique, il existe d'autres types de moyennes utiles dans des contextes specifiques :</p>
+        <ul>
+          <li><strong>Moyenne geometrique :</strong> G = (x₁ · x₂ · ... · xₙ)^(1/n). Utilisee pour les taux de croissance et les rendements financiers.</li>
+          <li><strong>Moyenne harmonique :</strong> H = n / Σ(1/xᵢ). Utilisee pour les vitesses moyennes et les ratios.</li>
+          <li><strong>Moyenne quadratique :</strong> Q = √(Σxᵢ²/n). Utilisee en physique (valeurs efficaces).</li>
+        </ul>
+        <p>On a toujours l'inegalite : <strong>H ≤ G ≤ x̄ ≤ Q</strong> (avec egalite quand toutes les valeurs sont identiques).</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre comprehension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">📏 Tendance centrale — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">5</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 5</p>
+            <p class="q-text">La moyenne de 4, 8, 6, 10 et 12 est :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">6</div>
+              <div class="option" onclick="answer(this,true)">8</div>
+              <div class="option" onclick="answer(this,false)">10</div>
+              <div class="option" onclick="answer(this,false)">7</div>
+            </div>
+            <div class="q-feedback">(4+8+6+10+12)/5 = 40/5 = 8.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 5</p>
+            <p class="q-text">La mediane de 3, 7, 1, 9, 5, 2, 8 est :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">5</div>
+              <div class="option" onclick="answer(this,false)">7</div>
+              <div class="option" onclick="answer(this,false)">4</div>
+              <div class="option" onclick="answer(this,false)">6</div>
+            </div>
+            <div class="q-feedback">Ordonnees : 1, 2, 3, 5, 7, 8, 9. La 4e valeur (sur 7) est 5.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 5</p>
+            <p class="q-text">Quelle mesure est la plus robuste aux valeurs extremes ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">La moyenne</div>
+              <div class="option" onclick="answer(this,true)">La mediane</div>
+              <div class="option" onclick="answer(this,false)">La moyenne ponderee</div>
+              <div class="option" onclick="answer(this,false)">La moyenne geometrique</div>
+            </div>
+            <div class="q-feedback">La mediane n'est pas affectee par les valeurs extremes car elle ne depend que de la position, pas des valeurs elles-memes.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 5</p>
+            <p class="q-text">Si moyenne > mediane, la distribution est :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">Asymetrique a droite</div>
+              <div class="option" onclick="answer(this,false)">Asymetrique a gauche</div>
+              <div class="option" onclick="answer(this,false)">Symetrique</div>
+              <div class="option" onclick="answer(this,false)">Bimodale</div>
+            </div>
+            <div class="q-feedback">Quand la moyenne est tiree vers la droite par des valeurs elevees, elle depasse la mediane : c'est l'asymetrie positive (a droite).</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 5</p>
+            <p class="q-text">Quel type de moyenne utilise-t-on pour les taux de croissance ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Arithmetique</div>
+              <div class="option" onclick="answer(this,true)">Geometrique</div>
+              <div class="option" onclick="answer(this,false)">Harmonique</div>
+              <div class="option" onclick="answer(this,false)">Quadratique</div>
+            </div>
+            <div class="q-feedback">La moyenne geometrique est adaptee aux grandeurs multiplicatives comme les taux de croissance, les rendements et les ratios.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/5</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Precedent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Calcul de moyenne</h3>
+        <p>Un etudiant a obtenu les notes suivantes : 14, 11, 17, 9, 15, 13, 12. Calculer la moyenne et la mediane.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Moyenne = (14+11+17+9+15+13+12)/7 = 91/7 = <strong>13</strong>. Donnees ordonnees : 9, 11, 12, 13, 14, 15, 17. Mediane = 4e valeur = <strong>13</strong>. Ici, moyenne = mediane, la distribution est approximativement symetrique.</p></div>
+        </details>
+        <h3>Exercice 2 — Moyenne ponderee</h3>
+        <p>Un produit est vendu dans 3 magasins : 5 € (200 unites), 6 € (150 unites), 4,50 € (250 unites). Quel est le prix moyen ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Prix moyen = (5×200 + 6×150 + 4,50×250) / (200+150+250) = (1000 + 900 + 1125) / 600 = 3025/600 = <strong>5,04 €</strong>. La moyenne ponderee tient compte des quantites vendues.</p></div>
+        </details>
+        <h3>Exercice 3 — Comparaison moyenne/mediane</h3>
+        <p>Les salaires mensuels de 7 employes sont : 1800, 2100, 1950, 2200, 2050, 8500, 1900 €. Calculer la moyenne et la mediane. Quelle mesure est la plus representative ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Moyenne = (1800+2100+1950+2200+2050+8500+1900)/7 = 20500/7 ≈ <strong>2929 €</strong>. Ordonnees : 1800, 1900, 1950, 2050, 2100, 2200, 8500. Mediane = <strong>2050 €</strong>. Le salaire de 8500 € tire la moyenne vers le haut. La mediane (2050 €) est plus representative du salaire « typique ».</p></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <div></div>
+      <a href="dispersion.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Dispersion et variabilite →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions = document.querySelectorAll('.question-block');
+let currentQ = 0, score = 0;
+let answered = new Array(questions.length).fill(false);
+const dotsContainer = document.getElementById('qDots');
+questions.forEach((_, i) => { const d = document.createElement('div'); d.className = 'q-dot' + (i === 0 ? ' current' : ''); dotsContainer.appendChild(d); });
+function updateDots() { document.querySelectorAll('.q-dot').forEach((d, i) => { d.className = 'q-dot'; if (answered[i]) d.classList.add('done'); if (i === currentQ) d.classList.add('current'); }); }
+function answer(el, ok) {
+  if (answered[currentQ]) return; answered[currentQ] = true;
+  el.closest('.question-block').querySelectorAll('.option').forEach(o => o.classList.add('disabled'));
+  el.classList.add(ok ? 'correct' : 'wrong');
+  if (!ok) el.closest('.question-block').querySelectorAll('.option').forEach(o => { if(o.onclick.toString().includes('true')) o.classList.add('correct'); });
+  else { score++; document.getElementById('scoreDisplay').textContent = score; }
+  el.closest('.question-block').querySelector('.q-feedback').classList.add('show', ok ? 'good' : 'bad');
+  document.getElementById('btnNext').disabled = false;
+  updateDots();
+}
+function nextQ() { if (currentQ < questions.length - 1) { questions[currentQ].classList.remove('active'); currentQ++; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = false; document.getElementById('btnNext').disabled = !answered[currentQ]; if (currentQ === questions.length - 1) document.getElementById('btnNext').textContent = 'Terminer'; updateDots(); } else { showResult(); } }
+function prevQ() { if (currentQ > 0) { questions[currentQ].classList.remove('active'); currentQ--; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = currentQ === 0; document.getElementById('btnNext').disabled = !answered[currentQ]; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); } }
+function showResult() { document.getElementById('quizBody').style.display = 'none'; document.getElementById('quizResult').style.display = 'block'; document.getElementById('resultScore').textContent = score + '/' + questions.length; var m = ['Continue !', 'Pas mal !', 'Tres bien !', 'Parfait !']; document.getElementById('resultMsg').textContent = m[Math.min(score, 3)]; }
+function resetQuiz() { score = 0; currentQ = 0; answered = new Array(questions.length).fill(false); document.getElementById('scoreDisplay').textContent = 0; document.getElementById('quizBody').style.display = 'block'; document.getElementById('quizResult').style.display = 'none'; questions.forEach((q,i) => { q.classList.toggle('active', i===0); q.querySelectorAll('.option').forEach(o=>o.className='option'); q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback'); }); document.getElementById('btnPrev').disabled = true; document.getElementById('btnNext').disabled = true; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); }
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+</script>
+<script src="../../mobile.js"></script>
+</body>
+</html>

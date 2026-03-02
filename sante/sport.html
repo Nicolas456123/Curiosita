@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Activité physique — Santé & Bien-être — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root { --accent: #8ae87a; --accent2: #a5f598; --accent-dim: rgba(138,232,122,0.08); }
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../sante-page.html">Santé & Bien-être</a> › <span>Activité physique</span></div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🏥 Santé & Bien-être</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Activité physique</em></h1>
+  <p class="hero-desc">Bouger pour vivre mieux — les bienfaits de l'exercice, les bases de l'entraînement et la prévention par le sport.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../sante-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Santé & Bien-être</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="premiers-secours.html">Premiers secours</a>
+    <a class="sidebar-link active" href="#">Activité physique</a>
+    <a class="sidebar-link" href="mentale.html">Santé mentale</a>
+    <a class="sidebar-link" href="medecine.html">Médecine et prévention</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="presentation">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>L'activité physique</h2><p>Introduction et vue d'ensemble</p></div></div>
+      <p class="resume-text">L'activité physique régulière est l'un des <strong>meilleurs médicaments préventifs</strong> qui existent. L'OMS recommande au moins 150 minutes d'activité modérée par semaine. Le sport réduit le risque de maladies cardiovasculaires, de diabète, de dépression et de nombreux cancers.</p>
+      <div class="highlight-box"><p><strong>L'idée fondamentale :</strong> il n'est jamais trop tard pour commencer. Les bénéfices de l'exercice physique sont mesurables dès les premières semaines, quel que soit l'âge de début.</p></div>
+      <p class="resume-text">L'activité physique ne se réduit pas au sport de compétition. <strong>Marcher</strong>, faire du vélo, jardiner, monter les escaliers — tout mouvement compte. L'objectif est de réduire la sédentarité et d'intégrer le mouvement dans la vie quotidienne.</p>
+      <p class="resume-text">Ce domaine couvre les bienfaits du sport, les bases de l'entraînement, les activités adaptées, la prévention des blessures et le sport à tous les âges de la vie.</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Les cours d'activité physique</h2><p>Progressez étape par étape</p></div></div>
+      <div class="courses-grid">
+        <a href="sport/bienfaits.html" class="course-card"><span class="course-card-icon">💪</span><h3>Bienfaits du sport</h3><p>Effets sur le cœur, le cerveau, les os, le sommeil et le bien-être général.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="sport/entrainement.html" class="course-card"><span class="course-card-icon">🏋️</span><h3>Bases de l'entraînement</h3><p>Cardio, renforcement, souplesse : construire un programme équilibré.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="sport/quotidien.html" class="course-card"><span class="course-card-icon">🚶</span><h3>Activité au quotidien</h3><p>Marche, vélo, escaliers : intégrer le mouvement dans la vie de tous les jours.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="sport/prevention.html" class="course-card"><span class="course-card-icon">🩹</span><h3>Prévention des blessures</h3><p>Échauffement, étirements, récupération : éviter tendinites et claquages.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="sport/ages.html" class="course-card"><span class="course-card-icon">🧓</span><h3>Sport et âges de la vie</h3><p>Enfants, adultes, seniors : adapter l'activité physique à chaque âge.</p><span class="course-card-link">Voir le cours →</span></a>
+      </div>
+    </section>
+    <section class="content-section" id="memo">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Fiche mémo</h2><p>L'essentiel en un coup d'oeil</p></div></div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top"><h3>💪 Activité physique — Fiche mémo</h3><p>Curiosita · Recommandations, bienfaits et repères</p></div>
+        <div class="memo-grid">
+          <div class="memo-section"><div class="memo-section-title">Recommandations OMS</div><div class="memo-item"><span class="mf">Adultes</span> 150 min modéré ou 75 min intense/sem</div><div class="memo-item"><span class="mf">Renforcement</span> 2 séances/semaine minimum</div><div class="memo-item"><span class="mf">Enfants</span> 60 min/jour, varié</div><div class="memo-item"><span class="mf">Sédentarité</span> Max 2h assis sans pause</div></div>
+          <div class="memo-section"><div class="memo-section-title">Bienfaits</div><div class="memo-item"><span class="mf">Cœur</span> -30% risque cardiovasculaire</div><div class="memo-item"><span class="mf">Mental</span> -25% risque dépression</div><div class="memo-item"><span class="mf">Os</span> Prévention ostéoporose</div><div class="memo-item"><span class="mf">Sommeil</span> Améliore qualité et durée</div></div>
+          <div class="memo-section"><div class="memo-section-title">Types d'exercice</div><div class="memo-item"><span class="mf">Cardio</span> Course, vélo, natation</div><div class="memo-item"><span class="mf">Force</span> Musculation, poids du corps</div><div class="memo-item"><span class="mf">Souplesse</span> Yoga, étirements</div><div class="memo-item"><span class="mf">Equilibre</span> Propriöception, prévention chutes</div></div>
+          <div class="memo-section"><div class="memo-section-title">Prévention</div><div class="memo-item"><span class="mf">Échauffement</span> 10 min progressif avant effort</div><div class="memo-item"><span class="mf">Étirements</span> Après l'effort, doux, 30s</div><div class="memo-item"><span class="mf">Hydratation</span> Avant, pendant, après</div><div class="memo-item"><span class="mf">Repos</span> 48h entre séances intenses</div></div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+  </main>
+</div>
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo(){var m=document.getElementById('memoCard').outerHTML;var html='<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Activité physique \u2014 Fiche m\u00e9mo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#8ae87a;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#8ae87a;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>'+m+'</body></html>';var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download='activite-physique-fiche-memo.html';a.click();}
+</script>
+<script src="../mobile.js"></script>
+</body>
+</html>

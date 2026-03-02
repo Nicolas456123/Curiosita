@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Python — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<style>
+:root {
+  --accent: #4fc3f7;
+  --accent2: #81d4fa;
+  --accent-dim: rgba(79,195,247,0.1);
+}
+.hero { background: linear-gradient(135deg, rgba(79,195,247,0.05) 0%, transparent 60%); }
+.concept-title { font-family: 'JetBrains Mono', monospace; font-style: normal; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="informatique-page.html">Informatique</a> › <span>Python</span>
+  </div>
+  <div class="nav-actions">
+    <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-bg-code">def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n-1) + fibonacci(n-2)
+
+class Personne:
+    def __init__(self, nom, age):
+        self.nom = nom
+        self.age = age
+
+    def se_presenter(self):
+        print(f"Bonjour, je suis {self.nom}")
+
+nombres = [1, 2, 3, 4, 5]
+carres = [x**2 for x in nombres]
+
+with open("fichier.txt", "r") as f:
+    contenu = f.read()
+
+import json, os, sys
+from pathlib import Path</div>
+
+  <div class="hero-meta">
+    <span class="tag-domain">🔬 Sciences exactes & Informatique</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~8h de lecture</span>
+  </div>
+  <h1>Apprendre<br><em>Python</em></h1>
+  <p class="hero-desc">Le langage de programmation le plus populaire au monde. Lisible, polyvalent et puissant — du scripting à l'intelligence artificielle.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">4</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">10</div><div class="hstat-lab">Quiz</div></div>
+    <div class="hstat"><div class="hstat-val">12</div><div class="hstat-lab">Ressources</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="resume" onclick="goTo('resume',this)">📖 Résumé</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="concepts" onclick="goTo('concepts',this)">🧩 Concepts clés</a>
+    <a class="sidebar-link" data-section="exemples" onclick="goTo('exemples',this)">💡 Exemples de code</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz interactif</a>
+    <a class="sidebar-link" data-section="ressources" onclick="goTo('ressources',this)">🔗 Ressources</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+
+    <p class="sidebar-title">Cours</p>
+    <a class="sidebar-link" href="python/bases.html">Bases</a>
+    <a class="sidebar-link" href="python/structures.html">Structures de données</a>
+    <a class="sidebar-link" href="python/poo.html">POO</a>
+    <a class="sidebar-link" href="python/avance.html">Python avancé</a>
+
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <!-- RÉSUMÉ -->
+    <section class="content-section" id="resume">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que Python ?</h2>
+          <p>Résumé et introduction au langage</p>
+        </div>
+      </div>
+
+      <p class="resume-text">Python est un langage de programmation <strong>interprété, haut niveau et généraliste</strong>, créé par Guido van Rossum en 1991. Sa philosophie est simple : un code doit être lisible, explicite et élégant. C'est pourquoi Python utilise l'indentation (les espaces) pour structurer le code plutôt que des accolades ou des mots-clés.</p>
+
+      <div class="highlight-box">
+        <p><strong>Pourquoi apprendre Python ?</strong> C'est le langage n°1 en science des données, IA et automatisation. Il s'apprend rapidement, fonctionne partout, et possède une bibliothèque standard colossale. Des entreprises comme Google, Instagram, Spotify et la NASA l'utilisent quotidiennement.</p>
+      </div>
+
+      <p class="resume-text">Python est un langage <strong>interprété</strong> : le code n'est pas compilé en avance mais exécuté ligne par ligne par un interpréteur. Cela facilite le débogage et l'expérimentation. Il est aussi <strong>dynamiquement typé</strong> : vous n'avez pas besoin de déclarer le type d'une variable, Python le déduit automatiquement.</p>
+
+      <p class="resume-text">L'écosystème Python est l'un des plus riches au monde. PyPI (Python Package Index) recense plus de 450 000 bibliothèques. Parmi les plus célèbres : <strong>NumPy</strong> pour les calculs numériques, <strong>Pandas</strong> pour l'analyse de données, <strong>Django</strong> pour le web, <strong>TensorFlow</strong> pour le machine learning.</p>
+
+      <p class="resume-text">En 2024, Python est classé <strong>#1 sur l'index TIOBE</strong>, dépassant Java et C. Il est devenu le langage d'entrée dans l'enseignement supérieur dans le monde entier, et la compétence la plus demandée dans les offres d'emploi tech.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Explorez les cours</h2>
+          <p>Plongez dans chaque domaine en détail</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="python/bases.html" class="course-card">
+          <span class="course-card-icon">🟢</span>
+          <h3>Bases</h3>
+          <p>Variables, types, conditions, boucles. Les fondamentaux du langage Python.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="python/structures.html" class="course-card">
+          <span class="course-card-icon">📦</span>
+          <h3>Structures de données</h3>
+          <p>Fonctions, listes, dictionnaires, fichiers. Organiser et manipuler les données.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="python/poo.html" class="course-card">
+          <span class="course-card-icon">🏗️</span>
+          <h3>POO</h3>
+          <p>Classes, héritage, encapsulation, polymorphisme. La programmation orientée objet.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="python/avance.html" class="course-card">
+          <span class="course-card-icon">⚡</span>
+          <h3>Python avancé</h3>
+          <p>Exceptions, décorateurs, générateurs, regex. Techniques avancées.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- CONCEPTS CLÉS -->
+    <section class="content-section" id="concepts">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Concepts fondamentaux</h2>
+          <p>Les briques de base à maîtriser absolument</p>
+        </div>
+      </div>
+
+      <div class="concepts-grid">
+        <div class="concept-card">
+          <div class="concept-title">Variables & Types</div>
+          <div class="concept-desc">Python gère automatiquement les types : int, float, str, bool, list, dict, tuple, set. Une variable se déclare simplement avec =.</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Conditions if/elif/else</div>
+          <div class="concept-desc">Structures conditionnelles pour orienter le flux d'exécution selon des conditions booléennes. L'indentation est obligatoire.</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Boucles for & while</div>
+          <div class="concept-desc">for itère sur une séquence (liste, chaîne, range…). while s'exécute tant qu'une condition est vraie. break et continue contrôlent le flux.</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Fonctions def</div>
+          <div class="concept-desc">Blocs réutilisables de code. Acceptent des paramètres, retournent des valeurs. Les fonctions lambda permettent des fonctions anonymes courtes.</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Listes & Compréhensions</div>
+          <div class="concept-desc">Les listes sont mutables et ordonnées. Les list comprehensions [expr for x in liste] permettent de créer des listes de façon élégante et rapide.</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Dictionnaires</div>
+          <div class="concept-desc">Structures clé-valeur {clé: valeur}. Très rapides pour chercher des données. Indispensables pour représenter des objets structurés.</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Classes & POO</div>
+          <div class="concept-desc">Python supporte la programmation orientée objet. Les classes encapsulent données (attributs) et comportements (méthodes). L'héritage permet la réutilisation.</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Modules & Imports</div>
+          <div class="concept-desc">Python s'organise en modules (fichiers .py). import permet d'utiliser du code externe. pip installe les bibliothèques tierces depuis PyPI.</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Gestion d'erreurs</div>
+          <div class="concept-desc">try/except pour capturer les exceptions. finally s'exécute toujours. raise permet de lever des erreurs personnalisées. Crucial pour les apps robustes.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXEMPLES -->
+    <section class="content-section" id="exemples">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exemples de code</h2>
+          <p>Des exemples concrets et commentés</p>
+        </div>
+      </div>
+
+      <p class="resume-text" style="margin-bottom:1.5rem">Voici les patterns les plus utilisés en Python, illustrés avec du code commenté et lisible.</p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Python — Les bases</span>
+          <button class="code-copy" onclick="copyCode(this)">Copier</button>
+        </div>
+        <pre><code><span class="cm"># Variables et types</span>
+nom = <span class="str">"Alice"</span>
+age = <span class="num">28</span>
+taille = <span class="num">1.65</span>
+est_etudiant = <span class="kw">True</span>
+
+<span class="cm"># f-strings (Python 3.6+) — affichage élégant</span>
+<span class="fn">print</span>(<span class="str">f"Bonjour {nom}, tu as {age} ans."</span>)
+
+<span class="cm"># Condition</span>
+<span class="kw">if</span> age >= <span class="num">18</span>:
+    <span class="fn">print</span>(<span class="str">"Majeur"</span>)
+<span class="kw">elif</span> age >= <span class="num">13</span>:
+    <span class="fn">print</span>(<span class="str">"Adolescent"</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">"Enfant"</span>)
+
+<span class="cm"># Boucle sur une liste</span>
+fruits = [<span class="str">"pomme"</span>, <span class="str">"banane"</span>, <span class="str">"cerise"</span>]
+<span class="kw">for</span> fruit <span class="kw">in</span> fruits:
+    <span class="fn">print</span>(fruit.upper())
+
+<span class="cm"># List comprehension — élégant et rapide</span>
+carres = [x**<span class="num">2</span> <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="num">10</span>) <span class="kw">if</span> x % <span class="num">2</span> == <span class="num">0</span>]
+<span class="cm"># → [0, 4, 16, 36, 64]</span></code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Python — Fonctions</span>
+          <button class="code-copy" onclick="copyCode(this)">Copier</button>
+        </div>
+        <pre><code><span class="cm"># Fonction simple avec valeur par défaut</span>
+<span class="kw">def</span> <span class="fn">saluer</span>(nom, langue=<span class="str">"fr"</span>):
+    salutations = {
+        <span class="str">"fr"</span>: <span class="str">f"Bonjour {nom} !"</span>,
+        <span class="str">"en"</span>: <span class="str">f"Hello {nom}!"</span>,
+        <span class="str">"es"</span>: <span class="str">f"¡Hola {nom}!"</span>
+    }
+    <span class="kw">return</span> salutations.get(langue, <span class="str">"Langue inconnue"</span>)
+
+<span class="fn">print</span>(<span class="fn">saluer</span>(<span class="str">"Marie"</span>))        <span class="cm"># Bonjour Marie !</span>
+<span class="fn">print</span>(<span class="fn">saluer</span>(<span class="str">"Tom"</span>, <span class="str">"en"</span>))    <span class="cm"># Hello Tom!</span>
+
+<span class="cm"># Fonction récursive — Fibonacci</span>
+<span class="kw">def</span> <span class="fn">fibonacci</span>(n):
+    <span class="kw">if</span> n <= <span class="num">1</span>:
+        <span class="kw">return</span> n
+    <span class="kw">return</span> <span class="fn">fibonacci</span>(n-<span class="num">1</span>) + <span class="fn">fibonacci</span>(n-<span class="num">2</span>)
+
+<span class="cm"># Lambda — fonction anonyme courte</span>
+doubler = <span class="kw">lambda</span> x: x * <span class="num">2</span>
+nombres = [<span class="num">1</span>, <span class="num">3</span>, <span class="num">5</span>, <span class="num">7</span>]
+doubles = <span class="fn">list</span>(<span class="fn">map</span>(doubler, nombres))  <span class="cm"># [2, 6, 10, 14]</span></code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Python — Classes & POO</span>
+          <button class="code-copy" onclick="copyCode(this)">Copier</button>
+        </div>
+        <pre><code><span class="kw">class</span> <span class="fn">Animal</span>:
+    <span class="cm"># Attribut de classe (partagé par toutes les instances)</span>
+    espece_count = <span class="num">0</span>
+
+    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="kw">self</span>, nom, son):
+        <span class="kw">self</span>.nom = nom
+        <span class="kw">self</span>.son = son
+        Animal.espece_count += <span class="num">1</span>
+
+    <span class="kw">def</span> <span class="fn">parler</span>(<span class="kw">self</span>):
+        <span class="kw">return</span> <span class="str">f"{self.nom} dit : {self.son} !"</span>
+
+    <span class="kw">def</span> <span class="fn">__repr__</span>(<span class="kw">self</span>):
+        <span class="kw">return</span> <span class="str">f"Animal({self.nom})"</span>
+
+<span class="cm"># Héritage</span>
+<span class="kw">class</span> <span class="fn">Chien</span>(<span class="fn">Animal</span>):
+    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="kw">self</span>, nom, race):
+        <span class="fn">super</span>().__init__(nom, <span class="str">"Woof"</span>)
+        <span class="kw">self</span>.race = race
+
+    <span class="kw">def</span> <span class="fn">apporter</span>(<span class="kw">self</span>):
+        <span class="kw">return</span> <span class="str">f"{self.nom} apporte la balle !"</span>
+
+rex = <span class="fn">Chien</span>(<span class="str">"Rex"</span>, <span class="str">"Berger"</span>)
+<span class="fn">print</span>(rex.parler())    <span class="cm"># Rex dit : Woof !</span>
+<span class="fn">print</span>(rex.apporter())  <span class="cm"># Rex apporte la balle !</span></code></pre>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div class="section-info">
+          <h2>Quiz interactif</h2>
+          <p>Testez vos connaissances — 10 questions</p>
+        </div>
+      </div>
+
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">🎯 Python — Niveau débutant</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">10</span></span>
+        </div>
+
+        <div class="quiz-body" id="quizBody">
+
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 10</p>
+            <p class="q-text">Quelle est la sortie de ce code ?</p>
+            <div class="q-code">print(type(42))</div>
+            <div class="options">
+              <div class="option" onclick="answer(this, false)">&lt;class 'str'&gt;</div>
+              <div class="option" onclick="answer(this, true)">&lt;class 'int'&gt;</div>
+              <div class="option" onclick="answer(this, false)">&lt;class 'float'&gt;</div>
+              <div class="option" onclick="answer(this, false)">&lt;class 'num'&gt;</div>
+            </div>
+            <div class="q-feedback">42 est un entier (integer). <code>type()</code> retourne le type d'une valeur. En Python, les entiers sont de type <code>int</code>.</div>
+          </div>
+
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 10</p>
+            <p class="q-text">Quelle syntaxe crée correctement une liste vide en Python ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this, false)">liste = ()</div>
+              <div class="option" onclick="answer(this, false)">liste = {}</div>
+              <div class="option" onclick="answer(this, true)">liste = []</div>
+              <div class="option" onclick="answer(this, false)">liste = &lt;&gt;</div>
+            </div>
+            <div class="q-feedback"><code>[]</code> crée une liste vide. <code>()</code> crée un tuple, <code>{}</code> crée un dictionnaire vide.</div>
+          </div>
+
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 10</p>
+            <p class="q-text">Que retourne cette expression ?</p>
+            <div class="q-code">len("Curiosita")</div>
+            <div class="options">
+              <div class="option" onclick="answer(this, false)">8</div>
+              <div class="option" onclick="answer(this, true)">9</div>
+              <div class="option" onclick="answer(this, false)">10</div>
+              <div class="option" onclick="answer(this, false)">7</div>
+            </div>
+            <div class="q-feedback">"Curiosita" contient exactement 9 caractères : C-u-r-i-o-s-i-t-a. <code>len()</code> compte les caractères d'une chaîne.</div>
+          </div>
+
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 10</p>
+            <p class="q-text">Comment définit-on une fonction en Python ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this, false)">function maFonction():</div>
+              <div class="option" onclick="answer(this, false)">func maFonction():</div>
+              <div class="option" onclick="answer(this, true)">def maFonction():</div>
+              <div class="option" onclick="answer(this, false)">define maFonction():</div>
+            </div>
+            <div class="q-feedback">En Python, le mot-clé <code>def</code> définit une fonction. La syntaxe complète est <code>def nom(paramètres):</code> suivi du corps indenté.</div>
+          </div>
+
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 10</p>
+            <p class="q-text">Quelle est la valeur de <code>x</code> après ce code ?</p>
+            <div class="q-code">x = 10
+x += 5
+x *= 2</div>
+            <div class="options">
+              <div class="option" onclick="answer(this, false)">25</div>
+              <div class="option" onclick="answer(this, true)">30</div>
+              <div class="option" onclick="answer(this, false)">20</div>
+              <div class="option" onclick="answer(this, false)">15</div>
+            </div>
+            <div class="q-feedback">x = 10, puis x += 5 → x = 15, puis x *= 2 → x = 30. Les opérateurs += et *= modifient la variable en place.</div>
+          </div>
+
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 10</p>
+            <p class="q-text">Quel mot-clé permet d'interrompre une boucle immédiatement ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this, false)">stop</div>
+              <div class="option" onclick="answer(this, false)">exit</div>
+              <div class="option" onclick="answer(this, false)">continue</div>
+              <div class="option" onclick="answer(this, true)">break</div>
+            </div>
+            <div class="q-feedback"><code>break</code> sort immédiatement de la boucle. <code>continue</code> passe à l'itération suivante sans interrompre la boucle.</div>
+          </div>
+
+          <div class="question-block" data-q="6">
+            <p class="q-num">Question 7 / 10</p>
+            <p class="q-text">Que fait cette list comprehension ?</p>
+            <div class="q-code">[x**2 for x in range(5)]</div>
+            <div class="options">
+              <div class="option" onclick="answer(this, false)">[1, 4, 9, 16, 25]</div>
+              <div class="option" onclick="answer(this, true)">[0, 1, 4, 9, 16]</div>
+              <div class="option" onclick="answer(this, false)">[0, 1, 2, 3, 4]</div>
+              <div class="option" onclick="answer(this, false)">[1, 2, 4, 8, 16]</div>
+            </div>
+            <div class="q-feedback"><code>range(5)</code> génère 0,1,2,3,4. En élevant chacun au carré : 0²=0, 1²=1, 2²=4, 3²=9, 4²=16. Résultat : [0, 1, 4, 9, 16].</div>
+          </div>
+
+          <div class="question-block" data-q="7">
+            <p class="q-num">Question 8 / 10</p>
+            <p class="q-text">Comment accède-t-on à la valeur "Python" dans ce dictionnaire ?</p>
+            <div class="q-code">d = {"langage": "Python", "version": 3}</div>
+            <div class="options">
+              <div class="option" onclick="answer(this, false)">d[0]</div>
+              <div class="option" onclick="answer(this, false)">d.langage</div>
+              <div class="option" onclick="answer(this, true)">d["langage"]</div>
+              <div class="option" onclick="answer(this, false)">d.get[0]</div>
+            </div>
+            <div class="q-feedback">Dans un dictionnaire Python, on accède aux valeurs avec la clé entre crochets : <code>d["langage"]</code>. On peut aussi utiliser <code>d.get("langage")</code> qui retourne None si la clé n'existe pas.</div>
+          </div>
+
+          <div class="question-block" data-q="8">
+            <p class="q-num">Question 9 / 10</p>
+            <p class="q-text">Quel est le rôle de <code>self</code> dans une méthode de classe ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this, false)">Un mot-clé réservé qui s'appelle obligatoirement "self"</div>
+              <div class="option" onclick="answer(this, true)">Une référence à l'instance courante de la classe</div>
+              <div class="option" onclick="answer(this, false)">La classe elle-même</div>
+              <div class="option" onclick="answer(this, false)">Le module parent</div>
+            </div>
+            <div class="q-feedback"><code>self</code> représente l'instance de la classe. Il permet d'accéder aux attributs et méthodes de l'objet. C'est une convention — on pourrait l'appeler autrement, mais "self" est universel en Python.</div>
+          </div>
+
+          <div class="question-block" data-q="9">
+            <p class="q-num">Question 10 / 10</p>
+            <p class="q-text">Quelle structure est utilisée pour gérer les erreurs en Python ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this, false)">catch / throw</div>
+              <div class="option" onclick="answer(this, false)">error / handle</div>
+              <div class="option" onclick="answer(this, true)">try / except</div>
+              <div class="option" onclick="answer(this, false)">begin / rescue</div>
+            </div>
+            <div class="q-feedback">Python utilise <code>try/except</code> (et optionnellement <code>else</code> et <code>finally</code>) pour la gestion d'exceptions. C'est l'équivalent de try/catch dans d'autres langages.</div>
+          </div>
+
+        </div>
+
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/10</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESSOURCES -->
+    <section class="content-section" id="ressources">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <div class="section-info">
+          <h2>Ressources recommandées</h2>
+          <p>Les meilleures sources pour aller plus loin</p>
+        </div>
+      </div>
+
+      <div class="resources-grid">
+        <a href="https://www.youtube.com/watch?v=rfscVS0vtbw" target="_blank" class="resource-card">
+          <span class="resource-icon">▶️</span>
+          <div class="resource-info">
+            <div class="resource-name">Python pour débutants — freeCodeCamp</div>
+            <div class="resource-desc">4h30 de cours complet en anglais. Le meilleur point de départ pour apprendre Python from scratch.</div>
+            <span class="resource-type type-video">YouTube · 4h30</span>
+          </div>
+        </a>
+        <a href="https://fr.wikipedia.org/wiki/Python_(langage)" target="_blank" class="resource-card">
+          <span class="resource-icon">📖</span>
+          <div class="resource-info">
+            <div class="resource-name">Python — Wikipédia FR</div>
+            <div class="resource-desc">Histoire, caractéristiques et panorama complet du langage Python en français.</div>
+            <span class="resource-type type-wiki">Wikipédia</span>
+          </div>
+        </a>
+        <a href="https://docs.python.org/fr/3/" target="_blank" class="resource-card">
+          <span class="resource-icon">📚</span>
+          <div class="resource-info">
+            <div class="resource-name">Documentation officielle Python 3</div>
+            <div class="resource-desc">La référence absolue. Disponible en français, couvre tout le langage et la bibliothèque standard.</div>
+            <span class="resource-type type-doc">Documentation</span>
+          </div>
+        </a>
+        <a href="https://www.coursera.org/specializations/python" target="_blank" class="resource-card">
+          <span class="resource-icon">🎓</span>
+          <div class="resource-info">
+            <div class="resource-name">Python for Everybody — Coursera</div>
+            <div class="resource-desc">Spécialisation de l'Université du Michigan. Certifiante, structurée et très pédagogique. Gratuite en audit.</div>
+            <span class="resource-type type-course">Cours certifiant</span>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/@Grafikart" target="_blank" class="resource-card">
+          <span class="resource-icon">🇫🇷</span>
+          <div class="resource-info">
+            <div class="resource-name">Grafikart — Tutoriels Python FR</div>
+            <div class="resource-desc">Chaîne YouTube française de référence pour apprendre la programmation avec Python et d'autres technologies.</div>
+            <span class="resource-type type-video">YouTube · FR</span>
+          </div>
+        </a>
+        <a href="https://realpython.com" target="_blank" class="resource-card">
+          <span class="resource-icon">🐍</span>
+          <div class="resource-info">
+            <div class="resource-name">Real Python</div>
+            <div class="resource-desc">Des centaines de tutoriels écrits de haute qualité, du débutant à l'expert. La référence anglophone.</div>
+            <span class="resource-type type-doc">Articles & tutos</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- FICHE MÉMO -->
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel de Python en un coup d'œil</p>
+        </div>
+      </div>
+
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🐍 Python — Fiche mémo</h3>
+          <p>Curiosita · Les fondamentaux en un coup d'œil</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Types de base</div>
+            <div class="memo-item"><code>int</code> Entier : 42, -7</div>
+            <div class="memo-item"><code>float</code> Décimal : 3.14</div>
+            <div class="memo-item"><code>str</code> Chaîne : "hello"</div>
+            <div class="memo-item"><code>bool</code> Booléen : True/False</div>
+            <div class="memo-item"><code>list</code> Liste : [1, 2, 3]</div>
+            <div class="memo-item"><code>dict</code> Dico : {"a": 1}</div>
+            <div class="memo-item"><code>tuple</code> Immuable : (1, 2)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Opérateurs</div>
+            <div class="memo-item"><code>+  -  *  /</code> Arithmétique</div>
+            <div class="memo-item"><code>//</code> Division entière</div>
+            <div class="memo-item"><code>%</code> Modulo (reste)</div>
+            <div class="memo-item"><code>**</code> Puissance</div>
+            <div class="memo-item"><code>==  !=  &gt;  &lt;</code> Comparaison</div>
+            <div class="memo-item"><code>and or not</code> Logiques</div>
+            <div class="memo-item"><code>in  not in</code> Appartenance</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Structures</div>
+            <div class="memo-item"><code>if/elif/else</code> Condition</div>
+            <div class="memo-item"><code>for x in ...</code> Boucle</div>
+            <div class="memo-item"><code>while cond:</code> Boucle conditionnelle</div>
+            <div class="memo-item"><code>break</code> Sortir de boucle</div>
+            <div class="memo-item"><code>continue</code> Itération suivante</div>
+            <div class="memo-item"><code>pass</code> Bloc vide</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Fonctions utiles</div>
+            <div class="memo-item"><code>len(x)</code> Longueur</div>
+            <div class="memo-item"><code>range(n)</code> Séquence 0→n</div>
+            <div class="memo-item"><code>type(x)</code> Type d'une valeur</div>
+            <div class="memo-item"><code>int() str() float()</code> Conversions</div>
+            <div class="memo-item"><code>print() input()</code> E/S console</div>
+            <div class="memo-item"><code>sorted() reversed()</code> Tri</div>
+            <div class="memo-item"><code>zip() enumerate()</code> Iteration</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Méthodes listes</div>
+            <div class="memo-item"><code>.append(x)</code> Ajouter en fin</div>
+            <div class="memo-item"><code>.insert(i,x)</code> Insérer</div>
+            <div class="memo-item"><code>.remove(x)</code> Supprimer valeur</div>
+            <div class="memo-item"><code>.pop()</code> Retirer le dernier</div>
+            <div class="memo-item"><code>.sort()</code> Trier en place</div>
+            <div class="memo-item"><code>.index(x)</code> Trouver index</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Méthodes strings</div>
+            <div class="memo-item"><code>.upper() .lower()</code> Casse</div>
+            <div class="memo-item"><code>.strip()</code> Suppr. espaces</div>
+            <div class="memo-item"><code>.split(sep)</code> Découper</div>
+            <div class="memo-item"><code>.join(liste)</code> Joindre</div>
+            <div class="memo-item"><code>.replace(a,b)</code> Remplacer</div>
+            <div class="memo-item"><code>.startswith()</code> Commence par</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">
+          ↓ Télécharger la fiche mémo complète (HTML)
+        </button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+// QUIZ LOGIC
+const questions = document.querySelectorAll('.question-block');
+let currentQ = 0;
+let score = 0;
+let answered = new Array(questions.length).fill(false);
+
+const dotsContainer = document.getElementById('qDots');
+questions.forEach((_, i) => {
+  const dot = document.createElement('div');
+  dot.className = 'q-dot' + (i === 0 ? ' current' : '');
+  dotsContainer.appendChild(dot);
+});
+
+function updateDots() {
+  const dots = dotsContainer.querySelectorAll('.q-dot');
+  dots.forEach((d, i) => {
+    d.className = 'q-dot';
+    if (i < currentQ || (answered[i] && i !== currentQ)) d.classList.add('done');
+    if (i === currentQ) d.classList.add('current');
+  });
+}
+
+function answer(el, isCorrect) {
+  if (answered[currentQ]) return;
+  answered[currentQ] = true;
+
+  const options = el.parentElement.querySelectorAll('.option');
+  options.forEach(o => o.classList.add('disabled'));
+  el.classList.add(isCorrect ? 'correct' : 'wrong');
+
+  if (!isCorrect) {
+    options.forEach(o => { if (o.onclick.toString().includes('true')) o.classList.add('correct'); });
+  } else {
+    score++;
+    document.getElementById('scoreDisplay').textContent = score;
+  }
+
+  const feedback = el.closest('.question-block').querySelector('.q-feedback');
+  feedback.classList.add('show', isCorrect ? 'good' : 'bad');
+  document.getElementById('btnNext').disabled = false;
+  updateProgress();
+}
+
+function nextQ() {
+  if (currentQ < questions.length - 1) {
+    questions[currentQ].classList.remove('active');
+    currentQ++;
+    questions[currentQ].classList.add('active');
+    document.getElementById('btnPrev').disabled = false;
+    document.getElementById('btnNext').disabled = !answered[currentQ];
+    updateDots();
+    if (currentQ === questions.length - 1) document.getElementById('btnNext').textContent = 'Terminer';
+  } else {
+    showResult();
+  }
+}
+
+function prevQ() {
+  if (currentQ > 0) {
+    questions[currentQ].classList.remove('active');
+    currentQ--;
+    questions[currentQ].classList.add('active');
+    document.getElementById('btnPrev').disabled = currentQ === 0;
+    document.getElementById('btnNext').disabled = !answered[currentQ];
+    document.getElementById('btnNext').textContent = currentQ === questions.length - 1 ? 'Terminer' : 'Suivant →';
+    updateDots();
+  }
+}
+
+function showResult() {
+  document.getElementById('quizBody').style.display = 'none';
+  const result = document.getElementById('quizResult');
+  result.style.display = 'block';
+  document.getElementById('resultScore').textContent = score + '/10';
+  const msgs = ['Continuez à pratiquer !', 'Bon début, continuez !', 'Pas mal du tout !', 'Très bien !', 'Excellent ! Vous maîtrisez Python !'];
+  const idx = Math.floor(score / 2.1);
+  document.getElementById('resultMsg').textContent = msgs[Math.min(idx, 4)];
+}
+
+function resetQuiz() {
+  score = 0; currentQ = 0;
+  answered = new Array(questions.length).fill(false);
+  document.getElementById('scoreDisplay').textContent = 0;
+  document.getElementById('quizBody').style.display = 'block';
+  document.getElementById('quizResult').style.display = 'none';
+  questions.forEach((q, i) => {
+    q.classList.toggle('active', i === 0);
+    q.querySelectorAll('.option').forEach(o => { o.className = 'option'; o.onclick = o.onclick; });
+    q.querySelectorAll('.q-feedback').forEach(f => f.className = 'q-feedback');
+  });
+  document.getElementById('btnPrev').disabled = true;
+  document.getElementById('btnNext').disabled = true;
+  document.getElementById('btnNext').textContent = 'Suivant →';
+  updateDots();
+  updateProgress();
+}
+
+function updateProgress() {
+  const done = answered.filter(Boolean).length;
+  document.getElementById('progressFill').style.width = (done / questions.length * 100) + '%';
+}
+
+// COPY CODE
+function copyCode(btn) {
+  const code = btn.closest('.code-block').querySelector('code').innerText;
+  navigator.clipboard.writeText(code).then(() => {
+    btn.textContent = '✓ Copié !';
+    setTimeout(() => btn.textContent = 'Copier', 2000);
+  });
+}
+
+// SCROLL
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+// Scroll spy
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+
+// DOWNLOAD MEMO
+function downloadMemo() {
+  const memo = document.getElementById('memoCard').outerHTML;
+  const html = `<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Python — Fiche mémo Curiosita</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    body{background:#0c0c0e;color:#f0ede8;font-family:'DM Sans',sans-serif;padding:2rem;max-width:900px;margin:0 auto}
+    :root{--bg:#0c0c0e;--surface:#141418;--surface2:#1c1c22;--text:#f0ede8;--muted:#7a7870;--accent:#4fc3f7;--border:rgba(240,237,232,0.08);--green:#69f0ae;--accent-dim:rgba(79,195,247,0.1)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    .memo-preview{border:1px solid var(--border);border-radius:8px;overflow:hidden}
+    .memo-top{background:#4fc3f7;padding:1.5rem;color:#0c0c0e}
+    .memo-top h3{font-size:1.4rem;font-weight:700;margin-bottom:.3rem}
+    .memo-top p{font-size:.78rem;opacity:.8}
+    .memo-grid{display:grid;grid-template-columns:1fr 1fr}
+    .memo-section{padding:1.5rem;border-bottom:1px solid var(--border)}
+    .memo-section:nth-child(odd){border-right:1px solid var(--border)}
+    .memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#4fc3f7;margin-bottom:.8rem;font-weight:500}
+    .memo-item{font-size:.78rem;color:var(--muted);padding:.2rem 0;display:flex;gap:.5rem}
+    .memo-item code{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--text);background:var(--surface2);padding:.1rem .4rem;border-radius:2px;flex-shrink:0}
+    .memo-dl-btn{display:none}
+  </style></head><body>${memo}
+</body></html>`;
+  const blob = new Blob([html], { type: 'text/html' });
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+  a.download = 'python-fiche-memo-curiosita.html'; a.click();
+}
+
+// Progress on load
+setTimeout(() => updateProgress(), 500);
+</script>
+    <script src="mobile.js"></script>
+</body>
+</html>

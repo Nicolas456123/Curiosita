@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biologie — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<style>
+:root {
+  --accent: #7ae8d8;
+  --accent2: #a0f5ee;
+  --accent-dim: rgba(122,232,216,0.1);
+}
+.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(122,232,216,0.07) 0%, transparent 70%); }
+.hero-deco { color: rgba(122,232,216,0.04); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="sciences-nature.html">Sciences de la nature</a> › <span>Biologie</span></div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-deco">🧬</div>
+  <div class="hero-meta">
+    <span class="tag-domain">🌱 Sciences de la nature</span>
+    <span class="tag-level">Tous niveaux</span>
+    <span class="tag-time">⏱ ~7h de lecture</span>
+  </div>
+  <h1>Le vivant,<br><em>décrypté.</em></h1>
+  <p class="hero-desc">De la cellule à l'écosystème, la biologie explore le mystère de la vie dans toute sa diversité. ADN, évolution darwinienne, génétique, écologie : les clés pour comprendre ce qui nous unit à tous les êtres vivants.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">4</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">6</div><div class="hstat-lab">Quiz</div></div>
+    <div class="hstat"><div class="hstat-val">6</div><div class="hstat-lab">Ressources</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="resume" onclick="goTo('resume',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="evolution" onclick="goTo('evolution',this)">🦎 Évolution</a>
+    <a class="sidebar-link" data-section="concepts" onclick="goTo('concepts',this)">🧩 Concepts clés</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="ressources" onclick="goTo('ressources',this)">🔗 Ressources</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Cours</p>
+    <a class="sidebar-link" href="biologie/cellule.html">La cellule</a>
+    <a class="sidebar-link" href="biologie/corps-humain.html">Corps humain</a>
+    <a class="sidebar-link" href="biologie/evolution.html">Évolution</a>
+    <a class="sidebar-link" href="biologie/ecologie.html">Écologie</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+  <main class="main">
+
+    <section class="content-section" id="resume">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info"><h2>La biologie, science du vivant</h2><p>De la molécule à l'écosystème</p></div>
+      </div>
+      <p class="resume-text">La biologie (du grec <em>bios</em> = vie, <em>logos</em> = science) est l'étude scientifique des êtres vivants — leur structure, fonctionnement, évolution, distribution et classification. Elle couvre des échelles allant de la molécule d'ADN à la biosphère entière.</p>
+      <div class="highlight-box">
+        <p><strong>L'unité fondamentale du vivant : la cellule.</strong> Tout organisme vivant est constitué d'une ou plusieurs cellules. Elles contiennent l'ADN, produisent de l'énergie, se reproduisent et répondent à leur environnement. Deux grands types : les cellules procaryotes (sans noyau — bactéries) et eucaryotes (avec noyau — animaux, plantes, champignons).</p>
+      </div>
+      <p class="resume-text">La biologie moderne repose sur quelques théories unificatrices : la <strong>théorie cellulaire</strong> (tout être vivant est fait de cellules), la <strong>théorie de l'évolution</strong> (Darwin, 1859), et la <strong>biologie moléculaire</strong> (Watson & Crick, 1953 — structure de l'ADN). Ces trois piliers révolutionnèrent notre compréhension du vivant.</p>
+      <p class="resume-text">Aujourd'hui, la biologie se spécialise en dizaines de sous-disciplines : génétique, neurobiologie, écologie, microbiologie, biotechnologies (CRISPR), bioinformatique. Elle est au cœur des plus grands défis de notre siècle : pandémies, changement climatique, vieillissement, alimentation.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Explorez les cours</h2>
+          <p>Plongez dans chaque domaine en détail</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="biologie/cellule.html" class="course-card">
+          <span class="course-card-icon">🔬</span>
+          <h3>La cellule</h3>
+          <p>Structure, division, ADN, protéines et métabolisme cellulaire.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="biologie/corps-humain.html" class="course-card">
+          <span class="course-card-icon">🫀</span>
+          <h3>Corps humain</h3>
+          <p>Systèmes nerveux, cardiovasculaire, digestif, immunitaire, endocrinien.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="biologie/evolution.html" class="course-card">
+          <span class="course-card-icon">🦎</span>
+          <h3>Évolution</h3>
+          <p>Darwin, spéciation, génétique des populations et phylogénie.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="biologie/ecologie.html" class="course-card">
+          <span class="course-card-icon">🌿</span>
+          <h3>Écologie</h3>
+          <p>Écosystèmes, biodiversité, climat et conservation.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="evolution">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info"><h2>Évolution & Génétique</h2><p>Les deux grandes théories du vivant</p></div>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Théorie de l'évolution (Darwin, 1859) :</strong> Toutes les espèces descendent d'ancêtres communs. La <em>sélection naturelle</em> favorise les individus les mieux adaptés à leur environnement. Leurs caractères se transmettent à la descendance. Sur des millions d'années, cela engendre une diversification des espèces. La preuve : l'homologie des gènes entre espèces très différentes.</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>L'ADN et la génétique :</strong> L'ADN (acide désoxyribonucléique) est la molécule qui porte l'information génétique dans toutes les cellules. Il est composé de 4 bases (A, T, G, C). Les gènes sont des séquences d'ADN qui codent pour des protéines. Le génome humain contient ~3 milliards de paires de bases et ~20 000 gènes. La révolution CRISPR-Cas9 permet aujourd'hui d'éditer le génome avec une précision sans précédent.</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Lois de Mendel :</strong> Gregor Mendel (1866) a découvert les règles de la transmission héréditaire. Chaque individu possède deux allèles pour chaque gène (un par parent). Certains sont dominants (s'expriment), d'autres récessifs (masqués). Ces lois expliquent pourquoi certaines maladies génétiques sautent des générations.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="concepts">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info"><h2>Concepts clés</h2><p>Le vocabulaire essentiel du biologiste</p></div>
+      </div>
+      <div class="concepts-grid">
+        <div class="concept-card"><div class="concept-title">Cellule</div><div class="concept-desc">Unité structurelle et fonctionnelle du vivant. Procaryote (sans noyau : bactéries) ou eucaryote (avec noyau : animaux, plantes). Contient membrane, cytoplasme, ADN, ribosomes.</div></div>
+        <div class="concept-card"><div class="concept-title">ADN</div><div class="concept-desc">Double hélice de nucléotides portant l'information génétique. Transcrit en ARN puis traduit en protéines (dogme central de la biologie moléculaire : ADN → ARN → Protéine).</div></div>
+        <div class="concept-card"><div class="concept-title">Photosynthèse</div><div class="concept-desc">Processus par lequel les plantes et algues convertissent la lumière, le CO₂ et l'eau en glucose et O₂. 6CO₂ + 6H₂O + lumière → C₆H₁₂O₆ + 6O₂. Base de toutes les chaînes alimentaires.</div></div>
+        <div class="concept-card"><div class="concept-title">Respiration cellulaire</div><div class="concept-desc">Processus inverse de la photosynthèse : les cellules oxydent le glucose pour produire de l'ATP (énergie). Lieu : mitochondrie. Produits : CO₂, eau, ATP.</div></div>
+        <div class="concept-card"><div class="concept-title">Sélection naturelle</div><div class="concept-desc">Mécanisme de l'évolution : les individus dont les caractères héréditaires sont les mieux adaptés à l'environnement survivent et se reproduisent davantage, transmettant leurs gènes.</div></div>
+        <div class="concept-card"><div class="concept-title">Écosystème</div><div class="concept-desc">Ensemble d'êtres vivants (biocénose) en interaction avec leur milieu physico-chimique (biotope). Chaque espèce occupe une niche écologique. Les flux d'énergie et matière relient tous les acteurs.</div></div>
+        <div class="concept-card"><div class="concept-title">Homéostasie</div><div class="concept-desc">Capacité d'un organisme à maintenir stable son environnement interne (température, pH, glycémie…) malgré les variations externes. Ex : thermorégulation chez les homéothermes.</div></div>
+        <div class="concept-card"><div class="concept-title">Mutation</div><div class="concept-desc">Modification de la séquence d'ADN. Peut être neutre, bénéfique (source de l'évolution) ou délétère (maladies génétiques). Causes : erreurs de réplication, rayonnements, agents chimiques.</div></div>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div class="section-info"><h2>Quiz interactif</h2><p>6 questions pour tester vos connaissances</p></div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">Quiz — Biologie</span>
+          <span class="quiz-score">Score : <span id="quizScore">0</span>/6</span>
+        </div>
+        <div class="quiz-body">
+          <div class="question-block active" id="q0">
+            <div class="q-num">Question 1 / 6</div>
+            <div class="q-text">Quelle est l'unité fondamentale de tous les êtres vivants ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(0,0)">L'atome</div>
+              <div class="option" onclick="selectOption(0,1)">La cellule</div>
+              <div class="option" onclick="selectOption(0,2)">Le gène</div>
+              <div class="option" onclick="selectOption(0,3)">La molécule</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q1">
+            <div class="q-num">Question 2 / 6</div>
+            <div class="q-text">Qui a proposé la théorie de l'évolution par sélection naturelle en 1859 ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(1,0)">Gregor Mendel</div>
+              <div class="option" onclick="selectOption(1,1)">Louis Pasteur</div>
+              <div class="option" onclick="selectOption(1,2)">Charles Darwin</div>
+              <div class="option" onclick="selectOption(1,3)">James Watson</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q2">
+            <div class="q-num">Question 3 / 6</div>
+            <div class="q-text">La photosynthèse produit du glucose à partir de...</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(2,0)">Azote et oxygène</div>
+              <div class="option" onclick="selectOption(2,1)">CO₂, eau et lumière solaire</div>
+              <div class="option" onclick="selectOption(2,2)">Minéraux du sol uniquement</div>
+              <div class="option" onclick="selectOption(2,3)">Protéines et lipides</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q3">
+            <div class="q-num">Question 4 / 6</div>
+            <div class="q-text">Combien de bases différentes compose l'ADN ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(3,0)">2 (A et T)</div>
+              <div class="option" onclick="selectOption(3,1)">3 (A, T, G)</div>
+              <div class="option" onclick="selectOption(3,2)">4 (A, T, G, C)</div>
+              <div class="option" onclick="selectOption(3,3)">20 (comme les acides aminés)</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q4">
+            <div class="q-num">Question 5 / 6</div>
+            <div class="q-text">Qu'est-ce que l'homéostasie ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(4,0)">La reproduction sexuée des mammifères</div>
+              <div class="option" onclick="selectOption(4,1)">La capacité à maintenir stable l'environnement interne de l'organisme</div>
+              <div class="option" onclick="selectOption(4,2)">L'ensemble des gènes d'un organisme</div>
+              <div class="option" onclick="selectOption(4,3)">La symbiose entre deux espèces</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q5">
+            <div class="q-num">Question 6 / 6</div>
+            <div class="q-text">Dans quelle organite cellulaire se déroule la respiration cellulaire ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(5,0)">Le noyau</div>
+              <div class="option" onclick="selectOption(5,1)">Le ribosome</div>
+              <div class="option" onclick="selectOption(5,2)">La mitochondrie</div>
+              <div class="option" onclick="selectOption(5,3)">Le chloroplaste</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+        </div>
+        <div class="quiz-nav">
+          <div class="q-dots">
+            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div>
+            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
+          </div>
+          <div style="display:flex;gap:.8rem">
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+          </div>
+        </div>
+        <div class="quiz-result">
+          <div class="result-score-big" id="finalScore"></div>
+          <div class="result-msg" id="finalMsg"></div>
+          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="ressources">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <div class="section-info"><h2>Ressources externes</h2><p>Les meilleures sources pour approfondir</p></div>
+      </div>
+      <div class="resources-grid">
+        <a class="resource-card" href="https://www.youtube.com/@ScienceEtonnante" target="_blank">
+          <span class="resource-icon">▶️</span>
+          <div class="resource-info">
+            <div class="resource-name">Science Étonnante</div>
+            <div class="resource-desc">David Louapre explique avec passion les sciences (biologie, physique, maths) avec une rigueur exemplaire. Chaîne de référence.</div>
+            <span class="resource-type type-video">YouTube</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://fr.khanacademy.org/science/biology" target="_blank">
+          <span class="resource-icon">🎓</span>
+          <div class="resource-info">
+            <div class="resource-name">Khan Academy — Biologie</div>
+            <div class="resource-desc">Cours complets et gratuits : cellule, ADN, évolution, écologie, corps humain. Exercices interactifs intégrés.</div>
+            <span class="resource-type type-course">Cours gratuit</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.youtube.com/@LeReveilleur" target="_blank">
+          <span class="resource-icon">🔬</span>
+          <div class="resource-info">
+            <div class="resource-name">Le Réveilleur</div>
+            <div class="resource-desc">Analyses approfondies sur l'énergie, le climat et la biologie environnementale. Rigueur scientifique et sourçage exemplaire.</div>
+            <span class="resource-type type-video">YouTube</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://fr.wikipedia.org/wiki/Biologie" target="_blank">
+          <span class="resource-icon">🌐</span>
+          <div class="resource-info">
+            <div class="resource-name">Wikipedia — Biologie</div>
+            <div class="resource-desc">Articles détaillés sur tous les sujets biologiques avec illustrations, schémas et références scientifiques.</div>
+            <span class="resource-type type-wiki">Wikipedia</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.coursera.org/courses?query=biology" target="_blank">
+          <span class="resource-icon">🎓</span>
+          <div class="resource-info">
+            <div class="resource-name">Coursera — Biology</div>
+            <div class="resource-desc">Cours de Johns Hopkins, Duke, MIT. "Introduction to Biology", "Genomic Data Science", "Everyday Chemistry"...</div>
+            <span class="resource-type type-course">Cours en ligne</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.inrae.fr/actualites" target="_blank">
+          <span class="resource-icon">🌿</span>
+          <div class="resource-info">
+            <div class="resource-name">INRAE — Actualités</div>
+            <div class="resource-desc">L'Institut national de recherche pour l'agriculture publie ses découvertes en biologie, écologie et biotechnologies. En français.</div>
+            <span class="resource-type type-doc">Recherche</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <div class="section-info"><h2>Fiche mémo</h2><p>L'essentiel en une page — téléchargeable</p></div>
+      </div>
+      <div class="memo-preview">
+        <div class="memo-top">
+          <h3>📋 Biologie — Fiche mémo</h3>
+          <p>Cellule, ADN, évolution et écosystèmes</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Niveaux d'organisation</div>
+            <div class="memo-item">Atome → Molécule → Organite</div>
+            <div class="memo-item">Cellule → Tissu → Organe</div>
+            <div class="memo-item">Organisme → Population → Espèce</div>
+            <div class="memo-item">Communauté → Écosystème → Biosphère</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">ADN & Génétique</div>
+            <div class="memo-item">4 bases : A (adénine), T (thymine), G, C</div>
+            <div class="memo-item">A s'apparie avec T — G avec C</div>
+            <div class="memo-item">Génome humain : ~3 milliards de paires</div>
+            <div class="memo-item">~20 000 gènes codants</div>
+            <div class="memo-item">ADN → ARNm → Protéine (dogme central)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Photosynthèse vs Respiration</div>
+            <div class="memo-item">Photosynthèse : CO₂ + H₂O + ☀️ → glucose + O₂</div>
+            <div class="memo-item">Lieu : chloroplaste (cellules végétales)</div>
+            <div class="memo-item">Respiration : glucose + O₂ → CO₂ + H₂O + ATP</div>
+            <div class="memo-item">Lieu : mitochondrie (toutes les cellules)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Évolution</div>
+            <div class="memo-item">Darwin — L'Origine des espèces (1859)</div>
+            <div class="memo-item">Sélection naturelle → survie des + adaptés</div>
+            <div class="memo-item">Mutation + temps = nouvelles espèces</div>
+            <div class="memo-item">Mendel — lois de l'hérédité (1866)</div>
+            <div class="memo-item">CRISPR-Cas9 → édition du génome (2012)</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML/PDF)</button>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+const questions=[
+  {q:"Quelle est l'unité fondamentale de tous les êtres vivants ?",opts:["L'atome","La cellule","Le gène","La molécule"],ans:1,expl:"La cellule est l'unité structurelle et fonctionnelle du vivant — c'est un des principes de la théorie cellulaire (Schleiden & Schwann, 1839). Tout être vivant est constitué d'au moins une cellule. L'atome, bien que composant toute matière, n'est pas spécifique au vivant."},
+  {q:"Qui a proposé la théorie de l'évolution par sélection naturelle en 1859 ?",opts:["Gregor Mendel","Louis Pasteur","Charles Darwin","James Watson"],ans:2,expl:"Charles Darwin a publié «De l'origine des espèces» en 1859. Il observa la diversité des espèces aux Galápagos et proposa que la sélection naturelle — la survie préférentielle des individus les mieux adaptés — est le moteur de l'évolution. Alfred Russel Wallace développa la même théorie indépendamment."},
+  {q:"La photosynthèse produit du glucose à partir de...",opts:["Azote et oxygène","CO₂, eau et lumière solaire","Minéraux du sol uniquement","Protéines et lipides"],ans:1,expl:"Équation : 6CO₂ + 6H₂O + énergie lumineuse → C₆H₁₂O₆ + 6O₂. La photosynthèse se déroule dans les chloroplastes des cellules végétales. Elle est à la base de toutes les chaînes alimentaires et est responsable de l'oxygène atmosphérique."},
+  {q:"Combien de bases différentes compose l'ADN ?",opts:["2 (A et T)","3 (A, T, G)","4 (A, T, G, C)","20 (comme les acides aminés)"],ans:2,expl:"L'ADN est composé de 4 bases azotées : Adénine (A), Thymine (T), Guanine (G) et Cytosine (C). Elles s'apparient toujours par paires complémentaires : A-T et G-C. La séquence de ces bases encode l'information génétique. Les 20 acides aminés, eux, sont codés par des codons (triplets de bases ARN)."},
+  {q:"Qu'est-ce que l'homéostasie ?",opts:["La reproduction sexuée des mammifères","La capacité à maintenir stable l'environnement interne de l'organisme","L'ensemble des gènes d'un organisme","La symbiose entre deux espèces"],ans:1,expl:"L'homéostasie (du grec homoios = semblable, stasis = stabilité) est la propriété des êtres vivants de maintenir leurs paramètres internes (température, pH, glycémie, pression osmotique) dans des plages stables, malgré les variations du milieu externe. Ex : notre température reste ~37°C par tous les temps."},
+  {q:"Dans quelle organite cellulaire se déroule la respiration cellulaire ?",opts:["Le noyau","Le ribosome","La mitochondrie","Le chloroplaste"],ans:2,expl:"La mitochondrie est l'organite de la respiration cellulaire — c'est pourquoi on l'appelle «centrale énergétique de la cellule». Elle convertit le glucose en ATP (molécule universelle d'énergie). Le chloroplaste est dédié à la photosynthèse (cellules végétales). Le noyau contient l'ADN. Le ribosome synthétise les protéines."}
+];
+let current=0,score=0,answered=new Array(6).fill(null);
+function renderQuestion(){document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});document.getElementById('btnPrev').disabled=current===0;document.getElementById('btnNext').textContent=current===5?'Voir résultats':'Suivant →';}
+function selectOption(qi,oi){if(answered[qi]!==null)return;answered[qi]=oi;const block=document.querySelectorAll('.question-block')[qi];block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');}
+function nextQuestion(){if(current<5){current++;renderQuestion();}else showResult();}
+function prevQuestion(){if(current>0){current--;renderQuestion();}}
+function showResult(){document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';const r=document.querySelector('.quiz-result');r.style.display='block';document.getElementById('finalScore').textContent=score+'/6';document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Très bien !','Excellent !'][score<=2?0:score<=4?1:score<=5?2:3];}
+function restartQuiz(){current=0;score=0;answered.fill(null);document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');document.getElementById('quizScore').textContent=0;renderQuestion();}
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+// Scroll spy
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+const sections=['resume','evolution','concepts','quiz','ressources','memo'];
+window.addEventListener('scroll',()=>{let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';});
+function downloadMemo(){const w=window.open('','_blank','width=900,height=700');w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Biologie</title><style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#1a8a7e;border-bottom:3px solid #1a8a7e;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#1a8a7e;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #b2dfdb;padding:1rem;border-radius:4px;background:#f0fffe}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style></head><body><h1>🌱 Fiche mémo — Biologie & Sciences du vivant</h1><div class="grid"><div class="box"><h2>Niveaux d'organisation</h2><ul><li>Atome → Molécule → Organite → Cellule</li><li>Tissu → Organe → Système → Organisme</li><li>Population → Communauté → Écosystème → Biosphère</li></ul></div><div class="box"><h2>ADN & Génétique</h2><ul><li>4 bases : A-T, G-C (appariement)</li><li>Génome humain : ~3 milliards paires de bases</li><li>~20 000 gènes codants</li><li>ADN → ARNm → Protéine (dogme central)</li><li>Mendel : dominant/récessif (1866)</li><li>CRISPR-Cas9 : édition du génome (2012)</li></ul></div><div class="box"><h2>Photosynthèse & Respiration</h2><ul><li>Photosynthèse : CO₂ + H₂O + ☀️ → glucose + O₂</li><li>Lieu : chloroplaste</li><li>Respiration cellulaire : glucose + O₂ → CO₂ + H₂O + ATP</li><li>Lieu : mitochondrie</li></ul></div><div class="box"><h2>Évolution</h2><ul><li>Darwin — sélection naturelle (1859)</li><li>Wallace — même découverte simultanée</li><li>Variation + hérédité + sélection = évolution</li><li>Toutes les espèces partagent un ancêtre commun</li><li>Spéciation = isolation reproductrice</li></ul></div></div><div class="footer">Curiosita — Fiche mémo Biologie — ${new Date().toLocaleDateString('fr-FR')}</div><button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#1a8a7e;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">🖨️ Imprimer / PDF</button>
+</body></html>`);w.document.close();}
+renderQuestion();
+</script>
+    <script src="mobile.js"></script>
+</body>
+</html>

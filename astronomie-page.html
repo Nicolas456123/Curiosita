@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Astronomie — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<style>
+:root {
+  --accent: #7ae8d8;
+  --accent2: #a0f5ee;
+  --accent-dim: rgba(122,232,216,0.1);
+}
+.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(122,232,216,0.07) 0%, transparent 70%); }
+.hero-deco { color: rgba(122,232,216,0.04); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="sciences-nature.html">Sciences de la nature</a> › <span>Astronomie</span></div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-deco">🔭</div>
+  <div class="hero-meta">
+    <span class="tag-domain">🌱 Sciences de la nature</span>
+    <span class="tag-level">Tous niveaux</span>
+    <span class="tag-time">⏱ ~8h de lecture</span>
+  </div>
+  <h1>L'<br><em>Astronomie</em></h1>
+  <p class="hero-desc">Du système solaire aux confins de l'univers observable, l'astronomie est la plus ancienne des sciences. Planètes, étoiles, galaxies, trous noirs et Big Bang : explorez les mystères du cosmos et notre place dans l'immensité.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">4</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">10</div><div class="hstat-lab">Quiz</div></div>
+    <div class="hstat"><div class="hstat-val">6</div><div class="hstat-lab">Ressources</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="resume" onclick="goTo('resume',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="univers" onclick="goTo('univers',this)">🌌 L'Univers</a>
+    <a class="sidebar-link" data-section="concepts" onclick="goTo('concepts',this)">🧩 Concepts clés</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="ressources" onclick="goTo('ressources',this)">🔗 Ressources</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Cours</p>
+    <a class="sidebar-link" href="astronomie/systeme-solaire.html">Système solaire</a>
+    <a class="sidebar-link" href="astronomie/etoiles.html">Étoiles et galaxies</a>
+    <a class="sidebar-link" href="astronomie/cosmologie.html">Cosmologie</a>
+    <a class="sidebar-link" href="astronomie/observation.html">Observation</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+  <main class="main">
+
+    <section class="content-section" id="resume">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info"><h2>L'astronomie, science de l'univers</h2><p>Des premières observations au télescope spatial</p></div>
+      </div>
+      <p class="resume-text">L'astronomie (du grec <em>astron</em> = astre, <em>nomos</em> = loi) est la science qui étudie les corps célestes — planètes, étoiles, galaxies, nébuleuses — ainsi que les phénomènes qui se déroulent en dehors de l'atmosphère terrestre. C'est probablement la plus ancienne des sciences naturelles, née de la contemplation du ciel nocturne.</p>
+      <div class="highlight-box">
+        <p><strong>De Ptolémée à Hubble.</strong> Pendant 1 400 ans, le modèle géocentrique (la Terre au centre) a dominé. Copernic (1543) proposa l'héliocentrisme, Galilée le confirma par l'observation au télescope (1609), Kepler formula les lois du mouvement planétaire, et Newton les unifia par la gravitation universelle (1687). Au XXe siècle, Hubble découvrit l'expansion de l'univers.</p>
+      </div>
+      <p class="resume-text">L'astronomie moderne se divise en plusieurs branches : l'<strong>astrophysique</strong> (physique des astres), la <strong>cosmologie</strong> (origine et évolution de l'univers), la <strong>planétologie</strong> (étude des planètes) et l'<strong>astrobiologie</strong> (recherche de la vie extraterrestre). Les outils vont du simple télescope amateur aux observatoires spatiaux comme le James Webb Space Telescope.</p>
+      <p class="resume-text">L'univers observable contient environ <strong>200 milliards de galaxies</strong>, chacune abritant des centaines de milliards d'étoiles. Notre galaxie, la Voie lactée, mesure environ 100 000 années-lumière de diamètre. L'âge de l'univers est estimé à <strong>13,8 milliards d'années</strong>.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info"><h2>Explorez les cours</h2><p>Plongez dans chaque domaine en détail</p></div>
+      </div>
+      <div class="courses-grid">
+        <a href="astronomie/systeme-solaire.html" class="course-card">
+          <span class="course-card-icon">☀️</span>
+          <h3>Système solaire</h3>
+          <p>Le Soleil, les 8 planètes, les lunes, astéroïdes et comètes de notre voisinage cosmique.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="astronomie/etoiles.html" class="course-card">
+          <span class="course-card-icon">⭐</span>
+          <h3>Étoiles et galaxies</h3>
+          <p>Naissance, vie et mort des étoiles. Types de galaxies, amas et structures cosmiques.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="astronomie/cosmologie.html" class="course-card">
+          <span class="course-card-icon">🌌</span>
+          <h3>Cosmologie</h3>
+          <p>Big Bang, expansion de l'univers, matière noire, énergie sombre et destin du cosmos.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="astronomie/observation.html" class="course-card">
+          <span class="course-card-icon">🔭</span>
+          <h3>Observation</h3>
+          <p>Télescopes, spectroscopie, ondes gravitationnelles et exploration spatiale.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="univers">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info"><h2>Structure de l'Univers</h2><p>Des planètes aux superamas de galaxies</p></div>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Le système solaire :</strong> Notre étoile, le Soleil, concentre 99,86 % de la masse du système. Huit planètes l'orbitent : quatre rocheuses (Mercure, Vénus, Terre, Mars) et quatre géantes gazeuses (Jupiter, Saturne, Uranus, Neptune). La ceinture d'astéroïdes sépare les deux groupes. Au-delà de Neptune, la ceinture de Kuiper abrite Pluton et d'autres objets transneptuniens.</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Les étoiles et leur cycle de vie :</strong> Une étoile naît dans une nébuleuse (nuage de gaz et de poussière) par effondrement gravitationnel. La fusion nucléaire de l'hydrogène en hélium produit son énergie. Selon sa masse, elle finira en naine blanche (comme le Soleil), en étoile à neutrons ou en trou noir (étoiles massives). Le Soleil a environ 4,6 milliards d'années et brûlera encore ~5 milliards d'années.</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Le Big Bang et l'expansion :</strong> L'univers est né il y a 13,8 milliards d'années d'un état extrêmement dense et chaud. Depuis, il est en expansion accélérée (découverte en 1998, prix Nobel 2011). Le rayonnement fossile (CMB), détecté en 1965, est la plus ancienne lumière de l'univers (380 000 ans après le Big Bang). La matière noire (~27 %) et l'énergie sombre (~68 %) composent 95 % de l'univers — leur nature reste un mystère.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="concepts">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info"><h2>Concepts clés</h2><p>Le vocabulaire essentiel de l'astronome</p></div>
+      </div>
+      <div class="concepts-grid">
+        <div class="concept-card"><div class="concept-title">Année-lumière</div><div class="concept-desc">Distance parcourue par la lumière en un an dans le vide : environ 9 461 milliards de km. L'étoile la plus proche (Proxima Centauri) est à 4,24 années-lumière.</div></div>
+        <div class="concept-card"><div class="concept-title">Trou noir</div><div class="concept-desc">Région de l'espace où la gravité est si intense que rien, pas même la lumière, ne peut s'en échapper. Formé par l'effondrement d'étoiles massives. Le trou noir supermassif de notre galaxie (Sagittarius A*) fait 4 millions de masses solaires.</div></div>
+        <div class="concept-card"><div class="concept-title">Exoplanète</div><div class="concept-desc">Planète orbitant autour d'une étoile autre que le Soleil. Plus de 5 500 ont été confirmées depuis 1995. Certaines se trouvent dans la zone habitable de leur étoile.</div></div>
+        <div class="concept-card"><div class="concept-title">Redshift</div><div class="concept-desc">Décalage vers le rouge de la lumière d'un objet qui s'éloigne de l'observateur (effet Doppler). Plus le redshift est grand, plus l'objet est lointain et ancien. Preuve clé de l'expansion de l'univers.</div></div>
+        <div class="concept-card"><div class="concept-title">Nébuleuse</div><div class="concept-desc">Nuage interstellaire de gaz (hydrogène, hélium) et de poussières. Certaines sont des pouponnières d'étoiles (Nébuleuse d'Orion), d'autres des restes de supernovae (Nébuleuse du Crabe).</div></div>
+        <div class="concept-card"><div class="concept-title">Supernova</div><div class="concept-desc">Explosion cataclysmique d'une étoile en fin de vie. Brièvement plus lumineuse qu'une galaxie entière. Disperse les éléments lourds (fer, or, uranium) synthétisés par fusion nucléaire dans l'espace.</div></div>
+        <div class="concept-card"><div class="concept-title">Matière noire</div><div class="concept-desc">Matière invisible qui n'émet ni n'absorbe de lumière, mais dont on détecte les effets gravitationnels. Représente ~27 % du contenu énergétique de l'univers. Sa nature est inconnue.</div></div>
+        <div class="concept-card"><div class="concept-title">Fusion nucléaire</div><div class="concept-desc">Réaction où des noyaux atomiques légers (hydrogène) fusionnent en noyaux plus lourds (hélium), libérant une énergie colossale. C'est le processus qui fait briller les étoiles.</div></div>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div class="section-info"><h2>Quiz interactif</h2><p>10 questions pour tester vos connaissances</p></div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">Quiz — Astronomie</span>
+          <span class="quiz-score">Score : <span id="quizScore">0</span>/10</span>
+        </div>
+        <div class="quiz-body">
+          <div class="question-block active" id="q0">
+            <div class="q-num">Question 1 / 10</div>
+            <div class="q-text">Quelle est la planète la plus proche du Soleil ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(0,0)">Vénus</div>
+              <div class="option" onclick="selectOption(0,1)">Mercure</div>
+              <div class="option" onclick="selectOption(0,2)">Mars</div>
+              <div class="option" onclick="selectOption(0,3)">Terre</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q1">
+            <div class="q-num">Question 2 / 10</div>
+            <div class="q-text">Quel âge a approximativement l'univers ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(1,0)">4,6 milliards d'années</div>
+              <div class="option" onclick="selectOption(1,1)">8 milliards d'années</div>
+              <div class="option" onclick="selectOption(1,2)">13,8 milliards d'années</div>
+              <div class="option" onclick="selectOption(1,3)">20 milliards d'années</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q2">
+            <div class="q-num">Question 3 / 10</div>
+            <div class="q-text">Qu'est-ce qu'un trou noir ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(2,0)">Une étoile très brillante</div>
+              <div class="option" onclick="selectOption(2,1)">Un vide dans l'espace sans matière</div>
+              <div class="option" onclick="selectOption(2,2)">Une région où la gravité empêche même la lumière de s'échapper</div>
+              <div class="option" onclick="selectOption(2,3)">Un nuage de gaz interstellaire</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q3">
+            <div class="q-num">Question 4 / 10</div>
+            <div class="q-text">Qui a formulé la théorie de l'héliocentrisme au XVIe siècle ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(3,0)">Galilée</div>
+              <div class="option" onclick="selectOption(3,1)">Newton</div>
+              <div class="option" onclick="selectOption(3,2)">Kepler</div>
+              <div class="option" onclick="selectOption(3,3)">Copernic</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q4">
+            <div class="q-num">Question 5 / 10</div>
+            <div class="q-text">Quelle est la plus grande planète du système solaire ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(4,0)">Saturne</div>
+              <div class="option" onclick="selectOption(4,1)">Jupiter</div>
+              <div class="option" onclick="selectOption(4,2)">Neptune</div>
+              <div class="option" onclick="selectOption(4,3)">Uranus</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q5">
+            <div class="q-num">Question 6 / 10</div>
+            <div class="q-text">Que mesure une année-lumière ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(5,0)">Un intervalle de temps</div>
+              <div class="option" onclick="selectOption(5,1)">Une masse stellaire</div>
+              <div class="option" onclick="selectOption(5,2)">Une distance</div>
+              <div class="option" onclick="selectOption(5,3)">Une luminosité</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q6">
+            <div class="q-num">Question 7 / 10</div>
+            <div class="q-text">Quel phénomène prouve l'expansion de l'univers ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(6,0)">Les éclipses solaires</div>
+              <div class="option" onclick="selectOption(6,1)">Le décalage vers le rouge (redshift) des galaxies</div>
+              <div class="option" onclick="selectOption(6,2)">Les aurores boréales</div>
+              <div class="option" onclick="selectOption(6,3)">Les marées océaniques</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q7">
+            <div class="q-num">Question 8 / 10</div>
+            <div class="q-text">Comment s'appelle notre galaxie ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(7,0)">Andromède</div>
+              <div class="option" onclick="selectOption(7,1)">La Voie lactée</div>
+              <div class="option" onclick="selectOption(7,2)">Le Grand Nuage de Magellan</div>
+              <div class="option" onclick="selectOption(7,3)">La galaxie du Sombrero</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q8">
+            <div class="q-num">Question 9 / 10</div>
+            <div class="q-text">Quelle source d'énergie fait briller les étoiles ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(8,0)">La combustion chimique</div>
+              <div class="option" onclick="selectOption(8,1)">La fission nucléaire</div>
+              <div class="option" onclick="selectOption(8,2)">La fusion nucléaire</div>
+              <div class="option" onclick="selectOption(8,3)">La radioactivité naturelle</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q9">
+            <div class="q-num">Question 10 / 10</div>
+            <div class="q-text">Quel pourcentage approximatif de l'univers est constitué de matière noire et d'énergie sombre ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(9,0)">50 %</div>
+              <div class="option" onclick="selectOption(9,1)">75 %</div>
+              <div class="option" onclick="selectOption(9,2)">95 %</div>
+              <div class="option" onclick="selectOption(9,3)">30 %</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+        </div>
+        <div class="quiz-nav">
+          <div class="q-dots">
+            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div>
+            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
+            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
+            <div class="q-dot"></div>
+          </div>
+          <div style="display:flex;gap:.8rem">
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+          </div>
+        </div>
+        <div class="quiz-result">
+          <div class="result-score-big" id="finalScore"></div>
+          <div class="result-msg" id="finalMsg"></div>
+          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="ressources">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <div class="section-info"><h2>Ressources externes</h2><p>Les meilleures sources pour approfondir</p></div>
+      </div>
+      <div class="resources-grid">
+        <a class="resource-card" href="https://www.youtube.com/@HugoLISAIR" target="_blank">
+          <span class="resource-icon">▶️</span>
+          <div class="resource-info">
+            <div class="resource-name">Hugo Lisoir</div>
+            <div class="resource-desc">Actualités spatiales et astronomiques expliquées avec passion. Lancements, découvertes, exploration : la référence francophone.</div>
+            <span class="resource-type type-video">YouTube</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.youtube.com/@ScienceEtonnante" target="_blank">
+          <span class="resource-icon">▶️</span>
+          <div class="resource-info">
+            <div class="resource-name">Science Étonnante</div>
+            <div class="resource-desc">David Louapre propose des vidéos remarquables sur la cosmologie, les trous noirs, la mécanique quantique et l'astrophysique.</div>
+            <span class="resource-type type-video">YouTube</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://fr.khanacademy.org/science/cosmology-and-astronomy" target="_blank">
+          <span class="resource-icon">🎓</span>
+          <div class="resource-info">
+            <div class="resource-name">Khan Academy — Astronomie</div>
+            <div class="resource-desc">Cours gratuits sur le système solaire, les étoiles, les galaxies et la cosmologie. Exercices interactifs inclus.</div>
+            <span class="resource-type type-course">Cours gratuit</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://fr.wikipedia.org/wiki/Astronomie" target="_blank">
+          <span class="resource-icon">🌐</span>
+          <div class="resource-info">
+            <div class="resource-name">Wikipedia — Astronomie</div>
+            <div class="resource-desc">Articles détaillés sur tous les objets célestes, les missions spatiales et les grandes découvertes astronomiques.</div>
+            <span class="resource-type type-wiki">Wikipedia</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.esa.int/Space_in_Member_States/France" target="_blank">
+          <span class="resource-icon">🚀</span>
+          <div class="resource-info">
+            <div class="resource-name">ESA — Agence spatiale européenne</div>
+            <div class="resource-desc">Actualités des missions européennes, images satellites, découvertes scientifiques. Contenu en français.</div>
+            <span class="resource-type type-doc">Agence spatiale</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.stelvision.com" target="_blank">
+          <span class="resource-icon">🔭</span>
+          <div class="resource-info">
+            <div class="resource-name">Stelvision</div>
+            <div class="resource-desc">Carte du ciel interactive, guide d'observation, conseils pour débuter en astronomie amateur. Entièrement en français.</div>
+            <span class="resource-type type-doc">Site web</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <div class="section-info"><h2>Fiche mémo</h2><p>L'essentiel en une page — téléchargeable</p></div>
+      </div>
+      <div class="memo-preview">
+        <div class="memo-top">
+          <h3>📋 Astronomie — Fiche mémo</h3>
+          <p>Système solaire, étoiles, cosmologie et observation</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Système solaire</div>
+            <div class="memo-item">Soleil : 99,86 % de la masse du système</div>
+            <div class="memo-item">Rocheuses : Mercure, Vénus, Terre, Mars</div>
+            <div class="memo-item">Gazeuses : Jupiter, Saturne, Uranus, Neptune</div>
+            <div class="memo-item">Ceinture de Kuiper → Pluton (planète naine)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Étoiles</div>
+            <div class="memo-item">Naissance : nébuleuse → protoétoile</div>
+            <div class="memo-item">Énergie : fusion H → He</div>
+            <div class="memo-item">Fin : naine blanche / étoile à neutrons / trou noir</div>
+            <div class="memo-item">Soleil : ~4,6 Ga, reste ~5 Ga</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Cosmologie</div>
+            <div class="memo-item">Big Bang : 13,8 milliards d'années</div>
+            <div class="memo-item">Expansion accélérée (1998)</div>
+            <div class="memo-item">Matière noire ~27 %, énergie sombre ~68 %</div>
+            <div class="memo-item">CMB : rayonnement fossile (1965)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Repères</div>
+            <div class="memo-item">1 année-lumière ≈ 9 461 milliards km</div>
+            <div class="memo-item">Proxima Centauri : 4,24 al</div>
+            <div class="memo-item">Voie lactée : ~100 000 al de diamètre</div>
+            <div class="memo-item">~200 milliards de galaxies observables</div>
+            <div class="memo-item">5 500+ exoplanètes confirmées</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML/PDF)</button>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+const questions=[
+  {q:"Quelle est la planète la plus proche du Soleil ?",opts:["Vénus","Mercure","Mars","Terre"],ans:1,expl:"Mercure est la planète la plus proche du Soleil, à une distance moyenne de 58 millions de km. C'est aussi la plus petite planète du système solaire. Sa température varie de −180 °C la nuit à +430 °C le jour en raison de l'absence d'atmosphère significative."},
+  {q:"Quel âge a approximativement l'univers ?",opts:["4,6 milliards d'années","8 milliards d'années","13,8 milliards d'années","20 milliards d'années"],ans:2,expl:"L'âge de l'univers est estimé à 13,8 milliards d'années grâce aux mesures du rayonnement cosmique fossile (CMB) par les satellites WMAP et Planck. 4,6 milliards d'années correspond à l'âge du système solaire."},
+  {q:"Qu'est-ce qu'un trou noir ?",opts:["Une étoile très brillante","Un vide dans l'espace sans matière","Une région où la gravité empêche même la lumière de s'échapper","Un nuage de gaz interstellaire"],ans:2,expl:"Un trou noir est une région de l'espace-temps où la gravité est si intense que rien — ni matière, ni lumière — ne peut s'en échapper une fois franchi l'horizon des événements. Ils se forment lors de l'effondrement gravitationnel d'étoiles massives (> 25 masses solaires)."},
+  {q:"Qui a formulé la théorie de l'héliocentrisme au XVIe siècle ?",opts:["Galilée","Newton","Kepler","Copernic"],ans:3,expl:"Nicolas Copernic publia en 1543 «De revolutionibus orbium coelestium», plaçant le Soleil au centre du système. Galilée confirma cette théorie par ses observations télescopiques (phases de Vénus, satellites de Jupiter) à partir de 1609."},
+  {q:"Quelle est la plus grande planète du système solaire ?",opts:["Saturne","Jupiter","Neptune","Uranus"],ans:1,expl:"Jupiter est la plus grande planète du système solaire avec un diamètre de ~143 000 km (11 fois la Terre) et une masse de 318 fois celle de la Terre. C'est une géante gazeuse composée principalement d'hydrogène et d'hélium. Sa Grande Tache Rouge est une tempête qui fait rage depuis au moins 350 ans."},
+  {q:"Que mesure une année-lumière ?",opts:["Un intervalle de temps","Une masse stellaire","Une distance","Une luminosité"],ans:2,expl:"Malgré son nom, l'année-lumière est une unité de distance : c'est la distance parcourue par la lumière en un an dans le vide, soit environ 9 461 milliards de kilomètres. Elle est utilisée pour exprimer les distances interstellaires et intergalactiques."},
+  {q:"Quel phénomène prouve l'expansion de l'univers ?",opts:["Les éclipses solaires","Le décalage vers le rouge (redshift) des galaxies","Les aurores boréales","Les marées océaniques"],ans:1,expl:"En 1929, Edwin Hubble observa que les galaxies lointaines présentent un décalage vers le rouge (redshift) proportionnel à leur distance. Cet effet Doppler cosmique prouve que l'univers est en expansion. Plus une galaxie est lointaine, plus elle s'éloigne vite de nous."},
+  {q:"Comment s'appelle notre galaxie ?",opts:["Andromède","La Voie lactée","Le Grand Nuage de Magellan","La galaxie du Sombrero"],ans:1,expl:"Notre galaxie s'appelle la Voie lactée (Milky Way). C'est une galaxie spirale barrée d'environ 100 000 années-lumière de diamètre contenant 200 à 400 milliards d'étoiles. Le Soleil se trouve à ~26 000 années-lumière du centre galactique. Andromède est notre grande voisine."},
+  {q:"Quelle source d'énergie fait briller les étoiles ?",opts:["La combustion chimique","La fission nucléaire","La fusion nucléaire","La radioactivité naturelle"],ans:2,expl:"Les étoiles brillent grâce à la fusion nucléaire : dans leur cœur, à des millions de degrés, des noyaux d'hydrogène fusionnent en hélium, libérant une énergie colossale selon E=mc². Ce processus est différent de la fission (centrales nucléaires) qui casse des noyaux lourds."},
+  {q:"Quel pourcentage approximatif de l'univers est constitué de matière noire et d'énergie sombre ?",opts:["50 %","75 %","95 %","30 %"],ans:2,expl:"La matière ordinaire (atomes, étoiles, planètes) ne représente qu'environ 5 % du contenu de l'univers. La matière noire (~27 %) et l'énergie sombre (~68 %) composent les 95 % restants. Leur nature exacte reste l'un des plus grands mystères de la physique moderne."}
+];
+const TOTAL=questions.length;
+let current=0,score=0,answered=new Array(TOTAL).fill(null);
+function renderQuestion(){document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});document.getElementById('btnPrev').disabled=current===0;document.getElementById('btnNext').textContent=current===TOTAL-1?'Voir résultats':'Suivant →';}
+function selectOption(qi,oi){if(answered[qi]!==null)return;answered[qi]=oi;const block=document.querySelectorAll('.question-block')[qi];block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');}
+function nextQuestion(){if(current<TOTAL-1){current++;renderQuestion();}else showResult();}
+function prevQuestion(){if(current>0){current--;renderQuestion();}}
+function showResult(){document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';const r=document.querySelector('.quiz-result');r.style.display='block';document.getElementById('finalScore').textContent=score+'/'+TOTAL;document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Très bien !','Excellent !'][score<=3?0:score<=6?1:score<=8?2:3];}
+function restartQuiz(){current=0;score=0;answered.fill(null);document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');document.getElementById('quizScore').textContent=0;renderQuestion();}
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+// Scroll spy
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+const sections=['resume','univers','concepts','quiz','ressources','memo'];
+window.addEventListener('scroll',()=>{let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';});
+function downloadMemo(){const w=window.open('','_blank','width=900,height=700');w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Astronomie</title><style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#1a8a7e;border-bottom:3px solid #1a8a7e;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#1a8a7e;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #b2dfdb;padding:1rem;border-radius:4px;background:#f0fffe}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style></head><body><h1>🔭 Fiche mémo — Astronomie</h1><div class="grid"><div class="box"><h2>Système solaire</h2><ul><li>Soleil : étoile naine jaune, 99,86 % de la masse</li><li>Rocheuses : Mercure, Vénus, Terre, Mars</li><li>Gazeuses : Jupiter, Saturne, Uranus, Neptune</li><li>Ceinture de Kuiper → Pluton (planète naine)</li><li>1 UA = 150 millions km (Terre-Soleil)</li></ul></div><div class="box"><h2>Étoiles</h2><ul><li>Naissance : nébuleuse → protoétoile → fusion H</li><li>Séquence principale → géante rouge → fin de vie</li><li>Petite étoile → naine blanche</li><li>Grande étoile → supernova → étoile à neutrons ou trou noir</li><li>Soleil : 4,6 Ga, reste ~5 Ga</li></ul></div><div class="box"><h2>Cosmologie</h2><ul><li>Big Bang : 13,8 milliards d'années</li><li>Expansion accélérée (découverte 1998)</li><li>Matière ordinaire : ~5 %</li><li>Matière noire : ~27 %</li><li>Énergie sombre : ~68 %</li><li>CMB : rayonnement fossile (Penzias & Wilson, 1965)</li></ul></div><div class="box"><h2>Repères essentiels</h2><ul><li>1 année-lumière ≈ 9 461 milliards km</li><li>Proxima Centauri : 4,24 al</li><li>Voie lactée : ~100 000 al de diamètre</li><li>~200 milliards de galaxies observables</li><li>5 500+ exoplanètes confirmées</li><li>Sagittarius A* : 4 M masses solaires</li></ul></div></div><div class="footer">Curiosita — Fiche mémo Astronomie — ${new Date().toLocaleDateString('fr-FR')}</div><button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#1a8a7e;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">🖨️ Imprimer / PDF</button></body></html>`);w.document.close();}
+renderQuestion();
+</script>
+    <script src="mobile.js"></script>
+</body>
+</html>

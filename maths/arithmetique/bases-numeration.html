@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bases de numération — Arithmétique — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root { --accent: #c0392b; --accent2: #e74c3c; --accent-dim: rgba(192,57,43,0.08); }
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../../maths-page.html">Mathématiques</a> › <a href="../arithmetique.html">Arithmétique</a> › <span>Bases de numération</span></div>
+</nav>
+<div class="hero">
+  <div class="hero-meta"><span class="tag-domain">🔟 Arithmétique</span><span class="tag-level">Débutant → Intermédiaire</span><span class="tag-time">⏱ ~40 min</span></div>
+  <h1><em>Bases de numération</em></h1>
+  <p class="hero-desc">Binaire, octal, hexadécimal — comprendre comment les nombres se représentent dans différentes bases.</p>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../arithmetique.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Arithmétique</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="nombres-premiers.html">Nombres premiers</a>
+    <a class="sidebar-link" href="divisibilite.html">Divisibilité, PGCD, PPCM</a>
+    <a class="sidebar-link" href="fractions.html">Fractions</a>
+    <a class="sidebar-link" href="puissances.html">Puissances et racines</a>
+    <a class="sidebar-link active" href="#">Bases de numération</a>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="introduction">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Introduction</h2><p>Compter autrement qu'en base 10</p></div></div>
+      <p class="resume-text">Nous utilisons quotidiennement la <strong>base 10</strong> (décimale), héritée de nos dix doigts. Mais ce choix est purement culturel : les Babyloniens comptaient en base 60 (d'où nos 60 minutes), les Mayas en base 20. Les ordinateurs, eux, fonctionnent en <strong>base 2</strong> (binaire) car leurs circuits ne connaissent que deux états : 0 et 1, courant ou pas courant.</p>
+      <div class="highlight-box">
+        <p><strong>Principe fondamental :</strong> en base b, chaque chiffre à la position k (en partant de la droite, à partir de 0) représente sa valeur multipliée par bᵏ. Ainsi, 347 en base 10 signifie 3×10² + 4×10¹ + 7×10⁰ = 300 + 40 + 7.</p>
+      </div>
+      <p class="resume-text">Comprendre les bases de numération est essentiel en <strong>informatique</strong> : le binaire est le langage des processeurs, l'hexadécimal sert à représenter les couleurs (#FF0000 pour le rouge) et les adresses mémoire, et l'octal était utilisé dans les premiers systèmes Unix.</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Le cours</h2><p>Comprendre et convertir entre les bases</p></div></div>
+      <div class="course-content">
+        <h3>Les principales bases</h3>
+        <ul>
+          <li><strong>Base 2 (binaire) :</strong> chiffres 0 et 1. Utilisée par tous les ordinateurs. Chaque chiffre binaire est un <em>bit</em>.</li>
+          <li><strong>Base 8 (octale) :</strong> chiffres 0 à 7. Regroupe 3 bits. Utilisée dans les permissions Unix.</li>
+          <li><strong>Base 10 (décimale) :</strong> chiffres 0 à 9. Notre système habituel.</li>
+          <li><strong>Base 16 (hexadécimale) :</strong> chiffres 0-9 et A-F (A=10, B=11, ..., F=15). Regroupe 4 bits. Omniprésente en informatique.</li>
+        </ul>
+
+        <h3>Conversion base b vers base 10</h3>
+        <p>On décompose le nombre en utilisant les puissances de la base :</p>
+        <div class="highlight-box">
+          <p><strong>Exemple :</strong> 1101₂ = 1×2³ + 1×2² + 0×2¹ + 1×2⁰ = 8 + 4 + 0 + 1 = 13₁₀</p>
+        </div>
+        <p><strong>Autre exemple :</strong> 2F₁₆ = 2×16¹ + 15×16⁰ = 32 + 15 = 47₁₀</p>
+
+        <h3>Conversion base 10 vers base b</h3>
+        <p>On effectue des <strong>divisions successives</strong> par b et on lit les restes de bas en haut :</p>
+        <p><strong>Exemple :</strong> Convertir 45 en binaire :</p>
+        <ul>
+          <li>45 ÷ 2 = 22 reste <strong>1</strong></li>
+          <li>22 ÷ 2 = 11 reste <strong>0</strong></li>
+          <li>11 ÷ 2 = 5 reste <strong>1</strong></li>
+          <li>5 ÷ 2 = 2 reste <strong>1</strong></li>
+          <li>2 ÷ 2 = 1 reste <strong>0</strong></li>
+          <li>1 ÷ 2 = 0 reste <strong>1</strong></li>
+          <li>Lecture de bas en haut : 45₁₀ = 101101₂</li>
+        </ul>
+
+        <h3>Conversions rapides binaire-hexadécimal</h3>
+        <p>Comme 16 = 2⁴, chaque chiffre hexadécimal correspond exactement à <strong>4 bits</strong>. C'est pourquoi l'hexadécimal est si pratique en informatique :</p>
+        <ul>
+          <li>0000₂ = 0₁₆, 0001₂ = 1₁₆, ..., 1001₂ = 9₁₆</li>
+          <li>1010₂ = A₁₆, 1011₂ = B₁₆, ..., 1111₂ = F₁₆</li>
+        </ul>
+        <p><strong>Exemple :</strong> 10110011₂ → on groupe par 4 : 1011 0011 → B3₁₆</p>
+
+        <h3>Opérations en binaire</h3>
+        <p>Les opérations en binaire suivent les mêmes règles qu'en base 10, avec des retenues :</p>
+        <ul>
+          <li><strong>Addition :</strong> 0+0=0, 0+1=1, 1+0=1, 1+1=10 (0 et retenue 1)</li>
+          <li><strong>Exemple :</strong> 1011₂ + 0110₂ = 10001₂ (soit 11 + 6 = 17)</li>
+        </ul>
+        <p>Les ordinateurs effectuent toutes leurs opérations en binaire grâce à des <strong>portes logiques</strong> (AND, OR, XOR, NOT) câblées dans les circuits électroniques.</p>
+
+        <h3>Nombres négatifs en binaire</h3>
+        <p>Les ordinateurs représentent les nombres négatifs en <strong>complément à deux</strong>. Pour un nombre sur n bits :</p>
+        <ul>
+          <li>Le bit le plus à gauche est le <strong>bit de signe</strong> : 0 pour positif, 1 pour négatif</li>
+          <li>Pour obtenir l'opposé d'un nombre : inverser tous les bits puis ajouter 1</li>
+        </ul>
+        <p><strong>Exemple sur 8 bits :</strong> représenter -5.</p>
+        <ul>
+          <li>5 en binaire : 00000101</li>
+          <li>Inversion des bits : 11111010</li>
+          <li>Ajout de 1 : 11111011 → c'est -5 en complément à deux</li>
+          <li>Vérification : 00000101 + 11111011 = 100000000 (le 9e bit déborde), résultat sur 8 bits = 00000000 = 0</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Plage sur n bits :</strong> de -2^(n-1) à 2^(n-1) - 1. Sur 8 bits : de -128 à 127. Sur 32 bits : de -2 147 483 648 à 2 147 483 647.</p>
+        </div>
+
+        <h3>Nombres à virgule (représentation flottante)</h3>
+        <p>Les nombres décimaux se représentent en binaire de manière similaire, avec des puissances négatives de 2 :</p>
+        <p><strong>Exemple :</strong> 5,75₁₀ = 101,11₂ car 4 + 1 + 0,5 + 0,25 = 5,75.</p>
+        <p>Les ordinateurs utilisent la norme <strong>IEEE 754</strong> : un nombre flottant se décompose en signe, exposant et mantisse. Les erreurs d'arrondi expliquent pourquoi 0,1 + 0,2 ≠ 0,3 en informatique (0,1 n'a pas de représentation binaire finie).</p>
+
+        <h3>Pièges courants</h3>
+        <ul>
+          <li><strong>Sens de lecture des restes :</strong> dans la conversion base 10 → base b, on lit les restes de BAS en HAUT (du dernier au premier). Inverser l'ordre donne un résultat faux.</li>
+          <li><strong>Hexadécimal : A = 10, pas 1 :</strong> les lettres A à F valent 10 à 15. Ne pas confondre le chiffre hexadécimal avec sa valeur décimale.</li>
+          <li><strong>Groupement binaire-hexa :</strong> on groupe par 4 bits en partant de la DROITE. 10110₂ = 0001 0110₂ = 16₁₆ (on ajoute des zéros à gauche si nécessaire).</li>
+          <li><strong>Addition binaire :</strong> 1 + 1 = 10 (pas 2). 1 + 1 + 1 = 11 (pas 3). Attention aux retenues en cascade.</li>
+        </ul>
+
+        <h3>Applications</h3>
+        <ul>
+          <li><strong>Couleurs HTML/CSS :</strong> #FF8800 signifie rouge = FF₁₆ = 255, vert = 88₁₆ = 136, bleu = 00₁₆ = 0. Chaque composante est un octet (0-255).</li>
+          <li><strong>Adresses IP :</strong> une adresse IPv4 comme 192.168.1.1 est composée de 4 octets. En binaire : 11000000.10101000.00000001.00000001.</li>
+          <li><strong>Permissions Unix :</strong> chmod 755 signifie rwx (7₈ = 111₂) pour le propriétaire, r-x (5₈ = 101₂) pour le groupe et les autres.</li>
+          <li><strong>Unicode :</strong> chaque caractère a un code numérique. L'emoji au format hexadécimal est codé en UTF-8 sur plusieurs octets.</li>
+        </ul>
+      </div>
+    </section>
+    <section class="content-section" id="quiz">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Quiz</h2><p>Testez votre compréhension</p></div></div>
+      <div class="quiz-container">
+        <div class="quiz-header"><span class="quiz-title-text">🔟 Bases — Quiz</span><span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span></div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Comment s'écrit 13 en binaire ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">1101</div>
+              <div class="option" onclick="answer(this,false)">1011</div>
+              <div class="option" onclick="answer(this,false)">1110</div>
+              <div class="option" onclick="answer(this,false)">1001</div>
+            </div>
+            <div class="q-feedback">13 = 8 + 4 + 1 = 2³ + 2² + 2⁰ = 1101₂.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Que vaut FF en hexadécimal converti en décimal ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">255</div>
+              <div class="option" onclick="answer(this,false)">256</div>
+              <div class="option" onclick="answer(this,false)">15</div>
+              <div class="option" onclick="answer(this,false)">225</div>
+            </div>
+            <div class="q-feedback">FF₁₆ = 15×16 + 15 = 240 + 15 = 255. C'est la valeur maximale sur 8 bits (11111111₂).</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Combien de valeurs différentes peut-on représenter avec 1 octet (8 bits) ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">256</div>
+              <div class="option" onclick="answer(this,false)">255</div>
+              <div class="option" onclick="answer(this,false)">128</div>
+              <div class="option" onclick="answer(this,false)">512</div>
+            </div>
+            <div class="q-feedback">Avec 8 bits, on peut représenter 2⁸ = 256 valeurs, de 0 (00000000) à 255 (11111111).</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Comment s'écrit 10101010₂ en hexadécimal ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">AA</div>
+              <div class="option" onclick="answer(this,false)">A5</div>
+              <div class="option" onclick="answer(this,false)">55</div>
+              <div class="option" onclick="answer(this,false)">BB</div>
+            </div>
+            <div class="q-feedback">On groupe par 4 bits : 1010 1010. 1010₂ = 10₁₀ = A₁₆. Donc 10101010₂ = AA₁₆ = 170₁₀.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Que vaut 1011₂ + 0111₂ en binaire ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">10010</div>
+              <div class="option" onclick="answer(this,false)">1110</div>
+              <div class="option" onclick="answer(this,false)">10001</div>
+              <div class="option" onclick="answer(this,false)">10100</div>
+            </div>
+            <div class="q-feedback">1011 + 0111 : colonne des unités 1+1 = 10 (0, retenue 1). 2e colonne : 1+1+1 = 11 (1, retenue 1). 3e : 0+1+1 = 10 (0, retenue 1). 4e : 1+0+1 = 10. Résultat : 10010₂ = 18₁₀ (11 + 7 = 18).</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">En octal, que vaut 777₈ en décimal ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">511</div>
+              <div class="option" onclick="answer(this,false)">777</div>
+              <div class="option" onclick="answer(this,false)">343</div>
+              <div class="option" onclick="answer(this,false)">512</div>
+            </div>
+            <div class="q-feedback">777₈ = 7×8² + 7×8¹ + 7×8⁰ = 7×64 + 7×8 + 7 = 448 + 56 + 7 = 511. C'est aussi 2⁹ - 1 = 511 (9 bits tous à 1 : 111111111₂).</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult"><div class="result-score-big" id="resultScore">0/6</div><div class="result-msg" id="resultMsg"></div><button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button></div>
+        <div class="quiz-nav"><button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button><div class="q-dots" id="qDots"></div><button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button></div>
+      </div>
+    </section>
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Conversion décimal vers binaire</h3>
+        <p>Convertir 100₁₀ en binaire.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>100 ÷ 2 = 50 r 0. 50 ÷ 2 = 25 r 0. 25 ÷ 2 = 12 r 1. 12 ÷ 2 = 6 r 0. 6 ÷ 2 = 3 r 0. 3 ÷ 2 = 1 r 1. 1 ÷ 2 = 0 r 1. Lecture de bas en haut : <strong>100₁₀ = 1100100₂</strong>. Vérification : 64 + 32 + 4 = 100.</p></div>
+        </details>
+
+        <h3>Exercice 2 — Conversion hexadécimal vers décimal</h3>
+        <p>Convertir 1A3₁₆ en décimal.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>1A3₁₆ = 1×16² + A×16¹ + 3×16⁰ = 1×256 + 10×16 + 3×1 = 256 + 160 + 3 = <strong>419₁₀</strong>.</p></div>
+        </details>
+
+        <h3>Exercice 3 — Conversions rapides</h3>
+        <p>Convertir 11011110₂ en hexadécimal puis en décimal.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Groupement par 4 bits : 1101 1110. 1101₂ = 13₁₀ = D₁₆. 1110₂ = 14₁₀ = E₁₆. Donc 11011110₂ = <strong>DE₁₆</strong>. En décimal : 13×16 + 14 = 208 + 14 = <strong>222₁₀</strong>.</p></div>
+        </details>
+
+        <h3>Exercice 4 — Addition en binaire</h3>
+        <p>Calculer 110101₂ + 101110₂ en binaire, puis vérifier en décimal.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>110101 + 101110 : colonne par colonne avec retenues : 1+0=1, 0+1=1, 1+1=10(0,r1), 0+1+1=10(0,r1), 1+0+1=10(0,r1), 1+1+1=11(1,r1). Résultat : <strong>1100011₂</strong>. Vérification : 53 + 46 = 99. Et 1100011₂ = 64+32+2+1 = 99.</p></div>
+        </details>
+
+        <h3>Exercice 5 — Couleur HTML</h3>
+        <p>Quelle couleur est représentée par le code #00FF80 ? Donner les composantes R, G, B en décimal.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>R = 00₁₆ = <strong>0</strong>. G = FF₁₆ = <strong>255</strong>. B = 80₁₆ = 8×16 + 0 = <strong>128</strong>. C'est un vert vif avec une composante bleue moyenne : un <strong>vert menthe / vert émeraude</strong>. Pas de rouge, vert maximum, bleu à mi-chemin.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="puissances.html" class="prev"><span class="course-nav-label">Cours précédent</span><span class="course-nav-title">← Puissances et racines</span></a>
+      <div></div>
+    </div>
+  </main>
+</div>
+<script>
+const questions=document.querySelectorAll('.question-block');let currentQ=0,score=0;let answered=new Array(questions.length).fill(false);const dotsContainer=document.getElementById('qDots');questions.forEach((_,i)=>{const d=document.createElement('div');d.className='q-dot'+(i===0?' current':'');dotsContainer.appendChild(d);});function updateDots(){document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot';if(answered[i])d.classList.add('done');if(i===currentQ)d.classList.add('current');});}function answer(el,ok){if(answered[currentQ])return;answered[currentQ]=true;el.closest('.question-block').querySelectorAll('.option').forEach(o=>o.classList.add('disabled'));el.classList.add(ok?'correct':'wrong');if(!ok)el.closest('.question-block').querySelectorAll('.option').forEach(o=>{if(o.onclick.toString().includes('true'))o.classList.add('correct');});else{score++;document.getElementById('scoreDisplay').textContent=score;}el.closest('.question-block').querySelector('.q-feedback').classList.add('show',ok?'good':'bad');document.getElementById('btnNext').disabled=false;updateDots();}function nextQ(){if(currentQ<questions.length-1){questions[currentQ].classList.remove('active');currentQ++;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=false;document.getElementById('btnNext').disabled=!answered[currentQ];if(currentQ===questions.length-1)document.getElementById('btnNext').textContent='Terminer';updateDots();}else{showResult();}}function prevQ(){if(currentQ>0){questions[currentQ].classList.remove('active');currentQ--;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=currentQ===0;document.getElementById('btnNext').disabled=!answered[currentQ];document.getElementById('btnNext').textContent='Suivant →';updateDots();}}function showResult(){document.getElementById('quizBody').style.display='none';document.getElementById('quizResult').style.display='block';document.getElementById('resultScore').textContent=score+'/'+questions.length;var m=['Continue !','Pas mal !','Très bien !','Parfait !'];document.getElementById('resultMsg').textContent=m[Math.min(score,3)];}function resetQuiz(){score=0;currentQ=0;answered=new Array(questions.length).fill(false);document.getElementById('scoreDisplay').textContent=0;document.getElementById('quizBody').style.display='block';document.getElementById('quizResult').style.display='none';questions.forEach((q,i)=>{q.classList.toggle('active',i===0);q.querySelectorAll('.option').forEach(o=>o.className='option');q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');});document.getElementById('btnPrev').disabled=true;document.getElementById('btnNext').disabled=true;document.getElementById('btnNext').textContent='Suivant →';updateDots();}function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+</script>
+    <script src="../../mobile.js"></script>
+</body>
+</html>

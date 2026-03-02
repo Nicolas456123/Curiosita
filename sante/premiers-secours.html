@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premiers secours — Santé & Bien-être — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root { --accent: #8ae87a; --accent2: #a5f598; --accent-dim: rgba(138,232,122,0.08); }
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../sante-page.html">Santé & Bien-être</a> › <span>Premiers secours</span></div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🏥 Santé & Bien-être</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~4h de lecture</span>
+  </div>
+  <h1><em>Premiers secours</em></h1>
+  <p class="hero-desc">Les gestes qui sauvent — apprendre à réagir face à l'urgence et porter secours efficacement.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../sante-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Santé & Bien-être</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link active" href="#">Premiers secours</a>
+    <a class="sidebar-link" href="sport.html">Activité physique</a>
+    <a class="sidebar-link" href="mentale.html">Santé mentale</a>
+    <a class="sidebar-link" href="medecine.html">Médecine et prévention</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="presentation">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Pourquoi apprendre les premiers secours ?</h2><p>Introduction et vue d'ensemble</p></div></div>
+      <p class="resume-text">Les premiers secours sont les <strong>gestes d'urgence</strong> pratiqués par un témoin avant l'arrivée des secours professionnels. Chaque année en France, 50 000 personnes meurent d'un arrêt cardiaque — le taux de survie pourrait tripler si chaque citoyen connaissait les gestes de base.</p>
+      <div class="highlight-box"><p><strong>L'idée fondamentale :</strong> les premières minutes sont décisives. Un massage cardiaque commencé dans les 4 minutes suivant un arrêt cardiaque multiplie par 4 les chances de survie. Chaque citoyen formé est un maillon de la chaîne de secours.</p></div>
+      <p class="resume-text">La formation aux premiers secours (PSC1) est accessible à tous dès 10 ans. Elle couvre les <strong>gestes d'urgence</strong> : alerter, protéger, évaluer l'état de la victime, pratiquer les gestes de premiers secours et utiliser un défibrillateur.</p>
+      <p class="resume-text">Au-delà de la technique, les premiers secours développent le <strong>sens civique</strong> et la capacité à garder son calme face à l'urgence.</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Les cours de premiers secours</h2><p>Progressez étape par étape</p></div></div>
+      <div class="courses-grid">
+        <a href="premiers-secours/alerte.html" class="course-card"><span class="course-card-icon">🚨</span><h3>Alerte et protection</h3><p>Protéger, alerter, évaluer : les trois premières actions face à une urgence.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="premiers-secours/rcp.html" class="course-card"><span class="course-card-icon">❤️</span><h3>Réanimation cardio-pulmonaire</h3><p>Massage cardiaque, bouche-à-bouche et utilisation du défibrillateur (DAE).</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="premiers-secours/hemorragies.html" class="course-card"><span class="course-card-icon">🩸</span><h3>Hémorragies et plaies</h3><p>Compression, garrot, pansement : arrêter un saignement et soigner une plaie.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="premiers-secours/malaises.html" class="course-card"><span class="course-card-icon">🧊</span><h3>Malaises et étouffement</h3><p>PLS, manœuvre de Heimlich, malaise cardiaque et AVC : reconnaître et agir.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="premiers-secours/traumatismes.html" class="course-card"><span class="course-card-icon">🧑‍⚕️</span><h3>Traumatismes et brûlures</h3><p>Fractures, entorses, brûlures : immobiliser, refroidir et protéger.</p><span class="course-card-link">Voir le cours →</span></a>
+      </div>
+    </section>
+    <section class="content-section" id="memo">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Fiche mémo</h2><p>L'essentiel en un coup d'oeil</p></div></div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top"><h3>🚨 Premiers secours — Fiche mémo</h3><p>Curiosita · Gestes d'urgence et protocoles</p></div>
+        <div class="memo-grid">
+          <div class="memo-section"><div class="memo-section-title">Protocole général</div><div class="memo-item"><span class="mf">Protéger</span> Écarter le danger pour tous</div><div class="memo-item"><span class="mf">Alerter</span> 15 (SAMU), 18 (pompiers), 112</div><div class="memo-item"><span class="mf">Évaluer</span> Conscient ? Respire ? Saigne ?</div><div class="memo-item"><span class="mf">Agir</span> Gestes adaptés à la situation</div></div>
+          <div class="memo-section"><div class="memo-section-title">Arrêt cardiaque</div><div class="memo-item"><span class="mf">Appeler</span> 15 ou 112 immédiatement</div><div class="memo-item"><span class="mf">Masser</span> 30 compressions, 5 cm, 100-120/min</div><div class="memo-item"><span class="mf">Défibr.</span> DAE dès que disponible</div><div class="memo-item"><span class="mf">Alterner</span> 30 compressions / 2 insufflations</div></div>
+          <div class="memo-section"><div class="memo-section-title">Étouffement</div><div class="memo-item"><span class="mf">Adulte</span> 5 claques + 5 compressions abdo.</div><div class="memo-item"><span class="mf">Nourrisson</span> Retourner, 5 claques dorsales</div><div class="memo-item"><span class="mf">Partiel</span> Tousser, ne pas intervenir</div><div class="memo-item"><span class="mf">Total</span> Heimlich immédiat</div></div>
+          <div class="memo-section"><div class="memo-section-title">Positions</div><div class="memo-item"><span class="mf">PLS</span> Inconscient qui respire, sur le côté</div><div class="memo-item"><span class="mf">Allonger</span> Malaise, jambes surélevées</div><div class="memo-item"><span class="mf">Asseoir</span> Difficulté respiratoire</div><div class="memo-item"><span class="mf">Immobiliser</span> Suspicion de fracture</div></div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+  </main>
+</div>
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo(){var m=document.getElementById('memoCard').outerHTML;var html='<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Premiers secours \u2014 Fiche m\u00e9mo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#8ae87a;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#8ae87a;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>'+m+'</body></html>';var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download='premiers-secours-fiche-memo.html';a.click();}
+</script>
+<script src="../mobile.js"></script>
+</body>
+</html>

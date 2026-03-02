@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Psychologie Cognitive — Psychologie — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #b07fe8;
+  --accent2: #c9a0f0;
+  --accent-dim: rgba(176,127,232,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(176,127,232,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../psychologie-page.html">Psychologie</a> › <span>Cognitive</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🧠 Psychologie</span>
+    <span class="tag-level">Débutant → Avancé</span>
+    <span class="tag-time">⏱ ~6h de lecture</span>
+  </div>
+  <h1><em>Psychologie Cognitive</em></h1>
+  <p class="hero-desc">Comment l'esprit humain perçoit, mémorise, raisonne et décide — l'étude scientifique des processus mentaux internes.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../psychologie-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Psychologie</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link active" href="#">Cognitive</a>
+    <a class="sidebar-link" href="clinique.html">Clinique</a>
+    <a class="sidebar-link" href="sociale.html">Sociale</a>
+    <a class="sidebar-link" href="developpement.html">Développement</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que la psychologie cognitive ?</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">La psychologie cognitive est la branche de la psychologie qui étudie les <strong>processus mentaux internes</strong> : perception, attention, mémoire, langage, raisonnement et prise de décision. Elle considère l'esprit humain comme un <strong>système de traitement de l'information</strong>, cherchant à comprendre comment nous transformons les stimuli sensoriels en connaissances et en actions.</p>
+      <div class="highlight-box">
+        <p><strong>La révolution cognitive (1950-1960) :</strong> En réaction au béhaviorisme qui niait l'importance des états internes, des chercheurs comme <strong>Ulric Neisser</strong>, <strong>George Miller</strong> et <strong>Noam Chomsky</strong> ont fondé une nouvelle approche scientifique de l'esprit. En 1967, Neisser publie <em>Cognitive Psychology</em>, l'ouvrage fondateur du domaine.</p>
+      </div>
+      <p class="resume-text">La psychologie cognitive s'appuie sur des <strong>méthodes expérimentales rigoureuses</strong> : temps de réaction, paradigmes d'amorçage, protocoles de double tâche, imagerie cérébrale (IRMf, EEG). Elle a transformé notre compréhension de l'éducation, du design d'interfaces, de la justice (fiabilité des témoignages) et de l'intelligence artificielle.</p>
+      <p class="resume-text">Ses grandes questions : Comment percevons-nous le monde ? Pourquoi oublions-nous ? Comment le langage façonne-t-il la pensée ? Pourquoi prenons-nous des décisions irrationnelles ? Ce domaine fascinant révèle que notre esprit est bien plus complexe — et faillible — que nous ne le pensons.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours de psychologie cognitive</h2>
+          <p>Progressez étape par étape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="cognitive/perception.html" class="course-card">
+          <span class="course-card-icon">👁️</span>
+          <h3>Perception</h3>
+          <p>Comment le cerveau interprète les stimuli sensoriels. Illusions, lois de la Gestalt et construction active de la réalité.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="cognitive/memoire.html" class="course-card">
+          <span class="course-card-icon">💾</span>
+          <h3>Mémoire</h3>
+          <p>Mémoire de travail, épisodique, sémantique, procédurale. Les modèles d'Atkinson-Shiffrin et Baddeley.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="cognitive/attention.html" class="course-card">
+          <span class="course-card-icon">🎯</span>
+          <h3>Attention</h3>
+          <p>Attention sélective, divisée, soutenue. Le modèle de Broadbent, l'effet cocktail party et la cécité inattentionnelle.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="cognitive/langage.html" class="course-card">
+          <span class="course-card-icon">💬</span>
+          <h3>Langage</h3>
+          <p>Acquisition du langage, grammaire universelle de Chomsky, aires de Broca et Wernicke, bilinguisme.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="cognitive/prise-decision.html" class="course-card">
+          <span class="course-card-icon">⚖️</span>
+          <h3>Prise de décision</h3>
+          <p>Heuristiques et biais cognitifs, théorie des perspectives de Kahneman et Tversky, systèmes 1 et 2.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel de la psychologie cognitive en un coup d'œil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🧠 Psychologie Cognitive — Fiche mémo</h3>
+          <p>Curiosita · Concepts et chercheurs fondamentaux</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Types de mémoire</div>
+            <div class="memo-item"><span class="mf">Sensorielle</span> < 1 seconde, iconique/échoïque</div>
+            <div class="memo-item"><span class="mf">Travail</span> 7 ± 2 éléments (Miller)</div>
+            <div class="memo-item"><span class="mf">Épisodique</span> Souvenirs personnels</div>
+            <div class="memo-item"><span class="mf">Sémantique</span> Connaissances générales</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Attention</div>
+            <div class="memo-item"><span class="mf">Sélective</span> Filtrer les stimuli</div>
+            <div class="memo-item"><span class="mf">Divisée</span> Multi-tâche</div>
+            <div class="memo-item"><span class="mf">Soutenue</span> Vigilance prolongée</div>
+            <div class="memo-item"><span class="mf">Broadbent</span> Filtre précoce</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Biais cognitifs clés</div>
+            <div class="memo-item"><span class="mf">Ancrage</span> 1ère info = référence</div>
+            <div class="memo-item"><span class="mf">Confirmation</span> Chercher ce qu'on croit</div>
+            <div class="memo-item"><span class="mf">Aversion perte</span> Perte 2× plus forte</div>
+            <div class="memo-item"><span class="mf">Sys. 1 / 2</span> Rapide vs délibéré</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Figures clés</div>
+            <div class="memo-item"><span class="mf">Neisser</span> Fondateur psych. cognitive</div>
+            <div class="memo-item"><span class="mf">Kahneman</span> Heuristiques et biais</div>
+            <div class="memo-item"><span class="mf">Chomsky</span> Grammaire universelle</div>
+            <div class="memo-item"><span class="mf">Baddeley</span> Mémoire de travail</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Psychologie Cognitive — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#0f0d14;color:#ede8f5;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(237,232,245,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1929,#251f33);padding:1.5rem;border-bottom:1px solid rgba(237,232,245,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#c9a0f0;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#7a7090}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(237,232,245,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(237,232,245,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#b07fe8;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#7a7090;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#ede8f5;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '
+</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'psychologie-cognitive-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

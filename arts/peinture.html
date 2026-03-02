@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peinture — Arts — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #e87a7a;
+  --accent2: #ef9a9a;
+  --accent-dim: rgba(232,122,122,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../arts-page.html">Arts</a> › <span>Peinture</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🎨 Arts</span>
+    <span class="tag-level">Débutant → Avancé</span>
+    <span class="tag-time">⏱ ~6h de lecture</span>
+  </div>
+  <h1><em>Peinture</em></h1>
+  <p class="hero-desc">De la Renaissance à l'art contemporain — cinq siècles de mouvements picturaux qui ont transformé notre regard sur le monde.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../arts-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Arts</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link active" href="#">Peinture</a>
+    <a class="sidebar-link" href="sculpture.html">Sculpture</a>
+    <a class="sidebar-link" href="photographie.html">Photographie</a>
+    <a class="sidebar-link" href="architecture.html">Architecture</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que la peinture ?</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">La peinture est l'un des arts visuels les plus anciens et les plus universels. Depuis les <strong>grottes de Lascaux</strong> (environ 17 000 av. J.-C.) jusqu'aux installations contemporaines, l'acte de peindre accompagne l'humanité dans son besoin fondamental de représenter, d'exprimer et de questionner le monde.</p>
+      <div class="highlight-box">
+        <p><strong>L'idée fondamentale :</strong> La peinture est bien plus qu'une technique — c'est un langage visuel. Chaque mouvement artistique propose une nouvelle grammaire pour dire le réel, l'émotion ou l'idée.</p>
+      </div>
+      <p class="resume-text">L'histoire de la peinture occidentale est ponctuée de <strong>ruptures fondamentales</strong>. La Renaissance invente la perspective et place l'homme au centre. L'impressionnisme libère la couleur de la forme. Le cubisme brise la représentation unique. L'abstraction abandonne le sujet. L'art contemporain questionne la notion même d'oeuvre.</p>
+      <p class="resume-text">Comprendre ces mouvements, c'est acquérir les clés pour <strong>lire une oeuvre</strong> : reconnaître une composition, identifier les influences, décrypter les intentions de l'artiste et situer une toile dans son contexte historique et culturel.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours de peinture</h2>
+          <p>Progressez étape par étape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="peinture/renaissance.html" class="course-card">
+          <span class="course-card-icon">🖼️</span>
+          <h3>La Renaissance</h3>
+          <p>Perspective, humanisme et génie artistique. De Giotto à Michel-Ange, la révolution picturale du XVe siècle.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="peinture/impressionnisme.html" class="course-card">
+          <span class="course-card-icon">🌅</span>
+          <h3>L'Impressionnisme</h3>
+          <p>La lumière, l'instant, le plein air. Monet, Renoir, Degas et la naissance de la modernité picturale.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="peinture/cubisme.html" class="course-card">
+          <span class="course-card-icon">🔷</span>
+          <h3>Le Cubisme</h3>
+          <p>La déconstruction de la forme. Picasso, Braque et la vision simultanée qui a bouleversé l'art du XXe siècle.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="peinture/art-abstrait.html" class="course-card">
+          <span class="course-card-icon">🎨</span>
+          <h3>L'Art abstrait</h3>
+          <p>Au-delà de la figuration. Kandinsky, Mondrian, Malevitch et l'exploration de la couleur et de la forme pures.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="peinture/art-contemporain.html" class="course-card">
+          <span class="course-card-icon">💡</span>
+          <h3>L'Art contemporain</h3>
+          <p>Pop Art, minimalisme, art conceptuel. Les courants qui redéfinissent l'art depuis les années 1960.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel de la peinture en un coup d'oeil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🎨 Peinture — Fiche mémo</h3>
+          <p>Curiosita · Mouvements et artistes fondamentaux</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Renaissance (XVe-XVIe)</div>
+            <div class="memo-item"><span class="mf">Perspective</span> linéaire (Brunelleschi)</div>
+            <div class="memo-item"><span class="mf">Sfumato</span> Léonard de Vinci</div>
+            <div class="memo-item"><span class="mf">Figures clés</span> Raphaël, Michel-Ange</div>
+            <div class="memo-item"><span class="mf">Technique</span> Huile sur panneau/toile</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Impressionnisme (1860-1890)</div>
+            <div class="memo-item"><span class="mf">Principe</span> Lumière naturelle, plein air</div>
+            <div class="memo-item"><span class="mf">Technique</span> Touches visibles, couleurs pures</div>
+            <div class="memo-item"><span class="mf">Figures clés</span> Monet, Renoir, Degas</div>
+            <div class="memo-item"><span class="mf">Oeuvre phare</span> Impression, soleil levant</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Cubisme (1907-1920)</div>
+            <div class="memo-item"><span class="mf">Principe</span> Vision simultanée, géométrie</div>
+            <div class="memo-item"><span class="mf">Phases</span> Analytique → Synthétique</div>
+            <div class="memo-item"><span class="mf">Figures clés</span> Picasso, Braque, Gris</div>
+            <div class="memo-item"><span class="mf">Oeuvre phare</span> Les Demoiselles d'Avignon</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Art abstrait (dès 1910)</div>
+            <div class="memo-item"><span class="mf">Principe</span> Abandon du sujet figuratif</div>
+            <div class="memo-item"><span class="mf">Courants</span> Lyrique, géométrique</div>
+            <div class="memo-item"><span class="mf">Figures clés</span> Kandinsky, Mondrian</div>
+            <div class="memo-item"><span class="mf">Technique</span> Couleur et forme pures</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Peinture — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#e87a7a;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#e87a7a;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '
+</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'peinture-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Développement Web — Informatique — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #4fc3f7;
+  --accent2: #81d4fa;
+  --accent-dim: rgba(79,195,247,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../informatique-page.html">Informatique</a> › <span>Développement Web</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">💻 Informatique</span>
+    <span class="tag-level">Tous niveaux</span>
+    <span class="tag-time">⏱ ~4h de lecture</span>
+  </div>
+  <h1><em>Développement Web</em></h1>
+  <p class="hero-desc">HTML, CSS, JavaScript, frameworks, backend et bases de données — construire des applications pour le web moderne.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">25</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../informatique-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Informatique</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="algorithmes.html">Algorithmes</a>
+    <a class="sidebar-link active" href="#">Développement Web</a>
+    <a class="sidebar-link" href="ia.html">Intelligence artificielle</a>
+    <a class="sidebar-link" href="cybersecurite.html">Cybersécurité</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Construire le web</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">Le <strong>développement web</strong> est l'art de créer des sites et des applications accessibles via un navigateur. C'est l'un des domaines les plus dynamiques de l'informatique : chaque site que vous visitez, chaque application en ligne que vous utilisez est le fruit du travail de développeurs web. De la simple page personnelle à la plateforme de streaming vidéo, le web est partout.</p>
+      <div class="highlight-box">
+        <p><strong>Frontend vs Backend :</strong> le frontend (côté client) concerne tout ce que l'utilisateur voit et avec quoi il interagit — HTML pour la structure, CSS pour le style, JavaScript pour l'interactivité. Le backend (côté serveur) gère la logique métier, les bases de données et les API.</p>
+      </div>
+      <p class="resume-text">Le web moderne repose sur un <strong>écosystème riche</strong> de technologies. Côté frontend, les frameworks comme React, Vue.js et Angular permettent de construire des interfaces utilisateur complexes et réactives. Côté backend, Node.js, Django, Flask ou Express gèrent les requêtes, l'authentification et la communication avec les bases de données. Les API REST et GraphQL connectent le tout.</p>
+      <p class="resume-text">Ces cinq cours vous guident depuis les fondamentaux (HTML et CSS) jusqu'aux architectures modernes (backend, API, bases de données), en passant par JavaScript et les frameworks frontend. Que vous souhaitiez devenir développeur fullstack ou simplement comprendre comment fonctionne le web, ce parcours est fait pour vous.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours</h2>
+          <p>Progressez étape par étape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="web/html-css.html" class="course-card">
+          <span class="course-card-icon">🏗️</span>
+          <h3>HTML et CSS</h3>
+          <p>Structurer le contenu avec HTML et le styliser avec CSS — les deux piliers du web visuel.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="web/javascript.html" class="course-card">
+          <span class="course-card-icon">⚡</span>
+          <h3>JavaScript</h3>
+          <p>Le langage du web : DOM, événements, asynchrone, fetch — rendre les pages interactives.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="web/frameworks.html" class="course-card">
+          <span class="course-card-icon">⚛️</span>
+          <h3>Frameworks frontend</h3>
+          <p>React, Vue.js, composants, état et rendu réactif — les outils du développement moderne.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="web/backend.html" class="course-card">
+          <span class="course-card-icon">🖧</span>
+          <h3>Backend et APIs</h3>
+          <p>Serveurs, routes, API REST, authentification — la logique invisible derrière chaque application.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="web/bases-donnees.html" class="course-card">
+          <span class="course-card-icon">🗄️</span>
+          <h3>Bases de données</h3>
+          <p>SQL, NoSQL, modélisation, requêtes et ORM — stocker et interroger les données efficacement.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel en un coup d'œil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🌐 Développement Web — Fiche mémo</h3>
+          <p>Curiosita · Technologies et concepts clés</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">HTML</div>
+            <div class="memo-item"><span class="mf">&lt;div&gt;</span> Conteneur bloc</div>
+            <div class="memo-item"><span class="mf">&lt;span&gt;</span> Conteneur inline</div>
+            <div class="memo-item"><span class="mf">&lt;a href&gt;</span> Lien hypertexte</div>
+            <div class="memo-item"><span class="mf">&lt;form&gt;</span> Formulaire</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">CSS</div>
+            <div class="memo-item"><span class="mf">flexbox</span> Mise en page flex</div>
+            <div class="memo-item"><span class="mf">grid</span> Grille 2D</div>
+            <div class="memo-item"><span class="mf">@media</span> Responsive</div>
+            <div class="memo-item"><span class="mf">var(--x)</span> Variables CSS</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">JavaScript</div>
+            <div class="memo-item"><span class="mf">querySelector</span> Sélection DOM</div>
+            <div class="memo-item"><span class="mf">addEventListener</span> Événements</div>
+            <div class="memo-item"><span class="mf">fetch()</span> Requêtes HTTP</div>
+            <div class="memo-item"><span class="mf">async/await</span> Asynchrone</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Backend</div>
+            <div class="memo-item"><span class="mf">GET</span> Lire des données</div>
+            <div class="memo-item"><span class="mf">POST</span> Créer une ressource</div>
+            <div class="memo-item"><span class="mf">PUT/PATCH</span> Modifier</div>
+            <div class="memo-item"><span class="mf">DELETE</span> Supprimer</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Développement Web — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#0c0c0e;color:#f0ede8;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(240,237,232,0.08);border-radius:8px;overflow:hidden}.memo-top{background:#4fc3f7;padding:1.5rem;color:#0c0c0e}.memo-top h3{font-size:1.4rem;font-weight:700;margin-bottom:.3rem}.memo-top p{font-size:.78rem;opacity:.8}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(240,237,232,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(240,237,232,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#4fc3f7;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#7a7870;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:"JetBrains Mono",monospace;font-size:.75rem;color:#f0ede8;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'dev-web-fiche-memo.html'; a.click();
+}
+</script>
+<script src="../mobile.js"></script>
+</body>
+</html>

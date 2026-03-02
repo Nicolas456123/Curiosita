@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philosophie — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<style>
+:root {
+  --accent: #9b7ae8;
+  --accent2: #b89ff0;
+  --accent-dim: rgba(155,122,232,0.1);
+}
+.hero { background: radial-gradient(ellipse 70% 60% at 20% 50%, rgba(155,122,232,0.08) 0%, transparent 70%); }
+.hero-deco { color: rgba(155,122,232,0.04); font-size: 18rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="lettres-langues.html">Lettres & Langues</a> ›
+    <span>Philosophie</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-deco">φ</div>
+  <div class="hero-meta">
+    <span class="tag-domain">📚 Lettres, Langues & Philosophie</span>
+    <span class="tag-level">Tous niveaux</span>
+    <span class="tag-time">⏱ ~6h de lecture</span>
+  </div>
+  <h1>Penser par<br><em>soi-même.</em></h1>
+  <p class="hero-desc">De Socrate à Sartre, la philosophie est l'art de questionner l'évidence. Apprendre à raisonner avec rigueur, comprendre les grands courants et forger sa propre pensée critique.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">3</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">6</div><div class="hstat-lab">Quiz</div></div>
+    <div class="hstat"><div class="hstat-val">8</div><div class="hstat-lab">Ressources</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="resume" onclick="goTo('resume',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="courants" onclick="goTo('courants',this)">🌊 Grands courants</a>
+    <a class="sidebar-link" data-section="concepts" onclick="goTo('concepts',this)">🧩 Concepts clés</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="ressources" onclick="goTo('ressources',this)">🔗 Ressources</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Cours</p>
+    <a class="sidebar-link" href="philosophie/antiquite.html">Antiquité</a>
+    <a class="sidebar-link" href="philosophie/moderne.html">Philosophie moderne</a>
+    <a class="sidebar-link" href="philosophie/concepts.html">Concepts fondamentaux</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="resume">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que la philosophie ?</h2>
+          <p>Définition, branches et utilité</p>
+        </div>
+      </div>
+      <p class="resume-text">La philosophie — du grec <em>philosophia</em>, "amour de la sagesse" — est la discipline qui cherche à répondre aux questions fondamentales : Qu'est-ce que la connaissance ? Qu'est-ce qui est bien ou mal ? Qu'est-ce que l'existence ? Elle ne procède pas par expérimentation (comme les sciences), mais par <strong>argumentation rationnelle</strong>, analyse conceptuelle et réflexion critique.</p>
+      <div class="highlight-box">
+        <p><strong>Les 5 grandes branches :</strong> L'épistémologie (la connaissance), la métaphysique (l'être et la réalité), l'éthique (le bien et le mal), la logique (le raisonnement valide), et l'esthétique (le beau et l'art).</p>
+      </div>
+      <p class="resume-text">La philosophie occidentale naît en Grèce antique au VIe siècle av. J.-C., avec les présocratiques comme Thalès et Héraclite qui cherchent un principe rationnel (le <em>logos</em>) derrière le monde. Socrate révolutionne la discipline en la tournant vers l'humain : "Connais-toi toi-même." Son élève Platon et le disciple de celui-ci, Aristote, fondent les grandes questions qui traverseront toute l'histoire de la pensée.</p>
+      <p class="resume-text">Contrairement aux idées reçues, la philosophie est <strong>éminemment pratique</strong>. Elle développe la pensée critique, la capacité à structurer un argument, à identifier les sophismes, à résister à la manipulation. Apprendre à philosopher, c'est apprendre à penser avec rigueur dans tous les domaines de la vie.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Explorez les cours</h2>
+          <p>Plongez dans chaque domaine en détail</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="philosophie/antiquite.html" class="course-card">
+          <span class="course-card-icon">🏛️</span>
+          <h3>Antiquité</h3>
+          <p>Des présocratiques à l'épicurisme. Les fondations de la pensée occidentale.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="philosophie/moderne.html" class="course-card">
+          <span class="course-card-icon">📖</span>
+          <h3>Philosophie moderne</h3>
+          <p>Descartes, Kant, Nietzsche, existentialisme. La pensée moderne et contemporaine.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="philosophie/concepts.html" class="course-card">
+          <span class="course-card-icon">💡</span>
+          <h3>Concepts fondamentaux</h3>
+          <p>Éthique, métaphysique, épistémologie, logique. Les grandes questions philosophiques.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="courants">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Les grands courants</h2>
+          <p>De l'Antiquité à nos jours</p>
+        </div>
+      </div>
+      <p class="resume-text">L'histoire de la philosophie peut se lire comme un dialogue permanent entre grandes tendances de pensée. Voici les courants incontournables :</p>
+      <div class="highlight-box">
+        <p><strong>Stoïcisme (IIIe s. av. J.-C.) :</strong> Épictète, Marc Aurèle, Sénèque. Accepter ce qui ne dépend pas de nous, agir avec vertu sur ce qui dépend de nous. La paix intérieure comme objectif suprême.</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Rationalisme (XVIIe s.) :</strong> Descartes, Spinoza, Leibniz. La raison comme source première et fiable de connaissance. "Cogito ergo sum" — Je pense donc je suis.</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Empirisme (XVIIe-XVIIIe s.) :</strong> Locke, Hume, Berkeley. Toute connaissance provient de l'expérience sensible. L'esprit est une "tabula rasa" à la naissance.</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Idéalisme transcendantal (XVIIIe s.) :</strong> Kant synthétise rationalisme et empirisme. La raison structure l'expérience. Hegel : la réalité se déploie selon une logique dialectique (thèse → antithèse → synthèse).</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Existentialisme (XXe s.) :</strong> Sartre, Camus, Beauvoir, Heidegger. "L'existence précède l'essence" — l'humain se définit par ses choix libres, non par une nature prédéfinie. Face à l'absurde, il faut se révolter et créer du sens.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="concepts">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Concepts clés</h2>
+          <p>Le vocabulaire philosophique essentiel</p>
+        </div>
+      </div>
+      <div class="concepts-grid">
+        <div class="concept-card">
+          <div class="concept-title">Épistémologie</div>
+          <div class="concept-desc">Étude de la nature et des limites de la connaissance. Comment savons-nous ce que nous savons ? La justification, la vérité et la croyance.</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Ontologie</div>
+          <div class="concept-desc">Branche de la métaphysique qui étudie l'être en tant qu'être. Qu'est-ce qui existe réellement ? Substance, essence, existence, identité.</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Syllogisme</div>
+          <div class="concept-desc">Raisonnement déductif à trois propositions. Ex : Tous les hommes sont mortels (prémisse majeure) — Socrate est un homme — Donc Socrate est mortel.</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Impératif catégorique</div>
+          <div class="concept-desc">Principe moral de Kant : "Agis selon la maxime que tu pourrais vouloir ériger en loi universelle." L'éthique par le devoir, non le résultat.</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Dialectique</div>
+          <div class="concept-desc">Méthode de raisonnement par opposition et dépassement : thèse / antithèse / synthèse. Utilisée par Hegel et Marx pour expliquer le mouvement de l'histoire.</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Phénoménologie</div>
+          <div class="concept-desc">Méthode de Husserl : retourner aux "choses elles-mêmes" telles qu'elles apparaissent à la conscience. Heidegger et Merleau-Ponty la développeront.</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Relativisme</div>
+          <div class="concept-desc">Doctrine selon laquelle la vérité ou la morale sont relatives à chaque individu ou culture. S'oppose à l'universalisme et au réalisme moral.</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Sophisme</div>
+          <div class="concept-desc">Raisonnement apparemment logique mais comportant une erreur cachée. Ex : l'homme de paille, la pente glissante, l'appel à l'autorité.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div class="section-info">
+          <h2>Quiz interactif</h2>
+          <p>6 questions pour tester vos connaissances</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">Quiz — Philosophie</span>
+          <span class="quiz-score">Score : <span id="quizScore">0</span>/6</span>
+        </div>
+        <div class="quiz-body">
+          <div class="question-block active" id="q0">
+            <div class="q-num">Question 1 / 6</div>
+            <div class="q-text">Qui a formulé la phrase "Cogito ergo sum" (Je pense donc je suis) ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(0,0)">Platon</div>
+              <div class="option" onclick="selectOption(0,1)">René Descartes</div>
+              <div class="option" onclick="selectOption(0,2)">Immanuel Kant</div>
+              <div class="option" onclick="selectOption(0,3)">Aristote</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q1">
+            <div class="q-num">Question 2 / 6</div>
+            <div class="q-text">Quelle branche de la philosophie étudie la nature de la connaissance ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(1,0)">L'ontologie</div>
+              <div class="option" onclick="selectOption(1,1)">L'éthique</div>
+              <div class="option" onclick="selectOption(1,2)">L'esthétique</div>
+              <div class="option" onclick="selectOption(1,3)">L'épistémologie</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q2">
+            <div class="q-num">Question 3 / 6</div>
+            <div class="q-text">Quel philosophe stoïcien a écrit les "Pensées pour moi-même" ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(2,0)">Sénèque</div>
+              <div class="option" onclick="selectOption(2,1)">Épictète</div>
+              <div class="option" onclick="selectOption(2,2)">Marc Aurèle</div>
+              <div class="option" onclick="selectOption(2,3)">Épicure</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q3">
+            <div class="q-num">Question 4 / 6</div>
+            <div class="q-text">Que signifie "l'existence précède l'essence" pour Sartre ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(3,0)">La matière prime sur la conscience</div>
+              <div class="option" onclick="selectOption(3,1)">L'humain se définit librement par ses choix, non par une nature fixe</div>
+              <div class="option" onclick="selectOption(3,2)">La société précède l'individu</div>
+              <div class="option" onclick="selectOption(3,3)">L'instinct guide toujours la raison</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q4">
+            <div class="q-num">Question 5 / 6</div>
+            <div class="q-text">Qu'est-ce qu'un sophisme ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(4,0)">Une forme de sagesse orientale</div>
+              <div class="option" onclick="selectOption(4,1)">Un argument toujours vrai</div>
+              <div class="option" onclick="selectOption(4,2)">Un raisonnement apparemment logique mais fallacieux</div>
+              <div class="option" onclick="selectOption(4,3)">Un principe de la philosophie de Socrate</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q5">
+            <div class="q-num">Question 6 / 6</div>
+            <div class="q-text">L'impératif catégorique de Kant demande d'agir...</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(5,0)">Selon ses propres intérêts</div>
+              <div class="option" onclick="selectOption(5,1)">Pour maximiser le bonheur collectif</div>
+              <div class="option" onclick="selectOption(5,2)">Selon une maxime universalisable</div>
+              <div class="option" onclick="selectOption(5,3)">En obéissant aux lois de la nature</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+        </div>
+        <div class="quiz-nav">
+          <div class="q-dots">
+            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div>
+            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
+          </div>
+          <div style="display:flex;gap:.8rem">
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+          </div>
+        </div>
+        <div class="quiz-result">
+          <div class="result-score-big" id="finalScore"></div>
+          <div class="result-msg" id="finalMsg"></div>
+          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="ressources">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <div class="section-info">
+          <h2>Ressources externes</h2>
+          <p>Les meilleures sources pour approfondir</p>
+        </div>
+      </div>
+      <div class="resources-grid">
+        <a class="resource-card" href="https://www.youtube.com/@MonsieurPhi" target="_blank">
+          <span class="resource-icon">▶️</span>
+          <div class="resource-info">
+            <div class="resource-name">Monsieur Phi</div>
+            <div class="resource-desc">Vidéos claires et rigoureuses sur la philo analytique, les paradoxes et la pensée critique. Incontournable.</div>
+            <span class="resource-type type-video">YouTube</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.youtube.com/@france.culture" target="_blank">
+          <span class="resource-icon">🎙️</span>
+          <div class="resource-info">
+            <div class="resource-name">France Culture — Philo</div>
+            <div class="resource-desc">Émissions et podcasts de philosophie par les meilleurs universitaires français. "Les chemins de la philosophie".</div>
+            <span class="resource-type type-video">Podcast</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://plato.stanford.edu" target="_blank">
+          <span class="resource-icon">📚</span>
+          <div class="resource-info">
+            <div class="resource-name">Stanford Encyclopedia</div>
+            <div class="resource-desc">La référence mondiale en philosophie. Articles approfondis, régulièrement mis à jour par des experts. En anglais.</div>
+            <span class="resource-type type-doc">Encyclopédie</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://fr.wikipedia.org/wiki/Philosophie" target="_blank">
+          <span class="resource-icon">🌐</span>
+          <div class="resource-info">
+            <div class="resource-name">Wikipedia — Philosophie</div>
+            <div class="resource-desc">Bon point de départ pour explorer les courants, les philosophes et les concepts. Liens vers des sources primaires.</div>
+            <span class="resource-type type-wiki">Wikipedia</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.coursera.org/courses?query=philosophy" target="_blank">
+          <span class="resource-icon">🎓</span>
+          <div class="resource-info">
+            <div class="resource-name">Coursera — Philosophy</div>
+            <div class="resource-desc">Cours en ligne de Yale, Edinburgh, Duke. "Introduction to Philosophy", "A Brief History of Philosophy" et plus.</div>
+            <span class="resource-type type-course">Cours en ligne</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://fr.khanacademy.org/humanities/ap-art-history" target="_blank">
+          <span class="resource-icon">📖</span>
+          <div class="resource-info">
+            <div class="resource-name">Khan Academy — Humanités</div>
+            <div class="resource-desc">Section humanités avec ressources pédagogiques accessibles sur l'histoire de la philosophie et de la pensée.</div>
+            <span class="resource-type type-course">Cours gratuit</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel en une page — téléchargeable</p>
+        </div>
+      </div>
+      <div class="memo-preview">
+        <div class="memo-top">
+          <h3>📋 Philosophie — Fiche mémo</h3>
+          <p>Les courants, philosophes et concepts clés</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Philosophes clés</div>
+            <div class="memo-item">Socrate — "Connais-toi toi-même" (470-399 av. J.-C.)</div>
+            <div class="memo-item">Platon — Monde des Idées (428-348 av. J.-C.)</div>
+            <div class="memo-item">Aristote — Logique, Éthique (384-322 av. J.-C.)</div>
+            <div class="memo-item">Descartes — Cogito, Dualisme (1596-1650)</div>
+            <div class="memo-item">Kant — Impératif catégorique (1724-1804)</div>
+            <div class="memo-item">Nietzsche — Volonté de puissance (1844-1900)</div>
+            <div class="memo-item">Sartre — Existentialisme (1905-1980)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Branches</div>
+            <div class="memo-item">Épistémologie → connaissance</div>
+            <div class="memo-item">Ontologie / Métaphysique → l'être</div>
+            <div class="memo-item">Éthique → bien / mal</div>
+            <div class="memo-item">Logique → raisonnement valide</div>
+            <div class="memo-item">Esthétique → beauté / art</div>
+            <div class="memo-item">Philosophie politique → pouvoir / justice</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Courants principaux</div>
+            <div class="memo-item">Stoïcisme — Marc Aurèle, Épictète</div>
+            <div class="memo-item">Rationalisme — Descartes, Spinoza</div>
+            <div class="memo-item">Empirisme — Locke, Hume</div>
+            <div class="memo-item">Idéalisme — Kant, Hegel</div>
+            <div class="memo-item">Matérialisme — Marx, Engels</div>
+            <div class="memo-item">Existentialisme — Sartre, Camus</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Citations essentielles</div>
+            <div class="memo-item">"Je sais que je ne sais rien" — Socrate</div>
+            <div class="memo-item">"Cogito ergo sum" — Descartes</div>
+            <div class="memo-item">"L'enfer c'est les autres" — Sartre</div>
+            <div class="memo-item">"Il faut imaginer Sisyphe heureux" — Camus</div>
+            <div class="memo-item">"Dieu est mort" — Nietzsche</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML/PDF)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+const questions = [
+  { q:"Qui a formulé la phrase «Cogito ergo sum» ?", opts:["Platon","René Descartes","Immanuel Kant","Aristote"], ans:1, expl:"René Descartes (1596-1650) a formulé ce principe dans le Discours de la méthode (1637). Il en fait le fondement indubitable de toute connaissance : le fait même de douter prouve qu'on pense, et donc qu'on existe." },
+  { q:"Quelle branche étudie la nature de la connaissance ?", opts:["L'ontologie","L'éthique","L'esthétique","L'épistémologie"], ans:3, expl:"L'épistémologie (du grec epistémé = connaissance, logos = discours) étudie la nature, les sources, les limites et la justification de la connaissance humaine." },
+  { q:"Quel philosophe stoïcien a écrit les «Pensées pour moi-même» ?", opts:["Sénèque","Épictète","Marc Aurèle","Épicure"], ans:2, expl:"Marc Aurèle (121-180), empereur romain et philosophe stoïcien, a rédigé ce journal intime en grec. Véritable guide de vie stoïcienne, il n'était pas destiné à la publication." },
+  { q:"Que signifie «l'existence précède l'essence» pour Sartre ?", opts:["La matière prime sur la conscience","L'humain se définit librement par ses choix, non par une nature fixe","La société précède l'individu","L'instinct guide toujours la raison"], ans:1, expl:"Contrairement à un couteau (dont l'essence est définie avant d'être fabriqué), l'homme existe d'abord, puis se définit par ses choix. Il n'y a pas de 'nature humaine' figée — c'est le fondement de la liberté et de la responsabilité existentialiste." },
+  { q:"Qu'est-ce qu'un sophisme ?", opts:["Une forme de sagesse orientale","Un argument toujours vrai","Un raisonnement apparemment logique mais fallacieux","Un principe de la philosophie de Socrate"], ans:2, expl:"Un sophisme est un raisonnement qui semble convaincant mais contient une erreur cachée. Exemples : l'homme de paille (déformer l'argument adverse), la pente glissante (supposer une cascade d'effets), l'appel à l'autorité." },
+  { q:"L'impératif catégorique de Kant demande d'agir...", opts:["Selon ses propres intérêts","Pour maximiser le bonheur collectif","Selon une maxime universalisable","En obéissant aux lois de la nature"], ans:2, expl:"L'impératif catégorique : «Agis seulement selon la maxime qui fait que tu peux vouloir en même temps qu'elle devienne une loi universelle.» C'est une éthique du devoir (déontologie), indépendante des conséquences." }
+];
+
+let current=0, score=0, answered=new Array(6).fill(null);
+
+function renderQuestion(){
+  document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));
+  document.querySelectorAll('.q-dot').forEach((d,i)=>{
+    d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');
+  });
+  document.getElementById('btnPrev').disabled=current===0;
+  document.getElementById('btnNext').textContent=current===5?'Voir résultats':'Suivant →';
+}
+
+function selectOption(qi,oi){
+  if(answered[qi]!==null)return;
+  answered[qi]=oi;
+  const block=document.querySelectorAll('.question-block')[qi];
+  block.querySelectorAll('.option').forEach((o,i)=>{
+    o.classList.add('disabled');
+    if(i===questions[qi].ans)o.classList.add('correct');
+    else if(i===oi)o.classList.add('wrong');
+  });
+  const fb=block.querySelector('.q-feedback');
+  fb.textContent=questions[qi].expl;
+  fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');
+  if(oi===questions[qi].ans)score++;
+  document.getElementById('quizScore').textContent=score;
+  document.querySelectorAll('.q-dot')[qi].classList.add('done');
+}
+
+function nextQuestion(){if(current<5){current++;renderQuestion();}else showResult();}
+function prevQuestion(){if(current>0){current--;renderQuestion();}}
+
+function showResult(){
+  document.querySelector('.quiz-body').style.display='none';
+  document.querySelector('.quiz-nav').style.display='none';
+  const r=document.querySelector('.quiz-result');
+  r.style.display='block';
+  document.getElementById('finalScore').textContent=score+'/6';
+  const msgs=["Continue d'apprendre !",'Pas mal !','Très bien !','Excellent !'];
+  document.getElementById('finalMsg').textContent=msgs[score<=2?0:score<=4?1:score<=5?2:3];
+}
+
+function restartQuiz(){
+  current=0;score=0;answered.fill(null);
+  document.querySelector('.quiz-body').style.display='block';
+  document.querySelector('.quiz-nav').style.display='flex';
+  document.querySelector('.quiz-result').style.display='none';
+  document.querySelectorAll('.option').forEach(o=>o.className='option');
+  document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');
+  document.getElementById('quizScore').textContent=0;
+  renderQuestion();
+}
+
+function goTo(id,el){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));
+  if(el)el.classList.add('active');
+}
+// Scroll spy
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+
+const sections=['resume','courants','concepts','quiz','ressources','memo'];
+window.addEventListener('scroll',()=>{
+  let vis=0;
+  sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});
+  document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';
+  sections.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el){const r=el.getBoundingClientRect();if(r.top<=120&&r.bottom>120){
+      document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));
+      const lnk=document.querySelector(`.sidebar-link[data-section="${id}"]`);
+      if(lnk)lnk.classList.add('active');
+    }}
+  });
+});
+
+function downloadMemo(){
+  const w=window.open('','_blank','width=900,height=700');
+  w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Philosophie</title>
+  <style>
+    body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}
+    h1{font-size:1.8rem;color:#9b7ae8;border-bottom:3px solid #9b7ae8;padding-bottom:.5rem;margin-bottom:1.5rem}
+    h2{font-size:.75rem;color:#9b7ae8;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}
+    ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}
+    .box{border:1px solid #e0d6f7;padding:1rem;border-radius:4px;background:#faf8ff}
+    .footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}
+    @media print{.no-print{display:none}}
+  </style></head><body>
+  <h1>🧠 Fiche mémo — Philosophie</h1>
+  <div class="grid">
+    <div class="box"><h2>Philosophes clés</h2><ul>
+      <li><strong>Socrate</strong> — "Connais-toi toi-même" (470-399 av. J.-C.)</li>
+      <li><strong>Platon</strong> — Monde des Idées, La République</li>
+      <li><strong>Aristote</strong> — Logique, Éthique à Nicomaque</li>
+      <li><strong>Descartes</strong> — Cogito ergo sum, Dualisme corps/esprit</li>
+      <li><strong>Kant</strong> — Critique de la Raison Pure, Impératif catégorique</li>
+      <li><strong>Nietzsche</strong> — Volonté de puissance, Dieu est mort</li>
+      <li><strong>Sartre</strong> — L'Être et le Néant, Existentialisme</li>
+    </ul></div>
+    <div class="box"><h2>5 branches principales</h2><ul>
+      <li><strong>Épistémologie</strong> — La connaissance et ses limites</li>
+      <li><strong>Ontologie</strong> — L'être, l'existence, la réalité</li>
+      <li><strong>Éthique</strong> — Bien, mal, valeurs morales</li>
+      <li><strong>Logique</strong> — Raisonnement valide, syllogismes</li>
+      <li><strong>Esthétique</strong> — Le beau, l'art, le goût</li>
+    </ul></div>
+    <div class="box"><h2>Courants historiques</h2><ul>
+      <li><strong>Stoïcisme</strong> — Marc Aurèle, Épictète, Sénèque</li>
+      <li><strong>Rationalisme</strong> — Descartes, Spinoza, Leibniz</li>
+      <li><strong>Empirisme</strong> — Locke, Hume, Berkeley</li>
+      <li><strong>Idéalisme</strong> — Kant, Hegel, Fichte</li>
+      <li><strong>Existentialisme</strong> — Sartre, Camus, Beauvoir</li>
+    </ul></div>
+    <div class="box"><h2>Citations célèbres</h2><ul>
+      <li>"Je sais que je ne sais rien" — Socrate</li>
+      <li>"Cogito ergo sum" — Descartes</li>
+      <li>"L'enfer c'est les autres" — Sartre</li>
+      <li>"Il faut imaginer Sisyphe heureux" — Camus</li>
+      <li>"Dieu est mort" — Nietzsche</li>
+      <li>"Deux choses : le ciel étoilé au-dessus de moi, la loi morale en moi" — Kant</li>
+    </ul></div>
+  </div>
+  <div class="footer">Curiosita — Fiche mémo Philosophie — ${new Date().toLocaleDateString('fr-FR')}</div>
+  <button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#9b7ae8;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">🖨️ Imprimer / PDF</button>
+  
+</body></html>`);
+  w.document.close();
+}
+
+renderQuestion();
+</script>
+    <script src="mobile.js"></script>
+</body>
+</html>

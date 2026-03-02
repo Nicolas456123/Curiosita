@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>République et démocratie — Éducation civique — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root { --accent: #e87a9b; --accent2: #f09ab5; --accent-dim: rgba(232,122,155,0.08); }
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,155,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../civique-page.html">Éducation civique</a> › <span>République et démocratie</span></div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🗳️ Éducation civique</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>République et démocratie</em></h1>
+  <p class="hero-desc">Les principes républicains et le fonctionnement de la démocratie française — institutions, valeurs et débats.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../civique-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Éducation civique</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="citoyennete.html">Citoyenneté</a>
+    <a class="sidebar-link" href="droits.html">Droits et libertés</a>
+    <a class="sidebar-link active" href="#">République et démocratie</a>
+    <a class="sidebar-link" href="enjeux.html">Enjeux contemporains</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="presentation">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>République et démocratie</h2><p>Introduction et vue d'ensemble</p></div></div>
+      <p class="resume-text">La France est une <strong>République démocratique</strong> : le pouvoir émane du peuple, qui l'exerce par ses représentants élus. La République désigne la forme de l'État (pas de monarque), la démocratie désigne le régime politique (le peuple souverain).</p>
+      <div class="highlight-box"><p><strong>L'idée fondamentale :</strong> la République française est indivisible, laïque, démocratique et sociale (art. 1er de la Constitution). Ces quatre adjectifs résument un projet politique construit sur deux siècles de révolutions, de crises et de progrès.</p></div>
+      <p class="resume-text">De la <strong>Ire République</strong> (1792) à la <strong>Ve République</strong> (1958), la France a expérimenté de nombreuses formes institutionnelles. Comprendre cette histoire, c'est saisir pourquoi nos institutions actuelles fonctionnent comme elles le font.</p>
+      <p class="resume-text">La démocratie ne se réduit pas au vote. Elle implique la <strong>séparation des pouvoirs</strong>, l'État de droit, le pluralisme politique, la liberté de la presse et la protection des droits fondamentaux.</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Les cours de République et démocratie</h2><p>Progressez étape par étape</p></div></div>
+      <div class="courses-grid">
+        <a href="republique/histoire.html" class="course-card"><span class="course-card-icon">🏛️</span><h3>Histoire des Républiques</h3><p>De 1792 à 1958 : cinq Républiques et la construction de la démocratie française.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="republique/constitution.html" class="course-card"><span class="course-card-icon">📜</span><h3>La Constitution</h3><p>Bloc de constitutionnalité, révision, Conseil constitutionnel et État de droit.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="republique/separation-pouvoirs.html" class="course-card"><span class="course-card-icon">⚖️</span><h3>Séparation des pouvoirs</h3><p>Exécutif, législatif, judiciaire : équilibre et contrôle mutuel.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="republique/laicite.html" class="course-card"><span class="course-card-icon">🏳️</span><h3>Laïcité</h3><p>Loi de 1905, neutralité de l'État, liberté de conscience et débats contemporains.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="republique/medias.html" class="course-card"><span class="course-card-icon">📢</span><h3>Médias et démocratie</h3><p>Liberté de la presse, pluralisme, désinformation et rôle des médias.</p><span class="course-card-link">Voir le cours →</span></a>
+      </div>
+    </section>
+    <section class="content-section" id="memo">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Fiche mémo</h2><p>L'essentiel en un coup d'oeil</p></div></div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top"><h3>🏛️ République et démocratie — Fiche mémo</h3><p>Curiosita · Institutions, principes et repères</p></div>
+        <div class="memo-grid">
+          <div class="memo-section"><div class="memo-section-title">Les cinq Républiques</div><div class="memo-item"><span class="mf">Ire (1792)</span> Convention, Terreur, Directoire</div><div class="memo-item"><span class="mf">IIe (1848)</span> Suffrage universel masculin</div><div class="memo-item"><span class="mf">IIIe (1870)</span> Lois Ferry, loi 1905</div><div class="memo-item"><span class="mf">Ve (1958)</span> De Gaulle, semi-présidentiel</div></div>
+          <div class="memo-section"><div class="memo-section-title">Principes républicains</div><div class="memo-item"><span class="mf">Indivisible</span> Unité du territoire et du peuple</div><div class="memo-item"><span class="mf">Laïque</span> Neutralité de l'État</div><div class="memo-item"><span class="mf">Démocratique</span> Souveraineté populaire</div><div class="memo-item"><span class="mf">Sociale</span> Solidarité, égalité des chances</div></div>
+          <div class="memo-section"><div class="memo-section-title">Séparation des pouvoirs</div><div class="memo-item"><span class="mf">Exécutif</span> Président + gouvernement</div><div class="memo-item"><span class="mf">Législatif</span> Assemblée + Sénat</div><div class="memo-item"><span class="mf">Judiciaire</span> Indépendant, gardien des libertés</div><div class="memo-item"><span class="mf">Conseil constit.</span> Contrôle de constitutionnalité</div></div>
+          <div class="memo-section"><div class="memo-section-title">Symboles</div><div class="memo-item"><span class="mf">Devise</span> Liberté, Égalité, Fraternité</div><div class="memo-item"><span class="mf">Drapeau</span> Bleu, blanc, rouge</div><div class="memo-item"><span class="mf">Hymne</span> La Marseillaise (1792)</div><div class="memo-item"><span class="mf">Marianne</span> Allégorie de la République</div></div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+  </main>
+</div>
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo(){var m=document.getElementById('memoCard').outerHTML;var html='<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>République et démocratie \u2014 Fiche m\u00e9mo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#e87a9b;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#e87a9b;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>'+m+'</body></html>';var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download='republique-democratie-fiche-memo.html';a.click();}
+</script>
+<script src="../mobile.js"></script>
+</body>
+</html>

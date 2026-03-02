@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variables et types — Les bases — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #4fc3f7;
+  --accent2: #81d4fa;
+  --accent-dim: rgba(79,195,247,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../python-page.html">Python</a> › <a href="../bases.html">Les bases</a> › <span>Variables et types</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">📦 Les bases</span>
+    <span class="tag-level">Débutant</span>
+    <span class="tag-time">⏱ ~30 min</span>
+  </div>
+  <h1><em>Variables et types</em></h1>
+  <p class="hero-desc">Stocker des données dans des variables et comprendre les types fondamentaux de Python : int, float, str et bool.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../bases.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Les bases</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">💻 Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link active" href="#">Variables et types</a>
+    <a class="sidebar-link" href="operateurs.html">Opérateurs</a>
+    <a class="sidebar-link" href="conditions.html">Conditions</a>
+    <a class="sidebar-link" href="boucles.html">Boucles</a>
+    <a class="sidebar-link" href="entrees-sorties.html">Entrées et sorties</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Pourquoi les variables sont essentielles</p>
+        </div>
+      </div>
+      <p class="resume-text">Une <strong>variable</strong> est un nom qui fait référence à une valeur stockée en mémoire. En Python, créer une variable est extrêmement simple : il suffit d'écrire un nom, le signe <code>=</code> et une valeur. Pas besoin de déclarer le type — Python le détermine automatiquement.</p>
+      <div class="highlight-box">
+        <p><strong>Typage dynamique :</strong> contrairement à Java ou C, Python détermine le type d'une variable au moment de l'exécution. Une même variable peut changer de type au cours du programme (même si c'est rarement recommandé).</p>
+      </div>
+      <p class="resume-text">Les quatre types fondamentaux sont : <strong>int</strong> (entiers), <strong>float</strong> (décimaux), <strong>str</strong> (chaînes de caractères) et <strong>bool</strong> (booléens True/False). Maîtriser ces types est la première étape pour écrire n'importe quel programme Python.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Variables, types et conversions</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Créer une variable</h3>
+        <p>En Python, on crée une variable en lui assignant une valeur avec l'opérateur <code>=</code>. Le nom de la variable doit commencer par une lettre ou un underscore, et ne peut contenir que des lettres, chiffres et underscores.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Créer des variables</span>
+nom = <span class="str">"Alice"</span>
+age = <span class="num">25</span>
+taille = <span class="num">1.68</span>
+est_etudiant = <span class="kw">True</span>
+
+<span class="cm"># Python détecte automatiquement le type</span>
+<span class="fn">print</span>(<span class="fn">type</span>(nom))           <span class="cm"># &lt;class 'str'&gt;</span>
+<span class="fn">print</span>(<span class="fn">type</span>(age))           <span class="cm"># &lt;class 'int'&gt;</span>
+<span class="fn">print</span>(<span class="fn">type</span>(taille))       <span class="cm"># &lt;class 'float'&gt;</span>
+<span class="fn">print</span>(<span class="fn">type</span>(est_etudiant)) <span class="cm"># &lt;class 'bool'&gt;</span></code></pre>
+        </div>
+
+        <h3>Les types fondamentaux</h3>
+        <p>Python possède quatre types de base que tout débutant doit connaître :</p>
+        <ul>
+          <li><strong>int</strong> — Nombres entiers : 42, -7, 0. Pas de limite de taille en Python.</li>
+          <li><strong>float</strong> — Nombres décimaux : 3.14, -0.5, 2.0. Attention aux erreurs d'arrondi.</li>
+          <li><strong>str</strong> — Chaînes de caractères : "hello", 'monde'. Délimitées par des guillemets simples ou doubles.</li>
+          <li><strong>bool</strong> — Booléens : True ou False. Utilisés pour les conditions et la logique.</li>
+        </ul>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Entiers (int) — pas de limite de taille</span>
+petit = <span class="num">42</span>
+grand = <span class="num">10</span> ** <span class="num">100</span>  <span class="cm"># un googol, 1 suivi de 100 zéros</span>
+
+<span class="cm"># Flottants (float) — nombres décimaux</span>
+pi = <span class="num">3.14159</span>
+negatif = -<span class="num">0.5</span>
+
+<span class="cm"># Chaînes (str) — guillemets simples ou doubles</span>
+prenom = <span class="str">"Marie"</span>
+message = <span class="str">'Bonjour le monde'</span>
+multiligne = <span class="str">"""Ceci est
+un texte sur
+plusieurs lignes"""</span>
+
+<span class="cm"># Booléens (bool)</span>
+actif = <span class="kw">True</span>
+termine = <span class="kw">False</span></code></pre>
+        </div>
+
+        <h3>Conversions de types</h3>
+        <p>On peut convertir une valeur d'un type à un autre avec les fonctions <code>int()</code>, <code>float()</code>, <code>str()</code> et <code>bool()</code>. C'est le <strong>casting</strong> (transtypage).</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Conversions de types</span>
+x = <span class="str">"42"</span>
+y = <span class="fn">int</span>(x)        <span class="cm"># str → int : 42</span>
+z = <span class="fn">float</span>(x)      <span class="cm"># str → float : 42.0</span>
+
+age = <span class="num">25</span>
+texte = <span class="fn">str</span>(age)   <span class="cm"># int → str : "25"</span>
+
+<span class="cm"># bool() — tout ce qui est "vide" ou zéro est False</span>
+<span class="fn">print</span>(<span class="fn">bool</span>(<span class="num">0</span>))       <span class="cm"># False</span>
+<span class="fn">print</span>(<span class="fn">bool</span>(<span class="str">""</span>))      <span class="cm"># False (chaîne vide)</span>
+<span class="fn">print</span>(<span class="fn">bool</span>(<span class="num">42</span>))      <span class="cm"># True</span>
+<span class="fn">print</span>(<span class="fn">bool</span>(<span class="str">"hello"</span>)) <span class="cm"># True</span></code></pre>
+        </div>
+
+        <h3>Conventions de nommage</h3>
+        <p>En Python, on utilise le <strong>snake_case</strong> pour les noms de variables et fonctions : des mots en minuscules séparés par des underscores.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Bonnes pratiques de nommage</span>
+nom_complet = <span class="str">"Jean Dupont"</span>      <span class="cm"># snake_case ✓</span>
+nombre_de_cours = <span class="num">5</span>              <span class="cm"># descriptif ✓</span>
+TAUX_TVA = <span class="num">0.20</span>                  <span class="cm"># CONSTANTE en majuscules ✓</span>
+
+<span class="cm"># À éviter</span>
+<span class="cm"># x = "Jean Dupont"    → pas descriptif</span>
+<span class="cm"># NomComplet = ...     → CamelCase réservé aux classes</span>
+<span class="cm"># 2eme_nom = ...       → ne peut pas commencer par un chiffre</span></code></pre>
+        </div>
+
+        <h3>Affectation multiple et échange de variables</h3>
+        <p>Python permet d'affecter plusieurs variables en une seule ligne, et d'échanger leurs valeurs sans variable temporaire.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Affectation multiple</span>
+x, y, z = <span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>
+<span class="fn">print</span>(x, y, z)  <span class="cm"># 1 2 3</span>
+
+<span class="cm"># Même valeur pour plusieurs variables</span>
+a = b = c = <span class="num">0</span>
+
+<span class="cm"># Échange de variables (swap) — élégant !</span>
+a, b = <span class="num">10</span>, <span class="num">20</span>
+a, b = b, a
+<span class="fn">print</span>(a, b)  <span class="cm"># 20 10</span>
+
+<span class="cm"># Unpacking depuis une liste ou un tuple</span>
+coordonnees = (<span class="num">48.8566</span>, <span class="num">2.3522</span>)
+latitude, longitude = coordonnees
+<span class="fn">print</span>(<span class="str">f"Paris : {latitude}°N, {longitude}°E"</span>)</code></pre>
+        </div>
+
+        <h3>None — l'absence de valeur</h3>
+        <p><code>None</code> est une valeur spéciale en Python qui représente l'absence de valeur. C'est le seul objet de type <code>NoneType</code>.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># None représente "rien" ou "pas de valeur"</span>
+resultat = <span class="kw">None</span>
+<span class="fn">print</span>(<span class="fn">type</span>(resultat))  <span class="cm"># &lt;class 'NoneType'&gt;</span>
+
+<span class="cm"># Tester si une variable est None</span>
+<span class="kw">if</span> resultat <span class="kw">is</span> <span class="kw">None</span>:
+    <span class="fn">print</span>(<span class="str">"Pas encore de résultat"</span>)
+
+<span class="cm"># Attention : utiliser 'is' et non '==' pour None</span>
+<span class="fn">print</span>(resultat <span class="kw">is</span> <span class="kw">None</span>)    <span class="cm"># True ✓ (bonne pratique)</span>
+<span class="fn">print</span>(resultat == <span class="kw">None</span>)   <span class="cm"># True mais déconseillé</span>
+
+<span class="cm"># None est "falsy"</span>
+<span class="fn">print</span>(<span class="fn">bool</span>(<span class="kw">None</span>))  <span class="cm"># False</span></code></pre>
+        </div>
+        <div class="highlight-box">
+          <p><strong>is vs == :</strong> <code>is</code> vérifie l'identité (même objet en mémoire), tandis que <code>==</code> vérifie l'égalité de valeur. Pour <code>None</code>, utilisez toujours <code>is None</code> ou <code>is not None</code>.</p>
+        </div>
+
+        <h3>Pièges courants</h3>
+        <p>Voici les erreurs les plus fréquentes chez les débutants avec les variables et les types.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># PIÈGE 1 : Confondre = (affectation) et == (comparaison)</span>
+x = <span class="num">5</span>       <span class="cm"># affectation : x vaut 5</span>
+x == <span class="num">5</span>      <span class="cm"># comparaison : retourne True (ne modifie pas x)</span>
+
+<span class="cm"># PIÈGE 2 : Concaténer str et int sans conversion</span>
+age = <span class="num">25</span>
+<span class="cm"># print("J'ai " + age + " ans")  → TypeError !</span>
+<span class="fn">print</span>(<span class="str">"J'ai "</span> + <span class="fn">str</span>(age) + <span class="str">" ans"</span>)  <span class="cm"># ✓</span>
+<span class="fn">print</span>(<span class="str">f"J'ai {age} ans"</span>)             <span class="cm"># ✓ plus élégant</span>
+
+<span class="cm"># PIÈGE 3 : Erreurs d'arrondi avec les float</span>
+<span class="fn">print</span>(<span class="num">0.1</span> + <span class="num">0.2</span>)          <span class="cm"># 0.30000000000000004 !</span>
+<span class="fn">print</span>(<span class="num">0.1</span> + <span class="num">0.2</span> == <span class="num">0.3</span>)   <span class="cm"># False !</span>
+<span class="fn">print</span>(<span class="fn">round</span>(<span class="num">0.1</span> + <span class="num">0.2</span>, <span class="num">1</span>) == <span class="num">0.3</span>)  <span class="cm"># True ✓</span>
+
+<span class="cm"># PIÈGE 4 : int() ne gère pas les décimaux en str</span>
+<span class="cm"># int("3.14")  → ValueError !</span>
+<span class="fn">int</span>(<span class="fn">float</span>(<span class="str">"3.14"</span>))  <span class="cm"># 3 ✓ — convertir en float d'abord</span></code></pre>
+        </div>
+
+        <h3>Bonnes pratiques</h3>
+        <ul>
+          <li><strong>Noms descriptifs :</strong> préférez <code>nombre_etudiants</code> à <code>n</code>. Le code est lu beaucoup plus souvent qu'il n'est écrit.</li>
+          <li><strong>snake_case :</strong> <code>mon_variable</code> pour les variables et fonctions, <code>MA_CONSTANTE</code> pour les constantes, <code>MaClasse</code> pour les classes.</li>
+          <li><strong>f-strings :</strong> préférez <code>f"Bonjour {nom}"</code> à la concaténation <code>"Bonjour " + nom</code>.</li>
+          <li><strong>type() pour déboguer :</strong> quand une erreur survient, utilisez <code>print(type(variable))</code> pour vérifier le type réel.</li>
+          <li><strong>Évitez de changer le type :</strong> même si Python le permet, ne réassignez pas une variable avec un type différent (<code>x = 5</code> puis <code>x = "hello"</code>).</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Astuce :</strong> utilisez <code>isinstance()</code> plutôt que <code>type()</code> pour vérifier un type, car elle gère aussi l'héritage : <code>isinstance(42, int)</code> retourne <code>True</code>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">📦 Variables et types — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quel est le type de la valeur <code>3.14</code> en Python ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">int</div>
+              <div class="option" onclick="answer(this,true)">float</div>
+              <div class="option" onclick="answer(this,false)">str</div>
+              <div class="option" onclick="answer(this,false)">decimal</div>
+            </div>
+            <div class="q-feedback">3.14 est un nombre décimal, donc de type <code>float</code> en Python. Les entiers sans point décimal sont de type <code>int</code>.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Que retourne <code>bool("")</code> ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">False</div>
+              <div class="option" onclick="answer(this,false)">True</div>
+              <div class="option" onclick="answer(this,false)">None</div>
+              <div class="option" onclick="answer(this,false)">Erreur</div>
+            </div>
+            <div class="q-feedback">Une chaîne vide <code>""</code> est considérée comme « fausse » en Python. De même, <code>0</code>, <code>[]</code>, <code>{}</code> et <code>None</code> sont tous évalués à <code>False</code>.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Que retourne <code>type(int("42"))</code> ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">&lt;class 'str'&gt;</div>
+              <div class="option" onclick="answer(this,true)">&lt;class 'int'&gt;</div>
+              <div class="option" onclick="answer(this,false)">&lt;class 'float'&gt;</div>
+              <div class="option" onclick="answer(this,false)">42</div>
+            </div>
+            <div class="q-feedback"><code>int("42")</code> convertit la chaîne "42" en entier 42. <code>type(42)</code> retourne <code>&lt;class 'int'&gt;</code>.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Que retourne <code>0.1 + 0.2 == 0.3</code> ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">True</div>
+              <div class="option" onclick="answer(this,true)">False</div>
+              <div class="option" onclick="answer(this,false)">0.3</div>
+              <div class="option" onclick="answer(this,false)">Erreur</div>
+            </div>
+            <div class="q-feedback">En raison de la représentation en virgule flottante, <code>0.1 + 0.2</code> donne <code>0.30000000000000004</code>, qui n'est pas strictement égal à <code>0.3</code>. Utilisez <code>round()</code> pour comparer des flottants.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Après <code>a, b = 5, 10</code> puis <code>a, b = b, a</code>, que vaut <code>a</code> ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">5</div>
+              <div class="option" onclick="answer(this,true)">10</div>
+              <div class="option" onclick="answer(this,false)">15</div>
+              <div class="option" onclick="answer(this,false)">Erreur</div>
+            </div>
+            <div class="q-feedback">L'instruction <code>a, b = b, a</code> échange les valeurs de a et b. Après l'échange, <code>a</code> vaut 10 et <code>b</code> vaut 5.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Que se passe-t-il avec <code>int("3.14")</code> ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Retourne 3</div>
+              <div class="option" onclick="answer(this,false)">Retourne 3.14</div>
+              <div class="option" onclick="answer(this,true)">Lève une ValueError</div>
+              <div class="option" onclick="answer(this,false)">Retourne 4</div>
+            </div>
+            <div class="q-feedback"><code>int()</code> ne peut pas convertir directement une chaîne contenant un point décimal. Il faut d'abord passer par <code>float()</code> : <code>int(float("3.14"))</code> donne 3.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Fiche d'identité</h3>
+        <p>Créez des variables pour stocker le nom, l'âge, la taille (en mètres) et la nationalité d'une personne. Affichez ensuite une phrase formatée comme : <code>"Jean Dupont, 30 ans, 1.75 m, nationalité française"</code>.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>nom = "Jean Dupont"
+age = 30
+taille = 1.75
+nationalite = "française"
+
+print(f"{nom}, {age} ans, {taille} m, nationalité {nationalite}")</code></pre></div>
+        </details>
+
+        <h3>Exercice 2 — Convertisseur de température</h3>
+        <p>Demandez à l'utilisateur une température en Celsius (avec <code>input()</code>), convertissez-la en Fahrenheit avec la formule <code>F = C * 9/5 + 32</code>, et affichez le résultat arrondi à une décimale.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>celsius = float(input("Température en °C : "))
+fahrenheit = celsius * 9 / 5 + 32
+print(f"{celsius}°C = {fahrenheit:.1f}°F")</code></pre></div>
+        </details>
+
+        <h3>Exercice 3 — Vérificateur de types</h3>
+        <p>Créez une variable pour chacun des 4 types fondamentaux (int, float, str, bool). Affichez chaque variable avec son type en utilisant <code>type()</code> et les f-strings. Exemple de sortie : <code>"42 est de type &lt;class 'int'&gt;"</code>.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>entier = 42
+decimal = 3.14
+chaine = "Bonjour"
+booleen = True
+
+for var in [entier, decimal, chaine, booleen]:
+    print(f"{var} est de type {type(var)}")</code></pre></div>
+        </details>
+
+        <h3>Exercice 4 — Échange et affichage</h3>
+        <p>Créez deux variables <code>a = 100</code> et <code>b = 200</code>. Échangez leurs valeurs sans utiliser de variable temporaire, puis affichez le résultat pour prouver que l'échange a fonctionné.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>a = 100
+b = 200
+print(f"Avant : a = {a}, b = {b}")
+
+a, b = b, a
+print(f"Après : a = {a}, b = {b}")
+# Avant : a = 100, b = 200
+# Après : a = 200, b = 100</code></pre></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <div></div>
+      <a href="operateurs.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Opérateurs →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions = document.querySelectorAll('.question-block');
+let currentQ = 0, score = 0;
+let answered = new Array(questions.length).fill(false);
+const dotsContainer = document.getElementById('qDots');
+questions.forEach((_, i) => { const d = document.createElement('div'); d.className = 'q-dot' + (i === 0 ? ' current' : ''); dotsContainer.appendChild(d); });
+function updateDots() { document.querySelectorAll('.q-dot').forEach((d, i) => { d.className = 'q-dot'; if (answered[i]) d.classList.add('done'); if (i === currentQ) d.classList.add('current'); }); }
+function answer(el, ok) {
+  if (answered[currentQ]) return; answered[currentQ] = true;
+  el.closest('.question-block').querySelectorAll('.option').forEach(o => o.classList.add('disabled'));
+  el.classList.add(ok ? 'correct' : 'wrong');
+  if (!ok) el.closest('.question-block').querySelectorAll('.option').forEach(o => { if(o.onclick.toString().includes('true')) o.classList.add('correct'); });
+  else { score++; document.getElementById('scoreDisplay').textContent = score; }
+  el.closest('.question-block').querySelector('.q-feedback').classList.add('show', ok ? 'good' : 'bad');
+  document.getElementById('btnNext').disabled = false;
+  updateDots();
+}
+function nextQ() { if (currentQ < questions.length - 1) { questions[currentQ].classList.remove('active'); currentQ++; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = false; document.getElementById('btnNext').disabled = !answered[currentQ]; if (currentQ === questions.length - 1) document.getElementById('btnNext').textContent = 'Terminer'; updateDots(); } else { showResult(); } }
+function prevQ() { if (currentQ > 0) { questions[currentQ].classList.remove('active'); currentQ--; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = currentQ === 0; document.getElementById('btnNext').disabled = !answered[currentQ]; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); } }
+function showResult() { document.getElementById('quizBody').style.display = 'none'; document.getElementById('quizResult').style.display = 'block'; document.getElementById('resultScore').textContent = score + '/' + questions.length; var m = ['Continue !', 'Pas mal !', 'Très bien !', 'Parfait !']; document.getElementById('resultMsg').textContent = m[Math.min(score, 3)]; }
+function resetQuiz() { score = 0; currentQ = 0; answered = new Array(questions.length).fill(false); document.getElementById('scoreDisplay').textContent = 0; document.getElementById('quizBody').style.display = 'block'; document.getElementById('quizResult').style.display = 'none'; questions.forEach((q,i) => { q.classList.toggle('active', i===0); q.querySelectorAll('.option').forEach(o=>o.className='option'); q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback'); }); document.getElementById('btnPrev').disabled = true; document.getElementById('btnNext').disabled = true; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); }
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+</script>
+    <script src="../../mobile.js"></script>
+</body>
+</html>

@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Littérature française — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<style>
+:root {
+  --accent: #9b7ae8;
+  --accent2: #b49aef;
+  --accent-dim: rgba(155,122,232,0.1);
+}
+.hero { background: radial-gradient(ellipse 70% 60% at 20% 50%, rgba(155,122,232,0.08) 0%, transparent 70%); }
+.hero-deco { color: rgba(155,122,232,0.04); font-size: 18rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="lettres-langues.html">Lettres & Langues</a> ›
+    <span>Littérature française</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-deco">📖</div>
+  <div class="hero-meta">
+    <span class="tag-domain">📚 Lettres, Langues & Philosophie</span>
+    <span class="tag-level">Tous niveaux</span>
+    <span class="tag-time">⏱ ~12h de lecture</span>
+  </div>
+  <h1>Littérature<br><em>française</em></h1>
+  <p class="hero-desc">Du Moyen Âge à nos jours, la littérature française est l'une des plus riches au monde. Découvrez ses grands auteurs, ses mouvements et ses chefs-d'œuvre qui ont façonné la pensée universelle.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">4</div><div class="hstat-lab">Domaines</div></div>
+    <div class="hstat"><div class="hstat-val">20</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">10</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="resume" onclick="goTo('resume',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="courants" onclick="goTo('courants',this)">🌊 Courants littéraires</a>
+    <a class="sidebar-link" data-section="concepts" onclick="goTo('concepts',this)">🧩 Concepts clés</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="ressources" onclick="goTo('ressources',this)">🔗 Ressources</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="litterature-fr/moyen-age.html">Moyen Âge et Renaissance</a>
+    <a class="sidebar-link" href="litterature-fr/classicisme.html">Classicisme et Lumières</a>
+    <a class="sidebar-link" href="litterature-fr/xixe.html">XIXe siècle</a>
+    <a class="sidebar-link" href="litterature-fr/xxe.html">XXe et XXIe siècles</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="resume">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>L'histoire de la littérature française</h2>
+          <p>Des origines à nos jours</p>
+        </div>
+      </div>
+      <p class="resume-text">La littérature française naît au Moyen Âge avec les premières œuvres en langue romane, comme la <em>Chanson de Roland</em> (vers 1100). Depuis, elle n'a cessé de se réinventer à travers les siècles, produisant des chefs-d'œuvre qui ont marqué la culture mondiale. De Rabelais à Proust, de Molière à Camus, la littérature française explore toutes les facettes de l'expérience humaine.</p>
+      <div class="highlight-box">
+        <p><strong>Pourquoi étudier la littérature française ?</strong> Elle est le reflet de l'évolution de la société, de la pensée et de la langue. Chaque courant — classicisme, romantisme, réalisme, surréalisme — répond aux questions de son époque et invente de nouvelles formes d'expression.</p>
+      </div>
+      <p class="resume-text">La France est le pays qui a produit le plus de lauréats du prix Nobel de littérature (16 au total), témoignant de la richesse et de la diversité de sa tradition littéraire. Du théâtre classique au nouveau roman, de la poésie symboliste à l'existentialisme, la littérature française a constamment repoussé les limites de l'art d'écrire.</p>
+      <p class="resume-text">Étudier la littérature française, c'est aussi comprendre l'histoire de la <strong>langue française</strong> elle-même, ses transformations, ses nuances et sa capacité à exprimer les émotions les plus subtiles et les idées les plus complexes.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Explorez les cours</h2>
+          <p>Plongez dans chaque époque en détail</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="litterature-fr/moyen-age.html" class="course-card">
+          <span class="course-card-icon">⚔️</span>
+          <h3>Moyen Âge et Renaissance</h3>
+          <p>Chanson de geste, roman courtois, Rabelais, Montaigne. Les origines de la littérature française.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="litterature-fr/classicisme.html" class="course-card">
+          <span class="course-card-icon">🏛️</span>
+          <h3>Classicisme et Lumières</h3>
+          <p>Molière, Racine, La Fontaine, Voltaire, Rousseau. Le siècle d'or et l'âge de la raison.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="litterature-fr/xixe.html" class="course-card">
+          <span class="course-card-icon">🌹</span>
+          <h3>XIXe siècle</h3>
+          <p>Romantisme, réalisme, naturalisme, symbolisme. Hugo, Baudelaire, Flaubert, Zola.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="litterature-fr/xxe.html" class="course-card">
+          <span class="course-card-icon">✨</span>
+          <h3>XXe et XXIe siècles</h3>
+          <p>Proust, existentialisme, nouveau roman, littérature francophone et contemporaine.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="courants">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Les courants littéraires</h2>
+          <p>Les grands mouvements de la littérature française</p>
+        </div>
+      </div>
+      <p class="resume-text">L'histoire littéraire française se structure autour de grands courants qui se succèdent, se répondent et parfois coexistent :</p>
+      <div class="highlight-box">
+        <p><strong>L'Humanisme (XVIe s.) :</strong> Rabelais, Montaigne, Du Bellay. Redécouverte de l'Antiquité, foi en l'homme et en la connaissance. « Je veux que la mort me trouve plantant mes choux » (Montaigne).</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Le Classicisme (XVIIe s.) :</strong> Molière, Racine, Corneille, La Fontaine, Boileau. La règle des trois unités au théâtre, l'idéal de mesure, de clarté et de raison. « Ce qui se conçoit bien s'énonce clairement. »</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Les Lumières (XVIIIe s.) :</strong> Voltaire, Rousseau, Diderot, Montesquieu. La raison contre les préjugés, l'Encyclopédie, la critique sociale et politique. Prépare intellectuellement la Révolution française.</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Le Romantisme (1800-1850) :</strong> Hugo, Lamartine, Musset, Chateaubriand. L'expression du moi, la passion, la nature, la liberté créatrice contre les règles classiques.</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Le Réalisme et le Naturalisme (1850-1890) :</strong> Flaubert, Balzac, Zola, Maupassant. Peindre le réel sans idéalisation. Le naturalisme ajoute une méthode scientifique à l'observation sociale.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="concepts">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Concepts clés</h2>
+          <p>Le vocabulaire littéraire essentiel</p>
+        </div>
+      </div>
+      <div class="concepts-grid">
+        <div class="concept-card">
+          <div class="concept-title">Genre littéraire</div>
+          <div class="concept-desc">Classification des œuvres selon leur forme et leur contenu : roman, poésie, théâtre, essai, nouvelle, conte, fable, autobiographie.</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Registre littéraire</div>
+          <div class="concept-desc">Tonalité d'un texte définie par les émotions qu'il suscite : tragique, comique, lyrique, pathétique, épique, satirique, fantastique.</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Figure de style</div>
+          <div class="concept-desc">Procédé d'expression qui s'écarte du langage ordinaire : métaphore, métonymie, hyperbole, litote, oxymore, anaphore, chiasme.</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Mouvement littéraire</div>
+          <div class="concept-desc">Ensemble d'auteurs partageant des valeurs esthétiques et philosophiques communes à une époque : classicisme, romantisme, surréalisme.</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Incipit</div>
+          <div class="concept-desc">Les premières lignes d'un roman. Moment crucial qui installe l'univers narratif, le ton et l'horizon d'attente du lecteur.</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Alexandrin</div>
+          <div class="concept-desc">Vers de douze syllabes, forme majeure de la poésie française classique. Divisé en deux hémistiches par la césure à la sixième syllabe.</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Focalisation</div>
+          <div class="concept-desc">Point de vue narratif : interne (dans la conscience d'un personnage), externe (regard extérieur), ou omnisciente (narrateur qui sait tout).</div>
+        </div>
+        <div class="concept-card">
+          <div class="concept-title">Vraisemblance</div>
+          <div class="concept-desc">Principe classique selon lequel l'œuvre doit paraître crédible au spectateur. Fondement de la dramaturgie de Racine et de Boileau.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div class="section-info">
+          <h2>Quiz interactif</h2>
+          <p>10 questions pour tester vos connaissances</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">Quiz — Littérature française</span>
+          <span class="quiz-score">Score : <span id="quizScore">0</span>/10</span>
+        </div>
+        <div class="quiz-body">
+          <div class="question-block active" id="q0">
+            <div class="q-num">Question 1 / 10</div>
+            <div class="q-text">Quel est le plus ancien texte littéraire français connu ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(0,0)">Le Roman de la Rose</div>
+              <div class="option" onclick="selectOption(0,1)">La Chanson de Roland</div>
+              <div class="option" onclick="selectOption(0,2)">Les Serments de Strasbourg</div>
+              <div class="option" onclick="selectOption(0,3)">Tristan et Iseut</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q1">
+            <div class="q-num">Question 2 / 10</div>
+            <div class="q-text">Quel auteur a écrit les Essais, œuvre fondatrice de l'humanisme ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(1,0)">Rabelais</div>
+              <div class="option" onclick="selectOption(1,1)">Du Bellay</div>
+              <div class="option" onclick="selectOption(1,2)">Ronsard</div>
+              <div class="option" onclick="selectOption(1,3)">Montaigne</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q2">
+            <div class="q-num">Question 3 / 10</div>
+            <div class="q-text">Quelle est la règle fondamentale du théâtre classique ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(2,0)">La règle des trois unités</div>
+              <div class="option" onclick="selectOption(2,1)">La règle du vraisemblable</div>
+              <div class="option" onclick="selectOption(2,2)">La règle de bienséance</div>
+              <div class="option" onclick="selectOption(2,3)">La règle de l'alexandrin</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q3">
+            <div class="q-num">Question 4 / 10</div>
+            <div class="q-text">Qui a écrit « Les Fleurs du mal » ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(3,0)">Victor Hugo</div>
+              <div class="option" onclick="selectOption(3,1)">Arthur Rimbaud</div>
+              <div class="option" onclick="selectOption(3,2)">Charles Baudelaire</div>
+              <div class="option" onclick="selectOption(3,3)">Paul Verlaine</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q4">
+            <div class="q-num">Question 5 / 10</div>
+            <div class="q-text">Le naturalisme se distingue du réalisme par...</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(4,0)">Un style plus poétique</div>
+              <div class="option" onclick="selectOption(4,1)">Une approche scientifique et expérimentale</div>
+              <div class="option" onclick="selectOption(4,2)">Un refus du réel</div>
+              <div class="option" onclick="selectOption(4,3)">Une vision optimiste</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q5">
+            <div class="q-num">Question 6 / 10</div>
+            <div class="q-text">Quel philosophe des Lumières a écrit « Candide » ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(5,0)">Rousseau</div>
+              <div class="option" onclick="selectOption(5,1)">Diderot</div>
+              <div class="option" onclick="selectOption(5,2)">Voltaire</div>
+              <div class="option" onclick="selectOption(5,3)">Montesquieu</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q6">
+            <div class="q-num">Question 7 / 10</div>
+            <div class="q-text">Quel roman de Proust commence par « Longtemps, je me suis couché de bonne heure » ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(6,0)">Du côté de chez Swann</div>
+              <div class="option" onclick="selectOption(6,1)">Le Temps retrouvé</div>
+              <div class="option" onclick="selectOption(6,2)">À l'ombre des jeunes filles en fleurs</div>
+              <div class="option" onclick="selectOption(6,3)">La Prisonnière</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q7">
+            <div class="q-num">Question 8 / 10</div>
+            <div class="q-text">Quel mouvement Victor Hugo a-t-il incarné ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(7,0)">Le classicisme</div>
+              <div class="option" onclick="selectOption(7,1)">Le naturalisme</div>
+              <div class="option" onclick="selectOption(7,2)">Le romantisme</div>
+              <div class="option" onclick="selectOption(7,3)">Le symbolisme</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q8">
+            <div class="q-num">Question 9 / 10</div>
+            <div class="q-text">Qu'est-ce qu'un alexandrin ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(8,0)">Un vers de 10 syllabes</div>
+              <div class="option" onclick="selectOption(8,1)">Un vers de 8 syllabes</div>
+              <div class="option" onclick="selectOption(8,2)">Un vers de 12 syllabes</div>
+              <div class="option" onclick="selectOption(8,3)">Un vers libre</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q9">
+            <div class="q-num">Question 10 / 10</div>
+            <div class="q-text">Quel auteur a théorisé le « roman expérimental » ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(9,0)">Gustave Flaubert</div>
+              <div class="option" onclick="selectOption(9,1)">Émile Zola</div>
+              <div class="option" onclick="selectOption(9,2)">Honoré de Balzac</div>
+              <div class="option" onclick="selectOption(9,3)">Stendhal</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+        </div>
+        <div class="quiz-nav">
+          <div class="q-dots">
+            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div>
+            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
+            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
+            <div class="q-dot"></div>
+          </div>
+          <div style="display:flex;gap:.8rem">
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+          </div>
+        </div>
+        <div class="quiz-result">
+          <div class="result-score-big" id="finalScore"></div>
+          <div class="result-msg" id="finalMsg"></div>
+          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="ressources">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <div class="section-info">
+          <h2>Ressources externes</h2>
+          <p>Les meilleures sources pour approfondir</p>
+        </div>
+      </div>
+      <div class="resources-grid">
+        <a class="resource-card" href="https://www.youtube.com/@Lettresenlumiere" target="_blank">
+          <span class="resource-icon">▶️</span>
+          <div class="resource-info">
+            <div class="resource-name">Lettres en lumière</div>
+            <div class="resource-desc">Analyses littéraires claires et passionnantes pour le lycée et au-delà. Commentaires composés et dissertations.</div>
+            <span class="resource-type type-video">YouTube</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.biblionumerique.tv5monde.com/" target="_blank">
+          <span class="resource-icon">📚</span>
+          <div class="resource-info">
+            <div class="resource-name">Bibliothèque numérique TV5</div>
+            <div class="resource-desc">Des centaines d'œuvres classiques françaises en accès libre. Romans, poésie, théâtre.</div>
+            <span class="resource-type type-doc">Bibliothèque</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://gallica.bnf.fr/" target="_blank">
+          <span class="resource-icon">🏛️</span>
+          <div class="resource-info">
+            <div class="resource-name">Gallica — BnF</div>
+            <div class="resource-desc">La bibliothèque numérique de la BnF. Manuscrits originaux, éditions rares, textes fondateurs de la littérature française.</div>
+            <span class="resource-type type-doc">Archives</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.franceculture.fr/litterature" target="_blank">
+          <span class="resource-icon">🎙️</span>
+          <div class="resource-info">
+            <div class="resource-name">France Culture — Littérature</div>
+            <div class="resource-desc">Émissions, podcasts et analyses sur les grands auteurs et les œuvres classiques et contemporaines.</div>
+            <span class="resource-type type-video">Podcast</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://fr.wikipedia.org/wiki/Litt%C3%A9rature_fran%C3%A7aise" target="_blank">
+          <span class="resource-icon">🌐</span>
+          <div class="resource-info">
+            <div class="resource-name">Wikipedia — Littérature française</div>
+            <div class="resource-desc">Vue d'ensemble de l'histoire littéraire française avec liens vers les auteurs et les mouvements.</div>
+            <span class="resource-type type-wiki">Wikipedia</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.coursera.org/courses?query=french+literature" target="_blank">
+          <span class="resource-icon">🎓</span>
+          <div class="resource-info">
+            <div class="resource-name">Coursera — Littérature</div>
+            <div class="resource-desc">Cours en ligne de grandes universités sur la littérature française, du Moyen Âge au XXe siècle.</div>
+            <span class="resource-type type-course">Cours en ligne</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel en une page — téléchargeable</p>
+        </div>
+      </div>
+      <div class="memo-preview">
+        <div class="memo-top">
+          <h3>📋 Littérature française — Fiche mémo</h3>
+          <p>Les courants, auteurs et œuvres essentiels</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Moyen Âge & Renaissance</div>
+            <div class="memo-item">Chanson de Roland — épopée (v. 1100)</div>
+            <div class="memo-item">Chrétien de Troyes — roman courtois</div>
+            <div class="memo-item">Rabelais — Gargantua (1534)</div>
+            <div class="memo-item">Montaigne — Les Essais (1580)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Classicisme & Lumières</div>
+            <div class="memo-item">Molière — Le Misanthrope, Tartuffe</div>
+            <div class="memo-item">Racine — Phèdre, Andromaque</div>
+            <div class="memo-item">La Fontaine — Fables (1668-1694)</div>
+            <div class="memo-item">Voltaire — Candide (1759)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">XIXe siècle</div>
+            <div class="memo-item">Hugo — Les Misérables, Hernani</div>
+            <div class="memo-item">Baudelaire — Les Fleurs du mal (1857)</div>
+            <div class="memo-item">Flaubert — Madame Bovary (1857)</div>
+            <div class="memo-item">Zola — Les Rougon-Macquart</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">XXe-XXIe siècles</div>
+            <div class="memo-item">Proust — À la recherche du temps perdu</div>
+            <div class="memo-item">Camus — L'Étranger, La Peste</div>
+            <div class="memo-item">Sartre — La Nausée, Huis clos</div>
+            <div class="memo-item">Modiano — Rue des boutiques obscures</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML/PDF)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+const TOTAL=10;
+const questions = [
+  { q:"Quel est le plus ancien texte littéraire français connu ?", opts:["Le Roman de la Rose","La Chanson de Roland","Les Serments de Strasbourg","Tristan et Iseut"], ans:2, expl:"Les Serments de Strasbourg (842) sont le plus ancien texte écrit en langue romane (proto-français). La Chanson de Roland (v. 1100) est la plus ancienne œuvre littéraire majeure." },
+  { q:"Quel auteur a écrit les Essais ?", opts:["Rabelais","Du Bellay","Ronsard","Montaigne"], ans:3, expl:"Michel de Montaigne (1533-1592) a inventé le genre de l'essai avec ses Essais, œuvre introspective fondatrice de l'humanisme français." },
+  { q:"Quelle est la règle fondamentale du théâtre classique ?", opts:["La règle des trois unités","La règle du vraisemblable","La règle de bienséance","La règle de l'alexandrin"], ans:0, expl:"La règle des trois unités (temps, lieu, action) impose qu'une pièce se déroule en un jour, un lieu, avec une seule intrigue. Théorisée par Boileau dans l'Art poétique (1674)." },
+  { q:"Qui a écrit Les Fleurs du mal ?", opts:["Victor Hugo","Arthur Rimbaud","Charles Baudelaire","Paul Verlaine"], ans:2, expl:"Charles Baudelaire publie Les Fleurs du mal en 1857. Ce recueil, condamné pour outrage aux bonnes mœurs, inaugure la poésie moderne et le mouvement symboliste." },
+  { q:"Le naturalisme se distingue du réalisme par...", opts:["Un style plus poétique","Une approche scientifique et expérimentale","Un refus du réel","Une vision optimiste"], ans:1, expl:"Le naturalisme (Zola) ajoute au réalisme une dimension scientifique : l'écrivain observe la société comme un savant, appliquant les méthodes des sciences naturelles à l'étude des comportements humains." },
+  { q:"Quel philosophe des Lumières a écrit Candide ?", opts:["Rousseau","Diderot","Voltaire","Montesquieu"], ans:2, expl:"Voltaire publie Candide en 1759, conte philosophique satirique qui critique l'optimisme de Leibniz et dénonce les injustices du monde." },
+  { q:"Quel roman de Proust commence par cette célèbre phrase sur le coucher ?", opts:["Du côté de chez Swann","Le Temps retrouvé","À l'ombre des jeunes filles en fleurs","La Prisonnière"], ans:0, expl:"Du côté de chez Swann (1913) est le premier volume d'À la recherche du temps perdu, œuvre monumentale en sept tomes explorant la mémoire et le temps." },
+  { q:"Quel mouvement Victor Hugo a-t-il incarné ?", opts:["Le classicisme","Le naturalisme","Le romantisme","Le symbolisme"], ans:2, expl:"Victor Hugo est la figure majeure du romantisme français. Sa préface de Cromwell (1827) et la bataille d'Hernani (1830) marquent le triomphe du mouvement." },
+  { q:"Qu'est-ce qu'un alexandrin ?", opts:["Un vers de 10 syllabes","Un vers de 8 syllabes","Un vers de 12 syllabes","Un vers libre"], ans:2, expl:"L'alexandrin est un vers de 12 syllabes, divisé en deux hémistiches de 6 syllabes par la césure. Il domine la poésie française classique." },
+  { q:"Quel auteur a théorisé le roman expérimental ?", opts:["Gustave Flaubert","Émile Zola","Honoré de Balzac","Stendhal"], ans:1, expl:"Émile Zola théorise le naturalisme dans Le Roman expérimental (1880), appliquant la méthode scientifique de Claude Bernard à la littérature." }
+];
+
+let current=0, score=0, answered=new Array(TOTAL).fill(null);
+
+function renderQuestion(){
+  document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));
+  document.querySelectorAll('.q-dot').forEach((d,i)=>{
+    d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');
+  });
+  document.getElementById('btnPrev').disabled=current===0;
+  document.getElementById('btnNext').textContent=current===TOTAL-1?'Voir résultats':'Suivant →';
+}
+
+function selectOption(qi,oi){
+  if(answered[qi]!==null)return;
+  answered[qi]=oi;
+  const block=document.querySelectorAll('.question-block')[qi];
+  block.querySelectorAll('.option').forEach((o,i)=>{
+    o.classList.add('disabled');
+    if(i===questions[qi].ans)o.classList.add('correct');
+    else if(i===oi)o.classList.add('wrong');
+  });
+  const fb=block.querySelector('.q-feedback');
+  fb.textContent=questions[qi].expl;
+  fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');
+  if(oi===questions[qi].ans)score++;
+  document.getElementById('quizScore').textContent=score;
+  document.querySelectorAll('.q-dot')[qi].classList.add('done');
+}
+
+function nextQuestion(){if(current<TOTAL-1){current++;renderQuestion();}else showResult();}
+function prevQuestion(){if(current>0){current--;renderQuestion();}}
+
+function showResult(){
+  document.querySelector('.quiz-body').style.display='none';
+  document.querySelector('.quiz-nav').style.display='none';
+  const r=document.querySelector('.quiz-result');
+  r.style.display='block';
+  document.getElementById('finalScore').textContent=score+'/'+TOTAL;
+  const msgs=["Continue d'apprendre !",'Pas mal !','Bien !','Très bien !','Excellent !'];
+  document.getElementById('finalMsg').textContent=msgs[score<=3?0:score<=5?1:score<=7?2:score<=9?3:4];
+}
+
+function restartQuiz(){
+  current=0;score=0;answered.fill(null);
+  document.querySelector('.quiz-body').style.display='block';
+  document.querySelector('.quiz-nav').style.display='flex';
+  document.querySelector('.quiz-result').style.display='none';
+  document.querySelectorAll('.option').forEach(o=>o.className='option');
+  document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');
+  document.getElementById('quizScore').textContent=0;
+  renderQuestion();
+}
+
+function goTo(id,el){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));
+  if(el)el.classList.add('active');
+}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+
+const sections=['resume','courants','concepts','quiz','ressources','memo'];
+window.addEventListener('scroll',()=>{
+  let vis=0;
+  sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});
+  document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';
+});
+
+function downloadMemo(){
+  const w=window.open('','_blank','width=900,height=700');
+  w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Littérature française</title>
+  <style>
+    body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}
+    h1{font-size:1.8rem;color:#9b7ae8;border-bottom:3px solid #9b7ae8;padding-bottom:.5rem;margin-bottom:1.5rem}
+    h2{font-size:.75rem;color:#9b7ae8;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}
+    ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}
+    .box{border:1px solid #e0d6f7;padding:1rem;border-radius:4px;background:#faf8ff}
+    .footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}
+    @media print{.no-print{display:none}}
+  </style></head><body>
+  <h1>📖 Fiche mémo — Littérature française</h1>
+  <div class="grid">
+    <div class="box"><h2>Moyen Âge & Renaissance</h2><ul>
+      <li><strong>Chanson de Roland</strong> — épopée fondatrice (v. 1100)</li>
+      <li><strong>Chrétien de Troyes</strong> — roman courtois (Yvain, Lancelot)</li>
+      <li><strong>Rabelais</strong> — Gargantua, Pantagruel (humanisme)</li>
+      <li><strong>Montaigne</strong> — Les Essais (introspection, doute)</li>
+    </ul></div>
+    <div class="box"><h2>Classicisme & Lumières</h2><ul>
+      <li><strong>Molière</strong> — Tartuffe, Le Misanthrope (comédie)</li>
+      <li><strong>Racine</strong> — Phèdre, Andromaque (tragédie)</li>
+      <li><strong>La Fontaine</strong> — Fables (morale, satire)</li>
+      <li><strong>Voltaire</strong> — Candide (conte philosophique)</li>
+    </ul></div>
+    <div class="box"><h2>XIXe siècle</h2><ul>
+      <li><strong>Hugo</strong> — Les Misérables, Hernani (romantisme)</li>
+      <li><strong>Baudelaire</strong> — Les Fleurs du mal (symbolisme)</li>
+      <li><strong>Flaubert</strong> — Madame Bovary (réalisme)</li>
+      <li><strong>Zola</strong> — Les Rougon-Macquart (naturalisme)</li>
+    </ul></div>
+    <div class="box"><h2>XXe-XXIe siècles</h2><ul>
+      <li><strong>Proust</strong> — À la recherche du temps perdu</li>
+      <li><strong>Camus</strong> — L'Étranger, La Peste</li>
+      <li><strong>Sartre</strong> — La Nausée (existentialisme)</li>
+      <li><strong>Modiano</strong> — Nobel 2014 (mémoire, identité)</li>
+    </ul></div>
+  </div>
+  <div class="footer">Curiosita — Fiche mémo Littérature française — ${new Date().toLocaleDateString('fr-FR')}</div>
+  <button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#9b7ae8;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">Imprimer / PDF</button>
+</body></html>`);
+  w.document.close();
+}
+
+renderQuestion();
+</script>
+<script src="mobile.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programmation orientée objet — Python — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #4fc3f7;
+  --accent2: #81d4fa;
+  --accent-dim: rgba(79,195,247,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../python-page.html">Python</a> › <span>POO</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">💻 Python</span>
+    <span class="tag-level">Intermédiaire</span>
+    <span class="tag-time">⏱ ~4h de lecture</span>
+  </div>
+  <h1><em>Programmation orientée objet</em></h1>
+  <p class="hero-desc">Classes, héritage, encapsulation, polymorphisme et méthodes spéciales — modéliser le monde réel avec des objets Python.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../python-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Python</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="bases.html">Les bases</a>
+    <a class="sidebar-link" href="structures.html">Structures de données</a>
+    <a class="sidebar-link active" href="#">POO</a>
+    <a class="sidebar-link" href="avance.html">Avancé</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Modéliser avec des objets</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">La <strong>programmation orientée objet</strong> (POO) est un paradigme qui organise le code autour d'<strong>objets</strong> — des entités qui combinent données (attributs) et comportements (méthodes). Plutôt que de penser en termes de fonctions et de variables globales, on modélise le problème avec des objets qui interagissent entre eux.</p>
+      <div class="highlight-box">
+        <p><strong>Pourquoi la POO ?</strong> Elle permet de créer du code modulaire, réutilisable et maintenable. Un objet « Voiture » contient ses données (couleur, vitesse) et ses actions (accélérer, freiner). Tout le code lié à la voiture est regroupé au même endroit.</p>
+      </div>
+      <p class="resume-text">Python est un langage <strong>multi-paradigme</strong> : il supporte aussi bien la programmation procédurale que la POO. En Python, <em>tout</em> est un objet — les entiers, les chaînes, les fonctions, les modules. La POO n'est pas une obligation, mais elle devient essentielle pour les projets de taille moyenne et grande.</p>
+      <p class="resume-text">Ce chapitre couvre les quatre piliers de la POO : les <strong>classes</strong>, l'<strong>héritage</strong>, l'<strong>encapsulation</strong> et le <strong>polymorphisme</strong>, ainsi que les méthodes spéciales qui donnent toute leur puissance aux objets Python.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours</h2>
+          <p>Progressez étape par étape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="poo/classes.html" class="course-card">
+          <span class="course-card-icon">🏗️</span>
+          <h3>Classes et objets</h3>
+          <p>Créer des classes, instancier des objets, attributs d'instance et de classe, le constructeur __init__.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="poo/heritage.html" class="course-card">
+          <span class="course-card-icon">🌳</span>
+          <h3>Héritage</h3>
+          <p>Héritage simple et multiple, super(), surcharge de méthodes et hiérarchie de classes.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="poo/encapsulation.html" class="course-card">
+          <span class="course-card-icon">🔒</span>
+          <h3>Encapsulation</h3>
+          <p>Attributs publics, protégés et privés, propriétés avec @property, getters et setters.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="poo/polymorphisme.html" class="course-card">
+          <span class="course-card-icon">🎭</span>
+          <h3>Polymorphisme</h3>
+          <p>Duck typing, surcharge d'opérateurs, classes abstraites et interfaces en Python.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="poo/methodes-speciales.html" class="course-card">
+          <span class="course-card-icon">✨</span>
+          <h3>Méthodes spéciales</h3>
+          <p>__str__, __repr__, __len__, __eq__, __lt__, __add__ et le protocole d'itération.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel de la POO en un coup d'œil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🐍 POO Python — Fiche mémo</h3>
+          <p>Curiosita · Classes, héritage et méthodes spéciales</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Classes</div>
+            <div class="memo-item"><span class="mf">class Nom:</span> Définir</div>
+            <div class="memo-item"><span class="mf">__init__(self)</span> Constructeur</div>
+            <div class="memo-item"><span class="mf">self.attr</span> Attribut d'instance</div>
+            <div class="memo-item"><span class="mf">Nom()</span> Instancier</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Héritage</div>
+            <div class="memo-item"><span class="mf">class B(A):</span> Hériter de A</div>
+            <div class="memo-item"><span class="mf">super().__init__()</span> Appel parent</div>
+            <div class="memo-item"><span class="mf">isinstance()</span> Test de type</div>
+            <div class="memo-item"><span class="mf">issubclass()</span> Test héritage</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Encapsulation</div>
+            <div class="memo-item"><span class="mf">_attr</span> Protégé (convention)</div>
+            <div class="memo-item"><span class="mf">__attr</span> Privé (name mangling)</div>
+            <div class="memo-item"><span class="mf">@property</span> Getter</div>
+            <div class="memo-item"><span class="mf">@x.setter</span> Setter</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Méthodes spéciales</div>
+            <div class="memo-item"><span class="mf">__str__</span> Affichage print()</div>
+            <div class="memo-item"><span class="mf">__repr__</span> Représentation</div>
+            <div class="memo-item"><span class="mf">__len__</span> len(obj)</div>
+            <div class="memo-item"><span class="mf">__eq__</span> Égalité ==</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>POO Python — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#0c0c0e;color:#f0ede8;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(240,237,232,0.08);border-radius:8px;overflow:hidden}.memo-top{background:#4fc3f7;padding:1.5rem;color:#0c0c0e}.memo-top h3{font-size:1.4rem;font-weight:700;margin-bottom:.3rem}.memo-top p{font-size:.78rem;opacity:.8}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(240,237,232,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(240,237,232,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#4fc3f7;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#7a7870;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:"JetBrains Mono",monospace;font-size:.75rem;color:#f0ede8;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '
+</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'poo-python-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

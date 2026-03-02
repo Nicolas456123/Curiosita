@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthropologie physique — Anthropologie — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #7ae88a;
+  --accent2: #a5d6a7;
+  --accent-dim: rgba(122,232,138,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../anthropologie-page.html">Anthropologie</a> › <span>Anthropologie physique</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche memo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🏺 Anthropologie</span>
+    <span class="tag-level">Debutant → Avance</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Anthropologie physique</em></h1>
+  <p class="hero-desc">L'evolution humaine, la paleontologie et la diversite biologique de notre espece : retracer 7 millions d'annees d'histoire.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../anthropologie-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Anthropologie</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Presentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche memo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="culturelle.html">Anthropologie culturelle</a>
+    <a class="sidebar-link active" href="#">Anthropologie physique</a>
+    <a class="sidebar-link" href="ethnologie.html">Ethnologie</a>
+    <a class="sidebar-link" href="archeologie.html">Archeologie</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que l'anthropologie physique ?</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">L'anthropologie physique (ou anthropologie biologique) etudie l'<strong>etre humain en tant qu'organisme biologique</strong> : son evolution, sa diversite genetique, son anatomie comparee et ses adaptations aux differents environnements. Elle cherche a comprendre comment notre espece, <em>Homo sapiens</em>, a emerge au terme d'une longue histoire evolutive.</p>
+      <div class="highlight-box">
+        <p><strong>L'idee fondamentale :</strong> l'humanite actuelle est le resultat de 7 millions d'annees d'evolution depuis la separation avec les grands singes. La lignee humaine a connu de nombreuses especes — <em>Australopithecus</em>, <em>Homo habilis</em>, <em>Homo erectus</em>, <em>Homo neanderthalensis</em> — avant que <em>Homo sapiens</em> n'emerge en Afrique il y a environ 300 000 ans et ne colonise toute la planete.</p>
+      </div>
+      <p class="resume-text">La decouverte de <strong>Lucy</strong> (Australopithecus afarensis, 3,2 millions d'annees) en Ethiopie en 1974 et de <strong>Toumai</strong> (Sahelanthropus tchadensis, 7 millions d'annees) au Tchad en 2001 ont revolucionne notre comprehension des origines humaines. La paleogenetique, avec le sequencage de l'ADN de Neandertal et de Denisova, revele que nos ancetres se sont metisses avec d'autres especes humaines.</p>
+      <p class="resume-text">Ce domaine couvre les hominides fossiles et la paleontologie humaine, la genetique des populations et la diversite humaine, l'anthropometrie et la primatologie, ainsi que les adaptations biologiques aux environnements extremes.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours</h2>
+          <p>Progressez etape par etape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="physique/hominides.html" class="course-card">
+          <span class="course-card-icon">🦴</span>
+          <h3>Hominides fossiles</h3>
+          <p>Australopitheques, Homo habilis, Homo erectus, Neandertal : l'arbre genealogique de l'humanite.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="physique/sapiens.html" class="course-card">
+          <span class="course-card-icon">🧠</span>
+          <h3>Homo sapiens</h3>
+          <p>Emergence en Afrique, migrations Out of Africa, art parietal et revolution cognitive.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="physique/genetique.html" class="course-card">
+          <span class="course-card-icon">🧬</span>
+          <h3>Genetique des populations</h3>
+          <p>ADN mitochondrial, chromosome Y, derive genetique, migrations et metissages anciens.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="physique/primatologie.html" class="course-card">
+          <span class="course-card-icon">🐒</span>
+          <h3>Primatologie</h3>
+          <p>Grands singes, comportement social, culture animale et comparaison avec l'etre humain.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="physique/adaptations.html" class="course-card">
+          <span class="course-card-icon">🌍</span>
+          <h3>Adaptations biologiques</h3>
+          <p>Pigmentation, altitude, lactase, metabolisme : comment l'humain s'adapte aux environnements extremes.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche memo</h2>
+          <p>L'essentiel de l'anthropologie physique</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🦴 Anthropologie physique — Fiche memo</h3>
+          <p>Curiosita</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Chronologie</div>
+            <div class="memo-item"><span class="mf">7 Ma →</span> Toumai (Sahelanthropus)</div>
+            <div class="memo-item"><span class="mf">3,2 Ma →</span> Lucy (Australopithecus)</div>
+            <div class="memo-item"><span class="mf">1,8 Ma →</span> Homo erectus, sortie d'Afrique</div>
+            <div class="memo-item"><span class="mf">300 ka →</span> Homo sapiens (Afrique)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Especes humaines</div>
+            <div class="memo-item"><span class="mf">Habilis →</span> premiers outils (2,5 Ma)</div>
+            <div class="memo-item"><span class="mf">Erectus →</span> feu, biface, migrations</div>
+            <div class="memo-item"><span class="mf">Neandertal →</span> Europe, sepultures, art</div>
+            <div class="memo-item"><span class="mf">Denisova →</span> Asie, ADN dans sapiens</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Genetique</div>
+            <div class="memo-item"><span class="mf">ADNmt →</span> heredite maternelle, Eve mitochondriale</div>
+            <div class="memo-item"><span class="mf">Chr. Y →</span> heredite paternelle, Adam Y</div>
+            <div class="memo-item"><span class="mf">1-4 % →</span> ADN neandertalien chez les non-Africains</div>
+            <div class="memo-item"><span class="mf">Out of Africa →</span> ~70 000 ans, expansion mondiale</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Adaptations</div>
+            <div class="memo-item"><span class="mf">Melanine →</span> protection UV, gradient latitudinal</div>
+            <div class="memo-item"><span class="mf">Altitude →</span> gene EPAS1 (Tibet, Andes)</div>
+            <div class="memo-item"><span class="mf">Lactase →</span> persistance chez les pasteurs</div>
+            <div class="memo-item"><span class="mf">Bipedisme →</span> acquisition il y a ~6 Ma</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Telecharger la fiche memo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Anthropologie physique \u2014 Fiche memo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#7ae88a;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#7ae88a;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '\n</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'anthropologie-physique-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

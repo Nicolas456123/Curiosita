@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geologie — Sciences de la Terre — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root { --accent: #7ae8d8; --accent2: #a0f5ee; --accent-dim: rgba(122,232,216,0.08); }
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../terre-page.html">Sciences de la Terre</a> &rsaquo; <span>Geologie</span></div>
+  <button class="btn-memo" onclick="downloadMemo()">&#8595; Fiche memo</button>
+</nav>
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">&#129704; Sciences de la Terre</span>
+    <span class="tag-level">Debutant &rarr; Avance</span>
+    <span class="tag-time">&#9201; ~5h de lecture</span>
+  </div>
+  <h1><em>Geologie</em></h1>
+  <p class="hero-desc">Des mineraux aux plaques tectoniques, la geologie etudie la composition, la structure et l'histoire de la Terre solide.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">25</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../terre-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">&larr; Sciences de la Terre</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">&#128214; Presentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">&#128218; Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">&#128203; Fiche memo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link active" href="#">Geologie</a>
+    <a class="sidebar-link" href="meteorologie.html">Meteorologie</a>
+    <a class="sidebar-link" href="oceanographie.html">Oceanographie</a>
+    <a class="sidebar-link" href="volcanisme.html">Volcanisme et seismes</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="presentation">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Qu'est-ce que la geologie ?</h2><p>La science des roches et de la Terre solide</p></div></div>
+      <p class="resume-text">La geologie (du grec <em>ge</em> = terre, <em>logos</em> = science) etudie la composition, la structure et l'evolution de la Terre. Elle s'interesse aux mineraux et aux roches, a la tectonique des plaques, aux fossiles, a l'erosion et aux ressources du sous-sol. Le geologue reconstitue l'histoire de la planete sur 4,6 milliards d'annees.</p>
+      <div class="highlight-box">
+        <p><strong>Principe fondateur :</strong> l'actualisme (James Hutton, 1788) affirme que les processus geologiques observables aujourd'hui sont les memes que ceux qui ont faconne la Terre dans le passe. « Le present est la cle du passe. »</p>
+      </div>
+      <p class="resume-text">La geologie moderne integre la geophysique, la geochimie, la paleontologie et la teledetection pour comprendre les dynamiques profondes de notre planete et localiser les ressources naturelles (minerais, hydrocarbures, eau souterraine).</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Les cours de geologie</h2><p>Progressez etape par etape</p></div></div>
+      <div class="courses-grid">
+        <a href="geologie/mineraux.html" class="course-card"><span class="course-card-icon">&#128142;</span><h3>Mineraux et roches</h3><p>Classification des mineraux, cycle des roches, proprietes physiques et chimiques.</p><span class="course-card-link">Voir le cours &rarr;</span></a>
+        <a href="geologie/tectonique.html" class="course-card"><span class="course-card-icon">&#127758;</span><h3>Tectonique des plaques</h3><p>Plaques lithospheriques, divergence, convergence, subduction et collision.</p><span class="course-card-link">Voir le cours &rarr;</span></a>
+        <a href="geologie/fossiles.html" class="course-card"><span class="course-card-icon">&#129428;</span><h3>Fossiles et stratigraphie</h3><p>Fossilisation, datation relative et absolue, echelle des temps geologiques.</p><span class="course-card-link">Voir le cours &rarr;</span></a>
+        <a href="geologie/erosion.html" class="course-card"><span class="course-card-icon">&#127786;&#65039;</span><h3>Erosion et sedimentation</h3><p>Agents d'erosion, transport et depot des sediments, modelage des paysages.</p><span class="course-card-link">Voir le cours &rarr;</span></a>
+        <a href="geologie/ressources.html" class="course-card"><span class="course-card-icon">&#9935;&#65039;</span><h3>Ressources geologiques</h3><p>Minerais, hydrocarbures, eau souterraine, geothermie et exploitation durable.</p><span class="course-card-link">Voir le cours &rarr;</span></a>
+      </div>
+    </section>
+    <section class="content-section" id="memo">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Fiche memo</h2><p>L'essentiel de la geologie en un coup d'oeil</p></div></div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top"><h3>&#129704; Geologie — Fiche memo</h3><p>Curiosita &middot; Mineraux, roches et tectonique</p></div>
+        <div class="memo-grid">
+          <div class="memo-section"><div class="memo-section-title">Types de roches</div><div class="memo-item"><span class="mf">Ignees &rarr;</span> cristallisation du magma</div><div class="memo-item"><span class="mf">Sedimentaires &rarr;</span> depot et compaction</div><div class="memo-item"><span class="mf">Metamorphiques &rarr;</span> pression + temperature</div><div class="memo-item"><span class="mf">Cycle &rarr;</span> transformation perpetuelle</div></div>
+          <div class="memo-section"><div class="memo-section-title">Tectonique</div><div class="memo-item"><span class="mf">15 plaques majeures</span> en mouvement</div><div class="memo-item"><span class="mf">Dorsale &rarr;</span> divergence, nouvelle croute</div><div class="memo-item"><span class="mf">Subduction &rarr;</span> plaque plonge sous l'autre</div><div class="memo-item"><span class="mf">Collision &rarr;</span> formation de montagnes</div></div>
+          <div class="memo-section"><div class="memo-section-title">Datation</div><div class="memo-item"><span class="mf">Relative &rarr;</span> superposition des strates</div><div class="memo-item"><span class="mf">Absolue &rarr;</span> radiochronologie (C14, K-Ar)</div><div class="memo-item"><span class="mf">Fossiles stratigraphiques &rarr;</span> reperes temporels</div><div class="memo-item"><span class="mf">4,6 Ga &rarr;</span> age de la Terre</div></div>
+          <div class="memo-section"><div class="memo-section-title">Mineraux cles</div><div class="memo-item"><span class="mf">Feldspath &rarr;</span> 60% de la croute</div><div class="memo-item"><span class="mf">Quartz &rarr;</span> SiO2, tres resistant</div><div class="memo-item"><span class="mf">Olivine &rarr;</span> mineral du manteau</div><div class="memo-item"><span class="mf">Calcite &rarr;</span> CaCO3, roches calcaires</div></div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">&#8595; Telecharger la fiche memo (HTML)</button>
+      </div>
+    </section>
+  </main>
+</div>
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo(){var m=document.getElementById('memoCard').outerHTML;var w=window.open('','_blank');w.document.write('<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Geologie — Fiche memo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#7ae8d8;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#7ae8d8;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>'+m+'</body></html>');w.document.close();}
+</script>
+<script src="../mobile.js"></script>
+</body>
+</html>

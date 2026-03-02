@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Musique — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<style>
+:root {
+  --accent: #e8b07a;
+  --accent2: #f5ca9a;
+  --accent-dim: rgba(232,176,122,0.1);
+}
+.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(232,176,122,0.07) 0%, transparent 70%); }
+.hero-deco { color: rgba(232,176,122,0.04); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="arts-culture.html">Arts & Culture</a> › <span>Musique</span></div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+<div class="hero">
+  <div class="hero-deco">♪</div>
+  <div class="hero-meta">
+    <span class="tag-domain">🎨 Arts & Culture</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~6h de lecture</span>
+  </div>
+  <h1>La langue<br><em>universelle.</em></h1>
+  <p class="hero-desc">Solfège, harmonie, rythme, formes musicales — comprendre la théorie musicale permet d'écouter différemment, de jouer avec intention et de créer. Du jazz au classique, la musique obéit à des lois fascinantes qu'on peut apprendre.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">4</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">6</div><div class="hstat-lab">Quiz</div></div>
+    <div class="hstat"><div class="hstat-val">6</div><div class="hstat-lab">Ressources</div></div>
+  </div>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="resume" onclick="goTo('resume',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="theorie" onclick="goTo('theorie',this)">🎼 Théorie musicale</a>
+    <a class="sidebar-link" data-section="concepts" onclick="goTo('concepts',this)">🧩 Concepts clés</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="ressources" onclick="goTo('ressources',this)">🔗 Ressources</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Cours</p>
+    <a class="sidebar-link" href="musique/theorie.html">Théorie musicale</a>
+    <a class="sidebar-link" href="musique/histoire.html">Histoire de la musique</a>
+    <a class="sidebar-link" href="musique/instruments.html">Instruments</a>
+    <a class="sidebar-link" href="musique/production.html">Production</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="resume">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info"><h2>Pourquoi apprendre la théorie musicale ?</h2><p>Le langage de la musique</p></div>
+      </div>
+      <p class="resume-text">La musique est à la fois un art, une science et un langage. Elle repose sur des principes précis — hauteur des sons, durée, timbre, intensité — qui se combinent selon des règles que l'on peut apprendre et maîtriser. La théorie musicale n'est pas l'ennemi de la créativité : c'est son <strong>grammaire</strong>.</p>
+      <div class="highlight-box">
+        <p><strong>Lire la musique, c'est comme lire du texte.</strong> Une partition est un système de notation qui encode précisément chaque son à jouer. Le solfège permet de "déchiffrer" cette notation. Une fois acquis, ce code universel permet de jouer toute la musique écrite de Bach à Bill Evans.</p>
+      </div>
+      <p class="resume-text">La gamme occidentale divise l'octave en 12 demi-tons (gamme chromatique). Sur ces 12 sons, on sélectionne 7 notes pour former une <strong>gamme diatonique</strong> (ex : Do Ré Mi Fa Sol La Si). Ces 7 notes, selon leur enchaînement (tons et demi-tons), définissent un mode : le mode majeur (joyeux) ou mineur (mélancolique).</p>
+      <p class="resume-text">Les <strong>accords</strong> sont des empilements de notes jouées simultanément. Un accord de trois notes s'appelle un accord de trois sons (triade). L'harmonie étudie comment les accords s'enchaînent — la progression harmonique est le cœur de toute composition musicale, du blues simple aux fugues de Bach.</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Explorez les cours</h2>
+          <p>Plongez dans chaque domaine en détail</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="musique/theorie.html" class="course-card">
+          <span class="course-card-icon">🎼</span>
+          <h3>Théorie musicale</h3>
+          <p>Solfège, gammes, accords, rythme et composition.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="musique/histoire.html" class="course-card">
+          <span class="course-card-icon">📜</span>
+          <h3>Histoire de la musique</h3>
+          <p>Du Baroque au contemporain. Les grands compositeurs et courants.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="musique/instruments.html" class="course-card">
+          <span class="course-card-icon">🎹</span>
+          <h3>Instruments</h3>
+          <p>Piano, guitare, voix et orchestre.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="musique/production.html" class="course-card">
+          <span class="course-card-icon">🎚️</span>
+          <h3>Production</h3>
+          <p>Enregistrement, mixage, mastering et MAO.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+    <section class="content-section" id="theorie">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info"><h2>Les bases de la théorie musicale</h2><p>Notes, rythmes, gammes et accords</p></div>
+      </div>
+      <div class="highlight-box"><p><strong>Le solfège :</strong> En France, on nomme les notes Do-Ré-Mi-Fa-Sol-La-Si. En notation anglosaxonne : C-D-E-F-G-A-B. Les notes s'écrivent sur une portée à 5 lignes, en clé de sol (aigu) ou clé de fa (basses). Dièses (♯) = +½ ton, bémols (♭) = −½ ton.</p></div>
+      <div class="highlight-box"><p><strong>Le rythme :</strong> La pulsation (tempo) est la battue régulière. Les figures de note indiquent la durée : ronde (4 temps), blanche (2), noire (1), croche (½), double croche (¼). La mesure organise les temps en groupes réguliers. 4/4 = 4 noires par mesure (le plus courant). 3/4 = valse.</p></div>
+      <div class="highlight-box"><p><strong>Gamme majeure :</strong> Suite de tons et demi-tons selon le schéma T-T-S-T-T-T-S (T=ton, S=demi-ton). Do Majeur : Do-Ré-Mi-Fa-Sol-La-Si-Do. C'est la gamme "de base" de toute la musique occidentale. Chaque gamme majeure a une relative mineure (même notes, autre point de départ).</p></div>
+      <div class="highlight-box"><p><strong>Accords :</strong> Un accord parfait majeur = fondamentale + tierce majeure (4 demi-tons) + quinte (7 demi-tons). Ex : Do-Mi-Sol = Accord de Do majeur. Accord mineur : fondamentale + tierce mineure (3 dm) + quinte. Les progressions classiques : I-IV-V-I (blues), I-V-vi-IV (pop), ii-V-I (jazz).</p></div>
+    </section>
+    <section class="content-section" id="concepts">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info"><h2>Concepts clés</h2><p>Le vocabulaire musical essentiel</p></div>
+      </div>
+      <div class="concepts-grid">
+        <div class="concept-card"><div class="concept-title">Tonalité</div><div class="concept-desc">Organisation des sons autour d'un centre gravitationnel appelé tonique. La musique "tire" vers ce centre. Ex : en Do Majeur, le Do est la tonique. Une modulation change de tonalité en cours de morceau.</div></div>
+        <div class="concept-card"><div class="concept-title">Harmonie</div><div class="concept-desc">Science des accords et de leurs enchaînements. Les fonctions harmoniques : tonique (repos), dominante (tension), sous-dominante (transition). La cadence authentique V→I crée la résolution la plus forte.</div></div>
+        <div class="concept-card"><div class="concept-title">Contrepoint</div><div class="concept-desc">Art de superposer des lignes mélodiques indépendantes et cohérentes. Bach en fut le maître absolu. Les fugues du Clavier bien tempéré combinent 2, 3 ou 4 voix simultanées selon des règles strictes.</div></div>
+        <div class="concept-card"><div class="concept-title">Timbre</div><div class="concept-desc">Couleur sonore propre à chaque instrument. Un Do joué au piano, à la flûte et au violon est à la même hauteur mais différent en timbre. Dépend des harmoniques (fréquences partielles) produites.</div></div>
+        <div class="concept-card"><div class="concept-title">Formes musicales</div><div class="concept-desc">Structure d'un morceau : forme sonate (exposition-développement-récapitulation), rondo (A-B-A-C-A), thème et variations, blues (12 mesures), couplet-refrain (chanson pop).</div></div>
+        <div class="concept-card"><div class="concept-title">Modes musicaux</div><div class="concept-desc">Les 7 modes grecs : Ionien (=Majeur), Dorien, Phrygien, Lydien, Mixolydien, Éolien (=Mineur naturel), Locrien. Chaque mode a une couleur émotionnelle distincte. Le jazz utilise souvent le Dorien et le Mixolydien.</div></div>
+      </div>
+    </section>
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div class="section-info"><h2>Quiz interactif</h2><p>6 questions pour tester vos connaissances</p></div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">Quiz — Théorie musicale</span>
+          <span class="quiz-score">Score : <span id="quizScore">0</span>/6</span>
+        </div>
+        <div class="quiz-body">
+          <div class="question-block active" id="q0">
+            <div class="q-num">Question 1 / 6</div>
+            <div class="q-text">Combien de notes différentes (demi-tons) contient une octave dans le système musical occidental ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(0,0)">7 notes</div>
+              <div class="option" onclick="selectOption(0,1)">10 notes</div>
+              <div class="option" onclick="selectOption(0,2)">12 notes</div>
+              <div class="option" onclick="selectOption(0,3)">8 notes</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q1">
+            <div class="q-num">Question 2 / 6</div>
+            <div class="q-text">Quelle figure de note dure 4 temps dans une mesure à 4/4 ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(1,0)">La noire</div>
+              <div class="option" onclick="selectOption(1,1)">La blanche</div>
+              <div class="option" onclick="selectOption(1,2)">La ronde</div>
+              <div class="option" onclick="selectOption(1,3)">La croche</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q2">
+            <div class="q-num">Question 3 / 6</div>
+            <div class="q-text">Quelles notes composent un accord de Do Majeur (triade) ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(2,0)">Do - Ré - Mi</div>
+              <div class="option" onclick="selectOption(2,1)">Do - Mi - Sol</div>
+              <div class="option" onclick="selectOption(2,2)">Do - Fa - La</div>
+              <div class="option" onclick="selectOption(2,3)">Do - Sol - Si</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q3">
+            <div class="q-num">Question 4 / 6</div>
+            <div class="q-text">Quelle progression harmonique est typique du blues classique ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(3,0)">I - V - vi - IV</div>
+              <div class="option" onclick="selectOption(3,1)">I - IV - V - I</div>
+              <div class="option" onclick="selectOption(3,2)">ii - V - I</div>
+              <div class="option" onclick="selectOption(3,3)">I - vi - II - V</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q4">
+            <div class="q-num">Question 5 / 6</div>
+            <div class="q-text">Qu'est-ce que le "contrepoint" ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(4,0)">Un outil de percussion dans l'orchestre</div>
+              <div class="option" onclick="selectOption(4,1)">L'art de superposer des lignes mélodiques indépendantes</div>
+              <div class="option" onclick="selectOption(4,2)">La technique de variation du tempo</div>
+              <div class="option" onclick="selectOption(4,3)">Un accord de 4 sons avec dissonance</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q5">
+            <div class="q-num">Question 6 / 6</div>
+            <div class="q-text">Combien de mesures comporte une grille de blues standard ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(5,0)">8 mesures</div>
+              <div class="option" onclick="selectOption(5,1)">12 mesures</div>
+              <div class="option" onclick="selectOption(5,2)">16 mesures</div>
+              <div class="option" onclick="selectOption(5,3)">32 mesures</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+        </div>
+        <div class="quiz-nav">
+          <div class="q-dots">
+            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div>
+            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
+          </div>
+          <div style="display:flex;gap:.8rem">
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+          </div>
+        </div>
+        <div class="quiz-result">
+          <div class="result-score-big" id="finalScore"></div>
+          <div class="result-msg" id="finalMsg"></div>
+          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        </div>
+      </div>
+    </section>
+    <section class="content-section" id="ressources">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <div class="section-info"><h2>Ressources externes</h2><p>Les meilleures sources pour approfondir</p></div>
+      </div>
+      <div class="resources-grid">
+        <a class="resource-card" href="https://www.musictheory.net" target="_blank">
+          <span class="resource-icon">🎼</span>
+          <div class="resource-info">
+            <div class="resource-name">musictheory.net</div>
+            <div class="resource-desc">La référence pour apprendre la théorie musicale en ligne. Leçons interactives du solfège aux accords complexes. Gratuit.</div>
+            <span class="resource-type type-course">Cours gratuit</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.youtube.com/@AdamNeely" target="_blank">
+          <span class="resource-icon">▶️</span>
+          <div class="resource-info">
+            <div class="resource-name">Adam Neely</div>
+            <div class="resource-desc">Analyse musicale de haut niveau : théorie, jazz, harmonie avancée. Des vidéos qui changent la façon d'entendre la musique. En anglais.</div>
+            <span class="resource-type type-video">YouTube</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.youtube.com/@12tone" target="_blank">
+          <span class="resource-icon">🎸</span>
+          <div class="resource-info">
+            <div class="resource-name">12tone</div>
+            <div class="resource-desc">Analyse approfondie de chansons pop, rock et jazz. Déconstruit les progressions harmoniques de Beatles à Radiohead de façon pédagogique.</div>
+            <span class="resource-type type-video">YouTube</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.coursera.org/learn/musicianship-specialization" target="_blank">
+          <span class="resource-icon">🎓</span>
+          <div class="resource-info">
+            <div class="resource-name">Coursera — Musicianship</div>
+            <div class="resource-desc">Spécialisation de Berklee College of Music. Théorie, harmonie, ear training, composition. Certifiant et complet.</div>
+            <span class="resource-type type-course">Cours en ligne</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://musescore.com" target="_blank">
+          <span class="resource-icon">📄</span>
+          <div class="resource-info">
+            <div class="resource-name">MuseScore</div>
+            <div class="resource-desc">Logiciel de notation musicale gratuit et bibliothèque de partitions. Idéal pour visualiser et écouter des partitions de toute la musique classique.</div>
+            <span class="resource-type type-doc">Logiciel</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://fr.wikipedia.org/wiki/Théorie_de_la_musique" target="_blank">
+          <span class="resource-icon">🌐</span>
+          <div class="resource-info">
+            <div class="resource-name">Wikipedia — Théorie musicale</div>
+            <div class="resource-desc">Articles détaillés sur toutes les notions : gammes, modes, contrepoint, harmonie tonale, formes musicales.</div>
+            <span class="resource-type type-wiki">Wikipedia</span>
+          </div>
+        </a>
+      </div>
+    </section>
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <div class="section-info"><h2>Fiche mémo</h2><p>L'essentiel en une page — téléchargeable</p></div>
+      </div>
+      <div class="memo-preview">
+        <div class="memo-top">
+          <h3>📋 Musique — Fiche mémo</h3>
+          <p>Solfège, gammes, accords et rythmes</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Notes & Solfège</div>
+            <div class="memo-item">FR : Do-Ré-Mi-Fa-Sol-La-Si</div>
+            <div class="memo-item">EN : C-D-E-F-G-A-B</div>
+            <div class="memo-item">12 demi-tons dans une octave</div>
+            <div class="memo-item">Dièse ♯ = +½ ton / Bémol ♭ = −½ ton</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Figures de note (4/4)</div>
+            <div class="memo-item">Ronde = 4 temps</div>
+            <div class="memo-item">Blanche = 2 temps</div>
+            <div class="memo-item">Noire = 1 temps</div>
+            <div class="memo-item">Croche = ½ temps</div>
+            <div class="memo-item">Double croche = ¼ temps</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Gamme Majeure</div>
+            <div class="memo-item">Schéma : T-T-S-T-T-T-S</div>
+            <div class="memo-item">Do M : Do Ré Mi Fa Sol La Si</div>
+            <div class="memo-item">Sol M : Sol La Si Do Ré Mi Fa♯</div>
+            <div class="memo-item">Fa M : Fa Sol La Si♭ Do Ré Mi</div>
+            <div class="memo-item">Relative mineure = même notes</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Progressions classiques</div>
+            <div class="memo-item">Blues : I - IV - V - I (12 mesures)</div>
+            <div class="memo-item">Pop : I - V - vi - IV</div>
+            <div class="memo-item">Jazz : ii - V - I</div>
+            <div class="memo-item">Valse : I - IV - V (3/4)</div>
+            <div class="memo-item">Accord Do M : Do - Mi - Sol</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML/PDF)</button>
+      </div>
+    </section>
+  </main>
+</div>
+<script>
+const questions=[
+  {q:"Combien de demi-tons contient une octave dans le système occidental ?",opts:["7 notes","10 notes","12 notes","8 notes"],ans:2,expl:"L'octave est divisée en 12 demi-tons égaux (gamme chromatique). Sur ces 12 sons, on sélectionne 7 pour former une gamme diatonique (majeure ou mineure). Cette division en 12 est le système tempéré, standardisé par Bach dans le Clavier bien tempéré (1722)."},
+  {q:"Quelle figure de note dure 4 temps en 4/4 ?",opts:["La noire","La blanche","La ronde","La croche"],ans:2,expl:"En mesure à 4/4 : la ronde dure 4 temps (mesure entière), la blanche 2 temps, la noire 1 temps, la croche ½ temps, la double croche ¼ temps. La noire est l'unité de base du temps dans la plupart des musiques modernes."},
+  {q:"Quelles notes composent l'accord de Do Majeur ?",opts:["Do-Ré-Mi","Do-Mi-Sol","Do-Fa-La","Do-Sol-Si"],ans:1,expl:"Un accord parfait majeur = fondamentale + tierce majeure (4 demi-tons au-dessus) + quinte juste (7 demi-tons). Pour Do : Do (fondamentale) + Mi (tierce majeure) + Sol (quinte). C'est l'accord le plus stable et le plus courant de la musique occidentale."},
+  {q:"Quelle progression est typique du blues ?",opts:["I-V-vi-IV","I-IV-V-I","ii-V-I","I-vi-II-V"],ans:1,expl:"La grille de blues standard en 12 mesures utilise la progression I-IV-V. Ex en Do : Do(4 mes.)-Fa(2 mes.)-Do(2 mes.)-Sol(1 mes.)-Fa(1 mes.)-Do(2 mes.). Cette structure simple mais expressive est la base du blues, du rock'n'roll et du boogie."},
+  {q:"Qu'est-ce que le contrepoint ?",opts:["Un outil de percussion","L'art de superposer des lignes mélodiques indépendantes","La technique de variation du tempo","Un accord de 4 sons"],ans:1,expl:"Le contrepoint (du latin punctus contra punctum = note contre note) est l'art de combiner plusieurs voix mélodiques indépendantes qui sonnent bien ensemble. Johann Sebastian Bach en est le maître absolu avec ses Fugues (Clavier bien tempéré, Art de la fugue). Les règles du contrepoint strict (Fux, 1725) définissent quelles intervalles sont permises."},
+  {q:"Combien de mesures comporte une grille de blues standard ?",opts:["8 mesures","12 mesures","16 mesures","32 mesures"],ans:1,expl:"Le blues standard comporte 12 mesures utilisant 3 accords (I, IV, V). Cette structure apparue dans le Delta du Mississippi au début du XXe siècle est devenue la base de tout le rock, R&B et jazz. Le 32 mesures (AABA) est la structure de la majorité des standards jazz (rhythm changes)."}
+];
+let current=0,score=0,answered=new Array(6).fill(null);
+function renderQuestion(){document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});document.getElementById('btnPrev').disabled=current===0;document.getElementById('btnNext').textContent=current===5?'Voir résultats':'Suivant →';}
+function selectOption(qi,oi){if(answered[qi]!==null)return;answered[qi]=oi;const block=document.querySelectorAll('.question-block')[qi];block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');}
+function nextQuestion(){if(current<5){current++;renderQuestion();}else showResult();}
+function prevQuestion(){if(current>0){current--;renderQuestion();}}
+function showResult(){document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';const r=document.querySelector('.quiz-result');r.style.display='block';document.getElementById('finalScore').textContent=score+'/6';document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Très bien !','Excellent !'][score<=2?0:score<=4?1:score<=5?2:3];}
+function restartQuiz(){current=0;score=0;answered.fill(null);document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');document.getElementById('quizScore').textContent=0;renderQuestion();}
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+// Scroll spy
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+const sections=['resume','theorie','concepts','quiz','ressources','memo'];
+window.addEventListener('scroll',()=>{let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';});
+function downloadMemo(){const w=window.open('','_blank','width=900,height=700');w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Musique</title><style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#b5682a;border-bottom:3px solid #b5682a;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#b5682a;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #f5ddb0;padding:1rem;border-radius:4px;background:#fffbf5}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style></head><body><h1>🎵 Fiche mémo — Théorie musicale</h1><div class="grid"><div class="box"><h2>Solfège</h2><ul><li>FR: Do-Ré-Mi-Fa-Sol-La-Si | EN: C-D-E-F-G-A-B</li><li>12 demi-tons par octave</li><li>♯ = +½ ton / ♭ = -½ ton</li><li>Portée à 5 lignes, clé de Sol (aigu), Fa (basse)</li></ul></div><div class="box"><h2>Durées</h2><ul><li>Ronde = 4 temps</li><li>Blanche = 2 temps</li><li>Noire = 1 temps</li><li>Croche = ½ temps</li><li>Mesure 4/4 = 4 noires / mesure</li><li>Mesure 3/4 = 3 noires (valse)</li></ul></div><div class="box"><h2>Gamme majeure</h2><ul><li>Schéma: T-T-S-T-T-T-S</li><li>Do M: Do Ré Mi Fa Sol La Si</li><li>Sol M: Sol La Si Do Ré Mi Fa♯</li><li>Accord Do M = Do + Mi + Sol</li><li>Mineur = T-S-T-T-S-T-T</li></ul></div><div class="box"><h2>Progressions classiques</h2><ul><li>Blues 12 mesures: I-IV-V</li><li>Pop: I-V-vi-IV</li><li>Jazz: ii-V-I</li><li>Cadence authentique: V → I</li><li>Fonctions: Tonique(I), Dom.(V), S-Dom.(IV)</li></ul></div></div><div class="footer">Curiosita — Fiche mémo Musique — ${new Date().toLocaleDateString('fr-FR')}</div><button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#b5682a;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">🖨️ Imprimer / PDF</button>
+</body></html>`);w.document.close();}
+renderQuestion();
+</script>
+    <script src="mobile.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design graphique — Design & Architecture — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #e87a7a;
+  --accent2: #ef9a9a;
+  --accent-dim: rgba(232,122,122,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../design-page.html">Design & Architecture</a> › <span>Design graphique</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">✏️ Design & Architecture</span>
+    <span class="tag-level">Débutant → Avancé</span>
+    <span class="tag-time">⏱ ~6h de lecture</span>
+  </div>
+  <h1><em>Design graphique</em></h1>
+  <p class="hero-desc">De la typographie au design numérique — l'art de communiquer visuellement à travers les images, les formes et les lettres.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../design-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Design & Architecture</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link active" href="#">Design graphique</a>
+    <a class="sidebar-link" href="architecture.html">Architecture</a>
+    <a class="sidebar-link" href="interieur.html">Design d'intérieur</a>
+    <a class="sidebar-link" href="industriel.html">Design industriel</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que le design graphique ?</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">Le design graphique est l'art de <strong>communiquer visuellement</strong> en organisant textes, images et formes dans un espace donné. Né avec l'imprimerie de Gutenberg au XVe siècle, il s'est considérablement développé au XXe siècle avec l'essor de la publicité, des médias de masse et, plus récemment, du numérique.</p>
+      <div class="highlight-box">
+        <p><strong>L'idée fondamentale :</strong> le design graphique résout des problèmes de communication. Chaque affiche, logo, site web ou interface est une réponse visuelle à une question : comment transmettre un message de manière claire, efficace et esthétique ?</p>
+      </div>
+      <p class="resume-text">Les grands mouvements du design graphique — le <strong>Bauhaus</strong>, le <strong>Style international suisse</strong>, le <strong>postmodernisme</strong> — ont chacun redéfini les règles de la composition, de la typographie et de l'usage de la couleur. Aujourd'hui, le design graphique englobe l'identité visuelle, l'édition, l'affiche, le web design et le design d'interface.</p>
+      <p class="resume-text">Maîtriser le design graphique, c'est comprendre les principes de la <strong>composition</strong>, de la <strong>typographie</strong>, de la <strong>couleur</strong> et de la <strong>hiérarchie visuelle</strong> pour créer des supports qui informent, séduisent et guident le regard.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours de design graphique</h2>
+          <p>Progressez étape par étape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="graphique/typographie.html" class="course-card">
+          <span class="course-card-icon">🔤</span>
+          <h3>Typographie</h3>
+          <p>Anatomie des caractères, familles typographiques, mise en page et lisibilité.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="graphique/composition.html" class="course-card">
+          <span class="course-card-icon">📐</span>
+          <h3>Composition et mise en page</h3>
+          <p>Grilles, équilibre, hiérarchie visuelle et principes de la mise en page efficace.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="graphique/couleur.html" class="course-card">
+          <span class="course-card-icon">🎨</span>
+          <h3>Théorie de la couleur</h3>
+          <p>Cercle chromatique, harmonies, contrastes et psychologie des couleurs.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="graphique/identite-visuelle.html" class="course-card">
+          <span class="course-card-icon">💎</span>
+          <h3>Identité visuelle</h3>
+          <p>Logos, chartes graphiques, branding : construire une identité de marque cohérente.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="graphique/design-numerique.html" class="course-card">
+          <span class="course-card-icon">💻</span>
+          <h3>Design numérique</h3>
+          <p>Web design, UI/UX, design d'interface et responsive design.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel du design graphique en un coup d'oeil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>✏️ Design graphique — Fiche mémo</h3>
+          <p>Curiosita · Principes, mouvements et outils</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Principes fondamentaux</div>
+            <div class="memo-item"><span class="mf">Hiérarchie</span> Guider le regard du lecteur</div>
+            <div class="memo-item"><span class="mf">Contraste</span> Différencier les éléments</div>
+            <div class="memo-item"><span class="mf">Alignement</span> Créer ordre et cohérence</div>
+            <div class="memo-item"><span class="mf">Proximité</span> Grouper les éléments liés</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Typographie</div>
+            <div class="memo-item"><span class="mf">Serif</span> Empattements (Times, Garamond)</div>
+            <div class="memo-item"><span class="mf">Sans-serif</span> Sans empattement (Helvetica)</div>
+            <div class="memo-item"><span class="mf">Interlignage</span> 120-150% du corps</div>
+            <div class="memo-item"><span class="mf">Règle</span> Max. 2-3 polices par projet</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Couleur</div>
+            <div class="memo-item"><span class="mf">RVB</span> Écrans (lumière additive)</div>
+            <div class="memo-item"><span class="mf">CMJN</span> Impression (synthèse soustractive)</div>
+            <div class="memo-item"><span class="mf">Harmonies</span> Complémentaires, analogues</div>
+            <div class="memo-item"><span class="mf">Contraste</span> 4.5:1 min. pour lisibilité</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Mouvements clés</div>
+            <div class="memo-item"><span class="mf">Bauhaus</span> 1919, forme suit fonction</div>
+            <div class="memo-item"><span class="mf">Style suisse</span> 1950s, grilles, objectivité</div>
+            <div class="memo-item"><span class="mf">Postmoderne</span> 1980s, déconstruction</div>
+            <div class="memo-item"><span class="mf">Flat design</span> 2010s, minimalisme digital</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Design graphique — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#e87a7a;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#e87a7a;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'design-graphique-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

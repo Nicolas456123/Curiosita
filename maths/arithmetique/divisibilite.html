@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divisibilité, PGCD et PPCM — Arithmétique — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root { --accent: #c0392b; --accent2: #e74c3c; --accent-dim: rgba(192,57,43,0.08); }
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../maths-page.html">Mathématiques</a> › <a href="../arithmetique.html">Arithmétique</a> › <span>Divisibilité</span>
+  </div>
+</nav>
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">➗ Arithmétique</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~40 min</span>
+  </div>
+  <h1><em>Divisibilité, PGCD et PPCM</em></h1>
+  <p class="hero-desc">Critères de divisibilité, division euclidienne et algorithme d'Euclide — les outils fondamentaux du calcul entier.</p>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../arithmetique.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Arithmétique</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="nombres-premiers.html">Nombres premiers</a>
+    <a class="sidebar-link active" href="#">Divisibilité, PGCD, PPCM</a>
+    <a class="sidebar-link" href="fractions.html">Fractions</a>
+    <a class="sidebar-link" href="puissances.html">Puissances et racines</a>
+    <a class="sidebar-link" href="bases-numeration.html">Bases de numération</a>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info"><h2>Introduction</h2><p>La base du raisonnement arithmétique</p></div>
+      </div>
+      <p class="resume-text">La <strong>divisibilité</strong> est la relation fondamentale de l'arithmétique : on dit que a divise b (noté a | b) s'il existe un entier k tel que b = k × a. Cette notion simple engendre des concepts puissants : le PGCD, le PPCM et l'algorithme d'Euclide, qui est l'un des plus anciens algorithmes connus et reste utilisé aujourd'hui en informatique.</p>
+      <div class="highlight-box">
+        <p><strong>Division euclidienne :</strong> pour tout couple d'entiers (a, b) avec b > 0, il existe un unique couple (q, r) tel que a = b × q + r avec 0 ≤ r < b. Le nombre q est le quotient et r le reste.</p>
+      </div>
+      <p class="resume-text">La divisibilité est la clé pour simplifier les fractions, synchroniser des événements périodiques (PPCM) et résoudre des problèmes de partage équitable (PGCD). Elle est aussi à la base de l'arithmétique modulaire, fondement de la cryptographie.</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info"><h2>Le cours</h2><p>Divisibilité, PGCD et PPCM en détail</p></div>
+      </div>
+      <div class="course-content">
+        <h3>Critères de divisibilité</h3>
+        <p>Les critères de divisibilité permettent de vérifier rapidement si un nombre est divisible par un autre, sans effectuer la division :</p>
+        <ul>
+          <li><strong>Par 2 :</strong> le chiffre des unités est pair (0, 2, 4, 6, 8)</li>
+          <li><strong>Par 3 :</strong> la somme des chiffres est divisible par 3</li>
+          <li><strong>Par 4 :</strong> le nombre formé par les deux derniers chiffres est divisible par 4</li>
+          <li><strong>Par 5 :</strong> le chiffre des unités est 0 ou 5</li>
+          <li><strong>Par 9 :</strong> la somme des chiffres est divisible par 9</li>
+          <li><strong>Par 11 :</strong> la différence alternée des chiffres est divisible par 11</li>
+        </ul>
+        <p><strong>Exemple :</strong> 2 574 est-il divisible par 3 ? Somme des chiffres : 2 + 5 + 7 + 4 = 18. Comme 18 est divisible par 3, oui.</p>
+
+        <h3>Le PGCD (Plus Grand Commun Diviseur)</h3>
+        <p>Le <strong>PGCD</strong> de deux entiers a et b est le plus grand entier qui divise à la fois a et b. Il se calcule par l'<strong>algorithme d'Euclide</strong>, fondé sur la propriété : PGCD(a, b) = PGCD(b, r) où r est le reste de la division de a par b.</p>
+        <div class="highlight-box">
+          <p><strong>Algorithme d'Euclide :</strong> on effectue des divisions euclidiennes successives jusqu'à obtenir un reste nul. Le dernier reste non nul est le PGCD.</p>
+        </div>
+        <p><strong>Exemple :</strong> PGCD(252, 198)</p>
+        <ul>
+          <li>252 = 198 × 1 + 54</li>
+          <li>198 = 54 × 3 + 36</li>
+          <li>54 = 36 × 1 + 18</li>
+          <li>36 = 18 × 2 + 0</li>
+          <li>PGCD(252, 198) = 18</li>
+        </ul>
+        <p>Deux nombres sont <strong>premiers entre eux</strong> (ou copremiers) si leur PGCD vaut 1. Par exemple, PGCD(15, 28) = 1.</p>
+
+        <h3>Le PPCM (Plus Petit Commun Multiple)</h3>
+        <p>Le <strong>PPCM</strong> de a et b est le plus petit entier strictement positif qui est multiple de a et de b. Il est lié au PGCD par la formule :</p>
+        <div class="highlight-box">
+          <p><strong>PPCM(a, b) = (a × b) / PGCD(a, b)</strong></p>
+        </div>
+        <p><strong>Exemple :</strong> PPCM(12, 18). PGCD(12, 18) = 6. Donc PPCM = (12 × 18) / 6 = 36.</p>
+        <p><strong>Application concrète :</strong> un bus passe toutes les 12 minutes et un tram toutes les 18 minutes. Ils partent ensemble à 8h00. Quand se retrouvent-ils au même arrêt ? Dans PPCM(12, 18) = 36 minutes, soit à 8h36.</p>
+
+        <h3>Propriétés de la divisibilité</h3>
+        <p>La divisibilité possède des propriétés utiles pour le raisonnement :</p>
+        <ul>
+          <li>Si a | b et a | c, alors a | (b + c) et a | (b - c)</li>
+          <li>Si a | b et b | c, alors a | c (transitivité)</li>
+          <li>Si a | b, alors a | (k × b) pour tout entier k</li>
+          <li>Si a | b et b | a, alors a = ±b</li>
+        </ul>
+
+        <h3>Théorème de Bézout</h3>
+        <p>Si PGCD(a, b) = d, alors il existe des entiers u et v tels que <strong>au + bv = d</strong>. En particulier, si a et b sont premiers entre eux, il existe u et v tels que au + bv = 1. Ce résultat est fondamental en arithmétique modulaire et en cryptographie.</p>
+
+        <h3>Algorithme d'Euclide étendu</h3>
+        <p>L'algorithme d'Euclide étendu permet de trouver les coefficients u et v du théorème de Bézout. On remonte les divisions euclidiennes :</p>
+        <p><strong>Exemple :</strong> Trouver u et v tels que 252u + 198v = 18 (on sait que PGCD(252, 198) = 18).</p>
+        <ul>
+          <li>252 = 198 × 1 + 54 → 54 = 252 - 198</li>
+          <li>198 = 54 × 3 + 36 → 36 = 198 - 54 × 3 = 198 - 3(252 - 198) = 4 × 198 - 3 × 252</li>
+          <li>54 = 36 × 1 + 18 → 18 = 54 - 36 = (252 - 198) - (4 × 198 - 3 × 252) = 4 × 252 - 5 × 198</li>
+          <li>Donc u = 4 et v = -5 : 252 × 4 + 198 × (-5) = 1008 - 990 = 18</li>
+        </ul>
+
+        <h3>Arithmétique modulaire (congruences)</h3>
+        <p>On dit que a est <strong>congru à b modulo n</strong> (noté a ≡ b [n]) si n divise (a - b). Les congruences sont compatibles avec l'addition et la multiplication :</p>
+        <div class="highlight-box">
+          <p><strong>Si a ≡ b [n] et c ≡ d [n], alors a + c ≡ b + d [n] et a × c ≡ b × d [n].</strong></p>
+        </div>
+        <p><strong>Exemple :</strong> Quel est le reste de la division de 7¹⁰⁰ par 5 ? On a 7 ≡ 2 [5], donc 7² ≡ 4 ≡ -1 [5]. Puis 7⁴ ≡ 1 [5]. Comme 100 = 4 × 25, on a 7¹⁰⁰ = (7⁴)²⁵ ≡ 1²⁵ = 1 [5]. Le reste est 1.</p>
+
+        <h3>Pièges courants</h3>
+        <ul>
+          <li><strong>Confondre PGCD et PPCM :</strong> le PGCD est toujours ≤ aux deux nombres, le PPCM est toujours ≥. PGCD(12, 18) = 6 (pas 36) et PPCM(12, 18) = 36 (pas 6).</li>
+          <li><strong>Oublier la formule de liaison :</strong> PGCD(a,b) × PPCM(a,b) = a × b. Cette formule permet de calculer l'un à partir de l'autre.</li>
+          <li><strong>Arrêter l'algorithme d'Euclide trop tôt :</strong> on continue jusqu'au reste 0. Le PGCD est le dernier reste NON nul.</li>
+          <li><strong>Critère de divisibilité par 4 :</strong> on regarde les DEUX derniers chiffres, pas juste le dernier. 312 est divisible par 4 (12/4 = 3) mais 314 ne l'est pas.</li>
+        </ul>
+
+        <h3>Applications</h3>
+        <ul>
+          <li><strong>Simplification de fractions :</strong> 84/126 → PGCD(84, 126) = 42 → 84/126 = 2/3. Sans le PGCD, la simplification serait fastidieuse.</li>
+          <li><strong>Synchronisation :</strong> deux feux clignotent, l'un toutes les 8 secondes, l'autre toutes les 12 secondes. Ils clignotent ensemble toutes les PPCM(8, 12) = 24 secondes.</li>
+          <li><strong>Cryptographie :</strong> l'algorithme RSA utilise l'algorithme d'Euclide étendu pour calculer la clé de déchiffrement (l'inverse modulaire).</li>
+          <li><strong>Découpe optimale :</strong> pour découper une planche de 252 cm × 198 cm en carrés les plus grands possible sans perte, chaque carré fera PGCD(252, 198) = 18 cm de côté.</li>
+        </ul>
+      </div>
+    </section>
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info"><h2>Quiz</h2><p>Testez votre compréhension</p></div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">➗ Divisibilité — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quel est le PGCD de 84 et 126 ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">42</div>
+              <div class="option" onclick="answer(this,false)">21</div>
+              <div class="option" onclick="answer(this,false)">14</div>
+              <div class="option" onclick="answer(this,false)">6</div>
+            </div>
+            <div class="q-feedback">Par Euclide : 126 = 84 × 1 + 42, puis 84 = 42 × 2 + 0. Donc PGCD = 42.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Quel est le PPCM de 8 et 12 ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">24</div>
+              <div class="option" onclick="answer(this,false)">96</div>
+              <div class="option" onclick="answer(this,false)">48</div>
+              <div class="option" onclick="answer(this,false)">4</div>
+            </div>
+            <div class="q-feedback">PGCD(8,12) = 4. PPCM = 8 × 12 / 4 = 24. Vérification : 24 = 8 × 3 = 12 × 2.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Le nombre 3 456 est-il divisible par 9 ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">Oui (somme des chiffres = 18)</div>
+              <div class="option" onclick="answer(this,false)">Non (somme des chiffres = 17)</div>
+              <div class="option" onclick="answer(this,false)">Oui (il finit par 6)</div>
+              <div class="option" onclick="answer(this,false)">Non (il est pair)</div>
+            </div>
+            <div class="q-feedback">Somme des chiffres : 3 + 4 + 5 + 6 = 18. Comme 18 est divisible par 9, 3 456 l'est aussi. Vérification : 3 456 / 9 = 384.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Deux nombres dont le PGCD vaut 1 sont dits...</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">Premiers entre eux</div>
+              <div class="option" onclick="answer(this,false)">Premiers</div>
+              <div class="option" onclick="answer(this,false)">Consécutifs</div>
+              <div class="option" onclick="answer(this,false)">Complémentaires</div>
+            </div>
+            <div class="q-feedback">Deux nombres sont premiers entre eux (ou copremiers) si PGCD = 1. Exemple : 15 et 28 sont premiers entre eux (PGCD = 1) bien que ni 15 ni 28 ne soient premiers.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quel est le reste de la division euclidienne de 157 par 13 ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">0</div>
+              <div class="option" onclick="answer(this,true)">1</div>
+              <div class="option" onclick="answer(this,false)">5</div>
+              <div class="option" onclick="answer(this,false)">12</div>
+            </div>
+            <div class="q-feedback">157 = 13 × 12 + 1. Le quotient est 12 et le reste est 1. Vérification : 13 × 12 = 156, et 157 - 156 = 1.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Si PGCD(a, b) = 15 et a × b = 4 500, que vaut PPCM(a, b) ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">300</div>
+              <div class="option" onclick="answer(this,false)">4 500</div>
+              <div class="option" onclick="answer(this,false)">75</div>
+              <div class="option" onclick="answer(this,false)">450</div>
+            </div>
+            <div class="q-feedback">Par la formule : PPCM(a,b) = a×b / PGCD(a,b) = 4 500 / 15 = 300.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Algorithme d'Euclide</h3>
+        <p>Calculer PGCD(462, 330) par l'algorithme d'Euclide.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>462 = 330 × 1 + 132. 330 = 132 × 2 + 66. 132 = 66 × 2 + 0. <strong>PGCD(462, 330) = 66</strong>. PPCM = 462 × 330 / 66 = 2 310.</p></div>
+        </details>
+
+        <h3>Exercice 2 — Critères de divisibilité</h3>
+        <p>Le nombre 7 128 est-il divisible par 2, 3, 4, 6, 8 et 9 ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p><strong>Par 2 :</strong> oui (finit par 8). <strong>Par 3 :</strong> 7+1+2+8 = 18, divisible par 3, oui. <strong>Par 4 :</strong> 28/4 = 7, oui. <strong>Par 6 :</strong> divisible par 2 et par 3, oui. <strong>Par 8 :</strong> 128/8 = 16, oui. <strong>Par 9 :</strong> 18/9 = 2, oui. Le nombre 7 128 est divisible par tous ces nombres. 7 128 = 2³ × 3² × 99... vérifions : 7128/8 = 891, 891/9 = 99, 99 = 9 × 11, donc 7 128 = 8 × 9 × 99 = 2³ × 3⁴ × 11.</p></div>
+        </details>
+
+        <h3>Exercice 3 — Théorème de Bézout</h3>
+        <p>Trouver u et v tels que 35u + 24v = 1 (on vérifiera d'abord que PGCD(35, 24) = 1).</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>35 = 24 × 1 + 11. 24 = 11 × 2 + 2. 11 = 2 × 5 + 1. 2 = 1 × 2. PGCD = 1. Remontée : 1 = 11 - 2 × 5 = 11 - (24 - 11 × 2) × 5 = 11 × 11 - 5 × 24 = 11(35 - 24) - 5 × 24 = <strong>11 × 35 - 16 × 24</strong>. Donc u = 11, v = -16. Vérif : 385 - 384 = 1.</p></div>
+        </details>
+
+        <h3>Exercice 4 — Problème concret (PPCM)</h3>
+        <p>Alice va à la piscine tous les 6 jours, Bob tous les 8 jours, et Claire tous les 9 jours. Ils se retrouvent ensemble le 1er janvier. Quand se retrouveront-ils à la piscine en même temps ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Il faut PPCM(6, 8, 9). 6 = 2 × 3. 8 = 2³. 9 = 3². PPCM = 2³ × 3² = 8 × 9 = <strong>72 jours</strong>. Ils se retrouveront le <strong>13 mars</strong> (72 jours après le 1er janvier, en comptant que janvier a 31 jours, février 28).</p></div>
+        </details>
+
+        <h3>Exercice 5 — Congruence</h3>
+        <p>Quel est le dernier chiffre de 3²⁰²⁶ (c'est-à-dire le reste de 3²⁰²⁶ divisé par 10) ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>On travaille modulo 10. 3¹ ≡ 3, 3² ≡ 9, 3³ ≡ 27 ≡ 7, 3⁴ ≡ 21 ≡ 1 [10]. Le cycle est de longueur 4. 2026 = 4 × 506 + 2, donc 3²⁰²⁶ = (3⁴)⁵⁰⁶ × 3² ≡ 1 × 9 = <strong>9</strong> [10]. Le dernier chiffre est <strong>9</strong>.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="nombres-premiers.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Les nombres premiers</span>
+      </a>
+      <a href="fractions.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Fractions et opérations →</span>
+      </a>
+    </div>
+  </main>
+</div>
+<script>
+const questions = document.querySelectorAll('.question-block');
+let currentQ = 0, score = 0;
+let answered = new Array(questions.length).fill(false);
+const dotsContainer = document.getElementById('qDots');
+questions.forEach((_, i) => { const d = document.createElement('div'); d.className = 'q-dot' + (i === 0 ? ' current' : ''); dotsContainer.appendChild(d); });
+function updateDots() { document.querySelectorAll('.q-dot').forEach((d, i) => { d.className = 'q-dot'; if (answered[i]) d.classList.add('done'); if (i === currentQ) d.classList.add('current'); }); }
+function answer(el, ok) { if (answered[currentQ]) return; answered[currentQ] = true; el.closest('.question-block').querySelectorAll('.option').forEach(o => o.classList.add('disabled')); el.classList.add(ok ? 'correct' : 'wrong'); if (!ok) el.closest('.question-block').querySelectorAll('.option').forEach(o => { if(o.onclick.toString().includes('true')) o.classList.add('correct'); }); else { score++; document.getElementById('scoreDisplay').textContent = score; } el.closest('.question-block').querySelector('.q-feedback').classList.add('show', ok ? 'good' : 'bad'); document.getElementById('btnNext').disabled = false; updateDots(); }
+function nextQ() { if (currentQ < questions.length - 1) { questions[currentQ].classList.remove('active'); currentQ++; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = false; document.getElementById('btnNext').disabled = !answered[currentQ]; if (currentQ === questions.length - 1) document.getElementById('btnNext').textContent = 'Terminer'; updateDots(); } else { showResult(); } }
+function prevQ() { if (currentQ > 0) { questions[currentQ].classList.remove('active'); currentQ--; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = currentQ === 0; document.getElementById('btnNext').disabled = !answered[currentQ]; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); } }
+function showResult() { document.getElementById('quizBody').style.display = 'none'; document.getElementById('quizResult').style.display = 'block'; document.getElementById('resultScore').textContent = score + '/' + questions.length; var m = ['Continue !', 'Pas mal !', 'Très bien !', 'Parfait !']; document.getElementById('resultMsg').textContent = m[Math.min(score, 3)]; }
+function resetQuiz() { score = 0; currentQ = 0; answered = new Array(questions.length).fill(false); document.getElementById('scoreDisplay').textContent = 0; document.getElementById('quizBody').style.display = 'block'; document.getElementById('quizResult').style.display = 'none'; questions.forEach((q,i) => { q.classList.toggle('active', i===0); q.querySelectorAll('.option').forEach(o=>o.className='option'); q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback'); }); document.getElementById('btnPrev').disabled = true; document.getElementById('btnNext').disabled = true; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); }
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+</script>
+    <script src="../../mobile.js"></script>
+</body>
+</html>

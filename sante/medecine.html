@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Médecine et prévention — Santé & Bien-être — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root { --accent: #8ae87a; --accent2: #a5f598; --accent-dim: rgba(138,232,122,0.08); }
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../sante-page.html">Santé & Bien-être</a> › <span>Médecine et prévention</span></div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🏥 Santé & Bien-être</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~6h de lecture</span>
+  </div>
+  <h1><em>Médecine et prévention</em></h1>
+  <p class="hero-desc">Comprendre son corps et prévenir les maladies — du fonctionnement du système de santé aux gestes de prévention.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../sante-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Santé & Bien-être</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="premiers-secours.html">Premiers secours</a>
+    <a class="sidebar-link" href="sport.html">Activité physique</a>
+    <a class="sidebar-link" href="mentale.html">Santé mentale</a>
+    <a class="sidebar-link active" href="#">Médecine et prévention</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="presentation">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Médecine et prévention</h2><p>Introduction et vue d'ensemble</p></div></div>
+      <p class="resume-text">La médecine préventive vise à <strong>anticiper les maladies plutôt que de les guérir</strong>. Vaccination, dépistage, hygiène de vie : la prévention est le pilier d'un système de santé efficace et représente le meilleur investissement pour la santé publique.</p>
+      <div class="highlight-box"><p><strong>L'idée fondamentale :</strong> prévenir vaut toujours mieux que guérir. 80% des maladies cardiovasculaires et 40% des cancers pourraient être évités par une meilleure hygiène de vie (alimentation, sport, non-tabagisme).</p></div>
+      <p class="resume-text">Le système de santé français repose sur la <strong>Sécurité sociale</strong> (1945), qui garantit un accès quasi universel aux soins. Comprendre son fonctionnement permet de mieux se soigner et de défendre ce bien commun.</p>
+      <p class="resume-text">Ce domaine aborde la vaccination, le dépistage, l'hygiène de vie, le système de soins et les grandes avancées médicales.</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Les cours de médecine et prévention</h2><p>Progressez étape par étape</p></div></div>
+      <div class="courses-grid">
+        <a href="medecine/vaccination.html" class="course-card"><span class="course-card-icon">💉</span><h3>Vaccination</h3><p>Principe, calendrier vaccinal, bénéfices collectifs et réponses aux idées reçues.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="medecine/depistage.html" class="course-card"><span class="course-card-icon">🔍</span><h3>Dépistage</h3><p>Cancers, diabète, hypertension : pourquoi et comment se faire dépister.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="medecine/systeme.html" class="course-card"><span class="course-card-icon">🏥</span><h3>Système de santé</h3><p>Sécurité sociale, médecin traitant, hôpital, pharmacie : comprendre le parcours de soins.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="medecine/addictions.html" class="course-card"><span class="course-card-icon">🚫</span><h3>Addictions et conduites à risque</h3><p>Tabac, alcool, drogues, écrans : comprendre les mécanismes et prévenir les dépendances.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="medecine/avancees.html" class="course-card"><span class="course-card-icon">🔬</span><h3>Grandes avancées médicales</h3><p>Antibiotiques, génomique, immunothérapie : les découvertes qui ont changé la médecine.</p><span class="course-card-link">Voir le cours →</span></a>
+      </div>
+    </section>
+    <section class="content-section" id="memo">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Fiche mémo</h2><p>L'essentiel en un coup d'oeil</p></div></div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top"><h3>🏥 Médecine et prévention — Fiche mémo</h3><p>Curiosita · Prévention, vaccination et système de santé</p></div>
+        <div class="memo-grid">
+          <div class="memo-section"><div class="memo-section-title">Prévention</div><div class="memo-item"><span class="mf">Alimentation</span> 5 fruits/lég./jour, peu de sel</div><div class="memo-item"><span class="mf">Sport</span> 150 min/semaine modéré</div><div class="memo-item"><span class="mf">Tabac</span> 1ère cause de mortalité évitable</div><div class="memo-item"><span class="mf">Alcool</span> Max 2 verres/jour, pas tous les jours</div></div>
+          <div class="memo-section"><div class="memo-section-title">Vaccination</div><div class="memo-item"><span class="mf">Principe</span> Stimuler l'immunité, mémoire</div><div class="memo-item"><span class="mf">Obligatoires</span> 11 vaccins nourrissons (FR)</div><div class="memo-item"><span class="mf">Grippe</span> Annuel, personnes à risque</div><div class="memo-item"><span class="mf">Covid</span> ARNm, protection collective</div></div>
+          <div class="memo-section"><div class="memo-section-title">Dépistage</div><div class="memo-item"><span class="mf">Cancer sein</span> Mammographie, 50-74 ans</div><div class="memo-item"><span class="mf">Cancer colorectal</span> Test tous les 2 ans, 50+</div><div class="memo-item"><span class="mf">IST</span> VIH, hépatites, sérologie</div><div class="memo-item"><span class="mf">Diabète</span> Glycémie à jeun >1,26 g/L</div></div>
+          <div class="memo-section"><div class="memo-section-title">Système de santé FR</div><div class="memo-item"><span class="mf">Sécu. sociale</span> 1945, solidarité nationale</div><div class="memo-item"><span class="mf">Médecin traitant</span> Parcours coordonné</div><div class="memo-item"><span class="mf">Carte Vitale</span> Télétransmission, remboursement</div><div class="memo-item"><span class="mf">Urgences</span> 15 SAMU, 18 pompiers, 112 EU</div></div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+  </main>
+</div>
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo(){var m=document.getElementById('memoCard').outerHTML;var html='<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Médecine et prévention \u2014 Fiche m\u00e9mo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#8ae87a;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#8ae87a;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>'+m+'</body></html>';var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download='medecine-prevention-fiche-memo.html';a.click();}
+</script>
+<script src="../mobile.js"></script>
+</body>
+</html>

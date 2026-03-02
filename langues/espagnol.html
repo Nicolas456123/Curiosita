@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espagnol — Langues — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #e8c97a;
+  --accent2: #f5dfa0;
+  --accent-dim: rgba(232,201,122,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,201,122,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../langues-page.html">Langues</a> › <span>Espagnol</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🌍 Langues</span>
+    <span class="tag-level">Débutant → Avancé</span>
+    <span class="tag-time">⏱ ~6h de lecture</span>
+  </div>
+  <h1><em>Espagnol</em></h1>
+  <p class="hero-desc">Deuxième langue la plus parlée au monde par nombre de locuteurs natifs — explorez la richesse de la langue de Cervantes.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../langues-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Langues</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="anglais.html">Anglais</a>
+    <a class="sidebar-link active" href="#">Espagnol</a>
+    <a class="sidebar-link" href="linguistique.html">Linguistique</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Pourquoi apprendre l'espagnol ?</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">L'espagnol (ou castillan) est une <strong>langue romane</strong> parlée par plus de 500 millions de locuteurs natifs dans 20 pays. C'est la langue officielle de l'Espagne et de la majeure partie de l'Amérique latine, et la deuxième langue la plus parlée aux États-Unis.</p>
+      <div class="highlight-box">
+        <p><strong>Avantage pour les francophones :</strong> Le français et l'espagnol partagent la même origine latine. La grammaire, le vocabulaire et la structure des phrases présentent de nombreuses similarités, ce qui accélère considérablement l'apprentissage.</p>
+      </div>
+      <p class="resume-text">L'espagnol est une langue à la <strong>prononciation régulière</strong> : contrairement à l'anglais, chaque lettre se prononce presque toujours de la même manière. Les principales difficultés pour un francophone résident dans la <strong>conjugaison</strong> (plus de formes verbales qu'en français), la distinction <strong>ser/estar</strong> (deux verbes « être »), et le <strong>subjonctif</strong>, plus utilisé qu'en français.</p>
+      <p class="resume-text">Ce module couvre la grammaire, le vocabulaire, la conjugaison, les expressions courantes et la culture hispanique. Chaque cours intègre des exemples bilingues espagnol-français pour faciliter la compréhension.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours d'espagnol</h2>
+          <p>Progressez étape par étape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="espagnol/grammaire.html" class="course-card">
+          <span class="course-card-icon">📝</span>
+          <h3>Grammaire essentielle</h3>
+          <p>Articles, genre, prépositions, ser/estar. Les fondations pour construire des phrases correctes.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="espagnol/vocabulaire.html" class="course-card">
+          <span class="course-card-icon">📚</span>
+          <h3>Vocabulaire courant</h3>
+          <p>Les mots essentiels, faux amis franco-espagnols et champs lexicaux du quotidien.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="espagnol/conjugaison.html" class="course-card">
+          <span class="course-card-icon">🔄</span>
+          <h3>Conjugaison</h3>
+          <p>Indicatif, subjonctif, irréguliers. Maîtrisez le système verbal espagnol dans toute sa richesse.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="espagnol/expressions.html" class="course-card">
+          <span class="course-card-icon">💬</span>
+          <h3>Expressions courantes</h3>
+          <p>Formules de politesse, tournures idiomatiques et expressions du quotidien pour communiquer naturellement.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="espagnol/culture.html" class="course-card">
+          <span class="course-card-icon">🎭</span>
+          <h3>Culture hispanique</h3>
+          <p>Littérature, traditions, variantes régionales. Comprendre la culture pour mieux parler la langue.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel de l'espagnol en un coup d'œil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🌍 Espagnol — Fiche mémo</h3>
+          <p>Curiosita · Règles et repères fondamentaux</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Ser vs Estar</div>
+            <div class="memo-item"><span class="mf">Ser →</span> identité, caractéristique permanente</div>
+            <div class="memo-item"><span class="mf">Estar →</span> état, localisation, temporaire</div>
+            <div class="memo-item"><span class="mf">Soy francés →</span> Je suis français</div>
+            <div class="memo-item"><span class="mf">Estoy cansado →</span> Je suis fatigué</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Faux amis courants</div>
+            <div class="memo-item"><span class="mf">embarazada ≠</span> embarrassée (= enceinte)</div>
+            <div class="memo-item"><span class="mf">constipado ≠</span> constipé (= enrhumé)</div>
+            <div class="memo-item"><span class="mf">largo ≠</span> large (= long)</div>
+            <div class="memo-item"><span class="mf">éxito ≠</span> exit (= succès)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Conjugaison clé</div>
+            <div class="memo-item"><span class="mf">-ar →</span> -o, -as, -a, -amos, -áis, -an</div>
+            <div class="memo-item"><span class="mf">-er →</span> -o, -es, -e, -emos, -éis, -en</div>
+            <div class="memo-item"><span class="mf">-ir →</span> -o, -es, -e, -imos, -ís, -en</div>
+            <div class="memo-item"><span class="mf">Irréguliers →</span> ser, ir, tener, hacer</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Expressions utiles</div>
+            <div class="memo-item"><span class="mf">¿Qué tal? →</span> Comment ça va ?</div>
+            <div class="memo-item"><span class="mf">Vale →</span> D'accord</div>
+            <div class="memo-item"><span class="mf">No pasa nada →</span> Ce n'est rien</div>
+            <div class="memo-item"><span class="mf">¡Ojalá! →</span> Pourvu que / J'espère</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Espagnol — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#e8c97a;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#e8c97a;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '
+</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'espagnol-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

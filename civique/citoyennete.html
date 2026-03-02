@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Citoyenneté — Éducation civique — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root { --accent: #e87a9b; --accent2: #f09ab5; --accent-dim: rgba(232,122,155,0.08); }
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,155,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../civique-page.html">Éducation civique</a> › <span>Citoyenneté</span></div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🗳️ Éducation civique</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Citoyenneté</em></h1>
+  <p class="hero-desc">Droits, devoirs et engagement — ce que signifie être citoyen dans une démocratie moderne.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../civique-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Éducation civique</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link active" href="#">Citoyenneté</a>
+    <a class="sidebar-link" href="droits.html">Droits et libertés</a>
+    <a class="sidebar-link" href="republique.html">République et démocratie</a>
+    <a class="sidebar-link" href="enjeux.html">Enjeux contemporains</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="presentation">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Qu'est-ce que la citoyenneté ?</h2><p>Introduction et vue d'ensemble</p></div></div>
+      <p class="resume-text">La citoyenneté est le <strong>lien juridique et politique</strong> qui unit un individu à une communauté politique. Être citoyen, c'est appartenir à un État, disposer de droits (voter, s'exprimer) et assumer des devoirs (respecter les lois, payer l'impôt).</p>
+      <div class="highlight-box"><p><strong>L'idée fondamentale :</strong> la citoyenneté n'est pas seulement un statut juridique — c'est une pratique quotidienne. Elle s'exerce par le vote, l'engagement associatif et la participation au débat public.</p></div>
+      <p class="resume-text">En France, la citoyenneté repose sur les <strong>valeurs républicaines</strong> — liberté, égalité, fraternité — et s'acquiert par la naissance, la filiation ou la naturalisation. La citoyenneté européenne ajoute une dimension supranationale depuis Maastricht (1992).</p>
+      <p class="resume-text">Face aux défis contemporains — abstention, populismes, désinformation — la question de la citoyenneté active est plus que jamais d'actualité.</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Les cours de citoyenneté</h2><p>Progressez étape par étape</p></div></div>
+      <div class="courses-grid">
+        <a href="citoyennete/droits-devoirs.html" class="course-card"><span class="course-card-icon">⚖️</span><h3>Droits et devoirs du citoyen</h3><p>Droits civils, politiques et sociaux, devoirs envers la collectivité.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="citoyennete/participation.html" class="course-card"><span class="course-card-icon">🗳️</span><h3>Participation citoyenne</h3><p>Vote, référendum, pétition, associations : les formes d'engagement.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="citoyennete/nationalite.html" class="course-card"><span class="course-card-icon">🇫🇷</span><h3>Nationalité et appartenance</h3><p>Droit du sol, droit du sang, naturalisation et citoyenneté européenne.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="citoyennete/valeurs-republique.html" class="course-card"><span class="course-card-icon">🏛️</span><h3>Valeurs de la République</h3><p>Liberté, égalité, fraternité, laïcité : les principes fondateurs.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="citoyennete/engagement.html" class="course-card"><span class="course-card-icon">✊</span><h3>Engagement et solidarité</h3><p>Bénévolat, service civique, militantisme : s'engager pour la collectivité.</p><span class="course-card-link">Voir le cours →</span></a>
+      </div>
+    </section>
+    <section class="content-section" id="memo">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Fiche mémo</h2><p>L'essentiel en un coup d'oeil</p></div></div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top"><h3>🗳️ Citoyenneté — Fiche mémo</h3><p>Curiosita · Droits, devoirs et valeurs républicaines</p></div>
+        <div class="memo-grid">
+          <div class="memo-section"><div class="memo-section-title">Droits du citoyen</div><div class="memo-item"><span class="mf">Civils</span> Liberté, sûreté, propriété</div><div class="memo-item"><span class="mf">Politiques</span> Vote, éligibilité, expression</div><div class="memo-item"><span class="mf">Sociaux</span> Éducation, santé, travail</div><div class="memo-item"><span class="mf">Européens</span> Libre circulation, protection</div></div>
+          <div class="memo-section"><div class="memo-section-title">Devoirs du citoyen</div><div class="memo-item"><span class="mf">Légaux</span> Respecter les lois, payer l'impôt</div><div class="memo-item"><span class="mf">Civiques</span> Voter, participer aux jurys</div><div class="memo-item"><span class="mf">Moraux</span> Solidarité, respect d'autrui</div><div class="memo-item"><span class="mf">Défense</span> JDC (ex-service militaire)</div></div>
+          <div class="memo-section"><div class="memo-section-title">Valeurs républicaines</div><div class="memo-item"><span class="mf">Liberté</span> DDHC 1789, art. 1er</div><div class="memo-item"><span class="mf">Égalité</span> Devant la loi, des chances</div><div class="memo-item"><span class="mf">Fraternité</span> Solidarité, cohésion sociale</div><div class="memo-item"><span class="mf">Laïcité</span> Loi de 1905, neutralité</div></div>
+          <div class="memo-section"><div class="memo-section-title">Formes d'engagement</div><div class="memo-item"><span class="mf">Vote</span> Suffrage universel direct</div><div class="memo-item"><span class="mf">Associations</span> Loi 1901, 1,5 M en France</div><div class="memo-item"><span class="mf">Service civique</span> 16-25 ans, intérêt général</div><div class="memo-item"><span class="mf">Pétitions</span> Droit constitutionnel</div></div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+  </main>
+</div>
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo(){var m=document.getElementById('memoCard').outerHTML;var html='<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Citoyenneté \u2014 Fiche m\u00e9mo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#e87a9b;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#e87a9b;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>'+m+'</body></html>';var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download='citoyennete-fiche-memo.html';a.click();}
+</script>
+<script src="../mobile.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Optique — Physique — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #4fc3f7;
+  --accent2: #81d4fa;
+  --accent-dim: rgba(79,195,247,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../physique-page.html">Physique</a> › <span>Optique</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">⚛️ Physique</span>
+    <span class="tag-level">Débutant → Avancé</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Optique</em></h1>
+  <p class="hero-desc">La science de la lumière — de la réflexion dans un miroir aux interférences quantiques, en passant par l'arc-en-ciel et le laser.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">25</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../physique-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Physique</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Branches</p>
+    <a class="sidebar-link" href="mecanique.html">Mécanique</a>
+    <a class="sidebar-link" href="thermodynamique.html">Thermodynamique</a>
+    <a class="sidebar-link active" href="#">Optique</a>
+    <a class="sidebar-link" href="electromagnetisme.html">Électromagnétisme</a>
+    <a class="sidebar-link" href="moderne.html">Physique moderne</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que l'optique ?</h2>
+          <p>La science de la lumière et de la vision</p>
+        </div>
+      </div>
+      <p class="resume-text">L'optique est la branche de la physique qui étudie la <strong>lumière</strong>, sa nature, sa propagation et ses interactions avec la matière. Depuis les travaux de Snell, Descartes, Huygens et Newton, puis les découvertes de Young, Fresnel et Maxwell, l'optique a révélé la double nature de la lumière : onde et particule.</p>
+      <div class="highlight-box">
+        <p><strong>L'idée fondamentale :</strong> la lumière est une onde électromagnétique dont la longueur d'onde détermine la couleur perçue. L'optique géométrique traite la lumière comme des rayons rectilignes, tandis que l'optique ondulatoire explique les phénomènes d'interférence, de diffraction et de polarisation.</p>
+      </div>
+      <p class="resume-text">Les applications de l'optique sont omniprésentes : lunettes, microscopes, télescopes, fibres optiques, lasers, caméras, holographie, imagerie médicale. L'optique quantique, au croisement de l'optique et de la mécanique quantique, ouvre la voie aux technologies de demain : cryptographie quantique, ordinateurs photoniques.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours d'optique</h2>
+          <p>Progressez étape par étape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="optique/lumiere.html" class="course-card">
+          <span class="course-card-icon">💡</span>
+          <h3>Lumière et propagation</h3>
+          <p>Nature de la lumière, vitesse, propagation rectiligne, ombres et pénombres.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="optique/reflexion.html" class="course-card">
+          <span class="course-card-icon">🪞</span>
+          <h3>Réflexion et réfraction</h3>
+          <p>Lois de Snell-Descartes, réflexion totale, indice de réfraction, fibres optiques.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="optique/lentilles.html" class="course-card">
+          <span class="course-card-icon">🔍</span>
+          <h3>Lentilles et miroirs</h3>
+          <p>Lentilles convergentes et divergentes, miroirs, formation des images, instruments d'optique.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="optique/interferences.html" class="course-card">
+          <span class="course-card-icon">🌈</span>
+          <h3>Interférences et diffraction</h3>
+          <p>Expérience de Young, diffraction par une fente, réseaux et figures d'interférence.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="optique/couleurs.html" class="course-card">
+          <span class="course-card-icon">🎨</span>
+          <h3>Couleurs et spectre</h3>
+          <p>Spectre visible, décomposition de la lumière, synthèse additive et soustractive, spectroscopie.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel de l'optique</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🔭 Optique — Fiche mémo</h3>
+          <p>Curiosita · Lumière, lentilles et ondes</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Propagation</div>
+            <div class="memo-item"><span class="mf">c =</span> 3 × 10⁸ m/s (vide)</div>
+            <div class="memo-item"><span class="mf">v = c/n</span> (dans un milieu)</div>
+            <div class="memo-item"><span class="mf">λ =</span> 380–780 nm (visible)</div>
+            <div class="memo-item"><span class="mf">c = λf</span></div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Réfraction</div>
+            <div class="memo-item"><span class="mf">Snell →</span> n₁ sin θ₁ = n₂ sin θ₂</div>
+            <div class="memo-item"><span class="mf">n(eau) =</span> 1,33</div>
+            <div class="memo-item"><span class="mf">n(verre) ≈</span> 1,5</div>
+            <div class="memo-item"><span class="mf">Réflexion totale →</span> θc = arcsin(n₂/n₁)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Lentilles</div>
+            <div class="memo-item"><span class="mf">1/f = 1/p + 1/p'</span></div>
+            <div class="memo-item"><span class="mf">γ = −p'/p</span> (grandissement)</div>
+            <div class="memo-item"><span class="mf">Convergente →</span> f > 0</div>
+            <div class="memo-item"><span class="mf">Divergente →</span> f < 0</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Interférences</div>
+            <div class="memo-item"><span class="mf">Young →</span> i = λD/a</div>
+            <div class="memo-item"><span class="mf">Constructive →</span> δ = kλ</div>
+            <div class="memo-item"><span class="mf">Destructive →</span> δ = (k+½)λ</div>
+            <div class="memo-item"><span class="mf">Diffraction →</span> θ = λ/a</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo(){var memo=document.getElementById('memoCard').outerHTML;var html='<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Optique — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#4fc3f7;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#4fc3f7;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>'+memo+'</body></html>';var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download='optique-fiche-memo.html';a.click();}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

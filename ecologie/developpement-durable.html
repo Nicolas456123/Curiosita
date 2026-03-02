@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Developpement durable — Ecologie — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #7ae8d8;
+  --accent2: #80cbc4;
+  --accent-dim: rgba(122,232,216,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../ecologie-page.html">Ecologie</a> › <span>Developpement durable</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche memo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🌿 Ecologie</span>
+    <span class="tag-level">Debutant → Avance</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Developpement durable</em></h1>
+  <p class="hero-desc">Concilier croissance economique, justice sociale et preservation de l'environnement : les principes et les outils du developpement durable.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../ecologie-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Ecologie</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Presentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche memo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="ecosystemes.html">Ecosystemes</a>
+    <a class="sidebar-link" href="biodiversite.html">Biodiversite</a>
+    <a class="sidebar-link" href="climat.html">Climat et energie</a>
+    <a class="sidebar-link active" href="#">Developpement durable</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que le developpement durable ?</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">Le developpement durable est un <strong>modele de developpement</strong> qui repond aux besoins du present sans compromettre la capacite des generations futures a repondre aux leurs. Ce concept, defini par le rapport Brundtland en 1987, repose sur trois piliers indissociables : l'economie, le social et l'environnement.</p>
+      <div class="highlight-box">
+        <p><strong>L'idee fondamentale :</strong> le developpement durable n'est pas un frein a la croissance — c'est un changement de paradigme. Il s'agit de produire et consommer autrement, en respectant les limites planetaires tout en assurant le bien-etre de tous.</p>
+      </div>
+      <p class="resume-text">En 2015, l'ONU a adopte les <strong>17 Objectifs de developpement durable</strong> (ODD), un programme universel a horizon 2030 couvrant la pauvrete, la sante, l'education, l'egalite, l'eau, l'energie, le travail, l'innovation, le climat, la vie terrestre et marine, la paix et les partenariats.</p>
+      <p class="resume-text">Ce domaine couvre les fondements du developpement durable, l'economie circulaire, l'alimentation durable, l'urbanisme ecologique et la responsabilite sociale des entreprises.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours sur le developpement durable</h2>
+          <p>Progressez etape par etape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="developpement-durable/fondements.html" class="course-card">
+          <span class="course-card-icon">🌱</span>
+          <h3>Fondements du DD</h3>
+          <p>Rapport Brundtland, trois piliers, limites planetaires et empreinte ecologique.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="developpement-durable/economie-circulaire.html" class="course-card">
+          <span class="course-card-icon">♻️</span>
+          <h3>Economie circulaire</h3>
+          <p>Reduire, reutiliser, recycler : du modele lineaire au modele circulaire de production.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="developpement-durable/alimentation.html" class="course-card">
+          <span class="course-card-icon">🥗</span>
+          <h3>Alimentation durable</h3>
+          <p>Agriculture biologique, circuits courts, gaspillage alimentaire et regime planetaire.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="developpement-durable/urbanisme.html" class="course-card">
+          <span class="course-card-icon">🏙️</span>
+          <h3>Urbanisme ecologique</h3>
+          <p>Villes durables, mobilite verte, batiments basse consommation et nature en ville.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="developpement-durable/rse.html" class="course-card">
+          <span class="course-card-icon">🏢</span>
+          <h3>Responsabilite sociale (RSE)</h3>
+          <p>Normes ISO, bilan carbone, finance verte et engagement des entreprises.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche memo</h2>
+          <p>L'essentiel du developpement durable</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🌿 Developpement durable — Fiche memo</h3>
+          <p>Curiosita · Principes et outils du DD</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Trois piliers</div>
+            <div class="memo-item"><span class="mf">Economique →</span> prosperite, innovation</div>
+            <div class="memo-item"><span class="mf">Social →</span> equite, sante, education</div>
+            <div class="memo-item"><span class="mf">Environnemental →</span> ressources, climat</div>
+            <div class="memo-item"><span class="mf">Brundtland →</span> 1987, definition fondatrice</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">ODD (17 objectifs)</div>
+            <div class="memo-item"><span class="mf">Pauvrete →</span> ODD 1 : eliminer la pauvrete</div>
+            <div class="memo-item"><span class="mf">Climat →</span> ODD 13 : action climatique</div>
+            <div class="memo-item"><span class="mf">Oceans →</span> ODD 14 : vie aquatique</div>
+            <div class="memo-item"><span class="mf">Horizon →</span> Agenda 2030</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Economie circulaire</div>
+            <div class="memo-item"><span class="mf">3R →</span> Reduire, Reutiliser, Recycler</div>
+            <div class="memo-item"><span class="mf">Eco-conception →</span> penser le cycle de vie</div>
+            <div class="memo-item"><span class="mf">Symbiose →</span> dechets d'un = ressources d'un autre</div>
+            <div class="memo-item"><span class="mf">Obsolescence →</span> combattre le jetable</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Indicateurs</div>
+            <div class="memo-item"><span class="mf">Empreinte →</span> ecologique (hectares globaux)</div>
+            <div class="memo-item"><span class="mf">Bilan carbone →</span> tonnes CO₂ equivalentes</div>
+            <div class="memo-item"><span class="mf">IDH →</span> indice de developpement humain</div>
+            <div class="memo-item"><span class="mf">Jour du depassement →</span> ressources annuelles</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Telecharger la fiche memo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Developpement durable — Fiche memo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#7ae8d8;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#7ae8d8;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '\n</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'developpement-durable-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

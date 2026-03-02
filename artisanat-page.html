@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artisanat — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<style>
+:root {
+  --accent: #8ae87a;
+  --accent2: #a5f598;
+  --accent-dim: rgba(138,232,122,0.1);
+}
+.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(138,232,122,0.07) 0%, transparent 70%); }
+.hero-deco { color: rgba(138,232,122,0.04); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="savoir-faire.html">Savoir-faire</a> &rsaquo; <span>Artisanat</span></div>
+  <button class="btn-memo" onclick="downloadMemo()">&#8595; Fiche memo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-deco">&#129690;</div>
+  <div class="hero-meta">
+    <span class="tag-domain">&#128295; Savoir-faire & Vie pratique</span>
+    <span class="tag-level">Tous niveaux</span>
+    <span class="tag-time">&#9201; ~8h de lecture</span>
+  </div>
+  <h1>L'<br><em>Artisanat</em></h1>
+  <p class="hero-desc">Du bois au metal, de la terre au tissu, l'artisanat est l'art de transformer la matiere brute en objets utiles et beaux. Decouvrez les gestes, les outils et les techniques qui font la richesse des metiers manuels.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">4</div><div class="hstat-lab">Domaines</div></div>
+    <div class="hstat"><div class="hstat-val">20</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">10</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="resume" onclick="goTo('resume',this)">&#128214; Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">&#128218; Cours</a>
+    <a class="sidebar-link" data-section="techniques" onclick="goTo('techniques',this)">&#128736; Techniques</a>
+    <a class="sidebar-link" data-section="concepts" onclick="goTo('concepts',this)">&#129513; Concepts cles</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">&#127919; Quiz</a>
+    <a class="sidebar-link" data-section="ressources" onclick="goTo('ressources',this)">&#128279; Ressources</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">&#128203; Fiche memo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="artisanat/menuiserie.html">Menuiserie</a>
+    <a class="sidebar-link" href="artisanat/couture.html">Couture et textile</a>
+    <a class="sidebar-link" href="artisanat/poterie.html">Poterie et ceramique</a>
+    <a class="sidebar-link" href="artisanat/metal.html">Travail du metal</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+  <main class="main">
+
+    <section class="content-section" id="resume">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info"><h2>L'artisanat, l'intelligence de la main</h2><p>Creer, reparer, transformer</p></div>
+      </div>
+      <p class="resume-text">L'artisanat designe l'ensemble des activites de production ou de transformation realisees a la main, avec ou sans l'aide de machines simples. C'est l'un des plus anciens modes de creation humaine : bien avant l'industrialisation, chaque communaute comptait des menuisiers, des forgerons, des potiers et des tisserands.</p>
+      <div class="highlight-box">
+        <p><strong>Pourquoi apprendre l'artisanat aujourd'hui ?</strong> Dans un monde de plus en plus numerique, les savoir-faire manuels offrent un ancrage concret, une satisfaction tangible et une autonomie precieuse. Reparer un meuble, coudre un vetement, forger un outil ou tourner un bol en argile sont des competences qui traversent les epoques.</p>
+      </div>
+      <p class="resume-text">L'artisanat repose sur trois piliers : la <strong>connaissance des materiaux</strong> (bois, metal, terre, fibres), la <strong>maitrise des outils</strong> (manuels et mecaniques) et la <strong>pratique repetee</strong> des gestes techniques. C'est une discipline ou le savoir-faire se transmet de generation en generation, souvent par l'apprentissage aupres d'un maitre artisan.</p>
+      <p class="resume-text">Ce cours couvre quatre grands domaines : la menuiserie (travail du bois), la couture et le textile, la poterie et la ceramique, et le travail du metal. Chacun possede ses traditions, ses techniques et ses materiaux propres.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info"><h2>Explorez les cours</h2><p>Plongez dans chaque domaine en detail</p></div>
+      </div>
+      <div class="courses-grid">
+        <a href="artisanat/menuiserie.html" class="course-card">
+          <span class="course-card-icon">&#129692;</span>
+          <h3>Menuiserie</h3>
+          <p>Outils, assemblages, tournage, finitions et projets en bois.</p>
+          <span class="course-card-link">Voir le cours &rarr;</span>
+        </a>
+        <a href="artisanat/couture.html" class="course-card">
+          <span class="course-card-icon">&#129526;</span>
+          <h3>Couture et textile</h3>
+          <p>Bases de la couture, patronage, tissus, machine a coudre et projets.</p>
+          <span class="course-card-link">Voir le cours &rarr;</span>
+        </a>
+        <a href="artisanat/poterie.html" class="course-card">
+          <span class="course-card-icon">&#129476;</span>
+          <h3>Poterie et ceramique</h3>
+          <p>Argiles, tournage, modelage, emaillage et ceramique d'art.</p>
+          <span class="course-card-link">Voir le cours &rarr;</span>
+        </a>
+        <a href="artisanat/metal.html" class="course-card">
+          <span class="course-card-icon">&#9878;&#65039;</span>
+          <h3>Travail du metal</h3>
+          <p>Forge, soudure, bijouterie, fonderie et travail de la tole.</p>
+          <span class="course-card-link">Voir le cours &rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="techniques">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info"><h2>Techniques fondamentales</h2><p>Les gestes essentiels de l'artisan</p></div>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Le tracage et la mesure :</strong> tout projet artisanal commence par un trace precis. L'equerre, le metre ruban, le compas et le trusquin sont les premiers outils a maitriser. La regle d'or de l'artisan : mesurer deux fois, couper une fois. Une erreur de tracage se repercute sur l'ensemble du projet.</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>La preparation des materiaux :</strong> chaque materiau exige une preparation specifique. Le bois doit etre seche et degage (corroyage), le metal doit etre decape et recuit, l'argile doit etre petrifiee et desaeree, le tissu doit etre lave et repasse avant la coupe. Cette etape conditionne la qualite finale de l'ouvrage.</p>
+      </div>
+      <div class="highlight-box">
+        <p><strong>Les finitions :</strong> un bon artisan se reconnait a ses finitions. Poncage progressif du bois (grain 80 a 400), ebarbage des pieces metalliques, lissage des surfaces ceramiques, surfilage des coutures : les finitions transforment une piece brute en objet abouti. Elles representent souvent 30 % du temps de travail.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="concepts">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info"><h2>Concepts cles</h2><p>Le vocabulaire essentiel de l'artisan</p></div>
+      </div>
+      <div class="concepts-grid">
+        <div class="concept-card"><div class="concept-title">Fil du bois</div><div class="concept-desc">Direction des fibres dans le bois. Travailler dans le sens du fil donne des surfaces lisses ; travailler en travers (bois de bout) exige des outils plus tranchants et des techniques adaptees.</div></div>
+        <div class="concept-card"><div class="concept-title">Tenon-mortaise</div><div class="concept-desc">Assemblage classique en menuiserie : un tenon (partie saillante) s'insere dans une mortaise (cavite). Solide et elegant, il est utilise depuis l'Antiquite egyptienne.</div></div>
+        <div class="concept-card"><div class="concept-title">Chaine et trame</div><div class="concept-desc">En tissage, la chaine designe les fils tendus verticalement sur le metier, la trame les fils passes horizontalement. Leur entrecroisement cree le tissu. L'armure (sergee, toile, satin) determine le motif.</div></div>
+        <div class="concept-card"><div class="concept-title">Biscuit</div><div class="concept-desc">Premiere cuisson d'une piece en ceramique (900-1000 degres C). Le biscuit est poreux, ce qui permet l'application d'un email avant la seconde cuisson (cuisson d'email, 1200-1300 degres C).</div></div>
+        <div class="concept-card"><div class="concept-title">Recuit</div><div class="concept-desc">Traitement thermique qui consiste a chauffer puis refroidir lentement un metal pour le rendre plus maleable. Indispensable apres l'ecrouissage (durcissement par deformation a froid).</div></div>
+        <div class="concept-card"><div class="concept-title">Droit-fil</div><div class="concept-desc">Direction parallele a la lisiere du tissu (sens de la chaine). Couper un patron dans le droit-fil assure un tomber correct du vetement. Le biais (45 degres) offre de l'elasticite.</div></div>
+        <div class="concept-card"><div class="concept-title">Trempe</div><div class="concept-desc">Refroidissement rapide d'un metal chauffe au rouge (dans l'eau, l'huile ou l'air). La trempe durcit l'acier mais le rend cassant ; le revenu (rechauffage modere) restaure un peu de souplesse.</div></div>
+        <div class="concept-card"><div class="concept-title">Corroyage</div><div class="concept-desc">Operation de degauchissage et rabotage du bois brut pour obtenir des faces planes, paralleles et d'equerre. C'est la premiere etape de tout projet de menuiserie serieux.</div></div>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div class="section-info"><h2>Quiz interactif</h2><p>10 questions pour tester vos connaissances</p></div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">Quiz — Artisanat</span>
+          <span class="quiz-score">Score : <span id="quizScore">0</span>/10</span>
+        </div>
+        <div class="quiz-body">
+          <div class="question-block active" id="q0">
+            <div class="q-num">Question 1 / 10</div>
+            <div class="q-text">Quel assemblage traditionnel utilise un tenon insere dans une mortaise ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(0,0)">L'assemblage a queue d'aronde</div>
+              <div class="option" onclick="selectOption(0,1)">L'assemblage tenon-mortaise</div>
+              <div class="option" onclick="selectOption(0,2)">L'assemblage a tourillons</div>
+              <div class="option" onclick="selectOption(0,3)">L'assemblage a mi-bois</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q1">
+            <div class="q-num">Question 2 / 10</div>
+            <div class="q-text">Comment s'appelle la premiere cuisson d'une piece de ceramique ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(1,0)">La cuisson d'email</div>
+              <div class="option" onclick="selectOption(1,1)">Le biscuit</div>
+              <div class="option" onclick="selectOption(1,2)">Le degourdi</div>
+              <div class="option" onclick="selectOption(1,3)">La vitrification</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q2">
+            <div class="q-num">Question 3 / 10</div>
+            <div class="q-text">Quel est le principe de la trempe en metallurgie ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(2,0)">Chauffer lentement le metal</div>
+              <div class="option" onclick="selectOption(2,1)">Refroidir rapidement un metal chauffe au rouge</div>
+              <div class="option" onclick="selectOption(2,2)">Plier le metal a froid</div>
+              <div class="option" onclick="selectOption(2,3)">Fondre le metal pour le mouler</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q3">
+            <div class="q-num">Question 4 / 10</div>
+            <div class="q-text">Qu'est-ce que le droit-fil en couture ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(3,0)">Un fil de couleur contrastante pour marquer les reperes</div>
+              <div class="option" onclick="selectOption(3,1)">La direction parallele a la lisiere du tissu</div>
+              <div class="option" onclick="selectOption(3,2)">Un point de couture invisible</div>
+              <div class="option" onclick="selectOption(3,3)">Le fil de la bobine superieure de la machine</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q4">
+            <div class="q-num">Question 5 / 10</div>
+            <div class="q-text">A quoi sert le corroyage du bois ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(4,0)">A teindre le bois</div>
+              <div class="option" onclick="selectOption(4,1)">A obtenir des faces planes, paralleles et d'equerre</div>
+              <div class="option" onclick="selectOption(4,2)">A secher le bois rapidement</div>
+              <div class="option" onclick="selectOption(4,3)">A coller les pieces ensemble</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q5">
+            <div class="q-num">Question 6 / 10</div>
+            <div class="q-text">Quelle argile est utilisee pour la porcelaine ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(5,0)">La terre de faience</div>
+              <div class="option" onclick="selectOption(5,1)">Le gres</div>
+              <div class="option" onclick="selectOption(5,2)">Le kaolin</div>
+              <div class="option" onclick="selectOption(5,3)">La chamotte</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q6">
+            <div class="q-num">Question 7 / 10</div>
+            <div class="q-text">Quel outil est indispensable pour verifier l'equerrage en menuiserie ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(6,0)">Le serre-joint</div>
+              <div class="option" onclick="selectOption(6,1)">L'equerre de menuisier</div>
+              <div class="option" onclick="selectOption(6,2)">La rape</div>
+              <div class="option" onclick="selectOption(6,3)">Le ciseau a bois</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q7">
+            <div class="q-num">Question 8 / 10</div>
+            <div class="q-text">Qu'est-ce que l'ecrouissage d'un metal ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(7,0)">Sa fusion complete</div>
+              <div class="option" onclick="selectOption(7,1)">Son durcissement par deformation a froid</div>
+              <div class="option" onclick="selectOption(7,2)">Son nettoyage a l'acide</div>
+              <div class="option" onclick="selectOption(7,3)">Son polissage</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q8">
+            <div class="q-num">Question 9 / 10</div>
+            <div class="q-text">Quelle armure de tissage donne un tissu lisse et brillant ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(8,0)">L'armure toile</div>
+              <div class="option" onclick="selectOption(8,1)">L'armure sergee</div>
+              <div class="option" onclick="selectOption(8,2)">L'armure satin</div>
+              <div class="option" onclick="selectOption(8,3)">L'armure taffetas</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q9">
+            <div class="q-num">Question 10 / 10</div>
+            <div class="q-text">Quelle regle d'or applique l'artisan avant de couper ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(9,0)">Couper d'abord, ajuster ensuite</div>
+              <div class="option" onclick="selectOption(9,1)">Mesurer deux fois, couper une fois</div>
+              <div class="option" onclick="selectOption(9,2)">Toujours couper dans le biais</div>
+              <div class="option" onclick="selectOption(9,3)">Utiliser le plus gros outil disponible</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+        </div>
+        <div class="quiz-nav">
+          <div class="q-dots">
+            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
+            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
+          </div>
+          <div style="display:flex;gap:.8rem">
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>&larr; Prec</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant &rarr;</button>
+          </div>
+        </div>
+        <div class="quiz-result">
+          <div class="result-score-big" id="finalScore"></div>
+          <div class="result-msg" id="finalMsg"></div>
+          <button class="btn-retry" onclick="restartQuiz()">&#8634; Recommencer</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="ressources">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <div class="section-info"><h2>Ressources externes</h2><p>Les meilleures sources pour approfondir</p></div>
+      </div>
+      <div class="resources-grid">
+        <a class="resource-card" href="https://www.youtube.com/@paborstudio" target="_blank">
+          <span class="resource-icon">&#9654;&#65039;</span>
+          <div class="resource-info">
+            <div class="resource-name">Pabor Studio</div>
+            <div class="resource-desc">Projets de menuiserie detailles avec explications pedagogiques, du debutant a l'avance.</div>
+            <span class="resource-type type-video">YouTube</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.systemed.fr/" target="_blank">
+          <span class="resource-icon">&#128736;</span>
+          <div class="resource-info">
+            <div class="resource-name">Systeme D</div>
+            <div class="resource-desc">Magazine de reference pour le bricolage et l'artisanat en France. Tutoriels, fiches pratiques et projets pas a pas.</div>
+            <span class="resource-type type-doc">Magazine</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://fr.wikipedia.org/wiki/Artisanat" target="_blank">
+          <span class="resource-icon">&#127760;</span>
+          <div class="resource-info">
+            <div class="resource-name">Wikipedia — Artisanat</div>
+            <div class="resource-desc">Articles detailles sur l'histoire, les techniques et les metiers de l'artisanat a travers le monde.</div>
+            <span class="resource-type type-wiki">Wikipedia</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.youtube.com/@jimmydiresta" target="_blank">
+          <span class="resource-icon">&#9654;&#65039;</span>
+          <div class="resource-info">
+            <div class="resource-name">Jimmy DiResta</div>
+            <div class="resource-desc">Artisan polyvalent : bois, metal, cuir. Projets inspires avec un sens esthetique remarquable.</div>
+            <span class="resource-type type-video">YouTube</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.compagnons-du-devoir.com/" target="_blank">
+          <span class="resource-icon">&#127891;</span>
+          <div class="resource-info">
+            <div class="resource-name">Compagnons du Devoir</div>
+            <div class="resource-desc">Formation d'excellence aux metiers manuels en France. Tour de France, apprentissage et tradition du compagnonnage.</div>
+            <span class="resource-type type-course">Formation</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.youtube.com/@BlackBearForge" target="_blank">
+          <span class="resource-icon">&#9878;&#65039;</span>
+          <div class="resource-info">
+            <div class="resource-name">Black Bear Forge</div>
+            <div class="resource-desc">Forge traditionnelle et moderne. Tutoriels de forge pour debutants et projets avances.</div>
+            <span class="resource-type type-video">YouTube</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <div class="section-info"><h2>Fiche memo</h2><p>L'essentiel en une page — telechargeable</p></div>
+      </div>
+      <div class="memo-preview">
+        <div class="memo-top">
+          <h3>&#128203; Artisanat — Fiche memo</h3>
+          <p>Bois, metal, terre et textile</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Menuiserie</div>
+            <div class="memo-item">Corroyage : degauchir + raboter</div>
+            <div class="memo-item">Assemblages : tenon-mortaise, queue d'aronde</div>
+            <div class="memo-item">Finitions : poncage 80 a 400, vernis, huile</div>
+            <div class="memo-item">Regle : mesurer 2 fois, couper 1 fois</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Couture & Textile</div>
+            <div class="memo-item">Droit-fil : parallele a la lisiere</div>
+            <div class="memo-item">Biais : 45 degres, elastique</div>
+            <div class="memo-item">Armures : toile, sergee, satin</div>
+            <div class="memo-item">Marge de couture : 1 a 1,5 cm</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Poterie & Ceramique</div>
+            <div class="memo-item">Biscuit : 1ere cuisson (900-1000 C)</div>
+            <div class="memo-item">Email : 2e cuisson (1200-1300 C)</div>
+            <div class="memo-item">Argiles : faience, gres, porcelaine</div>
+            <div class="memo-item">Techniques : tournage, modelage, colombin</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Travail du metal</div>
+            <div class="memo-item">Trempe : refroidissement rapide = durcit</div>
+            <div class="memo-item">Revenu : rechauffage modere = assouplit</div>
+            <div class="memo-item">Recuit : chauffage + refroidissement lent</div>
+            <div class="memo-item">Ecrouissage : deformation a froid = durcit</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">&#8595; Telecharger la fiche memo (HTML/PDF)</button>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+const NB=10;
+const questions=[
+  {q:"Quel assemblage traditionnel utilise un tenon insere dans une mortaise ?",opts:["L'assemblage a queue d'aronde","L'assemblage tenon-mortaise","L'assemblage a tourillons","L'assemblage a mi-bois"],ans:1,expl:"L'assemblage tenon-mortaise est l'un des plus anciens et des plus solides. Le tenon (partie saillante) s'insere dans la mortaise (cavite). Utilise depuis l'Egypte antique, il est le fondement de la menuiserie traditionnelle."},
+  {q:"Comment s'appelle la premiere cuisson d'une piece de ceramique ?",opts:["La cuisson d'email","Le biscuit","Le degourdi","La vitrification"],ans:1,expl:"Le biscuit (ou degourdi) est la premiere cuisson a 900-1000 C. La piece devient poreuse et solide, prete a recevoir l'email. La seconde cuisson (1200-1300 C) vitrifie l'email et rend la piece impermeable."},
+  {q:"Quel est le principe de la trempe en metallurgie ?",opts:["Chauffer lentement le metal","Refroidir rapidement un metal chauffe au rouge","Plier le metal a froid","Fondre le metal pour le mouler"],ans:1,expl:"La trempe consiste a refroidir brutalement un acier chauffe a haute temperature (800-900 C) en le plongeant dans l'eau, l'huile ou l'air. Ce processus modifie la structure cristalline et durcit considerablement le metal."},
+  {q:"Qu'est-ce que le droit-fil en couture ?",opts:["Un fil de couleur contrastante pour marquer les reperes","La direction parallele a la lisiere du tissu","Un point de couture invisible","Le fil de la bobine superieure de la machine"],ans:1,expl:"Le droit-fil est la direction des fils de chaine du tissu, parallele a la lisiere. Respecter le droit-fil lors de la coupe assure un tomber correct du vetement et evite les deformations."},
+  {q:"A quoi sert le corroyage du bois ?",opts:["A teindre le bois","A obtenir des faces planes, paralleles et d'equerre","A secher le bois rapidement","A coller les pieces ensemble"],ans:1,expl:"Le corroyage comprend le degauchissage (obtention d'une face de reference plane) et le rabotage (mise a epaisseur). C'est l'etape fondamentale qui transforme le bois brut en pieces exploitables."},
+  {q:"Quelle argile est utilisee pour la porcelaine ?",opts:["La terre de faience","Le gres","Le kaolin","La chamotte"],ans:2,expl:"Le kaolin est une argile blanche tres pure, base de la porcelaine. Cuite a tres haute temperature (1280-1400 C), elle devient translucide et impermeable. La porcelaine a ete inventee en Chine au VIIe siecle."},
+  {q:"Quel outil est indispensable pour verifier l'equerrage en menuiserie ?",opts:["Le serre-joint","L'equerre de menuisier","La rape","Le ciseau a bois"],ans:1,expl:"L'equerre de menuisier permet de verifier que deux faces forment un angle de 90 degres. C'est un outil de controle fondamental utilise a chaque etape du corroyage et de l'assemblage."},
+  {q:"Qu'est-ce que l'ecrouissage d'un metal ?",opts:["Sa fusion complete","Son durcissement par deformation a froid","Son nettoyage a l'acide","Son polissage"],ans:1,expl:"L'ecrouissage est le phenomene de durcissement d'un metal soumis a une deformation plastique a froid (martelage, laminage). Les dislocations dans le reseau cristallin s'accumulent et bloquent les mouvements. Le recuit permet de restaurer la ductilite."},
+  {q:"Quelle armure de tissage donne un tissu lisse et brillant ?",opts:["L'armure toile","L'armure sergee","L'armure satin","L'armure taffetas"],ans:2,expl:"L'armure satin minimise les entrecroisements entre chaine et trame, ce qui produit une surface lisse et brillante. Les fils de chaine flottent longuement a la surface. Le satin de soie en est l'exemple le plus celebre."},
+  {q:"Quelle regle d'or applique l'artisan avant de couper ?",opts:["Couper d'abord, ajuster ensuite","Mesurer deux fois, couper une fois","Toujours couper dans le biais","Utiliser le plus gros outil disponible"],ans:1,expl:"Mesurer deux fois, couper une fois est la regle d'or universelle de l'artisanat. Une coupe ne peut pas etre defaite — la verification minutieuse des mesures evite le gaspillage de materiau et de temps."}
+];
+let current=0,score=0,answered=new Array(NB).fill(null);
+function renderQuestion(){document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});document.getElementById('btnPrev').disabled=current===0;document.getElementById('btnNext').textContent=current===NB-1?'Voir resultats':'Suivant \u2192';}
+function selectOption(qi,oi){if(answered[qi]!==null)return;answered[qi]=oi;const block=document.querySelectorAll('.question-block')[qi];block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');}
+function nextQuestion(){if(current<NB-1){current++;renderQuestion();}else showResult();}
+function prevQuestion(){if(current>0){current--;renderQuestion();}}
+function showResult(){document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';const r=document.querySelector('.quiz-result');r.style.display='block';document.getElementById('finalScore').textContent=score+'/'+NB;document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Tres bien !','Excellent !'][score<=3?0:score<=6?1:score<=8?2:3];}
+function restartQuiz(){current=0;score=0;answered.fill(null);document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');document.getElementById('quizScore').textContent=0;renderQuestion();}
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+const sections=['resume','techniques','concepts','quiz','ressources','memo'];
+window.addEventListener('scroll',()=>{let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';});
+function downloadMemo(){const w=window.open('','_blank','width=900,height=700');w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche memo — Artisanat</title><style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#2e7d32;border-bottom:3px solid #2e7d32;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#2e7d32;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #c8e6c9;padding:1rem;border-radius:4px;background:#f1f8e9}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style></head><body><h1>Artisanat — Fiche memo</h1><div class="grid"><div class="box"><h2>Menuiserie</h2><ul><li>Corroyage : degauchir + raboter</li><li>Assemblages : tenon-mortaise, queue d aronde</li><li>Finitions : poncage 80 a 400</li><li>Regle : mesurer 2x, couper 1x</li></ul></div><div class="box"><h2>Couture & Textile</h2><ul><li>Droit-fil parallele a la lisiere</li><li>Biais a 45 : elasticite</li><li>Armures : toile, sergee, satin</li><li>Marge de couture : 1 a 1,5 cm</li></ul></div><div class="box"><h2>Poterie & Ceramique</h2><ul><li>Biscuit : 1re cuisson 900-1000 C</li><li>Email : 2e cuisson 1200-1300 C</li><li>Argiles : faience, gres, porcelaine</li><li>Kaolin = base de la porcelaine</li></ul></div><div class="box"><h2>Travail du metal</h2><ul><li>Trempe = refroidissement rapide (durcit)</li><li>Revenu = rechauffage modere (assouplit)</li><li>Recuit = chauffage + refroidissement lent</li><li>Ecrouissage = deformation a froid (durcit)</li></ul></div></div><div class="footer">Curiosita — Fiche memo Artisanat — ${new Date().toLocaleDateString('fr-FR')}</div><button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#2e7d32;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">Imprimer / PDF</button></body></html>`);w.document.close();}
+renderQuestion();
+</script>
+<script src="mobile.js"></script>
+</body>
+</html>

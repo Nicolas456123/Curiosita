@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design d'intérieur — Design & Architecture — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #e87a7a;
+  --accent2: #ef9a9a;
+  --accent-dim: rgba(232,122,122,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../design-page.html">Design & Architecture</a> › <span>Design d'intérieur</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">✏️ Design & Architecture</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Design d'intérieur</em></h1>
+  <p class="hero-desc">L'art de concevoir des espaces de vie fonctionnels, confortables et esthétiques — du mobilier à l'agencement global.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../design-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Design & Architecture</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="graphique.html">Design graphique</a>
+    <a class="sidebar-link" href="architecture.html">Architecture</a>
+    <a class="sidebar-link active" href="#">Design d'intérieur</a>
+    <a class="sidebar-link" href="industriel.html">Design industriel</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que le design d'intérieur ?</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">Le design d'intérieur est l'art d'<strong>aménager et de décorer les espaces intérieurs</strong> pour les rendre fonctionnels, confortables et esthétiques. Il va bien au-delà de la simple décoration : il s'agit de penser la circulation, la lumière, les matériaux, les couleurs et le mobilier pour créer des lieux de vie qui répondent aux besoins de leurs occupants.</p>
+      <div class="highlight-box">
+        <p><strong>L'idée fondamentale :</strong> un intérieur bien conçu influence notre bien-être quotidien. Le design d'intérieur cherche l'équilibre entre la beauté, le confort et la praticité, en tenant compte de l'espace disponible, de la lumière naturelle et du mode de vie des habitants.</p>
+      </div>
+      <p class="resume-text">L'histoire du design d'intérieur est liée à l'évolution des modes de vie : des grands salons aristocratiques aux lofts industriels, des intérieurs Art déco aux espaces minimalistes contemporains. Chaque époque a ses matériaux de prédilection, ses couleurs fétiches et sa vision du confort.</p>
+      <p class="resume-text">Aujourd'hui, le design d'intérieur intègre des préoccupations nouvelles : <strong>durabilité</strong> des matériaux, <strong>accessibilité</strong> universelle, <strong>bien-être</strong> (biophilie, qualité de l'air) et <strong>flexibilité</strong> des espaces modulables.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours de design d'intérieur</h2>
+          <p>Progressez étape par étape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="interieur/principes-amenagement.html" class="course-card">
+          <span class="course-card-icon">📐</span>
+          <h3>Principes d'aménagement</h3>
+          <p>Circulation, proportions, zonage fonctionnel et ergonomie de l'espace intérieur.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="interieur/styles-decoration.html" class="course-card">
+          <span class="course-card-icon">🎨</span>
+          <h3>Styles de décoration</h3>
+          <p>Classique, Art déco, scandinave, industriel, minimaliste : les grandes tendances décoratives.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="interieur/couleurs-materiaux.html" class="course-card">
+          <span class="course-card-icon">🪵</span>
+          <h3>Couleurs et matériaux</h3>
+          <p>Palettes chromatiques, bois, pierre, textile, métal : choisir et associer les matières.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="interieur/eclairage.html" class="course-card">
+          <span class="course-card-icon">💡</span>
+          <h3>Éclairage</h3>
+          <p>Lumière naturelle et artificielle, température de couleur, scénarios lumineux.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="interieur/mobilier.html" class="course-card">
+          <span class="course-card-icon">🛋️</span>
+          <h3>Mobilier et objets</h3>
+          <p>Histoire du mobilier, design iconique, choix et agencement des meubles.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel du design d'intérieur en un coup d'oeil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🛋️ Design d'intérieur — Fiche mémo</h3>
+          <p>Curiosita · Styles, principes et matériaux</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Principes d'aménagement</div>
+            <div class="memo-item"><span class="mf">Circulation</span> Dégager les passages (90 cm min.)</div>
+            <div class="memo-item"><span class="mf">Proportion</span> Règle des 60-30-10 (couleurs)</div>
+            <div class="memo-item"><span class="mf">Zonage</span> Séparer fonctions sans cloisonner</div>
+            <div class="memo-item"><span class="mf">Lumière</span> Privilégier la lumière naturelle</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Styles majeurs</div>
+            <div class="memo-item"><span class="mf">Scandinave</span> Bois clair, blanc, hygge</div>
+            <div class="memo-item"><span class="mf">Industriel</span> Métal, brique, brut</div>
+            <div class="memo-item"><span class="mf">Art déco</span> Géométrie, luxe, dorure</div>
+            <div class="memo-item"><span class="mf">Minimaliste</span> Less is more, épuré</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Matériaux</div>
+            <div class="memo-item"><span class="mf">Bois</span> Chaud, naturel, polyvalent</div>
+            <div class="memo-item"><span class="mf">Pierre</span> Noble, durable, frais</div>
+            <div class="memo-item"><span class="mf">Textile</span> Confort, acoustique, texture</div>
+            <div class="memo-item"><span class="mf">Métal</span> Moderne, solide, industriel</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Éclairage</div>
+            <div class="memo-item"><span class="mf">Ambiance</span> 2700K, lumière chaude</div>
+            <div class="memo-item"><span class="mf">Travail</span> 4000K, lumière neutre</div>
+            <div class="memo-item"><span class="mf">3 couches</span> Général + fonctionnel + accent</div>
+            <div class="memo-item"><span class="mf">Variateurs</span> Adapter l'intensité au moment</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Design d\'intérieur — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#e87a7a;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#e87a7a;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'design-interieur-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

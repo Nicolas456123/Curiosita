@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Langues & Littérature — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<style>
+:root {
+  --accent: #e8c97a;
+  --accent2: #f5dfa0;
+  --accent-dim: rgba(232,201,122,0.1);
+}
+.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(232,201,122,0.07) 0%, transparent 70%); }
+.hero-deco { color: rgba(232,201,122,0.04); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="lettres-langues.html">Lettres & Langues</a> › <span>Langues</span></div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+<div class="hero">
+  <div class="hero-deco">Aa</div>
+  <div class="hero-meta">
+    <span class="tag-domain">📚 Lettres, Langues & Philosophie</span>
+    <span class="tag-level">Tous niveaux</span>
+    <span class="tag-time">⏱ ~6h de lecture</span>
+  </div>
+  <h1>Les mots<br><em>ouvrent le monde.</em></h1>
+  <p class="hero-desc">Linguistique, apprentissage des langues, littérature — le langage est la plus puissante technologie jamais inventée par l'humanité. Comprendre comment fonctionnent les langues, c'est mieux comprendre la pensée elle-même.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">3</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">6</div><div class="hstat-lab">Quiz</div></div>
+    <div class="hstat"><div class="hstat-val">6</div><div class="hstat-lab">Ressources</div></div>
+  </div>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="resume" onclick="goTo('resume',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="acquisition" onclick="goTo('acquisition',this)">🧠 Apprendre une langue</a>
+    <a class="sidebar-link" data-section="concepts" onclick="goTo('concepts',this)">🧩 Concepts clés</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="ressources" onclick="goTo('ressources',this)">🔗 Ressources</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Cours</p>
+    <a class="sidebar-link" href="langues/anglais.html">Anglais</a>
+    <a class="sidebar-link" href="langues/espagnol.html">Espagnol</a>
+    <a class="sidebar-link" href="langues/linguistique.html">Linguistique</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="resume">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info"><h2>Le langage humain</h2><p>La linguistique et la puissance des mots</p></div>
+      </div>
+      <p class="resume-text">La linguistique est la science qui étudie le langage humain — ses structures, ses mécanismes d'évolution, son acquisition, sa diversité. Elle révèle que toutes les langues humaines, aussi différentes soient-elles, partagent des <strong>universaux linguistiques</strong> : toutes distinguent noms et verbes, toutes ont des pronoms, toutes permettent de formuler des négations et des questions.</p>
+      <div class="highlight-box">
+        <p><strong>7 000 langues dans le monde.</strong> Une langue s'éteint tous les 14 jours. Les 6 langues les plus parlées (mandarin, anglais, hindi, espagnol, arabe, français) sont maîtrisées par plus de la moitié de l'humanité. Environ 90% des langues seront peut-être éteintes d'ici 2100.</p>
+      </div>
+      <p class="resume-text">Ferdinand de Saussure (1857-1913) pose les bases de la linguistique moderne en distinguant la <em>langue</em> (système de signes partagé) de la <em>parole</em> (usage individuel). Le <strong>signe linguistique</strong> unit un signifiant (image acoustique) et un signifié (concept) de façon arbitraire : le mot "arbre" n'a pas de lien naturel avec l'arbre réel.</p>
+      <p class="resume-text">La <strong>littérature</strong> pousse le langage à ses limites créatives. Lire un roman, c'est habiter d'autres vies ; lire de la poésie, c'est entendre la langue chanter. La littérature développe l'empathie, enrichit le vocabulaire et affûte la pensée complexe — des qualités de plus en plus précieuses dans un monde d'informations fragmentées.</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Explorez les cours</h2>
+          <p>Plongez dans chaque domaine en détail</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="langues/anglais.html" class="course-card">
+          <span class="course-card-icon">🇬🇧</span>
+          <h3>Anglais</h3>
+          <p>Grammaire, vocabulaire, prononciation, expressions et rédaction.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="langues/espagnol.html" class="course-card">
+          <span class="course-card-icon">🇪🇸</span>
+          <h3>Espagnol</h3>
+          <p>Grammaire, vocabulaire, conjugaison, expressions et culture.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="langues/linguistique.html" class="course-card">
+          <span class="course-card-icon">🗣️</span>
+          <h3>Linguistique</h3>
+          <p>Phonétique, syntaxe, sémantique, sociolinguistique et histoire des langues.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+    <section class="content-section" id="acquisition">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info"><h2>Comment apprendre une langue efficacement ?</h2><p>Méthodes, stades et clés de réussite</p></div>
+      </div>
+      <div class="highlight-box"><p><strong>La méthode la plus efficace :</strong> l'immersion combinée à une pratique délibérée. Les recherches montrent que la répétition espacée (Anki, Duolingo), la pratique orale intensive et l'exposition à du contenu authentique (films, livres, podcasts) sont bien plus efficaces que les méthodes grammaticales traditionnelles.</p></div>
+      <div class="highlight-box"><p><strong>Niveaux CECR :</strong> Le Cadre Européen Commun de Référence classe les apprenants de A1 (débutant) à C2 (maîtrise native). A1-A2 : communication basique. B1-B2 : autonomie. C1-C2 : maîtrise. Passer de B2 à C1 prend souvent autant de temps que A1 à B2 — le plateau est réel mais franchissable.</p></div>
+      <div class="highlight-box"><p><strong>Les 5 clés de l'apprentissage des langues :</strong> 1. Exposition quotidienne (minimum 30 min). 2. Répétition espacée pour le vocabulaire. 3. Production active (parler, écrire) dès le début. 4. Feedback immédiat (tandem, correcteur). 5. Motivation authentique — un objectif concret (voyage, travail, lecture d'auteurs dans la langue originale).</p></div>
+    </section>
+    <section class="content-section" id="concepts">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info"><h2>Concepts clés</h2><p>Le vocabulaire de la linguistique</p></div>
+      </div>
+      <div class="concepts-grid">
+        <div class="concept-card"><div class="concept-title">Phonologie</div><div class="concept-desc">Étude des sons d'une langue (phonèmes). Chaque langue utilise un sous-ensemble des 800+ sons possibles. Ex : le français a 36 phonèmes, le hawaïen seulement 13. Les sons distinctifs varient selon les langues.</div></div>
+        <div class="concept-card"><div class="concept-title">Morphologie</div><div class="concept-desc">Étude de la structure interne des mots (morphèmes). Le morphème est la plus petite unité de sens. "Amis" = ami (racine) + s (pluriel). Les langues varient : français (flexionnel), chinois (isolant), turc (agglutinant).</div></div>
+        <div class="concept-card"><div class="concept-title">Syntaxe</div><div class="concept-desc">Règles d'organisation des mots en phrases. L'ordre SVO (Sujet-Verbe-Objet) est le plus courant (anglais, français). Le japonais est SOV. Le gallois est VSO. La syntaxe crée le sens par la structure.</div></div>
+        <div class="concept-card"><div class="concept-title">Sémantique</div><div class="concept-desc">Étude du sens des mots et des phrases. Les mots n'ont pas de sens intrinsèque — ils ont un sens en contexte et par rapport à d'autres mots. La polysémie (plusieurs sens) et l'homonymie sont universelles.</div></div>
+        <div class="concept-card"><div class="concept-title">Pragmatique</div><div class="concept-desc">Étude de l'usage du langage en contexte social. "Peux-tu fermer la fenêtre ?" est une question sur les capacités, mais pragmatiquement c'est une demande. Les règles pragmatiques varient fortement selon les cultures.</div></div>
+        <div class="concept-card"><div class="concept-title">Relativité linguistique</div><div class="concept-desc">Hypothèse Sapir-Whorf : la langue influence la pensée. Exemple : certaines langues (hopi, pirahã) n'ont pas de temps grammatical. Le peuple Pirahã n'a pas de nombres. Les couleurs nommées sont mieux discriminées.</div></div>
+      </div>
+    </section>
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div class="section-info"><h2>Quiz interactif</h2><p>6 questions pour tester vos connaissances</p></div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">Quiz — Langues & Linguistique</span>
+          <span class="quiz-score">Score : <span id="quizScore">0</span>/6</span>
+        </div>
+        <div class="quiz-body">
+          <div class="question-block active" id="q0">
+            <div class="q-num">Question 1 / 6</div>
+            <div class="q-text">Combien de langues différentes sont parlées dans le monde aujourd'hui ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(0,0)">Environ 200</div>
+              <div class="option" onclick="selectOption(0,1)">Environ 2 000</div>
+              <div class="option" onclick="selectOption(0,2)">Environ 7 000</div>
+              <div class="option" onclick="selectOption(0,3)">Environ 20 000</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q1">
+            <div class="q-num">Question 2 / 6</div>
+            <div class="q-text">Que distingue la "langue" de la "parole" dans la linguistique saussurienne ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(1,0)">La langue est écrite, la parole est orale</div>
+              <div class="option" onclick="selectOption(1,1)">La langue est le système collectif, la parole est son usage individuel</div>
+              <div class="option" onclick="selectOption(1,2)">La langue est ancienne, la parole est moderne</div>
+              <div class="option" onclick="selectOption(1,3)">La langue est formelle, la parole est familière</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q2">
+            <div class="q-num">Question 3 / 6</div>
+            <div class="q-text">Quel est l'ordre des mots le plus répandu dans les langues du monde ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(2,0)">VSO (Verbe-Sujet-Objet)</div>
+              <div class="option" onclick="selectOption(2,1)">SOV (Sujet-Objet-Verbe)</div>
+              <div class="option" onclick="selectOption(2,2)">SVO (Sujet-Verbe-Objet)</div>
+              <div class="option" onclick="selectOption(2,3)">OVS (Objet-Verbe-Sujet)</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q3">
+            <div class="q-num">Question 4 / 6</div>
+            <div class="q-text">Que signifie le niveau "B2" dans le Cadre Européen Commun de Référence (CECR) ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(3,0)">Débutant absolu</div>
+              <div class="option" onclick="selectOption(3,1)">Niveau intermédiaire avancé — autonome</div>
+              <div class="option" onclick="selectOption(3,2)">Niveau natif</div>
+              <div class="option" onclick="selectOption(3,3)">Niveau scolaire minimum</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q4">
+            <div class="q-num">Question 5 / 6</div>
+            <div class="q-text">Qu'étudie la pragmatique linguistique ?</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(4,0)">La structure phonologique des sons</div>
+              <div class="option" onclick="selectOption(4,1)">L'origine historique des mots</div>
+              <div class="option" onclick="selectOption(4,2)">L'usage du langage en contexte social et communicatif</div>
+              <div class="option" onclick="selectOption(4,3)">La formation des mots par dérivation</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+          <div class="question-block" id="q5">
+            <div class="q-num">Question 6 / 6</div>
+            <div class="q-text">La "répétition espacée" est une technique d'apprentissage qui consiste à...</div>
+            <div class="options">
+              <div class="option" onclick="selectOption(5,0)">Réviser la même chose plusieurs fois par jour</div>
+              <div class="option" onclick="selectOption(5,1)">Réviser à intervalles croissants, juste avant d'oublier</div>
+              <div class="option" onclick="selectOption(5,2)">Faire des pauses régulières de 10 minutes</div>
+              <div class="option" onclick="selectOption(5,3)">Écouter des enregistrements pendant le sommeil</div>
+            </div>
+            <div class="q-feedback"></div>
+          </div>
+        </div>
+        <div class="quiz-nav">
+          <div class="q-dots">
+            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div>
+            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
+          </div>
+          <div style="display:flex;gap:.8rem">
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+          </div>
+        </div>
+        <div class="quiz-result">
+          <div class="result-score-big" id="finalScore"></div>
+          <div class="result-msg" id="finalMsg"></div>
+          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        </div>
+      </div>
+    </section>
+    <section class="content-section" id="ressources">
+      <div class="section-header">
+        <div class="section-num">06</div>
+        <div class="section-info"><h2>Ressources externes</h2><p>Les meilleures sources pour approfondir</p></div>
+      </div>
+      <div class="resources-grid">
+        <a class="resource-card" href="https://www.duolingo.com" target="_blank">
+          <span class="resource-icon">🦉</span>
+          <div class="resource-info">
+            <div class="resource-name">Duolingo</div>
+            <div class="resource-desc">La plateforme d'apprentissage de langues la plus utilisée au monde. Gamifiée, efficace pour débutants et intermédiaires. 40+ langues disponibles.</div>
+            <span class="resource-type type-course">App gratuite</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://apps.ankiweb.net" target="_blank">
+          <span class="resource-icon">🃏</span>
+          <div class="resource-info">
+            <div class="resource-name">Anki — Répétition espacée</div>
+            <div class="resource-desc">Le meilleur outil de mémorisation par répétition espacée. Des milliers de decks partagés pour le vocabulaire de toutes les langues.</div>
+            <span class="resource-type type-course">App gratuite</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.youtube.com/@LingFocus" target="_blank">
+          <span class="resource-icon">▶️</span>
+          <div class="resource-info">
+            <div class="resource-name">Ling Focus</div>
+            <div class="resource-desc">Comparaisons de langues fascinantes, structures grammaticales, histoire des familles linguistiques. Idéal pour les curieux du langage.</div>
+            <span class="resource-type type-video">YouTube</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://www.coursera.org/courses?query=linguistics" target="_blank">
+          <span class="resource-icon">🎓</span>
+          <div class="resource-info">
+            <div class="resource-name">Coursera — Linguistics</div>
+            <div class="resource-desc">Cours de linguistique des universités Penn, Edinburgh, Leiden. "Miracles of Human Language" — introduction fascinante. Sous-titres français disponibles.</div>
+            <span class="resource-type type-course">Cours en ligne</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://gutenberg.org" target="_blank">
+          <span class="resource-icon">📖</span>
+          <div class="resource-info">
+            <div class="resource-name">Projet Gutenberg</div>
+            <div class="resource-desc">70 000 livres du domaine public en téléchargement gratuit. Classiques en français, anglais, espagnol, allemand, latin... La bibliothèque universelle gratuite.</div>
+            <span class="resource-type type-doc">Bibliothèque</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://fr.wikipedia.org/wiki/Linguistique" target="_blank">
+          <span class="resource-icon">🌐</span>
+          <div class="resource-info">
+            <div class="resource-name">Wikipedia — Linguistique</div>
+            <div class="resource-desc">Vue d'ensemble des branches de la linguistique, des familles de langues et des grandes théories. Bien illustré et sourcé.</div>
+            <span class="resource-type type-wiki">Wikipedia</span>
+          </div>
+        </a>
+      </div>
+    </section>
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">07</div>
+        <div class="section-info"><h2>Fiche mémo</h2><p>L'essentiel en une page — téléchargeable</p></div>
+      </div>
+      <div class="memo-preview">
+        <div class="memo-top">
+          <h3>📋 Langues & Littérature — Fiche mémo</h3>
+          <p>Linguistique, apprentissage et littérature</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Branches de la linguistique</div>
+            <div class="memo-item">Phonologie → sons et phonèmes</div>
+            <div class="memo-item">Morphologie → structure des mots</div>
+            <div class="memo-item">Syntaxe → structure des phrases</div>
+            <div class="memo-item">Sémantique → sens des mots</div>
+            <div class="memo-item">Pragmatique → usage en contexte</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Niveaux CECR</div>
+            <div class="memo-item">A1 → Découverte (débutant)</div>
+            <div class="memo-item">A2 → Survie</div>
+            <div class="memo-item">B1 → Seuil (indépendant)</div>
+            <div class="memo-item">B2 → Avancé (autonome)</div>
+            <div class="memo-item">C1 → Autonomie avancée</div>
+            <div class="memo-item">C2 → Maîtrise (quasi-natif)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Familles de langues</div>
+            <div class="memo-item">Indo-européen → FR, EN, ES, DE, RU</div>
+            <div class="memo-item">Sino-tibétain → ZH, TI</div>
+            <div class="memo-item">Afro-asiatique → AR, HE, AM</div>
+            <div class="memo-item">Dravidien → TA, TE, KN</div>
+            <div class="memo-item">Altaïque → TR, MN, KZ</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Littérature française clé</div>
+            <div class="memo-item">Rabelais — Gargantua (1534)</div>
+            <div class="memo-item">Molière — Le Misanthrope (1666)</div>
+            <div class="memo-item">Voltaire — Candide (1759)</div>
+            <div class="memo-item">Balzac — La Comédie Humaine (1830-50)</div>
+            <div class="memo-item">Proust — À la Recherche (1913-27)</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML/PDF)</button>
+      </div>
+    </section>
+  </main>
+</div>
+<script>
+const questions=[
+  {q:"Combien de langues sont parlées dans le monde ?",opts:["~200","~2 000","~7 000","~20 000"],ans:2,expl:"Il existe environ 7 000 langues actives dans le monde, mais leur répartition est très inégale : plus de 90% sont parlées par moins d'1% de la population mondiale. Une langue s'éteint tous les 14 jours. Les 10 langues les plus parlées couvrent la moitié de l'humanité."},
+  {q:"Que distingue la «langue» de la «parole» selon Saussure ?",opts:["La langue est écrite, la parole est orale","La langue est le système collectif, la parole son usage individuel","La langue est ancienne, la parole moderne","La langue est formelle, la parole est familière"],ans:1,expl:"Ferdinand de Saussure (1857-1913) est le père de la linguistique moderne. Pour lui, la «langue» est le système de règles et de signes partagé par une communauté (le code collectif), tandis que la «parole» est l'acte individuel et concret de l'utiliser. C'est la distinction entre le système et son usage."},
+  {q:"Quel est l'ordre des mots le plus répandu dans les langues ?",opts:["VSO","SOV","SVO","OVS"],ans:2,expl:"SVO (Sujet-Verbe-Objet) est l'ordre le plus courant : ~40% des langues l'utilisent, dont le français et l'anglais. SOV (Sujet-Objet-Verbe) est le 2e plus fréquent (~35%) : japonais, coréen, turc. L'ordre peut être libre (latin, russe) car les cas grammaticaux indiquent les fonctions."},
+  {q:"Que signifie le niveau «B2» du CECR ?",opts:["Débutant absolu","Intermédiaire avancé — autonome","Niveau natif","Niveau scolaire minimum"],ans:1,expl:"Le Cadre Européen Commun de Référence (CECR) classe de A1 à C2. B2 correspond à un niveau «avancé» : l'apprenant peut comprendre des textes complexes, s'exprimer avec aisance sur de nombreux sujets, et interagir avec des natifs sans effort particulier. C'est le niveau requis pour la plupart des études à l'étranger."},
+  {q:"Qu'étudie la pragmatique linguistique ?",opts:["La structure phonologique","L'origine historique des mots","L'usage du langage en contexte social","La formation des mots"],ans:2,expl:"La pragmatique étudie comment le contexte donne du sens au langage au-delà du sens littéral. «Peux-tu fermer la fenêtre ?» est littéralement une question sur les capacités, mais pragmatiquement c'est une requête. Les actes de langage (Austin, Searle), la politesse (Grice) et les implicites sont au cœur de la pragmatique."},
+  {q:"La «répétition espacée» consiste à...",opts:["Réviser plusieurs fois par jour","Réviser à intervalles croissants, juste avant d'oublier","Faire des pauses régulières","Écouter pendant le sommeil"],ans:1,expl:"La répétition espacée (spaced repetition, Hermann Ebbinghaus 1885) exploite la «courbe de l'oubli» : on révise l'information juste avant de l'oublier, à intervalles qui s'allongent progressivement (1 jour, 3 jours, 1 semaine, 1 mois...). C'est la méthode scientifiquement la plus efficace pour mémoriser du vocabulaire. Anki et SuperMemo l'implémentent avec des algorithmes."}
+];
+let current=0,score=0,answered=new Array(6).fill(null);
+function renderQuestion(){document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});document.getElementById('btnPrev').disabled=current===0;document.getElementById('btnNext').textContent=current===5?'Voir résultats':'Suivant →';}
+function selectOption(qi,oi){if(answered[qi]!==null)return;answered[qi]=oi;const block=document.querySelectorAll('.question-block')[qi];block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');}
+function nextQuestion(){if(current<5){current++;renderQuestion();}else showResult();}
+function prevQuestion(){if(current>0){current--;renderQuestion();}}
+function showResult(){document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';const r=document.querySelector('.quiz-result');r.style.display='block';document.getElementById('finalScore').textContent=score+'/6';document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Très bien !','Excellent !'][score<=2?0:score<=4?1:score<=5?2:3];}
+function restartQuiz(){current=0;score=0;answered.fill(null);document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');document.getElementById('quizScore').textContent=0;renderQuestion();}
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+// Scroll spy
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+const sections=['resume','acquisition','concepts','quiz','ressources','memo'];
+window.addEventListener('scroll',()=>{let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';});
+function downloadMemo(){const w=window.open('','_blank','width=900,height=700');w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Langues</title><style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#a07820;border-bottom:3px solid #a07820;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#a07820;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #f5e4b0;padding:1rem;border-radius:4px;background:#fffdf5}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style></head><body><h1>📚 Fiche mémo — Langues & Littérature</h1><div class="grid"><div class="box"><h2>Branches de la linguistique</h2><ul><li>Phonologie → sons et phonèmes</li><li>Morphologie → structure interne des mots</li><li>Syntaxe → organisation des phrases</li><li>Sémantique → sens des mots et phrases</li><li>Pragmatique → usage en contexte social</li><li>Sociolinguistique → langue et société</li></ul></div><div class="box"><h2>Niveaux CECR</h2><ul><li>A1 → Découverte</li><li>A2 → Élémentaire</li><li>B1 → Seuil (intermédiaire)</li><li>B2 → Avancé (autonome)</li><li>C1 → Autonomie avancée</li><li>C2 → Maîtrise</li></ul></div><div class="box"><h2>Familles de langues principales</h2><ul><li>Indo-européen : FR, EN, ES, DE, RU, IT</li><li>Sino-tibétain : ZH, TI, BM</li><li>Afro-asiatique : AR, HE, AM</li><li>Altaïque : TR, MN, KZ</li><li>Austronésien : ID, TL, MG</li></ul></div><div class="box"><h2>Méthodes d'apprentissage</h2><ul><li>Répétition espacée (Anki, SuperMemo)</li><li>Immersion active (films, podcasts, livres)</li><li>Production orale dès le début</li><li>Tandem linguistique (échange natif)</li><li>Méthode Assimil (exposition progressive)</li></ul></div></div><div class="footer">Curiosita — Fiche mémo Langues — ${new Date().toLocaleDateString('fr-FR')}</div><button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#a07820;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">🖨️ Imprimer / PDF</button>
+</body></html>`);w.document.close();}
+renderQuestion();
+</script>
+    <script src="mobile.js"></script>
+</body>
+</html>

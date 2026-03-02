@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curiosita — Tout ce qui peut être appris</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<style>
+  :root {
+    --bg: #0c0c0e;
+    --surface: #141418;
+    --surface2: #1c1c22;
+    --text: #f0ede8;
+    --muted: #7a7870;
+    --accent: #e8c97a;
+    --accent2: #c97a7a;
+    --border: rgba(240,237,232,0.08);
+  }
+
+  body {
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* NOISE TEXTURE */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.5;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(12,12,14,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    text-decoration: none;
+  }
+
+  .logo span { color: var(--text); font-style: normal; font-weight: 400; }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 3rem 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(232,201,122,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,122,122,0.05) 0%, transparent 60%);
+  }
+
+  .hero-number {
+    position: absolute;
+    top: 50%;
+    right: -2rem;
+    transform: translateY(-60%);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(15rem, 30vw, 28rem);
+    font-weight: 900;
+    color: rgba(240,237,232,0.02);
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 8vw, 7.5rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    max-width: 900px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-desc {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 480px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  .hero-scroll {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .scroll-line {
+    width: 60px;
+    height: 1px;
+    background: var(--muted);
+  }
+
+  /* SEARCH */
+  .search-section {
+    padding: 4rem 3rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .search-wrap {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .search-label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .search-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-style: italic;
+    padding: 0.5rem 0 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .search-input::placeholder { color: var(--muted); }
+  .search-input:focus { border-color: var(--accent); }
+
+  .search-hint {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .tag:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* THEMES GRID */
+  .themes-section {
+    padding: 6rem 3rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-number {
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .section-count {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .themes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .theme-card {
+    background: var(--bg);
+    padding: 2.5rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .theme-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--card-accent, var(--accent));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .theme-card:hover { background: var(--surface); }
+  .theme-card:hover::before { transform: scaleX(1); }
+
+  .theme-icon {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    display: block;
+    transition: transform 0.3s;
+  }
+
+  .theme-card:hover .theme-icon { transform: scale(1.15); }
+
+  .theme-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+  }
+
+  .theme-desc {
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .theme-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .topic-chip {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.6rem;
+    background: var(--surface2);
+    border-radius: 3px;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+
+  .theme-arrow {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: var(--muted);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: all 0.3s;
+  }
+
+  .theme-card:hover .theme-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* EXPANDED THEME CARD + TREE */
+  .theme-card.expanded {
+    grid-column: 1 / -1;
+    background: var(--surface);
+    cursor: default;
+  }
+  .theme-card.expanded::before { transform: scaleX(1); }
+  .theme-card.expanded .theme-topics { display: none; }
+  .theme-card.expanded .theme-arrow { display: none; }
+
+  .tree-container {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    padding-top: 0;
+  }
+  .tree-container.open { padding-top: 1rem; }
+
+  .tree-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .tree-theme-link {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--card-accent, #e8c97a);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .tree-theme-link:hover { color: var(--text); text-decoration: underline; }
+
+  .tree-close {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.75rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .tree-close:hover { border-color: var(--card-accent, #e8c97a); color: var(--text); }
+
+  .tree-node { margin-bottom: 0.15rem; }
+  .tree-node-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.4rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s;
+    user-select: none;
+  }
+  .tree-node-header:hover { background: var(--surface2); }
+
+  .tree-chevron {
+    font-size: 0.5rem;
+    color: var(--muted);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    width: 12px;
+    text-align: center;
+  }
+  .tree-chevron.open { transform: rotate(90deg); }
+
+  .tree-node-icon { font-size: 0.95rem; flex-shrink: 0; }
+
+  .tree-node-name {
+    font-size: 0.88rem;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .tree-node-name:hover { color: var(--card-accent, #e8c97a); }
+
+  .tree-subject > .tree-node-header .tree-node-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 0.95rem;
+  }
+
+  .tree-node-count {
+    font-size: 0.65rem;
+    color: var(--muted);
+    margin-left: auto;
+    letter-spacing: 0.03em;
+  }
+
+  .tree-children {
+    padding-left: 1.1rem;
+    border-left: 1px solid var(--border);
+    margin-left: 0.55rem;
+  }
+
+  .tree-leaf { padding: 0.15rem 0; }
+  .tree-course-link {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0.25rem 0.4rem;
+    border-radius: 3px;
+    transition: all 0.15s;
+  }
+  .tree-course-link:hover {
+    color: var(--card-accent, #e8c97a);
+    background: rgba(255,255,255,0.03);
+  }
+  .tree-leaf-bullet { color: var(--border); font-size: 0.55rem; }
+
+  .tree-empty {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-style: italic;
+    padding: 1rem 0;
+  }
+
+  /* HIGHLIGHT BAND */
+  .highlight-band {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 5rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .highlight-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--text);
+  }
+
+  .highlight-quote em { color: var(--accent); font-style: normal; }
+
+  .highlight-quote cite {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-style: normal;
+    color: var(--muted);
+    margin-top: 1.2rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .highlight-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .stat {
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+  }
+
+  .stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 3rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--accent);
+  }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-tag { animation: fadeUp 0.7s ease both; }
+  .hero-title { animation: fadeUp 0.7s 0.1s ease both; }
+  .hero-desc { animation: fadeUp 0.7s 0.2s ease both; }
+  .hero-scroll { animation: fadeUp 0.7s 0.35s ease both; }
+
+  /* SEARCH RESULTS */
+  .search-results {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-top: none;
+    z-index: 50;
+    max-height: 280px;
+    overflow-y: auto;
+  }
+
+  .search-results.visible { display: block; }
+
+  .result-item {
+    padding: 0.9rem 1.2rem;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .result-item { text-decoration: none; color: inherit; }
+  .result-item:hover { background: var(--surface); }
+  .result-icon { font-size: 1rem; }
+  .result-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .result-meta { margin-left: auto; display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+  .result-cat { font-size: 0.72rem; color: var(--accent); }
+  .result-type { font-size: 0.6rem; padding: 0.15rem 0.4rem; border-radius: 3px; background: var(--border); color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .search-loading { padding: 1rem; text-align: center; font-size: 0.8rem; color: var(--muted); }
+
+  /* --- Tablet --- */
+  @media (max-width: 768px) {
+    nav { padding: 0.8rem 1.2rem; }
+    .nav-links { display: none; }
+    .hero, .themes-section, .search-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .themes-section { padding-top: 3rem; padding-bottom: 3rem; }
+    .section-title { font-size: 1.6rem; }
+    .themes-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+    .theme-card { padding: 1.8rem; }
+    .theme-name { font-size: 1rem; }
+    .theme-desc { font-size: 0.78rem; }
+    .highlight-band { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 1.5rem; }
+    .search-section { padding: 2.5rem 1.5rem; }
+    .search-input { font-size: 1rem; }
+    .tree-children { padding-left: 0.8rem; }
+    .tree-node-name { font-size: 0.82rem; }
+    .tree-course-link { font-size: 0.78rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+  }
+
+  /* --- Phone --- */
+  @media (max-width: 480px) {
+    nav { padding: 0.7rem 1rem; }
+    .logo { font-size: 1.1rem; }
+    .hero { padding-left: 1rem; padding-right: 1rem; }
+    .hero-tag { font-size: 0.6rem; }
+    .hero-title { font-size: clamp(2rem, 10vw, 3rem); }
+    .hero-desc { font-size: 0.85rem; }
+    .search-section { padding: 2rem 1rem; }
+    .search-label { font-size: 0.65rem; }
+    .search-input { font-size: 0.9rem; padding: 0.8rem 0; }
+    .search-hint { gap: 0.5rem; }
+    .tag { font-size: 0.65rem; padding: 0.25rem 0.6rem; }
+    .result-item { padding: 0.7rem 0.9rem; font-size: 0.8rem; }
+    .result-meta { gap: 0.3rem; }
+    .result-cat { font-size: 0.6rem; }
+    .result-type { font-size: 0.5rem; }
+    .themes-section { padding: 2rem 1rem; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .section-title { font-size: 1.4rem; }
+    .themes-grid { grid-template-columns: 1fr; }
+    .theme-card { padding: 1.5rem; }
+    .theme-name { font-size: 0.95rem; }
+    .theme-desc { font-size: 0.75rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .theme-topics { display: none; }
+    .theme-arrow { display: none; }
+    .tree-node-count { display: none; }
+    .tree-children { padding-left: 0.6rem; margin-left: 0.4rem; }
+    .highlight-band { padding: 2rem 1rem; gap: 1.5rem; }
+    .hb-value { font-size: 2.5rem; }
+    footer { padding: 1.5rem 1rem; font-size: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">Curiosita<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#themes">Thèmes</a></li>
+    <li><a href="#a-propos">À propos</a></li>
+    <li><a href="#">Contribuer</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-number">∞</div>
+
+  <p class="hero-tag">— La bibliothèque universelle du savoir</p>
+  <h1 class="hero-title">
+    Tout ce qui<br>peut être <em>appris.</em>
+  </h1>
+  <p class="hero-desc">
+    Un espace ouvert, organisé par grands thèmes, pour explorer, apprendre et comprendre — des mathématiques à la philosophie, de la musique à la biologie.
+  </p>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Explorer les thèmes
+  </div>
+</section>
+
+<section class="search-section">
+  <div class="search-wrap">
+    <label class="search-label">Rechercher un sujet</label>
+    <input class="search-input" type="text" id="searchInput" placeholder="Ex : algèbre, histoire romaine, photographie…" autocomplete="off">
+    <div class="search-results" id="searchResults"></div>
+    <div class="search-hint">
+      <span class="tag" onclick="fillSearch('Arithmétique')">Arithmétique</span>
+      <span class="tag" onclick="fillSearch('Évolution')">Évolution</span>
+      <span class="tag" onclick="fillSearch('Philosophie stoïcienne')">Stoïcisme</span>
+      <span class="tag" onclick="fillSearch('Guitare')">Guitare</span>
+      <span class="tag" onclick="fillSearch('Programmation Python')">Python</span>
+      <span class="tag" onclick="fillSearch('Anatomie')">Anatomie</span>
+    </div>
+  </div>
+</section>
+
+<section class="themes-section" id="themes">
+  <div class="section-header">
+    <div>
+      <p class="section-number">01 — Domaines</p>
+      <h2 class="section-title">Les grands thèmes</h2>
+    </div>
+    <p class="section-count">7 grands thèmes · 10 disciplines · 200+ cours</p>
+  </div>
+
+  <div class="themes-grid" id="themesGrid">
+
+    <a href="sciences-exactes.html" class="theme-card" style="--card-accent:#4fc3f7">
+      <div class="theme-arrow">→</div>
+      <span class="theme-icon">🔬</span>
+      <div class="theme-name">Sciences exactes & Informatique</div>
+      <p class="theme-desc">Mathématiques, informatique, physique, chimie — les fondements logiques et abstraits de la connaissance.</p>
+      <div class="theme-topics">
+        <span class="topic-chip">Mathématiques</span>
+        <span class="topic-chip">Python</span>
+        <span class="topic-chip">Physique</span>
+        <span class="topic-chip">Chimie</span>
+        <span class="topic-chip">Statistiques</span>
+      </div>
+    </a>
+
+    <a href="sciences-nature.html" class="theme-card" style="--card-accent:#7ae8d8">
+      <div class="theme-arrow">→</div>
+      <span class="theme-icon">🌱</span>
+      <div class="theme-name">Sciences de la nature</div>
+      <p class="theme-desc">Biologie, physique du vivant, sciences de la Terre, astronomie — comprendre le monde naturel.</p>
+      <div class="theme-topics">
+        <span class="topic-chip">Biologie</span>
+        <span class="topic-chip">Écologie</span>
+        <span class="topic-chip">Géologie</span>
+        <span class="topic-chip">Astronomie</span>
+        <span class="topic-chip">Évolution</span>
+      </div>
+    </a>
+
+    <a href="sciences-humaines.html" class="theme-card" style="--card-accent:#7ae88a">
+      <div class="theme-arrow">→</div>
+      <span class="theme-icon">🌍</span>
+      <div class="theme-name">Sciences humaines & sociales</div>
+      <p class="theme-desc">Histoire, psychologie, économie, sociologie — comprendre l'humain et la société.</p>
+      <div class="theme-topics">
+        <span class="topic-chip">Histoire</span>
+        <span class="topic-chip">Psychologie</span>
+        <span class="topic-chip">Économie</span>
+        <span class="topic-chip">Sociologie</span>
+        <span class="topic-chip">Géographie</span>
+      </div>
+    </a>
+
+    <a href="lettres-langues.html" class="theme-card" style="--card-accent:#9b7ae8">
+      <div class="theme-arrow">→</div>
+      <span class="theme-icon">📚</span>
+      <div class="theme-name">Lettres, Langues & Philosophie</div>
+      <p class="theme-desc">Les mots, les idées, la pensée critique — langues, littérature et philosophie.</p>
+      <div class="theme-topics">
+        <span class="topic-chip">Philosophie</span>
+        <span class="topic-chip">Anglais</span>
+        <span class="topic-chip">Espagnol</span>
+        <span class="topic-chip">Littérature</span>
+        <span class="topic-chip">Linguistique</span>
+      </div>
+    </a>
+
+    <a href="arts-culture.html" class="theme-card" style="--card-accent:#e87a7a">
+      <div class="theme-arrow">→</div>
+      <span class="theme-icon">🎨</span>
+      <div class="theme-name">Arts & Culture</div>
+      <p class="theme-desc">Arts visuels, musique, cinéma, spectacle vivant — l'expression créative sous toutes ses formes.</p>
+      <div class="theme-topics">
+        <span class="topic-chip">Peinture</span>
+        <span class="topic-chip">Musique</span>
+        <span class="topic-chip">Cinéma</span>
+        <span class="topic-chip">Théâtre</span>
+        <span class="topic-chip">Design</span>
+      </div>
+    </a>
+
+    <a href="droit-politique.html" class="theme-card" style="--card-accent:#e87a9b">
+      <div class="theme-arrow">→</div>
+      <span class="theme-icon">⚖️</span>
+      <div class="theme-name">Droit, Politique & Société</div>
+      <p class="theme-desc">Les institutions, le droit, les systèmes politiques et les enjeux de la vie en société.</p>
+      <div class="theme-topics">
+        <span class="topic-chip">Droit civil</span>
+        <span class="topic-chip">Constitutionnel</span>
+        <span class="topic-chip">Sciences politiques</span>
+        <span class="topic-chip">Citoyenneté</span>
+      </div>
+    </a>
+
+    <a href="savoir-faire.html" class="theme-card" style="--card-accent:#8ae87a">
+      <div class="theme-arrow">→</div>
+      <span class="theme-icon">🔧</span>
+      <div class="theme-name">Savoir-faire & Vie pratique</div>
+      <p class="theme-desc">Artisanat, cuisine, santé, gestion personnelle — les compétences pratiques du quotidien.</p>
+      <div class="theme-topics">
+        <span class="topic-chip">Artisanat</span>
+        <span class="topic-chip">Cuisine</span>
+        <span class="topic-chip">Santé</span>
+        <span class="topic-chip">Sport</span>
+        <span class="topic-chip">Finances</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<section class="highlight-band" id="a-propos">
+  <blockquote class="highlight-quote">
+    "Un investissement dans la connaissance paie le <em>meilleur intérêt.</em>"
+    <cite>— Benjamin Franklin</cite>
+  </blockquote>
+  <div class="highlight-stats">
+    <div class="stat">
+      <div class="stat-value">7</div>
+      <div class="stat-label">Grands thèmes</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">200+</div>
+      <div class="stat-label">Disciplines</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">∞</div>
+      <div class="stat-label">Curiosité</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">0€</div>
+      <div class="stat-label">Accès libre</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Curiosita.</div>
+  <p class="footer-copy">© 2025 — Apprendre n'a pas de fin</p>
+</footer>
+
+<script>
+  // ── Dynamic search index builder ──
+  // Scans subject pages and hub pages automatically to build search data.
+  // New courses added to any page will appear in search without manual updates.
+
+  let searchData = [];
+  let searchReady = false;
+
+  const input = document.getElementById('searchInput');
+  const results = document.getElementById('searchResults');
+
+  // Normalize accented characters for fuzzy matching
+  function normalize(str) {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  }
+
+  // Extract the subject name from a *-page.html title (e.g. "Mathématiques — Curiosita" → "Mathématiques")
+  function extractTitle(doc) {
+    const t = doc.querySelector('title')?.textContent || '';
+    return t.split('—')[0].trim();
+  }
+
+  // Extract the h1 text (cleaner name for display)
+  function extractH1(doc) {
+    const h1 = doc.querySelector('.hero h1');
+    if (!h1) return null;
+    return h1.textContent.replace(/\n/g, ' ').trim();
+  }
+
+  // Resolve a relative href against a base path (both relative to site root)
+  function resolveUrl(href, basePath) {
+    if (href.startsWith('/') || href.startsWith('http')) return href;
+    // Get directory of basePath: "maths-page.html" → "", "maths/algebre.html" → "maths/"
+    const dir = basePath.includes('/') ? basePath.substring(0, basePath.lastIndexOf('/') + 1) : '';
+    return dir + href;
+  }
+
+  // Parse .course-card links from a page document
+  function extractCourseCards(doc, basePath) {
+    const cards = [];
+    doc.querySelectorAll('.course-card[href]').forEach(card => {
+      const href = card.getAttribute('href');
+      const name = card.querySelector('h3')?.textContent?.trim();
+      const desc = card.querySelector('p')?.textContent?.trim() || '';
+      if (name && href) {
+        const url = resolveUrl(href, basePath);
+        cards.push({ name, desc, url });
+      }
+    });
+    return cards;
+  }
+
+  // Fetch and parse an HTML page, returns a Document
+  async function fetchDoc(url) {
+    const resp = await fetch(url);
+    if (!resp.ok) throw new Error(resp.status);
+    const html = await resp.text();
+    return new DOMParser().parseFromString(html, 'text/html');
+  }
+
+  // Build search index by scanning grand theme → subject → hub → course pages
+  async function buildSearchIndex() {
+    // Check sessionStorage cache (valid 10 minutes)
+    const cached = sessionStorage.getItem('curiosita_search');
+    if (cached) {
+      try {
+        const { data, ts } = JSON.parse(cached);
+        if (Date.now() - ts < 10 * 60 * 1000) {
+          searchData = data;
+          searchReady = true;
+          return;
+        }
+      } catch(e) {}
+    }
+
+    const index = [];
+
+    // 1. Discover grand theme pages from theme-card links
+    const themeLinks = [];
+    document.querySelectorAll('.theme-card[href]').forEach(card => {
+      const href = card.getAttribute('href');
+      if (href && href.endsWith('.html')) {
+        const icon = card.querySelector('.theme-icon')?.textContent || '📖';
+        const themeName = card.querySelector('.theme-name')?.textContent?.trim() || '';
+        themeLinks.push({ href, icon, themeName });
+      }
+    });
+
+    // 2. Fetch grand theme pages and discover subject pages
+    const subjectLinks = [];
+    await Promise.allSettled(themeLinks.map(async (t) => {
+      index.push({ name: t.themeName, cat: 'Curiosita', url: t.href, type: 'thème', icon: t.icon, keywords: t.themeName });
+      try {
+        const doc = await fetchDoc(t.href);
+        const cards = extractCourseCards(doc, t.href);
+        for (const card of cards) {
+          if (card.url.endsWith('-page.html')) {
+            subjectLinks.push({ href: card.url, icon: t.icon, themeName: t.themeName, subjectHint: card.name });
+          }
+        }
+      } catch(e) {}
+    }));
+
+    // 3. Fetch all subject pages in parallel
+    const subjectResults = await Promise.allSettled(
+      subjectLinks.map(async (s) => {
+        const doc = await fetchDoc(s.href);
+        const subjectName = s.subjectHint || extractTitle(doc);
+
+        index.push({ name: subjectName, cat: s.themeName, url: s.href, type: 'matière', icon: s.icon, keywords: `${s.themeName} ${subjectName}` });
+
+        const hubs = extractCourseCards(doc, s.href);
+        return { subjectName, icon: s.icon, hubs, themeName: s.themeName };
+      })
+    );
+
+    // 4. Collect all hubs and fetch them in parallel
+    const hubFetches = [];
+    for (const result of subjectResults) {
+      if (result.status !== 'fulfilled') continue;
+      const { subjectName, icon, hubs, themeName } = result.value;
+
+      for (const hub of hubs) {
+        index.push({ name: hub.name, cat: subjectName, url: hub.url, type: 'domaine', icon, keywords: `${subjectName} ${hub.name} ${hub.desc}` });
+
+        hubFetches.push(
+          fetchDoc(hub.url).then(hubDoc => {
+            const courses = extractCourseCards(hubDoc, hub.url);
+            for (const course of courses) {
+              index.push({ name: course.name, cat: `${subjectName} › ${hub.name}`, url: course.url, type: 'cours', icon, keywords: `${subjectName} ${hub.name} ${course.name} ${course.desc}` });
+            }
+          }).catch(() => {})
+        );
+      }
+    }
+
+    // 5. Wait for all hub fetches
+    await Promise.allSettled(hubFetches);
+
+    // 6. Store in searchData and cache
+    searchData = index;
+    searchReady = true;
+    try {
+      sessionStorage.setItem('curiosita_search', JSON.stringify({ data: index, ts: Date.now() }));
+    } catch(e) {}
+  }
+
+  // Start building index immediately in background
+  buildSearchIndex();
+
+  function fillSearch(text) {
+    input.value = text;
+    input.dispatchEvent(new Event('input'));
+    input.focus();
+  }
+
+  input.addEventListener('input', () => {
+    const q = input.value.trim();
+    if (!q) { results.classList.remove('visible'); return; }
+
+    if (!searchReady) {
+      results.innerHTML = '<div class="search-loading">Chargement de l\'index…</div>';
+      results.classList.add('visible');
+      return;
+    }
+
+    const qn = normalize(q);
+    const words = qn.split(/\s+/).filter(Boolean);
+
+    // Score-based matching: each matching word adds score, name match > keyword match
+    const scored = searchData.map(d => {
+      const nameN = normalize(d.name);
+      const kwN = normalize(d.keywords || '');
+      let score = 0;
+      for (const w of words) {
+        if (nameN.includes(w)) score += 10;
+        else if (kwN.includes(w)) score += 3;
+      }
+      // Exact name match bonus
+      if (nameN === qn) score += 50;
+      if (nameN.startsWith(qn)) score += 20;
+      return { ...d, score };
+    }).filter(s => s.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 8);
+
+    if (!scored.length) {
+      results.innerHTML = '<div class="search-loading">Aucun résultat pour « ' + q + ' »</div>';
+      results.classList.add('visible');
+      return;
+    }
+
+    results.innerHTML = scored.map(d => `
+      <a href="${d.url}" class="result-item">
+        <span class="result-icon">${d.icon}</span>
+        <span class="result-name">${d.name}</span>
+        <span class="result-meta">
+          <span class="result-cat">${d.cat}</span>
+          <span class="result-type">${d.type}</span>
+        </span>
+      </a>
+    `).join('');
+    results.classList.add('visible');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.search-wrap')) results.classList.remove('visible');
+  });
+
+  // Card hover color accent from CSS var
+  // Smooth appear for cards
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationDelay = (i * 0.05) + 's';
+        entry.target.style.animation = 'fadeUp 0.5s ease both';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.theme-card').forEach(card => observer.observe(card));
+
+  /* ─── Expandable tree on theme cards ─── */
+
+  function buildTreeForTheme(themeName) {
+    const subjects = searchData.filter(d => d.type === 'matière' && d.cat === themeName);
+    return subjects.map(subject => {
+      const domains = searchData.filter(d => d.type === 'domaine' && d.cat === subject.name);
+      const domainTree = domains.map(domain => {
+        const courses = searchData.filter(d => d.type === 'cours' && d.cat === `${subject.name} › ${domain.name}`);
+        return { ...domain, children: courses };
+      });
+      return { ...subject, children: domainTree };
+    });
+  }
+
+  function renderCourse(c) {
+    return `<div class="tree-leaf"><a href="${c.url}" class="tree-link tree-course-link"><span class="tree-leaf-bullet">•</span>${c.name}</a></div>`;
+  }
+
+  function renderDomain(d) {
+    const n = d.children.length;
+    return `<div class="tree-node tree-domain">
+      <div class="tree-node-header" data-toggle>
+        <span class="tree-chevron">&#9654;</span>
+        <a href="${d.url}" class="tree-link tree-node-name">${d.name}</a>
+        <span class="tree-node-count">${n} cours</span>
+      </div>
+      <div class="tree-children" style="display:none">${d.children.map(renderCourse).join('')}</div>
+    </div>`;
+  }
+
+  function renderSubject(s) {
+    const n = s.children.length;
+    return `<div class="tree-node tree-subject">
+      <div class="tree-node-header" data-toggle>
+        <span class="tree-chevron">&#9654;</span>
+        <span class="tree-node-icon">${s.icon}</span>
+        <a href="${s.url}" class="tree-link tree-node-name">${s.name}</a>
+        <span class="tree-node-count">${n} domaine${n > 1 ? 's' : ''}</span>
+      </div>
+      <div class="tree-children" style="display:none">${s.children.map(renderDomain).join('')}</div>
+    </div>`;
+  }
+
+  function expandCard(card) {
+    const themeName = card.querySelector('.theme-name').textContent.trim();
+    const themeUrl = card.getAttribute('href');
+
+    card.classList.add('expanded');
+
+    const container = document.createElement('div');
+    container.className = 'tree-container';
+
+    if (!searchReady) {
+      container.innerHTML = `<div class="tree-header"><a href="${themeUrl}" class="tree-link tree-theme-link">Voir le thème complet →</a><button class="tree-close" aria-label="Fermer">✕</button></div><div class="tree-body"><div class="tree-empty">Chargement de l'arborescence…</div></div>`;
+      card.appendChild(container);
+      requestAnimationFrame(() => { container.classList.add('open'); container.style.maxHeight = container.scrollHeight + 'px'; container.style.opacity = '1'; });
+      const iv = setInterval(() => {
+        if (searchReady) { clearInterval(iv); fillTree(container, themeName, themeUrl); }
+      }, 300);
+    } else {
+      fillTree(container, themeName, themeUrl);
+      card.appendChild(container);
+      requestAnimationFrame(() => { container.classList.add('open'); container.style.maxHeight = container.scrollHeight + 'px'; container.style.opacity = '1'; });
+    }
+
+    setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+  }
+
+  function fillTree(container, themeName, themeUrl) {
+    const tree = buildTreeForTheme(themeName);
+    container.innerHTML = `<div class="tree-header"><a href="${themeUrl}" class="tree-link tree-theme-link">Voir le thème complet →</a><button class="tree-close" aria-label="Fermer">✕</button></div><div class="tree-body">${tree.length ? tree.map(renderSubject).join('') : '<div class="tree-empty">Aucune discipline disponible pour le moment.</div>'}</div>`;
+    // Recalc height
+    container.style.maxHeight = container.scrollHeight + 'px';
+  }
+
+  function collapseCard(card) {
+    const container = card.querySelector('.tree-container');
+    if (container) {
+      container.style.maxHeight = '0';
+      container.style.opacity = '0';
+      container.classList.remove('open');
+      container.addEventListener('transitionend', () => container.remove(), { once: true });
+    }
+    card.classList.remove('expanded');
+  }
+
+  function updateTreeHeight(el) {
+    const container = el.closest('.tree-container');
+    if (container) container.style.maxHeight = container.scrollHeight + 'px';
+  }
+
+  const themesGrid = document.querySelector('.themes-grid');
+  if (themesGrid) {
+    themesGrid.addEventListener('click', function(e) {
+      // Close button
+      if (e.target.closest('.tree-close')) {
+        e.preventDefault();
+        e.stopPropagation();
+        collapseCard(e.target.closest('.theme-card'));
+        return;
+      }
+
+      // Tree links → navigate normally
+      if (e.target.closest('.tree-link')) return;
+
+      // Toggle tree node
+      const toggleHeader = e.target.closest('[data-toggle]');
+      if (toggleHeader) {
+        e.preventDefault();
+        e.stopPropagation();
+        const node = toggleHeader.closest('.tree-node');
+        const children = node.querySelector('.tree-children');
+        const chevron = toggleHeader.querySelector('.tree-chevron');
+        if (children.style.display === 'none') {
+          children.style.display = 'block';
+          chevron.classList.add('open');
+        } else {
+          children.style.display = 'none';
+          chevron.classList.remove('open');
+        }
+        updateTreeHeight(node);
+        return;
+      }
+
+      // Card click → expand/collapse
+      const card = e.target.closest('.theme-card');
+      if (!card) return;
+      e.preventDefault();
+
+      if (card.classList.contains('expanded')) {
+        collapseCard(card);
+        return;
+      }
+
+      // Collapse any other expanded card
+      const prev = themesGrid.querySelector('.theme-card.expanded');
+      if (prev) collapseCard(prev);
+
+      expandCard(card);
+    });
+  }
+</script>
+</body>
+</html>

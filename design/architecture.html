@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Architecture — Design & Architecture — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #e87a7a;
+  --accent2: #ef9a9a;
+  --accent-dim: rgba(232,122,122,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../design-page.html">Design & Architecture</a> › <span>Architecture</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">✏️ Design & Architecture</span>
+    <span class="tag-level">Débutant → Avancé</span>
+    <span class="tag-time">⏱ ~7h de lecture</span>
+  </div>
+  <h1><em>Architecture</em></h1>
+  <p class="hero-desc">Du Parthénon aux gratte-ciel contemporains — l'art de concevoir les espaces qui abritent et façonnent la vie humaine.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../design-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Design & Architecture</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="graphique.html">Design graphique</a>
+    <a class="sidebar-link active" href="#">Architecture</a>
+    <a class="sidebar-link" href="interieur.html">Design d'intérieur</a>
+    <a class="sidebar-link" href="industriel.html">Design industriel</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que l'architecture ?</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">L'architecture est l'art de <strong>concevoir et construire des espaces</strong> pour l'habitation, le travail, le culte et la vie sociale. Elle est à la croisée de l'art et de la technique : chaque bâtiment doit être à la fois solide (structure), utile (fonction) et beau (esthétique), selon la triade de Vitruve — firmitas, utilitas, venustas.</p>
+      <div class="highlight-box">
+        <p><strong>L'idée fondamentale :</strong> l'architecture est le miroir d'une civilisation. Les pyramides disent la puissance de l'Égypte, les cathédrales gothiques la ferveur médiévale, les gratte-ciel la modernité capitaliste. Chaque époque construit selon ses valeurs, ses moyens techniques et sa vision du monde.</p>
+      </div>
+      <p class="resume-text">L'histoire de l'architecture traverse les grandes époques : l'<strong>Antiquité</strong> (temples grecs et romains), le <strong>Moyen Âge</strong> (roman et gothique), la <strong>Renaissance</strong> (retour aux ordres classiques), le <strong>Baroque</strong>, puis les révolutions du XXe siècle avec le <strong>modernisme</strong> (Le Corbusier, Mies van der Rohe) et le <strong>contemporain</strong> (Gehry, Hadid, Ando).</p>
+      <p class="resume-text">Étudier l'architecture, c'est apprendre à lire les bâtiments comme des textes : comprendre leur structure, leur programme, leur insertion dans le paysage et le dialogue qu'ils entretiennent avec leur époque.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours d'architecture</h2>
+          <p>Progressez étape par étape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="architecture/histoire-architecture.html" class="course-card">
+          <span class="course-card-icon">🏛️</span>
+          <h3>Histoire de l'architecture</h3>
+          <p>De l'Antiquité au XXIe siècle : les grands styles, mouvements et révolutions architecturales.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="architecture/structure-materiaux.html" class="course-card">
+          <span class="course-card-icon">🧱</span>
+          <h3>Structure et matériaux</h3>
+          <p>Pierre, bois, acier, béton, verre : les matériaux et systèmes structurels de la construction.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="architecture/urbanisme.html" class="course-card">
+          <span class="course-card-icon">🏙️</span>
+          <h3>Urbanisme</h3>
+          <p>Planification des villes, espaces publics, mobilité et enjeux de la ville durable.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="architecture/architecture-durable.html" class="course-card">
+          <span class="course-card-icon">🌱</span>
+          <h3>Architecture durable</h3>
+          <p>Écoconstruction, performance énergétique, bioclimatisme et architecture verte.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="architecture/grands-architectes.html" class="course-card">
+          <span class="course-card-icon">✨</span>
+          <h3>Grands architectes</h3>
+          <p>Le Corbusier, Frank Lloyd Wright, Zaha Hadid, Tadao Ando : les visionnaires de l'espace bâti.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel de l'architecture en un coup d'oeil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🏛️ Architecture — Fiche mémo</h3>
+          <p>Curiosita · Styles, matériaux et figures clés</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Styles historiques</div>
+            <div class="memo-item"><span class="mf">Grec</span> Ordres dorique, ionique, corinthien</div>
+            <div class="memo-item"><span class="mf">Roman</span> Voûtes en berceau, arcs plein cintre</div>
+            <div class="memo-item"><span class="mf">Gothique</span> Ogives, arcs-boutants, vitraux</div>
+            <div class="memo-item"><span class="mf">Renaissance</span> Symétrie, dômes, ordres classiques</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Architecture moderne</div>
+            <div class="memo-item"><span class="mf">Art nouveau</span> Courbes, fer, verre (~1900)</div>
+            <div class="memo-item"><span class="mf">Bauhaus</span> Fonction, géométrie (1919)</div>
+            <div class="memo-item"><span class="mf">Modernisme</span> Le Corbusier, 5 points</div>
+            <div class="memo-item"><span class="mf">Brutalisme</span> Béton brut, formes massives</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Matériaux</div>
+            <div class="memo-item"><span class="mf">Pierre</span> Compression, durabilité</div>
+            <div class="memo-item"><span class="mf">Béton armé</span> Flexibilité structurelle</div>
+            <div class="memo-item"><span class="mf">Acier</span> Grande portée, légèreté</div>
+            <div class="memo-item"><span class="mf">Verre</span> Transparence, lumière</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Figures majeures</div>
+            <div class="memo-item"><span class="mf">Le Corbusier</span> Villa Savoye, Cité radieuse</div>
+            <div class="memo-item"><span class="mf">Mies van der Rohe</span> Less is more</div>
+            <div class="memo-item"><span class="mf">F. L. Wright</span> Fallingwater, organique</div>
+            <div class="memo-item"><span class="mf">Zaha Hadid</span> Déconstructivisme fluide</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Architecture — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#e87a7a;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#e87a7a;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'architecture-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

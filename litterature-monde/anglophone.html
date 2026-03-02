@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Littérature anglophone — Littérature mondiale — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #9b7ae8;
+  --accent2: #b89ff0;
+  --accent-dim: rgba(155,122,232,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(155,122,232,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../litterature-monde-page.html">Littérature mondiale</a> › <span>Anglophone</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">📖 Littérature mondiale</span>
+    <span class="tag-level">Débutant → Avancé</span>
+    <span class="tag-time">⏱ ~6h de lecture</span>
+  </div>
+  <h1><em>Littérature anglophone</em></h1>
+  <p class="hero-desc">De Shakespeare à Virginia Woolf, de Dickens à Toni Morrison — la tradition littéraire la plus diffusée au monde, portée par la langue anglaise et ses multiples voix.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../litterature-monde-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Littérature mondiale</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link active" href="#">Anglophone</a>
+    <a class="sidebar-link" href="russe.html">Russe</a>
+    <a class="sidebar-link" href="asiatique.html">Asiatique</a>
+    <a class="sidebar-link" href="latino-americaine.html">Latino-américaine</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>La littérature anglophone</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">La littérature anglophone est l'une des plus riches et des plus influentes au monde. Née en Angleterre avec les poèmes épiques anglo-saxons comme <em>Beowulf</em> (VIIIe siècle), elle a connu un âge d'or avec le théâtre élisabéthain de <strong>Shakespeare</strong>, puis s'est déployée en roman, poésie et essai à travers les siècles, portée par l'expansion de la langue anglaise sur tous les continents.</p>
+      <div class="highlight-box">
+        <p><strong>Une littérature mondiale :</strong> La littérature anglophone ne se limite pas à l'Angleterre. Elle inclut les traditions américaine, irlandaise, australienne, canadienne, caribéenne, indienne et africaine. Chacune apporte des voix et des perspectives uniques à un patrimoine littéraire commun.</p>
+      </div>
+      <p class="resume-text">Le XIXe siècle voit l'essor du <strong>roman victorien</strong> avec Dickens, les soeurs Brontë et George Eliot, qui explorent la société industrielle à travers des destins individuels. Le XXe siècle est marqué par le <strong>modernisme</strong> — Virginia Woolf, James Joyce, T.S. Eliot — qui révolutionne les formes narratives, puis par la littérature américaine qui s'impose avec Fitzgerald, Hemingway, Faulkner et la Beat Generation.</p>
+      <p class="resume-text">Aujourd'hui, la littérature anglophone continue de se réinventer, enrichie par des voix postcoloniales (Chinua Achebe, Salman Rushdie), féministes (Margaret Atwood) et afro-américaines (Toni Morrison). C'est une tradition vivante, en constant dialogue avec le monde.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours</h2>
+          <p>Explorez la littérature anglophone</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="#" class="course-card">
+          <span class="course-card-icon">🎭</span>
+          <h3>Shakespeare et le théâtre élisabéthain</h3>
+          <p>Hamlet, Macbeth, Othello, Le Songe d'une nuit d'été. Le génie dramatique qui a inventé l'anglais moderne.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="#" class="course-card">
+          <span class="course-card-icon">🏭</span>
+          <h3>Le roman victorien</h3>
+          <p>Dickens, les Brontë, George Eliot, Hardy. Le roman comme miroir de la société industrielle et de ses contradictions.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="#" class="course-card">
+          <span class="course-card-icon">🌀</span>
+          <h3>Le modernisme anglophone</h3>
+          <p>Woolf, Joyce, Eliot, Faulkner. La révolution des formes narratives au XXe siècle : flux de conscience et fragmentation.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="#" class="course-card">
+          <span class="course-card-icon">🇺🇸</span>
+          <h3>La littérature américaine</h3>
+          <p>Melville, Twain, Fitzgerald, Hemingway, Steinbeck. Le rêve américain et ses désillusions à travers la fiction.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="#" class="course-card">
+          <span class="course-card-icon">🌍</span>
+          <h3>Voix postcoloniales et contemporaines</h3>
+          <p>Achebe, Rushdie, Atwood, Morrison. Les littératures anglophones d'Afrique, d'Inde et des Caraïbes.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel de la littérature anglophone</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>📖 Littérature anglophone — Fiche mémo</h3>
+          <p>Curiosita · Auteurs et oeuvres fondamentales</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Théâtre élisabéthain</div>
+            <div class="memo-item"><span class="mf">Shakespeare →</span> Hamlet, Macbeth, Othello</div>
+            <div class="memo-item"><span class="mf">Marlowe →</span> Docteur Faust</div>
+            <div class="memo-item"><span class="mf">Genres →</span> Tragédie, comédie, histoire</div>
+            <div class="memo-item"><span class="mf">Globe Theatre →</span> 1599, Londres</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Roman victorien (XIXe s.)</div>
+            <div class="memo-item"><span class="mf">Dickens →</span> Oliver Twist, David Copperfield</div>
+            <div class="memo-item"><span class="mf">Brontë →</span> Jane Eyre, Les Hauts de Hurlevent</div>
+            <div class="memo-item"><span class="mf">Austen →</span> Orgueil et Préjugés</div>
+            <div class="memo-item"><span class="mf">Hardy →</span> Tess d'Urberville</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Modernisme (XXe s.)</div>
+            <div class="memo-item"><span class="mf">Woolf →</span> Mrs Dalloway, Les Vagues</div>
+            <div class="memo-item"><span class="mf">Joyce →</span> Ulysse, Dubliners</div>
+            <div class="memo-item"><span class="mf">Eliot →</span> La Terre vaine (poésie)</div>
+            <div class="memo-item"><span class="mf">Faulkner →</span> Le Bruit et la Fureur</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Littérature américaine</div>
+            <div class="memo-item"><span class="mf">Fitzgerald →</span> Gatsby le Magnifique</div>
+            <div class="memo-item"><span class="mf">Hemingway →</span> Le Vieil Homme et la Mer</div>
+            <div class="memo-item"><span class="mf">Steinbeck →</span> Les Raisins de la colère</div>
+            <div class="memo-item"><span class="mf">Morrison →</span> Beloved, prix Nobel 1993</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Littérature anglophone — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#9b7ae8;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#9b7ae8;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '\n</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'litterature-anglophone-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

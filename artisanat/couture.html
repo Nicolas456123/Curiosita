@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Couture et textile — Artisanat — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root { --accent: #8ae87a; --accent2: #a5f598; --accent-dim: rgba(138,232,122,0.1); }
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../artisanat-page.html">Artisanat</a> › <span>Couture et textile</span></div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🧵 Artisanat</span>
+    <span class="tag-level">Débutant → Avancé</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Couture et textile</em></h1>
+  <p class="hero-desc">Du fil à l'aiguille : maîtriser les tissus, les patrons et les techniques de couture à la main et à la machine pour créer vêtements et accessoires.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">25</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../artisanat-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Artisanat</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="menuiserie.html">Menuiserie</a>
+    <a class="sidebar-link active" href="#">Couture et textile</a>
+    <a class="sidebar-link" href="poterie.html">Poterie et céramique</a>
+    <a class="sidebar-link" href="metal.html">Travail du métal</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="presentation">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>L'art de la couture</h2><p>Introduction à la couture et au textile</p></div></div>
+      <p class="resume-text">La couture est l'un des plus anciens savoir-faire de l'humanité. Depuis les premières peaux cousues avec des aiguilles en os il y a 40 000 ans, l'être humain n'a cessé de perfectionner l'art d'assembler des étoffes. Aujourd'hui, la couture est à la fois un <strong>artisanat traditionnel</strong>, un loisir créatif en plein essor et un pilier de l'industrie de la mode.</p>
+      <div class="highlight-box"><p><strong>Les familles de tissus :</strong> les fibres naturelles (coton, lin, laine, soie) offrent confort et respirabilité. Les fibres synthétiques (polyester, nylon, élasthanne) apportent résistance et élasticité. Les mélanges combinent les qualités des deux mondes. Chaque tissu a un tombé, un grain et un comportement propres que le couturier doit comprendre.</p></div>
+      <p class="resume-text">Le patron est le <strong>plan de construction</strong> d'un vêtement : il traduit en pièces plates les formes tridimensionnelles du corps humain. Savoir lire, adapter et créer un patron est la compétence clé qui distingue le couturier amateur du créateur autonome.</p>
+      <p class="resume-text">Ce domaine couvre cinq cours progressifs : la connaissance des tissus et fibres, la lecture et l'adaptation de patrons, les techniques de couture à la main et à la machine, la machine à coudre, et des projets pratiques guidés.</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Les cours de couture</h2><p>Progressez étape par étape</p></div></div>
+      <div class="courses-grid">
+        <a href="couture/tissus.html" class="course-card"><span class="course-card-icon">🧶</span><h3>Tissus et fibres</h3><p>Coton, lin, soie, laine, synthétiques : propriétés, usages et choix du bon tissu pour chaque projet.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="couture/patrons.html" class="course-card"><span class="course-card-icon">📐</span><h3>Patrons et coupe</h3><p>Lire un patron, prendre les mesures, reporter et couper le tissu avec précision.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="couture/techniques.html" class="course-card"><span class="course-card-icon">✂️</span><h3>Techniques de couture</h3><p>Points à la main, coutures droites, ourlets, fermetures éclair, boutonnières et surfilage.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="couture/machine.html" class="course-card"><span class="course-card-icon">🧵</span><h3>La machine à coudre</h3><p>Choisir, enfiler, régler et entretenir sa machine. Points droits, zigzag et points décoratifs.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="couture/projets.html" class="course-card"><span class="course-card-icon">👗</span><h3>Projets de couture</h3><p>Du tote bag à la jupe, en passant par la trousse : projets pratiques pour progresser.</p><span class="course-card-link">Voir le cours →</span></a>
+      </div>
+    </section>
+    <section class="content-section" id="memo">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Fiche mémo</h2><p>L'essentiel de la couture</p></div></div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top"><h3>🧵 Couture et textile — Fiche mémo</h3><p>Curiosita · Tissus, techniques et machine à coudre</p></div>
+        <div class="memo-grid">
+          <div class="memo-section"><div class="memo-section-title">Fibres naturelles</div><div class="memo-item"><span class="mf">Coton →</span> polyvalent, facile à coudre</div><div class="memo-item"><span class="mf">Lin →</span> frais, froisse naturellement</div><div class="memo-item"><span class="mf">Laine →</span> chaude, élastique, feutre</div><div class="memo-item"><span class="mf">Soie →</span> noble, délicate, glissante</div></div>
+          <div class="memo-section"><div class="memo-section-title">Patron et mesures</div><div class="memo-item"><span class="mf">Tour de poitrine →</span> mesure horizontale</div><div class="memo-item"><span class="mf">Tour de taille →</span> au creux naturel</div><div class="memo-item"><span class="mf">Tour de hanches →</span> au plus fort</div><div class="memo-item"><span class="mf">Droit-fil →</span> parallèle à la lisière</div></div>
+          <div class="memo-section"><div class="memo-section-title">Points essentiels</div><div class="memo-item"><span class="mf">Point droit →</span> assemblage de base</div><div class="memo-item"><span class="mf">Point arrière →</span> solide, à la main</div><div class="memo-item"><span class="mf">Zigzag →</span> surfilage, tissus extensibles</div><div class="memo-item"><span class="mf">Surjet →</span> finition des bords</div></div>
+          <div class="memo-section"><div class="memo-section-title">Machine à coudre</div><div class="memo-item"><span class="mf">Canette →</span> fil du dessous, bien tendu</div><div class="memo-item"><span class="mf">Tension →</span> équilibre haut / bas</div><div class="memo-item"><span class="mf">Aiguille →</span> adaptée au tissu (70-110)</div><div class="memo-item"><span class="mf">Pied presseur →</span> standard, zip, invisible</div></div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+  </main>
+</div>
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo(){var m=document.getElementById('memoCard').outerHTML;var w=window.open('','_blank');w.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Couture — Mémo</title><style>body{background:#0c0c0e;color:#f0ede8;font-family:DM Sans,sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(240,237,232,0.08);border-radius:8px;overflow:hidden}.memo-top{background:#8ae87a;padding:1.5rem;color:#0c0c0e}.memo-top h3{font-size:1.4rem}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(240,237,232,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(240,237,232,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#8ae87a;margin-bottom:.8rem}.memo-item{font-size:.78rem;color:#7a7870;padding:.2rem 0}.memo-dl-btn{display:none}</style></head><body>'+m+'</body></html>');w.document.close();}
+</script>
+<script src="../mobile.js"></script>
+</body>
+</html>

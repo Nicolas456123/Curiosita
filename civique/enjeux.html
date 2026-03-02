@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enjeux contemporains — Éducation civique — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root { --accent: #e87a9b; --accent2: #f09ab5; --accent-dim: rgba(232,122,155,0.08); }
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,155,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../civique-page.html">Éducation civique</a> › <span>Enjeux contemporains</span></div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🗳️ Éducation civique</span>
+    <span class="tag-level">Intermédiaire → Avancé</span>
+    <span class="tag-time">⏱ ~6h de lecture</span>
+  </div>
+  <h1><em>Enjeux contemporains</em></h1>
+  <p class="hero-desc">Les grands défis de société — écologie, numérique, inégalités et vivre-ensemble au XXIe siècle.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../civique-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Éducation civique</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="citoyennete.html">Citoyenneté</a>
+    <a class="sidebar-link" href="droits.html">Droits et libertés</a>
+    <a class="sidebar-link" href="republique.html">République et démocratie</a>
+    <a class="sidebar-link active" href="#">Enjeux contemporains</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="presentation">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Les enjeux contemporains</h2><p>Introduction et vue d'ensemble</p></div></div>
+      <p class="resume-text">Le XXIe siècle confronte nos démocraties à des <strong>défis inédits</strong> : urgence climatique, révolution numérique, montée des inégalités, crises migratoires, désinformation. Ces enjeux exigent des citoyens informés, capables de débattre et de s'engager.</p>
+      <div class="highlight-box"><p><strong>L'idée fondamentale :</strong> les enjeux contemporains ne sont pas seulement techniques ou politiques — ils sont profondément civiques. Chaque choix de société engage nos valeurs, nos droits et notre modèle de vivre-ensemble.</p></div>
+      <p class="resume-text">Du <strong>dérèglement climatique</strong> aux <strong>fake news</strong>, de la <strong>bioéthique</strong> à l'<strong>intelligence artificielle</strong>, ces questions traversent le quotidien et nourrissent le débat démocratique. Comprendre les enjeux, c'est pouvoir y prendre part de manière éclairée.</p>
+      <p class="resume-text">Ce domaine explore cinq thématiques majeures qui façonnent notre présent et détermineront notre avenir collectif.</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Les cours d'enjeux contemporains</h2><p>Progressez étape par étape</p></div></div>
+      <div class="courses-grid">
+        <a href="enjeux/developpement-durable.html" class="course-card"><span class="course-card-icon">🌍</span><h3>Développement durable</h3><p>Écologie, transition énergétique, biodiversité : les défis environnementaux du siècle.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="enjeux/numerique.html" class="course-card"><span class="course-card-icon">📱</span><h3>Société numérique</h3><p>Réseaux sociaux, IA, données personnelles : vivre et s'engager à l'ère numérique.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="enjeux/vivre-ensemble.html" class="course-card"><span class="course-card-icon">🤝</span><h3>Vivre-ensemble</h3><p>Diversité, discriminations, intégration : les défis de la cohésion sociale.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="enjeux/bioethique.html" class="course-card"><span class="course-card-icon">🧬</span><h3>Bioéthique</h3><p>PMA, fin de vie, génomique : les questions éthiques posées par les sciences du vivant.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="enjeux/desinformation.html" class="course-card"><span class="course-card-icon">📡</span><h3>Désinformation et esprit critique</h3><p>Fake news, complotisme, fact-checking : développer son esprit critique face à l'information.</p><span class="course-card-link">Voir le cours →</span></a>
+      </div>
+    </section>
+    <section class="content-section" id="memo">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Fiche mémo</h2><p>L'essentiel en un coup d'oeil</p></div></div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top"><h3>🌍 Enjeux contemporains — Fiche mémo</h3><p>Curiosita · Défis, débats et repères</p></div>
+        <div class="memo-grid">
+          <div class="memo-section"><div class="memo-section-title">Environnement</div><div class="memo-item"><span class="mf">Climat</span> +1,5°C objectif Paris 2015</div><div class="memo-item"><span class="mf">Biodiversité</span> 1 M espèces menacées</div><div class="memo-item"><span class="mf">Énergie</span> Transition fossile → renouvelable</div><div class="memo-item"><span class="mf">ODD</span> 17 objectifs ONU, 2030</div></div>
+          <div class="memo-section"><div class="memo-section-title">Numérique</div><div class="memo-item"><span class="mf">Données</span> RGPD, droit à l'oubli</div><div class="memo-item"><span class="mf">IA</span> Algorithmes, biais, éthique</div><div class="memo-item"><span class="mf">Réseaux</span> Modération, bulles de filtre</div><div class="memo-item"><span class="mf">Inclusion</span> Fracture numérique</div></div>
+          <div class="memo-section"><div class="memo-section-title">Société</div><div class="memo-item"><span class="mf">Inégalités</span> Revenus, patrimoine, accès</div><div class="memo-item"><span class="mf">Discrimination</span> Racisme, sexisme, homophobie</div><div class="memo-item"><span class="mf">Migration</span> Droit d'asile, intégration</div><div class="memo-item"><span class="mf">Santé</span> Accès aux soins, prévention</div></div>
+          <div class="memo-section"><div class="memo-section-title">Démocratie</div><div class="memo-item"><span class="mf">Abstention</span> Crise de la représentation</div><div class="memo-item"><span class="mf">Populismes</span> Défiance institutionnelle</div><div class="memo-item"><span class="mf">Médias</span> Indépendance, pluralisme</div><div class="memo-item"><span class="mf">Participation</span> RIC, conventions citoyennes</div></div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+  </main>
+</div>
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo(){var m=document.getElementById('memoCard').outerHTML;var html='<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Enjeux contemporains \u2014 Fiche m\u00e9mo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#e87a9b;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#e87a9b;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>'+m+'</body></html>';var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download='enjeux-contemporains-fiche-memo.html';a.click();}
+</script>
+<script src="../mobile.js"></script>
+</body>
+</html>

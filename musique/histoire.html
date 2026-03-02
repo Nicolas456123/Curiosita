@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Histoire de la musique — Musique — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=2">
+<style>
+:root {
+  --accent: #e8b07a;
+  --accent2: #ffcc80;
+  --accent-dim: rgba(232,176,122,0.08);
+}
+.hero { padding: 7rem 2.5rem 3rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,176,122,0.05) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../musique-page.html">Musique</a> › <span>Histoire de la musique</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🎵 Musique</span>
+    <span class="tag-level">Débutant → Avancé</span>
+    <span class="tag-time">⏱ ~7h de lecture</span>
+  </div>
+  <h1><em>Histoire de la musique</em></h1>
+  <p class="hero-desc">Du baroque au contemporain — un voyage à travers les époques, les courants et les compositeurs qui ont façonné la musique occidentale.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../musique-page.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Musique</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="theorie.html">Théorie musicale</a>
+    <a class="sidebar-link active" href="#">Histoire</a>
+    <a class="sidebar-link" href="instruments.html">Instruments</a>
+    <a class="sidebar-link" href="production.html">Production</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>L'histoire de la musique occidentale</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">L'histoire de la musique occidentale s'étend sur plus de <strong>mille ans de création</strong>, depuis les premières notations du chant grégorien au IXe siècle jusqu'aux expérimentations électroniques d'aujourd'hui. Chaque époque a apporté de nouvelles formes, de nouveaux instruments et de nouvelles façons de penser le son.</p>
+      <div class="highlight-box">
+        <p><strong>L'idée fondamentale :</strong> la musique évolue en permanence, chaque courant naissant en réaction au précédent. Le baroque ornemente, le classique épure, le romantique libère, le moderne déconstruit, le contemporain explore.</p>
+      </div>
+      <p class="resume-text">Ce parcours vous emmène à travers les cinq grandes périodes de la musique savante occidentale : le <strong>baroque</strong> (1600-1750), le <strong>classique</strong> (1750-1820), le <strong>romantique</strong> (1820-1910), le <strong>moderne</strong> (1890-1950) et le <strong>contemporain</strong> (1945 à nos jours). Chaque cours présente le contexte historique, les compositeurs majeurs et les oeuvres emblématiques de l'époque.</p>
+      <p class="resume-text">Comprendre l'histoire de la musique, c'est comprendre comment les sociétés expriment leurs émotions, leurs croyances et leurs aspirations à travers le son — un miroir sonore de la civilisation.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours d'histoire de la musique</h2>
+          <p>Progressez étape par étape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="histoire/baroque.html" class="course-card">
+          <span class="course-card-icon">🏛️</span>
+          <h3>La musique baroque</h3>
+          <p>Bach, Vivaldi, Haendel. Basse continue, contrepoint et ornementation (1600-1750).</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="histoire/classique.html" class="course-card">
+          <span class="course-card-icon">🎻</span>
+          <h3>La période classique</h3>
+          <p>Mozart, Haydn, Beethoven. Forme sonate, symphonie et équilibre formel (1750-1820).</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="histoire/romantique.html" class="course-card">
+          <span class="course-card-icon">🌹</span>
+          <h3>Le romantisme</h3>
+          <p>Chopin, Liszt, Wagner. Expression des émotions, virtuosité et poème symphonique (1820-1910).</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="histoire/moderne.html" class="course-card">
+          <span class="course-card-icon">🔮</span>
+          <h3>La musique moderne</h3>
+          <p>Debussy, Stravinsky, Schoenberg. Impressionnisme, atonalité et dodécaphonisme (1890-1950).</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="histoire/contemporain.html" class="course-card">
+          <span class="course-card-icon">🎧</span>
+          <h3>La musique contemporaine</h3>
+          <p>Boulez, Messiaen, Reich. Sérialisme, minimalisme et musique électroacoustique (1945+).</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel de l'histoire de la musique en un coup d'œil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🎵 Histoire de la musique — Fiche mémo</h3>
+          <p>Curiosita · Époques, compositeurs et formes</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Baroque (1600-1750)</div>
+            <div class="memo-item"><span class="mf">Compositeurs →</span> Bach, Vivaldi, Haendel</div>
+            <div class="memo-item"><span class="mf">Formes →</span> fugue, concerto, opéra</div>
+            <div class="memo-item"><span class="mf">Style →</span> basse continue, ornementation</div>
+            <div class="memo-item"><span class="mf">Oeuvre clé →</span> Le Clavier bien tempéré</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Classique (1750-1820)</div>
+            <div class="memo-item"><span class="mf">Compositeurs →</span> Mozart, Haydn, Beethoven</div>
+            <div class="memo-item"><span class="mf">Formes →</span> sonate, symphonie, quatuor</div>
+            <div class="memo-item"><span class="mf">Style →</span> clarté, équilibre, élégance</div>
+            <div class="memo-item"><span class="mf">Oeuvre clé →</span> Symphonie n°40 (Mozart)</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Romantique (1820-1910)</div>
+            <div class="memo-item"><span class="mf">Compositeurs →</span> Chopin, Liszt, Wagner</div>
+            <div class="memo-item"><span class="mf">Formes →</span> poème symph., Lied, opéra</div>
+            <div class="memo-item"><span class="mf">Style →</span> émotion, virtuosité, liberté</div>
+            <div class="memo-item"><span class="mf">Oeuvre clé →</span> Tristan et Isolde</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Moderne / Contemporain</div>
+            <div class="memo-item"><span class="mf">Compositeurs →</span> Debussy, Stravinsky</div>
+            <div class="memo-item"><span class="mf">Courants →</span> impressionnisme, sérialisme</div>
+            <div class="memo-item"><span class="mf">Innovation →</span> atonalité, électroacoustique</div>
+            <div class="memo-item"><span class="mf">Oeuvre clé →</span> Le Sacre du printemps</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+function downloadMemo() {
+  var memo = document.getElementById('memoCard').outerHTML;
+  var html = '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Histoire de la musique — Fiche mémo</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Lora:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#1a1a2e;color:#e0dcd3;font-family:"DM Sans",sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(224,220,211,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1e30,#2a2a40);padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-top h3{font-family:Lora,serif;font-size:1.4rem;color:#e8b07a;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#8a8274}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(224,220,211,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(224,220,211,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#e8b07a;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#8a8274;padding:.25rem 0;display:flex;gap:.5rem;align-items:baseline;line-height:1.5}.memo-item .mf{font-family:Lora,serif;font-style:italic;font-size:.85rem;color:#e0dcd3;min-width:100px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>' + memo + '
+</body></html>';
+  var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([html],{type:'text/html'})); a.download = 'histoire-musique-fiche-memo.html'; a.click();
+}
+</script>
+    <script src="../mobile.js"></script>
+</body>
+</html>

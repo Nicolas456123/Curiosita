@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polynômes et factorisation — Algèbre — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #c0392b;
+  --accent2: #e74c3c;
+  --accent-dim: rgba(192,57,43,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../curiosita.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../maths-page.html">Mathématiques</a> › <a href="../algebre.html">Algèbre</a> › <span>Polynômes</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🔢 Algèbre</span>
+    <span class="tag-level">Intermédiaire</span>
+    <span class="tag-time">⏱ ~45 min</span>
+  </div>
+  <h1><em>Polynômes et factorisation</em></h1>
+  <p class="hero-desc">Division euclidienne, racines, identités remarquables et théorème fondamental de l'algèbre.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../algebre.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Algèbre</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="equations.html">Équations 1er/2nd degré</a>
+    <a class="sidebar-link" href="systemes.html">Systèmes d'équations</a>
+    <a class="sidebar-link active" href="#">Polynômes</a>
+    <a class="sidebar-link" href="matrices.html">Matrices</a>
+    <a class="sidebar-link" href="nombres-complexes.html">Nombres complexes</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Pourquoi étudier les polynômes</p>
+        </div>
+      </div>
+      <p class="resume-text">Un <strong>polynôme</strong> est une expression de la forme P(x) = aₙxⁿ + aₙ₋₁xⁿ⁻¹ + ... + a₁x + a₀, où les aᵢ sont des coefficients et n est le <strong>degré</strong> du polynôme. Les polynômes sont les objets les plus fondamentaux de l'algèbre : ils généralisent les équations du premier et du second degré et apparaissent dans presque tous les domaines des mathématiques.</p>
+      <div class="highlight-box">
+        <p><strong>Théorème fondamental de l'algèbre :</strong> tout polynôme de degré n ≥ 1 à coefficients complexes admet exactement n racines (comptées avec multiplicité) dans les nombres complexes. Ce résultat, prouvé par Gauss en 1799, unifie toute la théorie.</p>
+      </div>
+      <p class="resume-text">La <strong>factorisation</strong> est l'opération clé : décomposer un polynôme en produit de facteurs plus simples. Elle permet de trouver les racines, de simplifier des expressions et de résoudre des équations. Ce cours couvre les méthodes essentielles : identités remarquables, division euclidienne, et racines évidentes.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Polynômes, racines et factorisation</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Opérations sur les polynômes</h3>
+        <p>On peut <strong>additionner</strong>, <strong>soustraire</strong> et <strong>multiplier</strong> des polynômes en combinant les termes de même degré. Le degré du produit est la somme des degrés : deg(P × Q) = deg(P) + deg(Q).</p>
+        <p><strong>Exemple :</strong> (2x² + 3x - 1)(x + 2) = 2x³ + 4x² + 3x² + 6x - x - 2 = 2x³ + 7x² + 5x - 2.</p>
+
+        <h3>Division euclidienne des polynômes</h3>
+        <p>Comme pour les entiers, on peut effectuer la <strong>division euclidienne</strong> d'un polynôme A par un polynôme B (de degré non nul) :</p>
+        <div class="highlight-box">
+          <p><strong>A = B × Q + R</strong> où deg(R) < deg(B). Q est le quotient et R le reste.</p>
+        </div>
+        <p><strong>Exemple :</strong> Diviser P(x) = x³ - 2x² + 3x - 1 par D(x) = x - 1.</p>
+        <ul>
+          <li>x³ ÷ x = x², puis x²(x-1) = x³ - x². Reste : -x² + 3x - 1</li>
+          <li>-x² ÷ x = -x, puis -x(x-1) = -x² + x. Reste : 2x - 1</li>
+          <li>2x ÷ x = 2, puis 2(x-1) = 2x - 2. Reste : 1</li>
+          <li>Donc x³ - 2x² + 3x - 1 = (x - 1)(x² - x + 2) + 1</li>
+        </ul>
+
+        <h3>Racines et factorisation</h3>
+        <p>Un nombre a est une <strong>racine</strong> de P si P(a) = 0. Si a est racine de P, alors (x - a) divise P (le reste de la division est nul). Réciproquement, si (x - a) divise P, alors a est racine de P.</p>
+        <p>Pour trouver les racines rationnelles d'un polynôme à coefficients entiers, on teste les <strong>diviseurs du terme constant</strong> divisés par les diviseurs du coefficient dominant.</p>
+        <p><strong>Exemple :</strong> Factoriser P(x) = x³ - 6x² + 11x - 6.</p>
+        <ul>
+          <li>On teste x = 1 : P(1) = 1 - 6 + 11 - 6 = 0. Donc (x - 1) est facteur.</li>
+          <li>Division : P(x) = (x - 1)(x² - 5x + 6)</li>
+          <li>On factorise x² - 5x + 6 = (x - 2)(x - 3)</li>
+          <li>Résultat : P(x) = (x - 1)(x - 2)(x - 3)</li>
+        </ul>
+
+        <h3>Identités remarquables (degré 3)</h3>
+        <p>Au-delà des identités du degré 2, les identités de degré 3 sont très utiles :</p>
+        <ul>
+          <li><strong>(a + b)³</strong> = a³ + 3a²b + 3ab² + b³</li>
+          <li><strong>(a - b)³</strong> = a³ - 3a²b + 3ab² - b³</li>
+          <li><strong>a³ - b³</strong> = (a - b)(a² + ab + b²)</li>
+          <li><strong>a³ + b³</strong> = (a + b)(a² - ab + b²)</li>
+        </ul>
+
+        <h3>Multiplicité des racines</h3>
+        <p>Une racine a est de <strong>multiplicité k</strong> si (x - a)ᵏ divise P mais (x - a)ᵏ⁺¹ ne divise pas P. Par exemple, dans P(x) = (x - 1)²(x + 3), la racine 1 est de multiplicité 2 (racine double) et la racine -3 est de multiplicité 1 (racine simple).</p>
+        <div class="highlight-box">
+          <p><strong>Conséquence graphique :</strong> à une racine simple, la courbe traverse l'axe des x. À une racine double, elle touche l'axe sans le traverser (tangente). À une racine triple, elle traverse avec un point d'inflexion.</p>
+        </div>
+
+        <h3>Schéma de Horner</h3>
+        <p>Le <strong>schéma de Horner</strong> est une méthode efficace pour évaluer un polynôme et effectuer une division par (x - a). Le principe est de réécrire le polynôme sous forme emboîtée :</p>
+        <p>P(x) = aₙxⁿ + aₙ₋₁xⁿ⁻¹ + ... + a₁x + a₀ = (...((aₙx + aₙ₋₁)x + aₙ₋₂)x + ...)x + a₀</p>
+        <p><strong>Exemple :</strong> Évaluer P(x) = 2x³ - 3x² + 4x - 5 en x = 3 par Horner :</p>
+        <ul>
+          <li>On part de 2 (coefficient dominant)</li>
+          <li>2 × 3 + (-3) = 3</li>
+          <li>3 × 3 + 4 = 13</li>
+          <li>13 × 3 + (-5) = 34</li>
+          <li>Donc P(3) = 34. Les coefficients intermédiaires (2, 3, 13) donnent le quotient : 2x² + 3x + 13 avec reste 34.</li>
+        </ul>
+
+        <h3>Polynômes irréductibles</h3>
+        <p>Un polynôme est <strong>irréductible</strong> sur les réels s'il ne peut pas se factoriser en produit de polynômes de degré inférieur à coefficients réels. Sur les réels, les irréductibles sont les polynômes de degré 1 et les trinômes de degré 2 à discriminant strictement négatif.</p>
+        <div class="highlight-box">
+          <p><strong>Décomposition complète sur les réels :</strong> tout polynôme réel se décompose en produit de facteurs de degré 1 et de facteurs de degré 2 irréductibles (Δ < 0). Par exemple : x⁴ + 1 = (x² + √2·x + 1)(x² - √2·x + 1).</p>
+        </div>
+
+        <h3>Pièges courants</h3>
+        <p>Erreurs fréquentes à éviter avec les polynômes :</p>
+        <ul>
+          <li><strong>Confondre degré et nombre de termes :</strong> x⁵ + 1 est de degré 5 bien qu'il n'ait que 2 termes.</li>
+          <li><strong>Oublier le coefficient dominant :</strong> dans 3x² - x + 2, le coefficient dominant est 3, pas 1. Cela affecte le discriminant et les formules de Viète.</li>
+          <li><strong>Tester des diviseurs incomplets :</strong> pour les racines rationnelles, il faut tester ±(diviseurs du terme constant)/(diviseurs du coefficient dominant), pas seulement les diviseurs du terme constant.</li>
+          <li><strong>Division euclidienne mal posée :</strong> ne pas oublier les termes de coefficient 0. Dans x³ + 1, il faut écrire x³ + 0x² + 0x + 1 pour la division.</li>
+          <li><strong>Multiplicité oubliée :</strong> dans (x-1)²(x+2) = 0, la racine 1 compte double. Le polynôme a 3 racines comptées avec multiplicité.</li>
+        </ul>
+
+        <h3>Applications</h3>
+        <p>Les polynômes sont utilisés dans de nombreux domaines :</p>
+        <ul>
+          <li><strong>Interpolation :</strong> le polynôme de Lagrange permet de trouver le polynôme de degré minimal passant par n points donnés. Utilisé en calcul numérique et en infographie.</li>
+          <li><strong>Codes correcteurs :</strong> les codes de Reed-Solomon, utilisés dans les CD, DVD et QR codes, reposent sur les propriétés des polynômes sur les corps finis.</li>
+          <li><strong>Approximation :</strong> les polynômes de Taylor approchent les fonctions compliquées par des polynômes : sin(x) ≈ x - x³/6 + x⁵/120 pour x proche de 0.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">🔢 Polynômes — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quel est le degré du polynôme P(x) = 3x⁴ - 2x² + x - 7 ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">4</div>
+              <div class="option" onclick="answer(this,false)">3</div>
+              <div class="option" onclick="answer(this,false)">2</div>
+              <div class="option" onclick="answer(this,false)">7</div>
+            </div>
+            <div class="q-feedback">Le degré est la plus grande puissance de x présente avec un coefficient non nul. Ici le terme dominant est 3x⁴, donc le degré est 4.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Factoriser a³ - 8 :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">(a - 2)(a² + 2a + 4)</div>
+              <div class="option" onclick="answer(this,false)">(a - 2)(a² - 2a + 4)</div>
+              <div class="option" onclick="answer(this,false)">(a + 2)(a² - 2a + 4)</div>
+              <div class="option" onclick="answer(this,false)">(a - 2)³</div>
+            </div>
+            <div class="q-feedback">On utilise l'identité a³ - b³ = (a - b)(a² + ab + b²) avec b = 2 : a³ - 8 = (a - 2)(a² + 2a + 4).</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Si P(x) = x³ - 3x² - x + 3, que vaut P(1) et qu'en déduit-on ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">P(1) = 0, donc (x-1) divise P</div>
+              <div class="option" onclick="answer(this,false)">P(1) = 2, donc 1 n'est pas racine</div>
+              <div class="option" onclick="answer(this,false)">P(1) = -2, donc 1 n'est pas racine</div>
+              <div class="option" onclick="answer(this,false)">P(1) = 0, mais on ne peut rien conclure</div>
+            </div>
+            <div class="q-feedback">P(1) = 1 - 3 - 1 + 3 = 0. Comme P(1) = 0, le nombre 1 est racine et (x - 1) divise P(x). On trouve P(x) = (x - 1)(x - 3)(x + 1).</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Quel est le degré du polynôme P × Q si deg(P) = 3 et deg(Q) = 4 ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">7</div>
+              <div class="option" onclick="answer(this,false)">4</div>
+              <div class="option" onclick="answer(this,false)">12</div>
+              <div class="option" onclick="answer(this,false)">3</div>
+            </div>
+            <div class="q-feedback">Le degré du produit est la somme des degrés : deg(P × Q) = deg(P) + deg(Q) = 3 + 4 = 7.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quel est le reste de la division de P(x) = x³ + 2x - 5 par (x - 1) ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">0</div>
+              <div class="option" onclick="answer(this,true)">-2</div>
+              <div class="option" onclick="answer(this,false)">5</div>
+              <div class="option" onclick="answer(this,false)">-4</div>
+            </div>
+            <div class="q-feedback">Par le théorème du reste, le reste de la division par (x - 1) est P(1) = 1 + 2 - 5 = -2. Comme P(1) ≠ 0, (x - 1) ne divise pas P.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Combien de racines réelles a le polynôme x⁴ + x² + 1 ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">0</div>
+              <div class="option" onclick="answer(this,false)">2</div>
+              <div class="option" onclick="answer(this,false)">4</div>
+              <div class="option" onclick="answer(this,false)">1</div>
+            </div>
+            <div class="q-feedback">Pour tout x réel, x⁴ ≥ 0, x² ≥ 0 et 1 > 0, donc x⁴ + x² + 1 ≥ 1 > 0. Le polynôme n'a aucune racine réelle. En posant X = x², on obtient X² + X + 1 = 0 avec Δ = -3 < 0.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Division euclidienne</h3>
+        <p>Effectuer la division euclidienne de P(x) = 2x³ + 5x² - 3x + 1 par D(x) = x + 3.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>2x³ ÷ x = 2x². 2x²(x+3) = 2x³ + 6x². Reste : -x² - 3x + 1. -x² ÷ x = -x. -x(x+3) = -x² - 3x. Reste : 0x + 1 = 1. 0 ÷ x... reste 1. <strong>P(x) = (x + 3)(2x² - x) + 1</strong>. Vérification : P(-3) = 2(-27) + 5(9) + 9 + 1 = -54 + 45 + 10 = 1 (= le reste).</p></div>
+        </details>
+
+        <h3>Exercice 2 — Factorisation complète</h3>
+        <p>Factoriser P(x) = x³ - 2x² - 5x + 6.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>On cherche les racines parmi les diviseurs de 6 : ±1, ±2, ±3, ±6. P(1) = 1 - 2 - 5 + 6 = 0. Donc (x - 1) divise P. Par Horner ou division : P(x) = (x - 1)(x² - x - 6). On factorise x² - x - 6 : Δ = 1 + 24 = 25, racines 3 et -2. <strong>P(x) = (x - 1)(x - 3)(x + 2)</strong>.</p></div>
+        </details>
+
+        <h3>Exercice 3 — Identité remarquable de degré 3</h3>
+        <p>Factoriser 27a³ + 8b³.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>On reconnaît la somme de cubes : 27a³ = (3a)³ et 8b³ = (2b)³. En appliquant a³ + b³ = (a + b)(a² - ab + b²) avec a = 3a et b = 2b : <strong>27a³ + 8b³ = (3a + 2b)(9a² - 6ab + 4b²)</strong>.</p></div>
+        </details>
+
+        <h3>Exercice 4 — Polynôme avec paramètre</h3>
+        <p>Déterminer la valeur de k pour que (x - 2) divise P(x) = x³ + kx² - 5x + 2.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>(x - 2) divise P si et seulement si P(2) = 0. P(2) = 8 + 4k - 10 + 2 = 4k. Donc 4k = 0, soit <strong>k = 0</strong>. Vérification : P(x) = x³ - 5x + 2 et P(2) = 8 - 10 + 2 = 0.</p></div>
+        </details>
+
+        <h3>Exercice 5 — Évaluation par Horner</h3>
+        <p>Utiliser le schéma de Horner pour évaluer P(x) = 3x⁴ - 2x³ + x² - 4x + 7 en x = 2.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Coefficients : 3, -2, 1, -4, 7. En x = 2 : 3 → 3×2 + (-2) = 4 → 4×2 + 1 = 9 → 9×2 + (-4) = 14 → 14×2 + 7 = <strong>35</strong>. Vérification : 3(16) - 2(8) + 4 - 8 + 7 = 48 - 16 + 4 - 8 + 7 = 35.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="systemes.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Systèmes d'équations</span>
+      </a>
+      <a href="matrices.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Matrices et déterminants →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions = document.querySelectorAll('.question-block');
+let currentQ = 0, score = 0;
+let answered = new Array(questions.length).fill(false);
+const dotsContainer = document.getElementById('qDots');
+questions.forEach((_, i) => { const d = document.createElement('div'); d.className = 'q-dot' + (i === 0 ? ' current' : ''); dotsContainer.appendChild(d); });
+function updateDots() { document.querySelectorAll('.q-dot').forEach((d, i) => { d.className = 'q-dot'; if (answered[i]) d.classList.add('done'); if (i === currentQ) d.classList.add('current'); }); }
+function answer(el, ok) {
+  if (answered[currentQ]) return; answered[currentQ] = true;
+  el.closest('.question-block').querySelectorAll('.option').forEach(o => o.classList.add('disabled'));
+  el.classList.add(ok ? 'correct' : 'wrong');
+  if (!ok) el.closest('.question-block').querySelectorAll('.option').forEach(o => { if(o.onclick.toString().includes('true')) o.classList.add('correct'); });
+  else { score++; document.getElementById('scoreDisplay').textContent = score; }
+  el.closest('.question-block').querySelector('.q-feedback').classList.add('show', ok ? 'good' : 'bad');
+  document.getElementById('btnNext').disabled = false;
+  updateDots();
+}
+function nextQ() { if (currentQ < questions.length - 1) { questions[currentQ].classList.remove('active'); currentQ++; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = false; document.getElementById('btnNext').disabled = !answered[currentQ]; if (currentQ === questions.length - 1) document.getElementById('btnNext').textContent = 'Terminer'; updateDots(); } else { showResult(); } }
+function prevQ() { if (currentQ > 0) { questions[currentQ].classList.remove('active'); currentQ--; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = currentQ === 0; document.getElementById('btnNext').disabled = !answered[currentQ]; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); } }
+function showResult() { document.getElementById('quizBody').style.display = 'none'; document.getElementById('quizResult').style.display = 'block'; document.getElementById('resultScore').textContent = score + '/' + questions.length; var m = ['Continue !', 'Pas mal !', 'Très bien !', 'Parfait !']; document.getElementById('resultMsg').textContent = m[Math.min(score, 3)]; }
+function resetQuiz() { score = 0; currentQ = 0; answered = new Array(questions.length).fill(false); document.getElementById('scoreDisplay').textContent = 0; document.getElementById('quizBody').style.display = 'block'; document.getElementById('quizResult').style.display = 'none'; questions.forEach((q,i) => { q.classList.toggle('active', i===0); q.querySelectorAll('.option').forEach(o=>o.className='option'); q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback'); }); document.getElementById('btnPrev').disabled = true; document.getElementById('btnNext').disabled = true; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); }
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+</script>
+    <script src="../../mobile.js"></script>
+</body>
+</html>
