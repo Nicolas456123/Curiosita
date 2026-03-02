@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Changements d'état — Thermodynamique — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08); }
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../../sciences-exactes.html">Sciences exactes</a> › <a href="../thermodynamique.html">Thermodynamique</a> › <span>Changements d'état</span></div>
+</nav>
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🌡️ Thermodynamique</span>
+    <span class="tag-level">Intermédiaire</span>
+    <span class="tag-time">⏱ ~40 min</span>
+  </div>
+  <h1><em>Changements d'état</em></h1>
+  <p class="hero-desc">Fusion, vaporisation, sublimation, diagrammes de phase et chaleur latente.</p>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../thermodynamique.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Thermodynamique</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="temperature.html">Température et chaleur</a>
+    <a class="sidebar-link" href="lois.html">Lois de la thermodynamique</a>
+    <a class="sidebar-link active" href="#">Changements d'état</a>
+    <a class="sidebar-link" href="machines.html">Machines thermiques</a>
+    <a class="sidebar-link" href="entropie.html">Entropie</a>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="introduction">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Introduction</h2><p>Les transitions entre phases de la matière</p></div></div>
+      <p class="resume-text">La matière existe sous trois états principaux — solide, liquide et gaz — et peut passer de l'un à l'autre sous l'effet de variations de température ou de pression. Ces transitions de phase sont des phénomènes fondamentaux qui jouent un rôle crucial dans la nature : le cycle de l'eau, la formation des cristaux, la fonte des glaciers.</p>
+      <p class="resume-text">Lors d'un changement d'état, la température reste constante tant que les deux phases coexistent, bien que de l'énergie continue d'être fournie ou retirée. Cette énergie, appelée chaleur latente, sert à modifier l'organisation des molécules sans changer leur agitation thermique.</p>
+      <div class="highlight-box"><p><strong>Observation clé :</strong> quand on chauffe de la glace, la température monte jusqu'à 0 °C, puis reste bloquée à 0 °C pendant toute la fusion, puis remonte. L'énergie fournie pendant le palier sert à rompre les liaisons intermoléculaires, pas à augmenter la température.</p></div>
+      <p class="resume-text">Ce cours détaille les six changements d'état, la chaleur latente, les diagrammes de phase, le point triple, le point critique et la relation de Clausius-Clapeyron.</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Le cours</h2><p>Changements d'état</p></div></div>
+      <div class="course-content">
+        <h3>Les six changements d'état</h3>
+        <p>Les trois états de la matière (solide, liquide, gaz) donnent lieu à six transitions :</p>
+        <p><strong>Fusion</strong> (solide → liquide) et <strong>solidification</strong> (liquide → solide) : pour l'eau, elles se produisent à 0 °C sous pression atmosphérique. La fusion nécessite un apport d'énergie ; la solidification en libère.</p>
+        <p><strong>Vaporisation</strong> (liquide → gaz) et <strong>liquéfaction/condensation</strong> (gaz → liquide) : l'ébullition de l'eau se fait à 100 °C sous 1 atm. La vaporisation peut aussi se faire par évaporation (à la surface du liquide, à toute température).</p>
+        <p><strong>Sublimation</strong> (solide → gaz) et <strong>condensation solide/déposition</strong> (gaz → solide) : le givre se forme par déposition de la vapeur d'eau, et la neige carbonique (CO₂ solide) se sublime directement en gaz à pression atmosphérique.</p>
+
+        <h3>Chaleur latente</h3>
+        <p>La <strong>chaleur latente</strong> L (en J/kg) est l'énergie nécessaire pour faire changer d'état une unité de masse à température constante : <strong>Q = m × L</strong>.</p>
+        <p>Pour l'eau : L_fusion = 334 kJ/kg (il faut 334 kJ pour fondre 1 kg de glace à 0 °C) et L_vaporisation = 2 260 kJ/kg (il faut 2 260 kJ pour vaporiser 1 kg d'eau à 100 °C). La chaleur latente de vaporisation est beaucoup plus grande car il faut rompre davantage de liaisons intermoléculaires pour passer à l'état gazeux.</p>
+        <p>La chaleur latente molaire est l_m = M × L, où M est la masse molaire. Pour l'eau : l_m(vaporisation) = 0,018 × 2 260 000 = 40 680 J/mol.</p>
+
+        <h3>Courbes de chauffage et paliers</h3>
+        <p>La courbe de chauffage T(t) d'un corps pur montre des paliers horizontaux pendant chaque changement d'état. Pour l'eau, en partant de −20 °C :</p>
+        <p>1) Chauffage de la glace (−20 °C → 0 °C) : Q = m × c_glace × ΔT avec c_glace = 2 090 J/(kg·K).</p>
+        <p>2) Palier de fusion (0 °C) : Q = m × L_fusion = m × 334 000 J/kg.</p>
+        <p>3) Chauffage de l'eau (0 °C → 100 °C) : Q = m × c_eau × ΔT avec c_eau = 4 185 J/(kg·K).</p>
+        <p>4) Palier de vaporisation (100 °C) : Q = m × L_vaporisation = m × 2 260 000 J/kg.</p>
+        <p>5) Chauffage de la vapeur (au-dessus de 100 °C) : Q = m × c_vapeur × ΔT avec c_vapeur ≈ 2 010 J/(kg·K).</p>
+
+        <h3>Diagramme de phase (p, T)</h3>
+        <p>Le diagramme de phase représente les domaines d'existence des différentes phases en fonction de la pression et de la température. Il présente trois courbes de séparation et deux points remarquables :</p>
+        <p>Le <strong>point triple</strong> est l'unique couple (p, T) où les trois phases coexistent en équilibre. Pour l'eau : T_triple = 273,16 K (0,01 °C) et p_triple = 611 Pa. Ce point sert de référence pour la définition du kelvin.</p>
+        <p>Le <strong>point critique</strong> marque la fin de la courbe de vaporisation. Au-delà, il n'y a plus de distinction entre liquide et gaz : on parle de fluide supercritique. Pour l'eau : T_c = 647 K et p_c = 221 bar.</p>
+        <div class="highlight-box"><p><strong>Anomalie de l'eau :</strong> la courbe de fusion de l'eau a une pente négative (le point de fusion diminue quand la pression augmente), car la glace est moins dense que l'eau liquide. C'est une propriété rare, partagée par très peu de substances (bismuth, germanium).</p></div>
+
+        <h3>Relation de Clausius-Clapeyron</h3>
+        <p>La pente de la courbe d'équilibre entre deux phases dans le diagramme (p, T) est donnée par la relation de Clausius-Clapeyron : <strong>dp/dT = L / (T × Δv)</strong>, où L est la chaleur latente massique et Δv = v_gaz − v_liquide est la variation de volume massique lors du changement d'état.</p>
+        <p>Pour la vaporisation, en approximant le gaz comme parfait et en négligeant le volume du liquide : <strong>dp/dT ≈ p × L / (R × T²)</strong> (par mole), ce qui donne après intégration : <strong>ln(p₂/p₁) = −L_m/R × (1/T₂ − 1/T₁)</strong>. Cette formule permet de calculer la température d'ébullition à une pression donnée.</p>
+
+        <h3>Surfusion et surchauffe</h3>
+        <p>La <strong>surfusion</strong> est le maintien d'un liquide en dessous de sa température de solidification sans qu'il se solidifie. L'eau pure peut être refroidie jusqu'à −42 °C sans geler si elle est très pure et immobile. La moindre perturbation (germe cristallin, choc) provoque une cristallisation brutale.</p>
+        <p>La <strong>surchauffe</strong> est le maintien d'un liquide au-dessus de sa température d'ébullition. Ce phénomène dangereux peut provoquer une ébullition explosive (bumping) lorsque des bulles se forment soudainement. On l'évite en ajoutant des pierres ponces ou des billes de verre dans les expériences de laboratoire.</p>
+
+        <h3>Fluides supercritiques</h3>
+        <p>Au-delà du point critique, la substance forme un <strong>fluide supercritique</strong> qui combine des propriétés du liquide (pouvoir solvant, densité élevée) et du gaz (faible viscosité, grande diffusivité). Le CO₂ supercritique (T_c = 31 °C, p_c = 74 bar) est utilisé industriellement pour la décaféination du café, l'extraction d'arômes et le nettoyage à sec écologique.</p>
+      </div>
+    </section>
+    <section class="content-section" id="quiz">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Quiz</h2><p>Testez votre compréhension</p></div></div>
+      <div class="quiz-container">
+        <div class="quiz-header"><span class="quiz-title-text">🌡️ Changements d'état — Quiz</span><span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span></div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0"><p class="q-num">Question 1 / 6</p><p class="q-text">Quelle est la chaleur latente de vaporisation de l'eau ?</p><div class="options"><div class="option" onclick="answer(this,false)">334 kJ/kg</div><div class="option" onclick="answer(this,false)">418 kJ/kg</div><div class="option" onclick="answer(this,true)">2 260 kJ/kg</div><div class="option" onclick="answer(this,false)">4 185 kJ/kg</div></div><div class="q-feedback">L_vaporisation = 2 260 kJ/kg. C'est environ 7 fois plus que la chaleur latente de fusion (334 kJ/kg).</div></div>
+          <div class="question-block" data-q="1"><p class="q-num">Question 2 / 6</p><p class="q-text">Au point triple de l'eau, combien de phases coexistent ?</p><div class="options"><div class="option" onclick="answer(this,false)">Une</div><div class="option" onclick="answer(this,false)">Deux</div><div class="option" onclick="answer(this,true)">Trois</div><div class="option" onclick="answer(this,false)">Quatre</div></div><div class="q-feedback">Au point triple (0,01 °C, 611 Pa), les trois phases — solide, liquide et gaz — coexistent en équilibre.</div></div>
+          <div class="question-block" data-q="2"><p class="q-num">Question 3 / 6</p><p class="q-text">Comment appelle-t-on le passage direct de l'état solide à l'état gazeux ?</p><div class="options"><div class="option" onclick="answer(this,false)">Vaporisation</div><div class="option" onclick="answer(this,false)">Fusion</div><div class="option" onclick="answer(this,true)">Sublimation</div><div class="option" onclick="answer(this,false)">Liquéfaction</div></div><div class="q-feedback">La sublimation est le passage direct solide → gaz. Exemple : la neige carbonique (CO₂ solide) se sublime à pression atmosphérique.</div></div>
+          <div class="question-block" data-q="3"><p class="q-num">Question 4 / 6</p><p class="q-text">Pendant un changement d'état d'un corps pur, la température...</p><div class="options"><div class="option" onclick="answer(this,true)">Reste constante</div><div class="option" onclick="answer(this,false)">Augmente toujours</div><div class="option" onclick="answer(this,false)">Diminue toujours</div><div class="option" onclick="answer(this,false)">Oscille</div></div><div class="q-feedback">Pendant un changement d'état d'un corps pur, la température reste constante. L'énergie fournie sert à modifier les liaisons intermoléculaires.</div></div>
+          <div class="question-block" data-q="4"><p class="q-num">Question 5 / 6</p><p class="q-text">Pourquoi la glace flotte-t-elle sur l'eau liquide ?</p><div class="options"><div class="option" onclick="answer(this,false)">La glace est plus chaude</div><div class="option" onclick="answer(this,true)">La glace est moins dense que l'eau liquide</div><div class="option" onclick="answer(this,false)">L'eau repousse la glace</div><div class="option" onclick="answer(this,false)">La pression atmosphérique la maintient</div></div><div class="q-feedback">L'eau est l'une des rares substances dont le solide est moins dense que le liquide. La structure cristalline de la glace occupe plus de volume.</div></div>
+          <div class="question-block" data-q="5"><p class="q-num">Question 6 / 6</p><p class="q-text">Qu'est-ce qu'un fluide supercritique ?</p><div class="options"><div class="option" onclick="answer(this,false)">Un gaz très froid</div><div class="option" onclick="answer(this,false)">Un liquide sous vide</div><div class="option" onclick="answer(this,true)">Une substance au-delà du point critique, ni liquide ni gaz</div><div class="option" onclick="answer(this,false)">Un solide à très haute pression</div></div><div class="q-feedback">Au-delà du point critique, la distinction liquide/gaz disparaît. Le fluide supercritique combine les propriétés des deux phases.</div></div>
+        </div>
+        <div class="quiz-result" id="quizResult"><div class="result-score-big" id="resultScore">0/6</div><div class="result-msg" id="resultMsg"></div><button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button></div>
+        <div class="quiz-nav"><button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button><div class="q-dots" id="qDots"></div><button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button></div>
+      </div>
+    </section>
+    <section class="content-section" id="exercices">
+      <div class="section-header"><div class="section-num">04</div><div class="section-info"><h2>Exercices</h2><p>Mettez en pratique</p></div></div>
+      <div class="course-content">
+        <h3>Exercice 1 — Fonte de glace</h3>
+        <p>Quelle énergie faut-il pour transformer 500 g de glace à −10 °C en eau à 20 °C ? (c_glace = 2 090 J/(kg·K), L_fusion = 334 kJ/kg, c_eau = 4 185 J/(kg·K))</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>1) Chauffage de la glace (−10 → 0 °C) : Q₁ = 0,5 × 2 090 × 10 = 10 450 J</p><p>2) Fusion à 0 °C : Q₂ = 0,5 × 334 000 = 167 000 J</p><p>3) Chauffage de l'eau (0 → 20 °C) : Q₃ = 0,5 × 4 185 × 20 = 41 850 J</p><p>Q_total = Q₁ + Q₂ + Q₃ = 10 450 + 167 000 + 41 850 = <strong>219 300 J ≈ 219 kJ</strong></p><p>La fusion représente 76 % de l'énergie totale, ce qui montre l'importance de la chaleur latente.</p></div></details>
+
+        <h3>Exercice 2 — Clausius-Clapeyron</h3>
+        <p>L'eau bout à 100 °C sous 1 atm (101 325 Pa). En utilisant L_vaporisation = 40 680 J/mol et R = 8,314 J/(mol·K), estimez la température d'ébullition à 0,5 atm (haute altitude).</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>ln(p₂/p₁) = −L_m/R × (1/T₂ − 1/T₁)</p><p>ln(50 663/101 325) = −(40 680/8,314) × (1/T₂ − 1/373)</p><p>ln(0,5) = −4 892 × (1/T₂ − 0,002681)</p><p>−0,693 = −4 892 × (1/T₂ − 0,002681)</p><p>1/T₂ − 0,002681 = 1,416 × 10⁻⁴</p><p>1/T₂ = 0,002823 → T₂ = <strong>354 K ≈ 81 °C</strong></p><p>À mi-pression atmosphérique, l'eau bout vers 81 °C (environ l'altitude de 5 500 m).</p></div></details>
+
+        <h3>Exercice 3 — Mélange eau-glace</h3>
+        <p>On plonge 100 g de glace à 0 °C dans 400 g d'eau à 50 °C dans un calorimètre parfait. La glace fond-elle entièrement ? Quelle est la température finale ?</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>Énergie disponible pour fondre la glace : Q_disp = m_eau × c_eau × (50 − 0) = 0,4 × 4 185 × 50 = 83 700 J</p><p>Énergie nécessaire pour fondre toute la glace : Q_fusion = 0,1 × 334 000 = 33 400 J</p><p>Q_disp > Q_fusion → oui, toute la glace fond.</p><p>Après fusion, équilibre : 0,4 × 4 185 × (50 − T) = 33 400 + 0,1 × 4 185 × (T − 0)</p><p>1 674 × (50 − T) = 33 400 + 418,5 × T</p><p>83 700 − 1 674T = 33 400 + 418,5T</p><p>50 300 = 2 092,5T → T = <strong>24,0 °C</strong></p></div></details>
+
+        <h3>Exercice 4 — Point triple</h3>
+        <p>Le diagramme de phase du CO₂ montre un point triple à T = −56,6 °C et p = 5,18 atm. Pourquoi la neige carbonique se sublime-t-elle directement à pression atmosphérique (1 atm) sans passer par l'état liquide ?</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>Le point triple du CO₂ est à 5,18 atm, bien au-dessus de la pression atmosphérique (1 atm).</p><p>À 1 atm, on se trouve sous la pression du point triple. Sur le diagramme de phase, la ligne horizontale p = 1 atm ne traverse que les domaines solide et gaz, jamais le domaine liquide.</p><p>Par conséquent, à pression atmosphérique, le CO₂ passe directement de l'état solide à l'état gazeux : c'est la <strong>sublimation</strong>.</p><p>Pour obtenir du CO₂ liquide, il faudrait une pression supérieure à 5,18 atm (c'est le cas dans les extincteurs à CO₂).</p></div></details>
+
+        <h3>Exercice 5 — Énergie de vaporisation</h3>
+        <p>Comparez l'énergie nécessaire pour : (a) chauffer 1 kg d'eau de 0 °C à 100 °C, et (b) vaporiser 1 kg d'eau à 100 °C. Quel processus demande le plus d'énergie et dans quel rapport ?</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>(a) Chauffage : Q_chauffage = m × c × ΔT = 1 × 4 185 × 100 = <strong>418 500 J = 418,5 kJ</strong></p><p>(b) Vaporisation : Q_vaporisation = m × L = 1 × 2 260 000 = <strong>2 260 000 J = 2 260 kJ</strong></p><p>Rapport : Q_vaporisation / Q_chauffage = 2 260 / 418,5 = <strong>5,4</strong></p><p>La vaporisation nécessite 5,4 fois plus d'énergie que le chauffage de 0 à 100 °C. C'est pourquoi les brûlures par vapeur sont bien plus graves que celles par eau bouillante.</p></div></details>
+      </div>
+    </section>
+    <div class="course-nav">
+      <a href="lois.html" class="prev"><span class="course-nav-label">Cours précédent</span><span class="course-nav-title">← Lois de la thermodynamique</span></a>
+      <a href="machines.html" class="next"><span class="course-nav-label">Cours suivant</span><span class="course-nav-title">Machines thermiques →</span></a>
+    </div>
+  </main>
+</div>
+<script>
+const questions=document.querySelectorAll('.question-block');let currentQ=0,score=0;let answered=new Array(questions.length).fill(false);const dotsContainer=document.getElementById('qDots');questions.forEach((_,i)=>{const d=document.createElement('div');d.className='q-dot'+(i===0?' current':'');dotsContainer.appendChild(d)});function updateDots(){document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot';if(answered[i])d.classList.add('done');if(i===currentQ)d.classList.add('current')})}function answer(el,ok){if(answered[currentQ])return;answered[currentQ]=true;el.closest('.question-block').querySelectorAll('.option').forEach(o=>o.classList.add('disabled'));el.classList.add(ok?'correct':'wrong');if(!ok)el.closest('.question-block').querySelectorAll('.option').forEach(o=>{if(o.onclick.toString().includes('true'))o.classList.add('correct')});else{score++;document.getElementById('scoreDisplay').textContent=score}el.closest('.question-block').querySelector('.q-feedback').classList.add('show',ok?'good':'bad');document.getElementById('btnNext').disabled=false;updateDots()}function nextQ(){if(currentQ<questions.length-1){questions[currentQ].classList.remove('active');currentQ++;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=false;document.getElementById('btnNext').disabled=!answered[currentQ];if(currentQ===questions.length-1)document.getElementById('btnNext').textContent='Terminer';updateDots()}else{showResult()}}function prevQ(){if(currentQ>0){questions[currentQ].classList.remove('active');currentQ--;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=currentQ===0;document.getElementById('btnNext').disabled=!answered[currentQ];document.getElementById('btnNext').textContent='Suivant →';updateDots()}}function showResult(){document.getElementById('quizBody').style.display='none';document.getElementById('quizResult').style.display='block';document.getElementById('resultScore').textContent=score+'/'+questions.length;var m=['Continue !','Pas mal !','Très bien !','Parfait !'];document.getElementById('resultMsg').textContent=m[Math.min(score,3)]}function resetQuiz(){score=0;currentQ=0;answered=new Array(questions.length).fill(false);document.getElementById('scoreDisplay').textContent=0;document.getElementById('quizBody').style.display='block';document.getElementById('quizResult').style.display='none';questions.forEach((q,i)=>{q.classList.toggle('active',i===0);q.querySelectorAll('.option').forEach(o=>o.className='option');q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback')});document.getElementById('btnPrev').disabled=true;document.getElementById('btnNext').disabled=true;document.getElementById('btnNext').textContent='Suivant →';updateDots()}function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active')}(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l});if(current){links.forEach(function(l){l.classList.remove('active')});current.classList.add('active')}},{passive:true})})();
+</script>
+<script src="../../mobile.js"></script>
+</body>
+</html>

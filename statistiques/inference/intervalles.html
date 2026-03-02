@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intervalles de confiance — Inférence — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #16a085;
+  --accent2: #1abc9c;
+  --accent-dim: rgba(22,160,133,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(22,160,133,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../statistiques-page.html">Statistiques</a> › <a href="../inference.html">Inférence</a> › <span>Intervalles de confiance</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">📊 Inférence</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~45 min</span>
+  </div>
+  <h1><em>Intervalles de confiance</em></h1>
+  <p class="hero-desc">Niveau de confiance, marge d'erreur, échantillonnage — quantifier l'incertitude de nos estimations.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../inference.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Inférence</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="estimation.html">Estimation</a>
+    <a class="sidebar-link active" href="#">Intervalles de confiance</a>
+    <a class="sidebar-link" href="tests.html">Tests d'hypothèses</a>
+    <a class="sidebar-link" href="erreurs.html">Erreurs statistiques</a>
+    <a class="sidebar-link" href="puissance.html">Puissance statistique</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Mesurer l'incertitude</p>
+        </div>
+      </div>
+      <p class="resume-text">Une estimation ponctuelle (comme X̄ = 42,3) ne dit rien sur la <strong>précision</strong> de cette estimation. L'intervalle de confiance complète l'estimation ponctuelle en fournissant une <strong>fourchette de valeurs</strong> dans laquelle le vrai paramètre se trouve avec une probabilité donnée.</p>
+      <p class="resume-text">Quand un sondage annonce « 52 % ± 3 points, avec un niveau de confiance de 95 % », il exprime un intervalle de confiance : on est confiant à 95 % que la vraie proportion se situe entre 49 % et 55 %. Cette notion est omniprésente en sciences, en médecine et dans les sondages d'opinion.</p>
+      <div class="highlight-box">
+        <p><strong>Principe clé :</strong> un intervalle de confiance à 95 % ne signifie pas que le paramètre a 95 % de chances d'être dans l'intervalle. Il signifie que si l'on répétait l'expérience un grand nombre de fois, 95 % des intervalles construits contiendraient le vrai paramètre.</p>
+      </div>
+      <p class="resume-text">Ce cours détaille la construction des intervalles de confiance pour les cas les plus courants : moyenne, proportion et variance, avec les ajustements nécessaires selon la taille de l'échantillon et la connaissance de la variance.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Construction et interprétation</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Principe général</h3>
+        <p>Un intervalle de confiance (IC) de niveau (1 − α) pour un paramètre θ est un intervalle aléatoire [L(X), U(X)] tel que P(L(X) ≤ θ ≤ U(X)) = 1 − α. Le nombre α est le <strong>risque</strong> (typiquement 0,05 pour un IC à 95 %). La structure générale est :</p>
+        <p>IC = estimation ponctuelle ± marge d'erreur</p>
+        <p>La <strong>marge d'erreur</strong> dépend du quantile de la loi de référence, de l'écart-type estimé et de la taille de l'échantillon. Plus n est grand, plus l'intervalle est étroit (estimation plus précise).</p>
+
+        <h3>IC pour une moyenne (σ connu)</h3>
+        <p>Si X₁, ..., Xₙ ~ N(μ, σ²) avec σ connu, la statistique Z = (X̄ − μ) / (σ/√n) suit une loi N(0,1). L'intervalle de confiance à (1 − α) est :</p>
+        <p>IC(μ) = [X̄ − z_{α/2} · σ/√n ; X̄ + z_{α/2} · σ/√n]</p>
+        <p>Pour α = 0,05, z_{0,025} = 1,96. La demi-largeur z_{α/2} · σ/√n est la marge d'erreur. Même si la population n'est pas normale, le théorème central limite garantit la validité approximative pour n ≥ 30.</p>
+
+        <h3>IC pour une moyenne (σ inconnu)</h3>
+        <p>En pratique, σ est presque toujours inconnu. On le remplace par l'écart-type empirique corrigé S* et la statistique T = (X̄ − μ) / (S*/√n) suit une <strong>loi de Student</strong> à (n−1) degrés de liberté :</p>
+        <p>IC(μ) = [X̄ − t_{α/2, n−1} · S*/√n ; X̄ + t_{α/2, n−1} · S*/√n]</p>
+        <p>Pour de grands échantillons (n > 30), la loi de Student se rapproche de la loi normale et les deux formules donnent des résultats quasi identiques. Pour de petits échantillons, la loi de Student donne des intervalles plus larges, reflétant l'incertitude supplémentaire sur σ.</p>
+
+        <h3>IC pour une proportion</h3>
+        <p>Pour estimer une proportion p à partir d'un échantillon de taille n, l'estimateur est p̂ = X/n (nombre de succès divisé par n). Par le TCL, pour n assez grand (np̂ ≥ 5 et n(1−p̂) ≥ 5) :</p>
+        <p>IC(p) = [p̂ − z_{α/2} · √(p̂(1−p̂)/n) ; p̂ + z_{α/2} · √(p̂(1−p̂)/n)]</p>
+        <div class="highlight-box">
+          <p><strong>Méthode de Wilson :</strong> pour de petits échantillons ou des proportions proches de 0 ou 1, l'IC de Wald (ci-dessus) est imprécis. L'intervalle de Wilson offre une meilleure couverture : il centre l'intervalle sur (p̂ + z²/(2n)) / (1 + z²/n) et ajuste la largeur en conséquence.</p>
+        </div>
+
+        <h3>IC pour une variance</h3>
+        <p>Pour estimer la variance σ² d'une population normale, on utilise le fait que (n−1)S²*/σ² suit une loi du Chi-deux à (n−1) degrés de liberté :</p>
+        <p>IC(σ²) = [(n−1)S²* / χ²_{α/2, n−1} ; (n−1)S²* / χ²_{1−α/2, n−1}]</p>
+        <p>Cet intervalle est asymétrique car la loi du Chi-deux n'est pas symétrique. Il est sensible à l'hypothèse de normalité.</p>
+
+        <h3>Taille d'échantillon nécessaire</h3>
+        <p>On peut déterminer la taille d'échantillon n nécessaire pour obtenir une marge d'erreur e souhaitée :</p>
+        <ul>
+          <li><strong>Pour une moyenne :</strong> n = (z_{α/2} · σ / e)². Si σ est inconnu, on utilise une estimation préliminaire ou une étude pilote</li>
+          <li><strong>Pour une proportion :</strong> n = z²_{α/2} · p(1−p) / e². Dans le cas le plus défavorable (p = 0,5), n = z²_{α/2} / (4e²). Pour une marge de 3 % à 95 %, n ≈ 1 068</li>
+        </ul>
+        <p>Ce calcul est essentiel pour planifier une étude : un échantillon trop petit donne un intervalle trop large pour être utile, tandis qu'un échantillon trop grand gaspille des ressources.</p>
+
+        <h3>Interprétation correcte</h3>
+        <p>L'interprétation fréquentiste d'un IC est subtile et souvent mal comprise :</p>
+        <ul>
+          <li><strong>Correct :</strong> « Si l'on répète l'expérience 100 fois, environ 95 des 100 intervalles construits contiendront μ »</li>
+          <li><strong>Incorrect :</strong> « Il y a 95 % de chances que μ soit dans cet intervalle » (en fréquentiste, μ est fixe, pas aléatoire)</li>
+          <li><strong>Correct :</strong> « L'intervalle [38,2 ; 46,4] est une réalisation d'un processus qui capture μ 95 % du temps »</li>
+        </ul>
+        <p>L'interprétation bayésienne (intervalle de crédibilité) permet de dire directement « la probabilité que θ soit dans l'intervalle est 95 % », mais elle nécessite de spécifier un prior.</p>
+
+        <h3>Facteurs influençant la largeur</h3>
+        <p>La largeur d'un IC dépend de trois facteurs :</p>
+        <ul>
+          <li><strong>Niveau de confiance (1 − α) :</strong> plus il est élevé, plus l'intervalle est large. Un IC à 99 % est plus large qu'un IC à 95 %</li>
+          <li><strong>Taille d'échantillon n :</strong> la largeur décroît en 1/√n. Pour diviser la marge par 2, il faut quadrupler n</li>
+          <li><strong>Variabilité σ :</strong> plus les données sont dispersées, plus l'intervalle est large</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">📊 Intervalles de confiance — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Que signifie un intervalle de confiance à 95 % ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Le paramètre a 95 % de chances d'être dans l'intervalle</div>
+              <div class="option" onclick="answer(this,true)">95 % des intervalles construits par cette méthode contiennent le vrai paramètre</div>
+              <div class="option" onclick="answer(this,false)">95 % des données sont dans l'intervalle</div>
+              <div class="option" onclick="answer(this,false)">L'estimation est correcte à 95 %</div>
+            </div>
+            <div class="q-feedback">L'interprétation fréquentiste correcte est que sur un grand nombre de répétitions, 95 % des intervalles construits contiendraient le vrai paramètre.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Quelle loi utilise-t-on pour l'IC d'une moyenne quand σ est inconnu ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">La loi normale</div>
+              <div class="option" onclick="answer(this,true)">La loi de Student</div>
+              <div class="option" onclick="answer(this,false)">La loi du Chi-deux</div>
+              <div class="option" onclick="answer(this,false)">La loi de Fisher</div>
+            </div>
+            <div class="q-feedback">Quand σ est inconnu et remplacé par S*, la statistique T suit une loi de Student à (n−1) degrés de liberté, qui a des queues plus lourdes que la loi normale.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Pour diviser la marge d'erreur par 2, il faut multiplier la taille de l'échantillon par :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">2</div>
+              <div class="option" onclick="answer(this,false)">3</div>
+              <div class="option" onclick="answer(this,true)">4</div>
+              <div class="option" onclick="answer(this,false)">8</div>
+            </div>
+            <div class="q-feedback">La marge d'erreur est proportionnelle à 1/√n. Pour la diviser par 2, il faut multiplier n par 2² = 4.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Quel est le quantile z utilisé pour un IC à 95 % (loi normale) ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">1,64</div>
+              <div class="option" onclick="answer(this,true)">1,96</div>
+              <div class="option" onclick="answer(this,false)">2,33</div>
+              <div class="option" onclick="answer(this,false)">2,58</div>
+            </div>
+            <div class="q-feedback">Pour un IC à 95 % (α = 0,05), le quantile z_{0,025} = 1,96. Les autres valeurs correspondent à 90 % (1,64), 98 % (2,33) et 99 % (2,58).</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quelle condition doit être vérifiée pour utiliser l'IC d'une proportion ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">n ≥ 100</div>
+              <div class="option" onclick="answer(this,true)">np̂ ≥ 5 et n(1−p̂) ≥ 5</div>
+              <div class="option" onclick="answer(this,false)">p̂ ≥ 0,5</div>
+              <div class="option" onclick="answer(this,false)">σ doit être connu</div>
+            </div>
+            <div class="q-feedback">L'approximation normale est valide quand le nombre attendu de succès et d'échecs est suffisant : np̂ ≥ 5 et n(1−p̂) ≥ 5.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Que se passe-t-il si l'on passe d'un IC à 95 % à un IC à 99 % ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">L'intervalle se rétrécit</div>
+              <div class="option" onclick="answer(this,true)">L'intervalle s'élargit</div>
+              <div class="option" onclick="answer(this,false)">L'intervalle reste identique</div>
+              <div class="option" onclick="answer(this,false)">L'estimation ponctuelle change</div>
+            </div>
+            <div class="q-feedback">Augmenter le niveau de confiance signifie être plus sûr de capturer le paramètre, ce qui nécessite un intervalle plus large. Le quantile passe de 1,96 à 2,58.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Testez vos connaissances</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — IC pour une moyenne</h3>
+        <p>Un échantillon de 25 étudiants donne une note moyenne de 14,2 avec un écart-type corrigé de 3,5. Construisez un IC à 95 % pour la moyenne de la population. (t_{0,025; 24} = 2,064)</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>IC = X̄ ± t · S*/√n = 14,2 ± 2,064 × 3,5/√25 = 14,2 ± 2,064 × 0,7 = 14,2 ± 1,445.</p>
+            <p><strong>IC = [12,76 ; 15,64]</strong>. On est confiant à 95 % que la vraie moyenne est entre 12,76 et 15,64.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 2 — IC pour une proportion</h3>
+        <p>Sur 500 personnes interrogées, 280 déclarent être favorables à une mesure. Construisez un IC à 99 % pour la proportion p. (z_{0,005} = 2,576)</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>p̂ = 280/500 = 0,56. Vérification : np̂ = 280 ≥ 5 et n(1−p̂) = 220 ≥ 5.</p>
+            <p>IC = p̂ ± z · √(p̂(1−p̂)/n) = 0,56 ± 2,576 × √(0,56 × 0,44/500) = 0,56 ± 2,576 × 0,0222 = 0,56 ± 0,0572.</p>
+            <p><strong>IC = [0,503 ; 0,617]</strong>, soit environ [50,3 % ; 61,7 %].</p>
+          </div>
+        </details>
+
+        <h3>Exercice 3 — Taille d'échantillon</h3>
+        <p>On souhaite estimer la proportion d'électeurs favorables à un candidat avec une marge d'erreur de 2 % et un niveau de confiance de 95 %. Quelle taille d'échantillon est nécessaire ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>Dans le cas le plus défavorable (p = 0,5) : n = z²_{α/2} · p(1−p) / e².</p>
+            <p>n = (1,96)² × 0,25 / (0,02)² = 3,8416 × 0,25 / 0,0004 = 0,9604 / 0,0004 = <strong>2 401</strong>.</p>
+            <p>Il faut au minimum 2 401 personnes pour obtenir une marge de ±2 % à 95 %.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 4 — Comparaison de deux IC</h3>
+        <p>Deux laboratoires mesurent la même concentration chimique. Lab A : X̄ = 5,2 mg/L, S* = 0,8, n = 16. Lab B : X̄ = 5,5 mg/L, S* = 0,3, n = 36. Construisez les IC à 95 % et comparez. (t_{0,025;15} = 2,131, t_{0,025;35} ≈ 2,030)</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p><strong>Lab A :</strong> IC = 5,2 ± 2,131 × 0,8/4 = 5,2 ± 0,426 → [4,77 ; 5,63]</p>
+            <p><strong>Lab B :</strong> IC = 5,5 ± 2,030 × 0,3/6 = 5,5 ± 0,102 → [5,40 ; 5,60]</p>
+            <p>L'IC du Lab B est beaucoup plus étroit grâce à un échantillon plus grand et une variabilité plus faible. Les deux intervalles se chevauchent, ce qui suggère que les mesures sont compatibles.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 5 — IC pour la variance</h3>
+        <p>Un échantillon de 20 mesures donne une variance corrigée S²* = 12,5. Construisez un IC à 95 % pour σ². (χ²_{0,025;19} = 32,85, χ²_{0,975;19} = 8,91)</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>IC(σ²) = [(n−1)S²* / χ²_{α/2} ; (n−1)S²* / χ²_{1−α/2}]</p>
+            <p>= [19 × 12,5 / 32,85 ; 19 × 12,5 / 8,91]</p>
+            <p>= [237,5 / 32,85 ; 237,5 / 8,91]</p>
+            <p><strong>IC(σ²) = [7,23 ; 26,65]</strong>. L'intervalle est asymétrique, ce qui est caractéristique des IC basés sur la loi du Chi-deux.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="estimation.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Estimation</span>
+      </a>
+      <a href="tests.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Tests d'hypothèses →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions=document.querySelectorAll('.question-block');let currentQ=0,score=0;let answered=new Array(questions.length).fill(false);const dotsContainer=document.getElementById('qDots');questions.forEach((_,i)=>{const d=document.createElement('div');d.className='q-dot'+(i===0?' current':'');dotsContainer.appendChild(d)});function updateDots(){document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot';if(answered[i])d.classList.add('done');if(i===currentQ)d.classList.add('current')})}function answer(el,ok){if(answered[currentQ])return;answered[currentQ]=true;el.closest('.question-block').querySelectorAll('.option').forEach(o=>o.classList.add('disabled'));el.classList.add(ok?'correct':'wrong');if(!ok)el.closest('.question-block').querySelectorAll('.option').forEach(o=>{if(o.onclick.toString().includes('true'))o.classList.add('correct')});else{score++;document.getElementById('scoreDisplay').textContent=score}el.closest('.question-block').querySelector('.q-feedback').classList.add('show',ok?'good':'bad');document.getElementById('btnNext').disabled=false;updateDots()}function nextQ(){if(currentQ<questions.length-1){questions[currentQ].classList.remove('active');currentQ++;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=false;document.getElementById('btnNext').disabled=!answered[currentQ];if(currentQ===questions.length-1)document.getElementById('btnNext').textContent='Terminer';updateDots()}else{showResult()}}function prevQ(){if(currentQ>0){questions[currentQ].classList.remove('active');currentQ--;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=currentQ===0;document.getElementById('btnNext').disabled=!answered[currentQ];document.getElementById('btnNext').textContent='Suivant →';updateDots()}}function showResult(){document.getElementById('quizBody').style.display='none';document.getElementById('quizResult').style.display='block';document.getElementById('resultScore').textContent=score+'/'+questions.length;var m=['Continue !','Pas mal !','Très bien !','Parfait !'];document.getElementById('resultMsg').textContent=m[Math.min(score,3)]}function resetQuiz(){score=0;currentQ=0;answered=new Array(questions.length).fill(false);document.getElementById('scoreDisplay').textContent=0;document.getElementById('quizBody').style.display='block';document.getElementById('quizResult').style.display='none';questions.forEach((q,i)=>{q.classList.toggle('active',i===0);q.querySelectorAll('.option').forEach(o=>o.className='option');q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback')});document.getElementById('btnPrev').disabled=true;document.getElementById('btnNext').disabled=true;document.getElementById('btnNext').textContent='Suivant →';updateDots()}function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active')}(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l});if(current){links.forEach(function(l){l.classList.remove('active')});current.classList.add('active')}},{passive:true})})();
+</script>
+<script src="../../mobile.js"></script>
+</body>
+</html>

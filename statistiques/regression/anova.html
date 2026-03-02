@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANOVA — Régression — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root { --accent: #16a085; --accent2: #1abc9c; --accent-dim: rgba(22,160,133,0.08); }
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(22,160,133,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../../statistiques-page.html">Statistiques</a> › <a href="../regression.html">Régression</a> › <span>ANOVA</span></div>
+</nav>
+<div class="hero">
+  <div class="hero-meta"><span class="tag-domain">📈 Régression</span><span class="tag-level">Intermédiaire</span><span class="tag-time">⏱ ~50 min</span></div>
+  <h1><em>ANOVA</em></h1>
+  <p class="hero-desc">Analyse de variance, facteurs, F-test, comparaisons multiples — comparer les moyennes de plusieurs groupes.</p>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../regression.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Régression</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="lineaire.html">Régression linéaire simple</a>
+    <a class="sidebar-link" href="multiple.html">Régression multiple</a>
+    <a class="sidebar-link" href="correlation.html">Corrélation</a>
+    <a class="sidebar-link active" href="#">ANOVA</a>
+    <a class="sidebar-link" href="non-lineaire.html">Régression non linéaire</a>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="introduction">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Introduction</h2><p>Comparer plus de deux groupes</p></div></div>
+      <p class="resume-text">Le test t compare deux moyennes. Mais que faire quand on veut comparer <strong>trois groupes ou plus</strong> ? Comparer toutes les paires par des tests t multiples gonfle le risque d'erreur de type I. L'ANOVA (ANalysis Of VAriance) résout ce problème en testant simultanément l'égalité de toutes les moyennes.</p>
+      <p class="resume-text">Développée par <strong>Ronald Fisher</strong> dans les années 1920, l'ANOVA décompose la variabilité totale des données en une partie expliquée par les groupes et une partie résiduelle (intra-groupe). Si la variabilité inter-groupes est grande par rapport à la variabilité intra-groupe, on conclut que les moyennes diffèrent.</p>
+      <div class="highlight-box">
+        <p><strong>Principe clé :</strong> l'ANOVA compare les variances et non directement les moyennes. La statistique F = variance inter-groupes / variance intra-groupes. Si F est grand, les groupes diffèrent significativement.</p>
+      </div>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Le cours</h2><p>Décomposition et tests</p></div></div>
+      <div class="course-content">
+        <h3>ANOVA à un facteur</h3>
+        <p>On compare k groupes. Le modèle est Yᵢⱼ = μ + αᵢ + εᵢⱼ, où μ est la moyenne générale, αᵢ l'effet du groupe i et εᵢⱼ ~ N(0, σ²). L'hypothèse testée est H₀ : α₁ = α₂ = ... = αₖ = 0 (toutes les moyennes sont égales).</p>
+        <p>La décomposition fondamentale est SCT = SCE + SCR :</p>
+        <ul>
+          <li><strong>SCE</strong> (inter-groupes) = Σ nᵢ(Ȳᵢ − Ȳ)², avec (k−1) ddl</li>
+          <li><strong>SCR</strong> (intra-groupes) = ΣΣ(Yᵢⱼ − Ȳᵢ)², avec (N−k) ddl</li>
+        </ul>
+        <p>F = (SCE/(k−1)) / (SCR/(N−k)) = MCE / MCR. Sous H₀, F suit une loi de Fisher F(k−1, N−k).</p>
+
+        <h3>Hypothèses de l'ANOVA</h3>
+        <ul>
+          <li><strong>Indépendance</strong> des observations (design expérimental)</li>
+          <li><strong>Normalité</strong> des résidus dans chaque groupe (vérifiable par QQ-plot ou test de Shapiro-Wilk)</li>
+          <li><strong>Homoscédasticité</strong> : les variances sont égales dans tous les groupes (vérifiable par le test de Levene ou de Bartlett)</li>
+        </ul>
+        <p>L'ANOVA est robuste à la non-normalité si les tailles de groupes sont égales et n'est pas trop petit. En cas d'hétéroscédasticité, on utilise le test de Welch-ANOVA.</p>
+
+        <h3>Comparaisons multiples post-hoc</h3>
+        <p>Si l'ANOVA rejette H₀, elle ne dit pas quelles moyennes diffèrent. Les tests <strong>post-hoc</strong> identifient les paires significativement différentes :</p>
+        <ul>
+          <li><strong>Tukey HSD :</strong> compare toutes les paires, contrôle le taux d'erreur familial. Le plus utilisé</li>
+          <li><strong>Bonferroni :</strong> ajuste les seuils par α/m. Simple mais conservateur</li>
+          <li><strong>Scheffé :</strong> le plus conservateur, valable pour toute comparaison (pas seulement les paires)</li>
+          <li><strong>Dunnett :</strong> compare chaque groupe à un groupe contrôle uniquement</li>
+          <li><strong>Games-Howell :</strong> ne suppose pas l'homoscédasticité</li>
+        </ul>
+
+        <h3>ANOVA à deux facteurs</h3>
+        <p>L'ANOVA à deux facteurs étudie l'effet de deux variables catégorielles (A et B) et leur <strong>interaction</strong> sur Y :</p>
+        <p>Yᵢⱼₖ = μ + αᵢ + βⱼ + (αβ)ᵢⱼ + εᵢⱼₖ</p>
+        <p>On teste trois hypothèses : effet principal de A, effet principal de B, et interaction A×B. L'interaction signifie que l'effet de A dépend du niveau de B (et vice versa).</p>
+
+        <h3>ANOVA à mesures répétées</h3>
+        <p>Quand les mêmes sujets sont mesurés dans plusieurs conditions, on utilise l'ANOVA à mesures répétées. Elle contrôle la variabilité inter-individuelle en ajoutant un facteur sujet. L'hypothèse de <strong>sphéricité</strong> (test de Mauchly) remplace l'homoscédasticité. En cas de violation, on applique les corrections d'Epsilon de Greenhouse-Geisser ou Huynh-Feldt.</p>
+
+        <h3>Alternatives non paramétriques</h3>
+        <ul>
+          <li><strong>Kruskal-Wallis :</strong> alternative à l'ANOVA à un facteur, basée sur les rangs. Ne suppose pas la normalité</li>
+          <li><strong>Friedman :</strong> alternative à l'ANOVA à mesures répétées</li>
+        </ul>
+
+        <h3>Lien avec la régression</h3>
+        <p>L'ANOVA est un cas particulier de la régression multiple avec des variables indicatrices. Un facteur à k niveaux est codé par (k−1) variables dummy. Le test F de l'ANOVA est identique au test F global de la régression correspondante. Cette unification sous le <strong>modèle linéaire général</strong> est fondamentale en statistique moderne.</p>
+      </div>
+    </section>
+    <section class="content-section" id="quiz">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Quiz</h2><p>Testez votre compréhension</p></div></div>
+      <div class="quiz-container">
+        <div class="quiz-header"><span class="quiz-title-text">📈 ANOVA — Quiz</span><span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span></div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p><p class="q-text">Que teste l'ANOVA à un facteur ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">L'égalité de deux moyennes</div>
+              <div class="option" onclick="answer(this,true)">L'égalité de k moyennes simultanément</div>
+              <div class="option" onclick="answer(this,false)">L'indépendance de deux variables</div>
+              <div class="option" onclick="answer(this,false)">La normalité des données</div>
+            </div>
+            <div class="q-feedback">L'ANOVA teste H₀ : μ₁ = μ₂ = ... = μₖ. Elle répond à la question : au moins un groupe diffère-t-il des autres ?</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p><p class="q-text">Que compare la statistique F ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Deux moyennes</div>
+              <div class="option" onclick="answer(this,true)">La variance inter-groupes à la variance intra-groupes</div>
+              <div class="option" onclick="answer(this,false)">Deux variances indépendantes</div>
+              <div class="option" onclick="answer(this,false)">Les médianes de chaque groupe</div>
+            </div>
+            <div class="q-feedback">F = MCE/MCR. Si les moyennes des groupes diffèrent beaucoup, MCE est grand par rapport à MCR, et F est élevé.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p><p class="q-text">Quel test post-hoc est le plus couramment utilisé ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">Tukey HSD</div>
+              <div class="option" onclick="answer(this,false)">Bonferroni</div>
+              <div class="option" onclick="answer(this,false)">Scheffé</div>
+              <div class="option" onclick="answer(this,false)">Fisher LSD</div>
+            </div>
+            <div class="q-feedback">Tukey HSD (Honestly Significant Difference) est le test post-hoc le plus utilisé. Il compare toutes les paires de moyennes en contrôlant le taux d'erreur familial.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p><p class="q-text">Que signifie une interaction significative en ANOVA à deux facteurs ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Les deux facteurs sont corrélés</div>
+              <div class="option" onclick="answer(this,true)">L'effet d'un facteur dépend du niveau de l'autre</div>
+              <div class="option" onclick="answer(this,false)">Les deux facteurs n'ont aucun effet</div>
+              <div class="option" onclick="answer(this,false)">L'échantillon est trop petit</div>
+            </div>
+            <div class="q-feedback">L'interaction signifie que l'effet d'un facteur n'est pas le même selon le niveau de l'autre facteur. On ne peut pas interpréter les effets principaux séparément.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p><p class="q-text">Quelle est l'alternative non paramétrique de l'ANOVA à un facteur ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Mann-Whitney</div>
+              <div class="option" onclick="answer(this,true)">Kruskal-Wallis</div>
+              <div class="option" onclick="answer(this,false)">Wilcoxon signé</div>
+              <div class="option" onclick="answer(this,false)">Friedman</div>
+            </div>
+            <div class="q-feedback">Le test de Kruskal-Wallis est l'extension du test de Mann-Whitney à plus de deux groupes. Il est basé sur les rangs et ne suppose pas la normalité.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p><p class="q-text">Quelle hypothèse spécifique à l'ANOVA à mesures répétées doit être vérifiée ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">L'homoscédasticité</div>
+              <div class="option" onclick="answer(this,true)">La sphéricité</div>
+              <div class="option" onclick="answer(this,false)">La multicolinéarité</div>
+              <div class="option" onclick="answer(this,false)">L'exhaustivité</div>
+            </div>
+            <div class="q-feedback">La sphéricité (testée par le test de Mauchly) exige que les variances des différences entre toutes les paires de conditions soient égales. En cas de violation, on applique les corrections de Greenhouse-Geisser.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult"><div class="result-score-big" id="resultScore">0/6</div><div class="result-msg" id="resultMsg"></div><button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button></div>
+        <div class="quiz-nav"><button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button><div class="q-dots" id="qDots"></div><button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button></div>
+      </div>
+    </section>
+    <section class="content-section" id="exercices">
+      <div class="section-header"><div class="section-num">04</div><div class="section-info"><h2>Exercices</h2><p>Testez vos connaissances</p></div></div>
+      <div class="course-content">
+        <h3>Exercice 1 — ANOVA à un facteur</h3>
+        <p>Trois engrais sont testés sur des parcelles. Engrais A (n=5) : Ȳ_A = 42. Engrais B (n=5) : Ȳ_B = 38. Engrais C (n=5) : Ȳ_C = 35. Moyenne générale Ȳ = 38,33. SCR = 90. Calculez F et concluez. (F_{0,05;2,12} = 3,89)</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box">
+          <p>SCE = 5×(42−38,33)² + 5×(38−38,33)² + 5×(35−38,33)² = 5×13,47 + 5×0,11 + 5×11,09 = 67,35+0,55+55,45 = <strong>123,35</strong>.</p>
+          <p>MCE = 123,35/2 = 61,68. MCR = 90/12 = 7,5.</p>
+          <p>F = 61,68/7,5 = <strong>8,22</strong>. F = 8,22 > 3,89 → on rejette H₀. Au moins un engrais donne un rendement différent.</p>
+        </div></details>
+        <h3>Exercice 2 — Tableau d'ANOVA</h3>
+        <p>Complétez le tableau d'ANOVA : k = 4 groupes, N = 40 observations, SCT = 500, SCE = 180. Calculez SCR, les ddl, MCE, MCR et F.</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box">
+          <p>SCR = SCT − SCE = 500 − 180 = 320. ddl(E) = k−1 = 3. ddl(R) = N−k = 36.</p>
+          <p>MCE = 180/3 = 60. MCR = 320/36 = 8,89. <strong>F = 60/8,89 = 6,75</strong>.</p>
+        </div></details>
+        <h3>Exercice 3 — Post-hoc</h3>
+        <p>L'ANOVA (k=3) rejette H₀. Les moyennes sont : A = 25, B = 30, C = 32. MCR = 12, n = 10 par groupe. La différence minimale significative de Tukey (HSD) vaut q × √(MCR/n) = 3,53 × √(12/10) = 3,87. Quelles paires sont significativement différentes ?</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box">
+          <p>|A−B| = 5 > 3,87 → <strong>significatif</strong>. |A−C| = 7 > 3,87 → <strong>significatif</strong>. |B−C| = 2 < 3,87 → non significatif.</p>
+          <p>Le groupe A diffère significativement de B et C, mais B et C ne diffèrent pas entre eux.</p>
+        </div></details>
+        <h3>Exercice 4 — Taille d'effet en ANOVA</h3>
+        <p>Avec SCE = 180 et SCT = 500, calculez eta-carré (η²) et interprétez.</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box">
+          <p>η² = SCE/SCT = 180/500 = <strong>0,36</strong>.</p>
+          <p>Le facteur explique 36 % de la variabilité totale. Selon Cohen (η² > 0,14 = grand), c'est un <strong>grand effet</strong>.</p>
+        </div></details>
+        <h3>Exercice 5 — ANOVA vs tests t multiples</h3>
+        <p>Un chercheur veut comparer 5 traitements et propose de faire 10 tests t (toutes les paires) au seuil 0,05. Calculez la probabilité d'au moins un faux positif. Pourquoi l'ANOVA est-elle préférable ?</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box">
+          <p>P(au moins 1 FP) = 1 − (1−0,05)¹⁰ = 1 − 0,95¹⁰ = 1 − 0,599 = <strong>0,401 (40,1 %)</strong>.</p>
+          <p>Le risque de faux positif passe de 5 % à 40 %. L'ANOVA maintient le risque global à 5 % en testant une seule hypothèse globale. Les comparaisons multiples post-hoc (Tukey) ajustent ensuite pour contrôler le taux d'erreur familial.</p>
+        </div></details>
+      </div>
+    </section>
+    <div class="course-nav">
+      <a href="correlation.html" class="prev"><span class="course-nav-label">Cours précédent</span><span class="course-nav-title">← Corrélation</span></a>
+      <a href="non-lineaire.html" class="next"><span class="course-nav-label">Cours suivant</span><span class="course-nav-title">Régression non linéaire →</span></a>
+    </div>
+  </main>
+</div>
+<script>
+const questions=document.querySelectorAll('.question-block');let currentQ=0,score=0;let answered=new Array(questions.length).fill(false);const dotsContainer=document.getElementById('qDots');questions.forEach((_,i)=>{const d=document.createElement('div');d.className='q-dot'+(i===0?' current':'');dotsContainer.appendChild(d)});function updateDots(){document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot';if(answered[i])d.classList.add('done');if(i===currentQ)d.classList.add('current')})}function answer(el,ok){if(answered[currentQ])return;answered[currentQ]=true;el.closest('.question-block').querySelectorAll('.option').forEach(o=>o.classList.add('disabled'));el.classList.add(ok?'correct':'wrong');if(!ok)el.closest('.question-block').querySelectorAll('.option').forEach(o=>{if(o.onclick.toString().includes('true'))o.classList.add('correct')});else{score++;document.getElementById('scoreDisplay').textContent=score}el.closest('.question-block').querySelector('.q-feedback').classList.add('show',ok?'good':'bad');document.getElementById('btnNext').disabled=false;updateDots()}function nextQ(){if(currentQ<questions.length-1){questions[currentQ].classList.remove('active');currentQ++;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=false;document.getElementById('btnNext').disabled=!answered[currentQ];if(currentQ===questions.length-1)document.getElementById('btnNext').textContent='Terminer';updateDots()}else{showResult()}}function prevQ(){if(currentQ>0){questions[currentQ].classList.remove('active');currentQ--;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=currentQ===0;document.getElementById('btnNext').disabled=!answered[currentQ];document.getElementById('btnNext').textContent='Suivant →';updateDots()}}function showResult(){document.getElementById('quizBody').style.display='none';document.getElementById('quizResult').style.display='block';document.getElementById('resultScore').textContent=score+'/'+questions.length;var m=['Continue !','Pas mal !','Très bien !','Parfait !'];document.getElementById('resultMsg').textContent=m[Math.min(score,3)]}function resetQuiz(){score=0;currentQ=0;answered=new Array(questions.length).fill(false);document.getElementById('scoreDisplay').textContent=0;document.getElementById('quizBody').style.display='block';document.getElementById('quizResult').style.display='none';questions.forEach((q,i)=>{q.classList.toggle('active',i===0);q.querySelectorAll('.option').forEach(o=>o.className='option');q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback')});document.getElementById('btnPrev').disabled=true;document.getElementById('btnNext').disabled=true;document.getElementById('btnNext').textContent='Suivant →';updateDots()}function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active')}(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l});if(current){links.forEach(function(l){l.classList.remove('active')});current.classList.add('active')}},{passive:true})})();
+</script>
+<script src="../../mobile.js"></script>
+</body>
+</html>

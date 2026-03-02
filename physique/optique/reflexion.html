@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Réflexion et réfraction — Optique — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #8e44ad;
+  --accent2: #9b59b6;
+  --accent-dim: rgba(142,68,173,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../sciences-exactes.html">Sciences exactes</a> › <a href="../optique.html">Optique</a> › <span>Réflexion et réfraction</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🔭 Optique</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~50 min</span>
+  </div>
+  <h1><em>Réflexion et réfraction</em></h1>
+  <p class="hero-desc">Lois de Snell-Descartes, réflexion totale, miroirs plans et sphériques, indices de réfraction — les fondements de l'optique géométrique.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../optique.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Optique</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="lumiere.html">Nature de la lumière</a>
+    <a class="sidebar-link active" href="#">Réflexion et réfraction</a>
+    <a class="sidebar-link" href="lentilles.html">Lentilles et instruments</a>
+    <a class="sidebar-link" href="interferences.html">Interférences et diffraction</a>
+    <a class="sidebar-link" href="couleurs.html">Couleurs et vision</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Comment la lumière change de direction</p>
+        </div>
+      </div>
+      <p class="resume-text">Lorsqu'un rayon lumineux rencontre la surface de séparation entre deux milieux transparents (appelée <strong>dioptre</strong>), il se divise en général en deux : un rayon réfléchi qui repart dans le premier milieu, et un rayon réfracté qui pénètre dans le second milieu en changeant de direction. Ces phénomènes, décrits par les <strong>lois de Snell-Descartes</strong>, sont à la base de toute l'optique géométrique.</p>
+      <div class="highlight-box">
+        <p><strong>Principe clé :</strong> la lumière se propage en ligne droite dans un milieu homogène et isotrope. Aux interfaces, les lois de la réflexion et de la réfraction permettent de prévoir exactement la trajectoire des rayons lumineux.</p>
+      </div>
+      <p class="resume-text">Ce cours établit les lois fondamentales, explore le cas remarquable de la réflexion totale interne, et étudie la formation des images par les miroirs plans et sphériques.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Optique géométrique fondamentale</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>L'indice de réfraction</h3>
+        <p>Chaque milieu transparent est caractérisé par son <strong>indice de réfraction n</strong>, rapport entre la vitesse de la lumière dans le vide et la vitesse dans le milieu :</p>
+        <p style="text-align:center;font-family:'Lora',serif;font-size:1.1em;margin:1rem 0;">n = c / v</p>
+        <p>L'indice est toujours supérieur ou égal à 1 (n = 1 dans le vide). Quelques valeurs importantes :</p>
+        <ul>
+          <li><strong>Air</strong> : n ≈ 1,000 3 (souvent arrondi à 1)</li>
+          <li><strong>Eau</strong> : n ≈ 1,33</li>
+          <li><strong>Verre ordinaire</strong> : n ≈ 1,50</li>
+          <li><strong>Verre flint</strong> : n ≈ 1,62 – 1,75</li>
+          <li><strong>Diamant</strong> : n ≈ 2,42</li>
+        </ul>
+        <p>L'indice dépend de la longueur d'onde : c'est la <strong>dispersion</strong>. En général, n augmente quand λ diminue (le bleu est plus réfracté que le rouge). Cette propriété est à l'origine de l'arc-en-ciel et des aberrations chromatiques.</p>
+
+        <h3>Lois de Snell-Descartes pour la réflexion</h3>
+        <p>Lorsqu'un rayon lumineux frappe une surface, le rayon réfléchi obéit à deux lois :</p>
+        <ul>
+          <li><strong>Première loi :</strong> le rayon incident, la normale à la surface au point d'incidence et le rayon réfléchi sont dans le même plan (plan d'incidence)</li>
+          <li><strong>Deuxième loi :</strong> l'angle de réflexion r est égal à l'angle d'incidence i₁ :</li>
+        </ul>
+        <p style="text-align:center;font-family:'Lora',serif;font-size:1.1em;margin:1rem 0;">r = i₁</p>
+        <p>Les angles sont mesurés par rapport à la <strong>normale</strong> (perpendiculaire à la surface), et non par rapport à la surface elle-même. La réflexion est <strong>spéculaire</strong> sur une surface lisse (miroir) et <strong>diffuse</strong> sur une surface rugueuse (feuille de papier).</p>
+
+        <h3>Lois de Snell-Descartes pour la réfraction</h3>
+        <p>Le rayon réfracté obéit également à deux lois :</p>
+        <ul>
+          <li><strong>Première loi :</strong> le rayon réfracté est dans le plan d'incidence</li>
+          <li><strong>Deuxième loi (loi de Snell) :</strong></li>
+        </ul>
+        <p style="text-align:center;font-family:'Lora',serif;font-size:1.1em;margin:1rem 0;">n₁ sin(i₁) = n₂ sin(i₂)</p>
+        <p>où i₁ est l'angle d'incidence dans le milieu d'indice n₁ et i₂ l'angle de réfraction dans le milieu d'indice n₂. Conséquences directes :</p>
+        <ul>
+          <li>Si n₂ > n₁ (passage vers un milieu plus réfringent, ex : air → verre), le rayon se rapproche de la normale (i₂ < i₁)</li>
+          <li>Si n₂ < n₁ (passage vers un milieu moins réfringent, ex : verre → air), le rayon s'éloigne de la normale (i₂ > i₁)</li>
+          <li>À incidence normale (i₁ = 0), le rayon traverse sans déviation (i₂ = 0)</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Principe de Fermat :</strong> les lois de Snell-Descartes découlent du principe de Fermat (1662) selon lequel la lumière suit le chemin de durée minimale entre deux points. Le chemin optique L = Σ nᵢ dᵢ est stationnaire (minimal, maximal ou stationnaire).</p>
+        </div>
+
+        <h3>Réflexion totale interne</h3>
+        <p>Lorsque la lumière passe d'un milieu plus réfringent vers un milieu moins réfringent (n₁ > n₂), l'angle de réfraction est supérieur à l'angle d'incidence. Il existe un angle d'incidence critique i_c pour lequel i₂ = 90° :</p>
+        <p style="text-align:center;font-family:'Lora',serif;font-size:1.1em;margin:1rem 0;">sin(i_c) = n₂ / n₁</p>
+        <p>Pour tout angle d'incidence i₁ > i_c, le rayon réfracté disparaît : toute la lumière est réfléchie. C'est la <strong>réflexion totale interne</strong>.</p>
+        <ul>
+          <li><strong>Interface verre/air</strong> (n = 1,50) : i_c = arcsin(1/1,50) ≈ 41,8°</li>
+          <li><strong>Interface eau/air</strong> (n = 1,33) : i_c = arcsin(1/1,33) ≈ 48,8°</li>
+          <li><strong>Interface diamant/air</strong> (n = 2,42) : i_c = arcsin(1/2,42) ≈ 24,4° — explique l'éclat du diamant taillé</li>
+        </ul>
+        <p>Applications majeures :</p>
+        <ul>
+          <li><strong>Fibre optique</strong> — la lumière est guidée par réflexion totale dans le coeur de verre (n_coeur > n_gaine). Permet la transmission de données à très haut débit sur des milliers de kilomètres</li>
+          <li><strong>Prismes à réflexion totale</strong> — utilisés dans les jumelles et les périscopes, plus efficaces que les miroirs métalliques car sans perte par absorption</li>
+          <li><strong>Endoscopie médicale</strong> — fibres optiques souples pour examiner l'intérieur du corps humain</li>
+        </ul>
+
+        <h3>Le miroir plan</h3>
+        <p>Un miroir plan forme une image <strong>virtuelle</strong>, <strong>droite</strong> et de <strong>même taille</strong> que l'objet. L'image est symétrique de l'objet par rapport au plan du miroir :</p>
+        <ul>
+          <li>La distance image-miroir égale la distance objet-miroir</li>
+          <li>L'image est inversée gauche-droite (inversion latérale) — en réalité, c'est un échange avant-arrière selon l'axe perpendiculaire au miroir</li>
+          <li>L'image est <strong>virtuelle</strong> : les rayons réfléchis semblent provenir d'un point situé derrière le miroir, mais ne s'y croisent pas réellement</li>
+        </ul>
+        <p>Pour qu'une personne se voie en entier dans un miroir plan, celui-ci doit mesurer au minimum la moitié de sa taille, quelle que soit la distance à laquelle elle se tient.</p>
+
+        <h3>Les miroirs sphériques</h3>
+        <p>Un miroir sphérique est une portion de sphère réfléchissante de centre C et de rayon R. On distingue :</p>
+        <ul>
+          <li><strong>Miroir concave</strong> (creux) — converge les rayons parallèles vers un foyer F situé à mi-chemin entre C et le miroir : f = R/2</li>
+          <li><strong>Miroir convexe</strong> (bombé) — diverge les rayons parallèles. Le foyer est virtuel, situé derrière le miroir : f = −R/2</li>
+        </ul>
+        <p>La <strong>relation de conjugaison</strong> des miroirs sphériques, dans l'approximation de Gauss (petits angles), est :</p>
+        <p style="text-align:center;font-family:'Lora',serif;font-size:1.1em;margin:1rem 0;">1/p' + 1/p = 1/f = 2/R</p>
+        <p>où p est la distance algébrique objet-miroir (négative si l'objet est devant le miroir) et p' la distance algébrique image-miroir. Le <strong>grandissement</strong> est :</p>
+        <p style="text-align:center;font-family:'Lora',serif;font-size:1.1em;margin:1rem 0;">γ = −p' / p</p>
+        <p>Un miroir concave peut former une image réelle (inversée, projetable sur un écran) ou virtuelle (droite, agrandie — miroir grossissant). Un miroir convexe forme toujours une image virtuelle, droite et réduite (rétroviseurs de voiture, miroirs de surveillance).</p>
+
+        <h3>Le dioptre plan et la lame à faces parallèles</h3>
+        <p>Un dioptre plan est une surface plane séparant deux milieux d'indices différents. L'image d'un point objet est toujours virtuelle et située sur la même perpendiculaire au dioptre que l'objet.</p>
+        <p>La position apparente d'un objet immergé est :</p>
+        <p style="text-align:center;font-family:'Lora',serif;font-size:1.1em;margin:1rem 0;">p' = p × (n₂ / n₁)</p>
+        <p>C'est pourquoi un objet au fond d'une piscine paraît plus proche de la surface qu'il ne l'est réellement (n_eau > n_air, donc p' < p en valeur absolue vu depuis l'air).</p>
+        <p>Une <strong>lame à faces parallèles</strong> d'épaisseur e et d'indice n, traversée par un rayon oblique, produit un décalage latéral du rayon sans modifier sa direction :</p>
+        <p style="text-align:center;font-family:'Lora',serif;font-size:1.1em;margin:1rem 0;">d = e × sin(i₁) × (1 − cos(i₁) / √(n² − sin²(i₁)))</p>
+
+        <h3>Applications et phénomènes naturels</h3>
+        <p>Les lois de la réflexion et de la réfraction expliquent de nombreux phénomènes :</p>
+        <ul>
+          <li><strong>Arc-en-ciel</strong> — réfraction à l'entrée d'une goutte d'eau, réflexion totale sur la paroi interne, puis réfraction à la sortie. L'arc primaire apparaît à 42° et l'arc secondaire (deux réflexions internes) à 51°</li>
+          <li><strong>Mirage</strong> — les couches d'air chaud au-dessus du sol ont un indice légèrement inférieur. Les rayons lumineux sont courbés progressivement vers le haut, créant une image inversée du ciel (aspect de nappe d'eau)</li>
+          <li><strong>Scintillement des étoiles</strong> — les turbulences atmosphériques font varier localement l'indice de réfraction de l'air, déviant les rayons lumineux de manière aléatoire</li>
+          <li><strong>Angle de Brewster</strong> — pour un angle d'incidence particulier i_B tel que tan(i_B) = n₂/n₁, la lumière réfléchie est totalement polarisée. Cet angle vaut environ 56° pour l'interface air/verre</li>
+          <li><strong>Traitement antireflet</strong> — couche mince d'épaisseur λ/4 et d'indice √(n₁ n₂) déposée sur une lentille. Les réflexions sur les deux faces interfèrent destructivement, réduisant les reflets</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Métamatériaux :</strong> des structures artificielles à l'échelle sub-longueur d'onde permettent de créer des matériaux à indice de réfraction négatif. Ces métamatériaux courbent la lumière de manière inhabituelle et ouvrent la voie à des « capes d'invisibilité » — encore au stade de la recherche pour les longueurs d'onde visibles.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">🔭 Réflexion et réfraction — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quelle est la loi de Snell-Descartes pour la réfraction ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">n₁ cos(i₁) = n₂ cos(i₂)</div>
+              <div class="option" onclick="answer(this,true)">n₁ sin(i₁) = n₂ sin(i₂)</div>
+              <div class="option" onclick="answer(this,false)">n₁ tan(i₁) = n₂ tan(i₂)</div>
+              <div class="option" onclick="answer(this,false)">n₁ / sin(i₁) = n₂ / sin(i₂)</div>
+            </div>
+            <div class="q-feedback">La deuxième loi de Snell-Descartes pour la réfraction s'écrit n₁ sin(i₁) = n₂ sin(i₂). Elle relie les angles d'incidence et de réfraction aux indices des deux milieux.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Quel est l'angle critique de réflexion totale pour l'interface verre (n=1,5) / air ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">30°</div>
+              <div class="option" onclick="answer(this,true)">≈ 41,8°</div>
+              <div class="option" onclick="answer(this,false)">45°</div>
+              <div class="option" onclick="answer(this,false)">≈ 48,8°</div>
+            </div>
+            <div class="q-feedback">sin(i_c) = n₂/n₁ = 1/1,5 = 0,667, donc i_c = arcsin(0,667) ≈ 41,8°. Au-delà de cet angle, la lumière subit une réflexion totale interne.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Quand un rayon passe de l'air (n=1) au verre (n=1,5), que se passe-t-il ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">Le rayon se rapproche de la normale</div>
+              <div class="option" onclick="answer(this,false)">Le rayon s'éloigne de la normale</div>
+              <div class="option" onclick="answer(this,false)">Le rayon n'est pas dévié</div>
+              <div class="option" onclick="answer(this,false)">Il y a toujours réflexion totale</div>
+            </div>
+            <div class="q-feedback">Lorsque la lumière passe vers un milieu plus réfringent (n₂ > n₁), la loi n₁ sin(i₁) = n₂ sin(i₂) impose sin(i₂) < sin(i₁), donc i₂ < i₁ : le rayon se rapproche de la normale.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Quel type d'image forme un miroir plan ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Réelle, inversée, de même taille</div>
+              <div class="option" onclick="answer(this,false)">Virtuelle, inversée, agrandie</div>
+              <div class="option" onclick="answer(this,true)">Virtuelle, droite, de même taille</div>
+              <div class="option" onclick="answer(this,false)">Réelle, droite, réduite</div>
+            </div>
+            <div class="q-feedback">Un miroir plan forme toujours une image virtuelle (derrière le miroir), droite et de même taille que l'objet. L'image est le symétrique de l'objet par rapport au plan du miroir.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quelle est la distance focale d'un miroir sphérique concave de rayon R ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">f = R</div>
+              <div class="option" onclick="answer(this,true)">f = R/2</div>
+              <div class="option" onclick="answer(this,false)">f = 2R</div>
+              <div class="option" onclick="answer(this,false)">f = R/4</div>
+            </div>
+            <div class="q-feedback">Le foyer d'un miroir sphérique concave est situé à mi-chemin entre le centre de courbure C et le sommet du miroir, soit f = R/2.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Quelle technologie repose principalement sur la réflexion totale interne ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Le miroir plan</div>
+              <div class="option" onclick="answer(this,false)">La loupe</div>
+              <div class="option" onclick="answer(this,true)">La fibre optique</div>
+              <div class="option" onclick="answer(this,false)">L'appareil photographique</div>
+            </div>
+            <div class="q-feedback">La fibre optique guide la lumière par réflexion totale interne : le coeur de verre a un indice supérieur à celui de la gaine, de sorte que les rayons incidents sous un angle suffisant sont totalement réfléchis et restent confinés dans le coeur.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Réfraction air-eau</h3>
+        <p>Un rayon lumineux passe de l'air (n₁ = 1,00) dans l'eau (n₂ = 1,33) avec un angle d'incidence i₁ = 45°. Calculez l'angle de réfraction i₂ et la déviation angulaire D = i₁ − i₂ subie par le rayon.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p><strong>Loi de Snell :</strong> n₁ sin(i₁) = n₂ sin(i₂)</p>
+            <p>sin(i₂) = n₁ sin(i₁) / n₂ = 1,00 × sin(45°) / 1,33 = 0,707 / 1,33 ≈ 0,532</p>
+            <p>i₂ = arcsin(0,532) ≈ 32,1°</p>
+            <p><strong>Déviation :</strong> D = 45° − 32,1° = 12,9°</p>
+            <p>Le rayon se rapproche de la normale en entrant dans l'eau, milieu plus réfringent que l'air.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 2 — Réflexion totale et fibre optique</h3>
+        <p>Une fibre optique a un coeur d'indice n₁ = 1,48 et une gaine d'indice n₂ = 1,46. a) Calculez l'angle critique de réflexion totale à l'interface coeur-gaine. b) Calculez l'ouverture numérique ON = sin(θ_max) de la fibre, où θ_max est l'angle maximal d'injection depuis l'air. c) Quel est l'angle d'acceptance θ_max ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p><strong>a)</strong> sin(i_c) = n₂/n₁ = 1,46/1,48 ≈ 0,9865, donc i_c = arcsin(0,9865) ≈ 80,6°</p>
+            <p><strong>b)</strong> ON = √(n₁² − n₂²) = √(1,48² − 1,46²) = √(2,1904 − 2,1316) = √0,0588 ≈ 0,242</p>
+            <p><strong>c)</strong> θ_max = arcsin(ON) = arcsin(0,242) ≈ 14,0°</p>
+            <p>Seuls les rayons entrant dans la fibre avec un angle inférieur à 14° par rapport à l'axe seront guidés par réflexion totale. La faible différence d'indice (Δn = 0,02) est typique des fibres monomodes utilisées en télécommunications.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 3 — Miroir sphérique concave</h3>
+        <p>Un miroir concave a un rayon de courbure R = 40 cm. Un objet de 3 cm de hauteur est placé à 60 cm du miroir. a) Calculez la distance focale. b) Déterminez la position de l'image. c) Calculez le grandissement et la taille de l'image. d) L'image est-elle réelle ou virtuelle ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p><strong>a)</strong> f = R/2 = 40/2 = 20 cm</p>
+            <p><strong>b)</strong> 1/p' = 1/f − 1/p = 1/20 − 1/60 = 3/60 − 1/60 = 2/60 = 1/30, donc p' = 30 cm</p>
+            <p><strong>c)</strong> γ = −p'/p = −30/60 = −0,5. L'image mesure |γ| × 3 = 1,5 cm.</p>
+            <p><strong>d)</strong> p' > 0 : l'image est réelle (formée devant le miroir). Le grandissement négatif indique que l'image est inversée. On obtient une image réelle, inversée et réduite de moitié, située à 30 cm du miroir.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 4 — Angle de Brewster</h3>
+        <p>Calculez l'angle de Brewster pour l'interface air/verre (n = 1,52). À cet angle, quelle est la particularité de la lumière réfléchie ? Montrez que les rayons réfléchi et réfracté sont perpendiculaires.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p><strong>Angle de Brewster :</strong> tan(i_B) = n₂/n₁ = 1,52/1,00 = 1,52</p>
+            <p>i_B = arctan(1,52) ≈ 56,7°</p>
+            <p><strong>Particularité :</strong> à l'angle de Brewster, la lumière réfléchie est totalement polarisée linéairement (oscillation du champ E perpendiculaire au plan d'incidence uniquement).</p>
+            <p><strong>Preuve de la perpendicularité :</strong> à l'angle de Brewster, sin(i_B) = n₂ cos(i₂) (car tan(i_B) = n₂/n₁ et n₁ sin(i_B) = n₂ sin(i₂)). On en déduit sin(i_B) = cos(i₂), soit i_B + i₂ = 90°. Comme le rayon réfléchi fait un angle i_B avec la normale, les rayons réfléchi et réfracté forment un angle de 90°.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 5 — Prisme et déviation minimale</h3>
+        <p>Un prisme de verre (n = 1,50) a un angle au sommet A = 60°. Un rayon lumineux traverse le prisme au minimum de déviation. a) Montrez que dans cette configuration i₁ = i₂ (angles d'incidence et d'émergence égaux). b) Sachant que la déviation minimale vérifie D_min = 2i₁ − A, et que n = sin((A + D_min)/2) / sin(A/2), calculez D_min et l'angle d'incidence correspondant.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p><strong>a)</strong> Au minimum de déviation, le rayon traverse le prisme symétriquement : l'angle d'incidence i₁ sur la première face égale l'angle d'émergence i₂ sur la seconde face. Le rayon est alors parallèle à la base du prisme à l'intérieur.</p>
+            <p><strong>b)</strong> n = sin((A + D_min)/2) / sin(A/2)</p>
+            <p>1,50 = sin((60° + D_min)/2) / sin(30°) = sin((60° + D_min)/2) / 0,5</p>
+            <p>sin((60° + D_min)/2) = 0,75</p>
+            <p>(60° + D_min)/2 = arcsin(0,75) ≈ 48,59°</p>
+            <p>60° + D_min = 97,18°</p>
+            <p><strong>D_min ≈ 37,2°</strong></p>
+            <p>Angle d'incidence : i₁ = (A + D_min)/2 = (60° + 37,2°)/2 ≈ 48,6°</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="lumiere.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Nature de la lumière</span>
+      </a>
+      <a href="lentilles.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Lentilles et instruments →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions=document.querySelectorAll('.question-block');let currentQ=0,score=0;let answered=new Array(questions.length).fill(false);const dotsContainer=document.getElementById('qDots');questions.forEach((_,i)=>{const d=document.createElement('div');d.className='q-dot'+(i===0?' current':'');dotsContainer.appendChild(d)});function updateDots(){document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot';if(answered[i])d.classList.add('done');if(i===currentQ)d.classList.add('current')})}function answer(el,ok){if(answered[currentQ])return;answered[currentQ]=true;el.closest('.question-block').querySelectorAll('.option').forEach(o=>o.classList.add('disabled'));el.classList.add(ok?'correct':'wrong');if(!ok)el.closest('.question-block').querySelectorAll('.option').forEach(o=>{if(o.onclick.toString().includes('true'))o.classList.add('correct')});else{score++;document.getElementById('scoreDisplay').textContent=score}el.closest('.question-block').querySelector('.q-feedback').classList.add('show',ok?'good':'bad');document.getElementById('btnNext').disabled=false;updateDots()}function nextQ(){if(currentQ<questions.length-1){questions[currentQ].classList.remove('active');currentQ++;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=false;document.getElementById('btnNext').disabled=!answered[currentQ];if(currentQ===questions.length-1)document.getElementById('btnNext').textContent='Terminer';updateDots()}else{showResult()}}function prevQ(){if(currentQ>0){questions[currentQ].classList.remove('active');currentQ--;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=currentQ===0;document.getElementById('btnNext').disabled=!answered[currentQ];document.getElementById('btnNext').textContent='Suivant →';updateDots()}}function showResult(){document.getElementById('quizBody').style.display='none';document.getElementById('quizResult').style.display='block';document.getElementById('resultScore').textContent=score+'/'+questions.length;var m=['Continue !','Pas mal !','Très bien !','Parfait !'];document.getElementById('resultMsg').textContent=m[Math.min(score,3)]}function resetQuiz(){score=0;currentQ=0;answered=new Array(questions.length).fill(false);document.getElementById('scoreDisplay').textContent=0;document.getElementById('quizBody').style.display='block';document.getElementById('quizResult').style.display='none';questions.forEach((q,i)=>{q.classList.toggle('active',i===0);q.querySelectorAll('.option').forEach(o=>o.className='option');q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback')});document.getElementById('btnPrev').disabled=true;document.getElementById('btnNext').disabled=true;document.getElementById('btnNext').textContent='Suivant →';updateDots()}function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active')}(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l});if(current){links.forEach(function(l){l.classList.remove('active')});current.classList.add('active')}},{passive:true})})();
+</script>
+<script src="../../mobile.js"></script>
+</body>
+</html>

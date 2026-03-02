@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML & CSS — Web — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #2980b9;
+  --accent2: #3498db;
+  --accent-dim: rgba(41,128,185,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(41,128,185,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../informatique-page.html">Informatique</a> › <a href="../web.html">Web</a> › <span>HTML & CSS</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🌐 Web</span>
+    <span class="tag-level">Débutant</span>
+    <span class="tag-time">⏱ ~45 min</span>
+  </div>
+  <h1><em>HTML & CSS</em></h1>
+  <p class="hero-desc">Structure et mise en forme du web — balises sémantiques, sélecteurs CSS, modèle de boîte, Flexbox et Grid pour créer des pages modernes et responsives.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../web.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Web</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">💻 Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link active" href="#">HTML & CSS</a>
+    <a class="sidebar-link" href="javascript.html">JavaScript</a>
+    <a class="sidebar-link" href="frameworks.html">Frameworks front-end</a>
+    <a class="sidebar-link" href="backend.html">Back-end</a>
+    <a class="sidebar-link" href="bases-donnees.html">Bases de données</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Les deux piliers du web</p>
+        </div>
+      </div>
+      <p class="resume-text"><strong>HTML</strong> (HyperText Markup Language) et <strong>CSS</strong> (Cascading Style Sheets) forment le socle de toute page web. HTML définit la <em>structure</em> et le <em>contenu</em> (titres, paragraphes, images, liens), tandis que CSS contrôle la <em>présentation visuelle</em> (couleurs, typographie, mise en page). Ensemble, ils permettent de créer des sites accessibles, esthétiques et adaptatifs.</p>
+      <div class="highlight-box">
+        <p><strong>Séparation des préoccupations :</strong> HTML s'occupe du « quoi » (le contenu et sa sémantique), CSS du « comment » (l'apparence). Cette séparation facilite la maintenance, l'accessibilité et le travail en équipe.</p>
+      </div>
+      <p class="resume-text">Le web moderne repose sur HTML5 et CSS3, qui apportent des balises sémantiques (<code>&lt;header&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code>), des modules de mise en page puissants (Flexbox, Grid) et des animations natives, réduisant considérablement le besoin de JavaScript pour la présentation.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Structure et mise en forme</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Structure d'un document HTML</h3>
+        <p>Un document HTML est un arbre d'éléments imbriqués. Chaque élément est délimité par une balise ouvrante et une balise fermante. Le squelette minimal comprend <code>&lt;!DOCTYPE html&gt;</code>, <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code> (métadonnées) et <code>&lt;body&gt;</code> (contenu visible).</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">HTML</span></div>
+          <pre><code><span class="kw">&lt;!DOCTYPE html&gt;</span>
+<span class="kw">&lt;html</span> <span class="fn">lang</span>=<span class="str">"fr"</span><span class="kw">&gt;</span>
+<span class="kw">&lt;head&gt;</span>
+  <span class="kw">&lt;meta</span> <span class="fn">charset</span>=<span class="str">"UTF-8"</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;meta</span> <span class="fn">name</span>=<span class="str">"viewport"</span> <span class="fn">content</span>=<span class="str">"width=device-width, initial-scale=1.0"</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;title&gt;</span>Ma page<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;/head&gt;</span>
+<span class="kw">&lt;body&gt;</span>
+  <span class="kw">&lt;h1&gt;</span>Bonjour le monde<span class="kw">&lt;/h1&gt;</span>
+  <span class="kw">&lt;p&gt;</span>Mon premier paragraphe.<span class="kw">&lt;/p&gt;</span>
+<span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre>
+        </div>
+
+        <h3>Balises sémantiques HTML5</h3>
+        <p>HTML5 introduit des balises qui décrivent le <em>rôle</em> du contenu, améliorant l'accessibilité et le référencement. Les principales sont :</p>
+        <div class="highlight-box">
+          <p><strong>&lt;header&gt;</strong> — en-tête de page ou de section<br>
+          <strong>&lt;nav&gt;</strong> — navigation principale<br>
+          <strong>&lt;main&gt;</strong> — contenu principal (unique par page)<br>
+          <strong>&lt;article&gt;</strong> — contenu autonome (article, billet)<br>
+          <strong>&lt;section&gt;</strong> — regroupement thématique<br>
+          <strong>&lt;aside&gt;</strong> — contenu secondaire (barre latérale)<br>
+          <strong>&lt;footer&gt;</strong> — pied de page</p>
+        </div>
+        <p>Utiliser ces balises au lieu de <code>&lt;div&gt;</code> permet aux lecteurs d'écran et aux moteurs de recherche de comprendre la structure de la page.</p>
+
+        <h3>Sélecteurs et spécificité CSS</h3>
+        <p>CSS cible les éléments HTML via des <strong>sélecteurs</strong>. La <strong>spécificité</strong> détermine quelle règle s'applique lorsque plusieurs règles ciblent le même élément. Elle se calcule selon le nombre d'identifiants, de classes et d'éléments dans le sélecteur.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">CSS</span></div>
+          <pre><code><span class="cm">/* Sélecteur d'élément — spécificité (0,0,1) */</span>
+<span class="kw">p</span> { <span class="fn">color</span>: <span class="str">#333</span>; }
+
+<span class="cm">/* Sélecteur de classe — spécificité (0,1,0) */</span>
+<span class="kw">.intro</span> { <span class="fn">font-size</span>: <span class="num">1.2</span>rem; }
+
+<span class="cm">/* Sélecteur d'id — spécificité (1,0,0) */</span>
+<span class="kw">#titre</span> { <span class="fn">font-weight</span>: bold; }
+
+<span class="cm">/* Combinaison — spécificité (0,1,1) */</span>
+<span class="kw">article .intro</span> { <span class="fn">line-height</span>: <span class="num">1.8</span>; }
+
+<span class="cm">/* Pseudo-classes et pseudo-éléments */</span>
+<span class="kw">a:hover</span> { <span class="fn">color</span>: <span class="str">#2980b9</span>; }
+<span class="kw">p::first-line</span> { <span class="fn">font-variant</span>: small-caps; }</code></pre>
+        </div>
+
+        <h3>Le modèle de boîte (Box Model)</h3>
+        <p>Chaque élément HTML est une « boîte » composée de quatre couches : le <strong>contenu</strong>, le <strong>padding</strong> (marge intérieure), la <strong>bordure</strong> et la <strong>margin</strong> (marge extérieure). Par défaut, <code>width</code> ne concerne que le contenu ; avec <code>box-sizing: border-box</code>, la largeur inclut padding et bordure, ce qui simplifie les calculs.</p>
+        <div class="highlight-box">
+          <p><strong>Astuce universelle :</strong> la règle <code>*, *::before, *::after { box-sizing: border-box; }</code> est utilisée dans la quasi-totalité des projets modernes pour éviter les surprises de dimensionnement.</p>
+        </div>
+
+        <h3>Flexbox : mise en page en une dimension</h3>
+        <p>Flexbox permet d'aligner et de distribuer l'espace entre les éléments d'un conteneur, sur un seul axe (horizontal ou vertical). On active Flexbox avec <code>display: flex</code> sur le conteneur parent.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">CSS</span></div>
+          <pre><code><span class="kw">.navbar</span> {
+  <span class="fn">display</span>: flex;
+  <span class="fn">justify-content</span>: space-between; <span class="cm">/* répartition horizontale */</span>
+  <span class="fn">align-items</span>: center;           <span class="cm">/* centrage vertical */</span>
+  <span class="fn">gap</span>: <span class="num">1</span>rem;                     <span class="cm">/* espace entre éléments */</span>
+}
+
+<span class="kw">.card-container</span> {
+  <span class="fn">display</span>: flex;
+  <span class="fn">flex-wrap</span>: wrap;               <span class="cm">/* retour à la ligne */</span>
+  <span class="fn">gap</span>: <span class="num">1.5</span>rem;
+}
+
+<span class="kw">.card</span> {
+  <span class="fn">flex</span>: <span class="num">1 1 300</span>px;              <span class="cm">/* grandir, rétrécir, base 300px */</span>
+}</code></pre>
+        </div>
+
+        <h3>CSS Grid : mise en page en deux dimensions</h3>
+        <p>CSS Grid permet de créer des grilles complexes sur deux axes simultanément. C'est l'outil idéal pour les mises en page de type magazine, tableaux de bord ou galeries d'images.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">CSS</span></div>
+          <pre><code><span class="kw">.page-layout</span> {
+  <span class="fn">display</span>: grid;
+  <span class="fn">grid-template-columns</span>: <span class="num">250</span>px <span class="num">1</span>fr;        <span class="cm">/* sidebar + contenu */</span>
+  <span class="fn">grid-template-rows</span>: auto <span class="num">1</span>fr auto;       <span class="cm">/* header, main, footer */</span>
+  <span class="fn">grid-template-areas</span>:
+    <span class="str">"header header"</span>
+    <span class="str">"sidebar main"</span>
+    <span class="str">"footer footer"</span>;
+  <span class="fn">min-height</span>: <span class="num">100</span>vh;
+}
+
+<span class="kw">.header</span>  { <span class="fn">grid-area</span>: header; }
+<span class="kw">.sidebar</span> { <span class="fn">grid-area</span>: sidebar; }
+<span class="kw">.main</span>    { <span class="fn">grid-area</span>: main; }
+<span class="kw">.footer</span>  { <span class="fn">grid-area</span>: footer; }
+
+<span class="cm">/* Grille responsive avec auto-fit */</span>
+<span class="kw">.gallery</span> {
+  <span class="fn">display</span>: grid;
+  <span class="fn">grid-template-columns</span>: repeat(auto-fit, minmax(<span class="num">250</span>px, <span class="num">1</span>fr));
+  <span class="fn">gap</span>: <span class="num">1</span>rem;
+}</code></pre>
+        </div>
+
+        <h3>Responsive Design et Media Queries</h3>
+        <p>Le <strong>responsive design</strong> adapte l'affichage à la taille de l'écran. Les <strong>media queries</strong> permettent d'appliquer des règles CSS conditionnelles selon la largeur du viewport, la résolution ou l'orientation.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">CSS</span></div>
+          <pre><code><span class="cm">/* Mobile-first : styles de base pour mobile */</span>
+<span class="kw">.container</span> {
+  <span class="fn">padding</span>: <span class="num">1</span>rem;
+  <span class="fn">max-width</span>: <span class="num">1200</span>px;
+  <span class="fn">margin</span>: <span class="num">0</span> auto;
+}
+
+<span class="cm">/* Tablette */</span>
+<span class="kw">@media</span> (min-width: <span class="num">768</span>px) {
+  <span class="kw">.container</span> { <span class="fn">padding</span>: <span class="num">2</span>rem; }
+  <span class="kw">.grid</span> { <span class="fn">grid-template-columns</span>: <span class="num">1</span>fr <span class="num">1</span>fr; }
+}
+
+<span class="cm">/* Desktop */</span>
+<span class="kw">@media</span> (min-width: <span class="num">1024</span>px) {
+  <span class="kw">.grid</span> { <span class="fn">grid-template-columns</span>: repeat(<span class="num">3</span>, <span class="num">1</span>fr); }
+}</code></pre>
+        </div>
+        <p>L'approche <strong>mobile-first</strong> consiste à concevoir d'abord pour les petits écrans, puis à ajouter des enrichissements pour les grands. Les unités relatives (<code>rem</code>, <code>%</code>, <code>vw</code>) et les fonctions CSS (<code>clamp()</code>, <code>min()</code>, <code>max()</code>) contribuent aussi à la fluidité.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">📊 HTML & CSS — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quelle balise HTML5 représente le contenu principal d'une page ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">&lt;section&gt;</div>
+              <div class="option" onclick="answer(this,true)">&lt;main&gt;</div>
+              <div class="option" onclick="answer(this,false)">&lt;article&gt;</div>
+              <div class="option" onclick="answer(this,false)">&lt;div id="main"&gt;</div>
+            </div>
+            <div class="q-feedback">La balise &lt;main&gt; identifie le contenu principal et unique de la page. Il ne doit y en avoir qu'une seule par document et elle ne doit pas être imbriquée dans &lt;article&gt; ou &lt;aside&gt;.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Quelle propriété CSS active le modèle Flexbox ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">position: flex</div>
+              <div class="option" onclick="answer(this,false)">flex: enable</div>
+              <div class="option" onclick="answer(this,true)">display: flex</div>
+              <div class="option" onclick="answer(this,false)">layout: flexbox</div>
+            </div>
+            <div class="q-feedback">On active Flexbox en appliquant <code>display: flex</code> (ou <code>display: inline-flex</code>) sur le conteneur parent. Les enfants directs deviennent alors des « flex items ».</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Quel sélecteur a la plus haute spécificité ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">p.intro</div>
+              <div class="option" onclick="answer(this,true)">#header .nav a</div>
+              <div class="option" onclick="answer(this,false)">.nav a:hover</div>
+              <div class="option" onclick="answer(this,false)">body p</div>
+            </div>
+            <div class="q-feedback"><code>#header .nav a</code> a une spécificité de (1,1,1) grâce à l'id (#header), la classe (.nav) et l'élément (a). Les autres ont au maximum (0,2,1).</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Que fait <code>box-sizing: border-box</code> ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Supprime les bordures de l'élément</div>
+              <div class="option" onclick="answer(this,false)">Ajoute une bordure automatique</div>
+              <div class="option" onclick="answer(this,true)">Inclut padding et bordure dans la largeur déclarée</div>
+              <div class="option" onclick="answer(this,false)">Arrondit les coins de la boîte</div>
+            </div>
+            <div class="q-feedback">Avec <code>border-box</code>, la propriété <code>width</code> inclut le contenu, le padding et la bordure. Sans cette règle (valeur <code>content-box</code>), seul le contenu est compté, ce qui complique les calculs de mise en page.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quelle propriété CSS Grid permet de nommer des zones de la grille ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">grid-columns</div>
+              <div class="option" onclick="answer(this,false)">grid-layout</div>
+              <div class="option" onclick="answer(this,true)">grid-template-areas</div>
+              <div class="option" onclick="answer(this,false)">grid-zones</div>
+            </div>
+            <div class="q-feedback"><code>grid-template-areas</code> permet de dessiner visuellement la grille en nommant les zones. Chaque enfant utilise ensuite <code>grid-area</code> pour s'y placer.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Quelle approche consiste à concevoir d'abord pour les petits écrans ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Desktop-first</div>
+              <div class="option" onclick="answer(this,true)">Mobile-first</div>
+              <div class="option" onclick="answer(this,false)">Responsive-first</div>
+              <div class="option" onclick="answer(this,false)">Adaptive design</div>
+            </div>
+            <div class="q-feedback">L'approche mobile-first écrit les styles de base pour mobile, puis utilise <code>@media (min-width: ...)</code> pour enrichir progressivement l'affichage sur les grands écrans.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Page personnelle sémantique</h3>
+        <p>Créez une page HTML utilisant uniquement des balises sémantiques (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>). La page doit contenir un titre, une barre de navigation avec 3 liens, un article avec un titre et deux paragraphes, et un pied de page.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Mon portfolio&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Jean Dupont&lt;/h1&gt;
+    &lt;nav&gt;
+      &lt;a href="#accueil"&gt;Accueil&lt;/a&gt;
+      &lt;a href="#projets"&gt;Projets&lt;/a&gt;
+      &lt;a href="#contact"&gt;Contact&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+  &lt;main&gt;
+    &lt;article&gt;
+      &lt;h2&gt;Mon premier projet&lt;/h2&gt;
+      &lt;p&gt;Description du projet.&lt;/p&gt;
+      &lt;p&gt;Technologies utilisées.&lt;/p&gt;
+    &lt;/article&gt;
+  &lt;/main&gt;
+  &lt;footer&gt;
+    &lt;p&gt;&amp;copy; 2025 Jean Dupont&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+        </details>
+
+        <h3>Exercice 2 — Navbar Flexbox</h3>
+        <p>Créez une barre de navigation horizontale avec Flexbox : le logo à gauche, les liens au centre et un bouton de connexion à droite. Le tout doit être centré verticalement.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #1a1a2e;
+}
+.navbar .logo { font-weight: bold; font-size: 1.5rem; }
+.navbar .links { display: flex; gap: 1.5rem; }
+.navbar .links a { text-decoration: none; color: #eee; }
+.navbar .btn { padding: 0.5rem 1rem; background: #2980b9; border-radius: 4px; }</code></pre></div>
+        </details>
+
+        <h3>Exercice 3 — Galerie Grid responsive</h3>
+        <p>Créez une galerie d'images en CSS Grid qui affiche automatiquement autant de colonnes que possible, avec une largeur minimale de 200px par carte. Utilisez <code>auto-fit</code> et <code>minmax()</code>.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+.gallery img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+/* auto-fit crée autant de colonnes que possible
+   minmax(200px, 1fr) garantit 200px minimum et étire si possible */</code></pre></div>
+        </details>
+
+        <h3>Exercice 4 — Carte avec ombre et transition</h3>
+        <p>Créez une carte (<code>.card</code>) avec un padding, un arrière-plan, un border-radius et une ombre (<code>box-shadow</code>). Au survol, l'ombre doit s'agrandir avec une transition douce de 0.3s.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>.card {
+  padding: 1.5rem;
+  background: #16213e;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  transform: translateY(-4px);
+}</code></pre></div>
+        </details>
+
+        <h3>Exercice 5 — Layout complet responsive</h3>
+        <p>Créez une mise en page avec CSS Grid : header en haut (pleine largeur), sidebar à gauche (250px), contenu principal au centre, footer en bas. Sur mobile (max-width: 768px), tout doit passer en colonne unique.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>.page {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  min-height: 100vh;
+}
+.header  { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main    { grid-area: main; }
+.footer  { grid-area: footer; }
+
+@media (max-width: 768px) {
+  .page {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "sidebar"
+      "footer";
+  }
+}
+/* Sur mobile, le sidebar passe sous le contenu principal */</code></pre></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <div></div>
+      <a href="javascript.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">JavaScript →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions = document.querySelectorAll('.question-block');
+let currentQ = 0, score = 0;
+let answered = new Array(questions.length).fill(false);
+const dotsContainer = document.getElementById('qDots');
+questions.forEach((_, i) => { const d = document.createElement('div'); d.className = 'q-dot' + (i === 0 ? ' current' : ''); dotsContainer.appendChild(d); });
+function updateDots() { document.querySelectorAll('.q-dot').forEach((d, i) => { d.className = 'q-dot'; if (answered[i]) d.classList.add('done'); if (i === currentQ) d.classList.add('current'); }); }
+function answer(el, ok) {
+  if (answered[currentQ]) return; answered[currentQ] = true;
+  el.closest('.question-block').querySelectorAll('.option').forEach(o => o.classList.add('disabled'));
+  el.classList.add(ok ? 'correct' : 'wrong');
+  if (!ok) el.closest('.question-block').querySelectorAll('.option').forEach(o => { if(o.onclick.toString().includes('true')) o.classList.add('correct'); });
+  else { score++; document.getElementById('scoreDisplay').textContent = score; }
+  el.closest('.question-block').querySelector('.q-feedback').classList.add('show', ok ? 'good' : 'bad');
+  document.getElementById('btnNext').disabled = false;
+  updateDots();
+}
+function nextQ() { if (currentQ < questions.length - 1) { questions[currentQ].classList.remove('active'); currentQ++; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = false; document.getElementById('btnNext').disabled = !answered[currentQ]; if (currentQ === questions.length - 1) document.getElementById('btnNext').textContent = 'Terminer'; updateDots(); } else { showResult(); } }
+function prevQ() { if (currentQ > 0) { questions[currentQ].classList.remove('active'); currentQ--; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = currentQ === 0; document.getElementById('btnNext').disabled = !answered[currentQ]; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); } }
+function showResult() { document.getElementById('quizBody').style.display = 'none'; document.getElementById('quizResult').style.display = 'block'; document.getElementById('resultScore').textContent = score + '/' + questions.length; var m = ['Continue !', 'Pas mal !', 'Très bien !', 'Parfait !']; document.getElementById('resultMsg').textContent = m[Math.min(score, 3)]; }
+function resetQuiz() { score = 0; currentQ = 0; answered = new Array(questions.length).fill(false); document.getElementById('scoreDisplay').textContent = 0; document.getElementById('quizBody').style.display = 'block'; document.getElementById('quizResult').style.display = 'none'; questions.forEach((q,i) => { q.classList.toggle('active', i===0); q.querySelectorAll('.option').forEach(o=>o.className='option'); q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback'); }); document.getElementById('btnPrev').disabled = true; document.getElementById('btnNext').disabled = true; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); }
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+</script>
+<script src="../../mobile.js"></script>
+</body>
+</html>

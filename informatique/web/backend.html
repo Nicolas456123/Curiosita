@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Développement back-end — Web — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #2980b9;
+  --accent2: #3498db;
+  --accent-dim: rgba(41,128,185,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(41,128,185,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../informatique-page.html">Informatique</a> › <a href="../web.html">Web</a> › <span>Développement back-end</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🌐 Web</span>
+    <span class="tag-level">Intermédiaire</span>
+    <span class="tag-time">⏱ ~50 min</span>
+  </div>
+  <h1><em>Développement back-end</em></h1>
+  <p class="hero-desc">Serveurs web, API REST, Node.js et Express, gestion des bases de données, authentification et sécurité des applications web.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../web.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Web</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">💻 Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="html-css.html">HTML & CSS</a>
+    <a class="sidebar-link" href="javascript.html">JavaScript</a>
+    <a class="sidebar-link" href="frameworks.html">Frameworks front-end</a>
+    <a class="sidebar-link active" href="#">Back-end</a>
+    <a class="sidebar-link" href="bases-donnees.html">Bases de données</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Le côté invisible du web</p>
+        </div>
+      </div>
+      <p class="resume-text">Le <strong>back-end</strong> (ou « côté serveur ») désigne tout ce qui se passe en coulisses d'une application web : réception des requêtes, traitement de la logique métier, accès aux bases de données et renvoi des réponses. Si le front-end est la vitrine, le back-end est l'atelier.</p>
+      <div class="highlight-box">
+        <p><strong>Architecture client-serveur :</strong> le navigateur (client) envoie des requêtes HTTP au serveur, qui les traite et renvoie des réponses. Le back-end gère la logique, les données, la sécurité et les performances. Les langages courants : JavaScript (Node.js), Python (Django, Flask), PHP (Laravel), Java (Spring), Ruby (Rails), Go.</p>
+      </div>
+      <p class="resume-text">Avec l'essor des <strong>API REST</strong> et des architectures découplées, le back-end moderne se concentre sur la création de services consommables par n'importe quel client (web, mobile, IoT), renforçant la réutilisabilité et la scalabilité.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Serveurs, API et sécurité</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Le protocole HTTP</h3>
+        <p><strong>HTTP</strong> (HyperText Transfer Protocol) est le protocole de communication du web. Chaque échange se compose d'une <strong>requête</strong> (méthode, URL, en-têtes, corps) et d'une <strong>réponse</strong> (code de statut, en-têtes, corps). Les méthodes principales sont :</p>
+        <div class="highlight-box">
+          <p><strong>GET</strong> — récupérer une ressource (lecture)<br>
+          <strong>POST</strong> — créer une ressource<br>
+          <strong>PUT</strong> — remplacer intégralement une ressource<br>
+          <strong>PATCH</strong> — modifier partiellement une ressource<br>
+          <strong>DELETE</strong> — supprimer une ressource<br><br>
+          <strong>Codes de statut :</strong> 200 (OK), 201 (Created), 400 (Bad Request), 401 (Unauthorized), 404 (Not Found), 500 (Internal Server Error)</p>
+        </div>
+
+        <h3>Node.js et Express</h3>
+        <p><strong>Node.js</strong> exécute JavaScript côté serveur grâce au moteur V8 de Chrome. <strong>Express</strong> est le framework minimaliste le plus populaire pour Node.js. Il gère le routage, les middlewares et les réponses HTTP.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">JavaScript (Node.js + Express)</span></div>
+          <pre><code><span class="kw">const</span> express = <span class="fn">require</span>(<span class="str">'express'</span>);
+<span class="kw">const</span> app = <span class="fn">express</span>();
+
+<span class="cm">// Middleware pour parser le JSON</span>
+app.<span class="fn">use</span>(express.<span class="fn">json</span>());
+
+<span class="cm">// Route GET</span>
+app.<span class="fn">get</span>(<span class="str">'/api/users'</span>, (req, res) => {
+  <span class="kw">const</span> users = [
+    { id: <span class="num">1</span>, nom: <span class="str">'Alice'</span> },
+    { id: <span class="num">2</span>, nom: <span class="str">'Bob'</span> }
+  ];
+  res.<span class="fn">json</span>(users);
+});
+
+<span class="cm">// Route POST</span>
+app.<span class="fn">post</span>(<span class="str">'/api/users'</span>, (req, res) => {
+  <span class="kw">const</span> { nom, email } = req.body;
+  <span class="cm">// Validation et sauvegarde en base...</span>
+  res.<span class="fn">status</span>(<span class="num">201</span>).<span class="fn">json</span>({ id: <span class="num">3</span>, nom, email });
+});
+
+app.<span class="fn">listen</span>(<span class="num">3000</span>, () => {
+  console.<span class="fn">log</span>(<span class="str">'Serveur démarré sur le port 3000'</span>);
+});</code></pre>
+        </div>
+
+        <h3>API REST : principes et conception</h3>
+        <p>Une <strong>API REST</strong> (Representational State Transfer) organise les ressources via des URLs et utilise les méthodes HTTP pour les opérations CRUD. Les principes REST incluent : des URLs prévisibles, l'absence d'état côté serveur (stateless), et des réponses au format JSON.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">API REST — Convention des routes</span></div>
+          <pre><code><span class="cm">GET    /api/articles        → Liste des articles</span>
+<span class="cm">GET    /api/articles/:id    → Un article par ID</span>
+<span class="cm">POST   /api/articles        → Créer un article</span>
+<span class="cm">PUT    /api/articles/:id    → Remplacer un article</span>
+<span class="cm">PATCH  /api/articles/:id    → Modifier un article</span>
+<span class="cm">DELETE /api/articles/:id    → Supprimer un article</span>
+
+<span class="cm">// Relations imbriquées</span>
+<span class="cm">GET    /api/articles/:id/commentaires → Commentaires d'un article</span>
+
+<span class="cm">// Filtrage, pagination, tri via query params</span>
+<span class="cm">GET    /api/articles?categorie=tech&page=2&limit=10&sort=-date</span></code></pre>
+        </div>
+
+        <h3>Middlewares</h3>
+        <p>Les <strong>middlewares</strong> sont des fonctions qui interceptent les requêtes avant qu'elles n'atteignent les routes. Ils servent à la journalisation, l'authentification, la validation, le CORS, la gestion des erreurs, etc.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">JavaScript (Express)</span></div>
+          <pre><code><span class="cm">// Middleware de journalisation</span>
+app.<span class="fn">use</span>((req, res, next) => {
+  console.<span class="fn">log</span>(<span class="str">`${req.method} ${req.url}`</span>);
+  <span class="fn">next</span>(); <span class="cm">// passer au middleware suivant</span>
+});
+
+<span class="cm">// Middleware d'authentification</span>
+<span class="kw">function</span> <span class="fn">authMiddleware</span>(req, res, next) {
+  <span class="kw">const</span> token = req.headers.authorization;
+  <span class="kw">if</span> (!token) {
+    <span class="kw">return</span> res.<span class="fn">status</span>(<span class="num">401</span>).<span class="fn">json</span>({ error: <span class="str">'Token manquant'</span> });
+  }
+  <span class="kw">try</span> {
+    req.user = <span class="fn">verifierToken</span>(token);
+    <span class="fn">next</span>();
+  } <span class="kw">catch</span> (err) {
+    res.<span class="fn">status</span>(<span class="num">403</span>).<span class="fn">json</span>({ error: <span class="str">'Token invalide'</span> });
+  }
+}
+
+<span class="cm">// Appliquer sur les routes protégées</span>
+app.<span class="fn">get</span>(<span class="str">'/api/profil'</span>, authMiddleware, (req, res) => {
+  res.<span class="fn">json</span>(req.user);
+});</code></pre>
+        </div>
+
+        <h3>Authentification et JWT</h3>
+        <p>L'<strong>authentification</strong> vérifie l'identité de l'utilisateur. Les <strong>JSON Web Tokens</strong> (JWT) sont une méthode courante : après connexion, le serveur génère un token signé que le client envoie à chaque requête.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">JavaScript</span></div>
+          <pre><code><span class="kw">const</span> jwt = <span class="fn">require</span>(<span class="str">'jsonwebtoken'</span>);
+<span class="kw">const</span> SECRET = process.env.JWT_SECRET;
+
+<span class="cm">// Connexion : générer un token</span>
+app.<span class="fn">post</span>(<span class="str">'/api/login'</span>, <span class="kw">async</span> (req, res) => {
+  <span class="kw">const</span> { email, motDePasse } = req.body;
+  <span class="kw">const</span> user = <span class="kw">await</span> <span class="fn">trouverUtilisateur</span>(email);
+
+  <span class="kw">if</span> (!user || !<span class="kw">await</span> <span class="fn">verifierMdp</span>(motDePasse, user.hash)) {
+    <span class="kw">return</span> res.<span class="fn">status</span>(<span class="num">401</span>).<span class="fn">json</span>({ error: <span class="str">'Identifiants invalides'</span> });
+  }
+
+  <span class="kw">const</span> token = jwt.<span class="fn">sign</span>(
+    { id: user.id, role: user.role },
+    SECRET,
+    { expiresIn: <span class="str">'24h'</span> }
+  );
+  res.<span class="fn">json</span>({ token });
+});
+
+<span class="cm">// Vérifier un token</span>
+<span class="kw">function</span> <span class="fn">verifierToken</span>(token) {
+  <span class="kw">return</span> jwt.<span class="fn">verify</span>(token.replace(<span class="str">'Bearer '</span>, <span class="str">''</span>), SECRET);
+}</code></pre>
+        </div>
+
+        <h3>Sécurité des applications web</h3>
+        <p>La sécurité est fondamentale côté serveur. Les attaques les plus courantes sont les <strong>injections SQL</strong>, le <strong>XSS</strong> (Cross-Site Scripting), le <strong>CSRF</strong> (Cross-Site Request Forgery) et les fuites de données.</p>
+        <div class="highlight-box">
+          <p><strong>Bonnes pratiques :</strong><br>
+          <strong>Validation des entrées</strong> — ne jamais faire confiance aux données client<br>
+          <strong>Requêtes paramétrées</strong> — éviter les injections SQL<br>
+          <strong>Hachage des mots de passe</strong> — utiliser bcrypt avec un sel (salt)<br>
+          <strong>HTTPS</strong> — chiffrer toutes les communications<br>
+          <strong>CORS</strong> — restreindre les origines autorisées<br>
+          <strong>Rate limiting</strong> — limiter le nombre de requêtes par IP<br>
+          <strong>Helmet</strong> — en-têtes HTTP de sécurité (Express)</p>
+        </div>
+
+        <h3>Architecture et déploiement</h3>
+        <p>Les applications modernes suivent souvent une architecture en <strong>microservices</strong> (services indépendants communiquant via API) ou <strong>monolithique</strong> (une seule application). Le déploiement utilise des conteneurs (Docker), des orchestrateurs (Kubernetes) ou des plateformes PaaS (Heroku, Railway, Vercel).</p>
+        <div class="highlight-box">
+          <p><strong>Variables d'environnement :</strong> les secrets (clés API, mots de passe de BDD) ne sont jamais codés en dur dans le code source. On utilise des fichiers <code>.env</code> et des bibliothèques comme <code>dotenv</code> pour les charger en mémoire.<br><br>
+          <strong>Structure d'un projet Express :</strong><br>
+          <code>/routes</code> — définition des routes<br>
+          <code>/controllers</code> — logique métier<br>
+          <code>/models</code> — modèles de données (ORM)<br>
+          <code>/middlewares</code> — fonctions intermédiaires<br>
+          <code>/config</code> — configuration (BDD, auth)</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">📊 Développement back-end — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quelle méthode HTTP est utilisée pour créer une nouvelle ressource ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">GET</div>
+              <div class="option" onclick="answer(this,true)">POST</div>
+              <div class="option" onclick="answer(this,false)">PUT</div>
+              <div class="option" onclick="answer(this,false)">DELETE</div>
+            </div>
+            <div class="q-feedback">POST est la méthode standard pour créer une ressource. GET sert à lire, PUT à remplacer, PATCH à modifier partiellement, et DELETE à supprimer.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Que signifie le code de statut HTTP 404 ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Requête mal formée</div>
+              <div class="option" onclick="answer(this,false)">Non autorisé</div>
+              <div class="option" onclick="answer(this,true)">Ressource non trouvée</div>
+              <div class="option" onclick="answer(this,false)">Erreur serveur interne</div>
+            </div>
+            <div class="q-feedback">404 Not Found signifie que le serveur n'a pas trouvé la ressource demandée. 400 = mauvaise requête, 401 = non autorisé, 500 = erreur interne du serveur.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Qu'est-ce qu'un middleware dans Express ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Un type de base de données</div>
+              <div class="option" onclick="answer(this,true)">Une fonction qui intercepte les requêtes entre la réception et la réponse</div>
+              <div class="option" onclick="answer(this,false)">Un protocole de communication réseau</div>
+              <div class="option" onclick="answer(this,false)">Un composant front-end</div>
+            </div>
+            <div class="q-feedback">Un middleware est une fonction avec accès à <code>req</code>, <code>res</code> et <code>next()</code>. Il peut modifier la requête/réponse, terminer le cycle ou passer au middleware suivant. Exemples : authentification, journalisation, CORS.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Pourquoi ne faut-il jamais stocker les mots de passe en clair dans la base de données ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Cela ralentit les requêtes</div>
+              <div class="option" onclick="answer(this,false)">Cela prend trop d'espace de stockage</div>
+              <div class="option" onclick="answer(this,true)">En cas de fuite de la base, tous les mots de passe seraient compromis</div>
+              <div class="option" onclick="answer(this,false)">Le navigateur ne peut pas les lire</div>
+            </div>
+            <div class="q-feedback">Si la base de données est compromise, les mots de passe en clair sont directement exploitables. On utilise des fonctions de hachage (bcrypt, Argon2) avec un sel unique pour stocker un hash irréversible.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Qu'est-ce qu'un JWT (JSON Web Token) ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Un format de base de données JSON</div>
+              <div class="option" onclick="answer(this,true)">Un token signé contenant des données d'authentification, vérifié côté serveur</div>
+              <div class="option" onclick="answer(this,false)">Un cookie du navigateur</div>
+              <div class="option" onclick="answer(this,false)">Un protocole de chiffrement</div>
+            </div>
+            <div class="q-feedback">Un JWT est composé de trois parties (header, payload, signature) encodées en Base64. Le serveur le signe avec une clé secrète et le vérifie à chaque requête, sans avoir à stocker l'état de session.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Qu'est-ce que le principe « stateless » en API REST ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Le serveur ne conserve aucune donnée</div>
+              <div class="option" onclick="answer(this,false)">Le client ne peut pas modifier les données</div>
+              <div class="option" onclick="answer(this,true)">Chaque requête contient toutes les informations nécessaires, sans dépendre d'un état côté serveur</div>
+              <div class="option" onclick="answer(this,false)">Les données sont toujours en lecture seule</div>
+            </div>
+            <div class="q-feedback">« Stateless » signifie que le serveur ne conserve pas d'état entre les requêtes. Chaque requête est indépendante et doit contenir toute l'information nécessaire (token, paramètres). Cela facilite la scalabilité horizontale.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Serveur minimal</h3>
+        <p>Créez un serveur Express avec une route <code>GET /</code> qui retourne « Bienvenue sur mon API » et une route <code>GET /api/status</code> qui retourne un objet JSON avec le statut et la date actuelle.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Bienvenue sur mon API');
+});
+
+app.get('/api/status', (req, res) => {
+  res.json({
+    status: 'ok',
+    date: new Date().toISOString(),
+    uptime: process.uptime()
+  });
+});
+
+app.listen(3000, () => {
+  console.log('Serveur sur http://localhost:3000');
+});</code></pre></div>
+        </details>
+
+        <h3>Exercice 2 — CRUD complet</h3>
+        <p>Créez une API REST pour gérer une liste de tâches (todos) en mémoire. Implémentez les 5 routes : lister, lire une tâche, créer, modifier et supprimer. Chaque tâche a un id, un titre et un statut (fait/pas fait).</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>const express = require('express');
+const app = express();
+app.use(express.json());
+
+let todos = [];
+let nextId = 1;
+
+// Lister toutes les tâches
+app.get('/api/todos', (req, res) => {
+  res.json(todos);
+});
+
+// Lire une tâche
+app.get('/api/todos/:id', (req, res) => {
+  const todo = todos.find(t => t.id === parseInt(req.params.id));
+  if (!todo) return res.status(404).json({ error: 'Tâche non trouvée' });
+  res.json(todo);
+});
+
+// Créer une tâche
+app.post('/api/todos', (req, res) => {
+  const { titre } = req.body;
+  if (!titre) return res.status(400).json({ error: 'Titre requis' });
+  const todo = { id: nextId++, titre, fait: false };
+  todos.push(todo);
+  res.status(201).json(todo);
+});
+
+// Modifier une tâche
+app.patch('/api/todos/:id', (req, res) => {
+  const todo = todos.find(t => t.id === parseInt(req.params.id));
+  if (!todo) return res.status(404).json({ error: 'Tâche non trouvée' });
+  if (req.body.titre !== undefined) todo.titre = req.body.titre;
+  if (req.body.fait !== undefined) todo.fait = req.body.fait;
+  res.json(todo);
+});
+
+// Supprimer une tâche
+app.delete('/api/todos/:id', (req, res) => {
+  const index = todos.findIndex(t => t.id === parseInt(req.params.id));
+  if (index === -1) return res.status(404).json({ error: 'Tâche non trouvée' });
+  todos.splice(index, 1);
+  res.status(204).send();
+});
+
+app.listen(3000);</code></pre></div>
+        </details>
+
+        <h3>Exercice 3 — Middleware de validation</h3>
+        <p>Créez un middleware qui valide le corps des requêtes POST vers <code>/api/users</code>. Le middleware doit vérifier que <code>nom</code> (3 caractères minimum), <code>email</code> (contient @) et <code>age</code> (nombre entre 0 et 150) sont présents et valides.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>function validerUser(req, res, next) {
+  const { nom, email, age } = req.body;
+  const erreurs = [];
+
+  if (!nom || nom.length < 3) {
+    erreurs.push('Le nom doit avoir au moins 3 caractères');
+  }
+  if (!email || !email.includes('@')) {
+    erreurs.push('Email invalide');
+  }
+  if (age === undefined || typeof age !== 'number' || age < 0 || age > 150) {
+    erreurs.push('Âge invalide (0-150)');
+  }
+
+  if (erreurs.length > 0) {
+    return res.status(400).json({ erreurs });
+  }
+  next();
+}
+
+app.post('/api/users', validerUser, (req, res) => {
+  // À ce stade, les données sont validées
+  res.status(201).json({ message: 'Utilisateur créé', data: req.body });
+});</code></pre></div>
+        </details>
+
+        <h3>Exercice 4 — Authentification par token</h3>
+        <p>Implémentez un système de login/inscription simplifié avec JWT. Route POST <code>/api/register</code> pour créer un utilisateur (hashage du mot de passe avec bcrypt), route POST <code>/api/login</code> pour se connecter et recevoir un token, et une route protégée GET <code>/api/profil</code>.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const SECRET = 'ma_cle_secrete'; // En production : variable d'environnement
+
+const users = [];
+
+app.post('/api/register', async (req, res) => {
+  const { nom, email, motDePasse } = req.body;
+  if (users.find(u => u.email === email)) {
+    return res.status(409).json({ error: 'Email déjà utilisé' });
+  }
+  const hash = await bcrypt.hash(motDePasse, 10);
+  const user = { id: users.length + 1, nom, email, hash };
+  users.push(user);
+  res.status(201).json({ message: 'Compte créé' });
+});
+
+app.post('/api/login', async (req, res) => {
+  const { email, motDePasse } = req.body;
+  const user = users.find(u => u.email === email);
+  if (!user || !await bcrypt.compare(motDePasse, user.hash)) {
+    return res.status(401).json({ error: 'Identifiants invalides' });
+  }
+  const token = jwt.sign({ id: user.id }, SECRET, { expiresIn: '24h' });
+  res.json({ token });
+});
+
+function auth(req, res, next) {
+  const token = req.headers.authorization?.replace('Bearer ', '');
+  if (!token) return res.status(401).json({ error: 'Token manquant' });
+  try {
+    req.user = jwt.verify(token, SECRET);
+    next();
+  } catch { res.status(403).json({ error: 'Token invalide' }); }
+}
+
+app.get('/api/profil', auth, (req, res) => {
+  const user = users.find(u => u.id === req.user.id);
+  res.json({ id: user.id, nom: user.nom, email: user.email });
+});</code></pre></div>
+        </details>
+
+        <h3>Exercice 5 — Gestion des erreurs</h3>
+        <p>Créez un middleware de gestion d'erreurs centralisé pour Express. Il doit attraper toutes les erreurs, les journaliser, et retourner une réponse JSON appropriée avec le bon code de statut. Créez aussi une classe <code>AppError</code> pour les erreurs personnalisées.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>class AppError extends Error {
+  constructor(message, statusCode) {
+    super(message);
+    this.statusCode = statusCode;
+    this.isOperational = true;
+  }
+}
+
+// Middleware de gestion d'erreurs (4 paramètres)
+function errorHandler(err, req, res, next) {
+  console.error(`[ERREUR] ${err.message}`);
+
+  if (err.isOperational) {
+    return res.status(err.statusCode).json({
+      error: err.message
+    });
+  }
+
+  // Erreur inattendue
+  res.status(500).json({
+    error: 'Erreur interne du serveur'
+  });
+}
+
+// Utilisation dans les routes
+app.get('/api/articles/:id', async (req, res, next) => {
+  try {
+    const article = await trouverArticle(req.params.id);
+    if (!article) {
+      throw new AppError('Article non trouvé', 404);
+    }
+    res.json(article);
+  } catch (err) {
+    next(err); // passe l'erreur au handler
+  }
+});
+
+// Enregistrer en dernier
+app.use(errorHandler);</code></pre></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="frameworks.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Frameworks front-end</span>
+      </a>
+      <a href="bases-donnees.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Bases de données →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions = document.querySelectorAll('.question-block');
+let currentQ = 0, score = 0;
+let answered = new Array(questions.length).fill(false);
+const dotsContainer = document.getElementById('qDots');
+questions.forEach((_, i) => { const d = document.createElement('div'); d.className = 'q-dot' + (i === 0 ? ' current' : ''); dotsContainer.appendChild(d); });
+function updateDots() { document.querySelectorAll('.q-dot').forEach((d, i) => { d.className = 'q-dot'; if (answered[i]) d.classList.add('done'); if (i === currentQ) d.classList.add('current'); }); }
+function answer(el, ok) {
+  if (answered[currentQ]) return; answered[currentQ] = true;
+  el.closest('.question-block').querySelectorAll('.option').forEach(o => o.classList.add('disabled'));
+  el.classList.add(ok ? 'correct' : 'wrong');
+  if (!ok) el.closest('.question-block').querySelectorAll('.option').forEach(o => { if(o.onclick.toString().includes('true')) o.classList.add('correct'); });
+  else { score++; document.getElementById('scoreDisplay').textContent = score; }
+  el.closest('.question-block').querySelector('.q-feedback').classList.add('show', ok ? 'good' : 'bad');
+  document.getElementById('btnNext').disabled = false;
+  updateDots();
+}
+function nextQ() { if (currentQ < questions.length - 1) { questions[currentQ].classList.remove('active'); currentQ++; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = false; document.getElementById('btnNext').disabled = !answered[currentQ]; if (currentQ === questions.length - 1) document.getElementById('btnNext').textContent = 'Terminer'; updateDots(); } else { showResult(); } }
+function prevQ() { if (currentQ > 0) { questions[currentQ].classList.remove('active'); currentQ--; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = currentQ === 0; document.getElementById('btnNext').disabled = !answered[currentQ]; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); } }
+function showResult() { document.getElementById('quizBody').style.display = 'none'; document.getElementById('quizResult').style.display = 'block'; document.getElementById('resultScore').textContent = score + '/' + questions.length; var m = ['Continue !', 'Pas mal !', 'Très bien !', 'Parfait !']; document.getElementById('resultMsg').textContent = m[Math.min(score, 3)]; }
+function resetQuiz() { score = 0; currentQ = 0; answered = new Array(questions.length).fill(false); document.getElementById('scoreDisplay').textContent = 0; document.getElementById('quizBody').style.display = 'block'; document.getElementById('quizResult').style.display = 'none'; questions.forEach((q,i) => { q.classList.toggle('active', i===0); q.querySelectorAll('.option').forEach(o=>o.className='option'); q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback'); }); document.getElementById('btnPrev').disabled = true; document.getElementById('btnNext').disabled = true; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); }
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+</script>
+<script src="../../mobile.js"></script>
+</body>
+</html>

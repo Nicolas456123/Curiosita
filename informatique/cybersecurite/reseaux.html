@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sécurité des réseaux — Cybersécurité — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #2980b9;
+  --accent2: #3498db;
+  --accent-dim: rgba(41,128,185,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(41,128,185,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../informatique-page.html">Informatique</a> › <a href="../cybersecurite.html">Cybersécurité</a> › <span>Sécurité des réseaux</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🔒 Cybersécurité</span>
+    <span class="tag-level">Intermédiaire</span>
+    <span class="tag-time">⏱ ~50 min</span>
+  </div>
+  <h1><em>Sécurité des réseaux</em></h1>
+  <p class="hero-desc">Pare-feu, VPN, IDS/IPS, protocoles sécurisés et attaques réseau — protéger les communications et les infrastructures connectées.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../cybersecurite.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Cybersécurité</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">💻 Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="fondamentaux.html">Fondamentaux</a>
+    <a class="sidebar-link" href="chiffrement.html">Chiffrement</a>
+    <a class="sidebar-link active" href="#">Sécurité des réseaux</a>
+    <a class="sidebar-link" href="hacking.html">Hacking éthique</a>
+    <a class="sidebar-link" href="applications.html">Sécurité des applications</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Le réseau comme champ de bataille</p>
+        </div>
+      </div>
+      <p class="resume-text">Le <strong>réseau</strong> est le système nerveux de toute infrastructure informatique. Chaque donnée échangée entre un utilisateur et un serveur, chaque email envoyé, chaque appel vidéo transite par des réseaux interconnectés. Sécuriser ces communications est un enjeu majeur car le réseau est par nature un espace partagé où les données peuvent être interceptées, modifiées ou bloquées.</p>
+      <p class="resume-text">Les attaques réseau sont parmi les plus anciennes et les plus fréquentes en cybersécurité. Du simple sniffing de paquets aux attaques DDoS sophistiquées, en passant par l'usurpation d'identité réseau (spoofing) et l'interception de communications (man-in-the-middle), les vecteurs d'attaque sont nombreux et en constante évolution.</p>
+      <div class="highlight-box">
+        <p><strong>Modèle de défense :</strong> la sécurité réseau repose sur une combinaison de prévention (pare-feu, segmentation), de détection (IDS, SIEM) et de réaction (plans d'incident, forensics réseau). Aucune mesure seule n'est suffisante.</p>
+      </div>
+      <p class="resume-text">Ce cours couvre les mécanismes de protection réseau essentiels : pare-feu, VPN, systèmes de détection et de prévention d'intrusion, protocoles sécurisés, et les principales attaques réseau avec leurs contre-mesures.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Défenses et attaques réseau</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Pare-feu (Firewall)</h3>
+        <p>Un <strong>pare-feu</strong> est un dispositif (matériel ou logiciel) qui filtre le trafic réseau en fonction de règles prédéfinies. Il constitue la première ligne de défense entre un réseau de confiance (interne) et un réseau non fiable (Internet).</p>
+        <p><strong>Pare-feu à filtrage de paquets</strong> : examine chaque paquet individuellement (IP source/destination, port, protocole). Rapide mais incapable d'analyser le contexte d'une connexion. Exemple : iptables sous Linux.</p>
+        <p><strong>Pare-feu à état (stateful)</strong> : suit l'état des connexions TCP et ne laisse passer que les paquets appartenant à des connexions légitimes. Bloque les paquets « orphelins » ou incohérents.</p>
+        <p><strong>Pare-feu applicatif (WAF)</strong> : opère au niveau de la couche applicative (HTTP, DNS). Capable d'inspecter le contenu des requêtes pour détecter des injections SQL, du XSS ou d'autres attaques applicatives.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">iptables (Linux)</span></div>
+          <pre><code><span class="cm"># Politique par défaut : tout bloquer</span>
+<span class="kw">iptables</span> -P INPUT DROP
+<span class="kw">iptables</span> -P FORWARD DROP
+<span class="kw">iptables</span> -P OUTPUT ACCEPT
+
+<span class="cm"># Autoriser le trafic loopback</span>
+<span class="kw">iptables</span> -A INPUT -i lo -j ACCEPT
+
+<span class="cm"># Autoriser les connexions établies et liées</span>
+<span class="kw">iptables</span> -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+<span class="cm"># Autoriser SSH uniquement depuis le réseau interne</span>
+<span class="kw">iptables</span> -A INPUT -s <span class="num">192.168.1.0/24</span> -p tcp --dport <span class="num">22</span> -j ACCEPT
+
+<span class="cm"># Autoriser HTTP/HTTPS depuis n'importe où</span>
+<span class="kw">iptables</span> -A INPUT -p tcp --dport <span class="num">80</span> -j ACCEPT
+<span class="kw">iptables</span> -A INPUT -p tcp --dport <span class="num">443</span> -j ACCEPT
+
+<span class="cm"># Journaliser les paquets rejetés</span>
+<span class="kw">iptables</span> -A INPUT -j LOG --log-prefix <span class="str">"[FW-DROP] "</span>
+<span class="kw">iptables</span> -A INPUT -j DROP</code></pre>
+        </div>
+
+        <h3>VPN (Virtual Private Network)</h3>
+        <p>Un <strong>VPN</strong> crée un tunnel chiffré entre deux points du réseau, permettant de transmettre des données de manière confidentielle sur un réseau non sûr comme Internet. Le trafic est encapsulé et chiffré, rendant son interception inutile.</p>
+        <p><strong>IPsec</strong> : protocole standard opérant au niveau de la couche réseau (couche 3). Deux modes : transport (chiffre uniquement la charge utile) et tunnel (chiffre tout le paquet, y compris les en-têtes). Utilisé pour les VPN site-à-site entre entreprises.</p>
+        <p><strong>OpenVPN</strong> : solution open source basée sur TLS. Flexible, fonctionne sur UDP ou TCP, traverse facilement les pare-feu. Très populaire pour les VPN d'accès distant.</p>
+        <p><strong>WireGuard</strong> : protocole moderne, minimaliste (environ 4000 lignes de code contre 100 000 pour OpenVPN). Performances supérieures et surface d'attaque réduite. Intégré au noyau Linux depuis la version 5.6.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">WireGuard — Configuration</span></div>
+          <pre><code><span class="cm"># /etc/wireguard/wg0.conf (Serveur)</span>
+[Interface]
+Address = <span class="num">10.0.0.1/24</span>
+ListenPort = <span class="num">51820</span>
+PrivateKey = <span class="str">cle_privee_serveur_base64</span>
+
+<span class="cm"># Activer le forwarding IP</span>
+PostUp = iptables -A FORWARD -i wg0 -j ACCEPT
+PostDown = iptables -D FORWARD -i wg0 -j ACCEPT
+
+[Peer]
+PublicKey = <span class="str">cle_publique_client_base64</span>
+AllowedIPs = <span class="num">10.0.0.2/32</span>
+
+<span class="cm"># /etc/wireguard/wg0.conf (Client)</span>
+[Interface]
+Address = <span class="num">10.0.0.2/24</span>
+PrivateKey = <span class="str">cle_privee_client_base64</span>
+
+[Peer]
+PublicKey = <span class="str">cle_publique_serveur_base64</span>
+Endpoint = <span class="num">203.0.113.1:51820</span>
+AllowedIPs = <span class="num">0.0.0.0/0</span>  <span class="cm"># Tout le trafic passe par le VPN</span></code></pre>
+        </div>
+
+        <h3>IDS et IPS</h3>
+        <p>Un <strong>IDS</strong> (Intrusion Detection System) surveille le trafic réseau pour détecter des activités suspectes et génère des alertes. Un <strong>IPS</strong> (Intrusion Prevention System) va plus loin en bloquant automatiquement le trafic malveillant détecté.</p>
+        <p><strong>Détection par signatures</strong> : compare le trafic à une base de données de motifs d'attaques connus (similaire à un antivirus). Très efficace contre les attaques connues, mais inefficace contre les attaques inédites (zero-day).</p>
+        <p><strong>Détection par anomalies</strong> : établit un profil du trafic normal et alerte quand le comportement dévie significativement. Peut détecter des attaques inconnues, mais génère plus de faux positifs.</p>
+        <p><strong>Snort</strong> et <strong>Suricata</strong> sont les IDS/IPS open source les plus utilisés. Suricata gère le multi-threading natif et l'inspection approfondie des protocoles.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Snort — Règle de détection</span></div>
+          <pre><code><span class="cm"># Détecter une tentative de scan de port (SYN sans ACK)</span>
+<span class="kw">alert</span> tcp any any -> $HOME_NET any (
+    msg:<span class="str">"Scan SYN détecté"</span>;
+    flags:S;
+    threshold: type threshold, track by_src, count <span class="num">20</span>, seconds <span class="num">5</span>;
+    sid:<span class="num">1000001</span>; rev:<span class="num">1</span>;
+)
+
+<span class="cm"># Détecter une tentative d'injection SQL basique</span>
+<span class="kw">alert</span> tcp any any -> $HOME_NET $HTTP_PORTS (
+    msg:<span class="str">"Tentative injection SQL"</span>;
+    content:<span class="str">"UNION SELECT"</span>; nocase;
+    content:<span class="str">"FROM"</span>; nocase; distance:<span class="num">0</span>;
+    sid:<span class="num">1000002</span>; rev:<span class="num">1</span>;
+)
+
+<span class="cm"># Détecter un transfert de zone DNS non autorisé</span>
+<span class="kw">alert</span> tcp any any -> $DNS_SERVERS <span class="num">53</span> (
+    msg:<span class="str">"Transfert de zone DNS (AXFR)"</span>;
+    content:|<span class="num">00 FC</span>|;
+    sid:<span class="num">1000003</span>; rev:<span class="num">1</span>;
+)</code></pre>
+        </div>
+
+        <h3>Segmentation réseau</h3>
+        <p>La <strong>segmentation</strong> divise le réseau en zones isolées pour limiter la propagation d'une attaque. Si un poste de travail est compromis, l'attaquant ne doit pas pouvoir accéder directement aux serveurs de base de données.</p>
+        <p><strong>VLAN</strong> (Virtual LAN) : sépare logiquement un réseau physique en plusieurs sous-réseaux. Chaque VLAN est un domaine de diffusion distinct. Le trafic entre VLAN passe par un routeur/pare-feu.</p>
+        <p><strong>DMZ</strong> (Zone démilitarisée) : sous-réseau isolé entre Internet et le réseau interne, hébergeant les serveurs accessibles depuis l'extérieur (web, mail, DNS). Deux pare-feu protègent la DMZ : un face à Internet, un face au réseau interne.</p>
+        <p><strong>Micro-segmentation</strong> : approche Zero Trust où chaque charge de travail (workload) a ses propres règles de sécurité. Le mouvement latéral d'un attaquant est rendu extrêmement difficile car chaque communication entre services est contrôlée.</p>
+
+        <h3>Protocoles sécurisés</h3>
+        <p>Remplacer les protocoles en clair par leurs équivalents sécurisés est une mesure fondamentale :</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Protocoles : non sécurisé → sécurisé</span></div>
+          <pre><code><span class="cm">Protocole          Non sécurisé    →    Sécurisé</span>
+─────────────────────────────────────────────────
+Web                <span class="kw">HTTP</span> (80)       →    <span class="fn">HTTPS</span> (443)     TLS
+Transfert fichier  <span class="kw">FTP</span> (21)        →    <span class="fn">SFTP</span> (22)       SSH
+Shell distant      <span class="kw">Telnet</span> (23)     →    <span class="fn">SSH</span> (22)        Chiffré
+Email envoi        <span class="kw">SMTP</span> (25)       →    <span class="fn">SMTPS</span> (465)     TLS
+Email réception    <span class="kw">POP3</span> (110)      →    <span class="fn">POP3S</span> (995)     TLS
+                   <span class="kw">IMAP</span> (143)      →    <span class="fn">IMAPS</span> (993)     TLS
+DNS                <span class="kw">DNS</span> (53)        →    <span class="fn">DoH/DoT</span> (443)   TLS
+Réseau local       <span class="kw">HTTP</span>            →    <span class="fn">802.1X</span>          EAP
+
+<span class="cm">Règle d'or : si un protocole transmet en clair, il existe</span>
+<span class="cm">une alternative chiffrée. Toujours préférer la version sécurisée.</span></code></pre>
+        </div>
+
+        <h3>Attaques réseau courantes</h3>
+        <p>Les attaques réseau exploitent les faiblesses des protocoles et des configurations. Connaître ces attaques est essentiel pour s'en défendre.</p>
+        <p><strong>Man-in-the-Middle (MITM)</strong> : l'attaquant s'interpose entre deux parties communicantes, interceptant et potentiellement modifiant les échanges. L'ARP spoofing sur un réseau local est la technique classique : l'attaquant associe son adresse MAC à l'adresse IP de la passerelle, redirigeant tout le trafic vers lui.</p>
+        <p><strong>DDoS (Distributed Denial of Service)</strong> : saturer un service avec un volume massif de requêtes provenant de milliers de machines compromises (botnet). Les attaques volumétriques peuvent atteindre plusieurs térabits par seconde. Contre-mesures : CDN, filtrage en amont, services anti-DDoS spécialisés.</p>
+        <p><strong>DNS poisoning</strong> : corrompre le cache DNS pour rediriger les utilisateurs vers des serveurs malveillants. L'utilisateur tape une URL légitime mais est redirigé vers un site de phishing. DNSSEC (signatures DNS) est la contre-mesure principale.</p>
+        <p><strong>Scan de ports</strong> : l'attaquant sonde les ports d'un serveur pour identifier les services actifs et leurs versions. Nmap est l'outil de référence. Contre-mesure : fermer les ports inutiles, masquer les bannières de version, utiliser un IDS pour détecter les scans.</p>
+
+        <h3>Architecture réseau sécurisée</h3>
+        <p>Une architecture réseau bien conçue intègre la sécurité à chaque niveau :</p>
+        <div class="highlight-box">
+          <p><strong>Principes d'architecture sécurisée :</strong><br>
+          <strong>Segmentation</strong> : isoler les zones (production, développement, DMZ, management)<br>
+          <strong>Redondance</strong> : éliminer les points de défaillance uniques (SPOF)<br>
+          <strong>Surveillance</strong> : centraliser les logs (SIEM), monitorer le trafic en temps réel<br>
+          <strong>Accès</strong> : authentification 802.1X sur les ports physiques, NAC (Network Access Control)<br>
+          <strong>Chiffrement</strong> : TLS pour tout le trafic, VPN pour les accès distants</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">📊 Sécurité des réseaux — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quel type de pare-feu peut détecter une injection SQL dans une requête HTTP ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Pare-feu à filtrage de paquets</div>
+              <div class="option" onclick="answer(this,false)">Pare-feu à état (stateful)</div>
+              <div class="option" onclick="answer(this,true)">Pare-feu applicatif (WAF)</div>
+              <div class="option" onclick="answer(this,false)">Pare-feu matériel</div>
+            </div>
+            <div class="q-feedback">Seul un pare-feu applicatif (WAF) opère au niveau de la couche 7 (application) et peut inspecter le contenu des requêtes HTTP pour y détecter des motifs d'attaque comme les injections SQL.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Quelle est la différence principale entre un IDS et un IPS ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">L'IDS est matériel, l'IPS est logiciel</div>
+              <div class="option" onclick="answer(this,true)">L'IDS détecte et alerte, l'IPS détecte et bloque automatiquement</div>
+              <div class="option" onclick="answer(this,false)">L'IDS analyse le réseau, l'IPS analyse les applications</div>
+              <div class="option" onclick="answer(this,false)">L'IDS est gratuit, l'IPS est payant</div>
+            </div>
+            <div class="q-feedback">L'IDS (Intrusion Detection System) se contente de détecter et d'alerter, tandis que l'IPS (Intrusion Prevention System) peut en plus bloquer automatiquement le trafic identifié comme malveillant.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Qu'est-ce qu'une DMZ dans un réseau d'entreprise ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Un réseau Wi-Fi pour les visiteurs</div>
+              <div class="option" onclick="answer(this,true)">Une zone isolée entre Internet et le réseau interne pour les serveurs publics</div>
+              <div class="option" onclick="answer(this,false)">Un VPN réservé aux administrateurs</div>
+              <div class="option" onclick="answer(this,false)">Un pare-feu placé devant le routeur</div>
+            </div>
+            <div class="q-feedback">La DMZ (Zone Démilitarisée) est un sous-réseau isolé hébergeant les serveurs accessibles depuis Internet (web, mail, DNS), protégé par des pare-feu des deux côtés pour limiter l'impact d'une compromission.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Quelle attaque consiste à s'interposer entre deux parties pour intercepter leurs communications ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">Man-in-the-Middle (MITM)</div>
+              <div class="option" onclick="answer(this,false)">DDoS</div>
+              <div class="option" onclick="answer(this,false)">DNS poisoning</div>
+              <div class="option" onclick="answer(this,false)">Brute force</div>
+            </div>
+            <div class="q-feedback">L'attaque Man-in-the-Middle (MITM) place l'attaquant entre deux parties communicantes, lui permettant d'intercepter, lire et potentiellement modifier les échanges. L'ARP spoofing est une technique courante pour y parvenir.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quel protocole VPN moderne est intégré au noyau Linux et ne compte qu'environ 4000 lignes de code ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">OpenVPN</div>
+              <div class="option" onclick="answer(this,false)">IPsec</div>
+              <div class="option" onclick="answer(this,true)">WireGuard</div>
+              <div class="option" onclick="answer(this,false)">L2TP</div>
+            </div>
+            <div class="q-feedback">WireGuard est un protocole VPN moderne et minimaliste (~4000 lignes de code) intégré au noyau Linux depuis la version 5.6. Sa simplicité réduit la surface d'attaque et améliore les performances par rapport aux solutions plus anciennes.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Quelle est l'alternative sécurisée au protocole Telnet ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">FTP</div>
+              <div class="option" onclick="answer(this,true)">SSH</div>
+              <div class="option" onclick="answer(this,false)">HTTP</div>
+              <div class="option" onclick="answer(this,false)">SMTP</div>
+            </div>
+            <div class="q-feedback">SSH (Secure Shell) est l'alternative sécurisée à Telnet. Tandis que Telnet transmet tout en clair (y compris les mots de passe), SSH chiffre l'intégralité de la session, incluant l'authentification et les commandes.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Règles de pare-feu</h3>
+        <p>Un serveur web héberge un site HTTPS et un service SSH pour l'administration. Écrivez les règles iptables nécessaires en suivant le principe du moindre privilège : bloquer tout par défaut, n'autoriser que le strict nécessaire. Le SSH ne doit être accessible que depuis l'adresse IP de l'administrateur (192.168.1.100).</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code># Politique par défaut : tout bloquer
+iptables -P INPUT DROP
+iptables -P FORWARD DROP
+iptables -P OUTPUT ACCEPT
+
+# Autoriser le loopback (communication locale)
+iptables -A INPUT -i lo -j ACCEPT
+
+# Autoriser les connexions déjà établies
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# Autoriser HTTPS depuis n'importe où (port 443)
+iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+
+# Autoriser SSH uniquement depuis l'IP admin
+iptables -A INPUT -s 192.168.1.100 -p tcp --dport 22 -j ACCEPT
+
+# Autoriser ICMP ping (optionnel, pour le monitoring)
+iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+
+# Journaliser puis rejeter tout le reste
+iptables -A INPUT -j LOG --log-prefix "[FW-DROP] "
+iptables -A INPUT -j DROP
+
+# Notes : pas de règle HTTP (port 80) car tout passe par HTTPS
+# Redirection 80→443 gérée au niveau du serveur web (nginx)</code></pre></div>
+        </details>
+
+        <h3>Exercice 2 — Analyse de capture réseau</h3>
+        <p>Avec Wireshark ou tcpdump, capturez le trafic lors d'une connexion HTTPS à un site web. Identifiez : (a) le handshake TCP (SYN, SYN-ACK, ACK), (b) le handshake TLS (ClientHello, ServerHello), (c) la cipher suite négociée. Expliquez pourquoi le contenu des échanges est illisible après le handshake.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code># Capture avec tcpdump (30 secondes sur l'interface eth0)
+sudo tcpdump -i eth0 -w capture.pcap -c 100 port 443
+
+# Ouvrir avec Wireshark et appliquer le filtre :
+# tcp.port == 443
+
+# (a) Handshake TCP (3 premiers paquets) :
+# Paquet 1 : Client → Serveur  [SYN]        seq=0
+# Paquet 2 : Serveur → Client  [SYN, ACK]   seq=0 ack=1
+# Paquet 3 : Client → Serveur  [ACK]        seq=1 ack=1
+
+# (b) Handshake TLS (dans les paquets suivants) :
+# ClientHello : versions TLS supportées, cipher suites proposées,
+#               extensions (SNI avec le nom de domaine)
+# ServerHello : version TLS choisie, cipher suite sélectionnée,
+#               certificat du serveur
+
+# (c) Cipher suite typique (TLS 1.3) :
+# TLS_AES_256_GCM_SHA384
+# = AES-256-GCM pour le chiffrement, SHA-384 pour le hachage
+
+# Pourquoi le contenu est illisible :
+# Après le handshake, toutes les données sont chiffrées avec AES-GCM
+# en utilisant les clés de session dérivées de l'échange Diffie-Hellman.
+# Seuls le client et le serveur possèdent ces clés.</code></pre></div>
+        </details>
+
+        <h3>Exercice 3 — Détection d'ARP spoofing</h3>
+        <p>Écrivez un script Python qui surveille les réponses ARP sur le réseau local et détecte les tentatives d'ARP spoofing (une même adresse IP associée à deux adresses MAC différentes). Utilisez la bibliothèque <code>scapy</code>.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>from scapy.all import sniff, ARP
+from collections import defaultdict
+import datetime
+
+# Table ARP : IP → MAC
+table_arp = {}
+alertes = []
+
+def detecter_arp_spoofing(paquet):
+    if paquet.haslayer(ARP) and paquet[ARP].op == 2:  # ARP reply
+        ip = paquet[ARP].psrc
+        mac = paquet[ARP].hwsrc
+
+        if ip in table_arp:
+            if table_arp[ip] != mac:
+                alerte = (
+                    f"[ALERTE] ARP Spoofing détecté !\n"
+                    f"  IP : {ip}\n"
+                    f"  MAC précédente : {table_arp[ip]}\n"
+                    f"  MAC actuelle   : {mac}\n"
+                    f"  Heure : {datetime.datetime.now()}"
+                )
+                print(alerte)
+                alertes.append(alerte)
+        else:
+            print(f"[INFO] Nouvelle entrée ARP : {ip} → {mac}")
+
+        table_arp[ip] = mac
+
+print("Surveillance ARP en cours... (Ctrl+C pour arrêter)")
+sniff(filter="arp", prn=detecter_arp_spoofing, store=0)
+
+# Contre-mesures ARP spoofing :
+# 1. Entrées ARP statiques pour les serveurs critiques
+# 2. Dynamic ARP Inspection (DAI) sur les switchs
+# 3. 802.1X pour l'authentification réseau</code></pre></div>
+        </details>
+
+        <h3>Exercice 4 — Architecture DMZ</h3>
+        <p>Dessinez (en pseudo-schéma texte) l'architecture réseau d'une entreprise comprenant : un réseau interne (postes de travail), une DMZ (serveur web, serveur mail), un accès VPN pour les télétravailleurs, et une connexion Internet. Précisez le placement des pare-feu et les flux autorisés.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>                    ┌──────────────┐
+                    │   Internet   │
+                    └──────┬───────┘
+                           │
+                    ┌──────┴───────┐
+                    │  Pare-feu 1  │  (filtrage périmétrique)
+                    │  externe     │
+                    └──────┬───────┘
+                           │
+              ┌────────────┼────────────┐
+              │            │            │
+         ┌────┴────┐  ┌───┴───┐  ┌────┴────┐
+         │ Serveur │  │Serveur│  │  VPN    │
+         │  Web    │  │ Mail  │  │ Gateway │
+         └─────────┘  └───────┘  └────┬────┘
+              │            │          │
+              └────────────┼──────────┘
+                           │
+                    ┌──────┴───────┐
+                    │  Pare-feu 2  │  (filtrage interne)
+                    │  interne     │
+                    └──────┬───────┘
+                           │
+              ┌────────────┼────────────┐
+              │            │            │
+         ┌────┴────┐  ┌───┴───┐  ┌────┴────┐
+         │ Postes  │  │  BDD  │  │ Serveur │
+         │ travail │  │interne│  │ fichiers│
+         └─────────┘  └───────┘  └─────────┘
+
+FLUX AUTORISÉS :
+  Internet → DMZ : HTTP/S (80, 443), SMTP (25)
+  DMZ → Interne : requêtes BDD (3306) depuis le serveur web
+  Interne → DMZ : accès mail, web interne
+  Interne → Internet : HTTP/S via proxy
+  VPN → Interne : accès authentifié (MFA obligatoire)
+  Interdit : Internet → réseau interne (jamais directement)</code></pre></div>
+        </details>
+
+        <h3>Exercice 5 — Scan de ports et durcissement</h3>
+        <p>En utilisant Nmap, scannez un serveur de test (vous pouvez utiliser scanme.nmap.org qui autorise les scans). Listez les ports ouverts, identifiez les services et leurs versions. Pour chaque service trouvé, proposez une mesure de durcissement.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code># Scan avec détection de version
+nmap -sV -sC scanme.nmap.org
+
+# Résultat typique :
+# PORT      STATE  SERVICE     VERSION
+# 22/tcp    open   ssh         OpenSSH 8.9p1
+# 80/tcp    open   http        Apache httpd 2.4.52
+# 9929/tcp  open   nping-echo  Nping echo
+# 31337/tcp open   tcpwrapped
+
+# Mesures de durcissement par service :
+
+# SSH (port 22) :
+# → Désactiver l'authentification par mot de passe (clés uniquement)
+# → Changer le port par défaut (ex: 2222)
+# → Limiter les utilisateurs autorisés (AllowUsers)
+# → Installer fail2ban pour bloquer les tentatives de brute force
+# → Désactiver le login root (PermitRootLogin no)
+
+# HTTP (port 80) :
+# → Rediriger vers HTTPS (port 443)
+# → Masquer la version du serveur (ServerTokens Prod)
+# → Activer les en-têtes de sécurité (CSP, HSTS, X-Frame-Options)
+# → Désactiver les modules Apache inutiles
+# → Mettre à jour vers la dernière version
+
+# Ports non nécessaires (9929, 31337) :
+# → Fermer avec le pare-feu s'ils ne sont pas utilisés
+# → iptables -A INPUT -p tcp --dport 9929 -j DROP
+# → iptables -A INPUT -p tcp --dport 31337 -j DROP
+
+# Général :
+# → Activer un IDS (Suricata) pour surveiller le trafic
+# → Journaliser tous les accès (rsyslog → SIEM)
+# → Mises à jour automatiques de sécurité</code></pre></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="chiffrement.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Chiffrement et cryptographie</span>
+      </a>
+      <a href="hacking.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Hacking éthique →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions=document.querySelectorAll('.question-block');let currentQ=0,score=0;let answered=new Array(questions.length).fill(false);const dotsContainer=document.getElementById('qDots');questions.forEach((_,i)=>{const d=document.createElement('div');d.className='q-dot'+(i===0?' current':'');dotsContainer.appendChild(d)});function updateDots(){document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot';if(answered[i])d.classList.add('done');if(i===currentQ)d.classList.add('current')})}function answer(el,ok){if(answered[currentQ])return;answered[currentQ]=true;el.closest('.question-block').querySelectorAll('.option').forEach(o=>o.classList.add('disabled'));el.classList.add(ok?'correct':'wrong');if(!ok)el.closest('.question-block').querySelectorAll('.option').forEach(o=>{if(o.onclick.toString().includes('true'))o.classList.add('correct')});else{score++;document.getElementById('scoreDisplay').textContent=score}el.closest('.question-block').querySelector('.q-feedback').classList.add('show',ok?'good':'bad');document.getElementById('btnNext').disabled=false;updateDots()}function nextQ(){if(currentQ<questions.length-1){questions[currentQ].classList.remove('active');currentQ++;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=false;document.getElementById('btnNext').disabled=!answered[currentQ];if(currentQ===questions.length-1)document.getElementById('btnNext').textContent='Terminer';updateDots()}else{showResult()}}function prevQ(){if(currentQ>0){questions[currentQ].classList.remove('active');currentQ--;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=currentQ===0;document.getElementById('btnNext').disabled=!answered[currentQ];document.getElementById('btnNext').textContent='Suivant →';updateDots()}}function showResult(){document.getElementById('quizBody').style.display='none';document.getElementById('quizResult').style.display='block';document.getElementById('resultScore').textContent=score+'/'+questions.length;var m=['Continue !','Pas mal !','Très bien !','Parfait !'];document.getElementById('resultMsg').textContent=m[Math.min(score,3)]}function resetQuiz(){score=0;currentQ=0;answered=new Array(questions.length).fill(false);document.getElementById('scoreDisplay').textContent=0;document.getElementById('quizBody').style.display='block';document.getElementById('quizResult').style.display='none';questions.forEach((q,i)=>{q.classList.toggle('active',i===0);q.querySelectorAll('.option').forEach(o=>o.className='option');q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback')});document.getElementById('btnPrev').disabled=true;document.getElementById('btnNext').disabled=true;document.getElementById('btnNext').textContent='Suivant →';updateDots()}function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active')}(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l});if(current){links.forEach(function(l){l.classList.remove('active')});current.classList.add('active')}},{passive:true})})();
+</script>
+<script src="../../mobile.js"></script>
+</body>
+</html>

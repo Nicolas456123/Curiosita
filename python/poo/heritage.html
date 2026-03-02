@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Héritage — POO Python — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #27ae60;
+  --accent2: #2ecc71;
+  --accent-dim: rgba(39,174,96,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(39,174,96,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../informatique-page.html">Informatique</a> › <a href="../poo.html">POO Python</a> › <span>Héritage</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🐍 POO Python</span>
+    <span class="tag-level">Intermédiaire</span>
+    <span class="tag-time">⏱ ~55 min</span>
+  </div>
+  <h1><em>Héritage</em></h1>
+  <p class="hero-desc">Classes parentes et enfants, super(), héritage multiple et Method Resolution Order — réutiliser et spécialiser le code grâce à la hiérarchie de classes.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../poo.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← POO Python</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="classes.html">Classes et objets</a>
+    <a class="sidebar-link active" href="#">Héritage</a>
+    <a class="sidebar-link" href="encapsulation.html">Encapsulation</a>
+    <a class="sidebar-link" href="polymorphisme.html">Polymorphisme</a>
+    <a class="sidebar-link" href="methodes-speciales.html">Méthodes spéciales</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Réutiliser et spécialiser</p>
+        </div>
+      </div>
+      <p class="resume-text">L'<strong>héritage</strong> est un mécanisme fondamental de la POO qui permet de créer une nouvelle classe (classe <strong>enfant</strong> ou <strong>dérivée</strong>) à partir d'une classe existante (classe <strong>parente</strong> ou <strong>de base</strong>). La classe enfant hérite automatiquement de tous les attributs et méthodes de la classe parente, puis peut les compléter ou les redéfinir.</p>
+      <p class="resume-text">Ce mécanisme répond au principe <strong>DRY</strong> (Don't Repeat Yourself) : au lieu de dupliquer du code commun dans plusieurs classes, on le factorise dans une classe parente. Les classes enfants ne définissent que ce qui leur est spécifique.</p>
+      <div class="highlight-box">
+        <p><strong>Relation « est-un » :</strong> l'héritage modélise une relation de spécialisation. Un <code>Chien</code> <em>est un</em> <code>Animal</code>, un <code>Carre</code> <em>est un</em> <code>Rectangle</code>. Si la relation n'est pas naturelle, l'héritage n'est probablement pas le bon choix — préférez la <strong>composition</strong> (un objet <em>contient</em> un autre objet).</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Hiérarchies de classes en Python</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Héritage simple</h3>
+        <p>Pour hériter d'une classe, on place le nom de la classe parente entre parenthèses après le nom de la classe enfant :</p>
+<pre><code>class Animal:
+    def __init__(self, nom, age):
+        self.nom = nom
+        self.age = age
+
+    def se_presenter(self):
+        return f"Je suis {self.nom}, j'ai {self.age} ans."
+
+    def parler(self):
+        return "..."
+
+class Chien(Animal):
+    def parler(self):
+        return f"{self.nom} dit : Wouf !"
+
+class Chat(Animal):
+    def parler(self):
+        return f"{self.nom} dit : Miaou !"
+
+# Utilisation
+rex = Chien("Rex", 5)
+print(rex.se_presenter())  # Je suis Rex, j'ai 5 ans.  (hérité)
+print(rex.parler())         # Rex dit : Wouf !          (redéfini)
+
+felix = Chat("Félix", 3)
+print(felix.parler())       # Félix dit : Miaou !
+
+print(isinstance(rex, Chien))   # True
+print(isinstance(rex, Animal))  # True (un Chien est un Animal)</code></pre>
+        <p>La classe <code>Chien</code> hérite de <code>se_presenter()</code> sans la réécrire, mais <strong>redéfinit</strong> (override) la méthode <code>parler()</code>.</p>
+
+        <h3>La fonction super()</h3>
+        <p><code>super()</code> permet d'appeler une méthode de la classe parente depuis la classe enfant. C'est essentiel quand la classe enfant redéfinit <code>__init__</code> mais veut conserver l'initialisation du parent :</p>
+<pre><code>class Vehicule:
+    def __init__(self, marque, modele, annee):
+        self.marque = marque
+        self.modele = modele
+        self.annee = annee
+
+    def description(self):
+        return f"{self.marque} {self.modele} ({self.annee})"
+
+class Voiture(Vehicule):
+    def __init__(self, marque, modele, annee, nb_portes):
+        super().__init__(marque, modele, annee)  # appel au parent
+        self.nb_portes = nb_portes               # attribut spécifique
+
+    def description(self):
+        base = super().description()  # réutilise la méthode parente
+        return f"{base} — {self.nb_portes} portes"
+
+class VoitureElectrique(Voiture):
+    def __init__(self, marque, modele, annee, nb_portes, autonomie_km):
+        super().__init__(marque, modele, annee, nb_portes)
+        self.autonomie_km = autonomie_km
+
+    def description(self):
+        base = super().description()
+        return f"{base} — autonomie {self.autonomie_km} km"
+
+# Chaîne d'héritage sur 3 niveaux
+tesla = VoitureElectrique("Tesla", "Model 3", 2023, 4, 580)
+print(tesla.description())
+# Tesla Model 3 (2023) — 4 portes — autonomie 580 km</code></pre>
+        <div class="highlight-box">
+          <p><strong>Règle d'or :</strong> appelez toujours <code>super().__init__(...)</code> dans le <code>__init__</code> de la classe enfant. Sinon, les attributs de la classe parente ne seront pas initialisés et vous obtiendrez des <code>AttributeError</code>.</p>
+        </div>
+
+        <h3>Redéfinition de méthodes (override)</h3>
+        <p>Une classe enfant peut <strong>redéfinir</strong> n'importe quelle méthode héritée. Python utilisera toujours la version la plus spécifique (celle de la classe de l'objet) :</p>
+<pre><code>class Forme:
+    def aire(self):
+        raise NotImplementedError("Les sous-classes doivent implémenter aire()")
+
+class Rectangle(Forme):
+    def __init__(self, largeur, hauteur):
+        self.largeur = largeur
+        self.hauteur = hauteur
+
+    def aire(self):
+        return self.largeur * self.hauteur
+
+class Carre(Rectangle):
+    def __init__(self, cote):
+        super().__init__(cote, cote)  # un carré est un rectangle de côtés égaux
+
+# Pas besoin de redéfinir aire() dans Carre — celle de Rectangle fonctionne
+c = Carre(5)
+print(c.aire())  # 25</code></pre>
+
+        <h3>Vérifier la hiérarchie</h3>
+        <p>Python fournit des outils pour inspecter les relations d'héritage :</p>
+<pre><code>print(isinstance(tesla, VoitureElectrique))  # True
+print(isinstance(tesla, Voiture))             # True
+print(isinstance(tesla, Vehicule))            # True
+
+print(issubclass(Voiture, Vehicule))          # True
+print(issubclass(Vehicule, Voiture))          # False
+
+# Voir la chaîne de classes parentes
+print(VoitureElectrique.__mro__)
+# (&lt;class 'VoitureElectrique'&gt;, &lt;class 'Voiture'&gt;,
+#  &lt;class 'Vehicule'&gt;, &lt;class 'object'&gt;)</code></pre>
+        <p>Toutes les classes Python héritent implicitement de <code>object</code>, la classe de base universelle.</p>
+
+        <h3>Héritage multiple</h3>
+        <p>Python permet à une classe d'hériter de <strong>plusieurs classes parentes</strong> simultanément :</p>
+<pre><code>class Nageur:
+    def nager(self):
+        return f"{self.nom} nage."
+
+class Coureur:
+    def courir(self):
+        return f"{self.nom} court."
+
+class Triathlete(Nageur, Coureur):
+    def __init__(self, nom):
+        self.nom = nom
+
+    def compete(self):
+        return f"{self.nager()} {self.courir()}"
+
+t = Triathlete("Alice")
+print(t.compete())  # Alice nage. Alice court.</code></pre>
+
+        <h3>Le MRO (Method Resolution Order)</h3>
+        <p>Quand plusieurs classes parentes définissent la même méthode, Python utilise l'algorithme <strong>C3 Linearization</strong> pour déterminer l'ordre de recherche. C'est le <strong>MRO</strong> (Method Resolution Order) :</p>
+<pre><code>class A:
+    def qui(self):
+        return "A"
+
+class B(A):
+    def qui(self):
+        return "B"
+
+class C(A):
+    def qui(self):
+        return "C"
+
+class D(B, C):
+    pass  # ne redéfinit pas qui()
+
+d = D()
+print(d.qui())  # B — trouvé dans B avant C
+
+# L'ordre de résolution complet :
+print(D.__mro__)
+# (&lt;class 'D'&gt;, &lt;class 'B'&gt;, &lt;class 'C'&gt;, &lt;class 'A'&gt;, &lt;class 'object'&gt;)
+
+# Python cherche dans l'ordre : D → B → C → A → object
+# Il trouve qui() dans B et s'arrête</code></pre>
+        <div class="highlight-box">
+          <p><strong>Le problème du diamant :</strong> quand <code>D</code> hérite de <code>B</code> et <code>C</code>, qui héritent toutes deux de <code>A</code>, le MRO garantit que <code>A</code> n'est visité qu'une seule fois et dans le bon ordre. C'est pour cela que <code>super()</code> est préférable aux appels directs au parent.</p>
+        </div>
+
+        <h3>Héritage vs composition</h3>
+        <p>L'héritage n'est pas toujours la meilleure solution. La <strong>composition</strong> (un objet <em>possède</em> un autre objet) est souvent préférable :</p>
+<pre><code># Mauvais usage de l'héritage (une voiture n'est pas un moteur)
+class Moteur:
+    def demarrer(self):
+        return "Moteur démarré"
+
+# ❌ Héritage inapproprié
+class MauvaiseVoiture(Moteur):
+    pass
+
+# ✓ Composition : une voiture A UN moteur
+class Moteur:
+    def __init__(self, puissance):
+        self.puissance = puissance
+
+    def demarrer(self):
+        return f"Moteur {self.puissance}ch démarré"
+
+class BonneVoiture:
+    def __init__(self, marque, puissance):
+        self.marque = marque
+        self.moteur = Moteur(puissance)  # composition
+
+    def demarrer(self):
+        return f"{self.marque} : {self.moteur.demarrer()}"
+
+v = BonneVoiture("Peugeot", 130)
+print(v.demarrer())  # Peugeot : Moteur 130ch démarré</code></pre>
+        <p><strong>Règle pratique :</strong> utilisez l'héritage pour les relations « est-un » et la composition pour les relations « a-un » ou « utilise-un ».</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">🐍 Héritage — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Comment une classe enfant hérite-t-elle d'une classe parente en Python ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">class Enfant extends Parent:</div>
+              <div class="option" onclick="answer(this,true)">class Enfant(Parent):</div>
+              <div class="option" onclick="answer(this,false)">class Enfant inherits Parent:</div>
+              <div class="option" onclick="answer(this,false)">class Enfant &lt;- Parent:</div>
+            </div>
+            <div class="q-feedback">En Python, on indique l'héritage en plaçant la classe parente entre parenthèses : class Enfant(Parent). Le mot-clé extends est utilisé en Java, pas en Python.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">À quoi sert la fonction <code>super()</code> ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">À créer une nouvelle instance de la classe parente</div>
+              <div class="option" onclick="answer(this,false)">À supprimer les méthodes héritées</div>
+              <div class="option" onclick="answer(this,true)">À appeler une méthode de la classe parente depuis la classe enfant</div>
+              <div class="option" onclick="answer(this,false)">À vérifier si une classe est parente d'une autre</div>
+            </div>
+            <div class="q-feedback">super() retourne un objet proxy qui permet d'appeler les méthodes de la classe parente. C'est indispensable pour réutiliser l'initialisation du parent dans __init__ de l'enfant.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Que signifie MRO en Python ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Multiple Return Objects</div>
+              <div class="option" onclick="answer(this,true)">Method Resolution Order</div>
+              <div class="option" onclick="answer(this,false)">Module Resource Optimization</div>
+              <div class="option" onclick="answer(this,false)">Main Runtime Operation</div>
+            </div>
+            <div class="q-feedback">Le MRO (Method Resolution Order) détermine l'ordre dans lequel Python cherche une méthode dans la hiérarchie de classes, surtout en cas d'héritage multiple. Il utilise l'algorithme C3 Linearization.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Si <code>class D(B, C)</code> et que B et C définissent toutes deux une méthode <code>action()</code>, laquelle sera appelée par <code>D().action()</code> ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">Celle de B (premier parent listé)</div>
+              <div class="option" onclick="answer(this,false)">Celle de C (dernier parent listé)</div>
+              <div class="option" onclick="answer(this,false)">Une erreur est levée</div>
+              <div class="option" onclick="answer(this,false)">Les deux sont appelées simultanément</div>
+            </div>
+            <div class="q-feedback">Le MRO suit l'ordre de déclaration des parents : D → B → C. Python trouve action() dans B en premier et l'utilise. C'est pourquoi l'ordre des parents dans la déclaration est important.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quelle fonction permet de vérifier si un objet est une instance d'une classe ou de ses classes parentes ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">type(obj) == Classe</div>
+              <div class="option" onclick="answer(this,true)">isinstance(obj, Classe)</div>
+              <div class="option" onclick="answer(this,false)">issubclass(obj, Classe)</div>
+              <div class="option" onclick="answer(this,false)">obj.is_instance(Classe)</div>
+            </div>
+            <div class="q-feedback">isinstance(obj, Classe) retourne True si obj est une instance de Classe ou d'une de ses sous-classes. issubclass() vérifie la relation entre classes, pas entre un objet et une classe.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Quand devrait-on préférer la composition à l'héritage ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Quand on veut réutiliser du code</div>
+              <div class="option" onclick="answer(this,false)">Quand la relation est de type « est-un »</div>
+              <div class="option" onclick="answer(this,true)">Quand la relation est de type « a-un » ou « utilise-un »</div>
+              <div class="option" onclick="answer(this,false)">Jamais, l'héritage est toujours préférable</div>
+            </div>
+            <div class="q-feedback">La composition modélise les relations « a-un » (une voiture a un moteur). L'héritage modélise les relations « est-un » (un chien est un animal). Utiliser l'héritage pour une relation « a-un » est un anti-pattern courant.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Hiérarchie d'animaux</h3>
+        <p>Créez une classe de base <code>Animal</code> avec <code>nom</code> et <code>age</code>. Puis créez trois classes enfants : <code>Chien</code>, <code>Chat</code> et <code>Oiseau</code>. Chaque sous-classe redéfinit <code>parler()</code> et possède un attribut spécifique (race pour Chien, interieur pour Chat, envergure pour Oiseau).</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+<pre><code>class Animal:
+    def __init__(self, nom, age):
+        self.nom = nom
+        self.age = age
+
+    def parler(self):
+        return "..."
+
+class Chien(Animal):
+    def __init__(self, nom, age, race):
+        super().__init__(nom, age)
+        self.race = race
+
+    def parler(self):
+        return f"{self.nom} fait : Wouf !"
+
+class Chat(Animal):
+    def __init__(self, nom, age, interieur=True):
+        super().__init__(nom, age)
+        self.interieur = interieur
+
+    def parler(self):
+        return f"{self.nom} fait : Miaou !"
+
+class Oiseau(Animal):
+    def __init__(self, nom, age, envergure):
+        super().__init__(nom, age)
+        self.envergure = envergure
+
+    def parler(self):
+        return f"{self.nom} fait : Cui cui !"
+
+# Test
+animaux = [Chien("Rex", 5, "Labrador"), Chat("Mimi", 3), Oiseau("Piou", 1, 30)]
+for a in animaux:
+    print(a.parler())</code></pre>
+          </div>
+        </details>
+
+        <h3>Exercice 2 — Employés et salaires</h3>
+        <p>Créez une classe <code>Employe</code> avec <code>nom</code> et <code>salaire_base</code>. Créez deux sous-classes : <code>Manager</code> (qui a un bonus en pourcentage) et <code>Developpeur</code> (qui a une prime fixe par projet). Chaque sous-classe redéfinit <code>salaire_total()</code>.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+<pre><code>class Employe:
+    def __init__(self, nom, salaire_base):
+        self.nom = nom
+        self.salaire_base = salaire_base
+
+    def salaire_total(self):
+        return self.salaire_base
+
+class Manager(Employe):
+    def __init__(self, nom, salaire_base, bonus_pct):
+        super().__init__(nom, salaire_base)
+        self.bonus_pct = bonus_pct  # ex: 0.20 pour 20%
+
+    def salaire_total(self):
+        return self.salaire_base * (1 + self.bonus_pct)
+
+class Developpeur(Employe):
+    def __init__(self, nom, salaire_base, prime_projet, nb_projets):
+        super().__init__(nom, salaire_base)
+        self.prime_projet = prime_projet
+        self.nb_projets = nb_projets
+
+    def salaire_total(self):
+        return self.salaire_base + self.prime_projet * self.nb_projets
+
+# Test
+m = Manager("Alice", 5000, 0.20)
+d = Developpeur("Bob", 4000, 500, 3)
+print(f"{m.nom} : {m.salaire_total()}€")  # Alice : 6000.0€
+print(f"{d.nom} : {d.salaire_total()}€")  # Bob : 5500€</code></pre>
+          </div>
+        </details>
+
+        <h3>Exercice 3 — Héritage multiple — Mixin de log</h3>
+        <p>Créez un mixin <code>LogMixin</code> avec une méthode <code>log(message)</code> qui affiche un message avec un timestamp. Créez une classe <code>Serveur(LogMixin)</code> qui utilise ce mixin pour logger les connexions et déconnexions.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+<pre><code>from datetime import datetime
+
+class LogMixin:
+    def log(self, message):
+        horodatage = datetime.now().strftime("%H:%M:%S")
+        print(f"[{horodatage}] {self.__class__.__name__}: {message}")
+
+class Serveur(LogMixin):
+    def __init__(self, nom):
+        self.nom = nom
+        self.connectes = []
+
+    def connecter(self, utilisateur):
+        self.connectes.append(utilisateur)
+        self.log(f"{utilisateur} s'est connecté")
+
+    def deconnecter(self, utilisateur):
+        self.connectes.remove(utilisateur)
+        self.log(f"{utilisateur} s'est déconnecté")
+
+# Test
+s = Serveur("MonServeur")
+s.connecter("Alice")   # [14:30:25] Serveur: Alice s'est connecté
+s.connecter("Bob")     # [14:30:25] Serveur: Bob s'est connecté
+s.deconnecter("Alice") # [14:30:25] Serveur: Alice s'est déconnecté</code></pre>
+          </div>
+        </details>
+
+        <h3>Exercice 4 — Chaîne d'héritage et super()</h3>
+        <p>Créez une hiérarchie <code>Figure</code> → <code>Polygone</code> → <code>PolygoneRegulier</code>. <code>Figure</code> a une couleur. <code>Polygone</code> ajoute un nombre de côtés. <code>PolygoneRegulier</code> ajoute la longueur d'un côté et calcule le périmètre. Utilisez <code>super()</code> à chaque niveau.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+<pre><code>class Figure:
+    def __init__(self, couleur):
+        self.couleur = couleur
+
+    def description(self):
+        return f"Figure {self.couleur}"
+
+class Polygone(Figure):
+    def __init__(self, couleur, nb_cotes):
+        super().__init__(couleur)
+        self.nb_cotes = nb_cotes
+
+    def description(self):
+        return f"Polygone {self.couleur} à {self.nb_cotes} côtés"
+
+class PolygoneRegulier(Polygone):
+    def __init__(self, couleur, nb_cotes, longueur_cote):
+        super().__init__(couleur, nb_cotes)
+        self.longueur_cote = longueur_cote
+
+    def perimetre(self):
+        return self.nb_cotes * self.longueur_cote
+
+    def description(self):
+        base = super().description()
+        return f"{base} (côté={self.longueur_cote}, périmètre={self.perimetre()})"
+
+# Test
+hexagone = PolygoneRegulier("bleu", 6, 4)
+print(hexagone.description())
+# Polygone bleu à 6 côtés (côté=4, périmètre=24)</code></pre>
+          </div>
+        </details>
+
+        <h3>Exercice 5 — Explorer le MRO</h3>
+        <p>Créez la hiérarchie suivante : <code>A</code> définit <code>action()</code> retournant "A". <code>B(A)</code> et <code>C(A)</code> redéfinissent <code>action()</code>. <code>D(B, C)</code> ne la redéfinit pas. Affichez le MRO de D et prédisez le résultat de <code>D().action()</code>. Ensuite, créez <code>E(C, B)</code> et comparez.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+<pre><code>class A:
+    def action(self):
+        return "A"
+
+class B(A):
+    def action(self):
+        return "B"
+
+class C(A):
+    def action(self):
+        return "C"
+
+class D(B, C):
+    pass
+
+class E(C, B):
+    pass
+
+# Test
+print(D().action())  # B (premier parent)
+print(E().action())  # C (premier parent)
+
+print("MRO de D:", [cls.__name__ for cls in D.__mro__])
+# MRO de D: ['D', 'B', 'C', 'A', 'object']
+
+print("MRO de E:", [cls.__name__ for cls in E.__mro__])
+# MRO de E: ['E', 'C', 'B', 'A', 'object']
+
+# L'ordre des parents dans la déclaration détermine la priorité</code></pre>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="classes.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Classes et objets</span>
+      </a>
+      <a href="encapsulation.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Encapsulation →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions=document.querySelectorAll('.question-block');let currentQ=0,score=0;let answered=new Array(questions.length).fill(false);const dotsContainer=document.getElementById('qDots');questions.forEach((_,i)=>{const d=document.createElement('div');d.className='q-dot'+(i===0?' current':'');dotsContainer.appendChild(d)});function updateDots(){document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot';if(answered[i])d.classList.add('done');if(i===currentQ)d.classList.add('current')})}function answer(el,ok){if(answered[currentQ])return;answered[currentQ]=true;el.closest('.question-block').querySelectorAll('.option').forEach(o=>o.classList.add('disabled'));el.classList.add(ok?'correct':'wrong');if(!ok)el.closest('.question-block').querySelectorAll('.option').forEach(o=>{if(o.onclick.toString().includes('true'))o.classList.add('correct')});else{score++;document.getElementById('scoreDisplay').textContent=score}el.closest('.question-block').querySelector('.q-feedback').classList.add('show',ok?'good':'bad');document.getElementById('btnNext').disabled=false;updateDots()}function nextQ(){if(currentQ<questions.length-1){questions[currentQ].classList.remove('active');currentQ++;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=false;document.getElementById('btnNext').disabled=!answered[currentQ];if(currentQ===questions.length-1)document.getElementById('btnNext').textContent='Terminer';updateDots()}else{showResult()}}function prevQ(){if(currentQ>0){questions[currentQ].classList.remove('active');currentQ--;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=currentQ===0;document.getElementById('btnNext').disabled=!answered[currentQ];document.getElementById('btnNext').textContent='Suivant →';updateDots()}}function showResult(){document.getElementById('quizBody').style.display='none';document.getElementById('quizResult').style.display='block';document.getElementById('resultScore').textContent=score+'/'+questions.length;var m=['Continue !','Pas mal !','Très bien !','Parfait !'];document.getElementById('resultMsg').textContent=m[Math.min(score,3)]}function resetQuiz(){score=0;currentQ=0;answered=new Array(questions.length).fill(false);document.getElementById('scoreDisplay').textContent=0;document.getElementById('quizBody').style.display='block';document.getElementById('quizResult').style.display='none';questions.forEach((q,i)=>{q.classList.toggle('active',i===0);q.querySelectorAll('.option').forEach(o=>o.className='option');q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback')});document.getElementById('btnPrev').disabled=true;document.getElementById('btnNext').disabled=true;document.getElementById('btnNext').textContent='Suivant →';updateDots()}function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active')}(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l});if(current){links.forEach(function(l){l.classList.remove('active')});current.classList.add('active')}},{passive:true})})();
+</script>
+<script src="../../mobile.js"></script>
+</body>
+</html>

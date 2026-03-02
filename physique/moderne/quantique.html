@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mécanique quantique — Physique moderne — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #8e44ad;
+  --accent2: #9b59b6;
+  --accent-dim: rgba(142,68,173,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../sciences-exactes.html">Sciences exactes</a> › <a href="../moderne.html">Physique moderne</a> › <span>Mécanique quantique</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">⚛️ Physique moderne</span>
+    <span class="tag-level">Intermédiaire → Avancé</span>
+    <span class="tag-time">⏱ ~55 min</span>
+  </div>
+  <h1><em>Mécanique quantique</em></h1>
+  <p class="hero-desc">Fonction d'onde, principe d'incertitude, effet tunnel, superposition quantique et équation de Schrödinger — les lois étranges qui gouvernent le monde microscopique.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../moderne.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Physique moderne</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="relativite.html">Relativité</a>
+    <a class="sidebar-link active" href="#">Mécanique quantique</a>
+    <a class="sidebar-link" href="nucleaire.html">Physique nucléaire</a>
+    <a class="sidebar-link" href="particules.html">Physique des particules</a>
+    <a class="sidebar-link" href="radioactivite.html">Radioactivité</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Le monde microscopique défie l'intuition</p>
+        </div>
+      </div>
+      <p class="resume-text">À la fin du XIX<sup>e</sup> siècle, plusieurs phénomènes résistaient à la physique classique : le rayonnement du corps noir, l'effet photoélectrique, la stabilité des atomes. La <strong>mécanique quantique</strong>, développée entre 1900 et 1930, fournit un cadre radicalement nouveau où les particules se comportent aussi comme des ondes, où la mesure perturbe le système, et où le hasard est fondamental.</p>
+      <div class="highlight-box">
+        <p><strong>Idée centrale :</strong> dans le monde quantique, un système n'a pas de propriétés définies avant d'être mesuré. Il existe dans une <strong>superposition</strong> d'états possibles, et la mesure « force » le système à adopter un résultat parmi les possibles, avec une certaine probabilité.</p>
+      </div>
+      <p class="resume-text">Ce cours présente les fondements de la mécanique quantique : la dualité onde-corpuscule, la fonction d'onde, l'équation de Schrödinger, le principe d'incertitude de Heisenberg, et des phénomènes remarquables comme l'effet tunnel et l'intrication quantique.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Les fondements de la mécanique quantique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Origines historiques : la quantification de l'énergie</h3>
+        <p>En 1900, Max Planck résout le problème du <strong>rayonnement du corps noir</strong> en postulant que l'énergie n'est pas échangée de manière continue mais par « paquets » discrets — les <strong>quanta</strong>. L'énergie d'un quantum vaut :</p>
+        <div class="highlight-box">
+          <p><strong>E = hν</strong>, où h = 6,626 × 10⁻³⁴ J·s est la constante de Planck et ν la fréquence du rayonnement.</p>
+        </div>
+        <p>En 1905, Einstein explique l'<strong>effet photoélectrique</strong> en proposant que la lumière est constituée de quanta d'énergie — les <strong>photons</strong>. Un photon de fréquence ν possède une énergie E = hν. Si cette énergie dépasse le travail d'extraction du métal, un électron est éjecté avec une énergie cinétique E_c = hν − W. Cette interprétation lui vaut le prix Nobel de physique en 1921.</p>
+        <p>En 1913, Niels Bohr propose un modèle atomique où les électrons ne peuvent occuper que certaines orbites quantifiées, expliquant le spectre discret de l'hydrogène. Bien que ce modèle soit dépassé, il introduit l'idée fondamentale de <strong>niveaux d'énergie discrets</strong>.</p>
+
+        <h3>Dualité onde-corpuscule</h3>
+        <p>En 1924, Louis de Broglie propose que toute particule de matière possède également une nature ondulatoire. La <strong>longueur d'onde de de Broglie</strong> associée à une particule de quantité de mouvement p est :</p>
+        <p><strong>λ = h / p = h / (mv)</strong></p>
+        <p>Pour un électron accéléré sous 100 V, λ ≈ 0,12 nm — comparable aux distances interatomiques. Cette prédiction est confirmée en 1927 par Davisson et Germer, qui observent la diffraction d'électrons par un cristal de nickel.</p>
+        <p>La dualité onde-corpuscule est universelle : elle s'applique aux photons, électrons, neutrons, et même à des molécules complexes (expériences de diffraction de fullerènes C₆₀ en 1999). Cependant, pour les objets macroscopiques, λ est si petite que les effets ondulatoires sont inobservables.</p>
+
+        <h3>La fonction d'onde et l'équation de Schrödinger</h3>
+        <p>En 1926, Erwin Schrödinger formule l'<strong>équation d'onde fondamentale</strong> de la mécanique quantique. L'état d'une particule est décrit par une <strong>fonction d'onde</strong> Ψ(x, t), solution de l'équation de Schrödinger :</p>
+        <div class="highlight-box">
+          <p><strong>iℏ ∂Ψ/∂t = ĤΨ</strong></p>
+          <p>où ℏ = h/(2π) est la constante de Planck réduite et Ĥ est l'opérateur hamiltonien (énergie totale = cinétique + potentielle).</p>
+        </div>
+        <p>L'interprétation de Born (1926) donne un sens physique à Ψ : le carré du module |Ψ(x, t)|² représente la <strong>densité de probabilité</strong> de trouver la particule en position x à l'instant t. La fonction d'onde doit être normalisée : l'intégrale de |Ψ|² sur tout l'espace vaut 1.</p>
+        <p>Pour des systèmes stationnaires (énergie constante), on résout l'équation indépendante du temps : ĤΨ = EΨ. Les solutions n'existent que pour certaines valeurs de l'énergie E — les <strong>valeurs propres</strong> — ce qui explique la quantification des niveaux d'énergie dans les atomes.</p>
+
+        <h3>Le principe d'incertitude de Heisenberg</h3>
+        <p>En 1927, Werner Heisenberg établit une limite fondamentale à la précision simultanée de certaines mesures. Il est impossible de connaître exactement à la fois la position et la quantité de mouvement d'une particule :</p>
+        <p><strong>Δx · Δp ≥ ℏ/2</strong></p>
+        <p>Cette inégalité n'est pas due à l'imperfection des instruments de mesure : c'est une propriété intrinsèque de la nature quantique. Plus on connaît précisément la position (Δx petit), plus l'incertitude sur l'impulsion est grande (Δp grand), et réciproquement.</p>
+        <p>Il existe une relation analogue pour l'énergie et le temps : <strong>ΔE · Δt ≥ ℏ/2</strong>. Cette relation permet l'existence de <strong>particules virtuelles</strong> qui violent brièvement la conservation de l'énergie, un concept central en théorie quantique des champs.</p>
+
+        <h3>Superposition et mesure quantique</h3>
+        <p>Le <strong>principe de superposition</strong> affirme que si Ψ₁ et Ψ₂ sont des états possibles d'un système, alors toute combinaison linéaire aΨ₁ + bΨ₂ est également un état possible. Avant la mesure, le système existe simultanément dans tous les états de la superposition.</p>
+        <p>Lors de la mesure, le système « s'effondre » (réduction du paquet d'onde) dans l'un des états propres de l'observable mesurée, avec une probabilité donnée par les coefficients de la superposition.</p>
+        <p>Le paradoxe du <strong>chat de Schrödinger</strong> (1935) illustre l'étrangeté de la superposition appliquée au monde macroscopique : un chat enfermé avec un dispositif quantique serait simultanément vivant et mort jusqu'à l'ouverture de la boîte. Ce paradoxe soulève la question de la frontière entre monde quantique et classique, que la <strong>décohérence</strong> aide aujourd'hui à comprendre.</p>
+
+        <h3>L'effet tunnel</h3>
+        <p>En mécanique classique, une particule ne peut pas franchir une barrière d'énergie potentielle supérieure à son énergie cinétique. En mécanique quantique, la fonction d'onde ne s'annule pas brusquement devant une barrière : elle décroît exponentiellement à l'intérieur, et si la barrière est suffisamment fine, une probabilité non nulle subsiste de l'autre côté.</p>
+        <div class="highlight-box">
+          <p><strong>Applications de l'effet tunnel :</strong></p>
+          <p>• La <strong>désintégration alpha</strong> des noyaux radioactifs (la particule α « tunnel » à travers la barrière coulombienne)</p>
+          <p>• Le <strong>microscope à effet tunnel</strong> (STM, prix Nobel 1986) qui sonde les surfaces à l'échelle atomique</p>
+          <p>• Les <strong>diodes tunnel</strong> et les mémoires flash en électronique</p>
+          <p>• La <strong>fusion thermonucléaire</strong> dans les étoiles (les protons franchissent la barrière coulombienne à des températures inférieures à ce que prédit la physique classique)</p>
+        </div>
+
+        <h3>Intrication quantique et applications modernes</h3>
+        <p>L'<strong>intrication quantique</strong>, qualifiée par Einstein d'« action fantôme à distance », est un phénomène où deux particules partagent un état quantique unique : la mesure de l'une détermine instantanément l'état de l'autre, quelle que soit la distance qui les sépare.</p>
+        <p>En 1964, John Bell propose des inégalités (inégalités de Bell) permettant de tester si les corrélations quantiques dépassent ce que permettent les « variables cachées locales ». Les expériences d'Alain Aspect (1982, prix Nobel 2022) confirment la violation de ces inégalités : l'intrication est un phénomène réel, non réductible à de l'information cachée classique.</p>
+        <p>Aujourd'hui, la mécanique quantique fonde des technologies révolutionnaires :</p>
+        <ul>
+          <li><strong>Ordinateur quantique</strong> — utilise des qubits en superposition pour effectuer certains calculs exponentiellement plus vite qu'un ordinateur classique</li>
+          <li><strong>Cryptographie quantique</strong> — distribution de clés par échange de photons intriqués, garantissant la détection de toute interception</li>
+          <li><strong>Métrologie quantique</strong> — horloges atomiques à réseau optique, interférométrie atomique pour la mesure ultra-précise de la gravité</li>
+          <li><strong>Simulation quantique</strong> — modélisation de molécules et matériaux complexes inaccessibles aux supercalculateurs classiques</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Interprétations de la mécanique quantique :</strong> le formalisme mathématique fait consensus, mais son interprétation reste débattue. L'interprétation de Copenhague (effondrement de la fonction d'onde), les mondes multiples d'Everett, l'onde pilote de de Broglie-Bohm et la décohérence coexistent comme cadres interprétatifs possibles.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">⚛️ Mécanique quantique — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Qui a introduit le concept de quanta d'énergie pour résoudre le problème du corps noir ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Albert Einstein</div>
+              <div class="option" onclick="answer(this,true)">Max Planck</div>
+              <div class="option" onclick="answer(this,false)">Niels Bohr</div>
+              <div class="option" onclick="answer(this,false)">Werner Heisenberg</div>
+            </div>
+            <div class="q-feedback">En 1900, Max Planck résout le problème du rayonnement du corps noir en postulant que l'énergie est échangée par paquets discrets E = hν, introduisant ainsi la constante h qui porte son nom.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Que représente |Ψ(x,t)|² dans l'interprétation de Born ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">L'énergie de la particule en position x</div>
+              <div class="option" onclick="answer(this,false)">La vitesse de la particule à l'instant t</div>
+              <div class="option" onclick="answer(this,true)">La densité de probabilité de trouver la particule en x à l'instant t</div>
+              <div class="option" onclick="answer(this,false)">La charge électrique de la particule</div>
+            </div>
+            <div class="q-feedback">Selon l'interprétation de Born (1926), |Ψ(x,t)|² est la densité de probabilité de présence de la particule. La probabilité de la trouver entre x et x+dx est |Ψ|²dx.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Quelle est la relation d'incertitude de Heisenberg entre position et quantité de mouvement ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Δx · Δp = 0</div>
+              <div class="option" onclick="answer(this,true)">Δx · Δp ≥ ℏ/2</div>
+              <div class="option" onclick="answer(this,false)">Δx · Δp = ℏ</div>
+              <div class="option" onclick="answer(this,false)">Δx + Δp ≥ ℏ/2</div>
+            </div>
+            <div class="q-feedback">La relation d'incertitude de Heisenberg stipule que Δx · Δp ≥ ℏ/2. C'est une inégalité fondamentale qui traduit l'impossibilité de mesurer simultanément position et impulsion avec une précision arbitraire.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Quel phénomène permet à une particule de traverser une barrière de potentiel classiquement infranchissable ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">La diffraction quantique</div>
+              <div class="option" onclick="answer(this,false)">La superposition d'états</div>
+              <div class="option" onclick="answer(this,true)">L'effet tunnel</div>
+              <div class="option" onclick="answer(this,false)">L'intrication quantique</div>
+            </div>
+            <div class="q-feedback">L'effet tunnel est un phénomène purement quantique : la fonction d'onde ne s'annule pas brusquement dans la barrière mais décroît exponentiellement, permettant une probabilité non nulle de traversée si la barrière est suffisamment fine.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quelle expérience a confirmé la violation des inégalités de Bell et la réalité de l'intrication quantique ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">L'expérience de la double fente de Young</div>
+              <div class="option" onclick="answer(this,true)">Les expériences d'Alain Aspect (1982)</div>
+              <div class="option" onclick="answer(this,false)">L'expérience de Davisson-Germer</div>
+              <div class="option" onclick="answer(this,false)">L'expérience de Stern-Gerlach</div>
+            </div>
+            <div class="q-feedback">Alain Aspect (prix Nobel 2022) réalise en 1982 des expériences montrant que les corrélations entre photons intriqués violent les inégalités de Bell, réfutant les théories à variables cachées locales et confirmant l'intrication quantique.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Quelle est la longueur d'onde de de Broglie d'une particule de quantité de mouvement p ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">λ = hp</div>
+              <div class="option" onclick="answer(this,false)">λ = p/h</div>
+              <div class="option" onclick="answer(this,true)">λ = h/p</div>
+              <div class="option" onclick="answer(this,false)">λ = h²/p</div>
+            </div>
+            <div class="q-feedback">La relation de de Broglie (1924) associe à toute particule de quantité de mouvement p une longueur d'onde λ = h/p. Plus la particule est lourde ou rapide, plus sa longueur d'onde est petite.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Testez vos connaissances</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Longueur d'onde de de Broglie</h3>
+        <p>Un électron (m = 9,11 × 10⁻³¹ kg) est accéléré depuis le repos par une différence de potentiel U = 150 V. Calculez sa vitesse, sa quantité de mouvement, puis sa longueur d'onde de de Broglie. Comparez cette longueur d'onde aux dimensions interatomiques typiques (~0,1 nm).</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p><strong>Énergie cinétique :</strong> E_c = eU = 1,6 × 10⁻¹⁹ × 150 = 2,4 × 10⁻¹⁷ J</p>
+            <p><strong>Vitesse :</strong> v = √(2E_c/m) = √(2 × 2,4 × 10⁻¹⁷ / 9,11 × 10⁻³¹) = √(5,27 × 10¹³) ≈ <strong>7,26 × 10⁶ m/s</strong></p>
+            <p><strong>Quantité de mouvement :</strong> p = mv = 9,11 × 10⁻³¹ × 7,26 × 10⁶ = 6,61 × 10⁻²⁴ kg·m/s</p>
+            <p><strong>Longueur d'onde :</strong> λ = h/p = 6,626 × 10⁻³⁴ / 6,61 × 10⁻²⁴ ≈ <strong>1,0 × 10⁻¹⁰ m = 0,1 nm</strong></p>
+            <p>Cette longueur d'onde est comparable aux distances interatomiques (~0,1-0,3 nm), ce qui permet la diffraction des électrons par les cristaux — fondement de la microscopie électronique.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 2 — Principe d'incertitude</h3>
+        <p>Un électron est confiné dans un atome d'hydrogène de rayon a₀ ≈ 0,053 nm (rayon de Bohr). Estimez l'incertitude minimale sur sa vitesse en utilisant le principe d'incertitude de Heisenberg. Comparez cette vitesse à la vitesse de la lumière.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>On prend Δx ≈ a₀ = 5,3 × 10⁻¹¹ m.</p>
+            <p>D'après Δx · Δp ≥ ℏ/2 : Δp ≥ ℏ/(2Δx) = (1,055 × 10⁻³⁴) / (2 × 5,3 × 10⁻¹¹) = <strong>9,95 × 10⁻²⁵ kg·m/s</strong></p>
+            <p>Δv = Δp / m = 9,95 × 10⁻²⁵ / 9,11 × 10⁻³¹ ≈ <strong>1,09 × 10⁶ m/s</strong></p>
+            <p>Rapport v/c = 1,09 × 10⁶ / 3 × 10⁸ ≈ 0,004 soit <strong>0,4 % de la vitesse de la lumière</strong>.</p>
+            <p>L'électron dans l'atome d'hydrogène est « agité » à environ un million de m/s. Cette vitesse reste non relativiste (< 10 % de c), ce qui justifie l'utilisation de l'équation de Schrödinger non relativiste pour l'hydrogène.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 3 — Effet photoélectrique</h3>
+        <p>On éclaire une surface de césium (travail d'extraction W = 2,1 eV) avec de la lumière ultraviolette de longueur d'onde λ = 250 nm. Calculez l'énergie du photon incident en eV. Y a-t-il émission photoélectrique ? Si oui, quelle est l'énergie cinétique maximale des électrons éjectés ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p><strong>Énergie du photon :</strong> E = hc/λ = (6,626 × 10⁻³⁴ × 3 × 10⁸) / (250 × 10⁻⁹) = 7,95 × 10⁻¹⁹ J</p>
+            <p>En eV : E = 7,95 × 10⁻¹⁹ / 1,6 × 10⁻¹⁹ = <strong>4,97 eV</strong></p>
+            <p>Comme E = 4,97 eV > W = 2,1 eV, <strong>oui, il y a émission photoélectrique</strong>.</p>
+            <p><strong>Énergie cinétique maximale :</strong> E_c = hν − W = 4,97 − 2,1 = <strong>2,87 eV</strong></p>
+            <p>La longueur d'onde seuil pour le césium est λ_s = hc/W = 1240/2,1 ≈ 590 nm (lumière orange-jaune). Toute lumière de longueur d'onde inférieure à 590 nm provoque l'émission.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 4 — Particule dans une boîte</h3>
+        <p>Un électron est confiné dans une boîte unidimensionnelle de largeur L = 0,5 nm (modèle simplifié d'un puits quantique). Les niveaux d'énergie sont E_n = n²h²/(8mL²). Calculez l'énergie du niveau fondamental (n=1) et du premier niveau excité (n=2) en eV. Quelle est la longueur d'onde du photon émis lors de la transition n=2 → n=1 ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p><strong>Niveau fondamental :</strong> E₁ = h²/(8mL²) = (6,626 × 10⁻³⁴)² / (8 × 9,11 × 10⁻³¹ × (0,5 × 10⁻⁹)²)</p>
+            <p>E₁ = 4,39 × 10⁻⁶⁷ / (1,82 × 10⁻⁴⁸) = 2,41 × 10⁻¹⁹ J = <strong>1,51 eV</strong></p>
+            <p><strong>Premier excité :</strong> E₂ = 4 × E₁ = <strong>6,03 eV</strong></p>
+            <p><strong>Transition 2→1 :</strong> ΔE = E₂ − E₁ = 6,03 − 1,51 = 4,52 eV = 7,23 × 10⁻¹⁹ J</p>
+            <p>λ = hc/ΔE = (6,626 × 10⁻³⁴ × 3 × 10⁸) / 7,23 × 10⁻¹⁹ = <strong>275 nm</strong> (ultraviolet).</p>
+            <p>La quantification des niveaux d'énergie dans un puits quantique est à la base des LED et des lasers à semi-conducteurs.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 5 — Effet tunnel</h3>
+        <p>Un électron d'énergie E = 5 eV rencontre une barrière de potentiel rectangulaire de hauteur V₀ = 10 eV et de largeur a = 0,1 nm. Le coefficient de transmission approché pour une barrière rectangulaire est T ≈ exp(−2κa) avec κ = √(2m(V₀−E))/ℏ. Calculez κ et T. Que se passe-t-il si la largeur double (a = 0,2 nm) ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p><strong>Calcul de κ :</strong> V₀ − E = 5 eV = 8 × 10⁻¹⁹ J</p>
+            <p>κ = √(2 × 9,11 × 10⁻³¹ × 8 × 10⁻¹⁹) / (1,055 × 10⁻³⁴)</p>
+            <p>κ = √(1,458 × 10⁻⁴⁸) / (1,055 × 10⁻³⁴) = 1,207 × 10⁻²⁴ / 1,055 × 10⁻³⁴ ≈ <strong>1,14 × 10¹⁰ m⁻¹</strong></p>
+            <p><strong>Pour a = 0,1 nm :</strong> 2κa = 2 × 1,14 × 10¹⁰ × 10⁻¹⁰ = 2,28</p>
+            <p>T ≈ e⁻²·²⁸ ≈ <strong>0,10 soit 10 %</strong> de probabilité de traversée.</p>
+            <p><strong>Pour a = 0,2 nm :</strong> 2κa = 4,56</p>
+            <p>T ≈ e⁻⁴·⁵⁶ ≈ <strong>0,01 soit 1 %</strong> de probabilité de traversée.</p>
+            <p>En doublant la largeur de la barrière, la probabilité de transmission chute d'un facteur ~10. L'effet tunnel est extrêmement sensible à l'épaisseur de la barrière — c'est ce qui permet la résolution atomique du microscope à effet tunnel (STM).</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="relativite.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Relativité</span>
+      </a>
+      <a href="nucleaire.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Physique nucléaire →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions=document.querySelectorAll('.question-block');let currentQ=0,score=0;let answered=new Array(questions.length).fill(false);const dotsContainer=document.getElementById('qDots');questions.forEach((_,i)=>{const d=document.createElement('div');d.className='q-dot'+(i===0?' current':'');dotsContainer.appendChild(d)});function updateDots(){document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot';if(answered[i])d.classList.add('done');if(i===currentQ)d.classList.add('current')})}function answer(el,ok){if(answered[currentQ])return;answered[currentQ]=true;el.closest('.question-block').querySelectorAll('.option').forEach(o=>o.classList.add('disabled'));el.classList.add(ok?'correct':'wrong');if(!ok)el.closest('.question-block').querySelectorAll('.option').forEach(o=>{if(o.onclick.toString().includes('true'))o.classList.add('correct')});else{score++;document.getElementById('scoreDisplay').textContent=score}el.closest('.question-block').querySelector('.q-feedback').classList.add('show',ok?'good':'bad');document.getElementById('btnNext').disabled=false;updateDots()}function nextQ(){if(currentQ<questions.length-1){questions[currentQ].classList.remove('active');currentQ++;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=false;document.getElementById('btnNext').disabled=!answered[currentQ];if(currentQ===questions.length-1)document.getElementById('btnNext').textContent='Terminer';updateDots()}else{showResult()}}function prevQ(){if(currentQ>0){questions[currentQ].classList.remove('active');currentQ--;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=currentQ===0;document.getElementById('btnNext').disabled=!answered[currentQ];document.getElementById('btnNext').textContent='Suivant →';updateDots()}}function showResult(){document.getElementById('quizBody').style.display='none';document.getElementById('quizResult').style.display='block';document.getElementById('resultScore').textContent=score+'/'+questions.length;var m=['Continue !','Pas mal !','Très bien !','Parfait !'];document.getElementById('resultMsg').textContent=m[Math.min(score,3)]}function resetQuiz(){score=0;currentQ=0;answered=new Array(questions.length).fill(false);document.getElementById('scoreDisplay').textContent=0;document.getElementById('quizBody').style.display='block';document.getElementById('quizResult').style.display='none';questions.forEach((q,i)=>{q.classList.toggle('active',i===0);q.querySelectorAll('.option').forEach(o=>o.className='option');q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback')});document.getElementById('btnPrev').disabled=true;document.getElementById('btnNext').disabled=true;document.getElementById('btnNext').textContent='Suivant →';updateDots()}function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active')}(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l});if(current){links.forEach(function(l){l.classList.remove('active')});current.classList.add('active')}},{passive:true})})();
+</script>
+<script src="../../mobile.js"></script>
+</body>
+</html>

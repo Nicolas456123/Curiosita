@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Décorateurs — Python avancé — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #27ae60;
+  --accent2: #2ecc71;
+  --accent-dim: rgba(39,174,96,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(39,174,96,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../informatique-page.html">Informatique</a> › <a href="../avance.html">Python avancé</a> › <span>Décorateurs</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🐍 Python avancé</span>
+    <span class="tag-level">Avancé</span>
+    <span class="tag-time">⏱ ~55 min</span>
+  </div>
+  <h1><em>Décorateurs</em></h1>
+  <p class="hero-desc">Comprendre les fonctions d'ordre supérieur, la syntaxe @decorator, functools.wraps et les décorateurs avec arguments.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../avance.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Python avancé</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">💻 Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="exceptions.html">Exceptions</a>
+    <a class="sidebar-link active" href="#">Décorateurs</a>
+    <a class="sidebar-link" href="generateurs.html">Générateurs</a>
+    <a class="sidebar-link" href="modules.html">Modules et packages</a>
+    <a class="sidebar-link" href="regex.html">Expressions régulières</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Qu'est-ce qu'un décorateur</p>
+        </div>
+      </div>
+      <p class="resume-text">Un <strong>décorateur</strong> est une fonction qui prend une autre fonction en argument et retourne une nouvelle fonction enrichie. C'est un patron de conception puissant qui permet d'ajouter des comportements (logging, validation, cache, authentification) sans modifier le code original.</p>
+      <p class="resume-text">Les décorateurs reposent sur un concept fondamental de Python : les fonctions sont des <strong>objets de première classe</strong>. On peut les stocker dans des variables, les passer en argument, et les retourner depuis d'autres fonctions. La syntaxe <code>@</code> n'est qu'un sucre syntaxique élégant pour cette mécanique.</p>
+      <div class="highlight-box">
+        <p><strong>En résumé :</strong> <code>@mon_decorateur</code> au-dessus d'une fonction <code>def f()</code> équivaut exactement à écrire <code>f = mon_decorateur(f)</code> après la définition. Le décorateur enveloppe la fonction originale.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Fonctions d'ordre supérieur, @decorator et décorateurs avancés</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Fonctions d'ordre supérieur</h3>
+        <p>Avant de comprendre les décorateurs, il faut maîtriser le concept de <strong>closure</strong> (fermeture) : une fonction interne qui capture les variables de la fonction englobante.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Les fonctions sont des objets</span>
+<span class="kw">def</span> <span class="fn">saluer</span>(nom):
+    <span class="kw">return</span> <span class="str">f"Bonjour {nom}"</span>
+
+<span class="cm"># Assigner une fonction à une variable</span>
+dire_bonjour = saluer
+<span class="fn">print</span>(<span class="fn">dire_bonjour</span>(<span class="str">"Alice"</span>))  <span class="cm"># Bonjour Alice</span>
+
+<span class="cm"># Passer une fonction en argument</span>
+<span class="kw">def</span> <span class="fn">executer</span>(func, valeur):
+    <span class="kw">return</span> <span class="fn">func</span>(valeur)
+
+<span class="fn">print</span>(<span class="fn">executer</span>(saluer, <span class="str">"Bob"</span>))  <span class="cm"># Bonjour Bob</span>
+
+<span class="cm"># Retourner une fonction (closure)</span>
+<span class="kw">def</span> <span class="fn">multiplicateur</span>(facteur):
+    <span class="kw">def</span> <span class="fn">multiplier</span>(x):
+        <span class="kw">return</span> x * facteur  <span class="cm"># facteur est capturé</span>
+    <span class="kw">return</span> multiplier
+
+doubler = <span class="fn">multiplicateur</span>(<span class="num">2</span>)
+tripler = <span class="fn">multiplicateur</span>(<span class="num">3</span>)
+<span class="fn">print</span>(<span class="fn">doubler</span>(<span class="num">5</span>))   <span class="cm"># 10</span>
+<span class="fn">print</span>(<span class="fn">tripler</span>(<span class="num">5</span>))   <span class="cm"># 15</span></code></pre>
+        </div>
+
+        <h3>Premier décorateur</h3>
+        <p>Un décorateur est simplement une fonction qui prend une fonction, crée un wrapper autour d'elle, et retourne ce wrapper.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Décorateur sans la syntaxe @</span>
+<span class="kw">def</span> <span class="fn">en_majuscules</span>(func):
+    <span class="kw">def</span> <span class="fn">wrapper</span>(*args, **kwargs):
+        resultat = <span class="fn">func</span>(*args, **kwargs)
+        <span class="kw">return</span> resultat.upper()
+    <span class="kw">return</span> wrapper
+
+<span class="kw">def</span> <span class="fn">saluer</span>(nom):
+    <span class="kw">return</span> <span class="str">f"Bonjour {nom}"</span>
+
+<span class="cm"># Application manuelle du décorateur</span>
+saluer = <span class="fn">en_majuscules</span>(saluer)
+<span class="fn">print</span>(<span class="fn">saluer</span>(<span class="str">"Alice"</span>))  <span class="cm"># BONJOUR ALICE</span>
+
+<span class="cm"># Avec la syntaxe @ (identique, mais plus lisible)</span>
+@en_majuscules
+<span class="kw">def</span> <span class="fn">saluer</span>(nom):
+    <span class="kw">return</span> <span class="str">f"Bonjour {nom}"</span>
+
+<span class="fn">print</span>(<span class="fn">saluer</span>(<span class="str">"Bob"</span>))  <span class="cm"># BONJOUR BOB</span></code></pre>
+        </div>
+
+        <h3>functools.wraps — Préserver les métadonnées</h3>
+        <p>Sans <code>@functools.wraps</code>, le wrapper remplace le nom et la docstring de la fonction originale. Ce décorateur standard copie les métadonnées de la fonction décorée vers le wrapper.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="kw">import</span> functools
+
+<span class="cm"># ❌ Sans wraps — les métadonnées sont perdues</span>
+<span class="kw">def</span> <span class="fn">mon_deco_sans</span>(func):
+    <span class="kw">def</span> <span class="fn">wrapper</span>(*args, **kwargs):
+        <span class="kw">return</span> <span class="fn">func</span>(*args, **kwargs)
+    <span class="kw">return</span> wrapper
+
+@mon_deco_sans
+<span class="kw">def</span> <span class="fn">ma_fonction</span>():
+    <span class="str">"""Ma super docstring."""</span>
+    <span class="kw">pass</span>
+
+<span class="fn">print</span>(ma_fonction.__name__)  <span class="cm"># wrapper (mauvais !)</span>
+<span class="fn">print</span>(ma_fonction.__doc__)   <span class="cm"># None (perdu !)</span>
+
+<span class="cm"># ✅ Avec wraps — les métadonnées sont conservées</span>
+<span class="kw">def</span> <span class="fn">mon_deco_avec</span>(func):
+    @functools.wraps(func)
+    <span class="kw">def</span> <span class="fn">wrapper</span>(*args, **kwargs):
+        <span class="kw">return</span> <span class="fn">func</span>(*args, **kwargs)
+    <span class="kw">return</span> wrapper
+
+@mon_deco_avec
+<span class="kw">def</span> <span class="fn">ma_fonction</span>():
+    <span class="str">"""Ma super docstring."""</span>
+    <span class="kw">pass</span>
+
+<span class="fn">print</span>(ma_fonction.__name__)  <span class="cm"># ma_fonction ✓</span>
+<span class="fn">print</span>(ma_fonction.__doc__)   <span class="cm"># Ma super docstring. ✓</span></code></pre>
+        </div>
+
+        <h3>Décorateurs pratiques</h3>
+        <p>Les décorateurs sont omniprésents en Python : mesure de performance, mise en cache, contrôle d'accès, retry automatique, etc.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="kw">import</span> functools
+<span class="kw">import</span> time
+
+<span class="cm"># Décorateur de chronométrage</span>
+<span class="kw">def</span> <span class="fn">chrono</span>(func):
+    @functools.wraps(func)
+    <span class="kw">def</span> <span class="fn">wrapper</span>(*args, **kwargs):
+        debut = time.perf_counter()
+        resultat = <span class="fn">func</span>(*args, **kwargs)
+        duree = time.perf_counter() - debut
+        <span class="fn">print</span>(<span class="str">f"{func.__name__} exécutée en {duree:.4f}s"</span>)
+        <span class="kw">return</span> resultat
+    <span class="kw">return</span> wrapper
+
+@chrono
+<span class="kw">def</span> <span class="fn">calcul_lourd</span>(n):
+    <span class="kw">return</span> <span class="fn">sum</span>(i**<span class="num">2</span> <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(n))
+
+<span class="fn">calcul_lourd</span>(<span class="num">1_000_000</span>)
+<span class="cm"># calcul_lourd exécutée en 0.1234s</span>
+
+<span class="cm"># Décorateur de logging</span>
+<span class="kw">def</span> <span class="fn">log_appel</span>(func):
+    @functools.wraps(func)
+    <span class="kw">def</span> <span class="fn">wrapper</span>(*args, **kwargs):
+        <span class="fn">print</span>(<span class="str">f"→ Appel de {func.__name__}({args}, {kwargs})"</span>)
+        resultat = <span class="fn">func</span>(*args, **kwargs)
+        <span class="fn">print</span>(<span class="str">f"← {func.__name__} retourne {resultat}"</span>)
+        <span class="kw">return</span> resultat
+    <span class="kw">return</span> wrapper
+
+@log_appel
+<span class="kw">def</span> <span class="fn">additionner</span>(a, b):
+    <span class="kw">return</span> a + b
+
+<span class="fn">additionner</span>(<span class="num">3</span>, <span class="num">5</span>)
+<span class="cm"># → Appel de additionner((3, 5), {})</span>
+<span class="cm"># ← additionner retourne 8</span></code></pre>
+        </div>
+
+        <h3>Décorateurs avec arguments</h3>
+        <p>Pour passer des arguments à un décorateur, il faut ajouter un niveau d'imbrication supplémentaire : une fonction qui retourne le décorateur.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="kw">import</span> functools
+
+<span class="cm"># Décorateur avec arguments — triple imbrication</span>
+<span class="kw">def</span> <span class="fn">repeter</span>(n=<span class="num">2</span>):
+    <span class="str">"""Décorateur qui répète l'appel n fois."""</span>
+    <span class="kw">def</span> <span class="fn">decorateur</span>(func):
+        @functools.wraps(func)
+        <span class="kw">def</span> <span class="fn">wrapper</span>(*args, **kwargs):
+            <span class="kw">for</span> _ <span class="kw">in</span> <span class="fn">range</span>(n):
+                resultat = <span class="fn">func</span>(*args, **kwargs)
+            <span class="kw">return</span> resultat
+        <span class="kw">return</span> wrapper
+    <span class="kw">return</span> decorateur
+
+@repeter(n=<span class="num">3</span>)
+<span class="kw">def</span> <span class="fn">dire_bonjour</span>(nom):
+    <span class="fn">print</span>(<span class="str">f"Bonjour {nom} !"</span>)
+
+<span class="fn">dire_bonjour</span>(<span class="str">"Alice"</span>)
+<span class="cm"># Bonjour Alice !</span>
+<span class="cm"># Bonjour Alice !</span>
+<span class="cm"># Bonjour Alice !</span>
+
+<span class="cm"># Décorateur de retry avec délai</span>
+<span class="kw">def</span> <span class="fn">retry</span>(max_tentatives=<span class="num">3</span>, delai=<span class="num">1</span>):
+    <span class="kw">def</span> <span class="fn">decorateur</span>(func):
+        @functools.wraps(func)
+        <span class="kw">def</span> <span class="fn">wrapper</span>(*args, **kwargs):
+            <span class="kw">for</span> tentative <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, max_tentatives + <span class="num">1</span>):
+                <span class="kw">try</span>:
+                    <span class="kw">return</span> <span class="fn">func</span>(*args, **kwargs)
+                <span class="kw">except</span> Exception <span class="kw">as</span> e:
+                    <span class="fn">print</span>(<span class="str">f"Tentative {tentative}/{max_tentatives} échouée : {e}"</span>)
+                    <span class="kw">if</span> tentative &lt; max_tentatives:
+                        time.sleep(delai)
+            <span class="kw">raise</span> RuntimeError(<span class="str">f"Échec après {max_tentatives} tentatives"</span>)
+        <span class="kw">return</span> wrapper
+    <span class="kw">return</span> decorateur
+
+@retry(max_tentatives=<span class="num">3</span>, delai=<span class="num">0.5</span>)
+<span class="kw">def</span> <span class="fn">operation_fragile</span>():
+    <span class="cm"># Simule une opération qui peut échouer</span>
+    <span class="kw">import</span> random
+    <span class="kw">if</span> random.random() &lt; <span class="num">0.7</span>:
+        <span class="kw">raise</span> ConnectionError(<span class="str">"Connexion perdue"</span>)
+    <span class="kw">return</span> <span class="str">"Succès !"</span></code></pre>
+        </div>
+
+        <h3>Empiler des décorateurs</h3>
+        <p>On peut appliquer plusieurs décorateurs à une même fonction. Ils s'appliquent de bas en haut (le plus proche de <code>def</code> s'exécute en premier).</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Empiler des décorateurs</span>
+@chrono
+@log_appel
+<span class="kw">def</span> <span class="fn">traiter</span>(x):
+    <span class="kw">return</span> x * <span class="num">2</span>
+
+<span class="cm"># Équivalent à : traiter = chrono(log_appel(traiter))</span>
+<span class="cm"># Ordre d'exécution :</span>
+<span class="cm"># 1. chrono démarre le timer</span>
+<span class="cm"># 2. log_appel affiche l'appel</span>
+<span class="cm"># 3. traiter s'exécute</span>
+<span class="cm"># 4. log_appel affiche le retour</span>
+<span class="cm"># 5. chrono affiche la durée</span>
+
+<span class="fn">traiter</span>(<span class="num">21</span>)
+<span class="cm"># → Appel de traiter((21,), {})</span>
+<span class="cm"># ← traiter retourne 42</span>
+<span class="cm"># traiter exécutée en 0.0001s</span></code></pre>
+        </div>
+
+        <h3>Décorateurs de classe et décorateurs intégrés</h3>
+        <p>Python fournit plusieurs décorateurs intégrés. On peut aussi créer des décorateurs sous forme de classes avec la méthode <code>__call__</code>.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Décorateurs intégrés de Python</span>
+<span class="kw">class</span> <span class="fn">Cercle</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(self, rayon):
+        self._rayon = rayon
+
+    @property
+    <span class="kw">def</span> <span class="fn">rayon</span>(self):
+        <span class="kw">return</span> self._rayon
+
+    @rayon.setter
+    <span class="kw">def</span> <span class="fn">rayon</span>(self, valeur):
+        <span class="kw">if</span> valeur &lt; <span class="num">0</span>:
+            <span class="kw">raise</span> ValueError(<span class="str">"Le rayon doit être positif"</span>)
+        self._rayon = valeur
+
+    @staticmethod
+    <span class="kw">def</span> <span class="fn">est_valide</span>(rayon):
+        <span class="kw">return</span> rayon &gt; <span class="num">0</span>
+
+    @classmethod
+    <span class="kw">def</span> <span class="fn">depuis_diametre</span>(cls, diametre):
+        <span class="kw">return</span> cls(diametre / <span class="num">2</span>)
+
+<span class="cm"># functools.lru_cache — mise en cache automatique</span>
+<span class="kw">from</span> functools <span class="kw">import</span> lru_cache
+
+@lru_cache(maxsize=<span class="num">128</span>)
+<span class="kw">def</span> <span class="fn">fibonacci</span>(n):
+    <span class="kw">if</span> n &lt; <span class="num">2</span>:
+        <span class="kw">return</span> n
+    <span class="kw">return</span> <span class="fn">fibonacci</span>(n - <span class="num">1</span>) + <span class="fn">fibonacci</span>(n - <span class="num">2</span>)
+
+<span class="fn">print</span>(<span class="fn">fibonacci</span>(<span class="num">100</span>))  <span class="cm"># Instantané grâce au cache</span>
+
+<span class="cm"># Décorateur sous forme de classe</span>
+<span class="kw">class</span> <span class="fn">Compteur</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(self, func):
+        functools.update_wrapper(self, func)
+        self.func = func
+        self.appels = <span class="num">0</span>
+
+    <span class="kw">def</span> <span class="fn">__call__</span>(self, *args, **kwargs):
+        self.appels += <span class="num">1</span>
+        <span class="fn">print</span>(<span class="str">f"{self.func.__name__} appelée {self.appels} fois"</span>)
+        <span class="kw">return</span> self.func(*args, **kwargs)
+
+@Compteur
+<span class="kw">def</span> <span class="fn">dire_hello</span>():
+    <span class="fn">print</span>(<span class="str">"Hello !"</span>)
+
+<span class="fn">dire_hello</span>()  <span class="cm"># dire_hello appelée 1 fois → Hello !</span>
+<span class="fn">dire_hello</span>()  <span class="cm"># dire_hello appelée 2 fois → Hello !</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">🐍 Décorateurs — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Que fait <code>@mon_deco</code> au-dessus de <code>def f(): ...</code> ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Supprime la fonction f</div>
+              <div class="option" onclick="answer(this,true)">Exécute f = mon_deco(f)</div>
+              <div class="option" onclick="answer(this,false)">Appelle f() automatiquement</div>
+              <div class="option" onclick="answer(this,false)">Crée une copie de f</div>
+            </div>
+            <div class="q-feedback">La syntaxe <code>@mon_deco</code> est du sucre syntaxique pour <code>f = mon_deco(f)</code>. Le décorateur reçoit la fonction et retourne une nouvelle fonction (le wrapper).</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Quel est le rôle de <code>functools.wraps</code> ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Empêcher la modification de la fonction</div>
+              <div class="option" onclick="answer(this,false)">Accélérer l'exécution du décorateur</div>
+              <div class="option" onclick="answer(this,true)">Copier les métadonnées (__name__, __doc__) de la fonction originale vers le wrapper</div>
+              <div class="option" onclick="answer(this,false)">Créer une copie profonde de la fonction</div>
+            </div>
+            <div class="q-feedback"><code>@functools.wraps(func)</code> copie <code>__name__</code>, <code>__doc__</code>, <code>__module__</code> et d'autres attributs de la fonction originale vers le wrapper.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Comment un décorateur avec arguments est-il structuré ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Une seule fonction avec des paramètres supplémentaires</div>
+              <div class="option" onclick="answer(this,false)">Deux niveaux : la fabrique et le wrapper</div>
+              <div class="option" onclick="answer(this,true)">Trois niveaux : la fabrique, le décorateur et le wrapper</div>
+              <div class="option" onclick="answer(this,false)">Une classe avec __init__ et __call__</div>
+            </div>
+            <div class="q-feedback">Un décorateur avec arguments nécessite trois niveaux d'imbrication : la fonction externe reçoit les arguments, retourne le décorateur qui reçoit la fonction, qui retourne le wrapper.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Si on empile <code>@A</code> puis <code>@B</code> (A en haut, B en bas), quel est l'ordre d'application ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">A puis B : f = A(B(f)) est faux</div>
+              <div class="option" onclick="answer(this,true)">B d'abord, puis A : f = A(B(f))</div>
+              <div class="option" onclick="answer(this,false)">Ils s'appliquent en parallèle</div>
+              <div class="option" onclick="answer(this,false)">Seul le premier décorateur s'applique</div>
+            </div>
+            <div class="q-feedback">Les décorateurs s'appliquent de bas en haut. <code>@A @B def f</code> donne <code>f = A(B(f))</code>. B enveloppe f d'abord, puis A enveloppe le résultat.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Que fait <code>@functools.lru_cache</code> ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Limite le nombre d'appels de la fonction</div>
+              <div class="option" onclick="answer(this,true)">Met en cache les résultats pour éviter les recalculs</div>
+              <div class="option" onclick="answer(this,false)">Enregistre les appels dans un fichier log</div>
+              <div class="option" onclick="answer(this,false)">Exécute la fonction en arrière-plan</div>
+            </div>
+            <div class="q-feedback"><code>@lru_cache</code> mémorise les résultats des appels précédents. Si la fonction est appelée avec les mêmes arguments, le résultat est retourné depuis le cache sans recalcul.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Qu'est-ce qu'une closure en Python ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Une fonction qui se ferme automatiquement après exécution</div>
+              <div class="option" onclick="answer(this,false)">Un fichier fermé avec close()</div>
+              <div class="option" onclick="answer(this,true)">Une fonction interne qui capture les variables de la fonction englobante</div>
+              <div class="option" onclick="answer(this,false)">Un bloc try/finally pour fermer des ressources</div>
+            </div>
+            <div class="q-feedback">Une closure est une fonction interne qui « se souvient » des variables de la portée englobante, même après que cette dernière a terminé son exécution. C'est la base des décorateurs.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Décorateur de validation</h3>
+        <p>Créez un décorateur <code>@valider_positifs</code> qui vérifie que tous les arguments numériques passés à une fonction sont positifs. Si ce n'est pas le cas, levez un <code>ValueError</code>.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>import functools
+
+def valider_positifs(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        for arg in args:
+            if isinstance(arg, (int, float)) and arg < 0:
+                raise ValueError(f"Argument négatif interdit : {arg}")
+        for cle, val in kwargs.items():
+            if isinstance(val, (int, float)) and val < 0:
+                raise ValueError(f"Argument '{cle}' négatif interdit : {val}")
+        return func(*args, **kwargs)
+    return wrapper
+
+@valider_positifs
+def calculer_aire(largeur, hauteur):
+    return largeur * hauteur
+
+print(calculer_aire(5, 3))    # 15
+# calculer_aire(-2, 3)        # ValueError: Argument négatif interdit : -2</code></pre></div>
+        </details>
+
+        <h3>Exercice 2 — Décorateur de cache simple</h3>
+        <p>Implémentez votre propre décorateur <code>@cache_simple</code> qui mémorise les résultats des appels précédents dans un dictionnaire. Affichez « [CACHE] » quand un résultat est retourné depuis le cache.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>import functools
+
+def cache_simple(func):
+    cache = {}
+
+    @functools.wraps(func)
+    def wrapper(*args):
+        if args in cache:
+            print(f"[CACHE] {func.__name__}{args}")
+            return cache[args]
+        resultat = func(*args)
+        cache[args] = resultat
+        return resultat
+
+    wrapper.cache = cache  # Accès au cache depuis l'extérieur
+    wrapper.vider_cache = lambda: cache.clear()
+    return wrapper
+
+@cache_simple
+def fibonacci(n):
+    if n < 2:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+print(fibonacci(10))  # 55
+print(fibonacci(10))  # [CACHE] fibonacci((10,)) → 55
+print(len(fibonacci.cache))  # 11 entrées en cache</code></pre></div>
+        </details>
+
+        <h3>Exercice 3 — Décorateur avec argument : limitation de fréquence</h3>
+        <p>Créez un décorateur <code>@limiter(intervalle)</code> qui empêche d'appeler une fonction plus d'une fois toutes les <code>intervalle</code> secondes. Si on appelle trop vite, affichez un avertissement et retournez le dernier résultat.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>import functools
+import time
+
+def limiter(intervalle):
+    """Limite la fréquence d'appel d'une fonction."""
+    def decorateur(func):
+        dernier_appel = [0]
+        dernier_resultat = [None]
+
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            maintenant = time.time()
+            ecart = maintenant - dernier_appel[0]
+            if ecart < intervalle:
+                print(f"[LIMITÉ] Attendez encore {intervalle - ecart:.1f}s")
+                return dernier_resultat[0]
+            dernier_appel[0] = maintenant
+            dernier_resultat[0] = func(*args, **kwargs)
+            return dernier_resultat[0]
+        return wrapper
+    return decorateur
+
+@limiter(intervalle=2)
+def requete_api(url):
+    print(f"Requête vers {url}...")
+    return {"status": 200}
+
+print(requete_api("/api/data"))    # Requête vers /api/data... → {status: 200}
+print(requete_api("/api/data"))    # [LIMITÉ] Attendez encore 1.9s → {status: 200}
+time.sleep(2)
+print(requete_api("/api/data"))    # Requête vers /api/data... → {status: 200}</code></pre></div>
+        </details>
+
+        <h3>Exercice 4 — Décorateur de typage</h3>
+        <p>Créez un décorateur <code>@verifier_types</code> qui prend en argument les types attendus et vérifie les arguments de la fonction au moment de l'appel. Exemple : <code>@verifier_types(int, int)</code> pour une fonction à deux paramètres entiers.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>import functools
+
+def verifier_types(*types_attendus):
+    """Vérifie les types des arguments positionnels."""
+    def decorateur(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            for i, (arg, type_attendu) in enumerate(zip(args, types_attendus)):
+                if not isinstance(arg, type_attendu):
+                    raise TypeError(
+                        f"Argument {i} de {func.__name__} : "
+                        f"attendu {type_attendu.__name__}, "
+                        f"reçu {type(arg).__name__}"
+                    )
+            return func(*args, **kwargs)
+        return wrapper
+    return decorateur
+
+@verifier_types(str, int)
+def repeter_texte(texte, fois):
+    return texte * fois
+
+print(repeter_texte("abc", 3))    # abcabcabc
+# repeter_texte(123, 3)           # TypeError: Argument 0 : attendu str, reçu int</code></pre></div>
+        </details>
+
+        <h3>Exercice 5 — Décorateur de classe (Singleton)</h3>
+        <p>Implémentez un décorateur de classe <code>@singleton</code> qui garantit qu'une seule instance d'une classe peut exister. Si on tente de créer une deuxième instance, retournez la première.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>import functools
+
+def singleton(cls):
+    """Décorateur qui transforme une classe en singleton."""
+    instances = {}
+
+    @functools.wraps(cls, updated=[])
+    def get_instance(*args, **kwargs):
+        if cls not in instances:
+            instances[cls] = cls(*args, **kwargs)
+        return instances[cls]
+
+    get_instance._instances = instances
+    return get_instance
+
+@singleton
+class Configuration:
+    def __init__(self):
+        self.parametres = {}
+        print("Configuration créée")
+
+    def set(self, cle, valeur):
+        self.parametres[cle] = valeur
+
+# Tests
+config1 = Configuration()  # Configuration créée
+config2 = Configuration()  # Rien (même instance retournée)
+print(config1 is config2)  # True
+
+config1.set("theme", "sombre")
+print(config2.parametres)  # {'theme': 'sombre'}</code></pre></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="exceptions.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Exceptions</span>
+      </a>
+      <a href="generateurs.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Générateurs →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions=document.querySelectorAll('.question-block');let currentQ=0,score=0;let answered=new Array(questions.length).fill(false);const dotsContainer=document.getElementById('qDots');questions.forEach((_,i)=>{const d=document.createElement('div');d.className='q-dot'+(i===0?' current':'');dotsContainer.appendChild(d)});function updateDots(){document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot';if(answered[i])d.classList.add('done');if(i===currentQ)d.classList.add('current')})}function answer(el,ok){if(answered[currentQ])return;answered[currentQ]=true;el.closest('.question-block').querySelectorAll('.option').forEach(o=>o.classList.add('disabled'));el.classList.add(ok?'correct':'wrong');if(!ok)el.closest('.question-block').querySelectorAll('.option').forEach(o=>{if(o.onclick.toString().includes('true'))o.classList.add('correct')});else{score++;document.getElementById('scoreDisplay').textContent=score}el.closest('.question-block').querySelector('.q-feedback').classList.add('show',ok?'good':'bad');document.getElementById('btnNext').disabled=false;updateDots()}function nextQ(){if(currentQ<questions.length-1){questions[currentQ].classList.remove('active');currentQ++;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=false;document.getElementById('btnNext').disabled=!answered[currentQ];if(currentQ===questions.length-1)document.getElementById('btnNext').textContent='Terminer';updateDots()}else{showResult()}}function prevQ(){if(currentQ>0){questions[currentQ].classList.remove('active');currentQ--;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=currentQ===0;document.getElementById('btnNext').disabled=!answered[currentQ];document.getElementById('btnNext').textContent='Suivant →';updateDots()}}function showResult(){document.getElementById('quizBody').style.display='none';document.getElementById('quizResult').style.display='block';document.getElementById('resultScore').textContent=score+'/'+questions.length;var m=['Continue !','Pas mal !','Très bien !','Parfait !'];document.getElementById('resultMsg').textContent=m[Math.min(score,3)]}function resetQuiz(){score=0;currentQ=0;answered=new Array(questions.length).fill(false);document.getElementById('scoreDisplay').textContent=0;document.getElementById('quizBody').style.display='block';document.getElementById('quizResult').style.display='none';questions.forEach((q,i)=>{q.classList.toggle('active',i===0);q.querySelectorAll('.option').forEach(o=>o.className='option');q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback')});document.getElementById('btnPrev').disabled=true;document.getElementById('btnNext').disabled=true;document.getElementById('btnNext').textContent='Suivant →';updateDots()}function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active')}(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l});if(current){links.forEach(function(l){l.classList.remove('active')});current.classList.add('active')}},{passive:true})})();
+</script>
+<script src="../../mobile.js"></script>
+</body>
+</html>

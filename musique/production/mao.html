@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAO — Production musicale — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #e74c3c;
+  --accent2: #c0392b;
+  --accent-dim: rgba(231,76,60,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(231,76,60,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../musique-page.html">Musique</a> › <a href="../production.html">Production musicale</a> › <span>MAO</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🎛️ Production musicale</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~50 min</span>
+  </div>
+  <h1><em>MAO</em></h1>
+  <p class="hero-desc">DAW, MIDI, synthèse sonore, sampling et plugins — créer de la musique à l'aide de l'ordinateur, de l'idée au morceau finalisé.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../production.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Production musicale</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">📋 Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="enregistrement.html">Enregistrement</a>
+    <a class="sidebar-link" href="mixage.html">Mixage</a>
+    <a class="sidebar-link" href="mastering.html">Mastering</a>
+    <a class="sidebar-link active" href="#">MAO</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>La musique à l'ère numérique</p>
+        </div>
+      </div>
+      <p class="resume-text">La <strong>MAO</strong> (Musique Assistée par Ordinateur) désigne l'ensemble des pratiques de création, d'enregistrement, d'édition et de production musicale réalisées à l'aide d'outils informatiques. Depuis les années 1980, l'ordinateur est devenu l'instrument central de la production musicale moderne, remplaçant progressivement les studios analogiques coûteux par des environnements logiciels accessibles.</p>
+      <div class="highlight-box">
+        <p><strong>L'enjeu :</strong> La MAO a démocratisé la production musicale. Avec un ordinateur, une interface audio et un logiciel DAW, n'importe qui peut aujourd'hui composer, enregistrer, mixer et diffuser de la musique de qualité professionnelle depuis sa chambre. Comprendre les outils et les concepts fondamentaux est la clé pour exploiter ce potentiel.</p>
+      </div>
+      <p class="resume-text">Des beatmakers hip-hop aux compositeurs de musiques de film, des producteurs de musique électronique aux auteurs-compositeurs folk, la MAO est devenue le dénominateur commun de toute la production musicale contemporaine.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Les outils de la MAO</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Le DAW (Digital Audio Workstation)</h3>
+        <p>Le <strong>DAW</strong> est le logiciel central de la MAO, l'équivalent numérique d'un studio d'enregistrement complet. Il permet d'enregistrer, d'éditer, de mixer et d'exporter de l'audio et du MIDI sur un nombre illimité de pistes. Les DAW majeurs sont <strong>Ableton Live</strong> (production électronique, performance live), <strong>Logic Pro</strong> (production généraliste, Mac uniquement), <strong>Pro Tools</strong> (enregistrement et mixage professionnel), <strong>FL Studio</strong> (beatmaking, musique urbaine), <strong>Cubase</strong> (composition, orchestration) et <strong>Reaper</strong> (léger, personnalisable, prix libre).</p>
+        <p>Le choix du DAW dépend du genre musical, du workflow préféré et du budget. Ableton Live se distingue par sa <strong>vue Session</strong> (clips lançables en temps réel, idéale pour l'improvisation et le live) en plus de la vue Arrangement classique. Logic Pro offre un excellent rapport qualité/prix avec une bibliothèque de sons massive. Pro Tools reste la référence en studio d'enregistrement professionnel pour sa gestion de l'audio et son édition chirurgicale.</p>
+        <p>L'<strong>interface audio</strong> (carte son externe) est le compagnon indispensable du DAW. Elle convertit le signal analogique (micro, guitare) en numérique et inversement. La qualité des convertisseurs et la <strong>latence</strong> (délai entre l'entrée et la sortie) sont les critères principaux. Une latence inférieure à 10 ms est nécessaire pour jouer confortablement en temps réel.</p>
+
+        <h3>Le MIDI</h3>
+        <p>Le <strong>MIDI</strong> (Musical Instrument Digital Interface) est un protocole de communication entre instruments et ordinateurs. Contrairement à l'audio, le MIDI ne transporte pas du son mais des <strong>instructions</strong> : quelle note jouer, à quelle vélocité (intensité), pendant combien de temps, sur quel canal. C'est l'équivalent d'une partition numérique que n'importe quel instrument virtuel peut interpréter.</p>
+        <p>Les messages MIDI fondamentaux sont : <strong>Note On</strong> (début de note, avec numéro de note et vélocité), <strong>Note Off</strong> (fin de note), <strong>Control Change</strong> (CC — molette de modulation, pédale de sustain, expression) et <strong>Program Change</strong> (changement de son/preset). La vélocité (0-127) contrôle non seulement le volume mais aussi le timbre : un piano virtuel de qualité produira un son plus brillant et percussif à vélocité élevée, plus doux et feutré à faible vélocité.</p>
+        <p>L'avantage majeur du MIDI est sa <strong>flexibilité totale</strong> : on peut modifier les notes, le tempo, l'instrument, la vélocité, la quantification à tout moment après l'enregistrement. Un solo joué au clavier MIDI peut être rejoué par un orchestre symphonique virtuel, un synthétiseur ou une guitare samplée sans ré-enregistrement.</p>
+
+        <h3>La synthèse sonore</h3>
+        <p>La <strong>synthèse sonore</strong> consiste à créer des sons à partir de formes d'onde élémentaires et de traitements. La synthèse <strong>soustractive</strong> est la plus classique : un oscillateur génère une forme d'onde riche en harmoniques (dent de scie, carré, pulse), puis un filtre (passe-bas, passe-haut, passe-bande) soustrait certaines fréquences. C'est le principe du Minimoog, du Roland Juno et de la majorité des synthétiseurs analogiques.</p>
+        <p>La synthèse <strong>FM</strong> (modulation de fréquence, popularisée par le Yamaha DX7) produit des timbres complexes et métalliques en utilisant un oscillateur pour moduler la fréquence d'un autre. La synthèse <strong>additive</strong> construit le son en additionnant des sinusoïdes à différentes fréquences et amplitudes. La synthèse <strong>granulaire</strong> découpe un échantillon en micro-grains (10-50 ms) et les réassemble de manière créative, permettant des textures sonores uniques.</p>
+        <p>La synthèse <strong>wavetable</strong> (Serum, Massive) utilise des tables d'ondes — des séries de formes d'onde entre lesquelles on peut « scanner » en temps réel, créant des timbres évolutifs. C'est la technique dominante en production électronique contemporaine pour sa puissance sonore et sa facilité de programmation.</p>
+
+        <h3>Le sampling</h3>
+        <p>Le <strong>sampling</strong> (échantillonnage) consiste à enregistrer des sons réels et à les utiliser comme matière première musicale. Un <strong>sampler</strong> (logiciel ou matériel) permet de déclencher, transposer, boucler et manipuler ces échantillons. Le sampling est à la base de la majorité des instruments virtuels réalistes : pianos, cordes, batteries, cuivres.</p>
+        <p>Les <strong>bibliothèques d'échantillons</strong> professionnelles (Kontakt, EastWest, Spitfire Audio) contiennent des gigaoctets de sons enregistrés avec minutie : chaque note d'un piano échantillonnée à plusieurs vélocités, avec différentes articulations (legato, staccato, pizzicato pour les cordes). Le résultat est un réalisme saisissant, même si l'expressivité dépend de la qualité de la programmation MIDI.</p>
+        <p>Le sampling créatif — découper et réarranger des passages d'enregistrements existants — est le fondement du hip-hop, de la musique électronique et du remix. Le producteur J Dilla, le duo The Chemical Brothers ou encore Daft Punk ont élevé le sampling au rang d'art. Les questions de <strong>droits d'auteur</strong> (clearance) sont cependant incontournables : utiliser un échantillon reconnaissable sans autorisation expose à des poursuites juridiques.</p>
+
+        <h3>Les plugins</h3>
+        <p>Les <strong>plugins</strong> sont des logiciels qui fonctionnent à l'intérieur du DAW pour ajouter des fonctionnalités : instruments virtuels et effets audio. Les formats standards sont <strong>VST</strong> (Virtual Studio Technology, universel), <strong>AU</strong> (Audio Units, Mac uniquement) et <strong>AAX</strong> (Pro Tools uniquement).</p>
+        <p>Les <strong>plugins d'instruments</strong> génèrent du son : synthétiseurs (Serum, Massive, Diva), pianos (Keyscape, Addictive Keys), batteries (Superior Drummer, Addictive Drums), orchestres (Kontakt, BBCSO). Les <strong>plugins d'effets</strong> traitent le son : EQ, compresseurs, réverbes, délais, saturations, distorsions, modulateurs (chorus, flanger, phaser).</p>
+        <p>De nombreux plugins <strong>émulent</strong> du matériel analogique classique : le compresseur Fairchild 670, l'EQ Pultec, la réverbe à plaque EMT 140, la console SSL 4000. Ces émulations reproduisent les comportements non linéaires du matériel analogique (harmoniques, saturation douce, réponse dynamique) qui contribuent à la « chaleur » et au « caractère » associés aux enregistrements vintage.</p>
+
+        <h3>Le workflow de production</h3>
+        <p>Un <strong>workflow</strong> (flux de travail) efficace est essentiel pour ne pas se perdre dans les possibilités infinies de la MAO. Un workflow typique suit ces étapes : <strong>esquisse</strong> (idée mélodique, progression harmonique, beat de base), <strong>arrangement</strong> (structure du morceau : intro, couplet, refrain, pont, outro), <strong>production</strong> (choix et design des sons, superposition des couches, ajout de détails), <strong>édition</strong> (nettoyage, quantification, corrections) et <strong>mixage</strong>.</p>
+        <p>Les <strong>templates</strong> (modèles de session préconfigurés) accélèrent considérablement le travail : pistes de batterie avec routage prêt, bus de réverbe configurés, traitements de voix préréglés. Créer et affiner ses templates est un investissement qui se rentabilise à chaque nouveau projet.</p>
+        <p>Le <strong>sound design</strong> — la création de sons originaux à partir de la synthèse, du sampling et du traitement — est devenu une discipline à part entière. Les producteurs de musique électronique passent autant de temps à créer leurs sons qu'à composer. Un son unique et identifiable (une basse, un lead, un pad) peut définir l'identité sonore d'un artiste autant que ses mélodies.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">🎛️ MAO — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Que signifie l'acronyme DAW ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Digital Audio Wave</div>
+              <div class="option" onclick="answer(this,true)">Digital Audio Workstation</div>
+              <div class="option" onclick="answer(this,false)">Dynamic Audio Workshop</div>
+              <div class="option" onclick="answer(this,false)">Digital Analog Workspace</div>
+            </div>
+            <div class="q-feedback">DAW signifie Digital Audio Workstation (station de travail audio numérique). C'est le logiciel central de la MAO qui remplace l'ensemble d'un studio d'enregistrement traditionnel.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Que transporte le protocole MIDI ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Du son numérique</div>
+              <div class="option" onclick="answer(this,true)">Des instructions musicales (notes, vélocité, durée)</div>
+              <div class="option" onclick="answer(this,false)">Des fichiers audio compressés</div>
+              <div class="option" onclick="answer(this,false)">Des fréquences sonores</div>
+            </div>
+            <div class="q-feedback">Le MIDI ne transporte pas du son mais des instructions : quelle note jouer, à quelle vélocité, pendant combien de temps. Ces instructions sont ensuite interprétées par un instrument virtuel ou matériel pour produire du son.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Quel type de synthèse utilise un filtre pour retirer des harmoniques d'une forme d'onde riche ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">La synthèse soustractive</div>
+              <div class="option" onclick="answer(this,false)">La synthèse additive</div>
+              <div class="option" onclick="answer(this,false)">La synthèse FM</div>
+              <div class="option" onclick="answer(this,false)">La synthèse granulaire</div>
+            </div>
+            <div class="q-feedback">La synthèse soustractive part d'une forme d'onde riche en harmoniques (dent de scie, carré) et utilise des filtres pour « soustraire » certaines fréquences. C'est le principe des synthétiseurs analogiques classiques comme le Minimoog.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Quel format de plugin est universel (compatible Windows et Mac, tous DAW) ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">AU (Audio Units)</div>
+              <div class="option" onclick="answer(this,true)">VST (Virtual Studio Technology)</div>
+              <div class="option" onclick="answer(this,false)">AAX</div>
+              <div class="option" onclick="answer(this,false)">RTAS</div>
+            </div>
+            <div class="q-feedback">Le VST (Virtual Studio Technology, créé par Steinberg) est le format de plugin le plus universel, compatible avec Windows et Mac et supporté par la quasi-totalité des DAW. AU est limité à Mac, AAX à Pro Tools.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quelle est la particularité de la « vue Session » d'Ableton Live ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Elle affiche uniquement les effets</div>
+              <div class="option" onclick="answer(this,false)">Elle montre la forme d'onde du signal</div>
+              <div class="option" onclick="answer(this,true)">Elle permet de lancer des clips en temps réel pour l'improvisation</div>
+              <div class="option" onclick="answer(this,false)">Elle gère uniquement le MIDI</div>
+            </div>
+            <div class="q-feedback">La vue Session d'Ableton Live organise les clips (boucles audio ou MIDI) dans une grille verticale, permettant de les lancer, combiner et improviser en temps réel. C'est ce qui distingue Ableton des autres DAW et le rend populaire pour le live et la production électronique.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">La vélocité MIDI contrôle principalement :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Le tempo du morceau</div>
+              <div class="option" onclick="answer(this,false)">La hauteur de la note</div>
+              <div class="option" onclick="answer(this,true)">L'intensité (et souvent le timbre) de la note</div>
+              <div class="option" onclick="answer(this,false)">La durée de la note</div>
+            </div>
+            <div class="q-feedback">La vélocité MIDI (0-127) contrôle l'intensité de la note. Sur un instrument virtuel de qualité, elle affecte aussi le timbre : un piano à vélocité élevée sonne brillant et percussif, à faible vélocité il sonne doux et feutré.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1</h3>
+        <p>Créez un beat de base dans un DAW en utilisant uniquement des échantillons de batterie (kick, snare, hi-hat). Structurez-le sur 4 mesures avec un pattern de kick sur les temps 1 et 3, la snare sur les temps 2 et 4.</p>
+        <details><summary>Voir la correction</summary><div class="highlight-box"><p>Ce pattern est le « four on the floor » simplifié de la musique pop/rock. Le kick tombe sur les temps forts (1 et 3), la caisse claire sur les contretemps (2 et 4), créant la pulsation de base. Le hi-hat peut jouer en croches (8 notes par mesure) ou en doubles croches (16 notes par mesure) pour ajouter du rythme. Variez les vélocités du hi-hat (accents sur les temps, vélocités plus faibles sur les contretemps) pour humaniser le pattern et éviter l'effet « machine ».</p></div></details>
+
+        <h3>Exercice 2</h3>
+        <p>Programmez une mélodie MIDI simple de 8 mesures, puis réassignez-la successivement à un piano, un synthétiseur lead et un ensemble de cordes. Comment le choix de l'instrument transforme-t-il l'émotion ?</p>
+        <details><summary>Voir la correction</summary><div class="highlight-box"><p>C'est la démonstration du pouvoir du MIDI : les mêmes notes changent radicalement de caractère selon l'instrument. Le piano confère intimité et clarté, chaque note est bien définie. Le synthétiseur lead apporte modernité et énergie, surtout avec du portamento (glissement entre les notes). Les cordes ajoutent de l'émotion et de l'ampleur, surtout en legato. L'exercice montre que le timbre est une dimension expressive aussi importante que la mélodie elle-même.</p></div></details>
+
+        <h3>Exercice 3</h3>
+        <p>Créez un son de basse en synthèse soustractive : partez d'un oscillateur en dent de scie, appliquez un filtre passe-bas et une enveloppe. Décrivez l'effet de chaque paramètre.</p>
+        <details><summary>Voir la correction</summary><div class="highlight-box"><p>L'oscillateur en dent de scie produit un son riche en harmoniques (toutes les harmoniques). Le filtre passe-bas retire les aigus, rendant le son plus rond et plus « gras » — la fréquence de coupure détermine le degré de brillance. La résonance du filtre ajoute un pic de fréquence caractéristique. L'enveloppe du filtre (ADSR) crée un mouvement : une attaque rapide avec un decay moyen sur le filtre crée le son « wah » caractéristique de la basse synthétique. L'enveloppe d'amplitude contrôle le volume dans le temps.</p></div></details>
+
+        <h3>Exercice 4</h3>
+        <p>Comparez le workflow d'un beatmaker hip-hop (sampling + séquençage) avec celui d'un compositeur de musique orchestrale (MIDI + bibliothèques). Quelles sont les similarités et les différences ?</p>
+        <details><summary>Voir la correction</summary><div class="highlight-box"><p>Similarités : les deux utilisent un DAW comme outil central, manipulent des pistes multiples, appliquent des effets et exportent un mix final. Les deux font de la composition musicale assistée par ordinateur. Différences : le beatmaker part souvent d'échantillons existants (sample de vinyle, boucle, one-shot) qu'il découpe et réarrange, tandis que le compositeur orchestre note par note en MIDI. Le beatmaker cherche le groove et le feeling ; le compositeur cherche l'expression et le mouvement orchestral. Les bibliothèques de sons sont des giga-octets d'instruments acoustiques échantillonnés. Les deux workflows sont légitimes et peuvent même se combiner.</p></div></details>
+
+        <h3>Exercice 5</h3>
+        <p>Vous débutez en MAO et devez choisir un DAW. Listez trois critères de choix pertinents et recommandez un DAW pour un débutant en production électronique.</p>
+        <details><summary>Voir la correction</summary><div class="highlight-box"><p>Critères pertinents : 1) Le genre musical pratiqué (certains DAW excellent dans des styles spécifiques). 2) Le système d'exploitation (Logic Pro est Mac uniquement). 3) Le budget (Reaper est quasi gratuit, Logic Pro abordable, Ableton Live Suite cher mais complet). Pour un débutant en musique électronique, Ableton Live est souvent recommandé : la vue Session encourage l'expérimentation, les instruments intégrés sont excellents, la communauté et les tutoriels sont immenses. FL Studio est une excellente alternative, très intuitif pour le beatmaking avec son step sequencer.</p></div></details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="mastering.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Mastering</span>
+      </a>
+      <div></div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions=document.querySelectorAll('.question-block');let currentQ=0,score=0;let answered=new Array(questions.length).fill(false);const dotsContainer=document.getElementById('qDots');questions.forEach((_,i)=>{const d=document.createElement('div');d.className='q-dot'+(i===0?' current':'');dotsContainer.appendChild(d)});function updateDots(){document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot';if(answered[i])d.classList.add('done');if(i===currentQ)d.classList.add('current')})}function answer(el,ok){if(answered[currentQ])return;answered[currentQ]=true;el.closest('.question-block').querySelectorAll('.option').forEach(o=>o.classList.add('disabled'));el.classList.add(ok?'correct':'wrong');if(!ok)el.closest('.question-block').querySelectorAll('.option').forEach(o=>{if(o.onclick.toString().includes('true'))o.classList.add('correct')});else{score++;document.getElementById('scoreDisplay').textContent=score}el.closest('.question-block').querySelector('.q-feedback').classList.add('show',ok?'good':'bad');document.getElementById('btnNext').disabled=false;updateDots()}function nextQ(){if(currentQ<questions.length-1){questions[currentQ].classList.remove('active');currentQ++;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=false;document.getElementById('btnNext').disabled=!answered[currentQ];if(currentQ===questions.length-1)document.getElementById('btnNext').textContent='Terminer';updateDots()}else{showResult()}}function prevQ(){if(currentQ>0){questions[currentQ].classList.remove('active');currentQ--;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=currentQ===0;document.getElementById('btnNext').disabled=!answered[currentQ];document.getElementById('btnNext').textContent='Suivant →';updateDots()}}function showResult(){document.getElementById('quizBody').style.display='none';document.getElementById('quizResult').style.display='block';document.getElementById('resultScore').textContent=score+'/'+questions.length;var m=['Continue !','Pas mal !','Très bien !','Parfait !'];document.getElementById('resultMsg').textContent=m[Math.min(score,3)]}function resetQuiz(){score=0;currentQ=0;answered=new Array(questions.length).fill(false);document.getElementById('scoreDisplay').textContent=0;document.getElementById('quizBody').style.display='block';document.getElementById('quizResult').style.display='none';questions.forEach((q,i)=>{q.classList.toggle('active',i===0);q.querySelectorAll('.option').forEach(o=>o.className='option');q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback')});document.getElementById('btnPrev').disabled=true;document.getElementById('btnNext').disabled=true;document.getElementById('btnNext').textContent='Suivant →';updateDots()}function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active')}(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l});if(current){links.forEach(function(l){l.classList.remove('active')});current.classList.add('active')}},{passive:true})})();
+</script>
+<script src="../../mobile.js"></script>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Statistiques et probabilités — Probabilités — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #c0392b;
+  --accent2: #e74c3c;
+  --accent-dim: rgba(192,57,43,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../maths-page.html">Mathématiques</a> › <a href="../probabilites.html">Probabilités</a> › <span>Statistiques et probabilités</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🎲 Probabilités</span>
+    <span class="tag-level">Intermédiaire</span>
+    <span class="tag-time">⏱ ~50 min</span>
+  </div>
+  <h1><em>Statistiques et probabilités</em></h1>
+  <p class="hero-desc">Variables aléatoires, espérance, variance et écart-type : les outils pour quantifier le hasard et caractériser une distribution.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../probabilites.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Probabilités</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="denombrement.html">Dénombrement</a>
+    <a class="sidebar-link" href="probabilite-conditionnelle.html">Probabilité conditionnelle</a>
+    <a class="sidebar-link" href="lois-discretes.html">Lois discrètes</a>
+    <a class="sidebar-link" href="loi-normale.html">Loi normale</a>
+    <a class="sidebar-link active" href="#">Statistiques et probabilités</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Mesurer et résumer le hasard</p>
+        </div>
+      </div>
+      <p class="resume-text">Les <strong>variables aléatoires</strong> permettent de traduire les résultats d'une expérience aléatoire en nombres, ouvrant la voie à tout le calcul probabiliste. Pour résumer le comportement d'une variable aléatoire en quelques chiffres, on utilise des indicateurs fondamentaux : l'espérance (valeur moyenne), la variance (dispersion) et l'écart-type (mesure de variabilité dans les mêmes unités que la variable).</p>
+      <div class="highlight-box">
+        <p><strong>L'idée centrale :</strong> L'espérance indique « autour de quelle valeur » se situe la variable, tandis que la variance et l'écart-type mesurent « à quel point » les valeurs s'éloignent de cette moyenne. Ces deux informations combinées donnent une image synthétique de la distribution.</p>
+      </div>
+      <p class="resume-text">Ce cours développe la théorie des variables aléatoires (discrètes et continues), les définitions et propriétés de l'espérance, de la variance et de l'écart-type, les inégalités classiques (Markov, Bienaymé-Tchebychev) et la loi des grands nombres. Ces notions sont le socle commun des probabilités et des statistiques.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Variables aléatoires, espérance, variance et écart-type</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Variables aléatoires</h3>
+        <p>Une <strong>variable aléatoire</strong> (v.a.) X est une fonction qui associe un nombre réel à chaque résultat d'une expérience aléatoire. Formellement, X : Ω → ℝ. On distingue :</p>
+        <ul>
+          <li><strong>V.a. discrète :</strong> X prend un nombre fini ou dénombrable de valeurs. Sa loi est donnée par P(X = xᵢ) pour chaque valeur xᵢ.</li>
+          <li><strong>V.a. continue :</strong> X peut prendre n'importe quelle valeur dans un intervalle. Sa loi est décrite par une densité f(x) telle que P(a ≤ X ≤ b) = ∫ₐᵇ f(x)dx.</li>
+        </ul>
+        <p><strong>Exemple discret :</strong> X = somme de deux dés. X prend les valeurs 2, 3, ..., 12. P(X=7) = 6/36 = 1/6 (c'est la valeur la plus probable).</p>
+        <p><strong>Exemple continu :</strong> X = durée d'attente à un guichet. X suit une loi exponentielle de paramètre λ, avec f(x) = λe⁻λˣ pour x ≥ 0.</p>
+        <div class="highlight-box">
+          <p><strong>Fonction de répartition :</strong> F(x) = P(X ≤ x). Pour une v.a. discrète, F est une fonction en escalier. Pour une v.a. continue, F(x) = ∫₋∞ˣ f(t)dt et f(x) = F'(x).</p>
+        </div>
+
+        <h3>Espérance mathématique</h3>
+        <p>L'<strong>espérance</strong> E(X) (ou μ) est la valeur moyenne de X sur un grand nombre de répétitions. C'est le « centre de gravité » de la distribution.</p>
+        <div class="highlight-box">
+          <p><strong>Cas discret :</strong> E(X) = Σ xᵢ × P(X = xᵢ)</p>
+          <p><strong>Cas continu :</strong> E(X) = ∫₋∞⁺∞ x × f(x) dx</p>
+        </div>
+        <p><strong>Propriétés fondamentales :</strong></p>
+        <ul>
+          <li><strong>Linéarité :</strong> E(aX + b) = aE(X) + b (toujours vraie)</li>
+          <li><strong>Additivité :</strong> E(X + Y) = E(X) + E(Y) (toujours vraie, même sans indépendance)</li>
+          <li><strong>Produit (si indépendantes) :</strong> E(XY) = E(X) × E(Y)</li>
+          <li><strong>Constante :</strong> E(c) = c</li>
+        </ul>
+        <p><strong>Exemple :</strong> Pour un dé équilibré, X = face obtenue.</p>
+        <p>E(X) = 1×(1/6) + 2×(1/6) + 3×(1/6) + 4×(1/6) + 5×(1/6) + 6×(1/6) = 21/6 = 3,5.</p>
+        <p>L'espérance 3,5 n'est pas une valeur possible du dé, mais c'est la moyenne sur un très grand nombre de lancers.</p>
+
+        <h3>Variance et écart-type</h3>
+        <p>La <strong>variance</strong> V(X) (ou σ²) mesure la dispersion des valeurs de X autour de son espérance. L'<strong>écart-type</strong> σ(X) est sa racine carrée, exprimée dans la même unité que X.</p>
+        <div class="highlight-box">
+          <p><strong>V(X) = E[(X - μ)²] = E(X²) - [E(X)]²</strong></p>
+          <p><strong>σ(X) = √V(X)</strong></p>
+        </div>
+        <p>La deuxième formule, V(X) = E(X²) - [E(X)]², est la formule de <strong>König-Huygens</strong>, plus pratique pour les calculs.</p>
+        <p><strong>Propriétés fondamentales :</strong></p>
+        <ul>
+          <li><strong>Positivité :</strong> V(X) ≥ 0, et V(X) = 0 si et seulement si X est constante.</li>
+          <li><strong>Translation :</strong> V(X + b) = V(X) (ajouter une constante ne change pas la dispersion)</li>
+          <li><strong>Dilatation :</strong> V(aX) = a²V(X)</li>
+          <li><strong>Combinaison :</strong> V(aX + b) = a²V(X)</li>
+          <li><strong>Somme (si indépendantes) :</strong> V(X + Y) = V(X) + V(Y)</li>
+        </ul>
+        <p><strong>Exemple (dé) :</strong> E(X²) = 1²×(1/6) + 2²×(1/6) + ... + 6²×(1/6) = 91/6 ≈ 15,167. V(X) = 91/6 - (7/2)² = 91/6 - 49/4 = (182-147)/12 = 35/12 ≈ 2,917. σ(X) = √(35/12) ≈ 1,71.</p>
+
+        <h3>Covariance et coefficient de corrélation</h3>
+        <p>La <strong>covariance</strong> mesure la liaison linéaire entre deux variables aléatoires :</p>
+        <div class="highlight-box">
+          <p><strong>Cov(X,Y) = E[(X-μₓ)(Y-μᵧ)] = E(XY) - E(X)E(Y)</strong></p>
+          <p>Le <strong>coefficient de corrélation</strong> normalise : ρ(X,Y) = Cov(X,Y) / (σₓ × σᵧ), avec -1 ≤ ρ ≤ 1.</p>
+        </div>
+        <ul>
+          <li>ρ = 1 : corrélation linéaire positive parfaite</li>
+          <li>ρ = -1 : corrélation linéaire négative parfaite</li>
+          <li>ρ = 0 : absence de corrélation linéaire (mais pas nécessairement indépendance)</li>
+        </ul>
+        <p>Si X et Y sont indépendantes, alors Cov(X,Y) = 0 et V(X+Y) = V(X) + V(Y). La réciproque est fausse en général.</p>
+
+        <h3>Inégalités classiques</h3>
+        <p>Même sans connaître la loi exacte de X, l'espérance et la variance permettent d'obtenir des bornes sur les probabilités :</p>
+        <div class="highlight-box">
+          <p><strong>Inégalité de Markov :</strong> Si X ≥ 0, alors P(X ≥ a) ≤ E(X)/a pour tout a > 0.</p>
+          <p><strong>Inégalité de Bienaymé-Tchebychev :</strong> P(|X - μ| ≥ kσ) ≤ 1/k² pour tout k > 0.</p>
+        </div>
+        <p>L'inégalité de Tchebychev donne des bornes universelles (valables pour toute distribution) mais souvent peu précises. Pour k = 2 : au plus 25% des valeurs sont à plus de 2 écarts-types de la moyenne (contre environ 4,6% pour une loi normale).</p>
+        <p><strong>Exemple :</strong> Un processus a une espérance de 100 et un écart-type de 5. Par Tchebychev, P(|X - 100| ≥ 15) ≤ 1/(15/5)² = 1/9 ≈ 11,1%. Au moins 88,9% des valeurs sont dans [85, 115].</p>
+
+        <h3>Loi des grands nombres</h3>
+        <p>La <strong>loi des grands nombres</strong> justifie l'interprétation fréquentiste des probabilités : la moyenne d'un grand nombre d'observations indépendantes converge vers l'espérance.</p>
+        <div class="highlight-box">
+          <p><strong>Loi faible des grands nombres :</strong> Soit X₁, ..., Xₙ iid d'espérance μ. Pour tout ε > 0 :</p>
+          <p>P(|X̄ₙ - μ| ≥ ε) → 0 quand n → ∞</p>
+        </div>
+        <p>Concrètement : si on lance un dé un très grand nombre de fois, la moyenne des résultats se rapproche de 3,5. Si on répète une expérience n fois, la fréquence observée d'un événement converge vers sa probabilité théorique.</p>
+        <p><strong>Vitesse de convergence :</strong> Par Tchebychev, P(|X̄ₙ - μ| ≥ ε) ≤ σ²/(nε²). La convergence est en 1/n : doubler la précision requiert quadrupler n.</p>
+
+        <h3>Lien entre statistiques descriptives et probabilités</h3>
+        <p>Les statistiques descriptives et les probabilités utilisent les mêmes notions mais dans des contextes différents :</p>
+        <ul>
+          <li><strong>Statistique descriptive :</strong> On observe des données et on calcule moyenne x̄, variance s², écart-type s. Ce sont des résumés des données observées.</li>
+          <li><strong>Probabilités :</strong> On modélise par une v.a. X et on calcule E(X), V(X), σ(X). Ce sont des caractéristiques théoriques du modèle.</li>
+          <li><strong>Statistique inférentielle :</strong> On utilise les données (x̄, s²) pour estimer les paramètres du modèle (μ, σ²). La loi des grands nombres garantit que x̄ → μ quand n → ∞.</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Variance corrigée :</strong> Pour estimer σ² à partir d'un échantillon, on utilise la variance corrigée s² = (1/(n-1)) × Σ(xᵢ - x̄)² (division par n-1, pas n). C'est un estimateur sans biais de σ². La division par n-1 compense le fait que x̄ est calculé à partir des mêmes données.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">🎲 Statistiques et probabilités — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quelle est l'espérance d'un dé équilibré à 6 faces ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">3</div>
+              <div class="option" onclick="answer(this,true)">3,5</div>
+              <div class="option" onclick="answer(this,false)">4</div>
+              <div class="option" onclick="answer(this,false)">21</div>
+            </div>
+            <div class="q-feedback">E(X) = (1+2+3+4+5+6)/6 = 21/6 = 3,5. L'espérance n'est pas forcément une valeur possible de la variable.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Si E(X) = 5 et E(X²) = 30, combien vaut V(X) ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">25</div>
+              <div class="option" onclick="answer(this,true)">5</div>
+              <div class="option" onclick="answer(this,false)">30</div>
+              <div class="option" onclick="answer(this,false)">√5</div>
+            </div>
+            <div class="q-feedback">Par la formule de König-Huygens : V(X) = E(X²) - [E(X)]² = 30 - 25 = 5. L'écart-type serait σ = √5 ≈ 2,24.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Si V(X) = 9, combien vaut V(3X + 7) ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">27</div>
+              <div class="option" onclick="answer(this,false)">34</div>
+              <div class="option" onclick="answer(this,true)">81</div>
+              <div class="option" onclick="answer(this,false)">16</div>
+            </div>
+            <div class="q-feedback">V(aX+b) = a²V(X). Donc V(3X+7) = 3² × 9 = 9 × 9 = 81. La constante +7 ne change pas la variance.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">L'inégalité de Bienaymé-Tchebychev donne P(|X-μ| ≥ 3σ) ≤ ... ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">1/3</div>
+              <div class="option" onclick="answer(this,false)">1/6</div>
+              <div class="option" onclick="answer(this,true)">1/9</div>
+              <div class="option" onclick="answer(this,false)">1/27</div>
+            </div>
+            <div class="q-feedback">P(|X-μ| ≥ kσ) ≤ 1/k². Pour k = 3 : 1/3² = 1/9 ≈ 11,1%. Pour une loi normale, la vraie valeur serait 0,3%, mais Tchebychev donne une borne universelle.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">E(X + Y) = E(X) + E(Y) est vrai :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">Toujours</div>
+              <div class="option" onclick="answer(this,false)">Seulement si X et Y sont indépendantes</div>
+              <div class="option" onclick="answer(this,false)">Seulement si X et Y ont même loi</div>
+              <div class="option" onclick="answer(this,false)">Jamais</div>
+            </div>
+            <div class="q-feedback">La linéarité de l'espérance est toujours vraie, même si X et Y ne sont pas indépendantes. C'est une propriété remarquable. Attention : V(X+Y) = V(X)+V(Y) nécessite l'indépendance.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Pourquoi divise-t-on par n-1 (et non n) dans la variance corrigée d'un échantillon ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Pour simplifier les calculs</div>
+              <div class="option" onclick="answer(this,true)">Pour obtenir un estimateur sans biais de σ²</div>
+              <div class="option" onclick="answer(this,false)">Parce que n-1 est toujours plus grand que n</div>
+              <div class="option" onclick="answer(this,false)">Par convention arbitraire</div>
+            </div>
+            <div class="q-feedback">Diviser par n sous-estimerait systématiquement σ² (biais). Diviser par n-1 (degrés de liberté) corrige ce biais. On perd un degré de liberté car x̄ est estimé à partir des mêmes données.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Espérance et variance</h3>
+        <p>Une variable aléatoire X a la loi suivante : P(X=1)=0,2, P(X=3)=0,5, P(X=7)=0,3. Calculer E(X), E(X²), V(X) et σ(X).</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>E(X) = 1×0,2 + 3×0,5 + 7×0,3 = 0,2 + 1,5 + 2,1 = <strong>3,8</strong>. E(X²) = 1×0,2 + 9×0,5 + 49×0,3 = 0,2 + 4,5 + 14,7 = <strong>19,4</strong>. V(X) = 19,4 - 3,8² = 19,4 - 14,44 = <strong>4,96</strong>. σ(X) = √4,96 ≈ <strong>2,23</strong>.</p></div>
+        </details>
+
+        <h3>Exercice 2 — Propriétés de la variance</h3>
+        <p>Soit X une v.a. avec E(X) = 10 et V(X) = 4. Calculer E(Y) et V(Y) pour Y = 2X - 3.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>E(Y) = E(2X-3) = 2E(X) - 3 = 2×10 - 3 = <strong>17</strong>. V(Y) = V(2X-3) = 2²×V(X) = 4×4 = <strong>16</strong>. σ(Y) = √16 = <strong>4</strong>. La translation (-3) n'affecte pas la variance, seul le coefficient multiplicatif (2) intervient, au carré.</p></div>
+        </details>
+
+        <h3>Exercice 3 — Somme de variables aléatoires</h3>
+        <p>On lance 3 dés équilibrés indépendants. Soit S la somme des 3 dés. Calculer E(S) et σ(S).</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Pour un dé : E(Xᵢ) = 3,5 et V(Xᵢ) = 35/12. Par indépendance : E(S) = 3 × 3,5 = <strong>10,5</strong>. V(S) = 3 × 35/12 = 105/12 = 8,75. σ(S) = √8,75 ≈ <strong>2,96</strong>. La somme de 3 dés vaut en moyenne 10,5 avec un écart-type d'environ 3.</p></div>
+        </details>
+
+        <h3>Exercice 4 — Inégalité de Tchebychev</h3>
+        <p>Le temps de traitement d'une commande a une espérance de 30 minutes et un écart-type de 5 minutes. Sans connaître la loi, donner une borne supérieure de la probabilité que le traitement dure plus de 45 minutes ou moins de 15 minutes.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>|X - 30| ≥ 15 signifie X ≤ 15 ou X ≥ 45. Ici k = 15/5 = 3 écarts-types. Par Tchebychev : P(|X-30| ≥ 15) ≤ 1/3² = <strong>1/9 ≈ 11,1%</strong>. Au moins 88,9% des commandes sont traitées entre 15 et 45 minutes.</p></div>
+        </details>
+
+        <h3>Exercice 5 — Jeu de hasard</h3>
+        <p>Un jeu coûte 2 euros. On lance un dé : si on obtient 6, on gagne 10 euros ; sinon on ne gagne rien. Soit G le gain net du joueur. Calculer E(G). Le jeu est-il favorable au joueur ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>G = 10 - 2 = 8 si on obtient 6 (proba 1/6), et G = 0 - 2 = -2 sinon (proba 5/6). E(G) = 8×(1/6) + (-2)×(5/6) = 8/6 - 10/6 = -2/6 = <strong>-1/3 ≈ -0,33 euro</strong>. Le jeu est <strong>défavorable au joueur</strong> : en moyenne, il perd 33 centimes par partie. C'est le principe de tous les jeux de casino.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="loi-normale.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Loi normale</span>
+      </a>
+      <div></div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions = document.querySelectorAll('.question-block');
+let currentQ = 0, score = 0;
+let answered = new Array(questions.length).fill(false);
+const dotsContainer = document.getElementById('qDots');
+questions.forEach((_, i) => { const d = document.createElement('div'); d.className = 'q-dot' + (i === 0 ? ' current' : ''); dotsContainer.appendChild(d); });
+function updateDots() { document.querySelectorAll('.q-dot').forEach((d, i) => { d.className = 'q-dot'; if (answered[i]) d.classList.add('done'); if (i === currentQ) d.classList.add('current'); }); }
+function answer(el, ok) {
+  if (answered[currentQ]) return; answered[currentQ] = true;
+  el.closest('.question-block').querySelectorAll('.option').forEach(o => o.classList.add('disabled'));
+  el.classList.add(ok ? 'correct' : 'wrong');
+  if (!ok) el.closest('.question-block').querySelectorAll('.option').forEach(o => { if(o.onclick.toString().includes('true')) o.classList.add('correct'); });
+  else { score++; document.getElementById('scoreDisplay').textContent = score; }
+  el.closest('.question-block').querySelector('.q-feedback').classList.add('show', ok ? 'good' : 'bad');
+  document.getElementById('btnNext').disabled = false;
+  updateDots();
+}
+function nextQ() { if (currentQ < questions.length - 1) { questions[currentQ].classList.remove('active'); currentQ++; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = false; document.getElementById('btnNext').disabled = !answered[currentQ]; if (currentQ === questions.length - 1) document.getElementById('btnNext').textContent = 'Terminer'; updateDots(); } else { showResult(); } }
+function prevQ() { if (currentQ > 0) { questions[currentQ].classList.remove('active'); currentQ--; questions[currentQ].classList.add('active'); document.getElementById('btnPrev').disabled = currentQ === 0; document.getElementById('btnNext').disabled = !answered[currentQ]; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); } }
+function showResult() { document.getElementById('quizBody').style.display = 'none'; document.getElementById('quizResult').style.display = 'block'; document.getElementById('resultScore').textContent = score + '/' + questions.length; var m = ['Continue !', 'Pas mal !', 'Très bien !', 'Parfait !']; document.getElementById('resultMsg').textContent = m[Math.min(score, 3)]; }
+function resetQuiz() { score = 0; currentQ = 0; answered = new Array(questions.length).fill(false); document.getElementById('scoreDisplay').textContent = 0; document.getElementById('quizBody').style.display = 'block'; document.getElementById('quizResult').style.display = 'none'; questions.forEach((q,i) => { q.classList.toggle('active', i===0); q.querySelectorAll('.option').forEach(o=>o.className='option'); q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback'); }); document.getElementById('btnPrev').disabled = true; document.getElementById('btnNext').disabled = true; document.getElementById('btnNext').textContent = 'Suivant →'; updateDots(); }
+function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
+(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+</script>
+    <script src="../../mobile.js"></script>
+</body>
+</html>

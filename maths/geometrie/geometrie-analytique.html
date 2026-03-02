@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Géométrie analytique — Géométrie — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root { --accent: #c0392b; --accent2: #e74c3c; --accent-dim: rgba(192,57,43,0.08); }
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../../maths-page.html">Mathématiques</a> › <a href="../geometrie.html">Géométrie</a> › <span>Géométrie analytique</span></div>
+</nav>
+<div class="hero">
+  <div class="hero-meta"><span class="tag-domain">📐 Géométrie</span><span class="tag-level">Intermédiaire → Avancé</span><span class="tag-time">⏱ ~50 min</span></div>
+  <h1><em>Géométrie analytique</em></h1>
+  <p class="hero-desc">Coordonnées, vecteurs, droites et courbes — quand l'algèbre rencontre la géométrie dans le plan repéré.</p>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../geometrie.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Géométrie</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="triangles.html">Triangles et théorèmes</a>
+    <a class="sidebar-link" href="trigonometrie.html">Trigonométrie</a>
+    <a class="sidebar-link" href="cercles-aires.html">Cercles, aires et volumes</a>
+    <a class="sidebar-link" href="transformations.html">Transformations géométriques</a>
+    <a class="sidebar-link active" href="#">Géométrie analytique</a>
+  </aside>
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Introduction</h2><p>L'algèbre au service de la géométrie</p></div></div>
+      <p class="resume-text">La <strong>géométrie analytique</strong> est l'étude des figures géométriques à l'aide de coordonnées numériques. Inventée par René Descartes au XVIIe siècle, elle permet de transformer tout problème de géométrie en un problème d'algèbre : un point devient un couple de nombres, une droite devient une équation, un cercle une équation du second degré. Cette idée révolutionnaire a unifié deux branches des mathématiques jusque-là séparées.</p>
+      <p class="resume-text">Grâce au repère cartésien, on peut calculer des distances, des milieux, des pentes, démontrer que des droites sont parallèles ou perpendiculaires, trouver des intersections, et bien plus encore. C'est le fondement de l'infographie, des systèmes de navigation, et de toute la géométrie computationnelle moderne.</p>
+      <div class="highlight-box">
+        <p><strong>L'idée de Descartes :</strong> associer à chaque point du plan un couple de nombres (x, y), ses coordonnées dans un repère. Ce passage du géométrique au numérique permet d'utiliser toute la puissance du calcul algébrique pour résoudre des problèmes de forme et de position.</p>
+      </div>
+      <p class="resume-text">Ce cours couvre les notions de repère et de coordonnées, les vecteurs du plan, les équations de droites, les distances et milieux, le produit scalaire, et les équations de cercles. Ces outils forment le vocabulaire de base de la géométrie analytique plane.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Le cours</h2><p>Coordonnées, vecteurs et équations</p></div></div>
+      <div class="course-content">
+
+        <h3>Le repère cartésien</h3>
+        <p>Un <strong>repère cartésien</strong> du plan est défini par un point O (l'origine) et deux axes perpendiculaires gradués : l'axe des abscisses (horizontal, Ox) et l'axe des ordonnées (vertical, Oy). Tout point M du plan est repéré par ses coordonnées (x, y).</p>
+        <p>On distingue :</p>
+        <ul>
+          <li><strong>Repère orthonormé (O, i⃗, j⃗) :</strong> les vecteurs de base ont même norme (= 1) et sont perpendiculaires. C'est le repère standard.</li>
+          <li><strong>Repère orthogonal :</strong> les axes sont perpendiculaires mais les unités peuvent différer.</li>
+          <li><strong>Repère quelconque :</strong> les axes ne sont pas nécessairement perpendiculaires.</li>
+        </ul>
+
+        <h3>Distance entre deux points</h3>
+        <p>La distance entre deux points A(x₁, y₁) et B(x₂, y₂) se calcule par le théorème de Pythagore :</p>
+        <div class="highlight-box">
+          <p><strong>AB = √((x₂ - x₁)² + (y₂ - y₁)²)</strong></p>
+        </div>
+        <p><strong>Exemple :</strong> A(1, 2) et B(4, 6). AB = √((4-1)² + (6-2)²) = √(9 + 16) = √25 = 5.</p>
+
+        <h3>Milieu d'un segment</h3>
+        <p>Le milieu M du segment [AB] a pour coordonnées la moyenne des coordonnées de A et B :</p>
+        <div class="highlight-box">
+          <p><strong>M = ((x₁ + x₂)/2, (y₁ + y₂)/2)</strong></p>
+        </div>
+        <p><strong>Exemple :</strong> milieu de A(3, -1) et B(7, 5) : M = ((3+7)/2, (-1+5)/2) = (5, 2).</p>
+
+        <h3>Vecteurs du plan</h3>
+        <p>Un <strong>vecteur</strong> AB⃗ est caractérisé par une direction, un sens et une norme (longueur). Ses coordonnées sont :</p>
+        <div class="highlight-box">
+          <p><strong>AB⃗ = (x₂ - x₁, y₂ - y₁)</strong></p>
+          <p><strong>Norme :</strong> ‖AB⃗‖ = √((x₂ - x₁)² + (y₂ - y₁)²) = AB</p>
+        </div>
+        <p>Opérations sur les vecteurs :</p>
+        <ul>
+          <li><strong>Addition :</strong> (a, b) + (c, d) = (a + c, b + d)</li>
+          <li><strong>Multiplication par un scalaire :</strong> k × (a, b) = (ka, kb)</li>
+          <li><strong>Colinéarité :</strong> u⃗(a, b) et v⃗(c, d) sont colinéaires si et seulement si ad - bc = 0 (le déterminant est nul)</li>
+        </ul>
+        <p><strong>Deux vecteurs colinéaires</strong> signifie qu'ils sont parallèles (même direction). Trois points A, B, C sont alignés si et seulement si AB⃗ et AC⃗ sont colinéaires.</p>
+
+        <h3>Équation de droite</h3>
+        <p>Dans le plan, une droite admet plusieurs formes d'équation :</p>
+        <div class="highlight-box">
+          <p><strong>Forme réduite :</strong> y = mx + p (m = pente, p = ordonnée à l'origine)</p>
+          <p><strong>Forme générale :</strong> ax + by + c = 0 (a et b non tous nuls)</p>
+          <p><strong>Forme paramétrique :</strong> (x, y) = (x₀, y₀) + t(a, b), t ∈ ℝ</p>
+        </div>
+        <p>La <strong>pente</strong> (coefficient directeur) d'une droite passant par A(x₁, y₁) et B(x₂, y₂) est :</p>
+        <p><strong>m = (y₂ - y₁) / (x₂ - x₁)</strong> (à condition que x₁ ≠ x₂)</p>
+        <p>Si x₁ = x₂, la droite est verticale, d'équation x = x₁ (pas de pente définie).</p>
+
+        <h3>Parallélisme et perpendicularité</h3>
+        <p>Deux droites de pentes m₁ et m₂ sont :</p>
+        <div class="highlight-box">
+          <p><strong>Parallèles :</strong> m₁ = m₂ (même pente)</p>
+          <p><strong>Perpendiculaires :</strong> m₁ × m₂ = -1 (les pentes sont inverses et opposées)</p>
+        </div>
+        <p><strong>Exemple :</strong> la droite y = 3x + 1 est perpendiculaire à y = -x/3 + 5, car 3 × (-1/3) = -1.</p>
+        <p>En forme générale, les droites a₁x + b₁y + c₁ = 0 et a₂x + b₂y + c₂ = 0 sont :</p>
+        <ul>
+          <li><strong>Parallèles</strong> si a₁b₂ - a₂b₁ = 0</li>
+          <li><strong>Perpendiculaires</strong> si a₁a₂ + b₁b₂ = 0</li>
+        </ul>
+
+        <h3>Intersection de deux droites</h3>
+        <p>Pour trouver l'intersection de deux droites, on résout le système formé par leurs équations. Trois cas possibles :</p>
+        <ul>
+          <li><strong>Un point unique :</strong> les droites sont sécantes (cas général)</li>
+          <li><strong>Aucune solution :</strong> les droites sont strictement parallèles</li>
+          <li><strong>Infinité de solutions :</strong> les droites sont confondues</li>
+        </ul>
+        <p><strong>Exemple :</strong> intersection de y = 2x + 1 et y = -x + 7. On pose 2x + 1 = -x + 7, d'où 3x = 6, x = 2, y = 5. Le point d'intersection est (2, 5).</p>
+
+        <h3>Le produit scalaire</h3>
+        <p>Le <strong>produit scalaire</strong> de deux vecteurs u⃗(a, b) et v⃗(c, d) est un nombre réel :</p>
+        <div class="highlight-box">
+          <p><strong>u⃗ · v⃗ = ac + bd = ‖u⃗‖ × ‖v⃗‖ × cos(θ)</strong></p>
+          <p>où θ est l'angle entre les deux vecteurs.</p>
+        </div>
+        <p>Applications du produit scalaire :</p>
+        <ul>
+          <li><strong>Orthogonalité :</strong> u⃗ ⊥ v⃗ ⟺ u⃗ · v⃗ = 0</li>
+          <li><strong>Angle entre vecteurs :</strong> cos(θ) = (u⃗ · v⃗) / (‖u⃗‖ × ‖v⃗‖)</li>
+          <li><strong>Norme :</strong> ‖u⃗‖² = u⃗ · u⃗ = a² + b²</li>
+          <li><strong>Projection :</strong> la projection de u⃗ sur v⃗ a pour norme (u⃗ · v⃗) / ‖v⃗‖</li>
+        </ul>
+        <p><strong>Exemple :</strong> u⃗ = (3, 4) et v⃗ = (−4, 3). u⃗ · v⃗ = 3×(−4) + 4×3 = −12 + 12 = 0. Donc u⃗ ⊥ v⃗.</p>
+
+        <h3>Équation du cercle</h3>
+        <p>Un cercle de centre Ω(a, b) et de rayon r a pour équation :</p>
+        <div class="highlight-box">
+          <p><strong>(x - a)² + (y - b)² = r²</strong></p>
+          <p>Forme développée : x² + y² - 2ax - 2by + (a² + b² - r²) = 0</p>
+        </div>
+        <p><strong>Exemple :</strong> le cercle de centre (3, -2) et de rayon 5 a pour équation (x - 3)² + (y + 2)² = 25, soit en développant : x² + y² - 6x + 4y - 12 = 0.</p>
+        <p><strong>Reconnaître un cercle :</strong> l'équation x² + y² + Dx + Ey + F = 0 représente un cercle de centre (-D/2, -E/2) et de rayon r = √(D²/4 + E²/4 - F), à condition que D²/4 + E²/4 - F > 0.</p>
+
+        <h3>Distance d'un point à une droite</h3>
+        <p>La distance du point M(x₀, y₀) à la droite d : ax + by + c = 0 est :</p>
+        <div class="highlight-box">
+          <p><strong>d(M, d) = |ax₀ + by₀ + c| / √(a² + b²)</strong></p>
+        </div>
+        <p><strong>Exemple :</strong> distance de M(1, 3) à la droite 3x + 4y - 2 = 0 : d = |3×1 + 4×3 - 2| / √(9 + 16) = |3 + 12 - 2| / 5 = 13/5 = 2,6.</p>
+
+        <h3>Pièges courants</h3>
+        <ul>
+          <li><strong>Oublier le cas de la droite verticale :</strong> x = constante n'a pas de pente. La formule y = mx + p ne peut pas la représenter.</li>
+          <li><strong>Se tromper dans le signe :</strong> le centre du cercle (x - a)² + (y - b)² = r² est (a, b), pas (-a, -b). Attention aux signes dans la forme développée.</li>
+          <li><strong>Confondre vecteur et point :</strong> un vecteur est un déplacement (pas d'origine fixe), un point est une position. AB⃗ = B - A, pas A - B.</li>
+          <li><strong>Produit scalaire et produit vectoriel :</strong> le produit scalaire donne un nombre. Le produit vectoriel (en 3D) donne un vecteur. Ne pas les confondre.</li>
+          <li><strong>Perpendicularité :</strong> m₁ × m₂ = -1, pas +1. Et penser aux cas où l'une des droites est verticale (pente non définie).</li>
+        </ul>
+
+        <h3>Applications</h3>
+        <ul>
+          <li><strong>GPS et cartographie :</strong> tout système de positionnement repose sur des coordonnées. La géométrie analytique est le langage du GPS, des cartes numériques et des SIG (systèmes d'information géographique).</li>
+          <li><strong>Infographie et CAO :</strong> les logiciels de dessin (AutoCAD, Blender) représentent les objets par des équations de courbes et de surfaces dans des repères.</li>
+          <li><strong>Physique :</strong> la trajectoire d'un projectile est une parabole y = -gx²/(2v₀²cos²(α)) + x·tan(α), une équation de la géométrie analytique.</li>
+          <li><strong>Robotique :</strong> le positionnement et la trajectoire des robots s'expriment en coordonnées cartésiennes ou polaires.</li>
+        </ul>
+
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Quiz</h2><p>Testez votre compréhension</p></div></div>
+      <div class="quiz-container">
+        <div class="quiz-header"><span class="quiz-title-text">📐 Géométrie analytique — Quiz</span><span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span></div>
+        <div class="quiz-body" id="quizBody">
+
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quelle est la distance entre A(1, 3) et B(4, 7) ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">5</div>
+              <div class="option" onclick="answer(this,false)">7</div>
+              <div class="option" onclick="answer(this,false)">√7</div>
+              <div class="option" onclick="answer(this,false)">25</div>
+            </div>
+            <div class="q-feedback">AB = √((4-1)² + (7-3)²) = √(9 + 16) = √25 = 5. On reconnaît le triplet pythagoricien (3, 4, 5).</div>
+          </div>
+
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Deux droites de pentes 2 et m sont perpendiculaires. Que vaut m ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">2</div>
+              <div class="option" onclick="answer(this,true)">-1/2</div>
+              <div class="option" onclick="answer(this,false)">-2</div>
+              <div class="option" onclick="answer(this,false)">1/2</div>
+            </div>
+            <div class="q-feedback">Pour des droites perpendiculaires : m₁ × m₂ = -1. Donc 2 × m = -1, soit m = -1/2. Les pentes sont inverses et de signes opposés.</div>
+          </div>
+
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Le milieu de A(-2, 6) et B(4, -2) est :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">(1, 2)</div>
+              <div class="option" onclick="answer(this,false)">(2, 4)</div>
+              <div class="option" onclick="answer(this,false)">(6, -8)</div>
+              <div class="option" onclick="answer(this,false)">(-3, 4)</div>
+            </div>
+            <div class="q-feedback">M = ((-2+4)/2, (6+(-2))/2) = (2/2, 4/2) = (1, 2). Le milieu est la moyenne des coordonnées.</div>
+          </div>
+
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">L'équation (x - 2)² + (y + 3)² = 16 représente un cercle de centre :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">(2, -3)</div>
+              <div class="option" onclick="answer(this,false)">(-2, 3)</div>
+              <div class="option" onclick="answer(this,false)">(2, 3)</div>
+              <div class="option" onclick="answer(this,false)">(-2, -3)</div>
+            </div>
+            <div class="q-feedback">(x - 2)² + (y - (-3))² = 16. Le centre est (2, -3) et le rayon est √16 = 4. Attention aux signes : (y + 3)² = (y - (-3))².</div>
+          </div>
+
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Les vecteurs u⃗(6, 4) et v⃗(3, 2) sont-ils colinéaires ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">Oui, car 6×2 - 4×3 = 0</div>
+              <div class="option" onclick="answer(this,false)">Non, car 6 ≠ 3</div>
+              <div class="option" onclick="answer(this,false)">Oui, car 6 + 4 = 3 + 2 + 5</div>
+              <div class="option" onclick="answer(this,false)">Non, car 6×3 + 4×2 ≠ 0</div>
+            </div>
+            <div class="q-feedback">Deux vecteurs (a, b) et (c, d) sont colinéaires si ad - bc = 0. Ici : 6×2 - 4×3 = 12 - 12 = 0. Oui, ils sont colinéaires (v⃗ = u⃗/2).</div>
+          </div>
+
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Le produit scalaire de u⃗(1, 2) et v⃗(3, -1) vaut :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">1</div>
+              <div class="option" onclick="answer(this,false)">5</div>
+              <div class="option" onclick="answer(this,false)">-5</div>
+              <div class="option" onclick="answer(this,false)">0</div>
+            </div>
+            <div class="q-feedback">u⃗ · v⃗ = 1×3 + 2×(-1) = 3 - 2 = 1. Le produit scalaire n'est pas nul, donc les vecteurs ne sont pas orthogonaux.</div>
+          </div>
+
+        </div>
+        <div class="quiz-result" id="quizResult"><div class="result-score-big" id="resultScore">0/6</div><div class="result-msg" id="resultMsg"></div><button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button></div>
+        <div class="quiz-nav"><button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button><div class="q-dots" id="qDots"></div><button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button></div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header"><div class="section-num">04</div><div class="section-info"><h2>Exercices</h2><p>Mettez en pratique</p></div></div>
+      <div class="course-content">
+
+        <h3>Exercice 1 — Alignement de points</h3>
+        <p>Les points A(1, 2), B(3, 5) et C(7, 11) sont-ils alignés ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>AB⃗ = (3-1, 5-2) = (2, 3). AC⃗ = (7-1, 11-2) = (6, 9). Déterminant : 2×9 - 3×6 = 18 - 18 = 0. Les vecteurs sont colinéaires, donc <strong>A, B et C sont alignés</strong>. On peut vérifier : AC⃗ = 3 × AB⃗, ce qui signifie que C est sur la droite (AB), au-delà de B.</p></div>
+        </details>
+
+        <h3>Exercice 2 — Équation de droite</h3>
+        <p>Déterminer l'équation de la droite passant par A(2, -1) et B(5, 8).</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Pente : m = (8 - (-1))/(5 - 2) = 9/3 = 3. Équation : y - (-1) = 3(x - 2), soit y + 1 = 3x - 6, donc <strong>y = 3x - 7</strong>. Vérification : pour A(2, -1) : 3×2 - 7 = -1. ✓ Pour B(5, 8) : 3×5 - 7 = 8. ✓</p></div>
+        </details>
+
+        <h3>Exercice 3 — Cercle</h3>
+        <p>Déterminer le centre et le rayon du cercle d'équation x² + y² - 4x + 6y - 3 = 0.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>On complète les carrés : (x² - 4x + 4) + (y² + 6y + 9) = 3 + 4 + 9, soit (x - 2)² + (y + 3)² = 16. Le centre est <strong>(2, -3)</strong> et le rayon est <strong>r = √16 = 4</strong>.</p></div>
+        </details>
+
+        <h3>Exercice 4 — Distance point-droite</h3>
+        <p>Calculer la distance du point P(3, 1) à la droite d : 2x - y + 4 = 0.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>d(P, d) = |2×3 - 1×1 + 4| / √(2² + (-1)²) = |6 - 1 + 4| / √(4 + 1) = |9| / √5 = <strong>9/√5 = 9√5/5 ≈ 4,02</strong>.</p></div>
+        </details>
+
+        <h3>Exercice 5 — Intersection droite-cercle</h3>
+        <p>Trouver les points d'intersection de la droite y = x + 1 et du cercle x² + y² = 25.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>On substitue y = x + 1 dans x² + y² = 25 : x² + (x + 1)² = 25, soit x² + x² + 2x + 1 = 25, d'où 2x² + 2x - 24 = 0, soit x² + x - 12 = 0. Discriminant : 1 + 48 = 49. x = (-1 + 7)/2 = 3 ou x = (-1 - 7)/2 = -4. Pour x = 3 : y = 4. Pour x = -4 : y = -3. Les points d'intersection sont <strong>(3, 4) et (-4, -3)</strong>. Vérification : 3² + 4² = 25 ✓ et (-4)² + (-3)² = 25 ✓.</p></div>
+        </details>
+
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="transformations.html" class="prev"><span class="course-nav-label">Cours précédent</span><span class="course-nav-title">← Transformations géométriques</span></a>
+      <div></div>
+    </div>
+
+  </main>
+</div>
+<script>
+const questions=document.querySelectorAll('.question-block');let currentQ=0,score=0;let answered=new Array(questions.length).fill(false);const dotsContainer=document.getElementById('qDots');questions.forEach((_,i)=>{const d=document.createElement('div');d.className='q-dot'+(i===0?' current':'');dotsContainer.appendChild(d);});function updateDots(){document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot';if(answered[i])d.classList.add('done');if(i===currentQ)d.classList.add('current');});}function answer(el,ok){if(answered[currentQ])return;answered[currentQ]=true;el.closest('.question-block').querySelectorAll('.option').forEach(o=>o.classList.add('disabled'));el.classList.add(ok?'correct':'wrong');if(!ok)el.closest('.question-block').querySelectorAll('.option').forEach(o=>{if(o.onclick.toString().includes('true'))o.classList.add('correct');});else{score++;document.getElementById('scoreDisplay').textContent=score;}el.closest('.question-block').querySelector('.q-feedback').classList.add('show',ok?'good':'bad');document.getElementById('btnNext').disabled=false;updateDots();}function nextQ(){if(currentQ<questions.length-1){questions[currentQ].classList.remove('active');currentQ++;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=false;document.getElementById('btnNext').disabled=!answered[currentQ];if(currentQ===questions.length-1)document.getElementById('btnNext').textContent='Terminer';updateDots();}else{showResult();}}function prevQ(){if(currentQ>0){questions[currentQ].classList.remove('active');currentQ--;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=currentQ===0;document.getElementById('btnNext').disabled=!answered[currentQ];document.getElementById('btnNext').textContent='Suivant →';updateDots();}}function showResult(){document.getElementById('quizBody').style.display='none';document.getElementById('quizResult').style.display='block';document.getElementById('resultScore').textContent=score+'/'+questions.length;var m=['Continue !','Pas mal !','Très bien !','Parfait !'];document.getElementById('resultMsg').textContent=m[Math.min(score,3)];}function resetQuiz(){score=0;currentQ=0;answered=new Array(questions.length).fill(false);document.getElementById('scoreDisplay').textContent=0;document.getElementById('quizBody').style.display='block';document.getElementById('quizResult').style.display='none';questions.forEach((q,i)=>{q.classList.toggle('active',i===0);q.querySelectorAll('.option').forEach(o=>o.className='option');q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');});document.getElementById('btnPrev').disabled=true;document.getElementById('btnNext').disabled=true;document.getElementById('btnNext').textContent='Suivant →';updateDots();}function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
+</script>
+<script src="../../mobile.js"></script>
+</body>
+</html>

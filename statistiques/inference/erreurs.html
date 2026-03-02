@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Erreurs statistiques — Inférence — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #16a085;
+  --accent2: #1abc9c;
+  --accent-dim: rgba(22,160,133,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(22,160,133,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../statistiques-page.html">Statistiques</a> › <a href="../inference.html">Inférence</a> › <span>Erreurs statistiques</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">📊 Inférence</span>
+    <span class="tag-level">Intermédiaire</span>
+    <span class="tag-time">⏱ ~40 min</span>
+  </div>
+  <h1><em>Erreurs statistiques</em></h1>
+  <p class="hero-desc">Type I/II, puissance, taille d'effet, significativité — comprendre et maîtriser les erreurs de décision.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../inference.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Inférence</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="estimation.html">Estimation</a>
+    <a class="sidebar-link" href="intervalles.html">Intervalles de confiance</a>
+    <a class="sidebar-link" href="tests.html">Tests d'hypothèses</a>
+    <a class="sidebar-link active" href="#">Erreurs statistiques</a>
+    <a class="sidebar-link" href="puissance.html">Puissance statistique</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Deux types d'erreurs, deux types de risques</p>
+        </div>
+      </div>
+      <p class="resume-text">Toute décision statistique comporte un risque d'erreur. Quand on rejette ou ne rejette pas H₀, on peut se tromper de deux manières fondamentalement différentes. L'<strong>erreur de type I</strong> (faux positif) consiste à rejeter H₀ alors qu'elle est vraie. L'<strong>erreur de type II</strong> (faux négatif) consiste à ne pas rejeter H₀ alors qu'elle est fausse.</p>
+      <p class="resume-text">Ces deux erreurs sont inversement liées : réduire l'une augmente l'autre, à taille d'échantillon fixée. Comprendre ce compromis est essentiel pour concevoir des études bien calibrées et interpréter correctement les résultats.</p>
+      <div class="highlight-box">
+        <p><strong>Principe clé :</strong> α = P(rejeter H₀ | H₀ vraie) est le risque de type I. β = P(ne pas rejeter H₀ | H₁ vraie) est le risque de type II. La puissance (1 − β) est la capacité du test à détecter un effet réel quand il existe.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Erreurs, puissance et taille d'effet</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Erreur de type I (faux positif)</h3>
+        <p>L'erreur de type I survient quand on conclut à un effet qui n'existe pas. Le taux de cette erreur est fixé par le seuil de significativité α :</p>
+        <ul>
+          <li>α = P(rejeter H₀ | H₀ est vraie)</li>
+          <li>Typiquement α = 0,05, ce qui signifie qu'on accepte un risque de 5 % de faux positif</li>
+          <li>En médecine, on peut exiger α = 0,01 ; en physique des particules, α ≈ 3 × 10⁻⁷ (seuil « 5 sigma »)</li>
+        </ul>
+        <p>Un faux positif peut avoir des conséquences graves : mettre sur le marché un médicament inefficace, publier un résultat scientifique erroné, accuser un innocent.</p>
+
+        <h3>Erreur de type II (faux négatif)</h3>
+        <p>L'erreur de type II survient quand on manque un effet qui existe réellement :</p>
+        <ul>
+          <li>β = P(ne pas rejeter H₀ | H₁ est vraie)</li>
+          <li>β dépend de la taille de l'effet réel, de la taille de l'échantillon et de la variabilité</li>
+          <li>Un faux négatif peut signifier : ne pas détecter une maladie, ignorer un risque environnemental, abandonner un traitement efficace</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Tableau de décision :</strong> H₀ vraie + rejet = erreur type I (α). H₀ vraie + non-rejet = décision correcte (1−α). H₁ vraie + rejet = décision correcte (puissance = 1−β). H₁ vraie + non-rejet = erreur type II (β).</p>
+        </div>
+
+        <h3>Puissance d'un test</h3>
+        <p>La <strong>puissance</strong> (1 − β) est la probabilité de rejeter H₀ quand H₁ est vraie. C'est la capacité du test à détecter un effet réel. Une puissance conventionnelle de 80 % (β = 0,20) signifie qu'on a 4 chances sur 5 de détecter l'effet s'il existe.</p>
+        <p>La puissance augmente avec :</p>
+        <ul>
+          <li><strong>La taille de l'effet :</strong> plus l'effet est grand, plus il est facile à détecter</li>
+          <li><strong>La taille de l'échantillon n :</strong> plus n est grand, plus le test est puissant</li>
+          <li><strong>Le seuil α :</strong> augmenter α (accepter plus de faux positifs) augmente la puissance</li>
+          <li><strong>La réduction de la variabilité σ :</strong> des mesures plus précises augmentent la puissance</li>
+        </ul>
+
+        <h3>Taille d'effet</h3>
+        <p>La <strong>taille d'effet</strong> quantifie l'ampleur d'un phénomène, indépendamment de la taille de l'échantillon. Contrairement à la p-value, elle ne dépend pas de n :</p>
+        <ul>
+          <li><strong>d de Cohen</strong> — pour comparer deux moyennes : d = (μ₁ − μ₂) / σ. Conventions : petit (d = 0,2), moyen (d = 0,5), grand (d = 0,8)</li>
+          <li><strong>r (corrélation)</strong> — petit (r = 0,1), moyen (r = 0,3), grand (r = 0,5)</li>
+          <li><strong>η² (eta carré)</strong> — proportion de variance expliquée en ANOVA. Petit (0,01), moyen (0,06), grand (0,14)</li>
+          <li><strong>Odds ratio</strong> — rapport de cotes pour les données catégorielles</li>
+        </ul>
+
+        <h3>Significativité statistique vs. significativité pratique</h3>
+        <p>Un résultat peut être <strong>statistiquement significatif</strong> sans être <strong>pratiquement important</strong>. Avec un échantillon suffisamment grand, même un effet minuscule devient significatif. Inversement, un effet important peut ne pas être significatif si l'échantillon est trop petit.</p>
+        <ul>
+          <li>p-value petite + grande taille d'effet → résultat important et fiable</li>
+          <li>p-value petite + petite taille d'effet → résultat fiable mais peut-être négligeable</li>
+          <li>p-value grande + grande taille d'effet → manque de puissance (échantillon trop petit)</li>
+          <li>p-value grande + petite taille d'effet → pas d'effet notable</li>
+        </ul>
+
+        <h3>Crise de la réplicabilité</h3>
+        <p>La <strong>crise de la réplicabilité</strong> en sciences a révélé que de nombreux résultats significatifs ne se reproduisent pas. Les causes principales incluent :</p>
+        <ul>
+          <li><strong>P-hacking :</strong> multiplier les analyses jusqu'à trouver p < 0,05</li>
+          <li><strong>Publication bias :</strong> les résultats négatifs ne sont pas publiés</li>
+          <li><strong>HARKing :</strong> formuler les hypothèses après avoir vu les résultats</li>
+          <li><strong>Études sous-puissantes :</strong> trop peu de participants pour détecter les effets réels</li>
+        </ul>
+        <p>Les recommandations actuelles incluent : pré-enregistrement des études, report systématique des tailles d'effet et intervalles de confiance, réplication indépendante et adoption de seuils plus stricts (α = 0,005).</p>
+
+        <h3>Approches complémentaires</h3>
+        <p>Plusieurs méthodes complètent ou remplacent les tests classiques :</p>
+        <ul>
+          <li><strong>Intervalles de confiance :</strong> fournissent plus d'information qu'un simple « significatif / non significatif »</li>
+          <li><strong>Facteur de Bayes :</strong> quantifie les preuves en faveur de H₁ par rapport à H₀, sans dépendre d'un seuil arbitraire</li>
+          <li><strong>Analyse d'équivalence (TOST) :</strong> permet de conclure positivement à l'absence d'effet</li>
+          <li><strong>Méta-analyse :</strong> combine les résultats de plusieurs études pour une estimation plus précise</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">📊 Erreurs statistiques — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Qu'est-ce qu'une erreur de type I ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">Rejeter H₀ alors qu'elle est vraie (faux positif)</div>
+              <div class="option" onclick="answer(this,false)">Ne pas rejeter H₀ alors qu'elle est fausse (faux négatif)</div>
+              <div class="option" onclick="answer(this,false)">Utiliser un mauvais test statistique</div>
+              <div class="option" onclick="answer(this,false)">Avoir un échantillon trop petit</div>
+            </div>
+            <div class="q-feedback">L'erreur de type I (faux positif) consiste à conclure à un effet qui n'existe pas. Sa probabilité est α, le seuil de significativité.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Que mesure la puissance d'un test (1 − β) ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">La probabilité de ne pas rejeter H₀ quand elle est vraie</div>
+              <div class="option" onclick="answer(this,true)">La probabilité de rejeter H₀ quand H₁ est vraie</div>
+              <div class="option" onclick="answer(this,false)">La probabilité que H₀ soit vraie</div>
+              <div class="option" onclick="answer(this,false)">Le niveau de confiance de l'intervalle</div>
+            </div>
+            <div class="q-feedback">La puissance est la capacité du test à détecter un effet réel. Une puissance de 80 % signifie qu'on détecte l'effet 4 fois sur 5 quand il existe.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Selon les conventions de Cohen, un d = 0,5 correspond à un effet :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Négligeable</div>
+              <div class="option" onclick="answer(this,false)">Petit</div>
+              <div class="option" onclick="answer(this,true)">Moyen</div>
+              <div class="option" onclick="answer(this,false)">Grand</div>
+            </div>
+            <div class="q-feedback">Cohen a proposé les conventions suivantes pour le d : petit (0,2), moyen (0,5), grand (0,8). Un d = 0,5 signifie que les moyennes diffèrent d'un demi écart-type.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Quel facteur n'augmente PAS la puissance d'un test ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Augmenter la taille de l'échantillon</div>
+              <div class="option" onclick="answer(this,false)">Augmenter le seuil α</div>
+              <div class="option" onclick="answer(this,true)">Diminuer le seuil α</div>
+              <div class="option" onclick="answer(this,false)">Réduire la variabilité des mesures</div>
+            </div>
+            <div class="q-feedback">Diminuer α (être plus exigeant pour rejeter H₀) réduit la puissance. C'est le compromis fondamental entre erreur de type I et erreur de type II.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Qu'est-ce que le p-hacking ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Utiliser un seuil α trop élevé</div>
+              <div class="option" onclick="answer(this,true)">Multiplier les analyses jusqu'à obtenir p < 0,05</div>
+              <div class="option" onclick="answer(this,false)">Corriger la p-value pour tests multiples</div>
+              <div class="option" onclick="answer(this,false)">Utiliser un test non paramétrique</div>
+            </div>
+            <div class="q-feedback">Le p-hacking consiste à essayer différentes analyses, variables ou sous-groupes jusqu'à trouver un résultat significatif, sans corriger pour les comparaisons multiples. C'est une pratique problématique qui gonfle le taux de faux positifs.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Un résultat avec p = 0,001 et d = 0,05 est :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Important et significatif</div>
+              <div class="option" onclick="answer(this,true)">Significatif mais probablement négligeable en pratique</div>
+              <div class="option" onclick="answer(this,false)">Non significatif mais important</div>
+              <div class="option" onclick="answer(this,false)">Impossible à obtenir</div>
+            </div>
+            <div class="q-feedback">Avec un grand échantillon, même un effet minuscule (d = 0,05) peut donner une p-value très petite. Le résultat est statistiquement significatif mais la taille d'effet est négligeable — il n'a probablement aucune importance pratique.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Testez vos connaissances</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Identifier les erreurs</h3>
+        <p>Un test de dépistage médical donne un résultat positif (maladie détectée) alors que le patient est sain. De quel type d'erreur s'agit-il ? Donnez un exemple concret où l'erreur de type II serait plus grave que l'erreur de type I.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>C'est une <strong>erreur de type I</strong> (faux positif) : on « rejette » l'hypothèse de bonne santé alors qu'elle est vraie.</p>
+            <p>Exemple où le type II est plus grave : un test de dépistage du cancer. Ne pas détecter un cancer (faux négatif, type II) est plus dangereux qu'une fausse alerte (faux positif, type I) qui sera corrigée par des examens complémentaires. C'est pourquoi les tests de dépistage privilégient la sensibilité (faible β) quitte à avoir plus de faux positifs.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 2 — Calcul du d de Cohen</h3>
+        <p>Deux groupes d'étudiants ont les résultats suivants. Groupe contrôle : X̄₁ = 72, S₁ = 10. Groupe expérimental : X̄₂ = 78, S₂ = 12. Calculez le d de Cohen et interprétez la taille de l'effet.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>Écart-type poolé : Sp = √((S₁² + S₂²)/2) = √((100 + 144)/2) = √122 = 11,05.</p>
+            <p>d = (X̄₂ − X̄₁) / Sp = (78 − 72) / 11,05 = 6 / 11,05 = <strong>0,54</strong>.</p>
+            <p>Selon les conventions de Cohen, d = 0,54 correspond à un <strong>effet moyen</strong>. La différence entre les groupes est d'environ un demi écart-type, ce qui est considéré comme un effet notable en sciences sociales.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 3 — Compromis α/β</h3>
+        <p>Un test utilisant α = 0,05 a une puissance de 70 % pour détecter un certain effet. Si l'on passe à α = 0,01 sans changer l'échantillon, que se passe-t-il pour β et la puissance ? Expliquez le mécanisme.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>En diminuant α de 0,05 à 0,01, on déplace le seuil critique vers les valeurs plus extrêmes. La zone de rejet de H₀ diminue.</p>
+            <p>Conséquence : il devient plus difficile de rejeter H₀, même quand H₁ est vraie. Donc <strong>β augmente</strong> et la <strong>puissance diminue</strong> (elle passe en dessous de 70 %).</p>
+            <p>Pour maintenir la puissance à 70 % avec α = 0,01, il faudrait augmenter la taille de l'échantillon.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 4 — Significativité et taille d'échantillon</h3>
+        <p>Une étude sur 10 000 personnes trouve une corrélation r = 0,03 avec p = 0,003. Une autre étude sur 50 personnes trouve r = 0,35 avec p = 0,012. Comparez et interprétez ces résultats.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p><strong>Étude 1 :</strong> p = 0,003 est très significatif, mais r = 0,03 est un effet minuscule (r² = 0,09 %, la variable explique moins de 0,1 % de la variance). La significativité vient uniquement du très grand échantillon.</p>
+            <p><strong>Étude 2 :</strong> p = 0,012 est significatif au seuil 5 %, et r = 0,35 est un effet moyen-grand (r² = 12,25 %, la variable explique 12 % de la variance). Malgré le petit échantillon, l'effet est notable.</p>
+            <p>Conclusion : l'étude 2 a un résultat <strong>plus intéressant en pratique</strong> malgré une p-value plus grande. Toujours regarder la taille d'effet, pas seulement la p-value.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 5 — Publication bias</h3>
+        <p>Sur 20 laboratoires qui testent indépendamment le même effet nul (H₀ est vraie), combien obtiendront un résultat significatif à α = 0,05 en moyenne ? Si seuls les résultats significatifs sont publiés, quel problème cela pose-t-il ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>Si H₀ est vraie, chaque test a une probabilité α = 0,05 de rejeter H₀ par erreur (type I).</p>
+            <p>Nombre attendu de faux positifs : 20 × 0,05 = <strong>1 laboratoire</strong>.</p>
+            <p>Si seul ce laboratoire publie (biais de publication), la littérature scientifique contiendra un « effet significatif » alors que 19 laboratoires n'ont rien trouvé. Le lecteur verra 100 % de résultats positifs au lieu de 5 %. C'est le « file drawer problem » (les résultats négatifs restent dans le tiroir). C'est pourquoi le pré-enregistrement des études et la publication des résultats négatifs sont essentiels.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="tests.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Tests d'hypothèses</span>
+      </a>
+      <a href="puissance.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Puissance statistique →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions=document.querySelectorAll('.question-block');let currentQ=0,score=0;let answered=new Array(questions.length).fill(false);const dotsContainer=document.getElementById('qDots');questions.forEach((_,i)=>{const d=document.createElement('div');d.className='q-dot'+(i===0?' current':'');dotsContainer.appendChild(d)});function updateDots(){document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot';if(answered[i])d.classList.add('done');if(i===currentQ)d.classList.add('current')})}function answer(el,ok){if(answered[currentQ])return;answered[currentQ]=true;el.closest('.question-block').querySelectorAll('.option').forEach(o=>o.classList.add('disabled'));el.classList.add(ok?'correct':'wrong');if(!ok)el.closest('.question-block').querySelectorAll('.option').forEach(o=>{if(o.onclick.toString().includes('true'))o.classList.add('correct')});else{score++;document.getElementById('scoreDisplay').textContent=score}el.closest('.question-block').querySelector('.q-feedback').classList.add('show',ok?'good':'bad');document.getElementById('btnNext').disabled=false;updateDots()}function nextQ(){if(currentQ<questions.length-1){questions[currentQ].classList.remove('active');currentQ++;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=false;document.getElementById('btnNext').disabled=!answered[currentQ];if(currentQ===questions.length-1)document.getElementById('btnNext').textContent='Terminer';updateDots()}else{showResult()}}function prevQ(){if(currentQ>0){questions[currentQ].classList.remove('active');currentQ--;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=currentQ===0;document.getElementById('btnNext').disabled=!answered[currentQ];document.getElementById('btnNext').textContent='Suivant →';updateDots()}}function showResult(){document.getElementById('quizBody').style.display='none';document.getElementById('quizResult').style.display='block';document.getElementById('resultScore').textContent=score+'/'+questions.length;var m=['Continue !','Pas mal !','Très bien !','Parfait !'];document.getElementById('resultMsg').textContent=m[Math.min(score,3)]}function resetQuiz(){score=0;currentQ=0;answered=new Array(questions.length).fill(false);document.getElementById('scoreDisplay').textContent=0;document.getElementById('quizBody').style.display='block';document.getElementById('quizResult').style.display='none';questions.forEach((q,i)=>{q.classList.toggle('active',i===0);q.querySelectorAll('.option').forEach(o=>o.className='option');q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback')});document.getElementById('btnPrev').disabled=true;document.getElementById('btnNext').disabled=true;document.getElementById('btnNext').textContent='Suivant →';updateDots()}function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active')}(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l});if(current){links.forEach(function(l){l.classList.remove('active')});current.classList.add('active')}},{passive:true})})();
+</script>
+<script src="../../mobile.js"></script>
+</body>
+</html>

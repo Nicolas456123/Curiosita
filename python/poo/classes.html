@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Classes et objets — POO Python — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #27ae60;
+  --accent2: #2ecc71;
+  --accent-dim: rgba(39,174,96,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(39,174,96,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../informatique-page.html">Informatique</a> › <a href="../poo.html">POO Python</a> › <span>Classes et objets</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🐍 POO Python</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~50 min</span>
+  </div>
+  <h1><em>Classes et objets</em></h1>
+  <p class="hero-desc">Définition de classes, constructeur __init__, attributs d'instance et de classe, méthodes et le mot-clé self — les fondations de la programmation orientée objet en Python.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../poo.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← POO Python</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link active" href="#">Classes et objets</a>
+    <a class="sidebar-link" href="heritage.html">Héritage</a>
+    <a class="sidebar-link" href="encapsulation.html">Encapsulation</a>
+    <a class="sidebar-link" href="polymorphisme.html">Polymorphisme</a>
+    <a class="sidebar-link" href="methodes-speciales.html">Méthodes spéciales</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Penser en objets</p>
+        </div>
+      </div>
+      <p class="resume-text">La programmation orientée objet (POO) est un paradigme qui organise le code autour d'<strong>objets</strong> plutôt que de fonctions isolées. Un objet regroupe des <strong>données</strong> (attributs) et des <strong>comportements</strong> (méthodes) dans une seule entité cohérente. En Python, tout est un objet : les entiers, les chaînes de caractères, les listes, les fonctions elles-mêmes.</p>
+      <p class="resume-text">Une <strong>classe</strong> est un plan de construction (un « moule ») qui décrit la structure et le comportement d'un type d'objet. Créer un objet à partir d'une classe s'appelle l'<strong>instanciation</strong>. On peut créer autant d'instances que nécessaire à partir d'une même classe, chacune ayant ses propres données.</p>
+      <div class="highlight-box">
+        <p><strong>Analogie :</strong> une classe <code>Voiture</code> décrit ce qu'est une voiture (marque, couleur, vitesse, démarrer, freiner). Chaque voiture réelle — votre Peugeot bleue, la Tesla rouge du voisin — est une <strong>instance</strong> de cette classe, avec ses propres valeurs d'attributs.</p>
+      </div>
+      <p class="resume-text">Ce cours couvre les fondamentaux de la création de classes en Python : la syntaxe, le constructeur <code>__init__</code>, les attributs d'instance et de classe, les méthodes, et le rôle essentiel du paramètre <code>self</code>.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Créer et utiliser des classes Python</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Définir une classe</h3>
+        <p>En Python, on définit une classe avec le mot-clé <code>class</code>. Par convention, le nom d'une classe utilise le <strong>PascalCase</strong> (première lettre de chaque mot en majuscule). Le corps de la classe contient des méthodes (fonctions définies à l'intérieur de la classe).</p>
+<pre><code>class Animal:
+    """Représente un animal avec un nom et un son."""
+
+    def parler(self):
+        return "..."
+
+# Instanciation
+mon_animal = Animal()
+print(type(mon_animal))  # &lt;class '__main__.Animal'&gt;
+print(isinstance(mon_animal, Animal))  # True</code></pre>
+        <p>L'appel <code>Animal()</code> crée une nouvelle instance de la classe. La variable <code>mon_animal</code> contient une <strong>référence</strong> vers cet objet en mémoire.</p>
+
+        <h3>Le constructeur __init__</h3>
+        <p>La méthode spéciale <code>__init__</code> est le <strong>constructeur</strong> de la classe. Elle est appelée automatiquement à chaque création d'instance et permet d'initialiser les attributs de l'objet.</p>
+<pre><code>class Chien:
+    def __init__(self, nom, race, age):
+        self.nom = nom      # attribut d'instance
+        self.race = race    # attribut d'instance
+        self.age = age      # attribut d'instance
+
+    def aboyer(self):
+        return f"{self.nom} fait : Wouf !"
+
+# Création d'instances
+rex = Chien("Rex", "Berger allemand", 5)
+luna = Chien("Luna", "Labrador", 3)
+
+print(rex.nom)       # Rex
+print(luna.aboyer())  # Luna fait : Wouf !</code></pre>
+        <p>Chaque instance possède ses propres copies des attributs définis dans <code>__init__</code>. Modifier <code>rex.age</code> n'affecte pas <code>luna.age</code>.</p>
+
+        <h3>Le paramètre self</h3>
+        <p><code>self</code> est une référence vers l'instance courante. Il est toujours le <strong>premier paramètre</strong> de chaque méthode d'instance, mais on ne le passe pas explicitement lors de l'appel — Python le fournit automatiquement.</p>
+<pre><code>class Compteur:
+    def __init__(self):
+        self.valeur = 0
+
+    def incrementer(self):
+        self.valeur += 1
+
+    def afficher(self):
+        print(f"Valeur : {self.valeur}")
+
+c = Compteur()
+c.incrementer()    # Python appelle en réalité Compteur.incrementer(c)
+c.incrementer()
+c.afficher()       # Valeur : 2</code></pre>
+        <div class="highlight-box">
+          <p><strong>Important :</strong> <code>self</code> n'est pas un mot réservé en Python — c'est une convention universelle. Techniquement, vous pourriez utiliser un autre nom, mais ne le faites jamais : tout le monde s'attend à lire <code>self</code>.</p>
+        </div>
+
+        <h3>Attributs d'instance vs attributs de classe</h3>
+        <p>Il existe deux types d'attributs :</p>
+        <ul>
+          <li><strong>Attributs d'instance</strong> — définis avec <code>self.attribut</code> dans <code>__init__</code> (ou une autre méthode), propres à chaque instance</li>
+          <li><strong>Attributs de classe</strong> — définis directement dans le corps de la classe, partagés par toutes les instances</li>
+        </ul>
+<pre><code>class Etudiant:
+    # Attribut de classe — partagé par toutes les instances
+    universite = "Sorbonne"
+    nombre_etudiants = 0
+
+    def __init__(self, nom, filiere):
+        # Attributs d'instance — propres à chaque étudiant
+        self.nom = nom
+        self.filiere = filiere
+        Etudiant.nombre_etudiants += 1  # on modifie l'attribut de classe
+
+e1 = Etudiant("Alice", "Informatique")
+e2 = Etudiant("Bob", "Mathématiques")
+
+print(e1.universite)             # Sorbonne (accès via l'instance)
+print(Etudiant.universite)       # Sorbonne (accès via la classe)
+print(Etudiant.nombre_etudiants) # 2</code></pre>
+        <p>Attention : si vous écrivez <code>e1.universite = "MIT"</code>, cela crée un attribut d'instance local à <code>e1</code> qui masque l'attribut de classe. Les autres instances ne sont pas affectées.</p>
+
+        <h3>Méthodes d'instance</h3>
+        <p>Les méthodes d'instance sont des fonctions définies dans la classe qui prennent <code>self</code> comme premier paramètre. Elles peuvent accéder et modifier les attributs de l'instance.</p>
+<pre><code>class Rectangle:
+    def __init__(self, largeur, hauteur):
+        self.largeur = largeur
+        self.hauteur = hauteur
+
+    def aire(self):
+        return self.largeur * self.hauteur
+
+    def perimetre(self):
+        return 2 * (self.largeur + self.hauteur)
+
+    def est_carre(self):
+        return self.largeur == self.hauteur
+
+    def redimensionner(self, facteur):
+        self.largeur *= facteur
+        self.hauteur *= facteur
+
+r = Rectangle(4, 6)
+print(r.aire())         # 24
+print(r.perimetre())    # 20
+print(r.est_carre())    # False
+r.redimensionner(2)
+print(r.aire())         # 96</code></pre>
+
+        <h3>Méthodes de classe et méthodes statiques</h3>
+        <p>Python offre deux autres types de méthodes via des décorateurs :</p>
+<pre><code>class Date:
+    def __init__(self, jour, mois, annee):
+        self.jour = jour
+        self.mois = mois
+        self.annee = annee
+
+    @classmethod
+    def depuis_chaine(cls, chaine_date):
+        """Constructeur alternatif à partir d'une chaîne 'JJ-MM-AAAA'."""
+        jour, mois, annee = map(int, chaine_date.split("-"))
+        return cls(jour, mois, annee)  # cls = la classe Date
+
+    @staticmethod
+    def est_bissextile(annee):
+        """Ne dépend ni de l'instance ni de la classe."""
+        return annee % 4 == 0 and (annee % 100 != 0 or annee % 400 == 0)
+
+    def afficher(self):
+        return f"{self.jour:02d}/{self.mois:02d}/{self.annee}"
+
+# Utilisation
+d1 = Date(15, 3, 2024)
+d2 = Date.depuis_chaine("25-12-2023")  # constructeur alternatif
+
+print(d1.afficher())               # 15/03/2024
+print(d2.afficher())               # 25/12/2023
+print(Date.est_bissextile(2024))   # True</code></pre>
+        <ul>
+          <li><strong>@classmethod</strong> — reçoit la classe (<code>cls</code>) en premier paramètre. Utile pour créer des constructeurs alternatifs</li>
+          <li><strong>@staticmethod</strong> — ne reçoit ni <code>self</code> ni <code>cls</code>. C'est une fonction utilitaire logiquement liée à la classe</li>
+        </ul>
+
+        <h3>Un exemple complet</h3>
+        <p>Voici une classe plus élaborée illustrant tous les concepts vus ensemble :</p>
+<pre><code>class CompteBancaire:
+    """Modélise un compte bancaire simplifié."""
+
+    taux_interet = 0.02  # attribut de classe : 2%
+    _nombre_comptes = 0
+
+    def __init__(self, titulaire, solde_initial=0):
+        self.titulaire = titulaire
+        self.solde = solde_initial
+        self.historique = []
+        CompteBancaire._nombre_comptes += 1
+
+    def deposer(self, montant):
+        if montant &lt;= 0:
+            raise ValueError("Le montant doit être positif")
+        self.solde += montant
+        self.historique.append(f"+{montant}€")
+
+    def retirer(self, montant):
+        if montant &gt; self.solde:
+            raise ValueError("Solde insuffisant")
+        self.solde -= montant
+        self.historique.append(f"-{montant}€")
+
+    def appliquer_interets(self):
+        interets = self.solde * self.taux_interet
+        self.solde += interets
+        self.historique.append(f"Intérêts: +{interets:.2f}€")
+
+    @classmethod
+    def get_nombre_comptes(cls):
+        return cls._nombre_comptes
+
+    def __str__(self):
+        return f"Compte de {self.titulaire} : {self.solde:.2f}€"
+
+# Utilisation
+compte = CompteBancaire("Alice", 1000)
+compte.deposer(500)
+compte.retirer(200)
+compte.appliquer_interets()
+print(compte)              # Compte de Alice : 1326.00€
+print(compte.historique)   # ['+500€', '-200€', 'Intérêts: +26.00€']</code></pre>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">🐍 Classes et objets — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quelle méthode spéciale est appelée automatiquement lors de la création d'une instance ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">__new__</div>
+              <div class="option" onclick="answer(this,true)">__init__</div>
+              <div class="option" onclick="answer(this,false)">__create__</div>
+              <div class="option" onclick="answer(this,false)">__start__</div>
+            </div>
+            <div class="q-feedback">__init__ est le constructeur en Python. Il est appelé automatiquement après la création de l'objet (par __new__) pour initialiser ses attributs.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Que représente le paramètre <code>self</code> dans une méthode d'instance ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">La classe elle-même</div>
+              <div class="option" onclick="answer(this,false)">Le module courant</div>
+              <div class="option" onclick="answer(this,true)">L'instance courante de l'objet</div>
+              <div class="option" onclick="answer(this,false)">Un mot-clé réservé de Python</div>
+            </div>
+            <div class="q-feedback">self est une référence vers l'instance courante. Il permet d'accéder aux attributs et méthodes de l'objet. Ce n'est pas un mot réservé, mais une convention universelle.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Quelle est la différence entre un attribut de classe et un attribut d'instance ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Il n'y a aucune différence</div>
+              <div class="option" onclick="answer(this,false)">Un attribut de classe ne peut pas être modifié</div>
+              <div class="option" onclick="answer(this,true)">Un attribut de classe est partagé par toutes les instances, un attribut d'instance est propre à chaque objet</div>
+              <div class="option" onclick="answer(this,false)">Un attribut d'instance est défini hors de la classe</div>
+            </div>
+            <div class="q-feedback">Les attributs de classe sont définis dans le corps de la classe et partagés par toutes les instances. Les attributs d'instance sont définis via self dans __init__ et appartiennent à chaque objet individuellement.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Quel décorateur permet de créer un constructeur alternatif qui reçoit la classe en premier paramètre ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">@staticmethod</div>
+              <div class="option" onclick="answer(this,true)">@classmethod</div>
+              <div class="option" onclick="answer(this,false)">@property</div>
+              <div class="option" onclick="answer(this,false)">@constructor</div>
+            </div>
+            <div class="q-feedback">@classmethod reçoit la classe (cls) en premier paramètre et peut l'utiliser pour créer de nouvelles instances. C'est le pattern standard pour les constructeurs alternatifs en Python.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Que retourne <code>type(mon_objet)</code> si <code>mon_objet = MaClasse()</code> ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">"MaClasse"</div>
+              <div class="option" onclick="answer(this,false)">True</div>
+              <div class="option" onclick="answer(this,false)">L'adresse mémoire de l'objet</div>
+              <div class="option" onclick="answer(this,true)">&lt;class '__main__.MaClasse'&gt;</div>
+            </div>
+            <div class="q-feedback">type() retourne la classe de l'objet. Pour une instance de MaClasse définie dans le module principal, cela donne &lt;class '__main__.MaClasse'&gt;.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Quelle convention de nommage utilise-t-on pour les noms de classes en Python ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">snake_case (ma_classe)</div>
+              <div class="option" onclick="answer(this,false)">camelCase (maClasse)</div>
+              <div class="option" onclick="answer(this,true)">PascalCase (MaClasse)</div>
+              <div class="option" onclick="answer(this,false)">SCREAMING_SNAKE (MA_CLASSE)</div>
+            </div>
+            <div class="q-feedback">La PEP 8 recommande le PascalCase pour les noms de classes : chaque mot commence par une majuscule, sans underscore. Les variables et fonctions utilisent le snake_case.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Classe Personne</h3>
+        <p>Créez une classe <code>Personne</code> avec les attributs <code>nom</code>, <code>prenom</code> et <code>age</code>. Ajoutez une méthode <code>se_presenter()</code> qui retourne une chaîne du type <em>"Je m'appelle Alice Dupont et j'ai 25 ans."</em> et une méthode <code>est_majeur()</code> qui retourne <code>True</code> si la personne a 18 ans ou plus.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+<pre><code>class Personne:
+    def __init__(self, nom, prenom, age):
+        self.nom = nom
+        self.prenom = prenom
+        self.age = age
+
+    def se_presenter(self):
+        return f"Je m'appelle {self.prenom} {self.nom} et j'ai {self.age} ans."
+
+    def est_majeur(self):
+        return self.age >= 18
+
+# Test
+p = Personne("Dupont", "Alice", 25)
+print(p.se_presenter())  # Je m'appelle Alice Dupont et j'ai 25 ans.
+print(p.est_majeur())    # True</code></pre>
+          </div>
+        </details>
+
+        <h3>Exercice 2 — Classe Cercle</h3>
+        <p>Créez une classe <code>Cercle</code> qui prend un <code>rayon</code> en paramètre. Ajoutez les méthodes <code>aire()</code> et <code>perimetre()</code>. Utilisez <code>math.pi</code>. Ajoutez un attribut de classe <code>nombre_cercles</code> qui compte le nombre d'instances créées.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+<pre><code>import math
+
+class Cercle:
+    nombre_cercles = 0
+
+    def __init__(self, rayon):
+        self.rayon = rayon
+        Cercle.nombre_cercles += 1
+
+    def aire(self):
+        return math.pi * self.rayon ** 2
+
+    def perimetre(self):
+        return 2 * math.pi * self.rayon
+
+# Test
+c1 = Cercle(5)
+c2 = Cercle(3)
+print(f"Aire : {c1.aire():.2f}")         # Aire : 78.54
+print(f"Périmètre : {c1.perimetre():.2f}")  # Périmètre : 31.42
+print(Cercle.nombre_cercles)              # 2</code></pre>
+          </div>
+        </details>
+
+        <h3>Exercice 3 — Classe Livre avec classmethod</h3>
+        <p>Créez une classe <code>Livre</code> avec les attributs <code>titre</code>, <code>auteur</code> et <code>pages</code>. Ajoutez une méthode de classe <code>depuis_dict(cls, d)</code> qui crée un livre à partir d'un dictionnaire <code>{"titre": "...", "auteur": "...", "pages": 300}</code>. Ajoutez une méthode <code>est_long()</code> qui retourne <code>True</code> si le livre dépasse 500 pages.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+<pre><code>class Livre:
+    def __init__(self, titre, auteur, pages):
+        self.titre = titre
+        self.auteur = auteur
+        self.pages = pages
+
+    @classmethod
+    def depuis_dict(cls, d):
+        return cls(d["titre"], d["auteur"], d["pages"])
+
+    def est_long(self):
+        return self.pages > 500
+
+# Test
+data = {"titre": "Les Misérables", "auteur": "Victor Hugo", "pages": 1900}
+livre = Livre.depuis_dict(data)
+print(f"{livre.titre} par {livre.auteur}")  # Les Misérables par Victor Hugo
+print(livre.est_long())                     # True</code></pre>
+          </div>
+        </details>
+
+        <h3>Exercice 4 — Classe Inventaire</h3>
+        <p>Créez une classe <code>Inventaire</code> qui gère une liste de produits. Chaque produit est un dictionnaire <code>{"nom": "...", "prix": ..., "quantite": ...}</code>. Implémentez les méthodes <code>ajouter(produit)</code>, <code>supprimer(nom)</code>, <code>valeur_totale()</code> (somme prix * quantité) et <code>rechercher(nom)</code>.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+<pre><code>class Inventaire:
+    def __init__(self):
+        self.produits = []
+
+    def ajouter(self, produit):
+        self.produits.append(produit)
+
+    def supprimer(self, nom):
+        self.produits = [p for p in self.produits if p["nom"] != nom]
+
+    def valeur_totale(self):
+        return sum(p["prix"] * p["quantite"] for p in self.produits)
+
+    def rechercher(self, nom):
+        for p in self.produits:
+            if p["nom"].lower() == nom.lower():
+                return p
+        return None
+
+# Test
+inv = Inventaire()
+inv.ajouter({"nom": "Clavier", "prix": 49.99, "quantite": 10})
+inv.ajouter({"nom": "Souris", "prix": 29.99, "quantite": 25})
+print(inv.valeur_totale())       # 1249.65
+print(inv.rechercher("souris"))  # {'nom': 'Souris', 'prix': 29.99, 'quantite': 25}
+inv.supprimer("Clavier")
+print(inv.valeur_totale())       # 749.75</code></pre>
+          </div>
+        </details>
+
+        <h3>Exercice 5 — Classe Chronometre</h3>
+        <p>Créez une classe <code>Chronometre</code> qui possède les méthodes <code>demarrer()</code>, <code>arreter()</code> et <code>duree()</code>. Utilisez le module <code>time</code>. La méthode <code>duree()</code> retourne le temps écoulé en secondes. Ajoutez une méthode statique <code>formater(secondes)</code> qui convertit un nombre de secondes en chaîne <code>"Xm Ys"</code>.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+<pre><code>import time
+
+class Chronometre:
+    def __init__(self):
+        self._debut = None
+        self._fin = None
+
+    def demarrer(self):
+        self._debut = time.time()
+        self._fin = None
+
+    def arreter(self):
+        if self._debut is None:
+            raise RuntimeError("Le chronomètre n'a pas été démarré")
+        self._fin = time.time()
+
+    def duree(self):
+        if self._debut is None:
+            return 0.0
+        fin = self._fin if self._fin else time.time()
+        return fin - self._debut
+
+    @staticmethod
+    def formater(secondes):
+        minutes = int(secondes) // 60
+        secs = int(secondes) % 60
+        return f"{minutes}m {secs}s"
+
+# Test
+chrono = Chronometre()
+chrono.demarrer()
+time.sleep(2)
+chrono.arreter()
+d = chrono.duree()
+print(f"Durée : {d:.2f}s")                # Durée : 2.00s
+print(Chronometre.formater(125))           # 2m 5s</code></pre>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <div></div>
+      <a href="heritage.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Héritage →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions=document.querySelectorAll('.question-block');let currentQ=0,score=0;let answered=new Array(questions.length).fill(false);const dotsContainer=document.getElementById('qDots');questions.forEach((_,i)=>{const d=document.createElement('div');d.className='q-dot'+(i===0?' current':'');dotsContainer.appendChild(d)});function updateDots(){document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot';if(answered[i])d.classList.add('done');if(i===currentQ)d.classList.add('current')})}function answer(el,ok){if(answered[currentQ])return;answered[currentQ]=true;el.closest('.question-block').querySelectorAll('.option').forEach(o=>o.classList.add('disabled'));el.classList.add(ok?'correct':'wrong');if(!ok)el.closest('.question-block').querySelectorAll('.option').forEach(o=>{if(o.onclick.toString().includes('true'))o.classList.add('correct')});else{score++;document.getElementById('scoreDisplay').textContent=score}el.closest('.question-block').querySelector('.q-feedback').classList.add('show',ok?'good':'bad');document.getElementById('btnNext').disabled=false;updateDots()}function nextQ(){if(currentQ<questions.length-1){questions[currentQ].classList.remove('active');currentQ++;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=false;document.getElementById('btnNext').disabled=!answered[currentQ];if(currentQ===questions.length-1)document.getElementById('btnNext').textContent='Terminer';updateDots()}else{showResult()}}function prevQ(){if(currentQ>0){questions[currentQ].classList.remove('active');currentQ--;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=currentQ===0;document.getElementById('btnNext').disabled=!answered[currentQ];document.getElementById('btnNext').textContent='Suivant →';updateDots()}}function showResult(){document.getElementById('quizBody').style.display='none';document.getElementById('quizResult').style.display='block';document.getElementById('resultScore').textContent=score+'/'+questions.length;var m=['Continue !','Pas mal !','Très bien !','Parfait !'];document.getElementById('resultMsg').textContent=m[Math.min(score,3)]}function resetQuiz(){score=0;currentQ=0;answered=new Array(questions.length).fill(false);document.getElementById('scoreDisplay').textContent=0;document.getElementById('quizBody').style.display='block';document.getElementById('quizResult').style.display='none';questions.forEach((q,i)=>{q.classList.toggle('active',i===0);q.querySelectorAll('.option').forEach(o=>o.className='option');q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback')});document.getElementById('btnPrev').disabled=true;document.getElementById('btnNext').disabled=true;document.getElementById('btnNext').textContent='Suivant →';updateDots()}function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active')}(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l});if(current){links.forEach(function(l){l.classList.remove('active')});current.classList.add('active')}},{passive:true})})();
+</script>
+<script src="../../mobile.js"></script>
+</body>
+</html>

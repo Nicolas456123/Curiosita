@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Puissance statistique — Inférence — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #16a085;
+  --accent2: #1abc9c;
+  --accent-dim: rgba(22,160,133,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(22,160,133,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../statistiques-page.html">Statistiques</a> › <a href="../inference.html">Inférence</a> › <span>Puissance statistique</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">📊 Inférence</span>
+    <span class="tag-level">Intermédiaire → Avancé</span>
+    <span class="tag-time">⏱ ~45 min</span>
+  </div>
+  <h1><em>Puissance statistique</em></h1>
+  <p class="hero-desc">Calcul de puissance, taille d'échantillon, design expérimental — concevoir des études bien calibrées.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../inference.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Inférence</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="estimation.html">Estimation</a>
+    <a class="sidebar-link" href="intervalles.html">Intervalles de confiance</a>
+    <a class="sidebar-link" href="tests.html">Tests d'hypothèses</a>
+    <a class="sidebar-link" href="erreurs.html">Erreurs statistiques</a>
+    <a class="sidebar-link active" href="#">Puissance statistique</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Planifier pour détecter</p>
+        </div>
+      </div>
+      <p class="resume-text">L'analyse de puissance est une étape cruciale de la planification d'une étude. Avant de collecter des données, le chercheur doit s'assurer que son design expérimental aura suffisamment de <strong>puissance</strong> pour détecter l'effet recherché. Une étude sous-puissante gaspille des ressources et risque de produire un faux négatif.</p>
+      <p class="resume-text">L'analyse de puissance relie quatre quantités : la taille de l'effet, la taille de l'échantillon, le seuil de significativité α et la puissance (1 − β). Connaissant trois de ces quantités, on peut calculer la quatrième.</p>
+      <div class="highlight-box">
+        <p><strong>Principe clé :</strong> l'analyse de puissance a priori (avant l'étude) détermine la taille d'échantillon nécessaire. L'analyse de puissance a posteriori (après l'étude) est controversée car elle n'apporte pas d'information utile au-delà de la p-value elle-même.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Calcul et application</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Les quatre paramètres liés</h3>
+        <p>L'analyse de puissance repose sur la relation entre quatre quantités interdépendantes :</p>
+        <ul>
+          <li><strong>Taille d'effet (δ) :</strong> l'ampleur du phénomène à détecter (d de Cohen, r, f²...)</li>
+          <li><strong>Taille d'échantillon (n) :</strong> le nombre d'observations par groupe</li>
+          <li><strong>Seuil de significativité (α) :</strong> le risque de faux positif accepté (souvent 0,05)</li>
+          <li><strong>Puissance (1 − β) :</strong> la probabilité de détecter l'effet (souvent 0,80 ou 0,90)</li>
+        </ul>
+        <p>En fixant trois de ces paramètres, on détermine le quatrième. Le cas le plus courant est de fixer α, la puissance souhaitée et la taille d'effet attendue pour calculer n.</p>
+
+        <h3>Calcul de puissance pour un test t</h3>
+        <p>Pour un test t à un échantillon (H₀ : μ = μ₀, H₁ : μ = μ₁), la puissance se calcule ainsi :</p>
+        <p>Sous H₁, la statistique T suit une loi de Student non centrée de paramètre de non-centralité λ = δ√n, où δ = |μ₁ − μ₀|/σ est le d de Cohen. La puissance est P(|T| > t_{α/2, n−1} | λ).</p>
+        <p>En approximation normale, la taille d'échantillon nécessaire est :</p>
+        <p>n ≈ ((z_{α/2} + z_β) / δ)²</p>
+        <p>Pour un test t à deux échantillons : n par groupe ≈ 2 × ((z_{α/2} + z_β) / δ)².</p>
+
+        <h3>Exemples de calcul de taille d'échantillon</h3>
+        <p>Pour un test t bilatéral à α = 0,05 et puissance = 0,80 (z_{0,025} = 1,96, z_{0,20} = 0,84) :</p>
+        <ul>
+          <li><strong>Effet grand (d = 0,8) :</strong> n = ((1,96 + 0,84) / 0,8)² = (2,80/0,8)² = 12,25 → n = 13 par groupe</li>
+          <li><strong>Effet moyen (d = 0,5) :</strong> n = ((1,96 + 0,84) / 0,5)² = (2,80/0,5)² = 31,36 → n = 32 par groupe</li>
+          <li><strong>Effet petit (d = 0,2) :</strong> n = ((1,96 + 0,84) / 0,2)² = (2,80/0,2)² = 196 → n = 196 par groupe</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Observation importante :</strong> détecter un petit effet nécessite environ 15 fois plus de participants que détecter un grand effet. La taille d'échantillon est inversement proportionnelle au carré de la taille d'effet : n ∝ 1/δ².</p>
+        </div>
+
+        <h3>Puissance pour d'autres tests</h3>
+        <p>Chaque test a sa propre formule de puissance :</p>
+        <ul>
+          <li><strong>Test du Chi-deux :</strong> la puissance dépend de w = √(Σ(p₁ᵢ − p₀ᵢ)²/p₀ᵢ), l'indice d'effet de Cohen. n ≈ (z_{α/2} + z_β)² / w²</li>
+          <li><strong>ANOVA à un facteur :</strong> la taille d'effet est f = σ_entre / σ_intra. La puissance se calcule via la loi F non centrée</li>
+          <li><strong>Corrélation :</strong> pour tester H₀ : ρ = 0, n ≈ ((z_{α/2} + z_β) / arctanh(r))² + 3 (transformation de Fisher)</li>
+          <li><strong>Régression :</strong> la taille d'effet est f² = R² / (1 − R²), et n ≈ (z_{α/2} + z_β)² / f² + p + 1, où p est le nombre de prédicteurs</li>
+        </ul>
+
+        <h3>Stratégies pour augmenter la puissance</h3>
+        <p>Quand augmenter n n'est pas possible (coût, éthique, rareté), d'autres stratégies existent :</p>
+        <ul>
+          <li><strong>Design apparié :</strong> mesurer chaque sujet dans les deux conditions (avant/après) réduit la variabilité inter-individuelle</li>
+          <li><strong>Covariables (ANCOVA) :</strong> inclure des covariables réduit la variance résiduelle</li>
+          <li><strong>Mesures répétées :</strong> plusieurs mesures par sujet augmentent la précision</li>
+          <li><strong>Réduction du bruit :</strong> protocoles standardisés, instruments plus précis</li>
+          <li><strong>Test unilatéral :</strong> si la direction de l'effet est connue a priori, un test unilatéral est plus puissant</li>
+          <li><strong>Augmenter α :</strong> passer à α = 0,10 augmente la puissance mais au prix de plus de faux positifs</li>
+        </ul>
+
+        <h3>Analyse de puissance a priori vs a posteriori</h3>
+        <p>L'analyse de puissance <strong>a priori</strong> (avant la collecte) est la pratique recommandée. Elle permet de dimensionner correctement l'étude et est souvent exigée par les comités d'éthique et les agences de financement.</p>
+        <p>L'analyse de puissance <strong>a posteriori</strong> (après la collecte, en utilisant la taille d'effet observée) est fortement déconseillée car :</p>
+        <ul>
+          <li>La puissance calculée est une transformation monotone de la p-value — elle n'apporte aucune information nouvelle</li>
+          <li>Un résultat non significatif donne toujours une puissance a posteriori faible, créant un raisonnement circulaire</li>
+          <li>La taille d'effet observée est une estimation bruitée de la vraie taille d'effet</li>
+        </ul>
+
+        <h3>Analyse de sensibilité</h3>
+        <p>L'<strong>analyse de sensibilité</strong> est une alternative utile : pour un n fixé et α donné, quel est le plus petit effet détectable avec une puissance de 80 % ? Cela permet de juger si l'étude est capable de détecter des effets d'intérêt pratique.</p>
+        <p>On peut aussi représenter la <strong>courbe de puissance</strong> en fonction de la taille d'effet pour un n et α donnés, ce qui montre la capacité discriminante du test sur toute la gamme d'effets possibles.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">📊 Puissance statistique — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quel est le niveau de puissance conventionnel le plus courant ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">60 %</div>
+              <div class="option" onclick="answer(this,true)">80 %</div>
+              <div class="option" onclick="answer(this,false)">95 %</div>
+              <div class="option" onclick="answer(this,false)">99 %</div>
+            </div>
+            <div class="q-feedback">La convention est de viser une puissance de 80 % (β = 0,20). Certaines études visent 90 %, mais 80 % est le minimum généralement accepté.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Combien de participants par groupe faut-il pour détecter un effet moyen (d = 0,5) à α = 0,05 et puissance 80 % ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Environ 13</div>
+              <div class="option" onclick="answer(this,true)">Environ 32</div>
+              <div class="option" onclick="answer(this,false)">Environ 100</div>
+              <div class="option" onclick="answer(this,false)">Environ 200</div>
+            </div>
+            <div class="q-feedback">Pour un test t bilatéral avec d = 0,5, α = 0,05 et puissance 80 %, il faut environ 32 participants par groupe, soit 64 au total.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Comment évolue n quand la taille d'effet δ est divisée par 2 ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">n est multiplié par 2</div>
+              <div class="option" onclick="answer(this,true)">n est multiplié par 4</div>
+              <div class="option" onclick="answer(this,false)">n est divisé par 2</div>
+              <div class="option" onclick="answer(this,false)">n reste identique</div>
+            </div>
+            <div class="q-feedback">n est inversement proportionnel au carré de la taille d'effet : n ∝ 1/δ². Si δ est divisé par 2, n est multiplié par 4.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Pourquoi l'analyse de puissance a posteriori est-elle déconseillée ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Elle est trop difficile à calculer</div>
+              <div class="option" onclick="answer(this,false)">Elle nécessite de connaître σ</div>
+              <div class="option" onclick="answer(this,true)">Elle est une transformation de la p-value et n'apporte rien de nouveau</div>
+              <div class="option" onclick="answer(this,false)">Elle surestime toujours la puissance</div>
+            </div>
+            <div class="q-feedback">La puissance a posteriori est une fonction monotone de la p-value : un résultat non significatif donne toujours une faible puissance a posteriori, ce qui est un raisonnement circulaire.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quel design expérimental augmente la puissance sans augmenter n ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">Le design apparié (mesures répétées)</div>
+              <div class="option" onclick="answer(this,false)">Le test bilatéral</div>
+              <div class="option" onclick="answer(this,false)">La diminution de α</div>
+              <div class="option" onclick="answer(this,false)">L'augmentation du nombre de groupes</div>
+            </div>
+            <div class="q-feedback">Le design apparié réduit la variabilité en éliminant les différences inter-individuelles. Chaque sujet sert de son propre contrôle, ce qui augmente la puissance.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Que détermine une analyse de sensibilité ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">La p-value exacte du test</div>
+              <div class="option" onclick="answer(this,false)">Le seuil α optimal</div>
+              <div class="option" onclick="answer(this,true)">Le plus petit effet détectable pour un n et une puissance donnés</div>
+              <div class="option" onclick="answer(this,false)">Le nombre de tests à effectuer</div>
+            </div>
+            <div class="q-feedback">L'analyse de sensibilité détermine le plus petit effet que l'étude peut détecter avec la puissance souhaitée. C'est utile quand n est fixé par des contraintes pratiques.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Testez vos connaissances</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Calcul de taille d'échantillon</h3>
+        <p>Un chercheur veut détecter un effet de d = 0,3 (petit-moyen) avec un test t bilatéral à α = 0,05 et puissance 90 %. Calculez n par groupe. (z_{0,025} = 1,96, z_{0,10} = 1,28)</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>n = ((z_{α/2} + z_β) / d)² = ((1,96 + 1,28) / 0,3)² = (3,24 / 0,3)² = (10,8)² = <strong>117 par groupe</strong>.</p>
+            <p>Il faut environ 117 participants par groupe, soit 234 au total. Pour une puissance de 80 % au lieu de 90 %, n = ((1,96 + 0,84)/0,3)² = (9,33)² ≈ 88 par groupe.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 2 — Analyse de sensibilité</h3>
+        <p>Un chercheur dispose de 50 participants par groupe pour un test t bilatéral à α = 0,05. Quel est le plus petit effet détectable avec une puissance de 80 % ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>On inverse la formule : d = (z_{α/2} + z_β) / √n = (1,96 + 0,84) / √50 = 2,80 / 7,07 = <strong>0,396</strong>.</p>
+            <p>L'étude peut détecter des effets de taille d ≥ 0,40 (moyen) avec 80 % de puissance. Les effets petits (d = 0,2) resteront probablement indétectables.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 3 — Gain du design apparié</h3>
+        <p>Un test t indépendant nécessite 64 participants par groupe (d = 0,5, α = 0,05, puissance 80 %). Si l'on utilise un design apparié et que la corrélation entre les mesures appariées est ρ = 0,6, combien de paires faut-il ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>Pour un design apparié, la variance de la différence est réduite d'un facteur 2(1 − ρ) par rapport au design indépendant.</p>
+            <p>n_apparié = n_indépendant × (1 − ρ) = 64 × (1 − 0,6) = 64 × 0,4 = <strong>26 paires</strong>.</p>
+            <p>Le design apparié nécessite 26 participants au lieu de 128 (2 × 64), soit une réduction de 80 % ! C'est l'avantage majeur des designs appariés quand la corrélation est élevée.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 4 — Puissance d'un test du Chi-deux</h3>
+        <p>On teste si un dé est truqué (H₀ : toutes les faces équiprobables). Avec 120 lancers et α = 0,05, quelle est la taille d'effet w minimale détectable à 80 % de puissance ? (df = 5)</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>Pour un test du Chi-deux : n ≈ (z_{α/2} + z_β)² / w² (approximation).</p>
+            <p>Plus exactement, on utilise la formule : n = χ²_{α, df} / w² pour obtenir la puissance souhaitée via la distribution non centrée.</p>
+            <p>En approximation : w = (z_{α/2} + z_β) / √n = 2,80 / √120 = 2,80 / 10,95 = <strong>0,256</strong>.</p>
+            <p>Selon Cohen, w = 0,1 est petit, 0,3 est moyen, 0,5 est grand. L'étude peut détecter des effets proches de moyen.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 5 — Comparaison de scénarios</h3>
+        <p>Un essai clinique compare un nouveau traitement au placebo. Budget : 200 patients maximum. Comparez la puissance pour α = 0,05 et d = 0,4 dans trois scénarios : (a) 100 patients par groupe, test indépendant ; (b) 100 paires, test apparié avec ρ = 0,5 ; (c) 200 patients par groupe en réduisant α à 0,01.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p><strong>(a) 100/groupe, test indépendant :</strong> λ = d√(n/2) = 0,4 × √50 = 2,83. Puissance ≈ Φ(2,83 − 1,96) = Φ(0,87) ≈ <strong>81 %</strong>.</p>
+            <p><strong>(b) 100 paires, test apparié (ρ = 0,5) :</strong> d_apparié = d / √(2(1−ρ)) = 0,4/√1 = 0,4. λ = 0,4 × √100 = 4,0. Puissance ≈ Φ(4,0 − 1,96) = Φ(2,04) ≈ <strong>98 %</strong>.</p>
+            <p><strong>(c) Scénario impossible :</strong> on n'a que 200 patients au total, donc 100/groupe est le maximum. Avec α = 0,01 : Puissance ≈ Φ(2,83 − 2,58) = Φ(0,25) ≈ <strong>60 %</strong>.</p>
+            <p>Le design apparié (b) est nettement supérieur. Réduire α sans augmenter n fait chuter la puissance.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="erreurs.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Erreurs statistiques</span>
+      </a>
+      <div></div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions=document.querySelectorAll('.question-block');let currentQ=0,score=0;let answered=new Array(questions.length).fill(false);const dotsContainer=document.getElementById('qDots');questions.forEach((_,i)=>{const d=document.createElement('div');d.className='q-dot'+(i===0?' current':'');dotsContainer.appendChild(d)});function updateDots(){document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot';if(answered[i])d.classList.add('done');if(i===currentQ)d.classList.add('current')})}function answer(el,ok){if(answered[currentQ])return;answered[currentQ]=true;el.closest('.question-block').querySelectorAll('.option').forEach(o=>o.classList.add('disabled'));el.classList.add(ok?'correct':'wrong');if(!ok)el.closest('.question-block').querySelectorAll('.option').forEach(o=>{if(o.onclick.toString().includes('true'))o.classList.add('correct')});else{score++;document.getElementById('scoreDisplay').textContent=score}el.closest('.question-block').querySelector('.q-feedback').classList.add('show',ok?'good':'bad');document.getElementById('btnNext').disabled=false;updateDots()}function nextQ(){if(currentQ<questions.length-1){questions[currentQ].classList.remove('active');currentQ++;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=false;document.getElementById('btnNext').disabled=!answered[currentQ];if(currentQ===questions.length-1)document.getElementById('btnNext').textContent='Terminer';updateDots()}else{showResult()}}function prevQ(){if(currentQ>0){questions[currentQ].classList.remove('active');currentQ--;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=currentQ===0;document.getElementById('btnNext').disabled=!answered[currentQ];document.getElementById('btnNext').textContent='Suivant →';updateDots()}}function showResult(){document.getElementById('quizBody').style.display='none';document.getElementById('quizResult').style.display='block';document.getElementById('resultScore').textContent=score+'/'+questions.length;var m=['Continue !','Pas mal !','Très bien !','Parfait !'];document.getElementById('resultMsg').textContent=m[Math.min(score,3)]}function resetQuiz(){score=0;currentQ=0;answered=new Array(questions.length).fill(false);document.getElementById('scoreDisplay').textContent=0;document.getElementById('quizBody').style.display='block';document.getElementById('quizResult').style.display='none';questions.forEach((q,i)=>{q.classList.toggle('active',i===0);q.querySelectorAll('.option').forEach(o=>o.className='option');q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback')});document.getElementById('btnPrev').disabled=true;document.getElementById('btnNext').disabled=true;document.getElementById('btnNext').textContent='Suivant →';updateDots()}function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active')}(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l});if(current){links.forEach(function(l){l.classList.remove('active')});current.classList.add('active')}},{passive:true})})();
+</script>
+<script src="../../mobile.js"></script>
+</body>
+</html>

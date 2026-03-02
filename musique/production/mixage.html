@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mixage — Production musicale — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #e74c3c;
+  --accent2: #c0392b;
+  --accent-dim: rgba(231,76,60,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(231,76,60,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../musique-page.html">Musique</a> › <a href="../production.html">Production musicale</a> › <span>Mixage</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🎛️ Production musicale</span>
+    <span class="tag-level">Intermédiaire</span>
+    <span class="tag-time">⏱ ~50 min</span>
+  </div>
+  <h1><em>Mixage</em></h1>
+  <p class="hero-desc">Balance, égalisation, compression, réverbération et panoramique — l'art de combiner les pistes en un ensemble cohérent et expressif.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../production.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Production musicale</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">📋 Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="enregistrement.html">Enregistrement</a>
+    <a class="sidebar-link active" href="#">Mixage</a>
+    <a class="sidebar-link" href="mastering.html">Mastering</a>
+    <a class="sidebar-link" href="mao.html">MAO</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>L'art de l'équilibre sonore</p>
+        </div>
+      </div>
+      <p class="resume-text">Le mixage est l'étape qui transforme un ensemble de pistes brutes en un morceau de musique finalisé. Il s'agit de <strong>combiner, équilibrer et embellir</strong> les différentes pistes enregistrées pour créer un ensemble cohérent où chaque instrument trouve sa place. Le mixage est autant un art qu'une technique : il requiert une oreille entraînée, une connaissance des outils et un sens esthétique développé.</p>
+      <div class="highlight-box">
+        <p><strong>L'enjeu :</strong> Un bon mix rend la musique lisible et émotionnelle. Chaque instrument est audible sans masquer les autres, les dynamiques servent l'expression, et l'espace sonore (largeur, profondeur) est exploité pour créer une expérience immersive. Le mixage est le moment où les décisions artistiques prennent leur forme définitive.</p>
+      </div>
+      <p class="resume-text">Le mixeur travaille dans trois dimensions : le volume (avant/arrière dans le mix), le panoramique (gauche/droite) et la fréquence (grave/aigu). Maîtriser ces trois axes permet de créer un espace sonore tridimensionnel où chaque élément a sa place.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Les outils et techniques du mixage</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>La balance et les niveaux</h3>
+        <p>La première étape du mixage est d'établir la <strong>balance</strong> : le rapport de volume entre les différentes pistes. On commence généralement par l'élément le plus important — souvent la voix ou l'instrument lead — puis on construit le mix autour de lui. Une approche courante consiste à partir de la section rythmique (batterie + basse) pour établir les fondations, puis à ajouter progressivement les autres instruments.</p>
+        <p>Le <strong>gain staging</strong> est crucial : chaque piste doit être à un niveau optimal dans la chaîne de traitement. En numérique, on vise des crêtes autour de -12 à -6 dBFS sur chaque piste individuelle pour laisser une marge (headroom) suffisante sur le bus master. Un mix qui sature le bus master avant tout traitement est compromis dès le départ.</p>
+        <p>La technique du <strong>static mix</strong> consiste à établir d'abord un équilibre de base uniquement avec les faders de volume, sans aucun traitement. Si le mix sonne déjà bien à ce stade, les traitements ultérieurs ne feront que l'affiner. Si l'équilibre de base est mauvais, aucun plugin ne le sauvera.</p>
+
+        <h3>L'égalisation (EQ)</h3>
+        <p>L'<strong>égalisation</strong> permet de modifier l'équilibre fréquentiel d'un signal en amplifiant ou atténuant certaines plages de fréquences. C'est l'outil le plus utilisé en mixage. L'EQ sert deux objectifs : <strong>corriger</strong> (éliminer les fréquences indésirables) et <strong>embellir</strong> (mettre en valeur les fréquences caractéristiques d'un instrument).</p>
+        <p>L'EQ <strong>soustractive</strong> est la priorité : on commence par retirer ce qui gêne avant d'ajouter ce qui manque. Un filtre passe-haut (high-pass) sur toutes les pistes sauf la basse et le kick élimine les basses fréquences inutiles qui encombrent le mix. Les résonances désagréables (boîte, nasal, agressif) sont identifiées en balayant avec un boost étroit, puis atténuées.</p>
+        <p>L'EQ <strong>additive</strong> met en valeur les qualités naturelles de chaque instrument : l'air et la présence d'une voix (8-12 kHz), le corps d'une guitare acoustique (200-400 Hz), l'attaque d'une caisse claire (3-5 kHz). Le principe fondamental : si deux instruments se masquent mutuellement, il faut leur donner des espaces fréquentiels distincts plutôt que d'augmenter leur volume.</p>
+
+        <h3>La compression</h3>
+        <p>La <strong>compression</strong> réduit la plage dynamique d'un signal : elle atténue les passages les plus forts tout en préservant (ou en remontant) les passages les plus faibles. Les paramètres fondamentaux sont le <strong>seuil</strong> (threshold — le niveau à partir duquel la compression s'active), le <strong>ratio</strong> (le degré de réduction : 2:1, 4:1, 10:1), l'<strong>attaque</strong> (le temps de réaction) et le <strong>relâchement</strong> (release — le temps de retour à la normale).</p>
+        <p>Une attaque <strong>rapide</strong> (< 1 ms) atténue les transitoires, rendant le son plus doux et homogène — utile sur les voix et les basses. Une attaque <strong>lente</strong> (10-30 ms) laisse passer les transitoires, préservant le punch et l'attaque — essentiel sur la batterie et les guitares percussives. Le relâchement doit être calé sur le tempo pour que le compresseur « respire » avec la musique.</p>
+        <div class="highlight-box">
+          <p><strong>Règle d'or :</strong> une compression bien réglée ne s'entend pas. Si vous percevez l'effet du compresseur (pompage, perte de dynamique), vous compressez probablement trop. Visez 3-6 dB de réduction de gain sur la plupart des sources, et vérifiez toujours en comparant avec le signal non compressé (bypass).</p>
+        </div>
+
+        <h3>La réverbération et le délai</h3>
+        <p>La <strong>réverbération</strong> simule l'acoustique d'un espace : une pièce, une salle de concert, une cathédrale. Elle donne de la profondeur et du naturel au mix. On distingue plusieurs types : la <strong>room</strong> (petite pièce, courte), la <strong>plate</strong> (plaque métallique, brillante et dense), la <strong>hall</strong> (grande salle, longue et enveloppante) et le <strong>spring</strong> (ressort, vintage et caractéristique).</p>
+        <p>La réverbération est presque toujours utilisée en <strong>envoi auxiliaire</strong> (send/return) plutôt qu'en insert, ce qui permet de doser indépendamment le niveau de réverbe sur chaque piste tout en partageant le même espace acoustique virtuel. Le pré-délai (pre-delay, 20-80 ms) sépare le son direct de la réverbération, préservant la clarté de la source.</p>
+        <p>Le <strong>délai</strong> (delay) crée des répétitions du signal à intervalles réguliers. Calé sur le tempo du morceau, il ajoute du rythme et de la largeur. Les délais stéréo (ping-pong) rebondissent entre gauche et droite, créant un effet d'espace spectaculaire. La combinaison réverbe + délai est fondamentale pour créer la sensation de profondeur dans un mix.</p>
+
+        <h3>Le panoramique et l'image stéréo</h3>
+        <p>Le <strong>panoramique</strong> (pan) détermine la position de chaque source dans le champ stéréo, de l'extrême gauche à l'extrême droite. Le placement panoramique est un outil puissant pour la clarté du mix : des instruments occupant des positions différentes se masquent moins que s'ils sont tous au centre.</p>
+        <p>Les conventions de placement sont : <strong>au centre</strong> les éléments fondamentaux (voix lead, basse, kick, caisse claire) ; <strong>légèrement décalés</strong> les instruments d'accompagnement (guitares, claviers) ; <strong>largement ouverts</strong> les éléments stéréo (overheads de batterie, cordes, choeurs, pads). Les doublages (double tracking) d'une même partie se placent symétriquement à gauche et à droite pour créer une largeur maximale.</p>
+        <p>La compatibilité <strong>mono</strong> doit toujours être vérifiée : un mix trop dépendant des effets stéréo peut s'effondrer lorsqu'il est lu en mono (radio, téléphone, enceinte Bluetooth unique). Les annulations de phase entre canaux gauche et droit sont le piège principal.</p>
+
+        <h3>L'automation</h3>
+        <p>L'<strong>automation</strong> consiste à programmer des variations de paramètres dans le temps : volume, panoramique, envois d'effets, paramètres de plugins. C'est l'étape qui donne vie au mix en créant des mouvements et des contrastes au fil du morceau.</p>
+        <p>L'automation de <strong>volume</strong> est la plus courante : remonter la voix dans le refrain, baisser les guitares dans le couplet, créer un crescendo progressif vers le chorus. L'automation des <strong>envois de réverbe</strong> permet d'augmenter la profondeur sur les passages calmes et de la réduire sur les passages intenses. L'automation du <strong>panoramique</strong> peut créer des mouvements spectaculaires (un son qui traverse le champ stéréo).</p>
+        <p>L'automation est aussi utilisée pour la <strong>correction chirurgicale</strong> : baisser une sibilante sur un mot précis, atténuer un coup de médiator trop fort, remonter un mot noyé dans le mix. Ce travail de détail, souvent invisible, est ce qui distingue un mix amateur d'un mix professionnel.</p>
+
+        <h3>Le bus et le traitement de groupe</h3>
+        <p>Le <strong>bus</strong> (ou sous-groupe) permet de regrouper plusieurs pistes pour les traiter ensemble. Un bus de batterie rassemble kick, snare, toms, overheads et hi-hat ; un bus de voix regroupe lead et choeurs. Cette approche simplifie le mixage et assure la cohérence sonore d'un groupe d'instruments.</p>
+        <p>La <strong>compression de bus</strong> (glue compression) est une technique emblématique : un compresseur léger (ratio 2:1, 1-2 dB de réduction) sur le bus de batterie « colle » les éléments entre eux, les faisant sonner comme un ensemble plutôt que comme des instruments séparés. Le SSL G-Bus compressor est la référence historique de cette technique.</p>
+        <p>Le traitement du <strong>bus master</strong> (mix bus) est délicat : un EQ subtil et un compresseur très léger peuvent donner de la cohésion au mix global, mais tout excès sera amplifié au mastering. De nombreux mixeurs professionnels mixent à travers un traitement de bus master dès le début, en intégrant son effet dans leurs décisions de mixage.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">🎛️ Mixage — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Par quelle approche d'EQ faut-il commencer en mixage ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,true)">L'EQ soustractive (retirer ce qui gêne)</div>
+              <div class="option" onclick="answer(this,false)">L'EQ additive (ajouter ce qui manque)</div>
+              <div class="option" onclick="answer(this,false)">Un boost large dans les aigus</div>
+              <div class="option" onclick="answer(this,false)">Un boost dans les basses</div>
+            </div>
+            <div class="q-feedback">On commence toujours par l'EQ soustractive : retirer les fréquences indésirables (résonances, bourdonnements, encombrement dans les graves) avant d'ajouter quoi que ce soit. C'est la base d'un mix propre et clair.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Quel paramètre du compresseur contrôle le niveau à partir duquel la compression s'active ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Le ratio</div>
+              <div class="option" onclick="answer(this,true)">Le seuil (threshold)</div>
+              <div class="option" onclick="answer(this,false)">L'attaque</div>
+              <div class="option" onclick="answer(this,false)">Le relâchement (release)</div>
+            </div>
+            <div class="q-feedback">Le seuil (threshold) définit le niveau en dB à partir duquel le compresseur commence à réduire le signal. Tout signal dépassant ce seuil sera compressé selon le ratio défini.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Pourquoi utilise-t-on la réverbération en envoi auxiliaire plutôt qu'en insert ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Pour économiser de la puissance CPU</div>
+              <div class="option" onclick="answer(this,true)">Pour doser indépendamment la réverbe sur chaque piste tout en partageant le même espace</div>
+              <div class="option" onclick="answer(this,false)">Pour éviter la latence</div>
+              <div class="option" onclick="answer(this,false)">Pour améliorer la qualité sonore</div>
+            </div>
+            <div class="q-feedback">En envoi auxiliaire, chaque piste peut envoyer une quantité différente de signal vers la même réverbe. Cela crée un espace acoustique cohérent (toutes les sources partagent la même « pièce ») tout en permettant un contrôle indépendant du dosage.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Quels éléments sont généralement placés au centre du panoramique ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Les overheads de batterie et les choeurs</div>
+              <div class="option" onclick="answer(this,false)">Les guitares rythmiques et les pads</div>
+              <div class="option" onclick="answer(this,true)">La voix lead, la basse et le kick</div>
+              <div class="option" onclick="answer(this,false)">Les effets sonores et les percussions</div>
+            </div>
+            <div class="q-feedback">La voix lead, la basse et le kick (grosse caisse) sont les fondations du mix et sont placés au centre pour assurer une base solide et une écoute cohérente en mono comme en stéréo.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Qu'est-ce qu'une compression « glue » sur un bus de batterie ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Une compression très agressive (ratio 20:1)</div>
+              <div class="option" onclick="answer(this,true)">Une compression légère qui soude les éléments entre eux</div>
+              <div class="option" onclick="answer(this,false)">Un limiteur sur le bus master</div>
+              <div class="option" onclick="answer(this,false)">Une compression parallèle</div>
+            </div>
+            <div class="q-feedback">La glue compression utilise un ratio modéré (2:1 à 4:1) avec seulement 1-3 dB de réduction de gain pour « coller » les éléments d'un groupe, les faisant sonner comme un ensemble cohérent plutôt que comme des pistes séparées.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Une attaque lente sur un compresseur de batterie permet de :</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Écraser les transitoires pour un son plus doux</div>
+              <div class="option" onclick="answer(this,true)">Laisser passer les transitoires pour préserver le punch</div>
+              <div class="option" onclick="answer(this,false)">Augmenter le volume global</div>
+              <div class="option" onclick="answer(this,false)">Créer un effet de pompage</div>
+            </div>
+            <div class="q-feedback">Une attaque lente (10-30 ms) laisse passer le transitoire initial (l'attaque du coup de baguette) avant que la compression ne s'enclenche, préservant ainsi le punch et l'impact de la batterie.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1</h3>
+        <p>Vous mixez un morceau pop avec voix, guitare acoustique, basse, batterie et clavier. Proposez un placement panoramique pour chaque élément et justifiez vos choix.</p>
+        <details><summary>Voir la correction</summary><div class="highlight-box"><p>Centre : voix lead, basse, kick et caisse claire (fondations du mix). Légèrement à gauche (10-30%) : guitare acoustique. Légèrement à droite (10-30%) : clavier, pour créer un équilibre avec la guitare. Largement ouverts (70-100% G/D) : overheads de batterie et éventuels choeurs. Cette disposition crée un espace clair où chaque instrument est identifiable, tout en maintenant un centre solide et une image stéréo équilibrée.</p></div></details>
+
+        <h3>Exercice 2</h3>
+        <p>La voix et la guitare acoustique se masquent mutuellement dans la plage 2-4 kHz. Comment résoudre ce conflit fréquentiel sans baisser le volume de l'un ou l'autre ?</p>
+        <details><summary>Voir la correction</summary><div class="highlight-box"><p>On utilise l'EQ complémentaire : si la voix a besoin de présence à 3 kHz, on la booste légèrement à 3 kHz et on atténue la guitare à cette même fréquence. Inversement, on peut booster la guitare à 2 kHz (corps et brillance) et atténuer légèrement la voix à 2 kHz. Ainsi, chaque instrument domine dans sa plage et cède la place à l'autre. Des coupes de 2-3 dB suffisent souvent. Le panoramique (voix au centre, guitare légèrement sur le côté) aide également.</p></div></details>
+
+        <h3>Exercice 3</h3>
+        <p>Réglez un compresseur sur une voix lead : proposez des valeurs pour le seuil, le ratio, l'attaque et le relâchement. Expliquez chaque choix.</p>
+        <details><summary>Voir la correction</summary><div class="highlight-box"><p>Seuil : ajusté pour que le compresseur s'active sur les passages les plus forts (typiquement pour obtenir 3-6 dB de réduction de gain). Ratio : 3:1 à 4:1 (compression modérée, suffisante pour homogénéiser sans écraser). Attaque : 5-15 ms (assez rapide pour contrôler les pics, mais laisse passer les consonnes et transitoires pour la clarté). Relâchement : 100-200 ms (assez rapide pour récupérer entre les phrases, mais pas trop rapide pour éviter le pompage). Le gain de sortie (makeup gain) compense la perte de volume due à la compression.</p></div></details>
+
+        <h3>Exercice 4</h3>
+        <p>Expliquez la différence entre un délai calé sur le tempo et une réverbération. Dans quelles situations privilégie-t-on l'un ou l'autre ?</p>
+        <details><summary>Voir la correction</summary><div class="highlight-box"><p>Le délai crée des répétitions discrètes et rythmiques du signal (écho). Calé sur le tempo (1/4, 1/8 de note), il ajoute du rythme et de la largeur sans encombrer le mix. La réverbération simule un espace acoustique continu (salle, cathédrale) avec des réflexions multiples et diffuses. Le délai est préférable quand on veut de la largeur sans perte de clarté (voix pop, guitare clean). La réverbération crée davantage de profondeur et d'atmosphère (ballades, cordes, ambiances). Les deux sont souvent combinés.</p></div></details>
+
+        <h3>Exercice 5</h3>
+        <p>Votre mix sonne bien en stéréo mais s'effondre en mono : la guitare disparaît et la voix perd de la présence. Identifiez les causes probables et proposez des solutions.</p>
+        <details><summary>Voir la correction</summary><div class="highlight-box"><p>Causes probables : des annulations de phase entre les canaux gauche et droit. Cela arrive quand des effets stéréo larges (chorus, doubleur, stéréo enhancer) créent des signaux en opposition de phase. Solutions : vérifier la corrélation de phase (plugin goniomètre), réduire la largeur des effets stéréo, utiliser des effets mono-compatibles, vérifier que les micros stéréo sont en phase. Une bonne pratique est de vérifier régulièrement en mono pendant le mixage, pas seulement à la fin.</p></div></details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="enregistrement.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Enregistrement</span>
+      </a>
+      <a href="mastering.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Mastering →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions=document.querySelectorAll('.question-block');let currentQ=0,score=0;let answered=new Array(questions.length).fill(false);const dotsContainer=document.getElementById('qDots');questions.forEach((_,i)=>{const d=document.createElement('div');d.className='q-dot'+(i===0?' current':'');dotsContainer.appendChild(d)});function updateDots(){document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot';if(answered[i])d.classList.add('done');if(i===currentQ)d.classList.add('current')})}function answer(el,ok){if(answered[currentQ])return;answered[currentQ]=true;el.closest('.question-block').querySelectorAll('.option').forEach(o=>o.classList.add('disabled'));el.classList.add(ok?'correct':'wrong');if(!ok)el.closest('.question-block').querySelectorAll('.option').forEach(o=>{if(o.onclick.toString().includes('true'))o.classList.add('correct')});else{score++;document.getElementById('scoreDisplay').textContent=score}el.closest('.question-block').querySelector('.q-feedback').classList.add('show',ok?'good':'bad');document.getElementById('btnNext').disabled=false;updateDots()}function nextQ(){if(currentQ<questions.length-1){questions[currentQ].classList.remove('active');currentQ++;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=false;document.getElementById('btnNext').disabled=!answered[currentQ];if(currentQ===questions.length-1)document.getElementById('btnNext').textContent='Terminer';updateDots()}else{showResult()}}function prevQ(){if(currentQ>0){questions[currentQ].classList.remove('active');currentQ--;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=currentQ===0;document.getElementById('btnNext').disabled=!answered[currentQ];document.getElementById('btnNext').textContent='Suivant →';updateDots()}}function showResult(){document.getElementById('quizBody').style.display='none';document.getElementById('quizResult').style.display='block';document.getElementById('resultScore').textContent=score+'/'+questions.length;var m=['Continue !','Pas mal !','Très bien !','Parfait !'];document.getElementById('resultMsg').textContent=m[Math.min(score,3)]}function resetQuiz(){score=0;currentQ=0;answered=new Array(questions.length).fill(false);document.getElementById('scoreDisplay').textContent=0;document.getElementById('quizBody').style.display='block';document.getElementById('quizResult').style.display='none';questions.forEach((q,i)=>{q.classList.toggle('active',i===0);q.querySelectorAll('.option').forEach(o=>o.className='option');q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback')});document.getElementById('btnPrev').disabled=true;document.getElementById('btnNext').disabled=true;document.getElementById('btnNext').textContent='Suivant →';updateDots()}function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active')}(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l});if(current){links.forEach(function(l){l.classList.remove('active')});current.classList.add('active')}},{passive:true})})();
+</script>
+<script src="../../mobile.js"></script>
+</body>
+</html>

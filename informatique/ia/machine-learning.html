@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machine Learning — Intelligence artificielle — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css?v=2">
+<style>
+:root {
+  --accent: #2980b9;
+  --accent2: #3498db;
+  --accent-dim: rgba(41,128,185,0.08);
+}
+.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(41,128,185,0.04) 0%, transparent 70%); }
+.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../informatique-page.html">Informatique</a> › <a href="../ia.html">Intelligence artificielle</a> › <span>Machine Learning</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-meta">
+    <span class="tag-domain">🤖 Intelligence artificielle</span>
+    <span class="tag-level">Intermédiaire</span>
+    <span class="tag-time">⏱ ~45 min</span>
+  </div>
+  <h1><em>Machine Learning</em></h1>
+  <p class="hero-desc">Apprentissage supervisé, non supervisé, régression, classification, validation croisée — les fondements de l'apprentissage automatique.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../ia.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Intelligence artificielle</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">💻 Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link active" href="#">Machine Learning</a>
+    <a class="sidebar-link" href="reseaux-neurones.html">Réseaux de neurones</a>
+    <a class="sidebar-link" href="deep-learning.html">Deep Learning</a>
+    <a class="sidebar-link" href="nlp.html">Traitement du langage</a>
+    <a class="sidebar-link" href="vision.html">Vision par ordinateur</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Qu'est-ce que l'apprentissage automatique ?</p>
+        </div>
+      </div>
+      <p class="resume-text">Le <strong>Machine Learning</strong> (apprentissage automatique) est une branche de l'intelligence artificielle qui permet aux machines d'apprendre à partir de données, sans être explicitement programmées pour chaque tâche. Au lieu d'écrire des règles à la main, on fournit des exemples au système, et l'algorithme découvre lui-même les patterns et relations qui permettent de faire des prédictions ou des décisions.</p>
+      <p class="resume-text">L'essor du Machine Learning est lié à trois facteurs : l'explosion de la quantité de données disponibles, l'augmentation de la puissance de calcul, et le développement d'algorithmes de plus en plus sophistiqués. Aujourd'hui, le ML est utilisé dans la reconnaissance vocale, les moteurs de recommandation, la détection de fraude, la médecine personnalisée et bien d'autres domaines.</p>
+      <div class="highlight-box">
+        <p><strong>Paradigme clé :</strong> en programmation traditionnelle, on fournit des règles et des données pour obtenir des résultats. En Machine Learning, on fournit des données et des résultats attendus, et l'algorithme découvre les règles.</p>
+      </div>
+      <p class="resume-text">On distingue trois grandes familles d'apprentissage : <strong>supervisé</strong> (on donne les réponses au modèle), <strong>non supervisé</strong> (le modèle découvre des structures cachées), et <strong>par renforcement</strong> (le modèle apprend par essai-erreur avec des récompenses).</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Les fondements du Machine Learning</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Apprentissage supervisé</h3>
+        <p>L'apprentissage supervisé est le paradigme le plus courant en ML. On dispose d'un jeu de données étiqueté : chaque exemple possède des <strong>features</strong> (caractéristiques) et un <strong>label</strong> (étiquette, la réponse attendue). Le modèle apprend une fonction qui associe les features au label, puis généralise à de nouveaux exemples jamais vus.</p>
+        <p>On distingue deux types de problèmes supervisés : la <strong>classification</strong> (prédire une catégorie : spam/non-spam, chat/chien) et la <strong>régression</strong> (prédire une valeur continue : prix d'un appartement, température demain).</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
+<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression
+<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> mean_squared_error
+
+<span class="cm"># Séparer données d'entraînement et de test</span>
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="num">0.2</span>)
+
+<span class="cm"># Entraîner un modèle de régression linéaire</span>
+modele = LinearRegression()
+modele.fit(X_train, y_train)
+
+<span class="cm"># Évaluer sur les données de test</span>
+predictions = modele.predict(X_test)
+erreur = mean_squared_error(y_test, predictions)
+<span class="fn">print</span>(<span class="str">f"Erreur quadratique moyenne : {erreur:.2f}"</span>)</code></pre>
+        </div>
+
+        <h3>Apprentissage non supervisé</h3>
+        <p>Dans l'apprentissage non supervisé, les données ne possèdent pas d'étiquettes. L'algorithme doit découvrir des structures cachées par lui-même. Les applications principales sont le <strong>clustering</strong> (regrouper des données similaires), la <strong>réduction de dimensionnalité</strong> (simplifier des données complexes) et la <strong>détection d'anomalies</strong>.</p>
+        <p>L'algorithme <strong>K-Means</strong> est l'un des plus populaires pour le clustering. Il partitionne les données en K groupes en minimisant la distance intra-cluster. L'<strong>ACP</strong> (Analyse en Composantes Principales) est la méthode de référence pour la réduction de dimensionnalité : elle projette les données sur les axes de plus grande variance.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="kw">from</span> sklearn.cluster <span class="kw">import</span> KMeans
+<span class="kw">from</span> sklearn.decomposition <span class="kw">import</span> PCA
+
+<span class="cm"># Clustering K-Means avec 3 groupes</span>
+kmeans = KMeans(n_clusters=<span class="num">3</span>, random_state=<span class="num">42</span>)
+clusters = kmeans.fit_predict(X)
+
+<span class="cm"># Réduction de dimensionnalité avec ACP</span>
+pca = PCA(n_components=<span class="num">2</span>)
+X_reduit = pca.fit_transform(X)
+<span class="fn">print</span>(<span class="str">f"Variance expliquée : {pca.explained_variance_ratio_.sum():.1%}"</span>)</code></pre>
+        </div>
+
+        <h3>Régression linéaire et logistique</h3>
+        <p>La <strong>régression linéaire</strong> modélise la relation entre des variables par une droite (ou un hyperplan). Elle minimise la somme des carrés des erreurs entre les prédictions et les valeurs réelles. C'est le modèle le plus simple et le plus interprétable.</p>
+        <p>La <strong>régression logistique</strong>, malgré son nom, est un algorithme de classification. Elle utilise la fonction sigmoïde pour transformer une combinaison linéaire des features en une probabilité entre 0 et 1. Le seuil de décision est généralement fixé à 0.5.</p>
+        <div class="highlight-box">
+          <p><strong>Fonction sigmoïde :</strong> σ(z) = 1 / (1 + e^(-z)). Elle transforme toute valeur réelle en une probabilité entre 0 et 1, ce qui en fait la base de la régression logistique.</p>
+        </div>
+
+        <h3>Arbres de décision et forêts aléatoires</h3>
+        <p>Un <strong>arbre de décision</strong> partitionne l'espace des features par une série de questions binaires (ex : « âge > 30 ? »). Chaque noeud interne pose une question, et chaque feuille contient une prédiction. L'arbre est construit en choisissant à chaque étape la question qui maximise le <strong>gain d'information</strong> (ou minimise l'impureté de Gini).</p>
+        <p>Les <strong>forêts aléatoires</strong> (Random Forests) combinent des centaines d'arbres de décision entraînés sur des sous-échantillons aléatoires des données. Chaque arbre vote, et la prédiction finale est le vote majoritaire. Cette approche réduit considérablement le surapprentissage.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="kw">from</span> sklearn.ensemble <span class="kw">import</span> RandomForestClassifier
+<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> accuracy_score
+
+<span class="cm"># Forêt aléatoire avec 100 arbres</span>
+foret = RandomForestClassifier(n_estimators=<span class="num">100</span>, random_state=<span class="num">42</span>)
+foret.fit(X_train, y_train)
+
+<span class="cm"># Prédiction et évaluation</span>
+y_pred = foret.predict(X_test)
+<span class="fn">print</span>(<span class="str">f"Précision : {accuracy_score(y_test, y_pred):.1%}"</span>)
+
+<span class="cm"># Importance des features</span>
+<span class="kw">for</span> nom, imp <span class="kw">in</span> <span class="fn">zip</span>(noms_features, foret.feature_importances_):
+    <span class="fn">print</span>(<span class="str">f"  {nom}: {imp:.3f}"</span>)</code></pre>
+        </div>
+
+        <h3>Validation croisée et surapprentissage</h3>
+        <p>Le <strong>surapprentissage</strong> (overfitting) se produit quand un modèle apprend par coeur les données d'entraînement sans généraliser. Il obtient d'excellents scores sur les données d'entraînement mais échoue sur de nouvelles données. À l'inverse, le <strong>sous-apprentissage</strong> (underfitting) signifie que le modèle est trop simple pour capturer les patterns.</p>
+        <p>La <strong>validation croisée</strong> (cross-validation) est la technique standard pour évaluer un modèle de façon fiable. En K-Fold CV, on divise les données en K parties. Tour à tour, chaque partie sert de test et les K-1 autres d'entraînement. On obtient K scores, dont la moyenne donne une estimation robuste de la performance.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> cross_val_score
+
+<span class="cm"># Validation croisée à 5 plis</span>
+scores = cross_val_score(modele, X, y, cv=<span class="num">5</span>, scoring=<span class="str">'accuracy'</span>)
+<span class="fn">print</span>(<span class="str">f"Précision moyenne : {scores.mean():.1%} ± {scores.std():.1%}"</span>)</code></pre>
+        </div>
+
+        <h3>Métriques d'évaluation</h3>
+        <p>Choisir la bonne métrique est crucial. Pour la classification, l'<strong>exactitude</strong> (accuracy) mesure le pourcentage de prédictions correctes, mais peut être trompeuse avec des classes déséquilibrées. La <strong>précision</strong> mesure la proportion de vrais positifs parmi les prédictions positives, le <strong>rappel</strong> mesure la proportion de vrais positifs détectés, et le <strong>F1-score</strong> est leur moyenne harmonique.</p>
+        <p>Pour la régression, on utilise l'<strong>erreur quadratique moyenne</strong> (MSE), l'<strong>erreur absolue moyenne</strong> (MAE), et le <strong>coefficient de détermination</strong> R² qui indique la proportion de variance expliquée par le modèle (1 = parfait, 0 = aussi mauvais que la moyenne).</p>
+        <div class="highlight-box">
+          <p><strong>Matrice de confusion :</strong> tableau qui croise les prédictions et les vrais labels. Elle permet de visualiser les vrais positifs, faux positifs, vrais négatifs et faux négatifs, et de calculer toutes les métriques de classification.</p>
+        </div>
+
+        <h3>Prétraitement des données</h3>
+        <p>Les données brutes sont rarement directement utilisables. Le <strong>prétraitement</strong> est une étape essentielle : gestion des valeurs manquantes (imputation par la moyenne, la médiane ou un modèle), encodage des variables catégorielles (one-hot encoding, label encoding), et mise à l'échelle des features (normalisation, standardisation).</p>
+        <p>La <strong>standardisation</strong> (z-score) centre les données autour de 0 avec un écart-type de 1. La <strong>normalisation</strong> (min-max) ramène les valeurs entre 0 et 1. Ces transformations sont importantes pour les algorithmes sensibles à l'échelle des features, comme les SVM ou les k-plus-proches-voisins.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">📊 Machine Learning — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quelle est la différence principale entre classification et régression ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">La classification utilise plus de données</div>
+              <div class="option" onclick="answer(this,true)">La classification prédit une catégorie, la régression une valeur continue</div>
+              <div class="option" onclick="answer(this,false)">La régression est toujours plus précise</div>
+              <div class="option" onclick="answer(this,false)">La classification ne nécessite pas d'entraînement</div>
+            </div>
+            <div class="q-feedback">La classification prédit une classe discrète (spam/non-spam, chat/chien), tandis que la régression prédit une valeur numérique continue (prix, température).</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Qu'est-ce que le surapprentissage (overfitting) ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Le modèle est trop lent à entraîner</div>
+              <div class="option" onclick="answer(this,false)">Le modèle ne parvient pas à apprendre</div>
+              <div class="option" onclick="answer(this,true)">Le modèle mémorise les données d'entraînement sans généraliser</div>
+              <div class="option" onclick="answer(this,false)">Le modèle utilise trop de mémoire</div>
+            </div>
+            <div class="q-feedback">Le surapprentissage signifie que le modèle a appris par coeur les données d'entraînement, y compris le bruit, et ne parvient pas à généraliser à de nouvelles données.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Dans la validation croisée K-Fold, que fait-on ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">On entraîne K modèles différents</div>
+              <div class="option" onclick="answer(this,false)">On utilise K features différentes</div>
+              <div class="option" onclick="answer(this,true)">On divise les données en K parties et on entraîne K fois en alternant le jeu de test</div>
+              <div class="option" onclick="answer(this,false)">On multiplie le jeu de données par K</div>
+            </div>
+            <div class="q-feedback">En K-Fold CV, les données sont divisées en K parties. Chaque partie sert de test une fois, tandis que les K-1 autres servent d'entraînement, ce qui donne K évaluations indépendantes.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Quel algorithme est utilisé pour le clustering ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Régression linéaire</div>
+              <div class="option" onclick="answer(this,true)">K-Means</div>
+              <div class="option" onclick="answer(this,false)">Régression logistique</div>
+              <div class="option" onclick="answer(this,false)">Gradient Boosting</div>
+            </div>
+            <div class="q-feedback">K-Means est un algorithme de clustering non supervisé qui partitionne les données en K groupes en minimisant la distance intra-cluster.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Pourquoi les forêts aléatoires sont-elles plus robustes qu'un seul arbre de décision ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">Elles utilisent moins de mémoire</div>
+              <div class="option" onclick="answer(this,false)">Elles sont plus rapides à entraîner</div>
+              <div class="option" onclick="answer(this,true)">Elles combinent les votes de nombreux arbres, réduisant le surapprentissage</div>
+              <div class="option" onclick="answer(this,false)">Elles n'ont pas besoin de données d'entraînement</div>
+            </div>
+            <div class="q-feedback">Les forêts aléatoires agrègent les prédictions de centaines d'arbres entraînés sur des sous-échantillons différents. Cette diversité réduit la variance et le surapprentissage.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Quelle métrique est la plus adaptée pour un problème de classification avec des classes très déséquilibrées ?</p>
+            <div class="options">
+              <div class="option" onclick="answer(this,false)">L'exactitude (accuracy)</div>
+              <div class="option" onclick="answer(this,false)">L'erreur quadratique moyenne (MSE)</div>
+              <div class="option" onclick="answer(this,true)">Le F1-score</div>
+              <div class="option" onclick="answer(this,false)">Le coefficient R²</div>
+            </div>
+            <div class="q-feedback">Avec des classes déséquilibrées, l'accuracy peut être trompeuse (99% si 99% des données sont d'une classe). Le F1-score, moyenne harmonique de la précision et du rappel, est plus informatif.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Régression linéaire manuelle</h3>
+        <p>Implémentez une régression linéaire simple (une seule feature) sans utiliser scikit-learn. Calculez les coefficients a et b de la droite y = ax + b en utilisant les formules des moindres carrés. Testez sur les données : X = [1, 2, 3, 4, 5], y = [2.1, 4.0, 5.8, 8.1, 9.9].</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>import numpy as np
+
+X = np.array([1, 2, 3, 4, 5])
+y = np.array([2.1, 4.0, 5.8, 8.1, 9.9])
+
+# Formules des moindres carrés
+n = len(X)
+a = (n * np.sum(X * y) - np.sum(X) * np.sum(y)) / (n * np.sum(X**2) - np.sum(X)**2)
+b = np.mean(y) - a * np.mean(X)
+
+print(f"y = {a:.2f}x + {b:.2f}")
+# Résultat : y ≈ 1.97x + 0.02
+# Prédiction pour x=6 : y ≈ 11.84</code></pre></div>
+        </details>
+
+        <h3>Exercice 2 — Classification avec K-NN</h3>
+        <p>Utilisez l'algorithme des K plus proches voisins pour classifier le dataset Iris de scikit-learn. Testez avec différentes valeurs de K (1, 3, 5, 7, 11) et utilisez la validation croisée pour trouver la meilleure valeur.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>from sklearn.datasets import load_iris
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import cross_val_score
+
+iris = load_iris()
+X, y = iris.data, iris.target
+
+for k in [1, 3, 5, 7, 11]:
+    knn = KNeighborsClassifier(n_neighbors=k)
+    scores = cross_val_score(knn, X, y, cv=5)
+    print(f"K={k:2d} → Précision : {scores.mean():.1%} ± {scores.std():.1%}")
+
+# K=1  → ~95.3%, K=3  → ~96.0%, K=5  → ~96.7%
+# K=7  → ~96.7%, K=11 → ~97.3%
+# K=5 ou K=7 offrent un bon compromis</code></pre></div>
+        </details>
+
+        <h3>Exercice 3 — Matrice de confusion</h3>
+        <p>Entraînez un arbre de décision sur le dataset Iris, puis affichez la matrice de confusion et calculez manuellement la précision, le rappel et le F1-score pour chaque classe.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix, classification_report
+
+X_train, X_test, y_train, y_test = train_test_split(
+    iris.data, iris.target, test_size=0.3, random_state=42)
+
+arbre = DecisionTreeClassifier(random_state=42)
+arbre.fit(X_train, y_train)
+y_pred = arbre.predict(X_test)
+
+print("Matrice de confusion :")
+print(confusion_matrix(y_test, y_pred))
+print("\nRapport de classification :")
+print(classification_report(y_test, y_pred, target_names=iris.target_names))</code></pre></div>
+        </details>
+
+        <h3>Exercice 4 — Détection du surapprentissage</h3>
+        <p>Générez un dataset synthétique avec make_classification. Entraînez un arbre de décision en faisant varier max_depth de 1 à 20. Tracez les courbes de score sur l'entraînement et le test. Identifiez le point de surapprentissage.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>from sklearn.datasets import make_classification
+import matplotlib.pyplot as plt
+
+X, y = make_classification(n_samples=500, n_features=20, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+
+train_scores, test_scores = [], []
+depths = range(1, 21)
+
+for d in depths:
+    arbre = DecisionTreeClassifier(max_depth=d, random_state=42)
+    arbre.fit(X_train, y_train)
+    train_scores.append(arbre.score(X_train, y_train))
+    test_scores.append(arbre.score(X_test, y_test))
+
+plt.plot(depths, train_scores, label="Entraînement")
+plt.plot(depths, test_scores, label="Test")
+plt.xlabel("Profondeur maximale")
+plt.ylabel("Précision")
+plt.legend()
+plt.title("Détection du surapprentissage")
+plt.show()
+# Le surapprentissage apparaît quand le score d'entraînement
+# continue de monter mais le score de test stagne ou diminue</code></pre></div>
+        </details>
+
+        <h3>Exercice 5 — Pipeline complet</h3>
+        <p>Construisez un pipeline complet avec scikit-learn qui enchaîne : imputation des valeurs manquantes, standardisation des features, et un classificateur Random Forest. Utilisez la validation croisée pour évaluer le pipeline.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>from sklearn.pipeline import Pipeline
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import cross_val_score
+import numpy as np
+
+# Simuler des données manquantes
+X_manquant = X.copy()
+indices = np.random.choice(X.size, size=50, replace=False)
+X_manquant.flat[indices] = np.nan
+
+# Pipeline complet
+pipeline = Pipeline([
+    ('imputation', SimpleImputer(strategy='median')),
+    ('standardisation', StandardScaler()),
+    ('classificateur', RandomForestClassifier(n_estimators=100, random_state=42))
+])
+
+scores = cross_val_score(pipeline, X_manquant, y, cv=5, scoring='accuracy')
+print(f"Précision : {scores.mean():.1%} ± {scores.std():.1%}")
+# Le pipeline gère automatiquement les valeurs manquantes
+# et la mise à l'échelle à chaque pli de la validation croisée</code></pre></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <div></div>
+      <a href="reseaux-neurones.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Réseaux de neurones →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+const questions=document.querySelectorAll('.question-block');let currentQ=0,score=0;let answered=new Array(questions.length).fill(false);const dotsContainer=document.getElementById('qDots');questions.forEach((_,i)=>{const d=document.createElement('div');d.className='q-dot'+(i===0?' current':'');dotsContainer.appendChild(d)});function updateDots(){document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot';if(answered[i])d.classList.add('done');if(i===currentQ)d.classList.add('current')})}function answer(el,ok){if(answered[currentQ])return;answered[currentQ]=true;el.closest('.question-block').querySelectorAll('.option').forEach(o=>o.classList.add('disabled'));el.classList.add(ok?'correct':'wrong');if(!ok)el.closest('.question-block').querySelectorAll('.option').forEach(o=>{if(o.onclick.toString().includes('true'))o.classList.add('correct')});else{score++;document.getElementById('scoreDisplay').textContent=score}el.closest('.question-block').querySelector('.q-feedback').classList.add('show',ok?'good':'bad');document.getElementById('btnNext').disabled=false;updateDots()}function nextQ(){if(currentQ<questions.length-1){questions[currentQ].classList.remove('active');currentQ++;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=false;document.getElementById('btnNext').disabled=!answered[currentQ];if(currentQ===questions.length-1)document.getElementById('btnNext').textContent='Terminer';updateDots()}else{showResult()}}function prevQ(){if(currentQ>0){questions[currentQ].classList.remove('active');currentQ--;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=currentQ===0;document.getElementById('btnNext').disabled=!answered[currentQ];document.getElementById('btnNext').textContent='Suivant →';updateDots()}}function showResult(){document.getElementById('quizBody').style.display='none';document.getElementById('quizResult').style.display='block';document.getElementById('resultScore').textContent=score+'/'+questions.length;var m=['Continue !','Pas mal !','Très bien !','Parfait !'];document.getElementById('resultMsg').textContent=m[Math.min(score,3)]}function resetQuiz(){score=0;currentQ=0;answered=new Array(questions.length).fill(false);document.getElementById('scoreDisplay').textContent=0;document.getElementById('quizBody').style.display='block';document.getElementById('quizResult').style.display='none';questions.forEach((q,i)=>{q.classList.toggle('active',i===0);q.querySelectorAll('.option').forEach(o=>o.className='option');q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback')});document.getElementById('btnPrev').disabled=true;document.getElementById('btnNext').disabled=true;document.getElementById('btnNext').textContent='Suivant →';updateDots()}function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active')}(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l});if(current){links.forEach(function(l){l.classList.remove('active')});current.classList.add('active')}},{passive:true})})();
+</script>
+<script src="../../mobile.js"></script>
+</body>
+</html>
