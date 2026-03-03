@@ -506,49 +506,8 @@
   </main>
 </div>
 
-<script>
-const questions = document.querySelectorAll('.question-block');
-let currentQ = 0, score = 0;
-let answered = new Array(questions.length).fill(false);
-const dotsContainer = document.getElementById('qDots');
-questions.forEach((_, i) => { const d = document.createElement('div'); d.className = 'q-dot' + (i===0?' current':''); dotsContainer.appendChild(d); });
-function updateDots() { document.querySelectorAll('.q-dot').forEach((d,i) => { d.className='q-dot'; if(answered[i])d.classList.add('done'); if(i===currentQ)d.classList.add('current'); }); }
-function answer(el, isCorrect) {
-  if (answered[currentQ]) return;
-  answered[currentQ] = true;
-  el.closest('.question-block').querySelectorAll('.option').forEach(o=>o.classList.add('disabled'));
-  el.classList.add(isCorrect?'correct':'wrong');
-  if(!isCorrect) el.closest('.question-block').querySelectorAll('.option').forEach(o=>{if(o.onclick.toString().includes('true'))o.classList.add('correct');});
-  else { score++; document.getElementById('scoreDisplay').textContent=score; }
-  const fb = el.closest('.question-block').querySelector('.q-feedback');
-  fb.classList.add('show', isCorrect?'good':'bad');
-  document.getElementById('btnNext').disabled=false;
-  document.getElementById('progressFill').style.width=(answered.filter(Boolean).length/questions.length*100)+'%';
-}
-function nextQ() {
-  if(currentQ<questions.length-1){questions[currentQ].classList.remove('active');currentQ++;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=false;document.getElementById('btnNext').disabled=!answered[currentQ];if(currentQ===questions.length-1)document.getElementById('btnNext').textContent='Terminer';updateDots();}else{showResult();}
-}
-function prevQ() {
-  if(currentQ>0){questions[currentQ].classList.remove('active');currentQ--;questions[currentQ].classList.add('active');document.getElementById('btnPrev').disabled=currentQ===0;document.getElementById('btnNext').disabled=!answered[currentQ];document.getElementById('btnNext').textContent=currentQ===questions.length-1?'Terminer':'Suivant →';updateDots();}
-}
-function showResult() {
-  document.getElementById('quizBody').style.display='none';document.getElementById('quizResult').style.display='block';
-  document.getElementById('resultScore').textContent=score+'/'+questions.length;
-  const msgs=['Continuez à explorer !','Bon début !','Bien !','Très bien !','Psychologue en herbe !'];
-  document.getElementById('resultMsg').textContent=msgs[Math.min(Math.floor(score/2.1),4)];
-}
-function resetQuiz() {
-  score=0;currentQ=0;answered=new Array(questions.length).fill(false);
-  document.getElementById('scoreDisplay').textContent=0;document.getElementById('quizBody').style.display='block';document.getElementById('quizResult').style.display='none';
-  questions.forEach((q,i)=>{q.classList.toggle('active',i===0);q.querySelectorAll('.option').forEach(o=>o.className='option');q.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');});
-  document.getElementById('btnPrev').disabled=true;document.getElementById('btnNext').disabled=true;document.getElementById('btnNext').textContent='Suivant →';updateDots();
-}
-function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
-// Scroll spy
-(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
-function downloadMemo(){const memo=document.getElementById('memoCard').outerHTML;const html=`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Psychologie — Fiche mémo Curiosita</title><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#0f0d14;color:#ede8f5;font-family:'DM Sans',sans-serif;padding:2rem;max-width:900px;margin:0 auto}.memo-preview{border:1px solid rgba(237,232,245,0.08);border-radius:8px;overflow:hidden}.memo-top{background:linear-gradient(135deg,#1e1929,#251f33);padding:1.5rem;border-bottom:1px solid rgba(237,232,245,0.08)}.memo-top h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:#d4a8ff;margin-bottom:.3rem}.memo-top p{font-size:.78rem;color:#7a7090}.memo-grid{display:grid;grid-template-columns:1fr 1fr}.memo-section{padding:1.5rem;border-bottom:1px solid rgba(237,232,245,0.08)}.memo-section:nth-child(odd){border-right:1px solid rgba(237,232,245,0.08)}.memo-section-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:#b07fe8;margin-bottom:.8rem;font-weight:500}.memo-item{font-size:.78rem;color:#7a7090;padding:.22rem 0;display:flex;gap:.5rem;line-height:1.5}.memo-item strong{color:#ede8f5;font-weight:500;min-width:110px;flex-shrink:0}.memo-dl-btn{display:none}</style></head><body>${memo}
-</body></html>`;const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download='psychologie-fiche-memo-index.html';a.click();}
-</script>
+<script src="utils.js"></script>
+<script src="quiz.js"></script>
     <script src="mobile.js?v=2"></script>
 </body>
 </html>

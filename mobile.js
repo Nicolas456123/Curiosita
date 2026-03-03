@@ -60,13 +60,8 @@
   const isCourse = document.querySelector('.sidebar-link[data-section]') && document.querySelector('.main');
   if (!isCourse) return;
 
-  // Resolve path to sr-highlight.js from style.css href
-  const styleLink = document.querySelector('link[href*="style.css"]');
-  let base = '';
-  if (styleLink) {
-    const href = styleLink.getAttribute('href');
-    base = href.substring(0, href.lastIndexOf('/') + 1);
-  }
+  // Use shared CurUtils (loaded via utils.js before this script)
+  const base = (typeof CurUtils !== 'undefined') ? CurUtils.basePath : '';
 
   const s = document.createElement('script');
   s.src = base + 'sr-highlight.js';

@@ -9,32 +9,9 @@
 (function () {
   'use strict';
 
-  // ── Resolve base path from style.css link ──
-  const styleLink = document.querySelector('link[href*="style.css"]');
-  let basePath = '';
-  if (styleLink) {
-    const href = styleLink.getAttribute('href');
-    basePath = href.substring(0, href.lastIndexOf('/') + 1);
-  }
-
-  function loadScript(src) {
-    return new Promise((resolve, reject) => {
-      if (document.querySelector(`script[src*="${src}"]`)) { resolve(); return; }
-      const s = document.createElement('script');
-      s.src = basePath + src;
-      s.onload = resolve;
-      s.onerror = reject;
-      document.head.appendChild(s);
-    });
-  }
-
-  function loadStyle(href) {
-    if (document.querySelector(`link[href*="${href}"]`)) return;
-    const l = document.createElement('link');
-    l.rel = 'stylesheet';
-    l.href = basePath + href;
-    document.head.appendChild(l);
-  }
+  // ── Use shared CurUtils for path resolution + loaders ──
+  var loadScript = (typeof CurUtils !== 'undefined') ? CurUtils.loadScript : function () { return Promise.resolve(); };
+  var loadStyle = (typeof CurUtils !== 'undefined') ? CurUtils.loadStyle : function () {};
 
   /** Normalize text for comparison */
   function normText(s) {
