@@ -38,6 +38,8 @@
         // Refresh panel content
         if (target === 'review') initReview();
         if (target === 'decks') renderDecks();
+        if (target === 'progress' && typeof SRProgress !== 'undefined') SRProgress.render();
+        if (target === 'methode' && typeof SRMethode !== 'undefined') SRMethode.render();
       });
     });
 

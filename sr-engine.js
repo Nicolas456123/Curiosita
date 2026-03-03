@@ -280,7 +280,7 @@ const SR = (function () {
       totalReviews: _data.stats.totalReviews,
       streakDays: _data.stats.streakDays,
       successRate,
-      reviewHistory: _data.stats.reviewHistory.slice(-30),
+      reviewHistory: _data.stats.reviewHistory.slice(-90),
       lastStudyDate: _data.stats.lastStudyDate
     };
   }
@@ -345,6 +345,82 @@ const SR = (function () {
     save();
   }
 
+  // ── Forecast (Progrès tab) ──
+  function getForecast(days) {
+    days = days || 30;
+    const cards = Object.values(_data.cards);
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+    const result = [];
+
+    for (let i = 0; i < days; i++) {
+      const d = new Date(now);
+      d.setDate(d.getDate() + i);
+      const dayStart = d.getTime();
+      const dayEnd = dayStart + 86400000;
+
+      let dueCount = 0;
+      let newCount = 0;
+      cards.forEach(c => {
+        if (c.nextReview >= dayStart && c.nextReview < dayEnd) {
+          if (!c.lastReview) newCount++;
+          else dueCount++;
+        }
+        // Day 0: include overdue cards
+        if (i === 0 && c.nextReview < dayStart) {
+          if (!c.lastReview) newCount++;
+          else dueCount++;
+        }
+      });
+
+      result.push({ date: d.toISOString().slice(0, 10), dueCount, newCount });
+    }
+    return result;
+  }
+
+  // ── Maturity distribution ──
+  function getMaturityDistribution() {
+    const cards = Object.values(_data.cards);
+    const dist = { new: 0, learning: 0, young: 0, mature: 0 };
+    cards.forEach(c => {
+      if (!c.lastReview) dist.new++;
+      else if (c.repetition < 3) dist.learning++;
+      else if (c.repetition <= 6) dist.young++;
+      else dist.mature++;
+    });
+    return dist;
+  }
+
+  // ── Retention estimate (Ebbinghaus R = e^(-t/S)) ──
+  function getRetentionEstimate() {
+    const cards = Object.values(_data.cards);
+    const now = Date.now();
+    let totalRetention = 0;
+    let reviewedCount = 0;
+    let atRisk = 0;
+    const distribution = [];
+
+    cards.forEach(c => {
+      if (!c.lastReview) return; // new card — skip
+      reviewedCount++;
+      const daysSince = (now - c.lastReview) / 86400000;
+      const stability = Math.max(c.interval, 1);
+      const retention = Math.exp(-daysSince / stability);
+      const retPct = Math.round(retention * 100);
+
+      totalRetention += retention;
+      if (retPct < 50) atRisk++;
+      distribution.push({ id: c.id, front: c.front, retention: retPct });
+    });
+
+    return {
+      overall: reviewedCount > 0 ? Math.round((totalRetention / reviewedCount) * 100) : 100,
+      atRisk,
+      reviewedCount,
+      distribution: distribution.sort((a, b) => a.retention - b.retention)
+    };
+  }
+
   // ── Init ──
   load();
 
@@ -370,6 +446,9 @@ const SR = (function () {
 
     // Stats
     getStats,
+    getForecast,
+    getMaturityDistribution,
+    getRetentionEstimate,
 
     // Settings
     getSettings,
