@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mexique, Pérou, Argentine, États-Unis — piment, maïs, cacao, barbecue et la richesse culinaire d'un continent métissé.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Cuisine des Amériques — Cuisine du monde — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🇲🇽 Cuisine du monde</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -147,10 +147,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel procédé précolombien est essentiel pour préparer la tortilla de maïs ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La fermentation</div>
-              <div class="option" onclick="answer(this,true)">La nixtamalisation</div>
-              <div class="option" onclick="answer(this,false)">Le fumage</div>
-              <div class="option" onclick="answer(this,false)">La déshydratation</div>
+              <button class="option" onclick="answer(this,false)">La fermentation</button>
+              <button class="option" onclick="answer(this,true)">La nixtamalisation</button>
+              <button class="option" onclick="answer(this,false)">Le fumage</button>
+              <button class="option" onclick="answer(this,false)">La déshydratation</button>
             </div>
             <div class="q-feedback">La nixtamalisation est le traitement du maïs dans une solution alcaline (eau de chaux). Elle libère la niacine, ramollit le grain et permet de former la masa (pâte) pour les tortillas.</div>
           </div>
@@ -158,10 +158,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Combien de variétés de pommes de terre le Pérou compte-t-il environ ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">200</div>
-              <div class="option" onclick="answer(this,false)">800</div>
-              <div class="option" onclick="answer(this,true)">Plus de 3 000</div>
-              <div class="option" onclick="answer(this,false)">500</div>
+              <button class="option" onclick="answer(this,false)">200</button>
+              <button class="option" onclick="answer(this,false)">800</button>
+              <button class="option" onclick="answer(this,true)">Plus de 3 000</button>
+              <button class="option" onclick="answer(this,false)">500</button>
             </div>
             <div class="q-feedback">Le Pérou est le berceau de la pomme de terre et en compte plus de 3 000 variétés, allant du violet profond au jaune vif, cultivées depuis des millénaires dans les Andes.</div>
           </div>
@@ -169,10 +169,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qu'est-ce que la cuisine Nikkei ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La cuisine traditionnelle japonaise</div>
-              <div class="option" onclick="answer(this,true)">La fusion cuisine péruvienne-japonaise</div>
-              <div class="option" onclick="answer(this,false)">La cuisine brésilienne d'influence africaine</div>
-              <div class="option" onclick="answer(this,false)">La cuisine mexicaine moderne</div>
+              <button class="option" onclick="answer(this,false)">La cuisine traditionnelle japonaise</button>
+              <button class="option" onclick="answer(this,true)">La fusion cuisine péruvienne-japonaise</button>
+              <button class="option" onclick="answer(this,false)">La cuisine brésilienne d'influence africaine</button>
+              <button class="option" onclick="answer(this,false)">La cuisine mexicaine moderne</button>
             </div>
             <div class="q-feedback">La cuisine Nikkei est née de la rencontre entre les techniques japonaises et les ingrédients péruviens, fruit de l'immigration japonaise au Pérou au début du XXe siècle.</div>
           </div>
@@ -180,10 +180,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce qu'un mole mexicain ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Une sauce complexe pouvant contenir plus de 30 ingrédients</div>
-              <div class="option" onclick="answer(this,false)">Un type de tortilla</div>
-              <div class="option" onclick="answer(this,false)">Un dessert au chocolat</div>
-              <div class="option" onclick="answer(this,false)">Un piment très fort</div>
+              <button class="option" onclick="answer(this,true)">Une sauce complexe pouvant contenir plus de 30 ingrédients</button>
+              <button class="option" onclick="answer(this,false)">Un type de tortilla</button>
+              <button class="option" onclick="answer(this,false)">Un dessert au chocolat</button>
+              <button class="option" onclick="answer(this,false)">Un piment très fort</button>
             </div>
             <div class="q-feedback">Le mole est une sauce complexe et sophistiquée pouvant contenir plus de 30 ingrédients : piments séchés, chocolat, épices, graines, fruits secs. C'est l'un des joyaux de la haute cuisine mexicaine.</div>
           </div>
@@ -191,10 +191,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel aliment parmi ceux-ci n'existait PAS en Europe avant 1492 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le blé</div>
-              <div class="option" onclick="answer(this,false)">Le riz</div>
-              <div class="option" onclick="answer(this,true)">La tomate</div>
-              <div class="option" onclick="answer(this,false)">L'olive</div>
+              <button class="option" onclick="answer(this,false)">Le blé</button>
+              <button class="option" onclick="answer(this,false)">Le riz</button>
+              <button class="option" onclick="answer(this,true)">La tomate</button>
+              <button class="option" onclick="answer(this,false)">L'olive</button>
             </div>
             <div class="q-feedback">La tomate est originaire d'Amérique du Sud (Pérou, Équateur). Elle est arrivée en Europe au XVIe siècle avec les conquistadors. Avant cette date, la cuisine italienne n'utilisait pas de tomate !</div>
           </div>
@@ -202,10 +202,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle est la caractéristique du BBQ du Sud des États-Unis ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Cuisson rapide à haute température</div>
-              <div class="option" onclick="answer(this,true)">Cuisson lente à basse température avec fumage</div>
-              <div class="option" onclick="answer(this,false)">Cuisson en friture profonde</div>
-              <div class="option" onclick="answer(this,false)">Cuisson au four classique</div>
+              <button class="option" onclick="answer(this,false)">Cuisson rapide à haute température</button>
+              <button class="option" onclick="answer(this,true)">Cuisson lente à basse température avec fumage</button>
+              <button class="option" onclick="answer(this,false)">Cuisson en friture profonde</button>
+              <button class="option" onclick="answer(this,false)">Cuisson au four classique</button>
             </div>
             <div class="q-feedback">Le barbecue du Sud des États-Unis repose sur le principe « low and slow » : une cuisson lente (8 à 16 heures) à basse température (110-135 °C) avec fumage au bois, qui attendrit les morceaux de viande les plus durs.</div>
           </div>
@@ -269,8 +269,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

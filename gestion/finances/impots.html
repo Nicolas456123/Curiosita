@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Impôt sur le revenu, prélèvement à la source, déclaration annuelle et niches fiscales en France.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Impôts et fiscalité — Finances personnelles — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📄 Finances personnelles</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est le taux marginal de la deuxième tranche de l'IR ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">0 %</div>
-              <div class="option" onclick="answer(this,true)">11 %</div>
-              <div class="option" onclick="answer(this,false)">30 %</div>
-              <div class="option" onclick="answer(this,false)">41 %</div>
+              <button class="option" onclick="answer(this,false)">0 %</button>
+              <button class="option" onclick="answer(this,true)">11 %</button>
+              <button class="option" onclick="answer(this,false)">30 %</button>
+              <button class="option" onclick="answer(this,false)">41 %</button>
             </div>
             <div class="q-feedback">La deuxième tranche est imposée à 11 %. C'est le taux qui s'applique à la part du revenu entre 11 295 € et 28 797 €. La première tranche (0-11 294 €) n'est pas imposée.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Combien de parts fiscales a un couple marié avec 2 enfants ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">2 parts</div>
-              <div class="option" onclick="answer(this,false)">2,5 parts</div>
-              <div class="option" onclick="answer(this,true)">3 parts</div>
-              <div class="option" onclick="answer(this,false)">4 parts</div>
+              <button class="option" onclick="answer(this,false)">2 parts</button>
+              <button class="option" onclick="answer(this,false)">2,5 parts</button>
+              <button class="option" onclick="answer(this,true)">3 parts</button>
+              <button class="option" onclick="answer(this,false)">4 parts</button>
             </div>
             <div class="q-feedback">Couple marié = 2 parts + 2 enfants × 0,5 part = 3 parts. À partir du 3e enfant, chaque enfant compte pour 1 part entière.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Depuis quelle année le prélèvement à la source est-il en vigueur en France ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">2015</div>
-              <div class="option" onclick="answer(this,false)">2017</div>
-              <div class="option" onclick="answer(this,true)">2019</div>
-              <div class="option" onclick="answer(this,false)">2021</div>
+              <button class="option" onclick="answer(this,false)">2015</button>
+              <button class="option" onclick="answer(this,false)">2017</button>
+              <button class="option" onclick="answer(this,true)">2019</button>
+              <button class="option" onclick="answer(this,false)">2021</button>
             </div>
             <div class="q-feedback">Le prélèvement à la source est en vigueur depuis le 1er janvier 2019. L'impôt est désormais prélevé mensuellement, directement sur le salaire ou les revenus.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel est le taux de la « flat tax » sur les revenus du capital ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">17,2 %</div>
-              <div class="option" onclick="answer(this,false)">25 %</div>
-              <div class="option" onclick="answer(this,true)">30 %</div>
-              <div class="option" onclick="answer(this,false)">33 %</div>
+              <button class="option" onclick="answer(this,false)">17,2 %</button>
+              <button class="option" onclick="answer(this,false)">25 %</button>
+              <button class="option" onclick="answer(this,true)">30 %</button>
+              <button class="option" onclick="answer(this,false)">33 %</button>
             </div>
             <div class="q-feedback">La flat tax (PFU) est de 30 % : 12,8 % d'impôt sur le revenu + 17,2 % de prélèvements sociaux. On peut opter pour le barème progressif si c'est plus avantageux.</div>
           </div>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle réduction d'impôt offrent les dons aux associations caritatives classiques ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">50 %</div>
-              <div class="option" onclick="answer(this,true)">66 %</div>
-              <div class="option" onclick="answer(this,false)">75 %</div>
-              <div class="option" onclick="answer(this,false)">100 %</div>
+              <button class="option" onclick="answer(this,false)">50 %</button>
+              <button class="option" onclick="answer(this,true)">66 %</button>
+              <button class="option" onclick="answer(this,false)">75 %</button>
+              <button class="option" onclick="answer(this,false)">100 %</button>
             </div>
             <div class="q-feedback">Les dons aux associations d'intérêt général donnent droit à une réduction de 66 %. Certaines associations d'aide aux personnes en difficulté ouvrent droit à 75 % (dans une certaine limite).</div>
           </div>
@@ -203,10 +203,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel pourcentage des foyers fiscaux français est effectivement imposable ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Environ 44 %</div>
-              <div class="option" onclick="answer(this,false)">Environ 60 %</div>
-              <div class="option" onclick="answer(this,false)">Environ 75 %</div>
-              <div class="option" onclick="answer(this,false)">Environ 90 %</div>
+              <button class="option" onclick="answer(this,true)">Environ 44 %</button>
+              <button class="option" onclick="answer(this,false)">Environ 60 %</button>
+              <button class="option" onclick="answer(this,false)">Environ 75 %</button>
+              <button class="option" onclick="answer(this,false)">Environ 90 %</button>
             </div>
             <div class="q-feedback">Environ 44 % des foyers fiscaux paient effectivement l'impôt sur le revenu. La majorité des foyers bénéficient du système progressif et de la première tranche à 0 %.</div>
           </div>
@@ -279,8 +279,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

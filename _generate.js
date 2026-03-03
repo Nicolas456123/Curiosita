@@ -6,7 +6,7 @@ const BASE = 'C:/Users/nicol/Desktop/Curiosita';
 function coursePage({title, disciplineTitle, disciplineFile, hubTitle, hubFile, breadcrumbDiscipline, breadcrumbHub, tagDomain, time, introText, introHighlight, introText2, courseH3s, quizQuestions, prevCourse, nextCourse, siblings, currentFile}) {
   const totalQ = quizQuestions.length;
   const quizBlocks = quizQuestions.map((q, i) => {
-    const opts = q.opts.map((o, oi) => `              <div class="option" onclick="answer(this,${oi === q.ans ? 'true' : 'false'})">${o}</div>`).join('\n');
+    const opts = q.opts.map((o, oi) => `              <button class="option" onclick="answer(this,${oi === q.ans ? 'true' : 'false'})">${o}</button>`).join('\n');
     return `          <div class="question-block${i===0?' active':''}" data-q="${i}">
             <p class="q-num">Question ${i+1} / ${totalQ}</p>
             <p class="q-text">${q.q}</p>
@@ -59,13 +59,13 @@ ${opts}
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="${introText.replace(/<[^>]+>/g,'').substring(0,155)}">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>${title} — ${hubTitle} — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #e87a7a; --accent2: #f09090; --accent-dim: rgba(232,122,122,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #e87a7a; --accent2: #f09090; --accent-dim: rgba(232,122,122,0.08); --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -75,7 +75,7 @@ ${opts}
     <a href="../../${disciplineFile}">${breadcrumbDiscipline}</a> &rsaquo; <a href="../${hubFile}">${breadcrumbHub}</a> &rsaquo; <span>${title}</span>
   </div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">${tagDomain}</span>
     <span class="tag-level">Debutant &rarr; Intermediaire</span>
@@ -148,9 +148,15 @@ ${navNext}
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js"></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+<script src="../../curiosita.js" defer></script>
 </body>
 </html>`;
 }

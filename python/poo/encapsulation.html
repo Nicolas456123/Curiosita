@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Attributs privés, getters et setters, le décorateur @property et les conventions Python — protéger et contrôler l'accès aux données internes d'un objet.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Encapsulation — POO Python — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #27ae60;
   --accent2: #2ecc71;
   --accent-dim: rgba(39,174,96,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(39,174,96,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(39,174,96,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🐍 POO Python</span>
     <span class="tag-level">Intermédiaire</span>
@@ -303,10 +303,10 @@ print(u.email)       # None</code></pre>
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que signifie un attribut commençant par un simple underscore (<code>_attribut</code>) en Python ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'attribut est strictement privé et inaccessible</div>
-              <div class="option" onclick="answer(this,true)">C'est une convention indiquant un usage interne</div>
-              <div class="option" onclick="answer(this,false)">L'attribut est en lecture seule</div>
-              <div class="option" onclick="answer(this,false)">L'attribut est une constante</div>
+              <button class="option" onclick="answer(this,false)">L'attribut est strictement privé et inaccessible</button>
+              <button class="option" onclick="answer(this,true)">C'est une convention indiquant un usage interne</button>
+              <button class="option" onclick="answer(this,false)">L'attribut est en lecture seule</button>
+              <button class="option" onclick="answer(this,false)">L'attribut est une constante</button>
             </div>
             <div class="q-feedback">Le simple underscore est une convention PEP 8 signalant que l'attribut est destiné à un usage interne. Il reste techniquement accessible, mais les IDE émettent des avertissements si on y accède depuis l'extérieur.</div>
           </div>
@@ -314,10 +314,10 @@ print(u.email)       # None</code></pre>
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel mécanisme Python applique-t-il aux attributs commençant par <code>__</code> (double underscore) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Chiffrement de l'attribut</div>
-              <div class="option" onclick="answer(this,false)">Suppression automatique de l'attribut</div>
-              <div class="option" onclick="answer(this,true)">Name mangling (_Classe__attribut)</div>
-              <div class="option" onclick="answer(this,false)">Conversion en attribut de classe</div>
+              <button class="option" onclick="answer(this,false)">Chiffrement de l'attribut</button>
+              <button class="option" onclick="answer(this,false)">Suppression automatique de l'attribut</button>
+              <button class="option" onclick="answer(this,true)">Name mangling (_Classe__attribut)</button>
+              <button class="option" onclick="answer(this,false)">Conversion en attribut de classe</button>
             </div>
             <div class="q-feedback">Le name mangling transforme __attribut en _NomClasse__attribut. Cela rend l'accès direct plus difficile et évite les collisions de noms dans les hiérarchies d'héritage.</div>
           </div>
@@ -325,10 +325,10 @@ print(u.email)       # None</code></pre>
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel est l'avantage principal de <code>@property</code> par rapport aux getters/setters classiques ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">@property est plus rapide en exécution</div>
-              <div class="option" onclick="answer(this,true)">L'interface reste celle d'un attribut simple (obj.attr) tout en permettant validation et logique</div>
-              <div class="option" onclick="answer(this,false)">@property empêche totalement l'accès à l'attribut</div>
-              <div class="option" onclick="answer(this,false)">@property ne fonctionne qu'avec les types numériques</div>
+              <button class="option" onclick="answer(this,false)">@property est plus rapide en exécution</button>
+              <button class="option" onclick="answer(this,true)">L'interface reste celle d'un attribut simple (obj.attr) tout en permettant validation et logique</button>
+              <button class="option" onclick="answer(this,false)">@property empêche totalement l'accès à l'attribut</button>
+              <button class="option" onclick="answer(this,false)">@property ne fonctionne qu'avec les types numériques</button>
             </div>
             <div class="q-feedback">@property permet de garder la syntaxe simple obj.attribut tout en exécutant du code getter/setter en arrière-plan. On peut ajouter de la validation sans changer l'interface publique de la classe.</div>
           </div>
@@ -336,10 +336,10 @@ print(u.email)       # None</code></pre>
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Comment créer une propriété en lecture seule avec <code>@property</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">En définissant uniquement le getter (@property) sans setter</div>
-              <div class="option" onclick="answer(this,false)">En ajoutant @readonly avant le getter</div>
-              <div class="option" onclick="answer(this,false)">En utilisant le mot-clé const</div>
-              <div class="option" onclick="answer(this,false)">C'est impossible en Python</div>
+              <button class="option" onclick="answer(this,true)">En définissant uniquement le getter (@property) sans setter</button>
+              <button class="option" onclick="answer(this,false)">En ajoutant @readonly avant le getter</button>
+              <button class="option" onclick="answer(this,false)">En utilisant le mot-clé const</button>
+              <button class="option" onclick="answer(this,false)">C'est impossible en Python</button>
             </div>
             <div class="q-feedback">Une propriété sans setter est automatiquement en lecture seule. Toute tentative d'assignation lèvera une AttributeError: can't set attribute.</div>
           </div>
@@ -347,10 +347,10 @@ print(u.email)       # None</code></pre>
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Dans <code>class A</code>, si on définit <code>self.__x = 10</code>, comment accéder à cet attribut depuis l'extérieur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">a.__x</div>
-              <div class="option" onclick="answer(this,false)">a.x</div>
-              <div class="option" onclick="answer(this,true)">a._A__x</div>
-              <div class="option" onclick="answer(this,false)">C'est strictement impossible</div>
+              <button class="option" onclick="answer(this,false)">a.__x</button>
+              <button class="option" onclick="answer(this,false)">a.x</button>
+              <button class="option" onclick="answer(this,true)">a._A__x</button>
+              <button class="option" onclick="answer(this,false)">C'est strictement impossible</button>
             </div>
             <div class="q-feedback">Le name mangling transforme __x en _A__x. Bien que techniquement accessible via a._A__x, cette pratique est fortement déconseillée — utilisez plutôt les méthodes publiques ou @property.</div>
           </div>
@@ -358,10 +358,10 @@ print(u.email)       # None</code></pre>
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle est la philosophie Python concernant l'encapsulation ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Tout doit être strictement privé par défaut</div>
-              <div class="option" onclick="answer(this,false)">L'encapsulation est inutile en Python</div>
-              <div class="option" onclick="answer(this,false)">On doit toujours utiliser des getters et setters</div>
-              <div class="option" onclick="answer(this,true)">« Nous sommes tous des adultes consentants » — conventions plutôt que restrictions</div>
+              <button class="option" onclick="answer(this,false)">Tout doit être strictement privé par défaut</button>
+              <button class="option" onclick="answer(this,false)">L'encapsulation est inutile en Python</button>
+              <button class="option" onclick="answer(this,false)">On doit toujours utiliser des getters et setters</button>
+              <button class="option" onclick="answer(this,true)">« Nous sommes tous des adultes consentants » — conventions plutôt que restrictions</button>
             </div>
             <div class="q-feedback">Python fait confiance au programmeur et utilise des conventions (underscore) plutôt que des restrictions strictes. La meilleure pratique est de commencer avec des attributs publics et d'ajouter @property si nécessaire.</div>
           </div>
@@ -620,8 +620,14 @@ print(c.hex)     # #008000
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

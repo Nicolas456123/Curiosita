@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La loi de Hubble, le décalage vers le rouge, l'énergie sombre et l'accélération cosmique qui façonnent le destin de l'univers.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Expansion de l'univers — Cosmologie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #80cbc4;
   --accent-dim: rgba(122,232,216,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔭 Cosmologie</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -134,10 +134,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que dit la loi de Hubble-Lemaître ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les galaxies tournent autour d'un centre commun</div>
-              <div class="option" onclick="answer(this,true)">La vitesse de récession d'une galaxie est proportionnelle à sa distance</div>
-              <div class="option" onclick="answer(this,false)">Toutes les galaxies s'éloignent à la même vitesse</div>
-              <div class="option" onclick="answer(this,false)">Les galaxies proches s'éloignent plus vite que les lointaines</div>
+              <button class="option" onclick="answer(this,false)">Les galaxies tournent autour d'un centre commun</button>
+              <button class="option" onclick="answer(this,true)">La vitesse de récession d'une galaxie est proportionnelle à sa distance</button>
+              <button class="option" onclick="answer(this,false)">Toutes les galaxies s'éloignent à la même vitesse</button>
+              <button class="option" onclick="answer(this,false)">Les galaxies proches s'éloignent plus vite que les lointaines</button>
             </div>
             <div class="q-feedback">La loi de Hubble-Lemaître affirme v = H₀ × d : plus une galaxie est éloignée, plus elle s'éloigne rapidement. C'est la signature de l'expansion de l'espace.</div>
           </div>
@@ -145,10 +145,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle est la valeur approximative de la constante de Hubble H₀ ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">7 km/s/Mpc</div>
-              <div class="option" onclick="answer(this,true)">70 km/s/Mpc</div>
-              <div class="option" onclick="answer(this,false)">700 km/s/Mpc</div>
-              <div class="option" onclick="answer(this,false)">7 000 km/s/Mpc</div>
+              <button class="option" onclick="answer(this,false)">7 km/s/Mpc</button>
+              <button class="option" onclick="answer(this,true)">70 km/s/Mpc</button>
+              <button class="option" onclick="answer(this,false)">700 km/s/Mpc</button>
+              <button class="option" onclick="answer(this,false)">7 000 km/s/Mpc</button>
             </div>
             <div class="q-feedback">La constante de Hubble est d'environ 70 km/s/Mpc (entre 67 et 73 selon la méthode de mesure). Cela signifie qu'à chaque mégaparsec de distance, la vitesse de récession augmente de 70 km/s.</div>
           </div>
@@ -156,10 +156,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qu'est-ce qui a révélé l'accélération de l'expansion en 1998 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le fond diffus cosmologique</div>
-              <div class="option" onclick="answer(this,false)">Les céphéides</div>
-              <div class="option" onclick="answer(this,true)">Les supernovae de type Ia lointaines</div>
-              <div class="option" onclick="answer(this,false)">Les ondes gravitationnelles</div>
+              <button class="option" onclick="answer(this,false)">Le fond diffus cosmologique</button>
+              <button class="option" onclick="answer(this,false)">Les céphéides</button>
+              <button class="option" onclick="answer(this,true)">Les supernovae de type Ia lointaines</button>
+              <button class="option" onclick="answer(this,false)">Les ondes gravitationnelles</button>
             </div>
             <div class="q-feedback">L'observation de supernovae Ia lointaines, plus faibles que prévu, a révélé que l'expansion de l'univers accélère. Cette découverte a valu le prix Nobel 2011 à Perlmutter, Schmidt et Riess.</div>
           </div>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle proportion du contenu de l'univers l'énergie sombre représente-t-elle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">5 %</div>
-              <div class="option" onclick="answer(this,false)">27 %</div>
-              <div class="option" onclick="answer(this,true)">68 %</div>
-              <div class="option" onclick="answer(this,false)">95 %</div>
+              <button class="option" onclick="answer(this,false)">5 %</button>
+              <button class="option" onclick="answer(this,false)">27 %</button>
+              <button class="option" onclick="answer(this,true)">68 %</button>
+              <button class="option" onclick="answer(this,false)">95 %</button>
             </div>
             <div class="q-feedback">L'énergie sombre représente environ 68 % du contenu énergétique de l'univers. La matière noire en représente 27 % et la matière ordinaire seulement 5 %.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Un objet a un redshift z = 2. Que signifie-t-il ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'objet s'éloigne à 2 fois la vitesse de la lumière</div>
-              <div class="option" onclick="answer(this,true)">L'univers était 3 fois plus petit quand la lumière a été émise</div>
-              <div class="option" onclick="answer(this,false)">L'objet est à 2 mégaparsecs</div>
-              <div class="option" onclick="answer(this,false)">La lumière a mis 2 milliards d'années pour arriver</div>
+              <button class="option" onclick="answer(this,false)">L'objet s'éloigne à 2 fois la vitesse de la lumière</button>
+              <button class="option" onclick="answer(this,true)">L'univers était 3 fois plus petit quand la lumière a été émise</button>
+              <button class="option" onclick="answer(this,false)">L'objet est à 2 mégaparsecs</button>
+              <button class="option" onclick="answer(this,false)">La lumière a mis 2 milliards d'années pour arriver</button>
             </div>
             <div class="q-feedback">Un redshift z = 2 signifie que 1 + z = 3, donc l'univers était 3 fois plus petit (le facteur d'échelle a triplé) depuis l'émission de la lumière.</div>
           </div>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Qu'appelle-t-on la « tension de Hubble » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le fait que H₀ change avec le temps</div>
-              <div class="option" onclick="answer(this,false)">Le désaccord entre Einstein et Hubble</div>
-              <div class="option" onclick="answer(this,true)">L'écart entre les mesures de H₀ par différentes méthodes</div>
-              <div class="option" onclick="answer(this,false)">La force qui s'oppose à l'expansion</div>
+              <button class="option" onclick="answer(this,false)">Le fait que H₀ change avec le temps</button>
+              <button class="option" onclick="answer(this,false)">Le désaccord entre Einstein et Hubble</button>
+              <button class="option" onclick="answer(this,true)">L'écart entre les mesures de H₀ par différentes méthodes</button>
+              <button class="option" onclick="answer(this,false)">La force qui s'oppose à l'expansion</button>
             </div>
             <div class="q-feedback">La tension de Hubble désigne l'écart entre H₀ ≈ 67 km/s/Mpc (CMB, Planck) et H₀ ≈ 73 km/s/Mpc (chandelles standard locales). Cet écart pourrait indiquer une physique nouvelle.</div>
           </div>
@@ -265,8 +265,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

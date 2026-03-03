@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Perceptron, rétropropagation, fonctions d'activation, architecture multicouche — comprendre les briques fondamentales du deep learning.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Réseaux de neurones — Intelligence artificielle — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #2980b9;
   --accent2: #3498db;
   --accent-dim: rgba(41,128,185,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(41,128,185,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(41,128,185,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🤖 Intelligence artificielle</span>
     <span class="tag-level">Intermédiaire</span>
@@ -200,10 +200,10 @@ W2 -= lr * dW2</code></pre>
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Pourquoi les fonctions d'activation sont-elles nécessaires dans un réseau de neurones ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pour accélérer le calcul</div>
-              <div class="option" onclick="answer(this,true)">Pour introduire de la non-linéarité</div>
-              <div class="option" onclick="answer(this,false)">Pour réduire la taille du réseau</div>
-              <div class="option" onclick="answer(this,false)">Pour normaliser les données d'entrée</div>
+              <button class="option" onclick="answer(this,false)">Pour accélérer le calcul</button>
+              <button class="option" onclick="answer(this,true)">Pour introduire de la non-linéarité</button>
+              <button class="option" onclick="answer(this,false)">Pour réduire la taille du réseau</button>
+              <button class="option" onclick="answer(this,false)">Pour normaliser les données d'entrée</button>
             </div>
             <div class="q-feedback">Sans fonctions d'activation non linéaires, un réseau multicouche serait équivalent à une simple transformation linéaire, incapable de modéliser des relations complexes.</div>
           </div>
@@ -211,10 +211,10 @@ W2 -= lr * dW2</code></pre>
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle est la principale limitation du perceptron simple ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il est trop lent</div>
-              <div class="option" onclick="answer(this,false)">Il ne peut traiter que des images</div>
-              <div class="option" onclick="answer(this,true)">Il ne peut résoudre que des problèmes linéairement séparables</div>
-              <div class="option" onclick="answer(this,false)">Il nécessite trop de mémoire</div>
+              <button class="option" onclick="answer(this,false)">Il est trop lent</button>
+              <button class="option" onclick="answer(this,false)">Il ne peut traiter que des images</button>
+              <button class="option" onclick="answer(this,true)">Il ne peut résoudre que des problèmes linéairement séparables</button>
+              <button class="option" onclick="answer(this,false)">Il nécessite trop de mémoire</button>
             </div>
             <div class="q-feedback">Le perceptron simple ne peut tracer qu'une frontière de décision linéaire. Il échoue par exemple sur le problème XOR, qui nécessite une frontière non linéaire.</div>
           </div>
@@ -222,10 +222,10 @@ W2 -= lr * dW2</code></pre>
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que calcule l'algorithme de rétropropagation ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La sortie du réseau</div>
-              <div class="option" onclick="answer(this,true)">Le gradient de la fonction de coût par rapport à chaque poids</div>
-              <div class="option" onclick="answer(this,false)">Le nombre optimal de couches</div>
-              <div class="option" onclick="answer(this,false)">La meilleure fonction d'activation</div>
+              <button class="option" onclick="answer(this,false)">La sortie du réseau</button>
+              <button class="option" onclick="answer(this,true)">Le gradient de la fonction de coût par rapport à chaque poids</button>
+              <button class="option" onclick="answer(this,false)">Le nombre optimal de couches</button>
+              <button class="option" onclick="answer(this,false)">La meilleure fonction d'activation</button>
             </div>
             <div class="q-feedback">La rétropropagation applique la règle de la chaîne pour calculer efficacement le gradient de la fonction de coût par rapport à chaque poids, permettant la descente de gradient.</div>
           </div>
@@ -233,10 +233,10 @@ W2 -= lr * dW2</code></pre>
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel est l'avantage principal de la fonction ReLU ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Elle produit des valeurs entre 0 et 1</div>
-              <div class="option" onclick="answer(this,false)">Elle est symétrique</div>
-              <div class="option" onclick="answer(this,true)">Elle ne sature pas pour les valeurs positives et accélère la convergence</div>
-              <div class="option" onclick="answer(this,false)">Elle est dérivable partout</div>
+              <button class="option" onclick="answer(this,false)">Elle produit des valeurs entre 0 et 1</button>
+              <button class="option" onclick="answer(this,false)">Elle est symétrique</button>
+              <button class="option" onclick="answer(this,true)">Elle ne sature pas pour les valeurs positives et accélère la convergence</button>
+              <button class="option" onclick="answer(this,false)">Elle est dérivable partout</button>
             </div>
             <div class="q-feedback">ReLU (max(0,z)) ne sature pas pour z > 0, ce qui évite le problème de gradient évanescent. Son gradient est soit 0 soit 1, ce qui accélère considérablement l'entraînement.</div>
           </div>
@@ -244,10 +244,10 @@ W2 -= lr * dW2</code></pre>
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que fait le dropout dans un réseau de neurones ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il supprime les couches inutiles</div>
-              <div class="option" onclick="answer(this,false)">Il réduit le nombre de features</div>
-              <div class="option" onclick="answer(this,true)">Il désactive aléatoirement des neurones pendant l'entraînement</div>
-              <div class="option" onclick="answer(this,false)">Il accélère la propagation avant</div>
+              <button class="option" onclick="answer(this,false)">Il supprime les couches inutiles</button>
+              <button class="option" onclick="answer(this,false)">Il réduit le nombre de features</button>
+              <button class="option" onclick="answer(this,true)">Il désactive aléatoirement des neurones pendant l'entraînement</button>
+              <button class="option" onclick="answer(this,false)">Il accélère la propagation avant</button>
             </div>
             <div class="q-feedback">Le dropout désactive aléatoirement une fraction des neurones à chaque étape d'entraînement, ce qui force le réseau à développer des représentations redondantes et réduit le surapprentissage.</div>
           </div>
@@ -255,10 +255,10 @@ W2 -= lr * dW2</code></pre>
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle fonction d'activation est utilisée en couche de sortie pour la classification multi-classes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">ReLU</div>
-              <div class="option" onclick="answer(this,false)">Sigmoïde</div>
-              <div class="option" onclick="answer(this,false)">Tanh</div>
-              <div class="option" onclick="answer(this,true)">Softmax</div>
+              <button class="option" onclick="answer(this,false)">ReLU</button>
+              <button class="option" onclick="answer(this,false)">Sigmoïde</button>
+              <button class="option" onclick="answer(this,false)">Tanh</button>
+              <button class="option" onclick="answer(this,true)">Softmax</button>
             </div>
             <div class="q-feedback">Softmax convertit un vecteur de scores en une distribution de probabilités (somme = 1), ce qui est idéal pour la classification multi-classes. Chaque sortie représente la probabilité d'appartenir à une classe.</div>
           </div>
@@ -456,8 +456,14 @@ modele_avec_dropout = nn.Sequential(
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

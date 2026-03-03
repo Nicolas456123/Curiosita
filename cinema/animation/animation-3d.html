@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'animation 3D (images de synthese) a revolutionne le cinema d'animation depuis Toy Story (1995). Elle ...">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Animation 3D — Animation — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #e87a7a; --accent2: #f09090; --accent-dim: rgba(232,122,122,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #e87a7a; --accent2: #f09090; --accent-dim: rgba(232,122,122,0.08);  --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -19,7 +19,7 @@
     <a href="../../cinema-page.html">Cinema</a> &rsaquo; <a href="../animation.html">Animation</a> &rsaquo; <span>Animation 3D</span>
   </div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">&#127916; Cinema</span>
     <span class="tag-level">Debutant &rarr; Intermediaire</span>
@@ -89,10 +89,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quel est le premier long-metrage entierement en images de synthese ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Shrek</div>
-              <div class="option" onclick="answer(this,true)">Toy Story</div>
-              <div class="option" onclick="answer(this,false)">Monstres et Cie</div>
-              <div class="option" onclick="answer(this,false)">L'Âge de glace</div>
+              <button class="option" onclick="answer(this,false)">Shrek</button>
+              <button class="option" onclick="answer(this,true)">Toy Story</button>
+              <button class="option" onclick="answer(this,false)">Monstres et Cie</button>
+              <button class="option" onclick="answer(this,false)">L'Âge de glace</button>
             </div>
             <div class="q-feedback">Toy Story (1995) de Pixar est le premier long-metrage d'animation entierement realise en images de synthese 3D.</div>
           </div>
@@ -100,10 +100,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Qu'est-ce que le rigging en animation 3D ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La modelisation des formes</div>
-              <div class="option" onclick="answer(this,true)">La creation du squelette articule</div>
-              <div class="option" onclick="answer(this,false)">Le rendu des textures</div>
-              <div class="option" onclick="answer(this,false)">L'eclairage de la scene</div>
+              <button class="option" onclick="answer(this,false)">La modelisation des formes</button>
+              <button class="option" onclick="answer(this,true)">La creation du squelette articule</button>
+              <button class="option" onclick="answer(this,false)">Le rendu des textures</button>
+              <button class="option" onclick="answer(this,false)">L'eclairage de la scene</button>
             </div>
             <div class="q-feedback">Le rigging consiste a doter un modele 3D d'un squelette articule que l'animateur peut manipuler pour creer le mouvement.</div>
           </div>
@@ -111,10 +111,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Qui a cofonde Pixar ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Walt Disney</div>
-              <div class="option" onclick="answer(this,true)">Steve Jobs et Ed Catmull</div>
-              <div class="option" onclick="answer(this,false)">George Lucas</div>
-              <div class="option" onclick="answer(this,false)">John Lasseter seul</div>
+              <button class="option" onclick="answer(this,false)">Walt Disney</button>
+              <button class="option" onclick="answer(this,true)">Steve Jobs et Ed Catmull</button>
+              <button class="option" onclick="answer(this,false)">George Lucas</button>
+              <button class="option" onclick="answer(this,false)">John Lasseter seul</button>
             </div>
             <div class="q-feedback">Pixar a ete cofonde par Ed Catmull et Alvy Ray Smith, avec Steve Jobs comme investisseur principal apres le rachat a Lucasfilm.</div>
           </div>
@@ -122,10 +122,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quel film Pixar simule pour la premiere fois la fourrure ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Ratatouille</div>
-              <div class="option" onclick="answer(this,false)">Rebelle</div>
-              <div class="option" onclick="answer(this,true)">Monstres et Cie</div>
-              <div class="option" onclick="answer(this,false)">Le Monde de Nemo</div>
+              <button class="option" onclick="answer(this,false)">Ratatouille</button>
+              <button class="option" onclick="answer(this,false)">Rebelle</button>
+              <button class="option" onclick="answer(this,true)">Monstres et Cie</button>
+              <button class="option" onclick="answer(this,false)">Le Monde de Nemo</button>
             </div>
             <div class="q-feedback">Monstres et Cie (2001) a represente un defi technique majeur avec la simulation de la fourrure de Sully, composee de millions de poils animes.</div>
           </div>
@@ -133,10 +133,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Qu'est-ce que le rendu en animation 3D ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le dessin des personnages</div>
-              <div class="option" onclick="answer(this,true)">Le calcul de l'image finale avec lumiere et ombres</div>
-              <div class="option" onclick="answer(this,false)">Le montage du film</div>
-              <div class="option" onclick="answer(this,false)">L'animation des mouvements</div>
+              <button class="option" onclick="answer(this,false)">Le dessin des personnages</button>
+              <button class="option" onclick="answer(this,true)">Le calcul de l'image finale avec lumiere et ombres</button>
+              <button class="option" onclick="answer(this,false)">Le montage du film</button>
+              <button class="option" onclick="answer(this,false)">L'animation des mouvements</button>
             </div>
             <div class="q-feedback">Le rendu est le calcul informatique qui transforme la scene 3D en image 2D finale, en simulant la lumiere, les ombres et les materiaux.</div>
           </div>
@@ -185,8 +185,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

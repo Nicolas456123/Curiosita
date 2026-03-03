@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De Martha Graham à Pina Bausch — libérer le mouvement, explorer le corps et réinventer la danse comme art total.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Danse contemporaine — Danse — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">💃 Danse</span>
     <span class="tag-level">Intermédiaire</span>
@@ -131,10 +131,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle danseuse pionnière dansait pieds nus en tunique grecque ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Isadora Duncan</div>
-              <div class="option" onclick="answer(this,false)">Martha Graham</div>
-              <div class="option" onclick="answer(this,false)">Pina Bausch</div>
-              <div class="option" onclick="answer(this,false)">Mary Wigman</div>
+              <button class="option" onclick="answer(this,true)">Isadora Duncan</button>
+              <button class="option" onclick="answer(this,false)">Martha Graham</button>
+              <button class="option" onclick="answer(this,false)">Pina Bausch</button>
+              <button class="option" onclick="answer(this,false)">Mary Wigman</button>
             </div>
             <div class="q-feedback">Isadora Duncan (1877-1927) dansait pieds nus, en tunique grecque, rejetant les conventions du ballet classique. Elle est considérée comme la mère de la danse moderne.</div>
           </div>
@@ -142,10 +142,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel est le principe fondamental de la technique Martha Graham ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'en-dehors</div>
-              <div class="option" onclick="answer(this,true)">Contraction / release</div>
-              <div class="option" onclick="answer(this,false)">Le hasard</div>
-              <div class="option" onclick="answer(this,false)">Le contact improvisation</div>
+              <button class="option" onclick="answer(this,false)">L'en-dehors</button>
+              <button class="option" onclick="answer(this,true)">Contraction / release</button>
+              <button class="option" onclick="answer(this,false)">Le hasard</button>
+              <button class="option" onclick="answer(this,false)">Le contact improvisation</button>
             </div>
             <div class="q-feedback">La technique Graham repose sur le principe de contraction / release : le mouvement naît du centre du corps, se contracte dans l'expiration et se libère dans l'inspiration.</div>
           </div>
@@ -153,10 +153,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Avec quel compositeur Merce Cunningham a-t-il principalement collaboré ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Igor Stravinski</div>
-              <div class="option" onclick="answer(this,true)">John Cage</div>
-              <div class="option" onclick="answer(this,false)">Philip Glass</div>
-              <div class="option" onclick="answer(this,false)">Steve Reich</div>
+              <button class="option" onclick="answer(this,false)">Igor Stravinski</button>
+              <button class="option" onclick="answer(this,true)">John Cage</button>
+              <button class="option" onclick="answer(this,false)">Philip Glass</button>
+              <button class="option" onclick="answer(this,false)">Steve Reich</button>
             </div>
             <div class="q-feedback">Merce Cunningham a collaboré pendant des décennies avec le compositeur John Cage, créant séparément danse et musique qui ne se rencontraient parfois qu'au moment de la représentation.</div>
           </div>
@@ -164,10 +164,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Comment s'appelle le courant créé par Pina Bausch ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Ausdruckstanz</div>
-              <div class="option" onclick="answer(this,false)">Contact improvisation</div>
-              <div class="option" onclick="answer(this,true)">Tanztheater</div>
-              <div class="option" onclick="answer(this,false)">Non-danse</div>
+              <button class="option" onclick="answer(this,false)">Ausdruckstanz</button>
+              <button class="option" onclick="answer(this,false)">Contact improvisation</button>
+              <button class="option" onclick="answer(this,true)">Tanztheater</button>
+              <button class="option" onclick="answer(this,false)">Non-danse</button>
             </div>
             <div class="q-feedback">Pina Bausch a créé le Tanztheater (danse-théâtre) à Wuppertal, mêlant danse, théâtre, parole et émotion brute.</div>
           </div>
@@ -175,10 +175,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qui a développé le contact improvisation ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Merce Cunningham</div>
-              <div class="option" onclick="answer(this,false)">Jérôme Bel</div>
-              <div class="option" onclick="answer(this,true)">Steve Paxton</div>
-              <div class="option" onclick="answer(this,false)">William Forsythe</div>
+              <button class="option" onclick="answer(this,false)">Merce Cunningham</button>
+              <button class="option" onclick="answer(this,false)">Jérôme Bel</button>
+              <button class="option" onclick="answer(this,true)">Steve Paxton</button>
+              <button class="option" onclick="answer(this,false)">William Forsythe</button>
             </div>
             <div class="q-feedback">Steve Paxton a développé le contact improvisation dans les années 1970, une pratique fondée sur l'écoute physique entre deux corps en contact et le partage du poids.</div>
           </div>
@@ -186,10 +186,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle chorégraphe française a créé l'oeuvre emblématique May B (1981) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Maguy Marin</div>
-              <div class="option" onclick="answer(this,false)">Carolyn Carlson</div>
-              <div class="option" onclick="answer(this,false)">Mathilde Monnier</div>
-              <div class="option" onclick="answer(this,false)">Dominique Bagouet</div>
+              <button class="option" onclick="answer(this,true)">Maguy Marin</button>
+              <button class="option" onclick="answer(this,false)">Carolyn Carlson</button>
+              <button class="option" onclick="answer(this,false)">Mathilde Monnier</button>
+              <button class="option" onclick="answer(this,false)">Dominique Bagouet</button>
             </div>
             <div class="q-feedback">Maguy Marin a créé May B en 1981, une oeuvre inspirée de l'univers de Samuel Beckett, devenue un classique de la danse contemporaine française.</div>
           </div>
@@ -256,8 +256,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

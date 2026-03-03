@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La description du mouvement : position, vitesse, accélération, mouvement rectiligne, projectiles et choix du référentiel.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Cinématique — Mécanique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08);  --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../sciences-exactes.html">Sciences exactes</a> › <a href="../mecanique.html">Mécanique</a> › <span>Cinématique</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">⚙️ Mécanique</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -126,10 +126,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Un objet part de x = 0, avance jusqu'à x = 8 m, puis revient à x = 3 m. Quel est son déplacement et quelle est la distance parcourue ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Déplacement = 8 m, distance = 8 m</div>
-              <div class="option" onclick="answer(this,false)">Déplacement = 11 m, distance = 3 m</div>
-              <div class="option" onclick="answer(this,true)">Déplacement = 3 m, distance = 13 m</div>
-              <div class="option" onclick="answer(this,false)">Déplacement = 13 m, distance = 3 m</div>
+              <button class="option" onclick="answer(this,false)">Déplacement = 8 m, distance = 8 m</button>
+              <button class="option" onclick="answer(this,false)">Déplacement = 11 m, distance = 3 m</button>
+              <button class="option" onclick="answer(this,true)">Déplacement = 3 m, distance = 13 m</button>
+              <button class="option" onclick="answer(this,false)">Déplacement = 13 m, distance = 3 m</button>
             </div>
             <div class="q-feedback">Le déplacement est x_f − x_i = 3 − 0 = 3 m. La distance parcourue est 8 + 5 = 13 m (aller 8 m + retour 5 m).</div>
           </div>
@@ -138,10 +138,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">La vitesse instantanée correspond graphiquement à...</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'aire sous la courbe x(t)</div>
-              <div class="option" onclick="answer(this,true)">La pente de la tangente à la courbe x(t)</div>
-              <div class="option" onclick="answer(this,false)">La pente de la tangente à la courbe a(t)</div>
-              <div class="option" onclick="answer(this,false)">L'ordonnée de la courbe a(t)</div>
+              <button class="option" onclick="answer(this,false)">L'aire sous la courbe x(t)</button>
+              <button class="option" onclick="answer(this,true)">La pente de la tangente à la courbe x(t)</button>
+              <button class="option" onclick="answer(this,false)">La pente de la tangente à la courbe a(t)</button>
+              <button class="option" onclick="answer(this,false)">L'ordonnée de la courbe a(t)</button>
             </div>
             <div class="q-feedback">v(t) = dx/dt. Graphiquement, la dérivée d'une fonction en un point est la pente de la tangente à sa courbe en ce point.</div>
           </div>
@@ -150,10 +150,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Une voiture accélère de 0 à 100 km/h en 10 s. Quelle est son accélération moyenne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">10 m/s²</div>
-              <div class="option" onclick="answer(this,false)">10 km/h²</div>
-              <div class="option" onclick="answer(this,true)">2,78 m/s²</div>
-              <div class="option" onclick="answer(this,false)">27,8 m/s²</div>
+              <button class="option" onclick="answer(this,false)">10 m/s²</button>
+              <button class="option" onclick="answer(this,false)">10 km/h²</button>
+              <button class="option" onclick="answer(this,true)">2,78 m/s²</button>
+              <button class="option" onclick="answer(this,false)">27,8 m/s²</button>
             </div>
             <div class="q-feedback">100 km/h = 27,78 m/s. a = Δv/Δt = 27,78/10 = 2,78 m/s². Il faut toujours convertir en SI avant de calculer.</div>
           </div>
@@ -162,10 +162,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Au sommet de sa trajectoire, un objet lancé verticalement vers le haut a...</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">v = 0 et a = 0</div>
-              <div class="option" onclick="answer(this,true)">v = 0 et a = −g</div>
-              <div class="option" onclick="answer(this,false)">v = v₀ et a = 0</div>
-              <div class="option" onclick="answer(this,false)">v = v₀ et a = −g</div>
+              <button class="option" onclick="answer(this,false)">v = 0 et a = 0</button>
+              <button class="option" onclick="answer(this,true)">v = 0 et a = −g</button>
+              <button class="option" onclick="answer(this,false)">v = v₀ et a = 0</button>
+              <button class="option" onclick="answer(this,false)">v = v₀ et a = −g</button>
             </div>
             <div class="q-feedback">Au sommet, la vitesse est instantanément nulle, mais l'accélération gravitationnelle g reste constante et dirigée vers le bas. C'est ce qui fait redescendre l'objet.</div>
           </div>
@@ -174,10 +174,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Pour un projectile lancé sans résistance de l'air, quel angle de tir donne la portée maximale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">30°</div>
-              <div class="option" onclick="answer(this,true)">45°</div>
-              <div class="option" onclick="answer(this,false)">60°</div>
-              <div class="option" onclick="answer(this,false)">90°</div>
+              <button class="option" onclick="answer(this,false)">30°</button>
+              <button class="option" onclick="answer(this,true)">45°</button>
+              <button class="option" onclick="answer(this,false)">60°</button>
+              <button class="option" onclick="answer(this,false)">90°</button>
             </div>
             <div class="q-feedback">La portée R = v₀²·sin(2θ)/g est maximale quand sin(2θ) = 1, soit 2θ = 90°, donc θ = 45°.</div>
           </div>
@@ -186,10 +186,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Un passager marche à 2 m/s vers l'avant d'un train roulant à 25 m/s. Sa vitesse par rapport au sol est...</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">23 m/s</div>
-              <div class="option" onclick="answer(this,false)">25 m/s</div>
-              <div class="option" onclick="answer(this,true)">27 m/s</div>
-              <div class="option" onclick="answer(this,false)">50 m/s</div>
+              <button class="option" onclick="answer(this,false)">23 m/s</button>
+              <button class="option" onclick="answer(this,false)">25 m/s</button>
+              <button class="option" onclick="answer(this,true)">27 m/s</button>
+              <button class="option" onclick="answer(this,false)">50 m/s</button>
             </div>
             <div class="q-feedback">Composition des vitesses : v(passager/sol) = v(passager/train) + v(train/sol) = 2 + 25 = 27 m/s.</div>
           </div>
@@ -283,8 +283,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

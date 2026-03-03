@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La molécule de la vie — structure en double hélice, réplication et transcription du patrimoine génétique.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>ADN et code génétique — La cellule — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #80cbc4;
   --accent-dim: rgba(122,232,216,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧬 La cellule</span>
     <span class="tag-level">Intermédiaire</span>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelles bases azotées s'apparient dans l'ADN ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">A-C et T-G</div>
-              <div class="option" onclick="answer(this,true)">A-T et C-G</div>
-              <div class="option" onclick="answer(this,false)">A-G et T-C</div>
-              <div class="option" onclick="answer(this,false)">A-U et C-G</div>
+              <button class="option" onclick="answer(this,false)">A-C et T-G</button>
+              <button class="option" onclick="answer(this,true)">A-T et C-G</button>
+              <button class="option" onclick="answer(this,false)">A-G et T-C</button>
+              <button class="option" onclick="answer(this,false)">A-U et C-G</button>
             </div>
             <div class="q-feedback">L'adénine (A) s'apparie avec la thymine (T) par 2 liaisons hydrogène, et la cytosine (C) avec la guanine (G) par 3 liaisons hydrogène. Dans l'ARN, l'uracile (U) remplace la thymine.</div>
           </div>
@@ -205,10 +205,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel est le caractère de la réplication de l'ADN, démontré par Meselson et Stahl ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Conservative</div>
-              <div class="option" onclick="answer(this,true)">Semi-conservative</div>
-              <div class="option" onclick="answer(this,false)">Dispersive</div>
-              <div class="option" onclick="answer(this,false)">Non-conservative</div>
+              <button class="option" onclick="answer(this,false)">Conservative</button>
+              <button class="option" onclick="answer(this,true)">Semi-conservative</button>
+              <button class="option" onclick="answer(this,false)">Dispersive</button>
+              <button class="option" onclick="answer(this,false)">Non-conservative</button>
             </div>
             <div class="q-feedback">La réplication est semi-conservative : chaque nouvelle molécule d'ADN contient un brin parental (ancien) et un brin néosynthétisé (nouveau).</div>
           </div>
@@ -216,10 +216,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Combien de codons constituent le code génétique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">20</div>
-              <div class="option" onclick="answer(this,false)">32</div>
-              <div class="option" onclick="answer(this,true)">64</div>
-              <div class="option" onclick="answer(this,false)">128</div>
+              <button class="option" onclick="answer(this,false)">20</button>
+              <button class="option" onclick="answer(this,false)">32</button>
+              <button class="option" onclick="answer(this,true)">64</button>
+              <button class="option" onclick="answer(this,false)">128</button>
             </div>
             <div class="q-feedback">Il existe 64 codons possibles (4³ = 64 combinaisons de 3 nucléotides parmi A, U, C, G). 61 codent des acides aminés et 3 sont des codons stop (UAA, UAG, UGA).</div>
           </div>
@@ -227,10 +227,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel type de mutation provoque un décalage du cadre de lecture ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Substitution silencieuse</div>
-              <div class="option" onclick="answer(this,false)">Mutation faux-sens</div>
-              <div class="option" onclick="answer(this,true)">Insertion ou délétion d'un nombre non multiple de 3</div>
-              <div class="option" onclick="answer(this,false)">Mutation non-sens</div>
+              <button class="option" onclick="answer(this,false)">Substitution silencieuse</button>
+              <button class="option" onclick="answer(this,false)">Mutation faux-sens</button>
+              <button class="option" onclick="answer(this,true)">Insertion ou délétion d'un nombre non multiple de 3</button>
+              <button class="option" onclick="answer(this,false)">Mutation non-sens</button>
             </div>
             <div class="q-feedback">Une insertion ou délétion d'un nombre de nucléotides qui n'est pas un multiple de 3 provoque une mutation frameshift (décalage du cadre de lecture), altérant tous les codons en aval et produisant une protéine complètement différente.</div>
           </div>
@@ -238,10 +238,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel mécanisme épigénétique éteint l'expression d'un gène en ajoutant des groupes chimiques sur les cytosines ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'acétylation des histones</div>
-              <div class="option" onclick="answer(this,true)">La méthylation de l'ADN</div>
-              <div class="option" onclick="answer(this,false)">La phosphorylation des histones</div>
-              <div class="option" onclick="answer(this,false)">L'épissage alternatif</div>
+              <button class="option" onclick="answer(this,false)">L'acétylation des histones</button>
+              <button class="option" onclick="answer(this,true)">La méthylation de l'ADN</button>
+              <button class="option" onclick="answer(this,false)">La phosphorylation des histones</button>
+              <button class="option" onclick="answer(this,false)">L'épissage alternatif</button>
             </div>
             <div class="q-feedback">La méthylation de l'ADN consiste en l'ajout de groupes méthyle (-CH₃) sur les cytosines des dinucléotides CpG. L'hyperméthylation des promoteurs compacte la chromatine et empêche la fixation des facteurs de transcription, éteignant l'expression du gène.</div>
           </div>
@@ -249,10 +249,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle maladie est causée par une mutation faux-sens dans le gène de la beta-globine (glutamate → valine) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La mucoviscidose</div>
-              <div class="option" onclick="answer(this,false)">La maladie de Huntington</div>
-              <div class="option" onclick="answer(this,true)">La drépanocytose</div>
-              <div class="option" onclick="answer(this,false)">La thalassémie</div>
+              <button class="option" onclick="answer(this,false)">La mucoviscidose</button>
+              <button class="option" onclick="answer(this,false)">La maladie de Huntington</button>
+              <button class="option" onclick="answer(this,true)">La drépanocytose</button>
+              <button class="option" onclick="answer(this,false)">La thalassémie</button>
             </div>
             <div class="q-feedback">La drépanocytose résulte d'une mutation ponctuelle (GAG → GTG) dans le gène de la beta-globine, remplaçant un glutamate par une valine en position 6. L'hémoglobine S formée polymérise en conditions hypoxiques, déformant les globules rouges en faucille.</div>
           </div>
@@ -328,8 +328,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

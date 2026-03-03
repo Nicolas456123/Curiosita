@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Les règles fondamentales de la grammaire anglaise : temps verbaux, articles, prépositions et structures de phrases.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Grammaire essentielle — Anglais — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e8c97a;
   --accent2: #f5dfa0;
   --accent-dim: rgba(232,201,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,201,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,201,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📝 Anglais</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -195,10 +195,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Complétez : « She ___ to the gym every Monday. »</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">is going</div>
-              <div class="option" onclick="answer(this,true)">goes</div>
-              <div class="option" onclick="answer(this,false)">has gone</div>
-              <div class="option" onclick="answer(this,false)">go</div>
+              <button class="option" onclick="answer(this,false)">is going</button>
+              <button class="option" onclick="answer(this,true)">goes</button>
+              <button class="option" onclick="answer(this,false)">has gone</button>
+              <button class="option" onclick="answer(this,false)">go</button>
             </div>
             <div class="q-feedback">« Every Monday » indique une habitude → present simple. À la 3e personne du singulier, on ajoute -es : « goes ».</div>
           </div>
@@ -206,10 +206,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel article faut-il utiliser : « I like ___ music » (en général) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">the</div>
-              <div class="option" onclick="answer(this,false)">a</div>
-              <div class="option" onclick="answer(this,true)">Aucun article (∅)</div>
-              <div class="option" onclick="answer(this,false)">an</div>
+              <button class="option" onclick="answer(this,false)">the</button>
+              <button class="option" onclick="answer(this,false)">a</button>
+              <button class="option" onclick="answer(this,true)">Aucun article (∅)</button>
+              <button class="option" onclick="answer(this,false)">an</button>
             </div>
             <div class="q-feedback">En anglais, on utilise l'article zéro pour parler d'un concept en général : « I like music » (sans « the »). C'est différent du français « J'aime la musique ».</div>
           </div>
@@ -217,10 +217,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle préposition : « The meeting is ___ Monday ___ 3 PM » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">in / in</div>
-              <div class="option" onclick="answer(this,true)">on / at</div>
-              <div class="option" onclick="answer(this,false)">at / on</div>
-              <div class="option" onclick="answer(this,false)">on / in</div>
+              <button class="option" onclick="answer(this,false)">in / in</button>
+              <button class="option" onclick="answer(this,true)">on / at</button>
+              <button class="option" onclick="answer(this,false)">at / on</button>
+              <button class="option" onclick="answer(this,false)">on / in</button>
             </div>
             <div class="q-feedback">On utilise « on » pour les jours (on Monday) et « at » pour les heures précises (at 3 PM).</div>
           </div>
@@ -228,10 +228,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel modal exprime une obligation forte ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">can</div>
-              <div class="option" onclick="answer(this,false)">should</div>
-              <div class="option" onclick="answer(this,true)">must</div>
-              <div class="option" onclick="answer(this,false)">may</div>
+              <button class="option" onclick="answer(this,false)">can</button>
+              <button class="option" onclick="answer(this,false)">should</button>
+              <button class="option" onclick="answer(this,true)">must</button>
+              <button class="option" onclick="answer(this,false)">may</button>
             </div>
             <div class="q-feedback">« Must » exprime une obligation forte ou une nécessité impérative : « You must stop at a red light. » « Should » n'exprime qu'un conseil, « can » la capacité et « may » la permission ou la possibilité.</div>
           </div>
@@ -239,10 +239,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Trouvez l'erreur : « I have seen him yesterday. »</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il faut dire « I have saw him yesterday »</div>
-              <div class="option" onclick="answer(this,true)">Il faut dire « I saw him yesterday » (past simple)</div>
-              <div class="option" onclick="answer(this,false)">Il faut dire « I have seen him the yesterday »</div>
-              <div class="option" onclick="answer(this,false)">La phrase est correcte</div>
+              <button class="option" onclick="answer(this,false)">Il faut dire « I have saw him yesterday »</button>
+              <button class="option" onclick="answer(this,true)">Il faut dire « I saw him yesterday » (past simple)</button>
+              <button class="option" onclick="answer(this,false)">Il faut dire « I have seen him the yesterday »</button>
+              <button class="option" onclick="answer(this,false)">La phrase est correcte</button>
             </div>
             <div class="q-feedback">Le present perfect ne s'utilise jamais avec un marqueur temporel précis du passé comme « yesterday ». Avec « yesterday », on utilise le past simple : « I saw him yesterday. »</div>
           </div>
@@ -250,10 +250,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Complétez : « I don't have ___ money left. »</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">some</div>
-              <div class="option" onclick="answer(this,true)">any</div>
-              <div class="option" onclick="answer(this,false)">no</div>
-              <div class="option" onclick="answer(this,false)">a</div>
+              <button class="option" onclick="answer(this,false)">some</button>
+              <button class="option" onclick="answer(this,true)">any</button>
+              <button class="option" onclick="answer(this,false)">no</button>
+              <button class="option" onclick="answer(this,false)">a</button>
             </div>
             <div class="q-feedback">Dans une phrase négative (avec « don't »), on utilise « any ». On pourrait aussi dire « I have no money left » (sans « don't »). On n'utilise jamais « some » dans une phrase négative.</div>
           </div>
@@ -337,8 +337,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

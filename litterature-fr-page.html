@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Du Moyen Âge à nos jours, la littérature française est l'une des plus riches au monde. Découvrez ses grands auteurs, ses mouvements et ses chefs-d'œuvre...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Littérature française — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #9b7ae8;
   --accent2: #b49aef;
   --accent-dim: rgba(155,122,232,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 20% 50%, rgba(155,122,232,0.08) 0%, transparent 70%); }
+ --accent-hero: rgba(155,122,232,0.08); }
 .hero-deco { color: rgba(155,122,232,0.04); font-size: 18rem; }
 </style>
 </head>
@@ -27,7 +28,7 @@
   <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
 </nav>
 
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">📖</div>
   <div class="hero-meta">
     <span class="tag-domain">📚 Lettres, Langues & Philosophie</span>
@@ -199,136 +200,131 @@
       <div class="quiz-container">
         <div class="quiz-header">
           <span class="quiz-title-text">Quiz — Littérature française</span>
-          <span class="quiz-score">Score : <span id="quizScore">0</span>/10</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span>/10</span>
         </div>
-        <div class="quiz-body">
+        <div class="quiz-body" id="quizBody">
           <div class="question-block active" id="q0">
             <div class="q-num">Question 1 / 10</div>
             <div class="q-text">Quel est le plus ancien texte littéraire français connu ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(0,0)">Le Roman de la Rose</div>
-              <div class="option" onclick="selectOption(0,1)">La Chanson de Roland</div>
-              <div class="option" onclick="selectOption(0,2)">Les Serments de Strasbourg</div>
-              <div class="option" onclick="selectOption(0,3)">Tristan et Iseut</div>
+              <button class="option" onclick="answer(this,false)">Le Roman de la Rose</button>
+              <button class="option" onclick="answer(this,false)">La Chanson de Roland</button>
+              <button class="option" onclick="answer(this,true)">Les Serments de Strasbourg</button>
+              <button class="option" onclick="answer(this,false)">Tristan et Iseut</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Les Serments de Strasbourg (842) sont le plus ancien texte écrit en langue romane (proto-français). La Chanson de Roland (v. 1100) est la plus ancienne œuvre littéraire majeure.</div>
           </div>
           <div class="question-block" id="q1">
             <div class="q-num">Question 2 / 10</div>
             <div class="q-text">Quel auteur a écrit les Essais, œuvre fondatrice de l'humanisme ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(1,0)">Rabelais</div>
-              <div class="option" onclick="selectOption(1,1)">Du Bellay</div>
-              <div class="option" onclick="selectOption(1,2)">Ronsard</div>
-              <div class="option" onclick="selectOption(1,3)">Montaigne</div>
+              <button class="option" onclick="answer(this,false)">Rabelais</button>
+              <button class="option" onclick="answer(this,false)">Du Bellay</button>
+              <button class="option" onclick="answer(this,false)">Ronsard</button>
+              <button class="option" onclick="answer(this,true)">Montaigne</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Michel de Montaigne (1533-1592) a inventé le genre de l'essai avec ses Essais, œuvre introspective fondatrice de l'humanisme français.</div>
           </div>
           <div class="question-block" id="q2">
             <div class="q-num">Question 3 / 10</div>
             <div class="q-text">Quelle est la règle fondamentale du théâtre classique ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(2,0)">La règle des trois unités</div>
-              <div class="option" onclick="selectOption(2,1)">La règle du vraisemblable</div>
-              <div class="option" onclick="selectOption(2,2)">La règle de bienséance</div>
-              <div class="option" onclick="selectOption(2,3)">La règle de l'alexandrin</div>
+              <button class="option" onclick="answer(this,true)">La règle des trois unités</button>
+              <button class="option" onclick="answer(this,false)">La règle du vraisemblable</button>
+              <button class="option" onclick="answer(this,false)">La règle de bienséance</button>
+              <button class="option" onclick="answer(this,false)">La règle de l'alexandrin</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">La règle des trois unités (temps, lieu, action) impose qu'une pièce se déroule en un jour, un lieu, avec une seule intrigue. Théorisée par Boileau dans l'Art poétique (1674).</div>
           </div>
           <div class="question-block" id="q3">
             <div class="q-num">Question 4 / 10</div>
             <div class="q-text">Qui a écrit « Les Fleurs du mal » ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(3,0)">Victor Hugo</div>
-              <div class="option" onclick="selectOption(3,1)">Arthur Rimbaud</div>
-              <div class="option" onclick="selectOption(3,2)">Charles Baudelaire</div>
-              <div class="option" onclick="selectOption(3,3)">Paul Verlaine</div>
+              <button class="option" onclick="answer(this,false)">Victor Hugo</button>
+              <button class="option" onclick="answer(this,false)">Arthur Rimbaud</button>
+              <button class="option" onclick="answer(this,true)">Charles Baudelaire</button>
+              <button class="option" onclick="answer(this,false)">Paul Verlaine</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Charles Baudelaire publie Les Fleurs du mal en 1857. Ce recueil, condamné pour outrage aux bonnes mœurs, inaugure la poésie moderne et le mouvement symboliste.</div>
           </div>
           <div class="question-block" id="q4">
             <div class="q-num">Question 5 / 10</div>
             <div class="q-text">Le naturalisme se distingue du réalisme par...</div>
             <div class="options">
-              <div class="option" onclick="selectOption(4,0)">Un style plus poétique</div>
-              <div class="option" onclick="selectOption(4,1)">Une approche scientifique et expérimentale</div>
-              <div class="option" onclick="selectOption(4,2)">Un refus du réel</div>
-              <div class="option" onclick="selectOption(4,3)">Une vision optimiste</div>
+              <button class="option" onclick="answer(this,false)">Un style plus poétique</button>
+              <button class="option" onclick="answer(this,true)">Une approche scientifique et expérimentale</button>
+              <button class="option" onclick="answer(this,false)">Un refus du réel</button>
+              <button class="option" onclick="answer(this,false)">Une vision optimiste</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le naturalisme (Zola) ajoute au réalisme une dimension scientifique : l'écrivain observe la société comme un savant, appliquant les méthodes des sciences naturelles à l'étude des comportements humains.</div>
           </div>
           <div class="question-block" id="q5">
             <div class="q-num">Question 6 / 10</div>
             <div class="q-text">Quel philosophe des Lumières a écrit « Candide » ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(5,0)">Rousseau</div>
-              <div class="option" onclick="selectOption(5,1)">Diderot</div>
-              <div class="option" onclick="selectOption(5,2)">Voltaire</div>
-              <div class="option" onclick="selectOption(5,3)">Montesquieu</div>
+              <button class="option" onclick="answer(this,false)">Rousseau</button>
+              <button class="option" onclick="answer(this,false)">Diderot</button>
+              <button class="option" onclick="answer(this,true)">Voltaire</button>
+              <button class="option" onclick="answer(this,false)">Montesquieu</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Voltaire publie Candide en 1759, conte philosophique satirique qui critique l'optimisme de Leibniz et dénonce les injustices du monde.</div>
           </div>
           <div class="question-block" id="q6">
             <div class="q-num">Question 7 / 10</div>
             <div class="q-text">Quel roman de Proust commence par « Longtemps, je me suis couché de bonne heure » ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(6,0)">Du côté de chez Swann</div>
-              <div class="option" onclick="selectOption(6,1)">Le Temps retrouvé</div>
-              <div class="option" onclick="selectOption(6,2)">À l'ombre des jeunes filles en fleurs</div>
-              <div class="option" onclick="selectOption(6,3)">La Prisonnière</div>
+              <button class="option" onclick="answer(this,true)">Du côté de chez Swann</button>
+              <button class="option" onclick="answer(this,false)">Le Temps retrouvé</button>
+              <button class="option" onclick="answer(this,false)">À l'ombre des jeunes filles en fleurs</button>
+              <button class="option" onclick="answer(this,false)">La Prisonnière</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Du côté de chez Swann (1913) est le premier volume d'À la recherche du temps perdu, œuvre monumentale en sept tomes explorant la mémoire et le temps.</div>
           </div>
           <div class="question-block" id="q7">
             <div class="q-num">Question 8 / 10</div>
             <div class="q-text">Quel mouvement Victor Hugo a-t-il incarné ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(7,0)">Le classicisme</div>
-              <div class="option" onclick="selectOption(7,1)">Le naturalisme</div>
-              <div class="option" onclick="selectOption(7,2)">Le romantisme</div>
-              <div class="option" onclick="selectOption(7,3)">Le symbolisme</div>
+              <button class="option" onclick="answer(this,false)">Le classicisme</button>
+              <button class="option" onclick="answer(this,false)">Le naturalisme</button>
+              <button class="option" onclick="answer(this,true)">Le romantisme</button>
+              <button class="option" onclick="answer(this,false)">Le symbolisme</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Victor Hugo est la figure majeure du romantisme français. Sa préface de Cromwell (1827) et la bataille d'Hernani (1830) marquent le triomphe du mouvement.</div>
           </div>
           <div class="question-block" id="q8">
             <div class="q-num">Question 9 / 10</div>
             <div class="q-text">Qu'est-ce qu'un alexandrin ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(8,0)">Un vers de 10 syllabes</div>
-              <div class="option" onclick="selectOption(8,1)">Un vers de 8 syllabes</div>
-              <div class="option" onclick="selectOption(8,2)">Un vers de 12 syllabes</div>
-              <div class="option" onclick="selectOption(8,3)">Un vers libre</div>
+              <button class="option" onclick="answer(this,false)">Un vers de 10 syllabes</button>
+              <button class="option" onclick="answer(this,false)">Un vers de 8 syllabes</button>
+              <button class="option" onclick="answer(this,true)">Un vers de 12 syllabes</button>
+              <button class="option" onclick="answer(this,false)">Un vers libre</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">L'alexandrin est un vers de 12 syllabes, divisé en deux hémistiches de 6 syllabes par la césure. Il domine la poésie française classique.</div>
           </div>
           <div class="question-block" id="q9">
             <div class="q-num">Question 10 / 10</div>
             <div class="q-text">Quel auteur a théorisé le « roman expérimental » ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(9,0)">Gustave Flaubert</div>
-              <div class="option" onclick="selectOption(9,1)">Émile Zola</div>
-              <div class="option" onclick="selectOption(9,2)">Honoré de Balzac</div>
-              <div class="option" onclick="selectOption(9,3)">Stendhal</div>
+              <button class="option" onclick="answer(this,false)">Gustave Flaubert</button>
+              <button class="option" onclick="answer(this,true)">Émile Zola</button>
+              <button class="option" onclick="answer(this,false)">Honoré de Balzac</button>
+              <button class="option" onclick="answer(this,false)">Stendhal</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Émile Zola théorise le naturalisme dans Le Roman expérimental (1880), appliquant la méthode scientifique de Claude Bernard à la littérature.</div>
           </div>
         </div>
         <div class="quiz-nav">
-          <div class="q-dots">
-            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div>
-          </div>
+          <div class="q-dots" id="qDots"></div>
           <div style="display:flex;gap:.8rem">
-            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
-            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQ()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQ()" disabled>Suivant →</button>
           </div>
         </div>
-        <div class="quiz-result">
-          <div class="result-score-big" id="finalScore"></div>
-          <div class="result-msg" id="finalMsg"></div>
-          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore"></div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
         </div>
       </div>
     </section>
@@ -443,135 +439,15 @@
   </main>
 </div>
 
-<script>
-const TOTAL=10;
-const questions = [
-  { q:"Quel est le plus ancien texte littéraire français connu ?", opts:["Le Roman de la Rose","La Chanson de Roland","Les Serments de Strasbourg","Tristan et Iseut"], ans:2, expl:"Les Serments de Strasbourg (842) sont le plus ancien texte écrit en langue romane (proto-français). La Chanson de Roland (v. 1100) est la plus ancienne œuvre littéraire majeure." },
-  { q:"Quel auteur a écrit les Essais ?", opts:["Rabelais","Du Bellay","Ronsard","Montaigne"], ans:3, expl:"Michel de Montaigne (1533-1592) a inventé le genre de l'essai avec ses Essais, œuvre introspective fondatrice de l'humanisme français." },
-  { q:"Quelle est la règle fondamentale du théâtre classique ?", opts:["La règle des trois unités","La règle du vraisemblable","La règle de bienséance","La règle de l'alexandrin"], ans:0, expl:"La règle des trois unités (temps, lieu, action) impose qu'une pièce se déroule en un jour, un lieu, avec une seule intrigue. Théorisée par Boileau dans l'Art poétique (1674)." },
-  { q:"Qui a écrit Les Fleurs du mal ?", opts:["Victor Hugo","Arthur Rimbaud","Charles Baudelaire","Paul Verlaine"], ans:2, expl:"Charles Baudelaire publie Les Fleurs du mal en 1857. Ce recueil, condamné pour outrage aux bonnes mœurs, inaugure la poésie moderne et le mouvement symboliste." },
-  { q:"Le naturalisme se distingue du réalisme par...", opts:["Un style plus poétique","Une approche scientifique et expérimentale","Un refus du réel","Une vision optimiste"], ans:1, expl:"Le naturalisme (Zola) ajoute au réalisme une dimension scientifique : l'écrivain observe la société comme un savant, appliquant les méthodes des sciences naturelles à l'étude des comportements humains." },
-  { q:"Quel philosophe des Lumières a écrit Candide ?", opts:["Rousseau","Diderot","Voltaire","Montesquieu"], ans:2, expl:"Voltaire publie Candide en 1759, conte philosophique satirique qui critique l'optimisme de Leibniz et dénonce les injustices du monde." },
-  { q:"Quel roman de Proust commence par cette célèbre phrase sur le coucher ?", opts:["Du côté de chez Swann","Le Temps retrouvé","À l'ombre des jeunes filles en fleurs","La Prisonnière"], ans:0, expl:"Du côté de chez Swann (1913) est le premier volume d'À la recherche du temps perdu, œuvre monumentale en sept tomes explorant la mémoire et le temps." },
-  { q:"Quel mouvement Victor Hugo a-t-il incarné ?", opts:["Le classicisme","Le naturalisme","Le romantisme","Le symbolisme"], ans:2, expl:"Victor Hugo est la figure majeure du romantisme français. Sa préface de Cromwell (1827) et la bataille d'Hernani (1830) marquent le triomphe du mouvement." },
-  { q:"Qu'est-ce qu'un alexandrin ?", opts:["Un vers de 10 syllabes","Un vers de 8 syllabes","Un vers de 12 syllabes","Un vers libre"], ans:2, expl:"L'alexandrin est un vers de 12 syllabes, divisé en deux hémistiches de 6 syllabes par la césure. Il domine la poésie française classique." },
-  { q:"Quel auteur a théorisé le roman expérimental ?", opts:["Gustave Flaubert","Émile Zola","Honoré de Balzac","Stendhal"], ans:1, expl:"Émile Zola théorise le naturalisme dans Le Roman expérimental (1880), appliquant la méthode scientifique de Claude Bernard à la littérature." }
-];
-
-let current=0, score=0, answered=new Array(TOTAL).fill(null);
-
-function renderQuestion(){
-  document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));
-  document.querySelectorAll('.q-dot').forEach((d,i)=>{
-    d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');
-  });
-  document.getElementById('btnPrev').disabled=current===0;
-  document.getElementById('btnNext').textContent=current===TOTAL-1?'Voir résultats':'Suivant →';
-}
-
-function selectOption(qi,oi){
-  if(answered[qi]!==null)return;
-  answered[qi]=oi;
-  const block=document.querySelectorAll('.question-block')[qi];
-  block.querySelectorAll('.option').forEach((o,i)=>{
-    o.classList.add('disabled');
-    if(i===questions[qi].ans)o.classList.add('correct');
-    else if(i===oi)o.classList.add('wrong');
-  });
-  const fb=block.querySelector('.q-feedback');
-  fb.textContent=questions[qi].expl;
-  fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');
-  if(oi===questions[qi].ans)score++;
-  document.getElementById('quizScore').textContent=score;
-  document.querySelectorAll('.q-dot')[qi].classList.add('done');
-}
-
-function nextQuestion(){if(current<TOTAL-1){current++;renderQuestion();}else showResult();}
-function prevQuestion(){if(current>0){current--;renderQuestion();}}
-
-function showResult(){
-  document.querySelector('.quiz-body').style.display='none';
-  document.querySelector('.quiz-nav').style.display='none';
-  const r=document.querySelector('.quiz-result');
-  r.style.display='block';
-  document.getElementById('finalScore').textContent=score+'/'+TOTAL;
-  const msgs=["Continue d'apprendre !",'Pas mal !','Bien !','Très bien !','Excellent !'];
-  document.getElementById('finalMsg').textContent=msgs[score<=3?0:score<=5?1:score<=7?2:score<=9?3:4];
-}
-
-function restartQuiz(){
-  current=0;score=0;answered.fill(null);
-  document.querySelector('.quiz-body').style.display='block';
-  document.querySelector('.quiz-nav').style.display='flex';
-  document.querySelector('.quiz-result').style.display='none';
-  document.querySelectorAll('.option').forEach(o=>o.className='option');
-  document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');
-  document.getElementById('quizScore').textContent=0;
-  renderQuestion();
-}
-
-function goTo(id,el){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
-  document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));
-  if(el)el.classList.add('active');
-}
-(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
-
-const sections=['resume','courants','concepts','quiz','ressources','memo'];
-window.addEventListener('scroll',()=>{
-  let vis=0;
-  sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});
-  document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';
-});
-
-function downloadMemo(){
-  const w=window.open('','_blank','width=900,height=700');
-  w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Littérature française</title>
-  <style>
-    body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}
-    h1{font-size:1.8rem;color:#9b7ae8;border-bottom:3px solid #9b7ae8;padding-bottom:.5rem;margin-bottom:1.5rem}
-    h2{font-size:.75rem;color:#9b7ae8;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}
-    ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}
-    .box{border:1px solid #e0d6f7;padding:1rem;border-radius:4px;background:#faf8ff}
-    .footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}
-    @media print{.no-print{display:none}}
-  </style></head><body>
-  <h1>📖 Fiche mémo — Littérature française</h1>
-  <div class="grid">
-    <div class="box"><h2>Moyen Âge & Renaissance</h2><ul>
-      <li><strong>Chanson de Roland</strong> — épopée fondatrice (v. 1100)</li>
-      <li><strong>Chrétien de Troyes</strong> — roman courtois (Yvain, Lancelot)</li>
-      <li><strong>Rabelais</strong> — Gargantua, Pantagruel (humanisme)</li>
-      <li><strong>Montaigne</strong> — Les Essais (introspection, doute)</li>
-    </ul></div>
-    <div class="box"><h2>Classicisme & Lumières</h2><ul>
-      <li><strong>Molière</strong> — Tartuffe, Le Misanthrope (comédie)</li>
-      <li><strong>Racine</strong> — Phèdre, Andromaque (tragédie)</li>
-      <li><strong>La Fontaine</strong> — Fables (morale, satire)</li>
-      <li><strong>Voltaire</strong> — Candide (conte philosophique)</li>
-    </ul></div>
-    <div class="box"><h2>XIXe siècle</h2><ul>
-      <li><strong>Hugo</strong> — Les Misérables, Hernani (romantisme)</li>
-      <li><strong>Baudelaire</strong> — Les Fleurs du mal (symbolisme)</li>
-      <li><strong>Flaubert</strong> — Madame Bovary (réalisme)</li>
-      <li><strong>Zola</strong> — Les Rougon-Macquart (naturalisme)</li>
-    </ul></div>
-    <div class="box"><h2>XXe-XXIe siècles</h2><ul>
-      <li><strong>Proust</strong> — À la recherche du temps perdu</li>
-      <li><strong>Camus</strong> — L'Étranger, La Peste</li>
-      <li><strong>Sartre</strong> — La Nausée (existentialisme)</li>
-      <li><strong>Modiano</strong> — Nobel 2014 (mémoire, identité)</li>
-    </ul></div>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
   </div>
-  <div class="footer">Curiosita — Fiche mémo Littérature française — ${new Date().toLocaleDateString('fr-FR')}</div>
-  <button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#9b7ae8;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">Imprimer / PDF</button>
-</body></html>`);
-  w.document.close();
-}
-
-renderQuestion();
-</script>
-<script src="mobile.js?v=2"></script>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

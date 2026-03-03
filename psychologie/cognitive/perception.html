@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Comment le cerveau transforme les stimuli sensoriels en une représentation cohérente du monde — un processus actif, constructif et souvent trompeur.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Perception — Psychologie Cognitive — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #b07fe8;
   --accent2: #c9a0f0;
   --accent-dim: rgba(176,127,232,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(176,127,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(176,127,232,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧠 Cognitive</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -151,10 +151,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Selon la loi de clôture de la Gestalt, que fait le cerveau face à une forme incomplète ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il ignore la forme</div>
-              <div class="option" onclick="answer(this,true)">Il complète mentalement la forme</div>
-              <div class="option" onclick="answer(this,false)">Il perçoit chaque élément séparément</div>
-              <div class="option" onclick="answer(this,false)">Il déforme la figure</div>
+              <button class="option" onclick="answer(this,false)">Il ignore la forme</button>
+              <button class="option" onclick="answer(this,true)">Il complète mentalement la forme</button>
+              <button class="option" onclick="answer(this,false)">Il perçoit chaque élément séparément</button>
+              <button class="option" onclick="answer(this,false)">Il déforme la figure</button>
             </div>
             <div class="q-feedback">La loi de clôture stipule que le cerveau tend à compléter les figures incomplètes pour percevoir des formes entières et familières. C'est pourquoi nous voyons un cercle même quand une partie du contour manque.</div>
           </div>
@@ -162,10 +162,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Le traitement « top-down » de la perception est guidé par :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les données sensorielles brutes</div>
-              <div class="option" onclick="answer(this,false)">La luminosité de l'environnement</div>
-              <div class="option" onclick="answer(this,true)">Les connaissances, attentes et contexte</div>
-              <div class="option" onclick="answer(this,false)">La vitesse de transmission nerveuse</div>
+              <button class="option" onclick="answer(this,false)">Les données sensorielles brutes</button>
+              <button class="option" onclick="answer(this,false)">La luminosité de l'environnement</button>
+              <button class="option" onclick="answer(this,true)">Les connaissances, attentes et contexte</button>
+              <button class="option" onclick="answer(this,false)">La vitesse de transmission nerveuse</button>
             </div>
             <div class="q-feedback">Le traitement top-down (descendant) utilise nos connaissances préalables, nos attentes et le contexte pour interpréter les données sensorielles. C'est pourquoi vous pouvez lire un texte avec des fautes de frappe sans difficulté.</div>
           </div>
@@ -173,10 +173,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle constance perceptive explique qu'une personne qui s'éloigne ne semble pas devenir plus petite ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">La constance de taille</div>
-              <div class="option" onclick="answer(this,false)">La constance de forme</div>
-              <div class="option" onclick="answer(this,false)">La constance de couleur</div>
-              <div class="option" onclick="answer(this,false)">La constance de luminosité</div>
+              <button class="option" onclick="answer(this,true)">La constance de taille</button>
+              <button class="option" onclick="answer(this,false)">La constance de forme</button>
+              <button class="option" onclick="answer(this,false)">La constance de couleur</button>
+              <button class="option" onclick="answer(this,false)">La constance de luminosité</button>
             </div>
             <div class="q-feedback">La constance de taille permet au cerveau de compenser la diminution de la taille de l'image rétinienne en tenant compte de la distance perçue. C'est un mécanisme essentiel pour naviguer dans l'environnement.</div>
           </div>
@@ -184,10 +184,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">L'effet McGurk démontre que :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La vision est toujours plus fiable que l'audition</div>
-              <div class="option" onclick="answer(this,false)">Les sens fonctionnent de manière totalement indépendante</div>
-              <div class="option" onclick="answer(this,true)">Le cerveau intègre les informations visuelles et auditives pour créer une perception unifiée</div>
-              <div class="option" onclick="answer(this,false)">L'audition domine toujours la vision dans la perception de la parole</div>
+              <button class="option" onclick="answer(this,false)">La vision est toujours plus fiable que l'audition</button>
+              <button class="option" onclick="answer(this,false)">Les sens fonctionnent de manière totalement indépendante</button>
+              <button class="option" onclick="answer(this,true)">Le cerveau intègre les informations visuelles et auditives pour créer une perception unifiée</button>
+              <button class="option" onclick="answer(this,false)">L'audition domine toujours la vision dans la perception de la parole</button>
             </div>
             <div class="q-feedback">L'effet McGurk (1976) montre que la perception de la parole est multisensorielle : le cerveau fusionne automatiquement les informations visuelles (mouvement des lèvres) et auditives (son) pour produire un percept unique, parfois différent des deux sources.</div>
           </div>
@@ -195,10 +195,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que révèle l'expérience de Sperling (1960) sur la mémoire sensorielle visuelle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La mémoire visuelle ne retient que 3 éléments</div>
-              <div class="option" onclick="answer(this,false)">Les images sont stockées indéfiniment dans le cerveau</div>
-              <div class="option" onclick="answer(this,true)">Une image sensorielle complète persiste brièvement (environ 250 ms) avant de s'effacer</div>
-              <div class="option" onclick="answer(this,false)">La mémoire sensorielle dépend uniquement de l'attention</div>
+              <button class="option" onclick="answer(this,false)">La mémoire visuelle ne retient que 3 éléments</button>
+              <button class="option" onclick="answer(this,false)">Les images sont stockées indéfiniment dans le cerveau</button>
+              <button class="option" onclick="answer(this,true)">Une image sensorielle complète persiste brièvement (environ 250 ms) avant de s'effacer</button>
+              <button class="option" onclick="answer(this,false)">La mémoire sensorielle dépend uniquement de l'attention</button>
             </div>
             <div class="q-feedback">Sperling a démontré l'existence de la mémoire iconique : une trace visuelle complète mais très brève (environ 250 ms). En utilisant un indice partiel immédiat, les participants pouvaient rappeler n'importe quelle partie de l'affichage, prouvant que toute l'information était momentanément disponible.</div>
           </div>
@@ -206,10 +206,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">L'approche écologique de Gibson (1979) soutient que la perception :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Est toujours une illusion construite par le cerveau</div>
-              <div class="option" onclick="answer(this,true)">Récupère directement les affordances de l'environnement sans traitement cognitif complexe</div>
-              <div class="option" onclick="answer(this,false)">Dépend exclusivement de l'apprentissage culturel</div>
-              <div class="option" onclick="answer(this,false)">N'utilise que le traitement top-down</div>
+              <button class="option" onclick="answer(this,false)">Est toujours une illusion construite par le cerveau</button>
+              <button class="option" onclick="answer(this,true)">Récupère directement les affordances de l'environnement sans traitement cognitif complexe</button>
+              <button class="option" onclick="answer(this,false)">Dépend exclusivement de l'apprentissage culturel</button>
+              <button class="option" onclick="answer(this,false)">N'utilise que le traitement top-down</button>
             </div>
             <div class="q-feedback">Pour Gibson, l'environnement fournit directement des « affordances » — des possibilités d'action perceptibles sans inférence cognitive complexe. Une surface plate « invite » à marcher dessus, une poignée « invite » à être saisie. Cette approche s'oppose à celle de Gregory qui voit la perception comme une inférence active.</div>
           </div>
@@ -267,8 +267,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

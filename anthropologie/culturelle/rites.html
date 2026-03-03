@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rites de passage, initiations, cérémonies religieuses, potlatch et pratiques rituelles à travers le monde.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Rites et cérémonies — Anthropologie culturelle — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎉 Anthropologie culturelle</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -156,10 +156,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelles sont les trois phases du rite de passage selon Van Gennep ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Purification, consécration, célébration</div>
-              <div class="option" onclick="answer(this,true)">Séparation, marge (liminarité), agrégation</div>
-              <div class="option" onclick="answer(this,false)">Initiation, transformation, intégration</div>
-              <div class="option" onclick="answer(this,false)">Rupture, transition, consolidation</div>
+              <button class="option" onclick="answer(this,false)">Purification, consécration, célébration</button>
+              <button class="option" onclick="answer(this,true)">Séparation, marge (liminarité), agrégation</button>
+              <button class="option" onclick="answer(this,false)">Initiation, transformation, intégration</button>
+              <button class="option" onclick="answer(this,false)">Rupture, transition, consolidation</button>
             </div>
             <div class="q-feedback">Van Gennep (1909) identifie trois phases universelles : la séparation (l'individu quitte son ancien état), la marge ou liminarité (période de transition), et l'agrégation (intégration dans le nouveau statut).</div>
           </div>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'est-ce que la « communitas » selon Victor Turner ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une communauté religieuse fermée</div>
-              <div class="option" onclick="answer(this,false)">Un village où se déroulent les initiations</div>
-              <div class="option" onclick="answer(this,true)">Un sentiment d'égalité et de communion intense durant la phase liminaire</div>
-              <div class="option" onclick="answer(this,false)">Le groupe des anciens qui dirigent les cérémonies</div>
+              <button class="option" onclick="answer(this,false)">Une communauté religieuse fermée</button>
+              <button class="option" onclick="answer(this,false)">Un village où se déroulent les initiations</button>
+              <button class="option" onclick="answer(this,true)">Un sentiment d'égalité et de communion intense durant la phase liminaire</button>
+              <button class="option" onclick="answer(this,false)">Le groupe des anciens qui dirigent les cérémonies</button>
             </div>
             <div class="q-feedback">La communitas est cette expérience d'égalité et de lien intense entre les participants durant la phase liminaire du rituel, lorsque les hiérarchies sociales ordinaires sont temporairement suspendues.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel est le principe du potlatch ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Accumuler des richesses pour les transmettre aux héritiers</div>
-              <div class="option" onclick="answer(this,true)">Distribuer ou détruire des richesses pour affirmer son prestige</div>
-              <div class="option" onclick="answer(this,false)">Échanger des cadeaux de valeur égale entre familles</div>
-              <div class="option" onclick="answer(this,false)">Partager équitablement la nourriture entre tous les membres du groupe</div>
+              <button class="option" onclick="answer(this,false)">Accumuler des richesses pour les transmettre aux héritiers</button>
+              <button class="option" onclick="answer(this,true)">Distribuer ou détruire des richesses pour affirmer son prestige</button>
+              <button class="option" onclick="answer(this,false)">Échanger des cadeaux de valeur égale entre familles</button>
+              <button class="option" onclick="answer(this,false)">Partager équitablement la nourriture entre tous les membres du groupe</button>
             </div>
             <div class="q-feedback">Le potlatch est une cérémonie de distribution ostentatoire (voire de destruction) de richesses par un chef pour affirmer son rang. C'est une « prestation totale agonistique » selon Mauss : donner plus que l'autre est une forme de combat pour le prestige.</div>
           </div>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qui a publié <em>Les Rites de passage</em> en 1909 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Émile Durkheim</div>
-              <div class="option" onclick="answer(this,false)">Victor Turner</div>
-              <div class="option" onclick="answer(this,true)">Arnold Van Gennep</div>
-              <div class="option" onclick="answer(this,false)">Marcel Mauss</div>
+              <button class="option" onclick="answer(this,false)">Émile Durkheim</button>
+              <button class="option" onclick="answer(this,false)">Victor Turner</button>
+              <button class="option" onclick="answer(this,true)">Arnold Van Gennep</button>
+              <button class="option" onclick="answer(this,false)">Marcel Mauss</button>
             </div>
             <div class="q-feedback">C'est Arnold Van Gennep qui publie Les Rites de passage en 1909, où il propose le modèle tripartite (séparation, marge, agrégation) qui deviendra un classique de l'anthropologie.</div>
           </div>
@@ -200,10 +200,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Selon Robert Hertz, les rites funéraires servent principalement à :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Préserver le corps du défunt</div>
-              <div class="option" onclick="answer(this,false)">Apaiser la colère des dieux</div>
-              <div class="option" onclick="answer(this,true)">Réorganiser les relations sociales et assurer le passage du défunt vers le monde des ancêtres</div>
-              <div class="option" onclick="answer(this,false)">Célébrer la vie du défunt pour les générations futures</div>
+              <button class="option" onclick="answer(this,false)">Préserver le corps du défunt</button>
+              <button class="option" onclick="answer(this,false)">Apaiser la colère des dieux</button>
+              <button class="option" onclick="answer(this,true)">Réorganiser les relations sociales et assurer le passage du défunt vers le monde des ancêtres</button>
+              <button class="option" onclick="answer(this,false)">Célébrer la vie du défunt pour les générations futures</button>
             </div>
             <div class="q-feedback">Hertz (1907) montre que les funérailles ne concernent pas que le mort : elles permettent aux vivants de réorganiser les relations sociales perturbées par le décès et assurent le passage symbolique du défunt dans le monde des ancêtres.</div>
           </div>
@@ -211,10 +211,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Pour Pierre Bourdieu, les « rites d'institution » servent à :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Créer un sentiment de communion (communitas)</div>
-              <div class="option" onclick="answer(this,false)">Réduire l'anxiété des participants</div>
-              <div class="option" onclick="answer(this,false)">Transmettre des savoirs sacrés</div>
-              <div class="option" onclick="answer(this,true)">Consacrer et naturaliser des différences sociales arbitraires</div>
+              <button class="option" onclick="answer(this,false)">Créer un sentiment de communion (communitas)</button>
+              <button class="option" onclick="answer(this,false)">Réduire l'anxiété des participants</button>
+              <button class="option" onclick="answer(this,false)">Transmettre des savoirs sacrés</button>
+              <button class="option" onclick="answer(this,true)">Consacrer et naturaliser des différences sociales arbitraires</button>
             </div>
             <div class="q-feedback">Bourdieu critique la notion de « rite de passage » et préfère parler de « rite d'institution » : le rite ne fait pas passer d'un état à un autre, il institue une frontière entre ceux qui l'ont subi et les autres, légitimant ainsi des différences sociales arbitraires.</div>
           </div>
@@ -287,8 +287,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

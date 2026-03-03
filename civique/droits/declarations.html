@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De 1789 à 1948 — les textes fondateurs qui ont forgé les droits de l'homme et du citoyen.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Déclarations des droits — Droits et libertés — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a9b;
   --accent2: #f09ab5;
   --accent-dim: rgba(232,122,155,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,155,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,155,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📜 Droits et libertés</span>
     <span class="tag-level">Débutant → Avancé</span>
@@ -134,10 +134,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">En quelle année la DDHC a-t-elle été adoptée ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1776</div>
-              <div class="option" onclick="answer(this,true)">1789</div>
-              <div class="option" onclick="answer(this,false)">1793</div>
-              <div class="option" onclick="answer(this,false)">1848</div>
+              <button class="option" onclick="answer(this,false)">1776</button>
+              <button class="option" onclick="answer(this,true)">1789</button>
+              <button class="option" onclick="answer(this,false)">1793</button>
+              <button class="option" onclick="answer(this,false)">1848</button>
             </div>
             <div class="q-feedback">La Déclaration des droits de l'homme et du citoyen a été adoptée le 26 août 1789 par l'Assemblée nationale constituante.</div>
           </div>
@@ -145,10 +145,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel Français a contribué à la rédaction de la DUDH et reçu le prix Nobel de la paix ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Jean-Paul Sartre</div>
-              <div class="option" onclick="answer(this,true)">René Cassin</div>
-              <div class="option" onclick="answer(this,false)">Robert Schuman</div>
-              <div class="option" onclick="answer(this,false)">Charles de Gaulle</div>
+              <button class="option" onclick="answer(this,false)">Jean-Paul Sartre</button>
+              <button class="option" onclick="answer(this,true)">René Cassin</button>
+              <button class="option" onclick="answer(this,false)">Robert Schuman</button>
+              <button class="option" onclick="answer(this,false)">Charles de Gaulle</button>
             </div>
             <div class="q-feedback">René Cassin, juriste français, a joué un rôle majeur dans la rédaction de la DUDH. Il a reçu le prix Nobel de la paix en 1968 pour son action en faveur des droits de l'homme.</div>
           </div>
@@ -156,10 +156,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle cour peut être saisie par un individu pour violation de la CEDH ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La Cour de justice de l'UE</div>
-              <div class="option" onclick="answer(this,true)">La Cour européenne des droits de l'homme</div>
-              <div class="option" onclick="answer(this,false)">La Cour pénale internationale</div>
-              <div class="option" onclick="answer(this,false)">Le Conseil constitutionnel</div>
+              <button class="option" onclick="answer(this,false)">La Cour de justice de l'UE</button>
+              <button class="option" onclick="answer(this,true)">La Cour européenne des droits de l'homme</button>
+              <button class="option" onclick="answer(this,false)">La Cour pénale internationale</button>
+              <button class="option" onclick="answer(this,false)">Le Conseil constitutionnel</button>
             </div>
             <div class="q-feedback">La Cour européenne des droits de l'homme, siégeant à Strasbourg, peut être saisie par toute personne relevant de la juridiction d'un État partie à la CEDH, après épuisement des voies de recours internes.</div>
           </div>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel texte ajoute les droits sociaux au bloc de constitutionnalité français ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La DDHC de 1789</div>
-              <div class="option" onclick="answer(this,true)">Le préambule de la Constitution de 1946</div>
-              <div class="option" onclick="answer(this,false)">La DUDH de 1948</div>
-              <div class="option" onclick="answer(this,false)">La Charte de l'environnement de 2004</div>
+              <button class="option" onclick="answer(this,false)">La DDHC de 1789</button>
+              <button class="option" onclick="answer(this,true)">Le préambule de la Constitution de 1946</button>
+              <button class="option" onclick="answer(this,false)">La DUDH de 1948</button>
+              <button class="option" onclick="answer(this,false)">La Charte de l'environnement de 2004</button>
             </div>
             <div class="q-feedback">Le préambule de 1946 complète la DDHC en proclamant des droits économiques et sociaux : droit au travail, à l'éducation, à la santé, droit de grève, égalité femmes-hommes.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">La DUDH est-elle juridiquement contraignante ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Oui, pour tous les États membres de l'ONU</div>
-              <div class="option" onclick="answer(this,true)">Non, mais elle a inspiré des traités contraignants</div>
-              <div class="option" onclick="answer(this,false)">Oui, depuis 2000</div>
-              <div class="option" onclick="answer(this,false)">Seulement en Europe</div>
+              <button class="option" onclick="answer(this,false)">Oui, pour tous les États membres de l'ONU</button>
+              <button class="option" onclick="answer(this,true)">Non, mais elle a inspiré des traités contraignants</button>
+              <button class="option" onclick="answer(this,false)">Oui, depuis 2000</button>
+              <button class="option" onclick="answer(this,false)">Seulement en Europe</button>
             </div>
             <div class="q-feedback">La DUDH est une déclaration de principes sans force contraignante directe. Elle a néanmoins inspiré deux pactes internationaux contraignants de 1966 (droits civils et politiques, droits économiques et sociaux).</div>
           </div>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel principe la Charte de l'environnement consacre-t-elle pour la première fois au niveau constitutionnel ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le principe de liberté</div>
-              <div class="option" onclick="answer(this,false)">Le principe d'égalité</div>
-              <div class="option" onclick="answer(this,true)">Le principe de précaution</div>
-              <div class="option" onclick="answer(this,false)">Le principe de solidarité</div>
+              <button class="option" onclick="answer(this,false)">Le principe de liberté</button>
+              <button class="option" onclick="answer(this,false)">Le principe d'égalité</button>
+              <button class="option" onclick="answer(this,true)">Le principe de précaution</button>
+              <button class="option" onclick="answer(this,false)">Le principe de solidarité</button>
             </div>
             <div class="q-feedback">La Charte de l'environnement de 2004, intégrée au bloc de constitutionnalité en 2005, élève le principe de précaution au rang constitutionnel (article 5).</div>
           </div>
@@ -256,8 +256,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Maîtriser try/except/finally, lever des exceptions avec raise, créer des exceptions personnalisées et adopter les bonnes pratiques de gestion d'erreurs.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Gestion des exceptions — Python avancé — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #27ae60;
   --accent2: #2ecc71;
   --accent-dim: rgba(39,174,96,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(39,174,96,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(39,174,96,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🐍 Python avancé</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -326,10 +326,10 @@ logger = logging.getLogger(__name__)
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel bloc s'exécute uniquement si aucune exception n'est levée dans le <code>try</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">finally</div>
-              <div class="option" onclick="answer(this,false)">except</div>
-              <div class="option" onclick="answer(this,true)">else</div>
-              <div class="option" onclick="answer(this,false)">pass</div>
+              <button class="option" onclick="answer(this,false)">finally</button>
+              <button class="option" onclick="answer(this,false)">except</button>
+              <button class="option" onclick="answer(this,true)">else</button>
+              <button class="option" onclick="answer(this,false)">pass</button>
             </div>
             <div class="q-feedback">Le bloc <code>else</code> après <code>try/except</code> ne s'exécute que si aucune exception n'a été levée. <code>finally</code> s'exécute toujours.</div>
           </div>
@@ -337,10 +337,10 @@ logger = logging.getLogger(__name__)
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Pourquoi éviter <code>except:</code> sans spécifier de type ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">C'est une erreur de syntaxe</div>
-              <div class="option" onclick="answer(this,true)">Cela attrape aussi KeyboardInterrupt et SystemExit</div>
-              <div class="option" onclick="answer(this,false)">Cela ne fonctionne qu'avec Python 2</div>
-              <div class="option" onclick="answer(this,false)">Cela ralentit le programme</div>
+              <button class="option" onclick="answer(this,false)">C'est une erreur de syntaxe</button>
+              <button class="option" onclick="answer(this,true)">Cela attrape aussi KeyboardInterrupt et SystemExit</button>
+              <button class="option" onclick="answer(this,false)">Cela ne fonctionne qu'avec Python 2</button>
+              <button class="option" onclick="answer(this,false)">Cela ralentit le programme</button>
             </div>
             <div class="q-feedback">Un <code>except:</code> nu attrape <strong>toutes</strong> les exceptions, y compris <code>KeyboardInterrupt</code> (Ctrl+C) et <code>SystemExit</code>. Utilisez au minimum <code>except Exception:</code>.</div>
           </div>
@@ -348,10 +348,10 @@ logger = logging.getLogger(__name__)
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que fait <code>raise</code> sans argument dans un bloc <code>except</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Lève une nouvelle exception RuntimeError</div>
-              <div class="option" onclick="answer(this,false)">Ignore l'exception en cours</div>
-              <div class="option" onclick="answer(this,true)">Re-lève l'exception actuellement interceptée</div>
-              <div class="option" onclick="answer(this,false)">Termine le programme</div>
+              <button class="option" onclick="answer(this,false)">Lève une nouvelle exception RuntimeError</button>
+              <button class="option" onclick="answer(this,false)">Ignore l'exception en cours</button>
+              <button class="option" onclick="answer(this,true)">Re-lève l'exception actuellement interceptée</button>
+              <button class="option" onclick="answer(this,false)">Termine le programme</button>
             </div>
             <div class="q-feedback"><code>raise</code> sans argument dans un bloc <code>except</code> propage l'exception originale, conservant le traceback complet.</div>
           </div>
@@ -359,10 +359,10 @@ logger = logging.getLogger(__name__)
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Comment créer une exception personnalisée ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">def MonErreur(Exception): pass</div>
-              <div class="option" onclick="answer(this,true)">class MonErreur(Exception): pass</div>
-              <div class="option" onclick="answer(this,false)">exception MonErreur: pass</div>
-              <div class="option" onclick="answer(this,false)">raise new MonErreur()</div>
+              <button class="option" onclick="answer(this,false)">def MonErreur(Exception): pass</button>
+              <button class="option" onclick="answer(this,true)">class MonErreur(Exception): pass</button>
+              <button class="option" onclick="answer(this,false)">exception MonErreur: pass</button>
+              <button class="option" onclick="answer(this,false)">raise new MonErreur()</button>
             </div>
             <div class="q-feedback">Une exception personnalisée est une classe qui hérite de <code>Exception</code> (ou d'une de ses sous-classes). On utilise <code>class</code>, pas <code>def</code>.</div>
           </div>
@@ -370,10 +370,10 @@ logger = logging.getLogger(__name__)
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel est le rôle de <code>raise ... from ...</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Lever une exception depuis un autre fichier</div>
-              <div class="option" onclick="answer(this,false)">Convertir une exception en warning</div>
-              <div class="option" onclick="answer(this,true)">Chaîner les exceptions en conservant la cause originale</div>
-              <div class="option" onclick="answer(this,false)">Lever plusieurs exceptions en même temps</div>
+              <button class="option" onclick="answer(this,false)">Lever une exception depuis un autre fichier</button>
+              <button class="option" onclick="answer(this,false)">Convertir une exception en warning</button>
+              <button class="option" onclick="answer(this,true)">Chaîner les exceptions en conservant la cause originale</button>
+              <button class="option" onclick="answer(this,false)">Lever plusieurs exceptions en même temps</button>
             </div>
             <div class="q-feedback"><code>raise X from Y</code> lève l'exception X en indiquant que Y en est la cause. L'attribut <code>__cause__</code> pointe vers l'exception originale.</div>
           </div>
@@ -381,10 +381,10 @@ logger = logging.getLogger(__name__)
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Dans quel ordre doit-on placer les blocs <code>except</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Par ordre alphabétique</div>
-              <div class="option" onclick="answer(this,false)">Du plus général au plus spécifique</div>
-              <div class="option" onclick="answer(this,true)">Du plus spécifique au plus général</div>
-              <div class="option" onclick="answer(this,false)">L'ordre n'a aucune importance</div>
+              <button class="option" onclick="answer(this,false)">Par ordre alphabétique</button>
+              <button class="option" onclick="answer(this,false)">Du plus général au plus spécifique</button>
+              <button class="option" onclick="answer(this,true)">Du plus spécifique au plus général</button>
+              <button class="option" onclick="answer(this,false)">L'ordre n'a aucune importance</button>
             </div>
             <div class="q-feedback">Les <code>except</code> les plus spécifiques doivent venir en premier. Un <code>except Exception</code> en premier attraperait toutes les exceptions, rendant les blocs suivants inaccessibles.</div>
           </div>
@@ -585,8 +585,14 @@ print(charger_donnees("inexistant.txt"))  # [ERREUR] ...  → []</code></pre></d
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

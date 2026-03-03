@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Des premiers codes de lois aux grands principes constitutionnels, le droit organise la vie en societe, protege les libertes et arbitre les conflits. Un...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Droit — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #e87a9b;
   --accent2: #f090b0;
   --accent-dim: rgba(232,122,155,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(232,122,155,0.07) 0%, transparent 70%); }
+ --accent-hero: rgba(232,122,155,0.07); }
 .hero-deco { color: rgba(232,122,155,0.04); }
 </style>
 </head>
@@ -26,7 +27,7 @@
   <button class="btn-memo" onclick="downloadMemo()">↓ Fiche memo</button>
 </nav>
 
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">&#9878;</div>
   <div class="hero-meta">
     <span class="tag-domain">&#9878;&#65039; Droit, Politique & Societe</span>
@@ -170,134 +171,131 @@
       <div class="quiz-container">
         <div class="quiz-header">
           <span class="quiz-title-text">Quiz — Droit</span>
-          <span class="quiz-score">Score : <span id="quizScore">0</span>/10</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span>/10</span>
         </div>
-        <div class="quiz-body">
+        <div class="quiz-body" id="quizBody">
           <div class="question-block active" id="q0">
             <div class="q-num">Question 1 / 10</div>
             <div class="q-text">Quelle est la norme supreme dans la hierarchie des normes en France ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(0,0)">La loi</div>
-              <div class="option" onclick="selectOption(0,1)">Le reglement</div>
-              <div class="option" onclick="selectOption(0,2)">La Constitution</div>
-              <div class="option" onclick="selectOption(0,3)">Le traite international</div>
+              <button class="option" onclick="answer(this,false)">La loi</button>
+              <button class="option" onclick="answer(this,false)">Le reglement</button>
+              <button class="option" onclick="answer(this,true)">La Constitution</button>
+              <button class="option" onclick="answer(this,false)">Le traite international</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">La Constitution de 1958 est au sommet de la pyramide des normes (theorie de Kelsen). Toutes les autres normes doivent lui etre conformes. Le Conseil constitutionnel veille a cette conformite.</div>
           </div>
           <div class="question-block" id="q1">
             <div class="q-num">Question 2 / 10</div>
             <div class="q-text">Quel code fondamental a ete promulgue en 1804 sous Napoleon ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(1,0)">Le Code penal</div>
-              <div class="option" onclick="selectOption(1,1)">Le Code civil</div>
-              <div class="option" onclick="selectOption(1,2)">Le Code du travail</div>
-              <div class="option" onclick="selectOption(1,3)">Le Code de commerce</div>
+              <button class="option" onclick="answer(this,false)">Le Code penal</button>
+              <button class="option" onclick="answer(this,true)">Le Code civil</button>
+              <button class="option" onclick="answer(this,false)">Le Code du travail</button>
+              <button class="option" onclick="answer(this,false)">Le Code de commerce</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le Code civil, aussi appele Code Napoleon, a ete promulgue le 21 mars 1804. Il regit le droit des personnes, de la famille, des biens et des obligations. Il a influence de nombreux systemes juridiques dans le monde.</div>
           </div>
           <div class="question-block" id="q2">
             <div class="q-num">Question 3 / 10</div>
             <div class="q-text">Que signifie la presomption d'innocence ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(2,0)">L'accuse doit prouver son innocence</div>
-              <div class="option" onclick="selectOption(2,1)">Le juge decide seul de la culpabilite</div>
-              <div class="option" onclick="selectOption(2,2)">Toute personne est presumee innocente jusqu'a preuve du contraire</div>
-              <div class="option" onclick="selectOption(2,3)">L'innocence est automatique pour les mineurs</div>
+              <button class="option" onclick="answer(this,false)">L'accuse doit prouver son innocence</button>
+              <button class="option" onclick="answer(this,false)">Le juge decide seul de la culpabilite</button>
+              <button class="option" onclick="answer(this,true)">Toute personne est presumee innocente jusqu'a preuve du contraire</button>
+              <button class="option" onclick="answer(this,false)">L'innocence est automatique pour les mineurs</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Principe fondamental du droit penal francais (art. 9 DDHC 1789, art. 6 CEDH). La charge de la preuve incombe a l'accusation. Nul ne peut etre declare coupable avant d'avoir ete juge.</div>
           </div>
           <div class="question-block" id="q3">
             <div class="q-num">Question 4 / 10</div>
             <div class="q-text">Quelle est la difference entre droit public et droit prive ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(3,0)">Le droit public est secret, le droit prive est public</div>
-              <div class="option" onclick="selectOption(3,1)">Le droit public regit les rapports avec l'Etat, le droit prive entre particuliers</div>
-              <div class="option" onclick="selectOption(3,2)">Le droit public concerne les entreprises, le droit prive les individus</div>
-              <div class="option" onclick="selectOption(3,3)">Il n'y a pas de difference</div>
+              <button class="option" onclick="answer(this,false)">Le droit public est secret, le droit prive est public</button>
+              <button class="option" onclick="answer(this,true)">Le droit public regit les rapports avec l'Etat, le droit prive entre particuliers</button>
+              <button class="option" onclick="answer(this,false)">Le droit public concerne les entreprises, le droit prive les individus</button>
+              <button class="option" onclick="answer(this,false)">Il n'y a pas de difference</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le droit public organise les rapports entre l'Etat (et ses institutions) et les administres. Le droit prive regit les relations entre les personnes privees (individus, entreprises). Cette distinction est fondamentale dans le systeme juridique francais.</div>
           </div>
           <div class="question-block" id="q4">
             <div class="q-num">Question 5 / 10</div>
             <div class="q-text">Qui est l'auteur de la « pyramide des normes » ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(4,0)">Montesquieu</div>
-              <div class="option" onclick="selectOption(4,1)">Hans Kelsen</div>
-              <div class="option" onclick="selectOption(4,2)">Jean-Jacques Rousseau</div>
-              <div class="option" onclick="selectOption(4,3)">Napoleon Bonaparte</div>
+              <button class="option" onclick="answer(this,false)">Montesquieu</button>
+              <button class="option" onclick="answer(this,true)">Hans Kelsen</button>
+              <button class="option" onclick="answer(this,false)">Jean-Jacques Rousseau</button>
+              <button class="option" onclick="answer(this,false)">Napoleon Bonaparte</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Hans Kelsen (1881-1973), juriste autrichien, a theorise la hierarchie des normes dans sa Theorie pure du droit (1934). Chaque norme tire sa validite de la norme superieure, au sommet de laquelle se trouve la Constitution.</div>
           </div>
           <div class="question-block" id="q5">
             <div class="q-num">Question 6 / 10</div>
             <div class="q-text">La Cour de cassation est la plus haute juridiction de l'ordre :</div>
             <div class="options">
-              <div class="option" onclick="selectOption(5,0)">Administratif</div>
-              <div class="option" onclick="selectOption(5,1)">Constitutionnel</div>
-              <div class="option" onclick="selectOption(5,2)">Judiciaire</div>
-              <div class="option" onclick="selectOption(5,3)">International</div>
+              <button class="option" onclick="answer(this,false)">Administratif</button>
+              <button class="option" onclick="answer(this,false)">Constitutionnel</button>
+              <button class="option" onclick="answer(this,true)">Judiciaire</button>
+              <button class="option" onclick="answer(this,false)">International</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">La Cour de cassation est au sommet de l'ordre judiciaire. Elle ne rejuge pas les faits mais verifie la bonne application du droit. Le Conseil d'Etat est au sommet de l'ordre administratif.</div>
           </div>
           <div class="question-block" id="q6">
             <div class="q-num">Question 7 / 10</div>
             <div class="q-text">Quelle est la classification des infractions penales, de la moins grave a la plus grave ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(6,0)">Delit, crime, contravention</div>
-              <div class="option" onclick="selectOption(6,1)">Contravention, delit, crime</div>
-              <div class="option" onclick="selectOption(6,2)">Crime, contravention, delit</div>
-              <div class="option" onclick="selectOption(6,3)">Faute, erreur, crime</div>
+              <button class="option" onclick="answer(this,false)">Delit, crime, contravention</button>
+              <button class="option" onclick="answer(this,true)">Contravention, delit, crime</button>
+              <button class="option" onclick="answer(this,false)">Crime, contravention, delit</button>
+              <button class="option" onclick="answer(this,false)">Faute, erreur, crime</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le droit penal francais classe les infractions en trois categories : contravention (amende), delit (jusqu'a 10 ans de prison), crime (reclusion criminelle, juge par la cour d'assises).</div>
           </div>
           <div class="question-block" id="q7">
             <div class="q-num">Question 8 / 10</div>
             <div class="q-text">Qu'est-ce que la retroactivite in mitius ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(7,0)">Une loi plus severe s'applique retroactivement</div>
-              <div class="option" onclick="selectOption(7,1)">Une loi penale plus douce s'applique aux faits anterieurs</div>
-              <div class="option" onclick="selectOption(7,2)">Une loi civile s'applique toujours retroactivement</div>
-              <div class="option" onclick="selectOption(7,3)">La retroactivite est toujours interdite</div>
+              <button class="option" onclick="answer(this,false)">Une loi plus severe s'applique retroactivement</button>
+              <button class="option" onclick="answer(this,true)">Une loi penale plus douce s'applique aux faits anterieurs</button>
+              <button class="option" onclick="answer(this,false)">Une loi civile s'applique toujours retroactivement</button>
+              <button class="option" onclick="answer(this,false)">La retroactivite est toujours interdite</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">La retroactivite in mitius est une exception au principe de non-retroactivite : quand une loi penale nouvelle est plus douce que l'ancienne, elle s'applique aux faits commis avant son entree en vigueur. C'est un principe constitutionnel.</div>
           </div>
           <div class="question-block" id="q8">
             <div class="q-num">Question 9 / 10</div>
             <div class="q-text">Combien de conditions de validite un contrat doit-il reunir selon le Code civil ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(8,0)">2</div>
-              <div class="option" onclick="selectOption(8,1)">3</div>
-              <div class="option" onclick="selectOption(8,2)">5</div>
-              <div class="option" onclick="selectOption(8,3)">Il n'y a pas de conditions</div>
+              <button class="option" onclick="answer(this,false)">2</button>
+              <button class="option" onclick="answer(this,true)">3</button>
+              <button class="option" onclick="answer(this,false)">5</button>
+              <button class="option" onclick="answer(this,false)">Il n'y a pas de conditions</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">L'article 1128 du Code civil prevoit trois conditions : le consentement des parties, leur capacite de contracter, et un contenu licite et certain. Avant la reforme de 2016, il y en avait quatre (la cause a ete supprimee).</div>
           </div>
           <div class="question-block" id="q9">
             <div class="q-num">Question 10 / 10</div>
             <div class="q-text">Le Conseil constitutionnel verifie la conformite des lois a :</div>
             <div class="options">
-              <div class="option" onclick="selectOption(9,0)">La jurisprudence</div>
-              <div class="option" onclick="selectOption(9,1)">La Constitution</div>
-              <div class="option" onclick="selectOption(9,2)">Le Code civil</div>
-              <div class="option" onclick="selectOption(9,3)">Le droit europeen</div>
+              <button class="option" onclick="answer(this,false)">La jurisprudence</button>
+              <button class="option" onclick="answer(this,true)">La Constitution</button>
+              <button class="option" onclick="answer(this,false)">Le Code civil</button>
+              <button class="option" onclick="answer(this,false)">Le droit europeen</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le Conseil constitutionnel controle la conformite des lois a la Constitution. Depuis 2010, la QPC (Question Prioritaire de Constitutionnalite) permet a tout justiciable de contester une loi en vigueur.</div>
           </div>
         </div>
         <div class="quiz-nav">
-          <div class="q-dots">
-            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-          </div>
+          <div class="q-dots" id="qDots"></div>
           <div style="display:flex;gap:.8rem">
-            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Prec</button>
-            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQ()" disabled>← Prec</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQ()" disabled>Suivant →</button>
           </div>
         </div>
-        <div class="quiz-result">
-          <div class="result-score-big" id="finalScore"></div>
-          <div class="result-msg" id="finalMsg"></div>
-          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore"></div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
         </div>
       </div>
     </section>
@@ -416,75 +414,15 @@
   </main>
 </div>
 
-<script>
-const questions = [
-  { q:"Quelle est la norme supreme dans la hierarchie des normes ?", opts:["La loi","Le reglement","La Constitution","Le traite international"], ans:2, expl:"La Constitution de 1958 est au sommet de la pyramide des normes (theorie de Kelsen). Toutes les autres normes doivent lui etre conformes. Le Conseil constitutionnel veille a cette conformite." },
-  { q:"Quel code fondamental a ete promulgue en 1804 ?", opts:["Le Code penal","Le Code civil","Le Code du travail","Le Code de commerce"], ans:1, expl:"Le Code civil, aussi appele Code Napoleon, a ete promulgue le 21 mars 1804. Il regit le droit des personnes, de la famille, des biens et des obligations. Il a influence de nombreux systemes juridiques dans le monde." },
-  { q:"Que signifie la presomption d'innocence ?", opts:["L'accuse doit prouver son innocence","Le juge decide seul","Toute personne est presumee innocente jusqu'a preuve du contraire","L'innocence est automatique pour les mineurs"], ans:2, expl:"Principe fondamental du droit penal francais (art. 9 DDHC 1789, art. 6 CEDH). La charge de la preuve incombe a l'accusation. Nul ne peut etre declare coupable avant d'avoir ete juge." },
-  { q:"Droit public vs droit prive ?", opts:["Le droit public est secret","Le droit public regit les rapports avec l'Etat, le prive entre particuliers","Le droit public concerne les entreprises","Pas de difference"], ans:1, expl:"Le droit public organise les rapports entre l'Etat (et ses institutions) et les administres. Le droit prive regit les relations entre les personnes privees (individus, entreprises). Cette distinction est fondamentale dans le systeme juridique francais." },
-  { q:"Qui est l'auteur de la pyramide des normes ?", opts:["Montesquieu","Hans Kelsen","Jean-Jacques Rousseau","Napoleon Bonaparte"], ans:1, expl:"Hans Kelsen (1881-1973), juriste autrichien, a theorise la hierarchie des normes dans sa Theorie pure du droit (1934). Chaque norme tire sa validite de la norme superieure, au sommet de laquelle se trouve la Constitution." },
-  { q:"La Cour de cassation est la plus haute juridiction de l'ordre :", opts:["Administratif","Constitutionnel","Judiciaire","International"], ans:2, expl:"La Cour de cassation est au sommet de l'ordre judiciaire. Elle ne rejuge pas les faits mais verifie la bonne application du droit. Le Conseil d'Etat est au sommet de l'ordre administratif." },
-  { q:"Classification des infractions (moins grave a plus grave) :", opts:["Delit, crime, contravention","Contravention, delit, crime","Crime, contravention, delit","Faute, erreur, crime"], ans:1, expl:"Le droit penal francais classe les infractions en trois categories : contravention (amende), delit (jusqu'a 10 ans de prison), crime (reclusion criminelle, juge par la cour d'assises)." },
-  { q:"Qu'est-ce que la retroactivite in mitius ?", opts:["Loi plus severe retroactive","Loi penale plus douce retroactive","Loi civile toujours retroactive","Retroactivite toujours interdite"], ans:1, expl:"La retroactivite in mitius est une exception au principe de non-retroactivite : quand une loi penale nouvelle est plus douce que l'ancienne, elle s'applique aux faits commis avant son entree en vigueur. C'est un principe constitutionnel." },
-  { q:"Conditions de validite d'un contrat ?", opts:["2","3","5","Aucune condition"], ans:1, expl:"L'article 1128 du Code civil prevoit trois conditions : le consentement des parties, leur capacite de contracter, et un contenu licite et certain. Avant la reforme de 2016, il y en avait quatre (la cause a ete supprimee)." },
-  { q:"Le Conseil constitutionnel verifie la conformite a :", opts:["La jurisprudence","La Constitution","Le Code civil","Le droit europeen"], ans:1, expl:"Le Conseil constitutionnel controle la conformite des lois a la Constitution. Depuis 2010, la QPC (Question Prioritaire de Constitutionnalite) permet a tout justiciable de contester une loi en vigueur." }
-];
-
-let current=0,score=0,answered=new Array(10).fill(null);
-function renderQuestion(){
-  document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));
-  document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});
-  document.getElementById('btnPrev').disabled=current===0;
-  document.getElementById('btnNext').textContent=current===9?'Voir resultats':'Suivant →';
-}
-function selectOption(qi,oi){
-  if(answered[qi]!==null)return;answered[qi]=oi;
-  const block=document.querySelectorAll('.question-block')[qi];
-  block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});
-  const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');
-  if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');
-}
-function nextQuestion(){if(current<9){current++;renderQuestion();}else showResult();}
-function prevQuestion(){if(current>0){current--;renderQuestion();}}
-function showResult(){
-  document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';
-  const r=document.querySelector('.quiz-result');r.style.display='block';
-  document.getElementById('finalScore').textContent=score+'/10';
-  document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Bien !','Tres bien !','Excellent !'][score<=3?0:score<=5?1:score<=7?2:score<=9?3:4];
-}
-function restartQuiz(){
-  current=0;score=0;answered.fill(null);
-  document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';
-  document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');
-  document.getElementById('quizScore').textContent=0;renderQuestion();
-}
-function goTo(id,el){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
-  document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');
-}
-(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
-const sections=['resume','principes','concepts','quiz','ressources','memo'];
-window.addEventListener('scroll',()=>{
-  let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});
-  document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';
-});
-function downloadMemo(){
-  const w=window.open('','_blank','width=900,height=700');
-  w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche memo — Droit</title>
-  <style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#c0304a;border-bottom:3px solid #c0304a;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#c0304a;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #f0d0d8;padding:1rem;border-radius:4px;background:#fdf5f7}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style>
-  </head><body><h1>⚖️ Fiche memo — Droit</h1>
-  <div class="grid">
-    <div class="box"><h2>Sources du droit</h2><ul><li><strong>Constitution</strong> — norme supreme (1958)</li><li><strong>Traites</strong> — superiorite sur la loi interne</li><li><strong>Loi</strong> — votee par le Parlement</li><li><strong>Reglement</strong> — decrets et arretes</li><li><strong>Jurisprudence</strong> — decisions des tribunaux</li></ul></div>
-    <div class="box"><h2>Branches du droit</h2><ul><li><strong>Droit civil</strong> — personnes, famille, contrats</li><li><strong>Droit penal</strong> — infractions et peines</li><li><strong>Droit constitutionnel</strong> — organisation de l'Etat</li><li><strong>Droit administratif</strong> — administration publique</li><li><strong>Droit international</strong> — relations entre Etats</li></ul></div>
-    <div class="box"><h2>Principes fondamentaux</h2><ul><li>Legalite : pas de sanction sans loi</li><li>Egalite devant la loi</li><li>Presomption d'innocence</li><li>Non-retroactivite (sauf in mitius)</li><li>Droit a un proces equitable</li></ul></div>
-    <div class="box"><h2>Juridictions</h2><ul><li>TJ (tribunal judiciaire) → 1re instance</li><li>Cour d'appel → 2e degre</li><li>Cour de cassation → controle du droit</li><li>Conseil d'Etat → ordre administratif</li><li>Conseil constitutionnel</li></ul></div>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
   </div>
-  <div class="footer">Curiosita — Fiche memo Droit — ${new Date().toLocaleDateString('fr-FR')}</div>
-  <button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#c0304a;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">🖨️ Imprimer / PDF</button>
-  </body></html>`);w.document.close();
-}
-renderQuestion();
-</script>
-    <script src="mobile.js?v=2"></script>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

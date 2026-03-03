@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De Shakespeare à Dostoïevski, de Murasaki Shikibu à García Márquez, la littérature mondiale est un voyage à travers les cultures, les époques et les...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Littérature mondiale — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #9b7ae8;
   --accent2: #b49aef;
   --accent-dim: rgba(155,122,232,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(155,122,232,0.07) 0%, transparent 70%); }
+ --accent-hero: rgba(155,122,232,0.07); }
 .hero-deco { color: rgba(155,122,232,0.04); }
 </style>
 </head>
@@ -23,7 +24,7 @@
   <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
 </nav>
 
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">📕</div>
   <div class="hero-meta">
     <span class="tag-domain">📚 Lettres, Langues & Philosophie</span>
@@ -148,136 +149,131 @@
       <div class="quiz-container">
         <div class="quiz-header">
           <span class="quiz-title-text">Quiz — Littérature mondiale</span>
-          <span class="quiz-score">Score : <span id="quizScore">0</span>/10</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span>/10</span>
         </div>
-        <div class="quiz-body">
+        <div class="quiz-body" id="quizBody">
           <div class="question-block active" id="q0">
             <div class="q-num">Question 1 / 10</div>
             <div class="q-text">Qui a forgé le concept de « Weltliteratur » (littérature mondiale) ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(0,0)">Victor Hugo</div>
-              <div class="option" onclick="selectOption(0,1)">Goethe</div>
-              <div class="option" onclick="selectOption(0,2)">Shakespeare</div>
-              <div class="option" onclick="selectOption(0,3)">Voltaire</div>
+              <button class="option" onclick="answer(this,false)">Victor Hugo</button>
+              <button class="option" onclick="answer(this,true)">Goethe</button>
+              <button class="option" onclick="answer(this,false)">Shakespeare</button>
+              <button class="option" onclick="answer(this,false)">Voltaire</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Johann Wolfgang von Goethe a utilisé le terme «Weltliteratur» en 1827 pour désigner une littérature qui transcende les frontières nationales. Il prédisait que la littérature cesserait d'être purement nationale et deviendrait un patrimoine commun de l'humanité.</div>
           </div>
           <div class="question-block" id="q1">
             <div class="q-num">Question 2 / 10</div>
             <div class="q-text">Quel auteur russe a écrit « Crime et Châtiment » et « Les Frères Karamazov » ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(1,0)">Léon Tolstoï</div>
-              <div class="option" onclick="selectOption(1,1)">Anton Tchekhov</div>
-              <div class="option" onclick="selectOption(1,2)">Fiodor Dostoïevski</div>
-              <div class="option" onclick="selectOption(1,3)">Ivan Tourgueniev</div>
+              <button class="option" onclick="answer(this,false)">Léon Tolstoï</button>
+              <button class="option" onclick="answer(this,false)">Anton Tchekhov</button>
+              <button class="option" onclick="answer(this,true)">Fiodor Dostoïevski</button>
+              <button class="option" onclick="answer(this,false)">Ivan Tourgueniev</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Fiodor Dostoïevski (1821-1881) est l'un des plus grands romanciers de tous les temps. «Crime et Châtiment» (1866) explore la culpabilité et la rédemption. «Les Frères Karamazov» (1880), son dernier roman, est une méditation sur la foi, le libre arbitre et la nature humaine. Nietzsche et Freud furent profondément influencés par son œuvre.</div>
           </div>
           <div class="question-block" id="q2">
             <div class="q-num">Question 3 / 10</div>
             <div class="q-text">Quel courant littéraire est associé à Gabriel García Márquez ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(2,0)">Le naturalisme</div>
-              <div class="option" onclick="selectOption(2,1)">Le réalisme magique</div>
-              <div class="option" onclick="selectOption(2,2)">L'existentialisme</div>
-              <div class="option" onclick="selectOption(2,3)">Le surréalisme</div>
+              <button class="option" onclick="answer(this,false)">Le naturalisme</button>
+              <button class="option" onclick="answer(this,true)">Le réalisme magique</button>
+              <button class="option" onclick="answer(this,false)">L'existentialisme</button>
+              <button class="option" onclick="answer(this,false)">Le surréalisme</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Gabriel García Márquez (1927-2014, Nobel 1982) est le maître du réalisme magique, courant où des éléments surnaturels s'intègrent naturellement dans un cadre réaliste. Son œuvre maîtresse mêle chronique familiale, mythologie et histoire colombienne dans un village fictif appelé Macondo.</div>
           </div>
           <div class="question-block" id="q3">
             <div class="q-num">Question 4 / 10</div>
             <div class="q-text">Quel est considéré comme le premier roman de l'histoire, écrit au Japon au XIe siècle ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(3,0)">Le Dit des Heike</div>
-              <div class="option" onclick="selectOption(3,1)">Le Dit du Genji</div>
-              <div class="option" onclick="selectOption(3,2)">Les Notes de chevet</div>
-              <div class="option" onclick="selectOption(3,3)">Le Livre de l'oreiller</div>
+              <button class="option" onclick="answer(this,false)">Le Dit des Heike</button>
+              <button class="option" onclick="answer(this,true)">Le Dit du Genji</button>
+              <button class="option" onclick="answer(this,false)">Les Notes de chevet</button>
+              <button class="option" onclick="answer(this,false)">Le Livre de l'oreiller</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le «Dit du Genji» (Genji monogatari), écrit vers 1010 par Murasaki Shikibu, dame de la cour impériale de Heian, est considéré comme le premier roman psychologique de l'histoire. Il relate les amours et intrigues du prince Genji dans un style d'une finesse remarquable. C'est un chef-d'œuvre de la littérature mondiale.</div>
           </div>
           <div class="question-block" id="q4">
             <div class="q-num">Question 5 / 10</div>
             <div class="q-text">Qui est l'auteur de « Don Quichotte », considéré comme le premier roman moderne ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(4,0)">Lope de Vega</div>
-              <div class="option" onclick="selectOption(4,1)">Miguel de Cervantès</div>
-              <div class="option" onclick="selectOption(4,2)">Federico García Lorca</div>
-              <div class="option" onclick="selectOption(4,3)">Calderón de la Barca</div>
+              <button class="option" onclick="answer(this,false)">Lope de Vega</button>
+              <button class="option" onclick="answer(this,true)">Miguel de Cervantès</button>
+              <button class="option" onclick="answer(this,false)">Federico García Lorca</button>
+              <button class="option" onclick="answer(this,false)">Calderón de la Barca</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Miguel de Cervantès publia «Don Quichotte» en deux parties (1605 et 1615). Ce roman raconte les aventures d'un gentilhomme qui, à force de lire des romans de chevalerie, perd la raison et se prend pour un chevalier errant. C'est le premier roman moderne par son ironie, sa mise en abyme et son exploration de la frontière entre fiction et réalité.</div>
           </div>
           <div class="question-block" id="q5">
             <div class="q-num">Question 6 / 10</div>
             <div class="q-text">Quel écrivain nigérian a écrit « Tout s'effondre » (Things Fall Apart) ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(5,0)">Wole Soyinka</div>
-              <div class="option" onclick="selectOption(5,1)">Chinua Achebe</div>
-              <div class="option" onclick="selectOption(5,2)">Ben Okri</div>
-              <div class="option" onclick="selectOption(5,3)">Chimamanda Ngozi Adichie</div>
+              <button class="option" onclick="answer(this,false)">Wole Soyinka</button>
+              <button class="option" onclick="answer(this,true)">Chinua Achebe</button>
+              <button class="option" onclick="answer(this,false)">Ben Okri</button>
+              <button class="option" onclick="answer(this,false)">Chimamanda Ngozi Adichie</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Chinua Achebe (1930-2013) publia «Things Fall Apart» en 1958, réponse littéraire au regard colonial sur l'Afrique. Le roman raconte la vie d'Okonkwo dans un village igbo et la destruction de sa culture par l'arrivée des missionnaires et colons britanniques. C'est le roman africain le plus lu au monde (plus de 20 millions d'exemplaires).</div>
           </div>
           <div class="question-block" id="q6">
             <div class="q-num">Question 7 / 10</div>
             <div class="q-text">Qu'est-ce qu'un haïku ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(6,0)">Un roman japonais en trois parties</div>
-              <div class="option" onclick="selectOption(6,1)">Un poème de trois vers (5-7-5 syllabes)</div>
-              <div class="option" onclick="selectOption(6,2)">Un conte mythologique chinois</div>
-              <div class="option" onclick="selectOption(6,3)">Une forme théâtrale indienne</div>
+              <button class="option" onclick="answer(this,false)">Un roman japonais en trois parties</button>
+              <button class="option" onclick="answer(this,true)">Un poème de trois vers (5-7-5 syllabes)</button>
+              <button class="option" onclick="answer(this,false)">Un conte mythologique chinois</button>
+              <button class="option" onclick="answer(this,false)">Une forme théâtrale indienne</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le haïku est une forme poétique japonaise très brève composée de trois vers (5, 7 et 5 syllabes en japonais). Il capte un instant fugace, souvent lié à la nature et aux saisons. Matsuo Bashō (1644-1694) en est le maître incontesté. Le haïku a profondément influencé la poésie occidentale moderne (Pound, Kerouac).</div>
           </div>
           <div class="question-block" id="q7">
             <div class="q-num">Question 8 / 10</div>
             <div class="q-text">Quel auteur argentin est célèbre pour ses nouvelles labyrinthiques et métaphysiques ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(7,0)">Pablo Neruda</div>
-              <div class="option" onclick="selectOption(7,1)">Julio Cortázar</div>
-              <div class="option" onclick="selectOption(7,2)">Jorge Luis Borges</div>
-              <div class="option" onclick="selectOption(7,3)">Octavio Paz</div>
+              <button class="option" onclick="answer(this,false)">Pablo Neruda</button>
+              <button class="option" onclick="answer(this,false)">Julio Cortázar</button>
+              <button class="option" onclick="answer(this,true)">Jorge Luis Borges</button>
+              <button class="option" onclick="answer(this,false)">Octavio Paz</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Jorge Luis Borges (1899-1986) est l'un des écrivains les plus originaux du XXe siècle. Ses nouvelles («Fictions», 1944 ; «L'Aleph», 1949) explorent l'infini, les bibliothèques impossibles, les labyrinthes et les paradoxes temporels. Bien qu'il n'ait jamais reçu le Nobel, son influence sur la littérature mondiale est immense.</div>
           </div>
           <div class="question-block" id="q8">
             <div class="q-num">Question 9 / 10</div>
             <div class="q-text">Quel mouvement littéraire du début du XXe siècle utilise le « flux de conscience » ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(8,0)">Le romantisme</div>
-              <div class="option" onclick="selectOption(8,1)">Le naturalisme</div>
-              <div class="option" onclick="selectOption(8,2)">Le modernisme</div>
-              <div class="option" onclick="selectOption(8,3)">Le classicisme</div>
+              <button class="option" onclick="answer(this,false)">Le romantisme</button>
+              <button class="option" onclick="answer(this,false)">Le naturalisme</button>
+              <button class="option" onclick="answer(this,true)">Le modernisme</button>
+              <button class="option" onclick="answer(this,false)">Le classicisme</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le modernisme littéraire (début XXe s.) a révolutionné la narration en introduisant le flux de conscience (stream of consciousness), technique qui tente de reproduire le cours ininterrompu de la pensée. James Joyce («Ulysse», 1922) et Virginia Woolf («Mrs Dalloway», 1925) en sont les maîtres. Marcel Proust explore une voie parallèle avec la mémoire involontaire.</div>
           </div>
           <div class="question-block" id="q9">
             <div class="q-num">Question 10 / 10</div>
             <div class="q-text">Quelle est la plus ancienne épopée littéraire connue ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(9,0)">L'Iliade</div>
-              <div class="option" onclick="selectOption(9,1)">Le Mahabharata</div>
-              <div class="option" onclick="selectOption(9,2)">L'Épopée de Gilgamesh</div>
-              <div class="option" onclick="selectOption(9,3)">L'Énéide</div>
+              <button class="option" onclick="answer(this,false)">L'Iliade</button>
+              <button class="option" onclick="answer(this,false)">Le Mahabharata</button>
+              <button class="option" onclick="answer(this,true)">L'Épopée de Gilgamesh</button>
+              <button class="option" onclick="answer(this,false)">L'Énéide</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">L'Épopée de Gilgamesh, composée en Mésopotamie vers 2100 av. J.-C. (version sumérienne), est la plus ancienne œuvre littéraire connue. Elle raconte la quête d'immortalité du roi Gilgamesh après la mort de son ami Enkidu. Elle contient un récit de déluge antérieur à celui de la Bible. L'Iliade d'Homère date du VIIIe s. av. J.-C.</div>
           </div>
         </div>
         <div class="quiz-nav">
-          <div class="q-dots">
-            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div>
-          </div>
+          <div class="q-dots" id="qDots"></div>
           <div style="display:flex;gap:.8rem">
-            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
-            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQ()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQ()" disabled>Suivant →</button>
           </div>
         </div>
-        <div class="quiz-result">
-          <div class="result-score-big" id="finalScore"></div>
-          <div class="result-msg" id="finalMsg"></div>
-          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore"></div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
         </div>
       </div>
     </section>
@@ -385,34 +381,15 @@
   </main>
 </div>
 
-<script>
-const questions=[
-  {q:"Qui a forgé le concept de « Weltliteratur » (littérature mondiale) ?",opts:["Victor Hugo","Goethe","Shakespeare","Voltaire"],ans:1,expl:"Johann Wolfgang von Goethe a utilisé le terme «Weltliteratur» en 1827 pour désigner une littérature qui transcende les frontières nationales. Il prédisait que la littérature cesserait d'être purement nationale et deviendrait un patrimoine commun de l'humanité."},
-  {q:"Quel auteur russe a écrit « Crime et Châtiment » et « Les Frères Karamazov » ?",opts:["Léon Tolstoï","Anton Tchekhov","Fiodor Dostoïevski","Ivan Tourgueniev"],ans:2,expl:"Fiodor Dostoïevski (1821-1881) est l'un des plus grands romanciers de tous les temps. «Crime et Châtiment» (1866) explore la culpabilité et la rédemption. «Les Frères Karamazov» (1880), son dernier roman, est une méditation sur la foi, le libre arbitre et la nature humaine. Nietzsche et Freud furent profondément influencés par son œuvre."},
-  {q:"Quel courant littéraire est associé à Gabriel García Márquez ?",opts:["Le naturalisme","Le réalisme magique","L'existentialisme","Le surréalisme"],ans:1,expl:"Gabriel García Márquez (1927-2014, Nobel 1982) est le maître du réalisme magique, courant où des éléments surnaturels s'intègrent naturellement dans un cadre réaliste. Son œuvre maîtresse mêle chronique familiale, mythologie et histoire colombienne dans un village fictif appelé Macondo."},
-  {q:"Quel est considéré comme le premier roman de l'histoire, écrit au Japon au XIe siècle ?",opts:["Le Dit des Heike","Le Dit du Genji","Les Notes de chevet","Le Livre de l'oreiller"],ans:1,expl:"Le «Dit du Genji» (Genji monogatari), écrit vers 1010 par Murasaki Shikibu, dame de la cour impériale de Heian, est considéré comme le premier roman psychologique de l'histoire. Il relate les amours et intrigues du prince Genji dans un style d'une finesse remarquable. C'est un chef-d'œuvre de la littérature mondiale."},
-  {q:"Qui est l'auteur de « Don Quichotte », considéré comme le premier roman moderne ?",opts:["Lope de Vega","Miguel de Cervantès","Federico García Lorca","Calderón de la Barca"],ans:1,expl:"Miguel de Cervantès publia «Don Quichotte» en deux parties (1605 et 1615). Ce roman raconte les aventures d'un gentilhomme qui, à force de lire des romans de chevalerie, perd la raison et se prend pour un chevalier errant. C'est le premier roman moderne par son ironie, sa mise en abyme et son exploration de la frontière entre fiction et réalité."},
-  {q:"Quel écrivain nigérian a écrit « Tout s'effondre » (Things Fall Apart) ?",opts:["Wole Soyinka","Chinua Achebe","Ben Okri","Chimamanda Ngozi Adichie"],ans:1,expl:"Chinua Achebe (1930-2013) publia «Things Fall Apart» en 1958, réponse littéraire au regard colonial sur l'Afrique. Le roman raconte la vie d'Okonkwo dans un village igbo et la destruction de sa culture par l'arrivée des missionnaires et colons britanniques. C'est le roman africain le plus lu au monde (plus de 20 millions d'exemplaires)."},
-  {q:"Qu'est-ce qu'un haïku ?",opts:["Un roman japonais en trois parties","Un poème de trois vers (5-7-5 syllabes)","Un conte mythologique chinois","Une forme théâtrale indienne"],ans:1,expl:"Le haïku est une forme poétique japonaise très brève composée de trois vers (5, 7 et 5 syllabes en japonais). Il capte un instant fugace, souvent lié à la nature et aux saisons. Matsuo Bashō (1644-1694) en est le maître incontesté. Le haïku a profondément influencé la poésie occidentale moderne (Pound, Kerouac)."},
-  {q:"Quel auteur argentin est célèbre pour ses nouvelles labyrinthiques et métaphysiques ?",opts:["Pablo Neruda","Julio Cortázar","Jorge Luis Borges","Octavio Paz"],ans:2,expl:"Jorge Luis Borges (1899-1986) est l'un des écrivains les plus originaux du XXe siècle. Ses nouvelles («Fictions», 1944 ; «L'Aleph», 1949) explorent l'infini, les bibliothèques impossibles, les labyrinthes et les paradoxes temporels. Bien qu'il n'ait jamais reçu le Nobel, son influence sur la littérature mondiale est immense."},
-  {q:"Quel mouvement littéraire du début du XXe siècle utilise le « flux de conscience » ?",opts:["Le romantisme","Le naturalisme","Le modernisme","Le classicisme"],ans:2,expl:"Le modernisme littéraire (début XXe s.) a révolutionné la narration en introduisant le flux de conscience (stream of consciousness), technique qui tente de reproduire le cours ininterrompu de la pensée. James Joyce («Ulysse», 1922) et Virginia Woolf («Mrs Dalloway», 1925) en sont les maîtres. Marcel Proust explore une voie parallèle avec la mémoire involontaire."},
-  {q:"Quelle est la plus ancienne épopée littéraire connue ?",opts:["L'Iliade","Le Mahabharata","L'Épopée de Gilgamesh","L'Énéide"],ans:2,expl:"L'Épopée de Gilgamesh, composée en Mésopotamie vers 2100 av. J.-C. (version sumérienne), est la plus ancienne œuvre littéraire connue. Elle raconte la quête d'immortalité du roi Gilgamesh après la mort de son ami Enkidu. Elle contient un récit de déluge antérieur à celui de la Bible. L'Iliade d'Homère date du VIIIe s. av. J.-C."}
-];
-const TOTAL=questions.length;
-let current=0,score=0,answered=new Array(TOTAL).fill(null);
-function renderQuestion(){document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});document.getElementById('btnPrev').disabled=current===0;document.getElementById('btnNext').textContent=current===TOTAL-1?'Voir résultats':'Suivant →';}
-function selectOption(qi,oi){if(answered[qi]!==null)return;answered[qi]=oi;const block=document.querySelectorAll('.question-block')[qi];block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');}
-function nextQuestion(){if(current<TOTAL-1){current++;renderQuestion();}else showResult();}
-function prevQuestion(){if(current>0){current--;renderQuestion();}}
-function showResult(){document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';const r=document.querySelector('.quiz-result');r.style.display='block';document.getElementById('finalScore').textContent=score+'/'+TOTAL;document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Très bien !','Excellent !'][score<=3?0:score<=6?1:score<=8?2:3];}
-function restartQuiz(){current=0;score=0;answered.fill(null);document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');document.getElementById('quizScore').textContent=0;renderQuestion();}
-function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
-(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
-const sections=['resume','traditions','concepts','quiz','ressources','memo'];
-window.addEventListener('scroll',()=>{let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';});
-function downloadMemo(){const w=window.open('','_blank','width=900,height=700');w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Littérature mondiale</title><style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#6b4fcf;border-bottom:3px solid #6b4fcf;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#6b4fcf;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #d1c4e9;padding:1rem;border-radius:4px;background:#faf8ff}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style></head><body><h1>📕 Fiche mémo — Littérature mondiale</h1><div class="grid"><div class="box"><h2>Littérature anglophone</h2><ul><li>Shakespeare — Hamlet, Macbeth, Le Roi Lear</li><li>Dickens — Oliver Twist, David Copperfield</li><li>Woolf — Mrs Dalloway (flux de conscience)</li><li>Joyce — Ulysse (modernisme, 1922)</li><li>Morrison — Beloved (Nobel 1993)</li></ul></div><div class="box"><h2>Littérature russe</h2><ul><li>Pouchkine — Eugène Onéguine</li><li>Dostoïevski — Crime et Châtiment, Les Frères Karamazov</li><li>Tolstoï — Guerre et Paix, Anna Karénine</li><li>Tchekhov — La Cerisaie, nouvelles</li><li>Boulgakov — Le Maître et Marguerite</li></ul></div><div class="box"><h2>Littérature latino-américaine</h2><ul><li>Borges — Fictions, L'Aleph (labyrinthes)</li><li>García Márquez — réalisme magique (Nobel 1982)</li><li>Neruda — poésie engagée (Nobel 1971)</li><li>Cortázar — Marelle, nouvelles</li><li>Boom latino-américain (années 1960-70)</li></ul></div><div class="box"><h2>Repères mondiaux</h2><ul><li>Gilgamesh — 1re épopée (~2100 av. J.-C.)</li><li>Genji monogatari — 1er roman (Japon, XIe s.)</li><li>Don Quichotte — 1er roman moderne (1605)</li><li>Haïku — Bashō (5-7-5 syllabes)</li><li>Achebe — Things Fall Apart (1958, Afrique)</li></ul></div></div><div class="footer">Curiosita — Fiche mémo Littérature mondiale — ${new Date().toLocaleDateString('fr-FR')}</div><button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#6b4fcf;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">🖨️ Imprimer / PDF</button></body></html>`);w.document.close();}
-renderQuestion();
-</script>
-    <script src="mobile.js?v=2"></script>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Lois de Snell-Descartes, réflexion totale, miroirs plans et sphériques, indices de réfraction — les fondements de l'optique géométrique.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Réflexion et réfraction — Optique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8e44ad;
   --accent2: #9b59b6;
   --accent-dim: rgba(142,68,173,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔭 Optique</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la loi de Snell-Descartes pour la réfraction ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">n₁ cos(i₁) = n₂ cos(i₂)</div>
-              <div class="option" onclick="answer(this,true)">n₁ sin(i₁) = n₂ sin(i₂)</div>
-              <div class="option" onclick="answer(this,false)">n₁ tan(i₁) = n₂ tan(i₂)</div>
-              <div class="option" onclick="answer(this,false)">n₁ / sin(i₁) = n₂ / sin(i₂)</div>
+              <button class="option" onclick="answer(this,false)">n₁ cos(i₁) = n₂ cos(i₂)</button>
+              <button class="option" onclick="answer(this,true)">n₁ sin(i₁) = n₂ sin(i₂)</button>
+              <button class="option" onclick="answer(this,false)">n₁ tan(i₁) = n₂ tan(i₂)</button>
+              <button class="option" onclick="answer(this,false)">n₁ / sin(i₁) = n₂ / sin(i₂)</button>
             </div>
             <div class="q-feedback">La deuxième loi de Snell-Descartes pour la réfraction s'écrit n₁ sin(i₁) = n₂ sin(i₂). Elle relie les angles d'incidence et de réfraction aux indices des deux milieux.</div>
           </div>
@@ -205,10 +205,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel est l'angle critique de réflexion totale pour l'interface verre (n=1,5) / air ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">30°</div>
-              <div class="option" onclick="answer(this,true)">≈ 41,8°</div>
-              <div class="option" onclick="answer(this,false)">45°</div>
-              <div class="option" onclick="answer(this,false)">≈ 48,8°</div>
+              <button class="option" onclick="answer(this,false)">30°</button>
+              <button class="option" onclick="answer(this,true)">≈ 41,8°</button>
+              <button class="option" onclick="answer(this,false)">45°</button>
+              <button class="option" onclick="answer(this,false)">≈ 48,8°</button>
             </div>
             <div class="q-feedback">sin(i_c) = n₂/n₁ = 1/1,5 = 0,667, donc i_c = arcsin(0,667) ≈ 41,8°. Au-delà de cet angle, la lumière subit une réflexion totale interne.</div>
           </div>
@@ -216,10 +216,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quand un rayon passe de l'air (n=1) au verre (n=1,5), que se passe-t-il ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Le rayon se rapproche de la normale</div>
-              <div class="option" onclick="answer(this,false)">Le rayon s'éloigne de la normale</div>
-              <div class="option" onclick="answer(this,false)">Le rayon n'est pas dévié</div>
-              <div class="option" onclick="answer(this,false)">Il y a toujours réflexion totale</div>
+              <button class="option" onclick="answer(this,true)">Le rayon se rapproche de la normale</button>
+              <button class="option" onclick="answer(this,false)">Le rayon s'éloigne de la normale</button>
+              <button class="option" onclick="answer(this,false)">Le rayon n'est pas dévié</button>
+              <button class="option" onclick="answer(this,false)">Il y a toujours réflexion totale</button>
             </div>
             <div class="q-feedback">Lorsque la lumière passe vers un milieu plus réfringent (n₂ > n₁), la loi n₁ sin(i₁) = n₂ sin(i₂) impose sin(i₂) < sin(i₁), donc i₂ < i₁ : le rayon se rapproche de la normale.</div>
           </div>
@@ -227,10 +227,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel type d'image forme un miroir plan ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Réelle, inversée, de même taille</div>
-              <div class="option" onclick="answer(this,false)">Virtuelle, inversée, agrandie</div>
-              <div class="option" onclick="answer(this,true)">Virtuelle, droite, de même taille</div>
-              <div class="option" onclick="answer(this,false)">Réelle, droite, réduite</div>
+              <button class="option" onclick="answer(this,false)">Réelle, inversée, de même taille</button>
+              <button class="option" onclick="answer(this,false)">Virtuelle, inversée, agrandie</button>
+              <button class="option" onclick="answer(this,true)">Virtuelle, droite, de même taille</button>
+              <button class="option" onclick="answer(this,false)">Réelle, droite, réduite</button>
             </div>
             <div class="q-feedback">Un miroir plan forme toujours une image virtuelle (derrière le miroir), droite et de même taille que l'objet. L'image est le symétrique de l'objet par rapport au plan du miroir.</div>
           </div>
@@ -238,10 +238,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle est la distance focale d'un miroir sphérique concave de rayon R ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">f = R</div>
-              <div class="option" onclick="answer(this,true)">f = R/2</div>
-              <div class="option" onclick="answer(this,false)">f = 2R</div>
-              <div class="option" onclick="answer(this,false)">f = R/4</div>
+              <button class="option" onclick="answer(this,false)">f = R</button>
+              <button class="option" onclick="answer(this,true)">f = R/2</button>
+              <button class="option" onclick="answer(this,false)">f = 2R</button>
+              <button class="option" onclick="answer(this,false)">f = R/4</button>
             </div>
             <div class="q-feedback">Le foyer d'un miroir sphérique concave est situé à mi-chemin entre le centre de courbure C et le sommet du miroir, soit f = R/2.</div>
           </div>
@@ -249,10 +249,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle technologie repose principalement sur la réflexion totale interne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le miroir plan</div>
-              <div class="option" onclick="answer(this,false)">La loupe</div>
-              <div class="option" onclick="answer(this,true)">La fibre optique</div>
-              <div class="option" onclick="answer(this,false)">L'appareil photographique</div>
+              <button class="option" onclick="answer(this,false)">Le miroir plan</button>
+              <button class="option" onclick="answer(this,false)">La loupe</button>
+              <button class="option" onclick="answer(this,true)">La fibre optique</button>
+              <button class="option" onclick="answer(this,false)">L'appareil photographique</button>
             </div>
             <div class="q-feedback">La fibre optique guide la lumière par réflexion totale interne : le coeur de verre a un indice supérieur à celui de la gaine, de sorte que les rayons incidents sous un angle suffisant sont totalement réfléchis et restent confinés dans le coeur.</div>
           </div>
@@ -355,8 +355,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

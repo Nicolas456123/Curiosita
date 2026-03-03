@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Droit du sol, droit du sang, naturalisation et citoyenneté européenne — les voies d'accès à la nationalité française.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Nationalité et appartenance — Citoyenneté — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a9b;
   --accent2: #f09ab5;
   --accent-dim: rgba(232,122,155,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,155,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,155,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🇫🇷 Citoyenneté</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -135,10 +135,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qu'est-ce que le « droit du sol » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">L'acquisition de la nationalité par le lieu de naissance</div>
-              <div class="option" onclick="answer(this,false)">L'acquisition par la filiation parentale</div>
-              <div class="option" onclick="answer(this,false)">Le droit de posséder un terrain</div>
-              <div class="option" onclick="answer(this,false)">Le droit de résider dans un pays</div>
+              <button class="option" onclick="answer(this,true)">L'acquisition de la nationalité par le lieu de naissance</button>
+              <button class="option" onclick="answer(this,false)">L'acquisition par la filiation parentale</button>
+              <button class="option" onclick="answer(this,false)">Le droit de posséder un terrain</button>
+              <button class="option" onclick="answer(this,false)">Le droit de résider dans un pays</button>
             </div>
             <div class="q-feedback">Le droit du sol (jus soli) permet d'acquérir la nationalité d'un pays en raison de la naissance sur son territoire, sous certaines conditions.</div>
           </div>
@@ -146,10 +146,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Combien d'années de résidence en France faut-il pour demander la naturalisation (cas général) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">2 ans</div>
-              <div class="option" onclick="answer(this,false)">3 ans</div>
-              <div class="option" onclick="answer(this,true)">5 ans</div>
-              <div class="option" onclick="answer(this,false)">10 ans</div>
+              <button class="option" onclick="answer(this,false)">2 ans</button>
+              <button class="option" onclick="answer(this,false)">3 ans</button>
+              <button class="option" onclick="answer(this,true)">5 ans</button>
+              <button class="option" onclick="answer(this,false)">10 ans</button>
             </div>
             <div class="q-feedback">La naturalisation requiert en principe 5 ans de résidence régulière en France, sauf exceptions (2 ans pour certaines situations comme les diplômés de l'enseignement supérieur français).</div>
           </div>
@@ -157,10 +157,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel traité a institué la citoyenneté européenne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le traité de Rome (1957)</div>
-              <div class="option" onclick="answer(this,true)">Le traité de Maastricht (1992)</div>
-              <div class="option" onclick="answer(this,false)">Le traité de Lisbonne (2007)</div>
-              <div class="option" onclick="answer(this,false)">Le traité de Nice (2001)</div>
+              <button class="option" onclick="answer(this,false)">Le traité de Rome (1957)</button>
+              <button class="option" onclick="answer(this,true)">Le traité de Maastricht (1992)</button>
+              <button class="option" onclick="answer(this,false)">Le traité de Lisbonne (2007)</button>
+              <button class="option" onclick="answer(this,false)">Le traité de Nice (2001)</button>
             </div>
             <div class="q-feedback">Le traité de Maastricht, signé en 1992, crée la citoyenneté de l'Union européenne, qui complète la citoyenneté nationale de chaque État membre.</div>
           </div>
@@ -168,10 +168,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Un enfant né en France de parents étrangers acquiert automatiquement la nationalité française à quel âge ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">À la naissance</div>
-              <div class="option" onclick="answer(this,false)">À 13 ans</div>
-              <div class="option" onclick="answer(this,false)">À 16 ans</div>
-              <div class="option" onclick="answer(this,true)">À 18 ans</div>
+              <button class="option" onclick="answer(this,false)">À la naissance</button>
+              <button class="option" onclick="answer(this,false)">À 13 ans</button>
+              <button class="option" onclick="answer(this,false)">À 16 ans</button>
+              <button class="option" onclick="answer(this,true)">À 18 ans</button>
             </div>
             <div class="q-feedback">L'acquisition est automatique à 18 ans, sous condition de résidence en France pendant au moins 5 ans depuis l'âge de 11 ans. Une demande anticipée est possible dès 16 ans (ou 13 ans avec accord parental).</div>
           </div>
@@ -179,10 +179,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">La citoyenneté européenne remplace-t-elle la citoyenneté nationale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Oui, depuis Maastricht</div>
-              <div class="option" onclick="answer(this,true)">Non, elle la complète</div>
-              <div class="option" onclick="answer(this,false)">Oui, pour les élections européennes</div>
-              <div class="option" onclick="answer(this,false)">Cela dépend des pays</div>
+              <button class="option" onclick="answer(this,false)">Oui, depuis Maastricht</button>
+              <button class="option" onclick="answer(this,true)">Non, elle la complète</button>
+              <button class="option" onclick="answer(this,false)">Oui, pour les élections européennes</button>
+              <button class="option" onclick="answer(this,false)">Cela dépend des pays</button>
             </div>
             <div class="q-feedback">La citoyenneté européenne « complète la citoyenneté nationale et ne la remplace pas » (article 20 du TFUE). On est d'abord citoyen de son État, puis citoyen européen.</div>
           </div>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel niveau de français est exigé pour la naturalisation ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">A1 (débutant)</div>
-              <div class="option" onclick="answer(this,false)">A2 (élémentaire)</div>
-              <div class="option" onclick="answer(this,true)">B1 (intermédiaire, oral)</div>
-              <div class="option" onclick="answer(this,false)">B2 (avancé)</div>
+              <button class="option" onclick="answer(this,false)">A1 (débutant)</button>
+              <button class="option" onclick="answer(this,false)">A2 (élémentaire)</button>
+              <button class="option" onclick="answer(this,true)">B1 (intermédiaire, oral)</button>
+              <button class="option" onclick="answer(this,false)">B2 (avancé)</button>
             </div>
             <div class="q-feedback">Le niveau B1 oral du Cadre européen commun de référence est requis. Il correspond à la capacité de s'exprimer et comprendre dans des situations courantes de la vie quotidienne.</div>
           </div>
@@ -260,8 +260,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Biologie de la conservation, plans d'action, programmes de reintroduction et restauration ecologique — les outils pour proteger le vivant.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Strategies de conservation — Biodiversite — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #80cbc4;
   --accent-dim: rgba(122,232,216,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🛡️ Biodiversite</span>
     <span class="tag-level">Intermediaire → Avance</span>
@@ -142,10 +142,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la methode de conservation consideree comme la plus efficace ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">La conservation in situ (dans le milieu naturel)</div>
-              <div class="option" onclick="answer(this,false)">La conservation ex situ (zoos, banques de graines)</div>
-              <div class="option" onclick="answer(this,false)">La cryoconservation</div>
-              <div class="option" onclick="answer(this,false)">L'elevage en captivite</div>
+              <button class="option" onclick="answer(this,true)">La conservation in situ (dans le milieu naturel)</button>
+              <button class="option" onclick="answer(this,false)">La conservation ex situ (zoos, banques de graines)</button>
+              <button class="option" onclick="answer(this,false)">La cryoconservation</button>
+              <button class="option" onclick="answer(this,false)">L'elevage en captivite</button>
             </div>
             <div class="q-feedback">La conservation in situ protege les especes dans leur habitat naturel, preservant aussi les interactions ecologiques et les processus evolutifs.</div>
           </div>
@@ -153,10 +153,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">A quoi servent les corridors ecologiques ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">A empecher les especes invasives de se propager</div>
-              <div class="option" onclick="answer(this,true)">A relier les fragments d'habitat pour permettre la circulation des especes</div>
-              <div class="option" onclick="answer(this,false)">A servir de zones tampons contre l'urbanisation</div>
-              <div class="option" onclick="answer(this,false)">A faciliter l'observation des animaux par les touristes</div>
+              <button class="option" onclick="answer(this,false)">A empecher les especes invasives de se propager</button>
+              <button class="option" onclick="answer(this,true)">A relier les fragments d'habitat pour permettre la circulation des especes</button>
+              <button class="option" onclick="answer(this,false)">A servir de zones tampons contre l'urbanisation</button>
+              <button class="option" onclick="answer(this,false)">A faciliter l'observation des animaux par les touristes</button>
             </div>
             <div class="q-feedback">Les corridors ecologiques connectent des zones d'habitat isolees, permettant aux especes de circuler et de maintenir des echanges genetiques entre populations.</div>
           </div>
@@ -164,10 +164,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Ou se trouve le Svalbard Global Seed Vault ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">En Suede</div>
-              <div class="option" onclick="answer(this,true)">En Norvege</div>
-              <div class="option" onclick="answer(this,false)">Au Canada</div>
-              <div class="option" onclick="answer(this,false)">En Russie</div>
+              <button class="option" onclick="answer(this,false)">En Suede</button>
+              <button class="option" onclick="answer(this,true)">En Norvege</button>
+              <button class="option" onclick="answer(this,false)">Au Canada</button>
+              <button class="option" onclick="answer(this,false)">En Russie</button>
             </div>
             <div class="q-feedback">La Reserve mondiale de semences du Svalbard est situee en Norvege, dans l'archipel arctique du Svalbard, et conserve plus d'un million d'echantillons de graines.</div>
           </div>
@@ -175,10 +175,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Combien d'individus le condor de Californie comptait-il en 1987 au point le plus bas ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">27</div>
-              <div class="option" onclick="answer(this,false)">100</div>
-              <div class="option" onclick="answer(this,false)">500</div>
-              <div class="option" onclick="answer(this,false)">5</div>
+              <button class="option" onclick="answer(this,true)">27</button>
+              <button class="option" onclick="answer(this,false)">100</button>
+              <button class="option" onclick="answer(this,false)">500</button>
+              <button class="option" onclick="answer(this,false)">5</button>
             </div>
             <div class="q-feedback">En 1987, il ne restait que 27 condors de Californie. Tous ont ete captures pour un programme d'elevage en captivite qui a permis de sauver l'espece.</div>
           </div>
@@ -186,10 +186,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que designe le « rewilding » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La mise en captivite d'especes menacees</div>
-              <div class="option" onclick="answer(this,false)">L'introduction d'especes exotiques</div>
-              <div class="option" onclick="answer(this,true)">Le reensauvagement a grande echelle par reintroduction d'especes cles</div>
-              <div class="option" onclick="answer(this,false)">L'interdiction de toute activite humaine</div>
+              <button class="option" onclick="answer(this,false)">La mise en captivite d'especes menacees</button>
+              <button class="option" onclick="answer(this,false)">L'introduction d'especes exotiques</button>
+              <button class="option" onclick="answer(this,true)">Le reensauvagement a grande echelle par reintroduction d'especes cles</button>
+              <button class="option" onclick="answer(this,false)">L'interdiction de toute activite humaine</button>
             </div>
             <div class="q-feedback">Le rewilding consiste a restaurer des processus ecologiques naturels en reintroduisant des especes cles (grands herbivores, predateurs, ingenieurs d'ecosystemes).</div>
           </div>
@@ -197,10 +197,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel pourcentage de la biodiversite mondiale est gere par les peuples autochtones ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">20 %</div>
-              <div class="option" onclick="answer(this,false)">50 %</div>
-              <div class="option" onclick="answer(this,true)">80 %</div>
-              <div class="option" onclick="answer(this,false)">95 %</div>
+              <button class="option" onclick="answer(this,false)">20 %</button>
+              <button class="option" onclick="answer(this,false)">50 %</button>
+              <button class="option" onclick="answer(this,true)">80 %</button>
+              <button class="option" onclick="answer(this,false)">95 %</button>
             </div>
             <div class="q-feedback">Les peuples autochtones gerent environ 80 % de la biodiversite mondiale sur leurs territoires traditionnels, malgre qu'ils ne representent que 5 % de la population humaine.</div>
           </div>
@@ -267,8 +267,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

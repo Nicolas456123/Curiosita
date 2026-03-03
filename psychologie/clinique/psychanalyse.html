@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De Freud à Lacan — l'exploration de l'inconscient, les mécanismes de défense et la cure par la parole.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Psychanalyse — Psychologie Clinique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #b07fe8; --accent2: #c9a0f0; --accent-dim: rgba(176,127,232,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(176,127,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #b07fe8; --accent2: #c9a0f0; --accent-dim: rgba(176,127,232,0.08);  --accent-hero: rgba(176,127,232,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../psychologie-page.html">Psychologie</a> › <a href="../clinique.html">Clinique</a> › <span>Psychanalyse</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">🧠 Clinique</span><span class="tag-level">Intermédiaire → Avancé</span><span class="tag-time">⏱ ~55 min</span></div>
   <h1><em>Psychanalyse</em></h1>
   <p class="hero-desc">De Freud à Lacan — l'exploration de l'inconscient, les mécanismes de défense et la cure par la parole.</p>
@@ -127,10 +127,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Dans la seconde topique de Freud, quelle instance fonctionne selon le « principe de plaisir » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Le Ça</div>
-              <div class="option" onclick="answer(this,false)">Le Moi</div>
-              <div class="option" onclick="answer(this,false)">Le Surmoi</div>
-              <div class="option" onclick="answer(this,false)">Le Préconscient</div>
+              <button class="option" onclick="answer(this,true)">Le Ça</button>
+              <button class="option" onclick="answer(this,false)">Le Moi</button>
+              <button class="option" onclick="answer(this,false)">Le Surmoi</button>
+              <button class="option" onclick="answer(this,false)">Le Préconscient</button>
             </div>
             <div class="q-feedback">Le Ça est le réservoir des pulsions et fonctionne selon le principe de plaisir : il recherche la satisfaction immédiate sans tenir compte de la réalité ni de la morale. Le Moi fonctionne selon le principe de réalité.</div>
           </div>
@@ -138,10 +138,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Le mécanisme de « projection » consiste à :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Refouler un souvenir douloureux</div>
-              <div class="option" onclick="answer(this,true)">Attribuer à autrui ses propres sentiments inacceptables</div>
-              <div class="option" onclick="answer(this,false)">Transformer une pulsion en activité socialement valorisée</div>
-              <div class="option" onclick="answer(this,false)">Justifier un comportement par des motifs rationnels</div>
+              <button class="option" onclick="answer(this,false)">Refouler un souvenir douloureux</button>
+              <button class="option" onclick="answer(this,true)">Attribuer à autrui ses propres sentiments inacceptables</button>
+              <button class="option" onclick="answer(this,false)">Transformer une pulsion en activité socialement valorisée</button>
+              <button class="option" onclick="answer(this,false)">Justifier un comportement par des motifs rationnels</button>
             </div>
             <div class="q-feedback">La projection est un mécanisme de défense par lequel on attribue à l'autre des sentiments, des désirs ou des pensées qu'on ne peut accepter en soi. Exemple : une personne jalouse accuse son partenaire de jalousie.</div>
           </div>
@@ -149,10 +149,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Selon Lacan, « l'inconscient est structuré comme » :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un ordinateur</div>
-              <div class="option" onclick="answer(this,false)">Un rêve</div>
-              <div class="option" onclick="answer(this,true)">Un langage</div>
-              <div class="option" onclick="answer(this,false)">Un mythe</div>
+              <button class="option" onclick="answer(this,false)">Un ordinateur</button>
+              <button class="option" onclick="answer(this,false)">Un rêve</button>
+              <button class="option" onclick="answer(this,true)">Un langage</button>
+              <button class="option" onclick="answer(this,false)">Un mythe</button>
             </div>
             <div class="q-feedback">Lacan a réinterprété Freud à travers la linguistique structurale de Saussure et Jakobson. Pour lui, l'inconscient est structuré comme un langage, avec ses propres lois (métaphore = condensation, métonymie = déplacement).</div>
           </div>
@@ -160,10 +160,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Le transfert en psychanalyse désigne :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le passage du patient à un autre analyste</div>
-              <div class="option" onclick="answer(this,true)">La projection sur l'analyste de sentiments liés aux figures parentales</div>
-              <div class="option" onclick="answer(this,false)">Le transfert d'argent entre patient et analyste</div>
-              <div class="option" onclick="answer(this,false)">Le transfert de techniques d'un courant à un autre</div>
+              <button class="option" onclick="answer(this,false)">Le passage du patient à un autre analyste</button>
+              <button class="option" onclick="answer(this,true)">La projection sur l'analyste de sentiments liés aux figures parentales</button>
+              <button class="option" onclick="answer(this,false)">Le transfert d'argent entre patient et analyste</button>
+              <button class="option" onclick="answer(this,false)">Le transfert de techniques d'un courant à un autre</button>
             </div>
             <div class="q-feedback">Le transfert est un phénomène central de la cure analytique : le patient revit avec l'analyste des modes relationnels anciens (amour, hostilité, dépendance) hérités des relations avec les figures parentales. L'analyse du transfert permet de prendre conscience de ces schémas répétitifs et de s'en libérer.</div>
           </div>
@@ -171,10 +171,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Dans l'interprétation des rêves selon Freud, la « condensation » désigne :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Un seul élément du rêve qui représente plusieurs pensées latentes</div>
-              <div class="option" onclick="answer(this,false)">Le raccourcissement du rêve au fil du temps</div>
-              <div class="option" onclick="answer(this,false)">La capacité à se souvenir de plus de détails du rêve</div>
-              <div class="option" onclick="answer(this,false)">La transformation du rêve en récit cohérent</div>
+              <button class="option" onclick="answer(this,true)">Un seul élément du rêve qui représente plusieurs pensées latentes</button>
+              <button class="option" onclick="answer(this,false)">Le raccourcissement du rêve au fil du temps</button>
+              <button class="option" onclick="answer(this,false)">La capacité à se souvenir de plus de détails du rêve</button>
+              <button class="option" onclick="answer(this,false)">La transformation du rêve en récit cohérent</button>
             </div>
             <div class="q-feedback">La condensation est un mécanisme du travail du rêve : plusieurs pensées latentes (désirs, souvenirs, conflits) sont fusionnées en un seul élément du contenu manifeste. Un personnage du rêve peut combiner les traits de plusieurs personnes réelles, chacune liée à un désir différent.</div>
           </div>
@@ -182,10 +182,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">La principale critique épistémologique de la psychanalyse formulée par Karl Popper concerne :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le manque de formation des analystes</div>
-              <div class="option" onclick="answer(this,false)">Le coût trop élevé des séances</div>
-              <div class="option" onclick="answer(this,true)">La non-falsifiabilité de ses hypothèses</div>
-              <div class="option" onclick="answer(this,false)">L'absence de résultats cliniques</div>
+              <button class="option" onclick="answer(this,false)">Le manque de formation des analystes</button>
+              <button class="option" onclick="answer(this,false)">Le coût trop élevé des séances</button>
+              <button class="option" onclick="answer(this,true)">La non-falsifiabilité de ses hypothèses</button>
+              <button class="option" onclick="answer(this,false)">L'absence de résultats cliniques</button>
             </div>
             <div class="q-feedback">Popper (1963) a critiqué la psychanalyse pour son manque de falsifiabilité : les théories psychanalytiques peuvent expliquer tout comportement après coup, mais ne permettent pas de prédictions réfutables. Toute objection peut être interprétée comme une « résistance » du patient, rendant la théorie irréfutable par principe.</div>
           </div>
@@ -200,8 +200,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

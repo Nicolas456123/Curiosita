@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Principe d'égalité, lutte contre les discriminations et droits des minorités dans la République française.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Égalité et non-discrimination — Droits et libertés — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a9b;
   --accent2: #f09ab5;
   --accent-dim: rgba(232,122,155,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,155,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,155,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">⚖️ Droits et libertés</span>
     <span class="tag-level">Intermédiaire</span>
@@ -134,10 +134,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Combien de critères de discrimination la loi française reconnaît-elle environ ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">10</div>
-              <div class="option" onclick="answer(this,false)">15</div>
-              <div class="option" onclick="answer(this,true)">Plus de 25</div>
-              <div class="option" onclick="answer(this,false)">5</div>
+              <button class="option" onclick="answer(this,false)">10</button>
+              <button class="option" onclick="answer(this,false)">15</button>
+              <button class="option" onclick="answer(this,true)">Plus de 25</button>
+              <button class="option" onclick="answer(this,false)">5</button>
             </div>
             <div class="q-feedback">Le Code pénal et le Code du travail reconnaissent plus de 25 critères de discrimination interdits, dont l'origine, le sexe, l'âge, le handicap, l'orientation sexuelle, les opinions politiques, l'apparence physique, etc.</div>
           </div>
@@ -145,10 +145,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'est-ce qu'une discrimination indirecte ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un traitement ouvertement défavorable</div>
-              <div class="option" onclick="answer(this,true)">Une règle neutre qui défavorise un groupe particulier</div>
-              <div class="option" onclick="answer(this,false)">Une discrimination commise par un intermédiaire</div>
-              <div class="option" onclick="answer(this,false)">Une discrimination non intentionnelle mais verbale</div>
+              <button class="option" onclick="answer(this,false)">Un traitement ouvertement défavorable</button>
+              <button class="option" onclick="answer(this,true)">Une règle neutre qui défavorise un groupe particulier</button>
+              <button class="option" onclick="answer(this,false)">Une discrimination commise par un intermédiaire</button>
+              <button class="option" onclick="answer(this,false)">Une discrimination non intentionnelle mais verbale</button>
             </div>
             <div class="q-feedback">La discrimination indirecte est une disposition ou pratique apparemment neutre mais qui, en fait, désavantage un groupe de personnes par rapport à d'autres, sans justification objective.</div>
           </div>
@@ -156,10 +156,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">En quelle année les femmes ont-elles pu ouvrir un compte bancaire sans l'accord de leur mari ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1944</div>
-              <div class="option" onclick="answer(this,false)">1958</div>
-              <div class="option" onclick="answer(this,true)">1965</div>
-              <div class="option" onclick="answer(this,false)">1975</div>
+              <button class="option" onclick="answer(this,false)">1944</button>
+              <button class="option" onclick="answer(this,false)">1958</button>
+              <button class="option" onclick="answer(this,true)">1965</button>
+              <button class="option" onclick="answer(this,false)">1975</button>
             </div>
             <div class="q-feedback">La loi du 13 juillet 1965 a réformé les régimes matrimoniaux et permis aux femmes de travailler et d'ouvrir un compte en banque sans l'autorisation de leur époux.</div>
           </div>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle est la peine maximale pour discrimination en France ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1 an et 15 000 €</div>
-              <div class="option" onclick="answer(this,true)">3 ans et 45 000 €</div>
-              <div class="option" onclick="answer(this,false)">5 ans et 75 000 €</div>
-              <div class="option" onclick="answer(this,false)">Amende uniquement</div>
+              <button class="option" onclick="answer(this,false)">1 an et 15 000 €</button>
+              <button class="option" onclick="answer(this,true)">3 ans et 45 000 €</button>
+              <button class="option" onclick="answer(this,false)">5 ans et 75 000 €</button>
+              <button class="option" onclick="answer(this,false)">Amende uniquement</button>
             </div>
             <div class="q-feedback">La discrimination est un délit pénal puni de 3 ans d'emprisonnement et 45 000 euros d'amende (articles 225-1 et suivants du Code pénal).</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle institution est chargée de lutter contre les discriminations ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le Conseil constitutionnel</div>
-              <div class="option" onclick="answer(this,true)">Le Défenseur des droits</div>
-              <div class="option" onclick="answer(this,false)">Le Conseil d'État</div>
-              <div class="option" onclick="answer(this,false)">La CNIL</div>
+              <button class="option" onclick="answer(this,false)">Le Conseil constitutionnel</button>
+              <button class="option" onclick="answer(this,true)">Le Défenseur des droits</button>
+              <button class="option" onclick="answer(this,false)">Le Conseil d'État</button>
+              <button class="option" onclick="answer(this,false)">La CNIL</button>
             </div>
             <div class="q-feedback">Le Défenseur des droits (créé en 2011) est l'autorité constitutionnelle indépendante compétente pour lutter contre les discriminations et promouvoir l'égalité.</div>
           </div>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">La loi sur la parité en politique date de :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1992</div>
-              <div class="option" onclick="answer(this,true)">2000</div>
-              <div class="option" onclick="answer(this,false)">2008</div>
-              <div class="option" onclick="answer(this,false)">2014</div>
+              <button class="option" onclick="answer(this,false)">1992</button>
+              <button class="option" onclick="answer(this,true)">2000</button>
+              <button class="option" onclick="answer(this,false)">2008</button>
+              <button class="option" onclick="answer(this,false)">2014</button>
             </div>
             <div class="q-feedback">La loi du 6 juin 2000 impose la parité entre hommes et femmes pour les candidatures aux élections. Elle a été renforcée par des lois successives (2007, 2014).</div>
           </div>
@@ -259,8 +259,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Flamenco, bharatanatyam, danse africaine, tango — les traditions chorégraphiques des cinq continents.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Danses du monde — Danse — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🌍 Danse</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -132,10 +132,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Comment appelle-t-on l'état d'intensité émotionnelle recherché dans le flamenco ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Abrazo</div>
-              <div class="option" onclick="answer(this,true)">Duende</div>
-              <div class="option" onclick="answer(this,false)">Zapateado</div>
-              <div class="option" onclick="answer(this,false)">Mudra</div>
+              <button class="option" onclick="answer(this,false)">Abrazo</button>
+              <button class="option" onclick="answer(this,true)">Duende</button>
+              <button class="option" onclick="answer(this,false)">Zapateado</button>
+              <button class="option" onclick="answer(this,false)">Mudra</button>
             </div>
             <div class="q-feedback">Le duende est l'état d'intensité émotionnelle brute recherché dans le flamenco, un moment de grâce où l'artiste transcende la technique.</div>
           </div>
@@ -143,10 +143,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Comment appelle-t-on les gestes codifiés des mains dans le bharatanatyam ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Nritta</div>
-              <div class="option" onclick="answer(this,true)">Mudras</div>
-              <div class="option" onclick="answer(this,false)">Palos</div>
-              <div class="option" onclick="answer(this,false)">Chakkars</div>
+              <button class="option" onclick="answer(this,false)">Nritta</button>
+              <button class="option" onclick="answer(this,true)">Mudras</button>
+              <button class="option" onclick="answer(this,false)">Palos</button>
+              <button class="option" onclick="answer(this,false)">Chakkars</button>
             </div>
             <div class="q-feedback">Les mudras sont les gestes codifiés des mains dans la danse classique indienne. Chaque mudra porte une signification précise permettant de raconter des histoires mythologiques.</div>
           </div>
@@ -154,10 +154,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel instrument est emblématique du tango argentin ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La guitare flamenca</div>
-              <div class="option" onclick="answer(this,false)">Le djembé</div>
-              <div class="option" onclick="answer(this,true)">Le bandonéon</div>
-              <div class="option" onclick="answer(this,false)">Le sitar</div>
+              <button class="option" onclick="answer(this,false)">La guitare flamenca</button>
+              <button class="option" onclick="answer(this,false)">Le djembé</button>
+              <button class="option" onclick="answer(this,true)">Le bandonéon</button>
+              <button class="option" onclick="answer(this,false)">Le sitar</button>
             </div>
             <div class="q-feedback">Le bandonéon, instrument à anches libres d'origine allemande, est devenu l'instrument emblématique du tango argentin grâce à des musiciens comme Astor Piazzolla.</div>
           </div>
@@ -165,10 +165,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle caractéristique corporelle distingue les danses africaines traditionnelles ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La verticalité et les pointes</div>
-              <div class="option" onclick="answer(this,true)">L'ancrage au sol et la polyrythmie</div>
-              <div class="option" onclick="answer(this,false)">Les tours rapides</div>
-              <div class="option" onclick="answer(this,false)">L'immobilité expressive</div>
+              <button class="option" onclick="answer(this,false)">La verticalité et les pointes</button>
+              <button class="option" onclick="answer(this,true)">L'ancrage au sol et la polyrythmie</button>
+              <button class="option" onclick="answer(this,false)">Les tours rapides</button>
+              <button class="option" onclick="answer(this,false)">L'immobilité expressive</button>
             </div>
             <div class="q-feedback">Les danses africaines se caractérisent par l'ancrage au sol (genoux fléchis, centre de gravité bas) et la polyrythmie (chaque partie du corps suit un rythme différent).</div>
           </div>
@@ -176,10 +176,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Depuis quelle année le flamenco est-il inscrit au patrimoine de l'UNESCO ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">2003</div>
-              <div class="option" onclick="answer(this,false)">2005</div>
-              <div class="option" onclick="answer(this,true)">2010</div>
-              <div class="option" onclick="answer(this,false)">2015</div>
+              <button class="option" onclick="answer(this,false)">2003</button>
+              <button class="option" onclick="answer(this,false)">2005</button>
+              <button class="option" onclick="answer(this,true)">2010</button>
+              <button class="option" onclick="answer(this,false)">2015</button>
             </div>
             <div class="q-feedback">Le flamenco a été inscrit au patrimoine culturel immatériel de l'UNESCO en 2010, reconnaissance de son importance culturelle universelle.</div>
           </div>
@@ -187,10 +187,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Dans quel quartier de New York le breaking est-il né ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Manhattan</div>
-              <div class="option" onclick="answer(this,true)">Le Bronx</div>
-              <div class="option" onclick="answer(this,false)">Brooklyn</div>
-              <div class="option" onclick="answer(this,false)">Harlem</div>
+              <button class="option" onclick="answer(this,false)">Manhattan</button>
+              <button class="option" onclick="answer(this,true)">Le Bronx</button>
+              <button class="option" onclick="answer(this,false)">Brooklyn</button>
+              <button class="option" onclick="answer(this,false)">Harlem</button>
             </div>
             <div class="q-feedback">Le breaking est né dans le Bronx à New York dans les années 1970, au sein de la culture hip-hop. Il est devenu discipline olympique en 2024.</div>
           </div>
@@ -257,8 +257,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

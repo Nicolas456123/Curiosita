@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De la Renaissance à l'art contemporain, l'histoire de l'art est un voyage à travers les façons dont l'humanité a donné forme à sa vision du monde....">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Arts & Création — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #e87a7a;
   --accent2: #f5a0a0;
   --accent-dim: rgba(232,122,122,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(232,122,122,0.07) 0%, transparent 70%); }
+ --accent-hero: rgba(232,122,122,0.07); }
 .hero-deco { color: rgba(232,122,122,0.04); }
 </style>
 </head>
@@ -22,7 +23,7 @@
   <div class="breadcrumb"><a href="arts-culture.html">Arts & Culture</a> › <span>Arts visuels</span></div>
   <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
 </nav>
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">✦</div>
   <div class="hero-meta">
     <span class="tag-domain">🎨 Arts & Culture</span>
@@ -140,90 +141,87 @@
       <div class="quiz-container">
         <div class="quiz-header">
           <span class="quiz-title-text">Quiz — Histoire de l'art</span>
-          <span class="quiz-score">Score : <span id="quizScore">0</span>/6</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span>/6</span>
         </div>
-        <div class="quiz-body">
+        <div class="quiz-body" id="quizBody">
           <div class="question-block active" id="q0">
             <div class="q-num">Question 1 / 6</div>
             <div class="q-text">Qui a peint la Joconde (vers 1503-1519) ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(0,0)">Michel-Ange</div>
-              <div class="option" onclick="selectOption(0,1)">Raphaël</div>
-              <div class="option" onclick="selectOption(0,2)">Léonard de Vinci</div>
-              <div class="option" onclick="selectOption(0,3)">Botticelli</div>
+              <button class="option" onclick="answer(this,false)">Michel-Ange</button>
+              <button class="option" onclick="answer(this,false)">Raphaël</button>
+              <button class="option" onclick="answer(this,true)">Léonard de Vinci</button>
+              <button class="option" onclick="answer(this,false)">Botticelli</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Léonard de Vinci (1452-1519) a peint la Joconde (Lisa Gherardini, épouse de Francesco del Giocondo) entre 1503 et 1519. Le tableau est célèbre pour le mystère du sourire et la technique du sfumato qui rend les contours imperceptibles.</div>
           </div>
           <div class="question-block" id="q1">
             <div class="q-num">Question 2 / 6</div>
             <div class="q-text">Quel mouvement artistique est caractérisé par la représentation de l'instant et de la lumière, refusé par le Salon officiel ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(1,0)">Le Baroque</div>
-              <div class="option" onclick="selectOption(1,1)">L'Impressionnisme</div>
-              <div class="option" onclick="selectOption(1,2)">Le Classicisme</div>
-              <div class="option" onclick="selectOption(1,3)">Le Réalisme</div>
+              <button class="option" onclick="answer(this,false)">Le Baroque</button>
+              <button class="option" onclick="answer(this,true)">L'Impressionnisme</button>
+              <button class="option" onclick="answer(this,false)">Le Classicisme</button>
+              <button class="option" onclick="answer(this,false)">Le Réalisme</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">L'Impressionnisme (1860-1900) révolutionna la peinture en cherchant à capturer l'impression visuelle fugace plutôt que la réalité détaillée. Monet, Renoir, Degas et Pissarro furent refusés au Salon officiel et exposèrent au «Salon des Refusés» (1863), puis dans leur propre exposition (1874).</div>
           </div>
           <div class="question-block" id="q2">
             <div class="q-num">Question 3 / 6</div>
             <div class="q-text">Qu'est-ce que le "clair-obscur" (chiaroscuro) ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(2,0)">Une technique de sculpture en bas-relief</div>
-              <div class="option" onclick="selectOption(2,1)">Un contraste dramatique entre lumière et ombre dans la peinture</div>
-              <div class="option" onclick="selectOption(2,2)">Une méthode de dorure sur fond sombre</div>
-              <div class="option" onclick="selectOption(2,3)">Un style architectural baroque</div>
+              <button class="option" onclick="answer(this,false)">Une technique de sculpture en bas-relief</button>
+              <button class="option" onclick="answer(this,true)">Un contraste dramatique entre lumière et ombre dans la peinture</button>
+              <button class="option" onclick="answer(this,false)">Une méthode de dorure sur fond sombre</button>
+              <button class="option" onclick="answer(this,false)">Un style architectural baroque</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le clair-obscur (chiaroscuro en italien) est l'utilisation de forts contrastes entre zones très éclairées et zones très sombres pour créer du volume, du dramatisme et de la profondeur. Caravage en fut le maître absolu au XVIIe s., suivi par Rembrandt.</div>
           </div>
           <div class="question-block" id="q3">
             <div class="q-num">Question 4 / 6</div>
             <div class="q-text">Pablo Picasso est le co-fondateur de quel mouvement avant-gardiste ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(3,0)">Le Surréalisme</div>
-              <div class="option" onclick="selectOption(3,1)">Le Dadaïsme</div>
-              <div class="option" onclick="selectOption(3,2)">Le Cubisme</div>
-              <div class="option" onclick="selectOption(3,3)">L'Expressionnisme</div>
+              <button class="option" onclick="answer(this,false)">Le Surréalisme</button>
+              <button class="option" onclick="answer(this,false)">Le Dadaïsme</button>
+              <button class="option" onclick="answer(this,true)">Le Cubisme</button>
+              <button class="option" onclick="answer(this,false)">L'Expressionnisme</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le Cubisme (1907-1920) fut co-fondé par Pablo Picasso et Georges Braque. Il révolutionna la représentation en montrant simultanément plusieurs points de vue d'un même objet. «Les Demoiselles d'Avignon» (1907) en est l'œuvre fondatrice.</div>
           </div>
           <div class="question-block" id="q4">
             <div class="q-num">Question 5 / 6</div>
             <div class="q-text">Quelle œuvre de Marcel Duchamp est considérée comme la fondatrice de l'art conceptuel ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(4,0)">Les Demoiselles d'Avignon</div>
-              <div class="option" onclick="selectOption(4,1)">La Fontaine (urinoir signé R. Mutt, 1917)</div>
-              <div class="option" onclick="selectOption(4,2)">Le Cri (Munch, 1893)</div>
-              <div class="option" onclick="selectOption(4,3)">Campbell's Soup Cans (Warhol)</div>
+              <button class="option" onclick="answer(this,false)">Les Demoiselles d'Avignon</button>
+              <button class="option" onclick="answer(this,true)">La Fontaine (urinoir signé R. Mutt, 1917)</button>
+              <button class="option" onclick="answer(this,false)">Le Cri (Munch, 1893)</button>
+              <button class="option" onclick="answer(this,false)">Campbell's Soup Cans (Warhol)</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">«La Fontaine» de Marcel Duchamp (1917) — un urinoir retourné signé «R. Mutt» — est l'œuvre fondatrice du readymade et de l'art conceptuel. Elle pose la question fondamentale : qu'est-ce que l'art ? L'idée (le concept) prime sur l'exécution.</div>
           </div>
           <div class="question-block" id="q5">
             <div class="q-num">Question 6 / 6</div>
             <div class="q-text">La technique du "sfumato", caractérisée par des contours flous et des transitions imperceptibles, est associée à quel artiste ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(5,0)">Caravage</div>
-              <div class="option" onclick="selectOption(5,1)">Rembrandt</div>
-              <div class="option" onclick="selectOption(5,2)">Léonard de Vinci</div>
-              <div class="option" onclick="selectOption(5,3)">Vermeer</div>
+              <button class="option" onclick="answer(this,false)">Caravage</button>
+              <button class="option" onclick="answer(this,false)">Rembrandt</button>
+              <button class="option" onclick="answer(this,true)">Léonard de Vinci</button>
+              <button class="option" onclick="answer(this,false)">Vermeer</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le sfumato (de l'italien sfumare = s'estomper) est une technique inventée par Léonard de Vinci : les contours sont fondus, sans trait net, créant un effet de brume atmosphérique. La Joconde en est l'exemple parfait : les limites du visage se fondent imperceptiblement dans le fond.</div>
           </div>
         </div>
         <div class="quiz-nav">
-          <div class="q-dots">
-            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-          </div>
+          <div class="q-dots" id="qDots"></div>
           <div style="display:flex;gap:.8rem">
-            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
-            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQ()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQ()" disabled>Suivant →</button>
           </div>
         </div>
-        <div class="quiz-result">
-          <div class="result-score-big" id="finalScore"></div>
-          <div class="result-msg" id="finalMsg"></div>
-          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore"></div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
         </div>
       </div>
     </section>
@@ -334,31 +332,16 @@
     </section>
   </main>
 </div>
-<script>
-const questions=[
-  {q:"Qui a peint la Joconde (vers 1503-1519) ?",opts:["Michel-Ange","Raphaël","Léonard de Vinci","Botticelli"],ans:2,expl:"Léonard de Vinci (1452-1519) a peint la Joconde (Lisa Gherardini, épouse de Francesco del Giocondo) entre 1503 et 1519. Le tableau est célèbre pour le mystère du sourire et la technique du sfumato qui rend les contours imperceptibles."},
-  {q:"Quel mouvement est caractérisé par la capture de l'instant et de la lumière ?",opts:["Le Baroque","L'Impressionnisme","Le Classicisme","Le Réalisme"],ans:1,expl:"L'Impressionnisme (1860-1900) révolutionna la peinture en cherchant à capturer l'impression visuelle fugace plutôt que la réalité détaillée. Monet, Renoir, Degas et Pissarro furent refusés au Salon officiel et exposèrent au «Salon des Refusés» (1863), puis dans leur propre exposition (1874)."},
-  {q:"Qu'est-ce que le «clair-obscur» ?",opts:["Une technique de sculpture","Un contraste dramatique lumière/ombre","Une méthode de dorure","Un style architectural"],ans:1,expl:"Le clair-obscur (chiaroscuro en italien) est l'utilisation de forts contrastes entre zones très éclairées et zones très sombres pour créer du volume, du dramatisme et de la profondeur. Caravage en fut le maître absolu au XVIIe s., suivi par Rembrandt."},
-  {q:"Pablo Picasso co-fonda quel mouvement ?",opts:["Le Surréalisme","Le Dadaïsme","Le Cubisme","L'Expressionnisme"],ans:2,expl:"Le Cubisme (1907-1920) fut co-fondé par Pablo Picasso et Georges Braque. Il révolutionna la représentation en montrant simultanément plusieurs points de vue d'un même objet. «Les Demoiselles d'Avignon» (1907) en est l'œuvre fondatrice."},
-  {q:"Quelle œuvre fonda l'art conceptuel ?",opts:["Les Demoiselles d'Avignon","La Fontaine de Duchamp (1917)","Le Cri de Munch","Campbell's Soup Cans"],ans:1,expl:"«La Fontaine» de Marcel Duchamp (1917) — un urinoir retourné signé «R. Mutt» — est l'œuvre fondatrice du readymade et de l'art conceptuel. Elle pose la question fondamentale : qu'est-ce que l'art ? L'idée (le concept) prime sur l'exécution."},
-  {q:"Le «sfumato» est une technique de...",opts:["Caravage","Rembrandt","Léonard de Vinci","Vermeer"],ans:2,expl:"Le sfumato (de l'italien sfumare = s'estomper) est une technique inventée par Léonard de Vinci : les contours sont fondus, sans trait net, créant un effet de brume atmosphérique. La Joconde en est l'exemple parfait : les limites du visage se fondent imperceptiblement dans le fond."}
-];
-let current=0,score=0,answered=new Array(6).fill(null);
-function renderQuestion(){document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});document.getElementById('btnPrev').disabled=current===0;document.getElementById('btnNext').textContent=current===5?'Voir résultats':'Suivant →';}
-function selectOption(qi,oi){if(answered[qi]!==null)return;answered[qi]=oi;const block=document.querySelectorAll('.question-block')[qi];block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');}
-function nextQuestion(){if(current<5){current++;renderQuestion();}else showResult();}
-function prevQuestion(){if(current>0){current--;renderQuestion();}}
-function showResult(){document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';const r=document.querySelector('.quiz-result');r.style.display='block';document.getElementById('finalScore').textContent=score+'/6';document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Très bien !','Excellent !'][score<=2?0:score<=4?1:score<=5?2:3];}
-function restartQuiz(){current=0;score=0;answered.fill(null);document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');document.getElementById('quizScore').textContent=0;renderQuestion();}
-function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
-// Scroll spy
-(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
-const sections=['resume','mouvements','concepts','quiz','ressources','memo'];
-window.addEventListener('scroll',()=>{let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';});
-function downloadMemo(){const w=window.open('','_blank','width=900,height=700');w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Arts</title><style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#c0392b;border-bottom:3px solid #c0392b;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#c0392b;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #f5c6c6;padding:1rem;border-radius:4px;background:#fff9f9}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style></head><body><h1>🎨 Fiche mémo — Arts & Création</h1><div class="grid"><div class="box"><h2>Mouvements & artistes</h2><ul><li><strong>Renaissance</strong> — Vinci, Michel-Ange, Raphaël</li><li><strong>Baroque</strong> — Caravage, Rembrandt, Rubens</li><li><strong>Romantisme</strong> — Delacroix, Goya, Turner</li><li><strong>Impressionnisme</strong> — Monet, Renoir, Degas</li><li><strong>Cubisme</strong> — Picasso, Braque</li><li><strong>Surréalisme</strong> — Dalí, Magritte</li><li><strong>Pop Art</strong> — Warhol, Lichtenstein</li></ul></div><div class="box"><h2>Œuvres incontournables</h2><ul><li>Joconde — Léonard de Vinci (1503-1519)</li><li>Sixtine — Michel-Ange (1508-1512)</li><li>Nymphéas — Monet (1906-1926)</li><li>Guernica — Picasso (1937)</li><li>Le Cri — Munch (1893)</li><li>Fontaine — Duchamp (1917)</li><li>Campbell's Soup — Warhol (1962)</li></ul></div><div class="box"><h2>Techniques</h2><ul><li>Sfumato → contours flous (Léonard)</li><li>Clair-obscur → lumière/ombre</li><li>Perspective → point de fuite</li><li>Impasto → pâte épaisse (Van Gogh)</li><li>Pointillisme → petits points (Seurat)</li><li>Collage → assemblage (Braque)</li></ul></div><div class="box"><h2>Éléments de composition</h2><ul><li>Règle des tiers (grille 3×3)</li><li>Lignes directrices (guide le regard)</li><li>Équilibre symétrique / asymétrique</li><li>Couleurs complémentaires → contraste</li><li>Profondeur → plans successifs</li></ul></div></div><div class="footer">Curiosita — Fiche mémo Arts & Création — ${new Date().toLocaleDateString('fr-FR')}</div><button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#c0392b;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">🖨️ Imprimer / PDF</button>
-</body></html>`);w.document.close();}
-renderQuestion();
-</script>
-    <script src="mobile.js?v=2"></script>
+
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

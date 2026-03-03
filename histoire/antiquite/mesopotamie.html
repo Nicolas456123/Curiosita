@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Berceau de la civilisation : l'écriture, les premières cités-États, le code de Hammurabi et les empires du Croissant fertile.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Mésopotamie — Antiquité — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📜 Antiquité</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -145,10 +145,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle invention majeure apparaît en Mésopotamie vers 3300 av. J.-C. ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La roue</div>
-              <div class="option" onclick="answer(this,true)">L'écriture cunéiforme</div>
-              <div class="option" onclick="answer(this,false)">La monnaie</div>
-              <div class="option" onclick="answer(this,false)">L'alphabet</div>
+              <button class="option" onclick="answer(this,false)">La roue</button>
+              <button class="option" onclick="answer(this,true)">L'écriture cunéiforme</button>
+              <button class="option" onclick="answer(this,false)">La monnaie</button>
+              <button class="option" onclick="answer(this,false)">L'alphabet</button>
             </div>
             <div class="q-feedback">L'écriture cunéiforme apparaît à Uruk vers 3300 av. J.-C. pour comptabiliser les échanges. C'est le passage de la Préhistoire à l'Histoire.</div>
           </div>
@@ -156,10 +156,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel roi est associé au premier code de lois écrit célèbre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Sargon d'Akkad</div>
-              <div class="option" onclick="answer(this,false)">Gilgamesh</div>
-              <div class="option" onclick="answer(this,true)">Hammurabi</div>
-              <div class="option" onclick="answer(this,false)">Nabuchodonosor II</div>
+              <button class="option" onclick="answer(this,false)">Sargon d'Akkad</button>
+              <button class="option" onclick="answer(this,false)">Gilgamesh</button>
+              <button class="option" onclick="answer(this,true)">Hammurabi</button>
+              <button class="option" onclick="answer(this,false)">Nabuchodonosor II</button>
             </div>
             <div class="q-feedback">Hammurabi, roi de Babylone (~1792-1750 av. J.-C.), fait graver 282 lois sur une stèle de basalte — le Code de Hammurabi.</div>
           </div>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qui conquiert Babylone en 539 av. J.-C., mettant fin à l'Empire néo-babylonien ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Alexandre le Grand</div>
-              <div class="option" onclick="answer(this,false)">Assurbanipal</div>
-              <div class="option" onclick="answer(this,false)">Ramsès II</div>
-              <div class="option" onclick="answer(this,true)">Cyrus le Grand</div>
+              <button class="option" onclick="answer(this,false)">Alexandre le Grand</button>
+              <button class="option" onclick="answer(this,false)">Assurbanipal</button>
+              <button class="option" onclick="answer(this,false)">Ramsès II</button>
+              <button class="option" onclick="answer(this,true)">Cyrus le Grand</button>
             </div>
             <div class="q-feedback">Cyrus le Grand, fondateur de l'Empire perse achéménide, conquiert Babylone en 539 av. J.-C. sans combat, selon les sources anciennes.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel roi fonde le premier empire connu de l'histoire vers 2334 av. J.-C. ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Sargon d'Akkad</div>
-              <div class="option" onclick="answer(this,false)">Ur-Nammu</div>
-              <div class="option" onclick="answer(this,false)">Hammurabi</div>
-              <div class="option" onclick="answer(this,false)">Gilgamesh</div>
+              <button class="option" onclick="answer(this,true)">Sargon d'Akkad</button>
+              <button class="option" onclick="answer(this,false)">Ur-Nammu</button>
+              <button class="option" onclick="answer(this,false)">Hammurabi</button>
+              <button class="option" onclick="answer(this,false)">Gilgamesh</button>
             </div>
             <div class="q-feedback">Sargon d'Akkad unifie les cités-États sumériennes vers 2334 av. J.-C. et crée le premier empire connu, s'étendant du golfe Persique à la Méditerranée.</div>
           </div>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel roi assyrien crée la première grande bibliothèque de l'histoire à Ninive ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Tiglath-Pileser III</div>
-              <div class="option" onclick="answer(this,false)">Sennachérib</div>
-              <div class="option" onclick="answer(this,true)">Assurbanipal</div>
-              <div class="option" onclick="answer(this,false)">Sargon II</div>
+              <button class="option" onclick="answer(this,false)">Tiglath-Pileser III</button>
+              <button class="option" onclick="answer(this,false)">Sennachérib</button>
+              <button class="option" onclick="answer(this,true)">Assurbanipal</button>
+              <button class="option" onclick="answer(this,false)">Sargon II</button>
             </div>
             <div class="q-feedback">Assurbanipal (~668-627 av. J.-C.) rassemble à Ninive des milliers de tablettes cunéiformes, créant la première grande bibliothèque de l'histoire.</div>
           </div>
@@ -200,10 +200,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel système de numération les Sumériens utilisaient-ils, dont nous héritons encore aujourd'hui ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Base 10 (décimal)</div>
-              <div class="option" onclick="answer(this,false)">Base 12 (duodécimal)</div>
-              <div class="option" onclick="answer(this,true)">Base 60 (sexagésimal)</div>
-              <div class="option" onclick="answer(this,false)">Base 20 (vigésimal)</div>
+              <button class="option" onclick="answer(this,false)">Base 10 (décimal)</button>
+              <button class="option" onclick="answer(this,false)">Base 12 (duodécimal)</button>
+              <button class="option" onclick="answer(this,true)">Base 60 (sexagésimal)</button>
+              <button class="option" onclick="answer(this,false)">Base 20 (vigésimal)</button>
             </div>
             <div class="q-feedback">Les Sumériens utilisaient le système sexagésimal (base 60), dont nous héritons les 60 minutes, 60 secondes et les 360 degrés du cercle.</div>
           </div>
@@ -262,8 +262,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

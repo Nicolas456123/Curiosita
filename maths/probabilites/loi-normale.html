@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La courbe en cloche de Gauss est omniprésente en sciences : du théorème central limite aux intervalles de confiance, elle est la loi fondamentale des...">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Loi normale — Probabilités — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #c0392b;
   --accent2: #e74c3c;
   --accent-dim: rgba(192,57,43,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(192,57,43,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎲 Probabilités</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -191,10 +191,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Pour une loi N(0,1), quelle est la probabilité P(Z ≤ 0) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">0</div>
-              <div class="option" onclick="answer(this,true)">0,5</div>
-              <div class="option" onclick="answer(this,false)">1</div>
-              <div class="option" onclick="answer(this,false)">0,68</div>
+              <button class="option" onclick="answer(this,false)">0</button>
+              <button class="option" onclick="answer(this,true)">0,5</button>
+              <button class="option" onclick="answer(this,false)">1</button>
+              <button class="option" onclick="answer(this,false)">0,68</button>
             </div>
             <div class="q-feedback">Par symétrie de la loi N(0,1) autour de 0, P(Z ≤ 0) = 0,5. La moitié de la distribution se trouve de chaque côté de la moyenne.</div>
           </div>
@@ -202,10 +202,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Selon la règle empirique, quelle proportion des valeurs se trouve dans l'intervalle [μ-2σ, μ+2σ] ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">68,3%</div>
-              <div class="option" onclick="answer(this,true)">95,4%</div>
-              <div class="option" onclick="answer(this,false)">99,7%</div>
-              <div class="option" onclick="answer(this,false)">50%</div>
+              <button class="option" onclick="answer(this,false)">68,3%</button>
+              <button class="option" onclick="answer(this,true)">95,4%</button>
+              <button class="option" onclick="answer(this,false)">99,7%</button>
+              <button class="option" onclick="answer(this,false)">50%</button>
             </div>
             <div class="q-feedback">C'est la règle des 68-95-99,7 : environ 68% à 1σ, 95% à 2σ, et 99,7% à 3σ de la moyenne.</div>
           </div>
@@ -213,10 +213,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Si X ~ N(100, 25), que vaut σ (l'écart-type) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">5</div>
-              <div class="option" onclick="answer(this,false)">25</div>
-              <div class="option" onclick="answer(this,false)">100</div>
-              <div class="option" onclick="answer(this,false)">√100 = 10</div>
+              <button class="option" onclick="answer(this,true)">5</button>
+              <button class="option" onclick="answer(this,false)">25</button>
+              <button class="option" onclick="answer(this,false)">100</button>
+              <button class="option" onclick="answer(this,false)">√100 = 10</button>
             </div>
             <div class="q-feedback">Dans N(μ, σ²), le deuxième paramètre est la variance σ² = 25. Donc σ = √25 = 5. Attention : 25 est la variance, pas l'écart-type.</div>
           </div>
@@ -224,10 +224,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Pour standardiser X ~ N(μ, σ²), on utilise la transformation :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Z = X × σ + μ</div>
-              <div class="option" onclick="answer(this,false)">Z = (X + μ) × σ</div>
-              <div class="option" onclick="answer(this,true)">Z = (X - μ) / σ</div>
-              <div class="option" onclick="answer(this,false)">Z = X / (μ × σ)</div>
+              <button class="option" onclick="answer(this,false)">Z = X × σ + μ</button>
+              <button class="option" onclick="answer(this,false)">Z = (X + μ) × σ</button>
+              <button class="option" onclick="answer(this,true)">Z = (X - μ) / σ</button>
+              <button class="option" onclick="answer(this,false)">Z = X / (μ × σ)</button>
             </div>
             <div class="q-feedback">La standardisation Z = (X - μ)/σ soustrait la moyenne (centrage) puis divise par l'écart-type (réduction). Le résultat Z suit N(0,1).</div>
           </div>
@@ -235,10 +235,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Le théorème central limite s'applique lorsque :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les variables suivent une loi normale</div>
-              <div class="option" onclick="answer(this,false)">n = 2 suffit toujours</div>
-              <div class="option" onclick="answer(this,true)">n est suffisamment grand (≥ 30 en pratique)</div>
-              <div class="option" onclick="answer(this,false)">Les variables ont une variance infinie</div>
+              <button class="option" onclick="answer(this,false)">Les variables suivent une loi normale</button>
+              <button class="option" onclick="answer(this,false)">n = 2 suffit toujours</button>
+              <button class="option" onclick="answer(this,true)">n est suffisamment grand (≥ 30 en pratique)</button>
+              <button class="option" onclick="answer(this,false)">Les variables ont une variance infinie</button>
             </div>
             <div class="q-feedback">Le TCL nécessite un grand nombre de variables (n ≥ 30 en pratique) indépendantes et de même loi, avec variance finie. La loi de départ n'a pas besoin d'être normale.</div>
           </div>
@@ -246,10 +246,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Pour un IC à 95%, le quantile z_{α/2} vaut :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1,645</div>
-              <div class="option" onclick="answer(this,true)">1,96</div>
-              <div class="option" onclick="answer(this,false)">2,576</div>
-              <div class="option" onclick="answer(this,false)">2,33</div>
+              <button class="option" onclick="answer(this,false)">1,645</button>
+              <button class="option" onclick="answer(this,true)">1,96</button>
+              <button class="option" onclick="answer(this,false)">2,576</button>
+              <button class="option" onclick="answer(this,false)">2,33</button>
             </div>
             <div class="q-feedback">Pour un IC à 95%, α = 0,05, α/2 = 0,025, et z₀,₀₂₅ = 1,96. Les valeurs 1,645 et 2,576 correspondent respectivement aux niveaux 90% et 99%.</div>
           </div>
@@ -322,8 +322,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

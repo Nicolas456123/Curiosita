@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Organiser son code avec import, __init__.py, pip, les environnements virtuels et une structure de projet professionnelle.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Modules et packages — Python avancé — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #27ae60;
   --accent2: #2ecc71;
   --accent-dim: rgba(39,174,96,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(39,174,96,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(39,174,96,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🐍 Python avancé</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -368,10 +368,10 @@ demain = maintenant + timedelta(days=<span class="num">1</span>)
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel fichier fait d'un dossier un package Python ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">__main__.py</div>
-              <div class="option" onclick="answer(this,true)">__init__.py</div>
-              <div class="option" onclick="answer(this,false)">setup.py</div>
-              <div class="option" onclick="answer(this,false)">package.json</div>
+              <button class="option" onclick="answer(this,false)">__main__.py</button>
+              <button class="option" onclick="answer(this,true)">__init__.py</button>
+              <button class="option" onclick="answer(this,false)">setup.py</button>
+              <button class="option" onclick="answer(this,false)">package.json</button>
             </div>
             <div class="q-feedback">Le fichier <code>__init__.py</code> (même vide) indique à Python que le dossier est un package. Il est exécuté lors de l'import du package.</div>
           </div>
@@ -379,10 +379,10 @@ demain = maintenant + timedelta(days=<span class="num">1</span>)
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que signifie <code>if __name__ == "__main__":</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le code s'exécute uniquement lors d'un import</div>
-              <div class="option" onclick="answer(this,true)">Le code s'exécute uniquement quand le fichier est lancé directement</div>
-              <div class="option" onclick="answer(this,false)">Le code est la fonction principale du module</div>
-              <div class="option" onclick="answer(this,false)">Le code doit être exécuté en premier</div>
+              <button class="option" onclick="answer(this,false)">Le code s'exécute uniquement lors d'un import</button>
+              <button class="option" onclick="answer(this,true)">Le code s'exécute uniquement quand le fichier est lancé directement</button>
+              <button class="option" onclick="answer(this,false)">Le code est la fonction principale du module</button>
+              <button class="option" onclick="answer(this,false)">Le code doit être exécuté en premier</button>
             </div>
             <div class="q-feedback">Quand on exécute un fichier directement, <code>__name__</code> vaut <code>"__main__"</code>. Quand il est importé, <code>__name__</code> vaut le nom du module. Ce garde empêche l'exécution du code de test lors d'un import.</div>
           </div>
@@ -390,10 +390,10 @@ demain = maintenant + timedelta(days=<span class="num">1</span>)
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Pourquoi éviter <code>from module import *</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">C'est une erreur de syntaxe en Python 3</div>
-              <div class="option" onclick="answer(this,false)">Cela ralentit l'exécution du programme</div>
-              <div class="option" onclick="answer(this,true)">Cela pollue le namespace et peut écraser des noms existants</div>
-              <div class="option" onclick="answer(this,false)">Cela importe aussi les fichiers de test</div>
+              <button class="option" onclick="answer(this,false)">C'est une erreur de syntaxe en Python 3</button>
+              <button class="option" onclick="answer(this,false)">Cela ralentit l'exécution du programme</button>
+              <button class="option" onclick="answer(this,true)">Cela pollue le namespace et peut écraser des noms existants</button>
+              <button class="option" onclick="answer(this,false)">Cela importe aussi les fichiers de test</button>
             </div>
             <div class="q-feedback"><code>from module import *</code> importe tous les noms publics dans l'espace courant. Cela rend le code difficile à comprendre (d'où vient tel nom ?) et peut écraser des variables existantes.</div>
           </div>
@@ -401,10 +401,10 @@ demain = maintenant + timedelta(days=<span class="num">1</span>)
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle commande crée un environnement virtuel ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">pip create venv</div>
-              <div class="option" onclick="answer(this,false)">python --venv mon_env</div>
-              <div class="option" onclick="answer(this,true)">python -m venv mon_env</div>
-              <div class="option" onclick="answer(this,false)">virtualenv --create mon_env</div>
+              <button class="option" onclick="answer(this,false)">pip create venv</button>
+              <button class="option" onclick="answer(this,false)">python --venv mon_env</button>
+              <button class="option" onclick="answer(this,true)">python -m venv mon_env</button>
+              <button class="option" onclick="answer(this,false)">virtualenv --create mon_env</button>
             </div>
             <div class="q-feedback"><code>python -m venv mon_env</code> utilise le module <code>venv</code> intégré à Python 3 pour créer un environnement virtuel dans le dossier <code>mon_env</code>.</div>
           </div>
@@ -412,10 +412,10 @@ demain = maintenant + timedelta(days=<span class="num">1</span>)
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que fait <code>pip freeze > requirements.txt</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Gèle les packages pour empêcher les mises à jour</div>
-              <div class="option" onclick="answer(this,true)">Sauvegarde la liste des packages installés avec leurs versions exactes</div>
-              <div class="option" onclick="answer(this,false)">Installe les packages listés dans requirements.txt</div>
-              <div class="option" onclick="answer(this,false)">Supprime les packages inutilisés</div>
+              <button class="option" onclick="answer(this,false)">Gèle les packages pour empêcher les mises à jour</button>
+              <button class="option" onclick="answer(this,true)">Sauvegarde la liste des packages installés avec leurs versions exactes</button>
+              <button class="option" onclick="answer(this,false)">Installe les packages listés dans requirements.txt</button>
+              <button class="option" onclick="answer(this,false)">Supprime les packages inutilisés</button>
             </div>
             <div class="q-feedback"><code>pip freeze</code> affiche tous les packages installés avec leurs versions exactes. Le <code>> requirements.txt</code> redirige cette liste vers un fichier, permettant de reproduire l'environnement ailleurs.</div>
           </div>
@@ -423,10 +423,10 @@ demain = maintenant + timedelta(days=<span class="num">1</span>)
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que signifie un import relatif comme <code>from .utils import helper</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Importe depuis le package courant (même dossier)</div>
-              <div class="option" onclick="answer(this,false)">Importe depuis le dossier parent</div>
-              <div class="option" onclick="answer(this,false)">Importe un fichier caché (.utils)</div>
-              <div class="option" onclick="answer(this,false)">Importe une version spéciale du module</div>
+              <button class="option" onclick="answer(this,true)">Importe depuis le package courant (même dossier)</button>
+              <button class="option" onclick="answer(this,false)">Importe depuis le dossier parent</button>
+              <button class="option" onclick="answer(this,false)">Importe un fichier caché (.utils)</button>
+              <button class="option" onclick="answer(this,false)">Importe une version spéciale du module</button>
             </div>
             <div class="q-feedback">Le point <code>.</code> désigne le package courant. <code>from .utils</code> importe le module <code>utils</code> situé dans le même package. Deux points <code>..</code> remonteraient au package parent.</div>
           </div>
@@ -682,8 +682,14 @@ print(f"Produit (lambda) = {produit}")  # 120</code></pre></div>
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

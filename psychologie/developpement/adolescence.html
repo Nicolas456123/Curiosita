@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Puberté et maturation cérébrale, construction identitaire, prise de risque et relation aux pairs — le passage tumultueux vers l'âge adulte.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Adolescence — Psychologie du Développement — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #b07fe8;
   --accent2: #c9a0f0;
   --accent-dim: rgba(176,127,232,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(176,127,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(176,127,232,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧠 Développement</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -153,10 +153,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Pourquoi le cortex préfrontal est-il important pour comprendre le comportement adolescent ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il contrôle la puberté</div>
-              <div class="option" onclick="answer(this,false)">Il gère les émotions intenses</div>
-              <div class="option" onclick="answer(this,true)">Il contrôle les impulsions et ne mûrit qu'à 20-25 ans</div>
-              <div class="option" onclick="answer(this,false)">Il déclenche la recherche de sensations</div>
+              <button class="option" onclick="answer(this,false)">Il contrôle la puberté</button>
+              <button class="option" onclick="answer(this,false)">Il gère les émotions intenses</button>
+              <button class="option" onclick="answer(this,true)">Il contrôle les impulsions et ne mûrit qu'à 20-25 ans</button>
+              <button class="option" onclick="answer(this,false)">Il déclenche la recherche de sensations</button>
             </div>
             <div class="q-feedback">Le cortex préfrontal, responsable du contrôle des impulsions, de la planification et du jugement, est la dernière région cérébrale à achever sa maturation (20-25 ans), ce qui explique l'impulsivité adolescente.</div>
           </div>
@@ -164,10 +164,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Selon Marcia, quel statut identitaire correspond à un engagement sans exploration préalable ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Identité diffuse</div>
-              <div class="option" onclick="answer(this,true)">Identité forclose</div>
-              <div class="option" onclick="answer(this,false)">Moratoire</div>
-              <div class="option" onclick="answer(this,false)">Identité achevée</div>
+              <button class="option" onclick="answer(this,false)">Identité diffuse</button>
+              <button class="option" onclick="answer(this,true)">Identité forclose</button>
+              <button class="option" onclick="answer(this,false)">Moratoire</button>
+              <button class="option" onclick="answer(this,false)">Identité achevée</button>
             </div>
             <div class="q-feedback">L'identité forclose (foreclosure) correspond à un engagement fort sans exploration : l'adolescent adopte directement les valeurs de ses parents ou de son milieu sans les remettre en question.</div>
           </div>
@@ -175,10 +175,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qu'est-ce que le « modèle du double système » en neurosciences ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Le système émotionnel mûrit avant le système de contrôle cognitif</div>
-              <div class="option" onclick="answer(this,false)">Les deux hémisphères se développent à des rythmes différents</div>
-              <div class="option" onclick="answer(this,false)">Le cerveau adolescent fonctionne avec deux réseaux indépendants</div>
-              <div class="option" onclick="answer(this,false)">Le système visuel et le système auditif sont en compétition</div>
+              <button class="option" onclick="answer(this,true)">Le système émotionnel mûrit avant le système de contrôle cognitif</button>
+              <button class="option" onclick="answer(this,false)">Les deux hémisphères se développent à des rythmes différents</button>
+              <button class="option" onclick="answer(this,false)">Le cerveau adolescent fonctionne avec deux réseaux indépendants</button>
+              <button class="option" onclick="answer(this,false)">Le système visuel et le système auditif sont en compétition</button>
             </div>
             <div class="q-feedback">Le modèle du double système décrit le décalage entre un système socio-émotionnel (limbique) hyperactif dès la puberté et un système de contrôle cognitif (préfrontal) qui mûrit lentement, créant un déséquilibre maximal vers 14-16 ans.</div>
           </div>
@@ -186,10 +186,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Comment la présence de pairs affecte-t-elle la prise de risque chez l'adolescent ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Elle n'a aucun effet</div>
-              <div class="option" onclick="answer(this,false)">Elle diminue la prise de risque par prudence sociale</div>
-              <div class="option" onclick="answer(this,true)">Elle augmente considérablement la prise de risque</div>
-              <div class="option" onclick="answer(this,false)">Elle augmente la prise de risque uniquement chez les garçons</div>
+              <button class="option" onclick="answer(this,false)">Elle n'a aucun effet</button>
+              <button class="option" onclick="answer(this,false)">Elle diminue la prise de risque par prudence sociale</button>
+              <button class="option" onclick="answer(this,true)">Elle augmente considérablement la prise de risque</button>
+              <button class="option" onclick="answer(this,false)">Elle augmente la prise de risque uniquement chez les garçons</button>
             </div>
             <div class="q-feedback">La recherche montre que les adolescents prennent environ deux fois plus de risques en présence de pairs qu'en situation isolée. Cet effet est beaucoup plus marqué que chez les adultes.</div>
           </div>
@@ -197,10 +197,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel processus cérébral consiste à éliminer les connexions neuronales peu utilisées ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La myélinisation</div>
-              <div class="option" onclick="answer(this,true)">L'élagage synaptique</div>
-              <div class="option" onclick="answer(this,false)">La neurogenèse</div>
-              <div class="option" onclick="answer(this,false)">La plasticité cérébrale</div>
+              <button class="option" onclick="answer(this,false)">La myélinisation</button>
+              <button class="option" onclick="answer(this,true)">L'élagage synaptique</button>
+              <button class="option" onclick="answer(this,false)">La neurogenèse</button>
+              <button class="option" onclick="answer(this,false)">La plasticité cérébrale</button>
             </div>
             <div class="q-feedback">L'élagage synaptique (synaptic pruning) consiste à éliminer les synapses peu utilisées pour optimiser le fonctionnement cérébral. C'est un processus de spécialisation selon le principe « use it or lose it ».</div>
           </div>
@@ -208,10 +208,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">La crise psychosociale de l'adolescence selon Erikson est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Confiance vs Méfiance</div>
-              <div class="option" onclick="answer(this,false)">Intimité vs Isolement</div>
-              <div class="option" onclick="answer(this,true)">Identité vs Confusion des rôles</div>
-              <div class="option" onclick="answer(this,false)">Générativité vs Stagnation</div>
+              <button class="option" onclick="answer(this,false)">Confiance vs Méfiance</button>
+              <button class="option" onclick="answer(this,false)">Intimité vs Isolement</button>
+              <button class="option" onclick="answer(this,true)">Identité vs Confusion des rôles</button>
+              <button class="option" onclick="answer(this,false)">Générativité vs Stagnation</button>
             </div>
             <div class="q-feedback">Identité vs Confusion des rôles est le 5e stade d'Erikson. L'adolescent doit intégrer ses expériences en une identité cohérente, sous peine de confusion sur son rôle dans la société.</div>
           </div>
@@ -278,8 +278,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

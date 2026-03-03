@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Quand le marché échoue — comprendre les défaillances qui justifient l'intervention de l'État dans l'économie.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Externalités et biens publics — Microéconomie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #c97ae8;
   --accent2: #ce93d8;
   --accent-dim: rgba(201,122,232,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(201,122,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(201,122,232,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🌍 Microéconomie</span>
     <span class="tag-level">Intermédiaire</span>
@@ -176,10 +176,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">La pollution est une externalité négative car :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Elle réduit les profits de l'entreprise polluante</div>
-              <div class="option" onclick="answer(this,true)">Le coût social dépasse le coût privé de production</div>
-              <div class="option" onclick="answer(this,false)">Elle augmente le prix du produit final</div>
-              <div class="option" onclick="answer(this,false)">L'État interdit toute pollution</div>
+              <button class="option" onclick="answer(this,false)">Elle réduit les profits de l'entreprise polluante</button>
+              <button class="option" onclick="answer(this,true)">Le coût social dépasse le coût privé de production</button>
+              <button class="option" onclick="answer(this,false)">Elle augmente le prix du produit final</button>
+              <button class="option" onclick="answer(this,false)">L'État interdit toute pollution</button>
             </div>
             <div class="q-feedback">L'entreprise polluante ne supporte pas le coût des dommages environnementaux (santé, nature). Le coût social (privé + externe) dépasse donc le coût privé, ce qui conduit à une surproduction par rapport à l'optimum social.</div>
           </div>
@@ -187,10 +187,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Un bien public est caractérisé par :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un prix élevé et une offre limitée</div>
-              <div class="option" onclick="answer(this,false)">Une production exclusivement par l'État</div>
-              <div class="option" onclick="answer(this,true)">La non-rivalité et la non-exclusion</div>
-              <div class="option" onclick="answer(this,false)">Une demande parfaitement élastique</div>
+              <button class="option" onclick="answer(this,false)">Un prix élevé et une offre limitée</button>
+              <button class="option" onclick="answer(this,false)">Une production exclusivement par l'État</button>
+              <button class="option" onclick="answer(this,true)">La non-rivalité et la non-exclusion</button>
+              <button class="option" onclick="answer(this,false)">Une demande parfaitement élastique</button>
             </div>
             <div class="q-feedback">Un bien public est non-rival (sa consommation par l'un n'empêche pas celle des autres) et non-excluable (on ne peut empêcher personne d'en profiter). L'éclairage public et la défense nationale sont des exemples classiques.</div>
           </div>
@@ -198,10 +198,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Le théorème de Coase affirme que les externalités peuvent être résolues sans intervention de l'État si :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La pollution est suffisamment faible</div>
-              <div class="option" onclick="answer(this,false)">Les entreprises sont de grande taille</div>
-              <div class="option" onclick="answer(this,true)">Les droits de propriété sont bien définis et les coûts de transaction faibles</div>
-              <div class="option" onclick="answer(this,false)">L'externalité est positive</div>
+              <button class="option" onclick="answer(this,false)">La pollution est suffisamment faible</button>
+              <button class="option" onclick="answer(this,false)">Les entreprises sont de grande taille</button>
+              <button class="option" onclick="answer(this,true)">Les droits de propriété sont bien définis et les coûts de transaction faibles</button>
+              <button class="option" onclick="answer(this,false)">L'externalité est positive</button>
             </div>
             <div class="q-feedback">Coase montre que si les droits de propriété sont clairs et que négocier ne coûte rien (ou presque), les parties concernées peuvent s'entendre entre elles pour atteindre l'optimum social. En pratique, les coûts de transaction sont souvent élevés, ce qui limite l'application du théorème.</div>
           </div>
@@ -209,10 +209,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Un phare maritime est un exemple classique de :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Bien privé</div>
-              <div class="option" onclick="answer(this,true)">Bien public</div>
-              <div class="option" onclick="answer(this,false)">Bien de club</div>
-              <div class="option" onclick="answer(this,false)">Ressource commune</div>
+              <button class="option" onclick="answer(this,false)">Bien privé</button>
+              <button class="option" onclick="answer(this,true)">Bien public</button>
+              <button class="option" onclick="answer(this,false)">Bien de club</button>
+              <button class="option" onclick="answer(this,false)">Ressource commune</button>
             </div>
             <div class="q-feedback">Le phare est non-rival (sa lumière guide tous les navires simultanément) et non-excluable (on ne peut empêcher un navire de voir la lumière). C'est pourquoi les phares sont financés par l'impôt ou les droits portuaires, et non par le marché.</div>
           </div>
@@ -220,10 +220,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">La taxe pigouvienne optimale sur une externalité négative est égale à :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le coût total de la pollution</div>
-              <div class="option" onclick="answer(this,true)">Le coût externe marginal évalué à la quantité socialement optimale</div>
-              <div class="option" onclick="answer(this,false)">Le profit de l'entreprise polluante</div>
-              <div class="option" onclick="answer(this,false)">Un montant fixé arbitrairement par l'État</div>
+              <button class="option" onclick="answer(this,false)">Le coût total de la pollution</button>
+              <button class="option" onclick="answer(this,true)">Le coût externe marginal évalué à la quantité socialement optimale</button>
+              <button class="option" onclick="answer(this,false)">Le profit de l'entreprise polluante</button>
+              <button class="option" onclick="answer(this,false)">Un montant fixé arbitrairement par l'État</button>
             </div>
             <div class="q-feedback">La taxe pigouvienne optimale t* égale le coût externe marginal (le dommage causé par la dernière unité produite) évalué au niveau de production socialement optimal Q*. Cette taxe aligne le coût privé sur le coût social et ramène la production au niveau efficace.</div>
           </div>
@@ -231,10 +231,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">L'approche d'Elinor Ostrom pour gérer les ressources communes repose sur :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La privatisation complète des ressources</div>
-              <div class="option" onclick="answer(this,false)">Le contrôle centralisé par l'État</div>
-              <div class="option" onclick="answer(this,true)">Des institutions collectives locales d'auto-gouvernance</div>
-              <div class="option" onclick="answer(this,false)">La libre exploitation sans restriction</div>
+              <button class="option" onclick="answer(this,false)">La privatisation complète des ressources</button>
+              <button class="option" onclick="answer(this,false)">Le contrôle centralisé par l'État</button>
+              <button class="option" onclick="answer(this,true)">Des institutions collectives locales d'auto-gouvernance</button>
+              <button class="option" onclick="answer(this,false)">La libre exploitation sans restriction</button>
             </div>
             <div class="q-feedback">Elinor Ostrom (prix Nobel 2009) a montré que ni la privatisation ni l'étatisation ne sont les seules solutions à la tragédie des communs. Des communautés locales peuvent gérer durablement les ressources communes grâce à des règles auto-établies, un contrôle mutuel et des sanctions graduées — une « troisième voie » entre marché et État.</div>
           </div>
@@ -298,8 +298,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

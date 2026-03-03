@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De l'attentat de Sarajevo à l'armistice de 1918 — les causes, les tranchées, les grandes batailles et les conséquences d'un conflit qui a redessiné le...">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Première Guerre mondiale — Histoire contemporaine — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #c0392b;
   --accent2: #e74c3c;
   --accent-dim: rgba(192,57,43,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(192,57,43,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🏛️ Histoire contemporaine</span>
     <span class="tag-level">Intermédiaire</span>
@@ -166,10 +166,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel événement est considéré comme le déclencheur immédiat de la Première Guerre mondiale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'invasion de la Belgique par l'Allemagne</div>
-              <div class="option" onclick="answer(this,true)">L'assassinat de l'archiduc François-Ferdinand à Sarajevo</div>
-              <div class="option" onclick="answer(this,false)">La crise marocaine d'Agadir</div>
-              <div class="option" onclick="answer(this,false)">La mobilisation générale russe</div>
+              <button class="option" onclick="answer(this,false)">L'invasion de la Belgique par l'Allemagne</button>
+              <button class="option" onclick="answer(this,true)">L'assassinat de l'archiduc François-Ferdinand à Sarajevo</button>
+              <button class="option" onclick="answer(this,false)">La crise marocaine d'Agadir</button>
+              <button class="option" onclick="answer(this,false)">La mobilisation générale russe</button>
             </div>
             <div class="q-feedback">L'assassinat de l'archiduc François-Ferdinand d'Autriche par Gavrilo Princip le 28 juin 1914 à Sarajevo déclenche un engrenage diplomatique qui mène à la guerre en quelques semaines.</div>
           </div>
@@ -177,10 +177,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle bataille de 1916 est devenue le symbole de l'enfer des tranchées pour l'armée française ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La bataille de la Marne</div>
-              <div class="option" onclick="answer(this,false)">La bataille de la Somme</div>
-              <div class="option" onclick="answer(this,true)">La bataille de Verdun</div>
-              <div class="option" onclick="answer(this,false)">La bataille d'Ypres</div>
+              <button class="option" onclick="answer(this,false)">La bataille de la Marne</button>
+              <button class="option" onclick="answer(this,false)">La bataille de la Somme</button>
+              <button class="option" onclick="answer(this,true)">La bataille de Verdun</button>
+              <button class="option" onclick="answer(this,false)">La bataille d'Ypres</button>
             </div>
             <div class="q-feedback">La bataille de Verdun (février-décembre 1916) dura 10 mois et causa environ 300 000 morts. Elle est le symbole de la résistance française et de l'horreur de la guerre de tranchées.</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel événement a provoqué l'entrée en guerre des États-Unis en 1917 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le naufrage du Lusitania en 1915</div>
-              <div class="option" onclick="answer(this,true)">La guerre sous-marine à outrance et le télégramme Zimmermann</div>
-              <div class="option" onclick="answer(this,false)">La Révolution russe de février 1917</div>
-              <div class="option" onclick="answer(this,false)">L'offensive allemande du printemps 1918</div>
+              <button class="option" onclick="answer(this,false)">Le naufrage du Lusitania en 1915</button>
+              <button class="option" onclick="answer(this,true)">La guerre sous-marine à outrance et le télégramme Zimmermann</button>
+              <button class="option" onclick="answer(this,false)">La Révolution russe de février 1917</button>
+              <button class="option" onclick="answer(this,false)">L'offensive allemande du printemps 1918</button>
             </div>
             <div class="q-feedback">La reprise de la guerre sous-marine à outrance par l'Allemagne (torpillant les navires marchands) et l'interception du télégramme Zimmermann (proposant au Mexique une alliance contre les États-Unis) furent les causes directes de l'entrée en guerre américaine en avril 1917.</div>
           </div>
@@ -199,10 +199,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Que prévoit l'article 231 du traité de Versailles ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La création de la Société des Nations</div>
-              <div class="option" onclick="answer(this,false)">Le désarmement de l'Allemagne</div>
-              <div class="option" onclick="answer(this,true)">La responsabilité entière de l'Allemagne dans le déclenchement de la guerre</div>
-              <div class="option" onclick="answer(this,false)">Le retour de l'Alsace-Lorraine à la France</div>
+              <button class="option" onclick="answer(this,false)">La création de la Société des Nations</button>
+              <button class="option" onclick="answer(this,false)">Le désarmement de l'Allemagne</button>
+              <button class="option" onclick="answer(this,true)">La responsabilité entière de l'Allemagne dans le déclenchement de la guerre</button>
+              <button class="option" onclick="answer(this,false)">Le retour de l'Alsace-Lorraine à la France</button>
             </div>
             <div class="q-feedback">L'article 231, dit « clause de culpabilité de guerre », impose à l'Allemagne d'assumer la responsabilité entière du conflit, justifiant ainsi les réparations financières. Cette clause fut perçue comme un « diktat » humiliant par les Allemands.</div>
           </div>
@@ -210,10 +210,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Comment appelle-t-on la phase de la guerre caractérisée par le front figé et les tranchées ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La guerre de mouvement</div>
-              <div class="option" onclick="answer(this,true)">La guerre de position</div>
-              <div class="option" onclick="answer(this,false)">La guerre totale</div>
-              <div class="option" onclick="answer(this,false)">La guerre éclair</div>
+              <button class="option" onclick="answer(this,false)">La guerre de mouvement</button>
+              <button class="option" onclick="answer(this,true)">La guerre de position</button>
+              <button class="option" onclick="answer(this,false)">La guerre totale</button>
+              <button class="option" onclick="answer(this,false)">La guerre éclair</button>
             </div>
             <div class="q-feedback">La guerre de position (1915-1917) désigne la phase où les armées se font face dans des tranchées creusées sur 700 km, sans gains territoriaux significatifs malgré des offensives meurtrières.</div>
           </div>
@@ -221,10 +221,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">À quelle date l'armistice est-il signé, mettant fin aux combats ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le 28 juin 1919</div>
-              <div class="option" onclick="answer(this,false)">Le 8 août 1918</div>
-              <div class="option" onclick="answer(this,true)">Le 11 novembre 1918</div>
-              <div class="option" onclick="answer(this,false)">Le 3 mars 1918</div>
+              <button class="option" onclick="answer(this,false)">Le 28 juin 1919</button>
+              <button class="option" onclick="answer(this,false)">Le 8 août 1918</button>
+              <button class="option" onclick="answer(this,true)">Le 11 novembre 1918</button>
+              <button class="option" onclick="answer(this,false)">Le 3 mars 1918</button>
             </div>
             <div class="q-feedback">L'armistice est signé le 11 novembre 1918 à 5h15 dans un wagon à Rethondes (forêt de Compiègne). Les combats cessent à 11h le 11e jour du 11e mois. Cette date est devenue un jour de commémoration nationale en France.</div>
           </div>
@@ -322,8 +322,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

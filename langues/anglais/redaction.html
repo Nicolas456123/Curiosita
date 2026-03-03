@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Structure d'un essai, registres de langue, connecteurs logiques : écrire en anglais avec clarté et élégance.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Rédaction — Anglais — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e8c97a;
   --accent2: #f5dfa0;
   --accent-dim: rgba(232,201,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,201,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,201,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">✍️ Anglais</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -196,10 +196,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Où se place la « thesis statement » dans un essai anglais ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Au début de l'introduction</div>
-              <div class="option" onclick="answer(this,true)">À la fin de l'introduction</div>
-              <div class="option" onclick="answer(this,false)">Au début de la conclusion</div>
-              <div class="option" onclick="answer(this,false)">Dans chaque paragraphe du corps</div>
+              <button class="option" onclick="answer(this,false)">Au début de l'introduction</button>
+              <button class="option" onclick="answer(this,true)">À la fin de l'introduction</button>
+              <button class="option" onclick="answer(this,false)">Au début de la conclusion</button>
+              <button class="option" onclick="answer(this,false)">Dans chaque paragraphe du corps</button>
             </div>
             <div class="q-feedback">La thesis statement se place à la fin du paragraphe d'introduction. Elle annonce clairement la position de l'auteur en une phrase et guide tout le reste de l'essai.</div>
           </div>
@@ -207,10 +207,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel connecteur signifie « cependant » dans un registre formel ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Moreover</div>
-              <div class="option" onclick="answer(this,false)">Therefore</div>
-              <div class="option" onclick="answer(this,true)">However</div>
-              <div class="option" onclick="answer(this,false)">Furthermore</div>
+              <button class="option" onclick="answer(this,false)">Moreover</button>
+              <button class="option" onclick="answer(this,false)">Therefore</button>
+              <button class="option" onclick="answer(this,true)">However</button>
+              <button class="option" onclick="answer(this,false)">Furthermore</button>
             </div>
             <div class="q-feedback">« However » signifie « cependant, toutefois ». « Moreover » et « Furthermore » signifient « de plus ». « Therefore » signifie « par conséquent ».</div>
           </div>
@@ -218,10 +218,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">En anglais formel, doit-on écrire « don't » ou « do not » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">don't (la contraction est toujours correcte)</div>
-              <div class="option" onclick="answer(this,true)">do not (pas de contractions en registre formel)</div>
-              <div class="option" onclick="answer(this,false)">Les deux sont interchangeables</div>
-              <div class="option" onclick="answer(this,false)">Aucun des deux n'est correct</div>
+              <button class="option" onclick="answer(this,false)">don't (la contraction est toujours correcte)</button>
+              <button class="option" onclick="answer(this,true)">do not (pas de contractions en registre formel)</button>
+              <button class="option" onclick="answer(this,false)">Les deux sont interchangeables</button>
+              <button class="option" onclick="answer(this,false)">Aucun des deux n'est correct</button>
             </div>
             <div class="q-feedback">En registre formel (essais, rapports, courriers professionnels), on évite les contractions. On écrit « do not » au lieu de « don't », « cannot » au lieu de « can't », etc.</div>
           </div>
@@ -229,10 +229,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel mot est préférable à « very good » dans un essai ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Excellent</div>
-              <div class="option" onclick="answer(this,false)">Super good</div>
-              <div class="option" onclick="answer(this,false)">Really good</div>
-              <div class="option" onclick="answer(this,false)">Much good</div>
+              <button class="option" onclick="answer(this,true)">Excellent</button>
+              <button class="option" onclick="answer(this,false)">Super good</button>
+              <button class="option" onclick="answer(this,false)">Really good</button>
+              <button class="option" onclick="answer(this,false)">Much good</button>
             </div>
             <div class="q-feedback">En rédaction anglaise, on préfère les adjectifs forts aux constructions « very + adjectif ». « Excellent » est plus précis et élégant que « very good ». De même : very big → huge, very sad → devastated.</div>
           </div>
@@ -240,10 +240,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Comment terminer un email professionnel formel ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">See you later</div>
-              <div class="option" onclick="answer(this,false)">Bye bye</div>
-              <div class="option" onclick="answer(this,true)">Kind regards</div>
-              <div class="option" onclick="answer(this,false)">XOXO</div>
+              <button class="option" onclick="answer(this,false)">See you later</button>
+              <button class="option" onclick="answer(this,false)">Bye bye</button>
+              <button class="option" onclick="answer(this,true)">Kind regards</button>
+              <button class="option" onclick="answer(this,false)">XOXO</button>
             </div>
             <div class="q-feedback">« Kind regards » ou « Best regards » sont les formules de clôture standard pour un email professionnel. « Sincerely » est encore plus formel. « See you later » et « Bye » sont trop informels.</div>
           </div>
@@ -251,10 +251,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Comment dit-on « il y a un problème » en anglais ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">It is a problem</div>
-              <div class="option" onclick="answer(this,true)">There is a problem</div>
-              <div class="option" onclick="answer(this,false)">It has a problem</div>
-              <div class="option" onclick="answer(this,false)">It exists a problem</div>
+              <button class="option" onclick="answer(this,false)">It is a problem</button>
+              <button class="option" onclick="answer(this,true)">There is a problem</button>
+              <button class="option" onclick="answer(this,false)">It has a problem</button>
+              <button class="option" onclick="answer(this,false)">It exists a problem</button>
             </div>
             <div class="q-feedback">Pour exprimer l'existence de quelque chose (« il y a »), on utilise « there is/there are » en anglais. « It is » se traduit par « c'est ». C'est une erreur fréquente des francophones.</div>
           </div>
@@ -343,8 +343,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

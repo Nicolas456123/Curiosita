@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Lire et écrire des fichiers texte et CSV avec open(), le context manager with et la gestion de chemins.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Fichiers — Structures de données — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08);  --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../python-page.html">Python</a> › <a href="../structures.html">Structures</a> › <span>Fichiers</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">📁 Structures de données</span><span class="tag-level">Intermédiaire</span><span class="tag-time">⏱ ~40 min</span></div>
   <h1><em>Fichiers</em></h1>
   <p class="hero-desc">Lire et écrire des fichiers texte et CSV avec open(), le context manager with et la gestion de chemins.</p>
@@ -225,10 +225,10 @@ contenu = fichier.read_text(encoding=<span class="str">"utf-8"</span>)
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel mode d'ouverture ajoute du texte à la fin d'un fichier existant ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">"r"</div>
-              <div class="option" onclick="answer(this,false)">"w"</div>
-              <div class="option" onclick="answer(this,true)">"a"</div>
-              <div class="option" onclick="answer(this,false)">"x"</div>
+              <button class="option" onclick="answer(this,false)">"r"</button>
+              <button class="option" onclick="answer(this,false)">"w"</button>
+              <button class="option" onclick="answer(this,true)">"a"</button>
+              <button class="option" onclick="answer(this,false)">"x"</button>
             </div>
             <div class="q-feedback">Le mode <code>"a"</code> (append) ajoute à la fin. <code>"w"</code> écrase le fichier. <code>"r"</code> lit seulement. <code>"x"</code> crée un nouveau fichier (erreur s'il existe).</div>
           </div>
@@ -236,10 +236,10 @@ contenu = fichier.read_text(encoding=<span class="str">"utf-8"</span>)
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Pourquoi utiliser <code>with open(...)</code> plutôt que <code>open()</code> seul ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">C'est plus rapide</div>
-              <div class="option" onclick="answer(this,true)">Le fichier est fermé automatiquement, même en cas d'erreur</div>
-              <div class="option" onclick="answer(this,false)">C'est obligatoire en Python 3</div>
-              <div class="option" onclick="answer(this,false)">Cela permet de lire plusieurs fichiers</div>
+              <button class="option" onclick="answer(this,false)">C'est plus rapide</button>
+              <button class="option" onclick="answer(this,true)">Le fichier est fermé automatiquement, même en cas d'erreur</button>
+              <button class="option" onclick="answer(this,false)">C'est obligatoire en Python 3</button>
+              <button class="option" onclick="answer(this,false)">Cela permet de lire plusieurs fichiers</button>
             </div>
             <div class="q-feedback"><code>with</code> est un context manager qui garantit la fermeture du fichier, même si une exception survient. C'est la bonne pratique universelle.</div>
           </div>
@@ -247,10 +247,10 @@ contenu = fichier.read_text(encoding=<span class="str">"utf-8"</span>)
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle méthode lit tout le contenu d'un fichier en une seule chaîne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">.read()</div>
-              <div class="option" onclick="answer(this,false)">.readlines()</div>
-              <div class="option" onclick="answer(this,false)">.readline()</div>
-              <div class="option" onclick="answer(this,false)">.readall()</div>
+              <button class="option" onclick="answer(this,true)">.read()</button>
+              <button class="option" onclick="answer(this,false)">.readlines()</button>
+              <button class="option" onclick="answer(this,false)">.readline()</button>
+              <button class="option" onclick="answer(this,false)">.readall()</button>
             </div>
             <div class="q-feedback"><code>.read()</code> lit tout en une chaîne. <code>.readline()</code> lit une seule ligne. <code>.readlines()</code> lit toutes les lignes dans une liste.</div>
           </div>
@@ -258,10 +258,10 @@ contenu = fichier.read_text(encoding=<span class="str">"utf-8"</span>)
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle fonction du module <code>json</code> écrit des données Python dans un fichier ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">json.dumps()</div>
-              <div class="option" onclick="answer(this,true)">json.dump()</div>
-              <div class="option" onclick="answer(this,false)">json.write()</div>
-              <div class="option" onclick="answer(this,false)">json.save()</div>
+              <button class="option" onclick="answer(this,false)">json.dumps()</button>
+              <button class="option" onclick="answer(this,true)">json.dump()</button>
+              <button class="option" onclick="answer(this,false)">json.write()</button>
+              <button class="option" onclick="answer(this,false)">json.save()</button>
             </div>
             <div class="q-feedback"><code>json.dump(data, file)</code> écrit dans un fichier. <code>json.dumps(data)</code> retourne une chaîne JSON (le « s » signifie « string »). Pour lire : <code>json.load(file)</code> et <code>json.loads(string)</code>.</div>
           </div>
@@ -269,10 +269,10 @@ contenu = fichier.read_text(encoding=<span class="str">"utf-8"</span>)
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que fait le mode <code>"x"</code> dans <code>open("fichier.txt", "x")</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Lit le fichier en mode binaire</div>
-              <div class="option" onclick="answer(this,false)">Écrase le fichier existant</div>
-              <div class="option" onclick="answer(this,true)">Crée le fichier, erreur s'il existe déjà</div>
-              <div class="option" onclick="answer(this,false)">Ouvre le fichier en lecture et écriture</div>
+              <button class="option" onclick="answer(this,false)">Lit le fichier en mode binaire</button>
+              <button class="option" onclick="answer(this,false)">Écrase le fichier existant</button>
+              <button class="option" onclick="answer(this,true)">Crée le fichier, erreur s'il existe déjà</button>
+              <button class="option" onclick="answer(this,false)">Ouvre le fichier en lecture et écriture</button>
             </div>
             <div class="q-feedback">Le mode <code>"x"</code> (exclusive creation) crée un nouveau fichier. Si le fichier existe déjà, il lève une <code>FileExistsError</code>. C'est utile pour éviter d'écraser des données.</div>
           </div>
@@ -280,10 +280,10 @@ contenu = fichier.read_text(encoding=<span class="str">"utf-8"</span>)
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Pourquoi utiliser <code>newline=""</code> avec <code>csv.writer</code> sur Windows ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pour accélérer l'écriture</div>
-              <div class="option" onclick="answer(this,true)">Pour éviter les lignes vides supplémentaires</div>
-              <div class="option" onclick="answer(this,false)">Pour utiliser l'encodage UTF-8</div>
-              <div class="option" onclick="answer(this,false)">C'est obligatoire sur tous les systèmes</div>
+              <button class="option" onclick="answer(this,false)">Pour accélérer l'écriture</button>
+              <button class="option" onclick="answer(this,true)">Pour éviter les lignes vides supplémentaires</button>
+              <button class="option" onclick="answer(this,false)">Pour utiliser l'encodage UTF-8</button>
+              <button class="option" onclick="answer(this,false)">C'est obligatoire sur tous les systèmes</button>
             </div>
             <div class="q-feedback">Sur Windows, sans <code>newline=""</code>, le module csv ajoute un retour chariot supplémentaire, ce qui crée des lignes vides entre chaque ligne de données.</div>
           </div>
@@ -434,8 +434,14 @@ if cle and cle in config:
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

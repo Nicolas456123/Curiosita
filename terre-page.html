@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Des profondeurs du manteau aux sommets de l'atmosphere, les sciences de la Terre explorent la dynamique de notre planete : roches, volcans, oceans, climat...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Sciences de la Terre — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #a0f5ee;
   --accent-dim: rgba(122,232,216,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(122,232,216,0.07) 0%, transparent 70%); }
+ --accent-hero: rgba(122,232,216,0.07); }
 .hero-deco { color: rgba(122,232,216,0.04); }
 </style>
 </head>
@@ -23,7 +24,7 @@
   <button class="btn-memo" onclick="downloadMemo()">&#8595; Fiche memo</button>
 </nav>
 
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">&#127755;</div>
   <div class="hero-meta">
     <span class="tag-domain">&#127793; Sciences de la nature</span>
@@ -131,134 +132,131 @@
       <div class="quiz-container">
         <div class="quiz-header">
           <span class="quiz-title-text">Quiz — Sciences de la Terre</span>
-          <span class="quiz-score">Score : <span id="quizScore">0</span>/10</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span>/10</span>
         </div>
-        <div class="quiz-body">
+        <div class="quiz-body" id="quizBody">
           <div class="question-block active" id="q0">
             <div class="q-num">Question 1 / 10</div>
             <div class="q-text">Quel age a la Terre ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(0,0)">1 milliard d'annees</div>
-              <div class="option" onclick="selectOption(0,1)">4,6 milliards d'annees</div>
-              <div class="option" onclick="selectOption(0,2)">10 milliards d'annees</div>
-              <div class="option" onclick="selectOption(0,3)">100 millions d'annees</div>
+              <button class="option" onclick="answer(this,false)">1 milliard d'annees</button>
+              <button class="option" onclick="answer(this,true)">4,6 milliards d'annees</button>
+              <button class="option" onclick="answer(this,false)">10 milliards d'annees</button>
+              <button class="option" onclick="answer(this,false)">100 millions d'annees</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">La Terre s'est formee il y a environ 4,6 milliards d'annees par accretion de matiere dans le disque protoplanetaire autour du jeune Soleil. Cet age est determine par la datation radiometrique des meteorites les plus anciennes.</div>
           </div>
           <div class="question-block" id="q1">
             <div class="q-num">Question 2 / 10</div>
             <div class="q-text">Combien de plaques tectoniques majeures compte la Terre ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(1,0)">5</div>
-              <div class="option" onclick="selectOption(1,1)">7</div>
-              <div class="option" onclick="selectOption(1,2)">15</div>
-              <div class="option" onclick="selectOption(1,3)">25</div>
+              <button class="option" onclick="answer(this,false)">5</button>
+              <button class="option" onclick="answer(this,false)">7</button>
+              <button class="option" onclick="answer(this,true)">15</button>
+              <button class="option" onclick="answer(this,false)">25</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">La lithosphere terrestre est divisee en environ 15 plaques tectoniques majeures (pacifique, nord-americaine, eurasienne, africaine, etc.) et plusieurs microplaques. Elles se deplacent de 2 a 10 cm par an.</div>
           </div>
           <div class="question-block" id="q2">
             <div class="q-num">Question 3 / 10</div>
             <div class="q-text">Quel type de roche est forme par le refroidissement du magma ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(2,0)">Sedimentaire</div>
-              <div class="option" onclick="selectOption(2,1)">Metamorphique</div>
-              <div class="option" onclick="selectOption(2,2)">Ignee (magmatique)</div>
-              <div class="option" onclick="selectOption(2,3)">Calcaire</div>
+              <button class="option" onclick="answer(this,false)">Sedimentaire</button>
+              <button class="option" onclick="answer(this,false)">Metamorphique</button>
+              <button class="option" onclick="answer(this,true)">Ignee (magmatique)</button>
+              <button class="option" onclick="answer(this,false)">Calcaire</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Les roches ignees (ou magmatiques) se forment par cristallisation du magma. Le granite (refroidissement lent en profondeur) et le basalte (refroidissement rapide en surface) en sont les exemples les plus courants.</div>
           </div>
           <div class="question-block" id="q3">
             <div class="q-num">Question 4 / 10</div>
             <div class="q-text">Quelle couche de la Terre est liquide ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(3,0)">La croute</div>
-              <div class="option" onclick="selectOption(3,1)">Le manteau superieur</div>
-              <div class="option" onclick="selectOption(3,2)">Le noyau externe</div>
-              <div class="option" onclick="selectOption(3,3)">Le noyau interne</div>
+              <button class="option" onclick="answer(this,false)">La croute</button>
+              <button class="option" onclick="answer(this,false)">Le manteau superieur</button>
+              <button class="option" onclick="answer(this,true)">Le noyau externe</button>
+              <button class="option" onclick="answer(this,false)">Le noyau interne</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le noyau externe, compose principalement de fer et de nickel liquides, s'etend de 2 900 a 5 150 km de profondeur. Ses mouvements de convection generent le champ magnetique terrestre par effet dynamo.</div>
           </div>
           <div class="question-block" id="q4">
             <div class="q-num">Question 5 / 10</div>
             <div class="q-text">Quel gaz est le principal responsable de l'effet de serre renforce ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(4,0)">L'oxygene (O2)</div>
-              <div class="option" onclick="selectOption(4,1)">L'azote (N2)</div>
-              <div class="option" onclick="selectOption(4,2)">Le dioxyde de carbone (CO2)</div>
-              <div class="option" onclick="selectOption(4,3)">L'argon (Ar)</div>
+              <button class="option" onclick="answer(this,false)">L'oxygene (O2)</button>
+              <button class="option" onclick="answer(this,false)">L'azote (N2)</button>
+              <button class="option" onclick="answer(this,true)">Le dioxyde de carbone (CO2)</button>
+              <button class="option" onclick="answer(this,false)">L'argon (Ar)</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le CO2 est le principal gaz a effet de serre d'origine anthropique. Sa concentration est passee de 280 ppm (pre-industriel) a plus de 420 ppm aujourd'hui, principalement a cause de la combustion des energies fossiles.</div>
           </div>
           <div class="question-block" id="q5">
             <div class="q-num">Question 6 / 10</div>
             <div class="q-text">Qu'est-ce qu'une dorsale oceanique ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(5,0)">Une fosse sous-marine tres profonde</div>
-              <div class="option" onclick="selectOption(5,1)">Une chaine de montagnes sous-marines ou se forme la croute oceanique</div>
-              <div class="option" onclick="selectOption(5,2)">Un courant marin profond</div>
-              <div class="option" onclick="selectOption(5,3)">Un type de recif corallien</div>
+              <button class="option" onclick="answer(this,false)">Une fosse sous-marine tres profonde</button>
+              <button class="option" onclick="answer(this,true)">Une chaine de montagnes sous-marines ou se forme la croute oceanique</button>
+              <button class="option" onclick="answer(this,false)">Un courant marin profond</button>
+              <button class="option" onclick="answer(this,false)">Un type de recif corallien</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Les dorsales oceaniques sont des reliefs sous-marins ou le magma remonte du manteau, creant de la nouvelle croute oceanique. La dorsale medio-atlantique, longue de 16 000 km, ecarte l'Amerique de l'Europe/Afrique.</div>
           </div>
           <div class="question-block" id="q6">
             <div class="q-num">Question 7 / 10</div>
             <div class="q-text">Quelle echelle mesure l'intensite des degats d'un seisme ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(6,0)">L'echelle de Richter</div>
-              <div class="option" onclick="selectOption(6,1)">L'echelle de Beaufort</div>
-              <div class="option" onclick="selectOption(6,2)">L'echelle de Mercalli</div>
-              <div class="option" onclick="selectOption(6,3)">L'echelle de Saffir-Simpson</div>
+              <button class="option" onclick="answer(this,false)">L'echelle de Richter</button>
+              <button class="option" onclick="answer(this,false)">L'echelle de Beaufort</button>
+              <button class="option" onclick="answer(this,true)">L'echelle de Mercalli</button>
+              <button class="option" onclick="answer(this,false)">L'echelle de Saffir-Simpson</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">L'echelle de Mercalli (MSK ou EMS) mesure l'intensite d'un seisme, c'est-a-dire les effets ressentis et les degats. L'echelle de Richter mesure la magnitude (energie liberee). Beaufort mesure le vent, Saffir-Simpson les ouragans.</div>
           </div>
           <div class="question-block" id="q7">
             <div class="q-num">Question 8 / 10</div>
             <div class="q-text">Quel courant oceanique rechauffe l'Europe de l'Ouest ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(7,0)">Le courant de Humboldt</div>
-              <div class="option" onclick="selectOption(7,1)">Le Gulf Stream</div>
-              <div class="option" onclick="selectOption(7,2)">Le Kuroshio</div>
-              <div class="option" onclick="selectOption(7,3)">Le courant du Benguela</div>
+              <button class="option" onclick="answer(this,false)">Le courant de Humboldt</button>
+              <button class="option" onclick="answer(this,true)">Le Gulf Stream</button>
+              <button class="option" onclick="answer(this,false)">Le Kuroshio</button>
+              <button class="option" onclick="answer(this,false)">Le courant du Benguela</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le Gulf Stream est un puissant courant oceanique chaud qui transporte les eaux tropicales vers le nord-est de l'Atlantique. Il contribue au climat doux de l'Europe occidentale par rapport aux memes latitudes en Amerique du Nord.</div>
           </div>
           <div class="question-block" id="q8">
             <div class="q-num">Question 9 / 10</div>
             <div class="q-text">Quel minerite est le plus abondant dans la croute terrestre ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(8,0)">Le quartz</div>
-              <div class="option" onclick="selectOption(8,1)">Le feldspath</div>
-              <div class="option" onclick="selectOption(8,2)">Le mica</div>
-              <div class="option" onclick="selectOption(8,3)">La calcite</div>
+              <button class="option" onclick="answer(this,false)">Le quartz</button>
+              <button class="option" onclick="answer(this,true)">Le feldspath</button>
+              <button class="option" onclick="answer(this,false)">Le mica</button>
+              <button class="option" onclick="answer(this,false)">La calcite</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Les feldspaths constituent environ 60% de la croute terrestre. Le quartz vient en deuxieme position (~12%). Les feldspaths sont des silicates d'aluminium presents dans le granite, le gneiss et de nombreuses roches.</div>
           </div>
           <div class="question-block" id="q9">
             <div class="q-num">Question 10 / 10</div>
             <div class="q-text">Comment appelle-t-on le supercontinent qui existait il y a 250 millions d'annees ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(9,0)">Gondwana</div>
-              <div class="option" onclick="selectOption(9,1)">Laurasia</div>
-              <div class="option" onclick="selectOption(9,2)">La Pangee</div>
-              <div class="option" onclick="selectOption(9,3)">Rodinia</div>
+              <button class="option" onclick="answer(this,false)">Gondwana</button>
+              <button class="option" onclick="answer(this,false)">Laurasia</button>
+              <button class="option" onclick="answer(this,true)">La Pangee</button>
+              <button class="option" onclick="answer(this,false)">Rodinia</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">La Pangee (du grec 'toute la Terre') etait le supercontinent qui reunissait toutes les masses continentales au Permien-Trias. Elle s'est fragmentee a partir de ~200 Ma, donnant naissance aux continents actuels.</div>
           </div>
         </div>
         <div class="quiz-nav">
-          <div class="q-dots">
-            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-          </div>
+          <div class="q-dots" id="qDots"></div>
           <div style="display:flex;gap:.8rem">
-            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>&larr; Prec</button>
-            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant &rarr;</button>
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQ()" disabled>&larr; Prec</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQ()" disabled>Suivant &rarr;</button>
           </div>
         </div>
-        <div class="quiz-result">
-          <div class="result-score-big" id="finalScore"></div>
-          <div class="result-msg" id="finalMsg"></div>
-          <button class="btn-retry" onclick="restartQuiz()">&#8634; Recommencer</button>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore"></div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">&#8634; Recommencer</button>
         </div>
       </div>
     </section>
@@ -366,33 +364,15 @@
   </main>
 </div>
 
-<script>
-const questions=[
-  {q:"Quel age a la Terre ?",opts:["1 milliard d'annees","4,6 milliards d'annees","10 milliards d'annees","100 millions d'annees"],ans:1,expl:"La Terre s'est formee il y a environ 4,6 milliards d'annees par accretion de matiere dans le disque protoplanetaire autour du jeune Soleil. Cet age est determine par la datation radiometrique des meteorites les plus anciennes."},
-  {q:"Combien de plaques tectoniques majeures compte la Terre ?",opts:["5","7","15","25"],ans:2,expl:"La lithosphere terrestre est divisee en environ 15 plaques tectoniques majeures (pacifique, nord-americaine, eurasienne, africaine, etc.) et plusieurs microplaques. Elles se deplacent de 2 a 10 cm par an."},
-  {q:"Quel type de roche est forme par le refroidissement du magma ?",opts:["Sedimentaire","Metamorphique","Ignee (magmatique)","Calcaire"],ans:2,expl:"Les roches ignees (ou magmatiques) se forment par cristallisation du magma. Le granite (refroidissement lent en profondeur) et le basalte (refroidissement rapide en surface) en sont les exemples les plus courants."},
-  {q:"Quelle couche de la Terre est liquide ?",opts:["La croute","Le manteau superieur","Le noyau externe","Le noyau interne"],ans:2,expl:"Le noyau externe, compose principalement de fer et de nickel liquides, s'etend de 2 900 a 5 150 km de profondeur. Ses mouvements de convection generent le champ magnetique terrestre par effet dynamo."},
-  {q:"Quel gaz est le principal responsable de l'effet de serre renforce ?",opts:["L'oxygene (O2)","L'azote (N2)","Le dioxyde de carbone (CO2)","L'argon (Ar)"],ans:2,expl:"Le CO2 est le principal gaz a effet de serre d'origine anthropique. Sa concentration est passee de 280 ppm (pre-industriel) a plus de 420 ppm aujourd'hui, principalement a cause de la combustion des energies fossiles."},
-  {q:"Qu'est-ce qu'une dorsale oceanique ?",opts:["Une fosse sous-marine tres profonde","Une chaine de montagnes sous-marines ou se forme la croute oceanique","Un courant marin profond","Un type de recif corallien"],ans:1,expl:"Les dorsales oceaniques sont des reliefs sous-marins ou le magma remonte du manteau, creant de la nouvelle croute oceanique. La dorsale medio-atlantique, longue de 16 000 km, ecarte l'Amerique de l'Europe/Afrique."},
-  {q:"Quelle echelle mesure l'intensite des degats d'un seisme ?",opts:["L'echelle de Richter","L'echelle de Beaufort","L'echelle de Mercalli","L'echelle de Saffir-Simpson"],ans:2,expl:"L'echelle de Mercalli (MSK ou EMS) mesure l'intensite d'un seisme, c'est-a-dire les effets ressentis et les degats. L'echelle de Richter mesure la magnitude (energie liberee). Beaufort mesure le vent, Saffir-Simpson les ouragans."},
-  {q:"Quel courant oceanique rechauffe l'Europe de l'Ouest ?",opts:["Le courant de Humboldt","Le Gulf Stream","Le Kuroshio","Le courant du Benguela"],ans:1,expl:"Le Gulf Stream est un puissant courant oceanique chaud qui transporte les eaux tropicales vers le nord-est de l'Atlantique. Il contribue au climat doux de l'Europe occidentale par rapport aux memes latitudes en Amerique du Nord."},
-  {q:"Quel mineral est le plus abondant dans la croute terrestre ?",opts:["Le quartz","Le feldspath","Le mica","La calcite"],ans:1,expl:"Les feldspaths constituent environ 60% de la croute terrestre. Le quartz vient en deuxieme position (~12%). Les feldspaths sont des silicates d'aluminium presents dans le granite, le gneiss et de nombreuses roches."},
-  {q:"Comment appelle-t-on le supercontinent qui existait il y a 250 millions d'annees ?",opts:["Gondwana","Laurasia","La Pangee","Rodinia"],ans:2,expl:"La Pangee (du grec 'toute la Terre') etait le supercontinent qui reunissait toutes les masses continentales au Permien-Trias. Elle s'est fragmentee a partir de ~200 Ma, donnant naissance aux continents actuels."}
-];
-let current=0,score=0,answered=new Array(10).fill(null);
-function renderQuestion(){document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});document.getElementById('btnPrev').disabled=current===0;document.getElementById('btnNext').textContent=current===9?'Voir resultats':'Suivant \u2192';}
-function selectOption(qi,oi){if(answered[qi]!==null)return;answered[qi]=oi;const block=document.querySelectorAll('.question-block')[qi];block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');}
-function nextQuestion(){if(current<9){current++;renderQuestion();}else showResult();}
-function prevQuestion(){if(current>0){current--;renderQuestion();}}
-function showResult(){document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';const r=document.querySelector('.quiz-result');r.style.display='block';document.getElementById('finalScore').textContent=score+'/10';document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Tres bien !','Excellent !'][score<=3?0:score<=6?1:score<=8?2:3];}
-function restartQuiz(){current=0;score=0;answered.fill(null);document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');document.getElementById('quizScore').textContent=0;renderQuestion();}
-function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
-(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
-const sections=['resume','concepts','quiz','ressources','memo'];
-window.addEventListener('scroll',()=>{let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';});
-function downloadMemo(){const w=window.open('','_blank','width=900,height=700');w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche memo — Sciences de la Terre</title><style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#1a8a7e;border-bottom:3px solid #1a8a7e;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#1a8a7e;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #b2dfdb;padding:1rem;border-radius:4px;background:#f0fffe}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style></head><body><h1>Sciences de la Terre — Fiche memo</h1><div class="grid"><div class="box"><h2>Structure interne</h2><ul><li>Croute : 5-70 km (oceanique/continentale)</li><li>Manteau : 2 900 km, convection</li><li>Noyau externe : liquide, fer, champ magnetique</li><li>Noyau interne : solide, 5 150-6 371 km</li></ul></div><div class="box"><h2>Tectonique des plaques</h2><ul><li>15 plaques majeures, 2-10 cm/an</li><li>Divergence : dorsales (nouvelle croute)</li><li>Convergence : subduction ou collision</li><li>Coulissage : failles transformantes</li><li>Pangee : supercontinent il y a 250 Ma</li></ul></div><div class="box"><h2>Roches et mineraux</h2><ul><li>Ignees : granite, basalte (magma)</li><li>Sedimentaires : calcaire, gres (depots)</li><li>Metamorphiques : marbre, schiste (P+T)</li><li>Feldspath : mineral le plus abondant (60%)</li></ul></div><div class="box"><h2>Atmosphere et climat</h2><ul><li>78% N2, 21% O2, 0,04% CO2</li><li>Effet de serre naturel : +33 degres C</li><li>CO2 : 280 ppm (1850) a 420+ ppm</li><li>Gulf Stream : chaleur vers l'Europe</li></ul></div></div><div class="footer">Curiosita — Fiche memo Sciences de la Terre — ${new Date().toLocaleDateString('fr-FR')}</div><button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#1a8a7e;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">Imprimer / PDF</button></body></html>`);w.document.close();}
-renderQuestion();
-</script>
-<script src="mobile.js?v=2"></script>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

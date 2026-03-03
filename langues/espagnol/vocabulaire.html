@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Les mots essentiels, les faux amis franco-espagnols et les champs lexicaux du quotidien.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Vocabulaire courant — Espagnol — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e8c97a;
   --accent2: #f5dfa0;
   --accent-dim: rgba(232,201,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,201,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,201,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📚 Espagnol</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -176,10 +176,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que signifie « embarazada » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Embarrassée</div>
-              <div class="option" onclick="answer(this,true)">Enceinte</div>
-              <div class="option" onclick="answer(this,false)">Embrouillée</div>
-              <div class="option" onclick="answer(this,false)">Embrassée</div>
+              <button class="option" onclick="answer(this,false)">Embarrassée</button>
+              <button class="option" onclick="answer(this,true)">Enceinte</button>
+              <button class="option" onclick="answer(this,false)">Embrouillée</button>
+              <button class="option" onclick="answer(this,false)">Embrassée</button>
             </div>
             <div class="q-feedback">« Embarazada » signifie « enceinte ». C'est l'un des faux amis les plus célèbres entre le français et l'espagnol. Pour dire « embarrassée », on dit « avergonzada ».</div>
           </div>
@@ -187,10 +187,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Comment dit-on « le dîner » en espagnol ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">El desayuno</div>
-              <div class="option" onclick="answer(this,false)">El almuerzo</div>
-              <div class="option" onclick="answer(this,true)">La cena</div>
-              <div class="option" onclick="answer(this,false)">La comida</div>
+              <button class="option" onclick="answer(this,false)">El desayuno</button>
+              <button class="option" onclick="answer(this,false)">El almuerzo</button>
+              <button class="option" onclick="answer(this,true)">La cena</button>
+              <button class="option" onclick="answer(this,false)">La comida</button>
             </div>
             <div class="q-feedback">« La cena » = le dîner. « El desayuno » = le petit-déjeuner. « El almuerzo / la comida » = le déjeuner.</div>
           </div>
@@ -198,10 +198,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Le français « liberté » se traduit en espagnol par :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Liberté</div>
-              <div class="option" onclick="answer(this,true)">Libertad</div>
-              <div class="option" onclick="answer(this,false)">Libertación</div>
-              <div class="option" onclick="answer(this,false)">Liberamento</div>
+              <button class="option" onclick="answer(this,false)">Liberté</button>
+              <button class="option" onclick="answer(this,true)">Libertad</button>
+              <button class="option" onclick="answer(this,false)">Libertación</button>
+              <button class="option" onclick="answer(this,false)">Liberamento</button>
             </div>
             <div class="q-feedback">Le suffixe français « -té » correspond au suffixe espagnol « -dad » : liberté → libertad, université → universidad, société → sociedad.</div>
           </div>
@@ -209,10 +209,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Que signifie le faux ami « constipado » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Constipé</div>
-              <div class="option" onclick="answer(this,true)">Enrhumé</div>
-              <div class="option" onclick="answer(this,false)">Fatigué</div>
-              <div class="option" onclick="answer(this,false)">Inquiet</div>
+              <button class="option" onclick="answer(this,false)">Constipé</button>
+              <button class="option" onclick="answer(this,true)">Enrhumé</button>
+              <button class="option" onclick="answer(this,false)">Fatigué</button>
+              <button class="option" onclick="answer(this,false)">Inquiet</button>
             </div>
             <div class="q-feedback">« Constipado » signifie « enrhumé », pas « constipé ». Pour dire « constipé » en espagnol, on utilise « estreñido ». C'est un faux ami classique qui peut provoquer des malentendus embarrassants !</div>
           </div>
@@ -220,10 +220,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Comment dit-on « blond » en espagnol ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Blondo</div>
-              <div class="option" onclick="answer(this,true)">Rubio</div>
-              <div class="option" onclick="answer(this,false)">Moreno</div>
-              <div class="option" onclick="answer(this,false)">Claro</div>
+              <button class="option" onclick="answer(this,false)">Blondo</button>
+              <button class="option" onclick="answer(this,true)">Rubio</button>
+              <button class="option" onclick="answer(this,false)">Moreno</button>
+              <button class="option" onclick="answer(this,false)">Claro</button>
             </div>
             <div class="q-feedback">« Rubio/rubia » signifie blond(e). « Moreno/morena » signifie brun(e). Ce sont des mots très courants pour les descriptions physiques en espagnol.</div>
           </div>
@@ -231,10 +231,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Le verbe « esperar » signifie :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Seulement « espérer »</div>
-              <div class="option" onclick="answer(this,false)">Seulement « attendre »</div>
-              <div class="option" onclick="answer(this,true)">À la fois « espérer » et « attendre »</div>
-              <div class="option" onclick="answer(this,false)">« Expérer » (expédier)</div>
+              <button class="option" onclick="answer(this,false)">Seulement « espérer »</button>
+              <button class="option" onclick="answer(this,false)">Seulement « attendre »</button>
+              <button class="option" onclick="answer(this,true)">À la fois « espérer » et « attendre »</button>
+              <button class="option" onclick="answer(this,false)">« Expérer » (expédier)</button>
             </div>
             <div class="q-feedback">Le verbe « esperar » a deux sens : « attendre » et « espérer ». C'est le contexte qui détermine le sens. « Espero el autobús » = j'attends le bus. « Espero que vengas » = j'espère que tu viendras.</div>
           </div>
@@ -317,8 +317,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

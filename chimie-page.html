@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La science des transformations de la mati re. Des atomes aux mol cules, des r actions aux liaisons chimiques : comprenez les m canismes fondamentaux qui...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Chimie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #4fc3f7;
   --accent2: #81d4fa;
   --accent-dim: rgba(79,195,247,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(79,195,247,0.07) 0%, transparent 70%); }
+ --accent-hero: rgba(79,195,247,0.07); }
 .hero-deco { color: rgba(79,195,247,0.04); }
 </style>
 </head>
@@ -23,7 +24,7 @@
   <button class="btn-memo" onclick="downloadMemo()">&darr; Fiche m&eacute;mo</button>
 </nav>
 
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">&#129514;</div>
   <div class="hero-meta">
     <span class="tag-domain">&#128300; Sciences exactes &amp; Informatique</span>
@@ -149,10 +150,10 @@
             <p class="q-num">Question 1 / 10</p>
             <p class="q-text">Quelle est la formule chimique de l'eau ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">HO</div>
-              <div class="option" onclick="answer(this,true)">H&#8322;O</div>
-              <div class="option" onclick="answer(this,false)">H&#8322;O&#8322;</div>
-              <div class="option" onclick="answer(this,false)">OH&#8322;</div>
+              <button class="option" onclick="answer(this,false)">HO</button>
+              <button class="option" onclick="answer(this,true)">H&#8322;O</button>
+              <button class="option" onclick="answer(this,false)">H&#8322;O&#8322;</button>
+              <button class="option" onclick="answer(this,false)">OH&#8322;</button>
             </div>
             <div class="q-feedback">L'eau est H&#8322;O : deux atomes d'hydrog&egrave;ne li&eacute;s &agrave; un atome d'oxyg&egrave;ne par des liaisons covalentes. H&#8322;O&#8322; est le peroxyde d'hydrog&egrave;ne (eau oxyg&eacute;n&eacute;e).</div>
           </div>
@@ -161,10 +162,10 @@
             <p class="q-num">Question 2 / 10</p>
             <p class="q-text">Qui a &eacute;nonc&eacute; la loi de conservation de la masse ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Mendele&iuml;ev</div>
-              <div class="option" onclick="answer(this,true)">Lavoisier</div>
-              <div class="option" onclick="answer(this,false)">Dalton</div>
-              <div class="option" onclick="answer(this,false)">Bohr</div>
+              <button class="option" onclick="answer(this,false)">Mendele&iuml;ev</button>
+              <button class="option" onclick="answer(this,true)">Lavoisier</button>
+              <button class="option" onclick="answer(this,false)">Dalton</button>
+              <button class="option" onclick="answer(this,false)">Bohr</button>
             </div>
             <div class="q-feedback">Antoine de Lavoisier (1789) a d&eacute;montr&eacute; que la masse totale des r&eacute;actifs &eacute;gale celle des produits. Il est consid&eacute;r&eacute; comme le p&egrave;re de la chimie moderne.</div>
           </div>
@@ -173,10 +174,10 @@
             <p class="q-num">Question 3 / 10</p>
             <p class="q-text">Combien d'&eacute;l&eacute;ments le tableau p&eacute;riodique contient-il actuellement ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">92</div>
-              <div class="option" onclick="answer(this,false)">103</div>
-              <div class="option" onclick="answer(this,true)">118</div>
-              <div class="option" onclick="answer(this,false)">126</div>
+              <button class="option" onclick="answer(this,false)">92</button>
+              <button class="option" onclick="answer(this,false)">103</button>
+              <button class="option" onclick="answer(this,true)">118</button>
+              <button class="option" onclick="answer(this,false)">126</button>
             </div>
             <div class="q-feedback">Le tableau p&eacute;riodique contient 118 &eacute;l&eacute;ments confirm&eacute;s, du H (Z=1) &agrave; l'Oganesson (Z=118). Les &eacute;l&eacute;ments au-del&agrave; de l'uranium (Z=92) sont tous synth&eacute;tiques.</div>
           </div>
@@ -185,10 +186,10 @@
             <p class="q-num">Question 4 / 10</p>
             <p class="q-text">Quel type de liaison unit le sodium et le chlore dans NaCl ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Covalente</div>
-              <div class="option" onclick="answer(this,true)">Ionique</div>
-              <div class="option" onclick="answer(this,false)">M&eacute;tallique</div>
-              <div class="option" onclick="answer(this,false)">Hydrog&egrave;ne</div>
+              <button class="option" onclick="answer(this,false)">Covalente</button>
+              <button class="option" onclick="answer(this,true)">Ionique</button>
+              <button class="option" onclick="answer(this,false)">M&eacute;tallique</button>
+              <button class="option" onclick="answer(this,false)">Hydrog&egrave;ne</button>
             </div>
             <div class="q-feedback">NaCl est un compos&eacute; ionique : le sodium (m&eacute;tal) c&egrave;de un &eacute;lectron au chlore (&eacute;lectron&eacute;gatif), formant Na&#8314; et Cl&#8315; maintenus par attraction &eacute;lectrostatique.</div>
           </div>
@@ -197,10 +198,10 @@
             <p class="q-num">Question 5 / 10</p>
             <p class="q-text">Que vaut le nombre d'Avogadro ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">6,022 &times; 10&sup2;&sup3;</div>
-              <div class="option" onclick="answer(this,false)">3,14 &times; 10&sup2;&sup3;</div>
-              <div class="option" onclick="answer(this,false)">6,022 &times; 10&sup2;&sup2;</div>
-              <div class="option" onclick="answer(this,false)">1,602 &times; 10&sup2;&sup3;</div>
+              <button class="option" onclick="answer(this,true)">6,022 &times; 10&sup2;&sup3;</button>
+              <button class="option" onclick="answer(this,false)">3,14 &times; 10&sup2;&sup3;</button>
+              <button class="option" onclick="answer(this,false)">6,022 &times; 10&sup2;&sup2;</button>
+              <button class="option" onclick="answer(this,false)">1,602 &times; 10&sup2;&sup3;</button>
             </div>
             <div class="q-feedback">Le nombre d'Avogadro N&#8320; = 6,022 &times; 10&sup2;&sup3; mol&#8315;&sup1;. C'est le nombre d'entit&eacute;s dans une mole. Il permet de relier la masse molaire (g/mol) au nombre d'atomes ou de mol&eacute;cules.</div>
           </div>
@@ -209,10 +210,10 @@
             <p class="q-num">Question 6 / 10</p>
             <p class="q-text">Un pH de 3 correspond &agrave; une solution :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Acide</div>
-              <div class="option" onclick="answer(this,false)">Neutre</div>
-              <div class="option" onclick="answer(this,false)">Basique</div>
-              <div class="option" onclick="answer(this,false)">Tamponn&eacute;e</div>
+              <button class="option" onclick="answer(this,true)">Acide</button>
+              <button class="option" onclick="answer(this,false)">Neutre</button>
+              <button class="option" onclick="answer(this,false)">Basique</button>
+              <button class="option" onclick="answer(this,false)">Tamponn&eacute;e</button>
             </div>
             <div class="q-feedback">pH &lt; 7 = acide. Un pH de 3 est fortement acide (concentration en H&#8314; = 10&#8315;&sup3; mol/L). Exemples : vinaigre (pH~3), jus de citron (pH~2). Le pH neutre est 7 (eau pure).</div>
           </div>
@@ -221,10 +222,10 @@
             <p class="q-num">Question 7 / 10</p>
             <p class="q-text">Quelle particule subatomique d&eacute;termine l'identit&eacute; chimique d'un &eacute;l&eacute;ment ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le neutron</div>
-              <div class="option" onclick="answer(this,true)">Le proton</div>
-              <div class="option" onclick="answer(this,false)">L'&eacute;lectron</div>
-              <div class="option" onclick="answer(this,false)">Le photon</div>
+              <button class="option" onclick="answer(this,false)">Le neutron</button>
+              <button class="option" onclick="answer(this,true)">Le proton</button>
+              <button class="option" onclick="answer(this,false)">L'&eacute;lectron</button>
+              <button class="option" onclick="answer(this,false)">Le photon</button>
             </div>
             <div class="q-feedback">Le nombre de protons (Z = num&eacute;ro atomique) d&eacute;finit l'&eacute;l&eacute;ment. Ex : Z = 6 = carbone, Z = 26 = fer. Les neutrons d&eacute;finissent l'isotope et les &eacute;lectrons d&eacute;terminent la r&eacute;activit&eacute;.</div>
           </div>
@@ -233,10 +234,10 @@
             <p class="q-num">Question 8 / 10</p>
             <p class="q-text">Qu'est-ce qu'un catalyseur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un r&eacute;actif consomm&eacute; dans la r&eacute;action</div>
-              <div class="option" onclick="answer(this,true)">Une substance qui acc&eacute;l&egrave;re la r&eacute;action sans &ecirc;tre consomm&eacute;e</div>
-              <div class="option" onclick="answer(this,false)">Un produit form&eacute; en fin de r&eacute;action</div>
-              <div class="option" onclick="answer(this,false)">Un inhibiteur de r&eacute;action</div>
+              <button class="option" onclick="answer(this,false)">Un r&eacute;actif consomm&eacute; dans la r&eacute;action</button>
+              <button class="option" onclick="answer(this,true)">Une substance qui acc&eacute;l&egrave;re la r&eacute;action sans &ecirc;tre consomm&eacute;e</button>
+              <button class="option" onclick="answer(this,false)">Un produit form&eacute; en fin de r&eacute;action</button>
+              <button class="option" onclick="answer(this,false)">Un inhibiteur de r&eacute;action</button>
             </div>
             <div class="q-feedback">Un catalyseur abaisse l'&eacute;nergie d'activation d'une r&eacute;action, l'acc&eacute;l&eacute;rant sans &ecirc;tre consomm&eacute;. Il est r&eacute;g&eacute;n&eacute;r&eacute; &agrave; chaque cycle. Exemples : enzymes (biologie), platine (pot catalytique).</div>
           </div>
@@ -245,10 +246,10 @@
             <p class="q-num">Question 9 / 10</p>
             <p class="q-text">Dans une r&eacute;action d'oxydor&eacute;duction, l'oxydant :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Perd des &eacute;lectrons</div>
-              <div class="option" onclick="answer(this,true)">Gagne des &eacute;lectrons</div>
-              <div class="option" onclick="answer(this,false)">Perd des protons</div>
-              <div class="option" onclick="answer(this,false)">Gagne des protons</div>
+              <button class="option" onclick="answer(this,false)">Perd des &eacute;lectrons</button>
+              <button class="option" onclick="answer(this,true)">Gagne des &eacute;lectrons</button>
+              <button class="option" onclick="answer(this,false)">Perd des protons</button>
+              <button class="option" onclick="answer(this,false)">Gagne des protons</button>
             </div>
             <div class="q-feedback">L'oxydant gagne des &eacute;lectrons (il est r&eacute;duit). Le r&eacute;ducteur perd des &eacute;lectrons (il est oxyd&eacute;). Mn&eacute;motechnique : OIL RIG &mdash; Oxidation Is Loss, Reduction Is Gain.</div>
           </div>
@@ -257,10 +258,10 @@
             <p class="q-num">Question 10 / 10</p>
             <p class="q-text">Quel chimiste a con&ccedil;u le tableau p&eacute;riodique des &eacute;l&eacute;ments ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Lavoisier</div>
-              <div class="option" onclick="answer(this,false)">Dalton</div>
-              <div class="option" onclick="answer(this,true)">Mendele&iuml;ev</div>
-              <div class="option" onclick="answer(this,false)">Curie</div>
+              <button class="option" onclick="answer(this,false)">Lavoisier</button>
+              <button class="option" onclick="answer(this,false)">Dalton</button>
+              <button class="option" onclick="answer(this,true)">Mendele&iuml;ev</button>
+              <button class="option" onclick="answer(this,false)">Curie</button>
             </div>
             <div class="q-feedback">Dmitri Mendele&iuml;ev (1869) a class&eacute; les &eacute;l&eacute;ments par masse atomique croissante et pr&eacute;dit l'existence d'&eacute;l&eacute;ments inconnus (gallium, germanium, scandium). Son tableau reste la base de la chimie.</div>
           </div>
@@ -382,8 +383,15 @@
   </main>
 </div>
 
-<script src="utils.js"></script>
-<script src="quiz.js"></script>
-<script src="mobile.js?v=2"></script>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

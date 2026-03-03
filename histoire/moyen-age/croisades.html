@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Deux siècles de guerres saintes, les États latins d'Orient et les échanges entre civilisations.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Croisades — Moyen Âge — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📜 Moyen Âge</span>
     <span class="tag-level">Intermédiaire</span>
@@ -144,10 +144,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quel pape lance l'appel à la première croisade en 1095 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Grégoire VII</div>
-              <div class="option" onclick="answer(this,true)">Urbain II</div>
-              <div class="option" onclick="answer(this,false)">Innocent III</div>
-              <div class="option" onclick="answer(this,false)">Boniface VIII</div>
+              <button class="option" onclick="answer(this,false)">Grégoire VII</button>
+              <button class="option" onclick="answer(this,true)">Urbain II</button>
+              <button class="option" onclick="answer(this,false)">Innocent III</button>
+              <button class="option" onclick="answer(this,false)">Boniface VIII</button>
             </div>
             <div class="q-feedback">Le pape Urbain II lance l'appel à la croisade au concile de Clermont en 1095, déclenchant la première croisade (1096-1099).</div>
           </div>
@@ -155,10 +155,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Quel sultan musulman reprend Jérusalem en 1187 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Saladin</div>
-              <div class="option" onclick="answer(this,false)">Baybars</div>
-              <div class="option" onclick="answer(this,false)">Nur ad-Din</div>
-              <div class="option" onclick="answer(this,false)">Mehmed II</div>
+              <button class="option" onclick="answer(this,true)">Saladin</button>
+              <button class="option" onclick="answer(this,false)">Baybars</button>
+              <button class="option" onclick="answer(this,false)">Nur ad-Din</button>
+              <button class="option" onclick="answer(this,false)">Mehmed II</button>
             </div>
             <div class="q-feedback">Saladin (Salah ad-Din) reprend Jérusalem en 1187 après la bataille de Hattin, déclenchant la troisième croisade.</div>
           </div>
@@ -166,10 +166,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Quelle croisade est détournée vers Constantinople en 1204 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La deuxième</div>
-              <div class="option" onclick="answer(this,false)">La troisième</div>
-              <div class="option" onclick="answer(this,true)">La quatrième</div>
-              <div class="option" onclick="answer(this,false)">La sixième</div>
+              <button class="option" onclick="answer(this,false)">La deuxième</button>
+              <button class="option" onclick="answer(this,false)">La troisième</button>
+              <button class="option" onclick="answer(this,true)">La quatrième</button>
+              <button class="option" onclick="answer(this,false)">La sixième</button>
             </div>
             <div class="q-feedback">La quatrième croisade (1202-1204) est détournée et aboutit au sac de Constantinople, capitale chrétienne de l'Empire byzantin.</div>
           </div>
@@ -177,10 +177,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Combien d'États latins d'Orient sont fondés après la première croisade ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">2</div>
-              <div class="option" onclick="answer(this,false)">3</div>
-              <div class="option" onclick="answer(this,true)">4</div>
-              <div class="option" onclick="answer(this,false)">6</div>
+              <button class="option" onclick="answer(this,false)">2</button>
+              <button class="option" onclick="answer(this,false)">3</button>
+              <button class="option" onclick="answer(this,true)">4</button>
+              <button class="option" onclick="answer(this,false)">6</button>
             </div>
             <div class="q-feedback">Quatre États latins sont fondés : le royaume de Jérusalem, le comté de Tripoli, la principauté d'Antioche et le comté d'Édesse. Ce dernier est le premier à tomber en 1144.</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">En quelle année la dernière forteresse croisée (Acre) tombe-t-elle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1187</div>
-              <div class="option" onclick="answer(this,false)">1244</div>
-              <div class="option" onclick="answer(this,false)">1270</div>
-              <div class="option" onclick="answer(this,true)">1291</div>
+              <button class="option" onclick="answer(this,false)">1187</button>
+              <button class="option" onclick="answer(this,false)">1244</button>
+              <button class="option" onclick="answer(this,false)">1270</button>
+              <button class="option" onclick="answer(this,true)">1291</button>
             </div>
             <div class="q-feedback">La chute d'Acre en 1291 marque la fin de la présence franque en Terre sainte. Les Mamelouks s'emparent de la dernière forteresse croisée, mettant fin à près de deux siècles de présence latine en Orient.</div>
           </div>
@@ -223,8 +223,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

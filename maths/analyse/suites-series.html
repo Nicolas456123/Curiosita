@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Convergence, divergence, séries géométriques et séries de Taylor — le discret qui rejoint le continu.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Suites et séries — Analyse — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #c0392b;
   --accent2: #e74c3c;
   --accent-dim: rgba(192,57,43,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(192,57,43,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📈 Analyse</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -172,10 +172,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la somme de la série géométrique 1 + 1/3 + 1/9 + 1/27 + ... ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1</div>
-              <div class="option" onclick="answer(this,false)">2</div>
-              <div class="option" onclick="answer(this,true)">3/2</div>
-              <div class="option" onclick="answer(this,false)">+∞</div>
+              <button class="option" onclick="answer(this,false)">1</button>
+              <button class="option" onclick="answer(this,false)">2</button>
+              <button class="option" onclick="answer(this,true)">3/2</button>
+              <button class="option" onclick="answer(this,false)">+∞</button>
             </div>
             <div class="q-feedback">C'est une série géométrique de raison q = 1/3 et de premier terme 1. Sa somme vaut 1/(1 − 1/3) = 1/(2/3) = 3/2.</div>
           </div>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">La série harmonique Σ<sub>n=1</sub><sup>∞</sup> 1/n est-elle convergente ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Oui, elle converge vers 1</div>
-              <div class="option" onclick="answer(this,false)">Oui, elle converge vers ln(2)</div>
-              <div class="option" onclick="answer(this,true)">Non, elle diverge vers +∞</div>
-              <div class="option" onclick="answer(this,false)">Non, elle oscille</div>
+              <button class="option" onclick="answer(this,false)">Oui, elle converge vers 1</button>
+              <button class="option" onclick="answer(this,false)">Oui, elle converge vers ln(2)</button>
+              <button class="option" onclick="answer(this,true)">Non, elle diverge vers +∞</button>
+              <button class="option" onclick="answer(this,false)">Non, elle oscille</button>
             </div>
             <div class="q-feedback">La série harmonique est le cas emblématique d'une série dont le terme général tend vers 0, mais qui diverge quand même. On peut le montrer par comparaison ou par le critère intégral (∫ 1/x dx diverge).</div>
           </div>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Le développement de Taylor de e<sup>x</sup> autour de 0 est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1 + x + x² + x³ + ...</div>
-              <div class="option" onclick="answer(this,true)">1 + x + x²/2! + x³/3! + ...</div>
-              <div class="option" onclick="answer(this,false)">x − x³/3! + x⁵/5! − ...</div>
-              <div class="option" onclick="answer(this,false)">1 − x²/2! + x⁴/4! − ...</div>
+              <button class="option" onclick="answer(this,false)">1 + x + x² + x³ + ...</button>
+              <button class="option" onclick="answer(this,true)">1 + x + x²/2! + x³/3! + ...</button>
+              <button class="option" onclick="answer(this,false)">x − x³/3! + x⁵/5! − ...</button>
+              <button class="option" onclick="answer(this,false)">1 − x²/2! + x⁴/4! − ...</button>
             </div>
             <div class="q-feedback">e<sup>x</sup> = Σ x<sup>n</sup>/n! = 1 + x + x²/2 + x³/6 + ... La série sans factorielles (1 + x + x² + ...) est le développement de 1/(1−x). Les deux autres sont sin(x) et cos(x).</div>
           </div>
@@ -205,10 +205,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Une suite croissante et majorée est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Convergente</div>
-              <div class="option" onclick="answer(this,false)">Divergente</div>
-              <div class="option" onclick="answer(this,false)">Bornée mais pas nécessairement convergente</div>
-              <div class="option" onclick="answer(this,false)">Constante</div>
+              <button class="option" onclick="answer(this,true)">Convergente</button>
+              <button class="option" onclick="answer(this,false)">Divergente</button>
+              <button class="option" onclick="answer(this,false)">Bornée mais pas nécessairement convergente</button>
+              <button class="option" onclick="answer(this,false)">Constante</button>
             </div>
             <div class="q-feedback">C'est le théorème de la convergence monotone : toute suite croissante et majorée converge. Intuitivement, elle « monte » mais ne peut pas dépasser sa borne supérieure, donc elle se stabilise.</div>
           </div>
@@ -216,10 +216,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Selon le critère de D'Alembert, que conclut-on si lim |u<sub>n+1</sub>/u<sub>n</sub>| = 1 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La série converge</div>
-              <div class="option" onclick="answer(this,false)">La série diverge</div>
-              <div class="option" onclick="answer(this,true)">On ne peut pas conclure</div>
-              <div class="option" onclick="answer(this,false)">La série converge absolument</div>
+              <button class="option" onclick="answer(this,false)">La série converge</button>
+              <button class="option" onclick="answer(this,false)">La série diverge</button>
+              <button class="option" onclick="answer(this,true)">On ne peut pas conclure</button>
+              <button class="option" onclick="answer(this,false)">La série converge absolument</button>
             </div>
             <div class="q-feedback">Le cas limite L = 1 est inconcluant pour le critère de D'Alembert. Il faut utiliser un autre critère (comparaison, Riemann, etc.). Exemple : Σ 1/n (diverge) et Σ 1/n² (converge) donnent toutes deux L = 1.</div>
           </div>
@@ -227,10 +227,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel est le terme général u<sub>n</sub> d'une suite géométrique de premier terme u₀ = 5 et de raison q = 2 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">u<sub>n</sub> = 5 + 2n</div>
-              <div class="option" onclick="answer(this,true)">u<sub>n</sub> = 5 × 2<sup>n</sup></div>
-              <div class="option" onclick="answer(this,false)">u<sub>n</sub> = 2 × 5<sup>n</sup></div>
-              <div class="option" onclick="answer(this,false)">u<sub>n</sub> = 5<sup>n</sup> × 2</div>
+              <button class="option" onclick="answer(this,false)">u<sub>n</sub> = 5 + 2n</button>
+              <button class="option" onclick="answer(this,true)">u<sub>n</sub> = 5 × 2<sup>n</sup></button>
+              <button class="option" onclick="answer(this,false)">u<sub>n</sub> = 2 × 5<sup>n</sup></button>
+              <button class="option" onclick="answer(this,false)">u<sub>n</sub> = 5<sup>n</sup> × 2</button>
             </div>
             <div class="q-feedback">Le terme général d'une suite géométrique est u<sub>n</sub> = u₀ × q<sup>n</sup>. Avec u₀ = 5 et q = 2 : u<sub>n</sub> = 5 × 2<sup>n</sup>. La formule u₀ + rn serait celle d'une suite arithmétique.</div>
           </div>
@@ -300,8 +300,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

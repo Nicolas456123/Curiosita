@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Les atomes des mathématiques — définition, crible d'Ératosthène, infinité et décomposition en facteurs premiers.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Les nombres premiers — Arithmétique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #c0392b;
   --accent2: #e74c3c;
   --accent-dim: rgba(192,57,43,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(192,57,43,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔢 Arithmétique</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -172,10 +172,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est le plus petit nombre premier ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1</div>
-              <div class="option" onclick="answer(this,true)">2</div>
-              <div class="option" onclick="answer(this,false)">3</div>
-              <div class="option" onclick="answer(this,false)">0</div>
+              <button class="option" onclick="answer(this,false)">1</button>
+              <button class="option" onclick="answer(this,true)">2</button>
+              <button class="option" onclick="answer(this,false)">3</button>
+              <button class="option" onclick="answer(this,false)">0</button>
             </div>
             <div class="q-feedback">1 n'est pas premier par convention. 2 est le plus petit et le seul nombre premier pair.</div>
           </div>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle est la décomposition en facteurs premiers de 84 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">2² × 3 × 7</div>
-              <div class="option" onclick="answer(this,false)">2 × 3² × 7</div>
-              <div class="option" onclick="answer(this,false)">2² × 21</div>
-              <div class="option" onclick="answer(this,false)">4 × 3 × 7</div>
+              <button class="option" onclick="answer(this,true)">2² × 3 × 7</button>
+              <button class="option" onclick="answer(this,false)">2 × 3² × 7</button>
+              <button class="option" onclick="answer(this,false)">2² × 21</button>
+              <button class="option" onclick="answer(this,false)">4 × 3 × 7</button>
             </div>
             <div class="q-feedback">84 = 2 × 42 = 2 × 2 × 21 = 2 × 2 × 3 × 7 = 2² × 3 × 7. Attention : 4 et 21 ne sont pas premiers.</div>
           </div>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Pour vérifier si 127 est premier, jusqu'à quel nombre faut-il tester les diviseurs ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">11 (car √127 ≈ 11,3)</div>
-              <div class="option" onclick="answer(this,false)">63 (la moitié)</div>
-              <div class="option" onclick="answer(this,false)">126 (n-1)</div>
-              <div class="option" onclick="answer(this,false)">13</div>
+              <button class="option" onclick="answer(this,true)">11 (car √127 ≈ 11,3)</button>
+              <button class="option" onclick="answer(this,false)">63 (la moitié)</button>
+              <button class="option" onclick="answer(this,false)">126 (n-1)</button>
+              <button class="option" onclick="answer(this,false)">13</button>
             </div>
             <div class="q-feedback">Il suffit de tester les premiers p avec p² ≤ 127. Comme 11² = 121 ≤ 127 et 12² = 144 > 127, on teste jusqu'à 11. Les premiers à tester : 2, 3, 5, 7, 11. Aucun ne divise 127, donc 127 est premier.</div>
           </div>
@@ -205,10 +205,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Lequel de ces nombres N'est PAS premier ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">37</div>
-              <div class="option" onclick="answer(this,false)">41</div>
-              <div class="option" onclick="answer(this,true)">51</div>
-              <div class="option" onclick="answer(this,false)">53</div>
+              <button class="option" onclick="answer(this,false)">37</button>
+              <button class="option" onclick="answer(this,false)">41</button>
+              <button class="option" onclick="answer(this,true)">51</button>
+              <button class="option" onclick="answer(this,false)">53</button>
             </div>
             <div class="q-feedback">51 = 3 × 17, donc 51 n'est pas premier. On peut vérifier : 5 + 1 = 6 est divisible par 3. Les trois autres (37, 41, 53) sont bien premiers.</div>
           </div>
@@ -216,10 +216,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Combien y a-t-il de nombres premiers entre 1 et 10 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">4</div>
-              <div class="option" onclick="answer(this,false)">5</div>
-              <div class="option" onclick="answer(this,false)">3</div>
-              <div class="option" onclick="answer(this,false)">6</div>
+              <button class="option" onclick="answer(this,true)">4</button>
+              <button class="option" onclick="answer(this,false)">5</button>
+              <button class="option" onclick="answer(this,false)">3</button>
+              <button class="option" onclick="answer(this,false)">6</button>
             </div>
             <div class="q-feedback">Les nombres premiers entre 1 et 10 sont : 2, 3, 5 et 7. Soit 4 nombres. Rappel : 1 n'est pas premier, et les nombres 4, 6, 8, 9, 10 sont composés.</div>
           </div>
@@ -227,10 +227,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Dans la preuve d'Euclide de l'infinité des premiers, que peut-on dire du nombre N = p₁ × p₂ × ... × pₙ + 1 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">N est toujours premier</div>
-              <div class="option" onclick="answer(this,true)">N est premier ou a un facteur premier non dans la liste</div>
-              <div class="option" onclick="answer(this,false)">N est toujours composé</div>
-              <div class="option" onclick="answer(this,false)">N est divisible par l'un des pᵢ</div>
+              <button class="option" onclick="answer(this,false)">N est toujours premier</button>
+              <button class="option" onclick="answer(this,true)">N est premier ou a un facteur premier non dans la liste</button>
+              <button class="option" onclick="answer(this,false)">N est toujours composé</button>
+              <button class="option" onclick="answer(this,false)">N est divisible par l'un des pᵢ</button>
             </div>
             <div class="q-feedback">N n'est divisible par aucun des pᵢ (reste 1). Donc soit N est lui-même premier, soit il a un facteur premier qui n'est pas dans la liste {p₁, ..., pₙ}. Dans les deux cas, il existe un premier supplémentaire.</div>
           </div>
@@ -300,8 +300,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

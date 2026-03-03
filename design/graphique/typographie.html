@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Anatomie des caractères, familles typographiques, mise en page et lisibilité — l'art de donner forme aux mots.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Typographie — Design graphique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔤 Design graphique</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -141,10 +141,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qu'est-ce qu'un empattement (serif) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'espace entre deux lettres</div>
-              <div class="option" onclick="answer(this,true)">Un petit trait terminal aux extrémités des fûts</div>
-              <div class="option" onclick="answer(this,false)">La partie descendante d'une lettre</div>
-              <div class="option" onclick="answer(this,false)">L'épaisseur du trait d'une lettre</div>
+              <button class="option" onclick="answer(this,false)">L'espace entre deux lettres</button>
+              <button class="option" onclick="answer(this,true)">Un petit trait terminal aux extrémités des fûts</button>
+              <button class="option" onclick="answer(this,false)">La partie descendante d'une lettre</button>
+              <button class="option" onclick="answer(this,false)">L'épaisseur du trait d'une lettre</button>
             </div>
             <div class="q-feedback">L'empattement (serif) est le petit trait décoratif aux extrémités des fûts des lettres. Les polices serif (Times, Garamond) en possèdent ; les sans-serif (Helvetica, Arial) n'en ont pas.</div>
           </div>
@@ -152,10 +152,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel est l'interlignage recommandé pour un texte courant ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">80-100 % du corps</div>
-              <div class="option" onclick="answer(this,true)">120-150 % du corps</div>
-              <div class="option" onclick="answer(this,false)">200-250 % du corps</div>
-              <div class="option" onclick="answer(this,false)">100 % exactement</div>
+              <button class="option" onclick="answer(this,false)">80-100 % du corps</button>
+              <button class="option" onclick="answer(this,true)">120-150 % du corps</button>
+              <button class="option" onclick="answer(this,false)">200-250 % du corps</button>
+              <button class="option" onclick="answer(this,false)">100 % exactement</button>
             </div>
             <div class="q-feedback">Un interlignage de 120 à 150 % du corps assure une lecture confortable. Trop serré, les lignes se chevauchent visuellement ; trop lâche, le texte perd sa cohésion.</div>
           </div>
@@ -163,10 +163,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Combien de polices maximum recommande-t-on par projet ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1 seule</div>
-              <div class="option" onclick="answer(this,true)">2 à 3</div>
-              <div class="option" onclick="answer(this,false)">4 à 5</div>
-              <div class="option" onclick="answer(this,false)">Autant que nécessaire</div>
+              <button class="option" onclick="answer(this,false)">1 seule</button>
+              <button class="option" onclick="answer(this,true)">2 à 3</button>
+              <button class="option" onclick="answer(this,false)">4 à 5</button>
+              <button class="option" onclick="answer(this,false)">Autant que nécessaire</button>
             </div>
             <div class="q-feedback">La règle d'or est de ne pas dépasser 2 à 3 polices par projet : une pour les titres, une pour le texte courant, éventuellement une troisième pour les accents. La cohérence est la marque d'un design professionnel.</div>
           </div>
@@ -174,10 +174,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle est la longueur de ligne idéale pour un texte courant ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">20-30 caractères</div>
-              <div class="option" onclick="answer(this,true)">45-75 caractères</div>
-              <div class="option" onclick="answer(this,false)">100-120 caractères</div>
-              <div class="option" onclick="answer(this,false)">Pas de limite</div>
+              <button class="option" onclick="answer(this,false)">20-30 caractères</button>
+              <button class="option" onclick="answer(this,true)">45-75 caractères</button>
+              <button class="option" onclick="answer(this,false)">100-120 caractères</button>
+              <button class="option" onclick="answer(this,false)">Pas de limite</button>
             </div>
             <div class="q-feedback">Une ligne de 45 à 75 caractères offre le meilleur confort de lecture. En dessous, le texte est haché ; au-dessus, l'oeil a du mal à retrouver le début de la ligne suivante.</div>
           </div>
@@ -185,10 +185,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce que le crénage (kerning) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">L'ajustement de l'espace entre deux caractères spécifiques</div>
-              <div class="option" onclick="answer(this,false)">L'espace entre toutes les lettres d'un mot</div>
-              <div class="option" onclick="answer(this,false)">L'espace entre les lignes</div>
-              <div class="option" onclick="answer(this,false)">La largeur d'un caractère</div>
+              <button class="option" onclick="answer(this,true)">L'ajustement de l'espace entre deux caractères spécifiques</button>
+              <button class="option" onclick="answer(this,false)">L'espace entre toutes les lettres d'un mot</button>
+              <button class="option" onclick="answer(this,false)">L'espace entre les lignes</button>
+              <button class="option" onclick="answer(this,false)">La largeur d'un caractère</button>
             </div>
             <div class="q-feedback">Le crénage ajuste l'espace entre deux caractères précis pour corriger les déséquilibres optiques (par exemple AV, To, Ly). Il se distingue de l'approche (tracking) qui modifie uniformément l'espacement de tous les caractères.</div>
           </div>
@@ -196,10 +196,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel type de police est privilégié pour le code informatique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Serif</div>
-              <div class="option" onclick="answer(this,false)">Sans-serif</div>
-              <div class="option" onclick="answer(this,false)">Script</div>
-              <div class="option" onclick="answer(this,true)">Monospace</div>
+              <button class="option" onclick="answer(this,false)">Serif</button>
+              <button class="option" onclick="answer(this,false)">Sans-serif</button>
+              <button class="option" onclick="answer(this,false)">Script</button>
+              <button class="option" onclick="answer(this,true)">Monospace</button>
             </div>
             <div class="q-feedback">Les polices monospace (Courier, JetBrains Mono, Fira Code) donnent la même largeur à chaque caractère, ce qui aligne verticalement le code et facilite sa lecture.</div>
           </div>
@@ -263,8 +263,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

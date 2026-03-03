@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Économie, production et diffusion du spectacle vivant — les métiers, les institutions et les enjeux du secteur.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Spectacle vivant — Cirque — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎭 Cirque</span>
     <span class="tag-level">Intermédiaire</span>
@@ -137,10 +137,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qu'est-ce qui distingue fondamentalement le spectacle vivant du cinéma ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le spectacle vivant utilise de la musique</div>
-              <div class="option" onclick="answer(this,true)">La coprésence de l'artiste et du spectateur</div>
-              <div class="option" onclick="answer(this,false)">Le spectacle vivant est toujours gratuit</div>
-              <div class="option" onclick="answer(this,false)">Le cinéma est plus ancien</div>
+              <button class="option" onclick="answer(this,false)">Le spectacle vivant utilise de la musique</button>
+              <button class="option" onclick="answer(this,true)">La coprésence de l'artiste et du spectateur</button>
+              <button class="option" onclick="answer(this,false)">Le spectacle vivant est toujours gratuit</button>
+              <button class="option" onclick="answer(this,false)">Le cinéma est plus ancien</button>
             </div>
             <div class="q-feedback">Le spectacle vivant repose sur la coprésence physique de l'artiste et du spectateur dans un même lieu et un même temps. Chaque représentation est unique et irréproductible.</div>
           </div>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Combien d'heures de travail un intermittent du spectacle doit-il justifier sur 12 mois ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">300 heures</div>
-              <div class="option" onclick="answer(this,true)">507 heures</div>
-              <div class="option" onclick="answer(this,false)">700 heures</div>
-              <div class="option" onclick="answer(this,false)">1 000 heures</div>
+              <button class="option" onclick="answer(this,false)">300 heures</button>
+              <button class="option" onclick="answer(this,true)">507 heures</button>
+              <button class="option" onclick="answer(this,false)">700 heures</button>
+              <button class="option" onclick="answer(this,false)">1 000 heures</button>
             </div>
             <div class="q-feedback">Un intermittent du spectacle doit justifier de 507 heures de travail sur 12 mois pour bénéficier de l'indemnisation chômage spécifique.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qui a identifié la loi économique spécifique au spectacle vivant (productivité constante) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Adam Smith</div>
-              <div class="option" onclick="answer(this,true)">Baumol et Bowen</div>
-              <div class="option" onclick="answer(this,false)">André Malraux</div>
-              <div class="option" onclick="answer(this,false)">Jean Vilar</div>
+              <button class="option" onclick="answer(this,false)">Adam Smith</button>
+              <button class="option" onclick="answer(this,true)">Baumol et Bowen</button>
+              <button class="option" onclick="answer(this,false)">André Malraux</button>
+              <button class="option" onclick="answer(this,false)">Jean Vilar</button>
             </div>
             <div class="q-feedback">Les économistes Baumol et Bowen ont identifié en 1966 que le spectacle vivant ne peut pas augmenter sa productivité, ce qui explique sa dépendance au soutien public.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Combien de centres dramatiques nationaux (CDN) compte la France ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">5</div>
-              <div class="option" onclick="answer(this,false)">15</div>
-              <div class="option" onclick="answer(this,true)">38</div>
-              <div class="option" onclick="answer(this,false)">76</div>
+              <button class="option" onclick="answer(this,false)">5</button>
+              <button class="option" onclick="answer(this,false)">15</button>
+              <button class="option" onclick="answer(this,true)">38</button>
+              <button class="option" onclick="answer(this,false)">76</button>
             </div>
             <div class="q-feedback">La France compte 38 centres dramatiques nationaux répartis sur le territoire. Les 76 correspondent au nombre de scènes nationales.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qui est à l'origine du Festival d'Avignon ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Jean Vilar</div>
-              <div class="option" onclick="answer(this,false)">André Malraux</div>
-              <div class="option" onclick="answer(this,false)">Jack Lang</div>
-              <div class="option" onclick="answer(this,false)">Antoine Vitez</div>
+              <button class="option" onclick="answer(this,true)">Jean Vilar</button>
+              <button class="option" onclick="answer(this,false)">André Malraux</button>
+              <button class="option" onclick="answer(this,false)">Jack Lang</button>
+              <button class="option" onclick="answer(this,false)">Antoine Vitez</button>
             </div>
             <div class="q-feedback">Jean Vilar a créé le Festival d'Avignon en 1947, acte fondateur de la décentralisation théâtrale en France.</div>
           </div>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel ministre de la Culture a créé les Maisons de la Culture ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">André Malraux</div>
-              <div class="option" onclick="answer(this,false)">Jack Lang</div>
-              <div class="option" onclick="answer(this,false)">Jean Vilar</div>
-              <div class="option" onclick="answer(this,false)">Catherine Trautmann</div>
+              <button class="option" onclick="answer(this,true)">André Malraux</button>
+              <button class="option" onclick="answer(this,false)">Jack Lang</button>
+              <button class="option" onclick="answer(this,false)">Jean Vilar</button>
+              <button class="option" onclick="answer(this,false)">Catherine Trautmann</button>
             </div>
             <div class="q-feedback">André Malraux, premier ministre des Affaires culturelles (1959-1969), a créé les Maisons de la Culture pour diffuser l'art sur l'ensemble du territoire.</div>
           </div>
@@ -259,8 +259,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

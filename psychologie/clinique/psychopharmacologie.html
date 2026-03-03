@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Comment les médicaments agissent sur le cerveau — neurotransmetteurs, antidépresseurs, anxiolytiques et antipsychotiques.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Psychopharmacologie — Psychologie Clinique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #b07fe8; --accent2: #c9a0f0; --accent-dim: rgba(176,127,232,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(176,127,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #b07fe8; --accent2: #c9a0f0; --accent-dim: rgba(176,127,232,0.08);  --accent-hero: rgba(176,127,232,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../psychologie-page.html">Psychologie</a> › <a href="../clinique.html">Clinique</a> › <span>Psychopharmacologie</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">🧠 Clinique</span><span class="tag-level">Avancé</span><span class="tag-time">⏱ ~50 min</span></div>
   <h1><em>Psychopharmacologie</em></h1>
   <p class="hero-desc">Comment les médicaments agissent sur le cerveau — neurotransmetteurs, antidépresseurs, anxiolytiques et antipsychotiques.</p>
@@ -146,10 +146,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Les ISRS agissent principalement en :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Bloquant les récepteurs dopaminergiques</div>
-              <div class="option" onclick="answer(this,true)">Inhibant la recapture de la sérotonine</div>
-              <div class="option" onclick="answer(this,false)">Stimulant la production de GABA</div>
-              <div class="option" onclick="answer(this,false)">Détruisant la monoamine oxydase</div>
+              <button class="option" onclick="answer(this,false)">Bloquant les récepteurs dopaminergiques</button>
+              <button class="option" onclick="answer(this,true)">Inhibant la recapture de la sérotonine</button>
+              <button class="option" onclick="answer(this,false)">Stimulant la production de GABA</button>
+              <button class="option" onclick="answer(this,false)">Détruisant la monoamine oxydase</button>
             </div>
             <div class="q-feedback">Les ISRS bloquent le transporteur de recapture de la sérotonine dans le neurone présynaptique, augmentant ainsi la concentration de sérotonine dans la fente synaptique. Ils sont sélectifs pour la sérotonine, d'où moins d'effets secondaires que les tricycliques.</div>
           </div>
@@ -157,10 +157,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Le principal risque des benzodiazépines en usage prolongé est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'hypertension artérielle</div>
-              <div class="option" onclick="answer(this,true)">La dépendance et la tolérance</div>
-              <div class="option" onclick="answer(this,false)">La prise de poids importante</div>
-              <div class="option" onclick="answer(this,false)">Les hallucinations</div>
+              <button class="option" onclick="answer(this,false)">L'hypertension artérielle</button>
+              <button class="option" onclick="answer(this,true)">La dépendance et la tolérance</button>
+              <button class="option" onclick="answer(this,false)">La prise de poids importante</button>
+              <button class="option" onclick="answer(this,false)">Les hallucinations</button>
             </div>
             <div class="q-feedback">Les benzodiazépines créent une dépendance physique et psychologique avec tolérance (besoin d'augmenter les doses). Le sevrage peut provoquer des symptômes graves (anxiété rebond, insomnie, convulsions). C'est pourquoi leur usage est recommandé pour quelques semaines seulement.</div>
           </div>
@@ -168,10 +168,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Quel délai est généralement nécessaire avant qu'un antidépresseur ISRS produise son plein effet thérapeutique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Quelques heures</div>
-              <div class="option" onclick="answer(this,false)">2-3 jours</div>
-              <div class="option" onclick="answer(this,true)">2-4 semaines</div>
-              <div class="option" onclick="answer(this,false)">3-6 mois</div>
+              <button class="option" onclick="answer(this,false)">Quelques heures</button>
+              <button class="option" onclick="answer(this,false)">2-3 jours</button>
+              <button class="option" onclick="answer(this,true)">2-4 semaines</button>
+              <button class="option" onclick="answer(this,false)">3-6 mois</button>
             </div>
             <div class="q-feedback">Les antidépresseurs nécessitent 2 à 4 semaines pour produire leur effet thérapeutique complet. Ce délai s'explique par les cascades de signalisation intracellulaire et les changements de plasticité synaptique qui prennent du temps à se mettre en place.</div>
           </div>
@@ -179,10 +179,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quelle est la particularité de la clozapine parmi les antipsychotiques ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">C'est le premier antipsychotique découvert</div>
-              <div class="option" onclick="answer(this,false)">Elle n'a aucun effet secondaire</div>
-              <div class="option" onclick="answer(this,true)">C'est l'antipsychotique le plus efficace, réservé aux formes résistantes</div>
-              <div class="option" onclick="answer(this,false)">Elle agit uniquement sur la sérotonine</div>
+              <button class="option" onclick="answer(this,false)">C'est le premier antipsychotique découvert</button>
+              <button class="option" onclick="answer(this,false)">Elle n'a aucun effet secondaire</button>
+              <button class="option" onclick="answer(this,true)">C'est l'antipsychotique le plus efficace, réservé aux formes résistantes</button>
+              <button class="option" onclick="answer(this,false)">Elle agit uniquement sur la sérotonine</button>
             </div>
             <div class="q-feedback">La clozapine est considérée comme l'antipsychotique le plus efficace, mais elle est réservée aux schizophrénies résistantes en raison du risque rare mais grave d'agranulocytose (destruction des globules blancs), nécessitant une surveillance hématologique régulière par prise de sang.</div>
           </div>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quel est l'intérêt majeur de la kétamine dans le traitement de la dépression ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Elle n'a aucun effet secondaire</div>
-              <div class="option" onclick="answer(this,false)">Elle agit sur les récepteurs GABA</div>
-              <div class="option" onclick="answer(this,false)">Elle remplace définitivement les ISRS</div>
-              <div class="option" onclick="answer(this,true)">Elle produit un effet antidépresseur rapide, en quelques heures</div>
+              <button class="option" onclick="answer(this,false)">Elle n'a aucun effet secondaire</button>
+              <button class="option" onclick="answer(this,false)">Elle agit sur les récepteurs GABA</button>
+              <button class="option" onclick="answer(this,false)">Elle remplace définitivement les ISRS</button>
+              <button class="option" onclick="answer(this,true)">Elle produit un effet antidépresseur rapide, en quelques heures</button>
             </div>
             <div class="q-feedback">Contrairement aux antidépresseurs classiques qui mettent 2 à 4 semaines à agir, la kétamine (antagoniste NMDA du glutamate) produit un effet antidépresseur en quelques heures. Son dérivé, l'eskétamine (Spravato), a été approuvé pour la dépression résistante. Ce résultat a bouleversé le paradigme en montrant qu'un effet rapide est possible.</div>
           </div>
@@ -208,8 +208,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

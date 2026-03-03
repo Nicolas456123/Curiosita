@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Finances personnelles, gestion du temps, productivité numérique et développement personnel — les compétences clés pour piloter sa vie avec méthode et...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Gestion & Organisation — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #8ae87a;
   --accent2: #b0f5a0;
   --accent-dim: rgba(138,232,122,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(138,232,122,0.07) 0%, transparent 70%); }
+ --accent-hero: rgba(138,232,122,0.07); }
 .hero-deco { color: rgba(138,232,122,0.04); }
 </style>
 </head>
@@ -26,7 +27,7 @@
   <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
 </nav>
 
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">📊</div>
   <div class="hero-meta">
     <span class="tag-domain">🔧 Savoir-faire & Vie pratique</span>
@@ -156,10 +157,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Dans la règle budgétaire 50/30/20, à quoi correspondent les 20% ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les besoins essentiels (loyer, alimentation)</div>
-              <div class="option" onclick="answer(this,false)">Les loisirs et envies</div>
-              <div class="option" onclick="answer(this,true)">L'épargne et le remboursement de dettes</div>
-              <div class="option" onclick="answer(this,false)">Les imprévus et urgences</div>
+              <button class="option" onclick="answer(this,false)">Les besoins essentiels (loyer, alimentation)</button>
+              <button class="option" onclick="answer(this,false)">Les loisirs et envies</button>
+              <button class="option" onclick="answer(this,true)">L'épargne et le remboursement de dettes</button>
+              <button class="option" onclick="answer(this,false)">Les imprévus et urgences</button>
             </div>
             <div class="q-feedback">Dans la règle 50/30/20 : 50% pour les besoins (loyer, nourriture, transport), 30% pour les envies (loisirs, sorties) et 20% pour l'épargne et le remboursement de dettes.</div>
           </div>
@@ -168,10 +169,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">La matrice d'Eisenhower classe les tâches selon deux axes :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Facile / Difficile</div>
-              <div class="option" onclick="answer(this,true)">Urgent / Important</div>
-              <div class="option" onclick="answer(this,false)">Court terme / Long terme</div>
-              <div class="option" onclick="answer(this,false)">Personnel / Professionnel</div>
+              <button class="option" onclick="answer(this,false)">Facile / Difficile</button>
+              <button class="option" onclick="answer(this,true)">Urgent / Important</button>
+              <button class="option" onclick="answer(this,false)">Court terme / Long terme</button>
+              <button class="option" onclick="answer(this,false)">Personnel / Professionnel</button>
             </div>
             <div class="q-feedback">La matrice d'Eisenhower croise deux axes : urgence et importance. Ce qui est important mais pas urgent (quadrant 2) est souvent négligé, alors que c'est là que se trouvent les activités à plus fort impact.</div>
           </div>
@@ -180,10 +181,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Combien de temps dure un cycle Pomodoro de travail concentré ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">15 minutes</div>
-              <div class="option" onclick="answer(this,true)">25 minutes</div>
-              <div class="option" onclick="answer(this,false)">45 minutes</div>
-              <div class="option" onclick="answer(this,false)">60 minutes</div>
+              <button class="option" onclick="answer(this,false)">15 minutes</button>
+              <button class="option" onclick="answer(this,true)">25 minutes</button>
+              <button class="option" onclick="answer(this,false)">45 minutes</button>
+              <button class="option" onclick="answer(this,false)">60 minutes</button>
             </div>
             <div class="q-feedback">La technique Pomodoro utilise des cycles de 25 minutes de travail concentré suivis de 5 minutes de pause. Après 4 pomodoros, on prend une pause longue de 15 à 30 minutes.</div>
           </div>
@@ -192,10 +193,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Que signifie le « S » dans un objectif SMART ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Spécifique</div>
-              <div class="option" onclick="answer(this,false)">Simple</div>
-              <div class="option" onclick="answer(this,false)">Significatif</div>
-              <div class="option" onclick="answer(this,false)">Stratégique</div>
+              <button class="option" onclick="answer(this,true)">Spécifique</button>
+              <button class="option" onclick="answer(this,false)">Simple</button>
+              <button class="option" onclick="answer(this,false)">Significatif</button>
+              <button class="option" onclick="answer(this,false)">Stratégique</button>
             </div>
             <div class="q-feedback">SMART = Spécifique, Mesurable, Atteignable, Réaliste (ou Relevant) et Temporellement défini. Un objectif spécifique répond à : quoi, qui, où, quand et pourquoi.</div>
           </div>
@@ -204,10 +205,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Selon la loi de Pareto, quel pourcentage des actions produit 80% des résultats ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">10%</div>
-              <div class="option" onclick="answer(this,true)">20%</div>
-              <div class="option" onclick="answer(this,false)">50%</div>
-              <div class="option" onclick="answer(this,false)">30%</div>
+              <button class="option" onclick="answer(this,false)">10%</button>
+              <button class="option" onclick="answer(this,true)">20%</button>
+              <button class="option" onclick="answer(this,false)">50%</button>
+              <button class="option" onclick="answer(this,false)">30%</button>
             </div>
             <div class="q-feedback">La loi de Pareto (ou principe 80/20) stipule que 20% des causes produisent 80% des effets. En productivité, cela signifie qu'il faut identifier et prioriser les tâches à plus fort impact.</div>
           </div>
@@ -323,8 +324,15 @@
   </main>
 </div>
 
-<script src="utils.js"></script>
-<script src="quiz.js"></script>
-<script src="mobile.js?v=2"></script>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

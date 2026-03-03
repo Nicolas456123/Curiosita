@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pétrole, gaz, minerais critiques, eau et terres rares : les enjeux de l'accès aux ressources.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Ressources stratégiques — Géopolitique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🗺️ Géopolitique</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -125,10 +125,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel pays produit environ 70 % du cobalt mondial ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La Chine</div>
-              <div class="option" onclick="answer(this,false)">L'Australie</div>
-              <div class="option" onclick="answer(this,true)">La RDC (République Démocratique du Congo)</div>
-              <div class="option" onclick="answer(this,false)">Le Chili</div>
+              <button class="option" onclick="answer(this,false)">La Chine</button>
+              <button class="option" onclick="answer(this,false)">L'Australie</button>
+              <button class="option" onclick="answer(this,true)">La RDC (République Démocratique du Congo)</button>
+              <button class="option" onclick="answer(this,false)">Le Chili</button>
             </div>
             <div class="q-feedback">La République Démocratique du Congo fournit environ 70 % de la production mondiale de cobalt, un minerai essentiel pour les batteries lithium-ion. Cette concentration extrême crée une dépendance géopolitique majeure.</div>
           </div>
@@ -136,10 +136,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle part des réserves pétrolières mondiales se trouve au Moyen-Orient ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Environ 25 %</div>
-              <div class="option" onclick="answer(this,true)">Environ 48 %</div>
-              <div class="option" onclick="answer(this,false)">Environ 65 %</div>
-              <div class="option" onclick="answer(this,false)">Environ 15 %</div>
+              <button class="option" onclick="answer(this,false)">Environ 25 %</button>
+              <button class="option" onclick="answer(this,true)">Environ 48 %</button>
+              <button class="option" onclick="answer(this,false)">Environ 65 %</button>
+              <button class="option" onclick="answer(this,false)">Environ 15 %</button>
             </div>
             <div class="q-feedback">Le Moyen-Orient détient environ 48 % des réserves prouvées de pétrole mondial, principalement en Arabie saoudite, Iran, Irak, Koweït et Émirats arabes unis. Cette concentration explique l'importance géopolitique de la région.</div>
           </div>
@@ -147,10 +147,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel pays domine la production et le raffinage des terres rares ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les États-Unis</div>
-              <div class="option" onclick="answer(this,false)">L'Australie</div>
-              <div class="option" onclick="answer(this,true)">La Chine</div>
-              <div class="option" onclick="answer(this,false)">Le Brésil</div>
+              <button class="option" onclick="answer(this,false)">Les États-Unis</button>
+              <button class="option" onclick="answer(this,false)">L'Australie</button>
+              <button class="option" onclick="answer(this,true)">La Chine</button>
+              <button class="option" onclick="answer(this,false)">Le Brésil</button>
             </div>
             <div class="q-feedback">La Chine produit environ 60 % et raffine environ 90 % des terres rares mondiales. Ce quasi-monopole lui confère un levier géopolitique considérable sur les industries de haute technologie et de défense mondiales.</div>
           </div>
@@ -158,10 +158,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'appelle-t-on le « triangle du lithium » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Chine, Japon, Corée du Sud</div>
-              <div class="option" onclick="answer(this,true)">Argentine, Bolivie, Chili</div>
-              <div class="option" onclick="answer(this,false)">Australie, Canada, États-Unis</div>
-              <div class="option" onclick="answer(this,false)">RDC, Zambie, Zimbabwe</div>
+              <button class="option" onclick="answer(this,false)">Chine, Japon, Corée du Sud</button>
+              <button class="option" onclick="answer(this,true)">Argentine, Bolivie, Chili</button>
+              <button class="option" onclick="answer(this,false)">Australie, Canada, États-Unis</button>
+              <button class="option" onclick="answer(this,false)">RDC, Zambie, Zimbabwe</button>
             </div>
             <div class="q-feedback">Le « triangle du lithium » désigne la zone entre l'Argentine, la Bolivie et le Chili, qui détient environ 53 % des réserves mondiales de lithium sous forme de saumure dans les salars andins.</div>
           </div>
@@ -169,10 +169,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce que la « malédiction des ressources » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'épuisement rapide des ressources naturelles</div>
-              <div class="option" onclick="answer(this,true)">Le paradoxe des pays riches en ressources mais économiquement pauvres et instables</div>
-              <div class="option" onclick="answer(this,false)">La pollution causée par l'extraction minière</div>
-              <div class="option" onclick="answer(this,false)">La raréfaction de l'eau douce</div>
+              <button class="option" onclick="answer(this,false)">L'épuisement rapide des ressources naturelles</button>
+              <button class="option" onclick="answer(this,true)">Le paradoxe des pays riches en ressources mais économiquement pauvres et instables</button>
+              <button class="option" onclick="answer(this,false)">La pollution causée par l'extraction minière</button>
+              <button class="option" onclick="answer(this,false)">La raréfaction de l'eau douce</button>
             </div>
             <div class="q-feedback">La « malédiction des ressources » (resource curse) désigne le paradoxe selon lequel les pays riches en ressources naturelles connaissent souvent une croissance faible, une corruption élevée et une instabilité politique. La rente des ressources concentre la richesse et affaiblit les institutions.</div>
           </div>
@@ -180,10 +180,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel fleuve est au cœur d'une tension entre l'Égypte et l'Éthiopie ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le Congo</div>
-              <div class="option" onclick="answer(this,false)">Le Niger</div>
-              <div class="option" onclick="answer(this,true)">Le Nil</div>
-              <div class="option" onclick="answer(this,false)">Le Zambèze</div>
+              <button class="option" onclick="answer(this,false)">Le Congo</button>
+              <button class="option" onclick="answer(this,false)">Le Niger</button>
+              <button class="option" onclick="answer(this,true)">Le Nil</button>
+              <button class="option" onclick="answer(this,false)">Le Zambèze</button>
             </div>
             <div class="q-feedback">Le Nil est au cœur de la tension entre l'Égypte (qui dépend du fleuve pour 97 % de son eau douce) et l'Éthiopie (qui construit le Grand Barrage de la Renaissance sur le Nil Bleu). L'Égypte craint une réduction de son débit.</div>
           </div>
@@ -256,8 +256,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

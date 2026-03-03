@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Loi d'Ohm, lois de Kirchhoff, associations de composants : ma triser l'analyse des circuits lectriques en courant continu et les r gimes transitoires.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Circuits &eacute;lectriques &mdash; &Eacute;lectromagn&eacute;tisme &mdash; Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08);  --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -21,7 +21,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">&#9889; &Eacute;lectromagn&eacute;tisme</span>
     <span class="tag-level">D&eacute;butant &rarr; Interm&eacute;diaire</span>
@@ -152,10 +152,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Un conducteur ohmique de 100 &Omega; est travers&eacute; par un courant de 0,5 A. Quelle est la tension &agrave; ses bornes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">200 V</div>
-              <div class="option" onclick="answer(this,true)">50 V</div>
-              <div class="option" onclick="answer(this,false)">0,005 V</div>
-              <div class="option" onclick="answer(this,false)">25 V</div>
+              <button class="option" onclick="answer(this,false)">200 V</button>
+              <button class="option" onclick="answer(this,true)">50 V</button>
+              <button class="option" onclick="answer(this,false)">0,005 V</button>
+              <button class="option" onclick="answer(this,false)">25 V</button>
             </div>
             <div class="q-feedback">Loi d'Ohm : U = R &times; I = 100 &times; 0,5 = 50 V. La tension est directement proportionnelle au courant pour un conducteur ohmique.</div>
           </div>
@@ -164,10 +164,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">La loi des n&oelig;uds de Kirchhoff est une cons&eacute;quence de :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">La conservation de la charge</div>
-              <div class="option" onclick="answer(this,false)">La conservation de l'&eacute;nergie</div>
-              <div class="option" onclick="answer(this,false)">La loi d'Ohm</div>
-              <div class="option" onclick="answer(this,false)">L'effet Joule</div>
+              <button class="option" onclick="answer(this,true)">La conservation de la charge</button>
+              <button class="option" onclick="answer(this,false)">La conservation de l'&eacute;nergie</button>
+              <button class="option" onclick="answer(this,false)">La loi d'Ohm</button>
+              <button class="option" onclick="answer(this,false)">L'effet Joule</button>
             </div>
             <div class="q-feedback">La loi des n&oelig;uds (LKC) traduit la conservation de la charge : les charges ne peuvent ni s'accumuler ni dispara&icirc;tre en un n&oelig;ud. La loi des mailles traduit, elle, la conservation de l'&eacute;nergie.</div>
           </div>
@@ -176,10 +176,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Deux r&eacute;sistances de 100 &Omega; et 200 &Omega; sont branch&eacute;es en parall&egrave;le. La r&eacute;sistance &eacute;quivalente est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">300 &Omega;</div>
-              <div class="option" onclick="answer(this,false)">150 &Omega;</div>
-              <div class="option" onclick="answer(this,true)">66,7 &Omega;</div>
-              <div class="option" onclick="answer(this,false)">50 &Omega;</div>
+              <button class="option" onclick="answer(this,false)">300 &Omega;</button>
+              <button class="option" onclick="answer(this,false)">150 &Omega;</button>
+              <button class="option" onclick="answer(this,true)">66,7 &Omega;</button>
+              <button class="option" onclick="answer(this,false)">50 &Omega;</button>
             </div>
             <div class="q-feedback">En parall&egrave;le : 1/R<sub>eq</sub> = 1/100 + 1/200 = 3/200, donc R<sub>eq</sub> = 200/3 &asymp; 66,7 &Omega;. La r&eacute;sistance &eacute;quivalente est toujours inf&eacute;rieure &agrave; la plus petite des r&eacute;sistances.</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle est la constante de temps d'un circuit RC avec R = 10 k&Omega; et C = 47 &mu;F ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">47 ms</div>
-              <div class="option" onclick="answer(this,true)">470 ms</div>
-              <div class="option" onclick="answer(this,false)">4,7 s</div>
-              <div class="option" onclick="answer(this,false)">0,47 ms</div>
+              <button class="option" onclick="answer(this,false)">47 ms</button>
+              <button class="option" onclick="answer(this,true)">470 ms</button>
+              <button class="option" onclick="answer(this,false)">4,7 s</button>
+              <button class="option" onclick="answer(this,false)">0,47 ms</button>
             </div>
             <div class="q-feedback">&tau; = R &times; C = 10 &times; 10&sup3; &times; 47 &times; 10&minus;&sup6; = 0,47 s = 470 ms. Apr&egrave;s 5&tau; &asymp; 2,35 s, le condensateur est charg&eacute; &agrave; plus de 99 %.</div>
           </div>
@@ -200,10 +200,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">La puissance dissip&eacute;e dans une r&eacute;sistance de 50 &Omega; travers&eacute;e par 2 A est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">100 W</div>
-              <div class="option" onclick="answer(this,true)">200 W</div>
-              <div class="option" onclick="answer(this,false)">50 W</div>
-              <div class="option" onclick="answer(this,false)">400 W</div>
+              <button class="option" onclick="answer(this,false)">100 W</button>
+              <button class="option" onclick="answer(this,true)">200 W</button>
+              <button class="option" onclick="answer(this,false)">50 W</button>
+              <button class="option" onclick="answer(this,false)">400 W</button>
             </div>
             <div class="q-feedback">P = R &times; I&sup2; = 50 &times; 2&sup2; = 50 &times; 4 = 200 W. Cette &eacute;nergie est dissip&eacute;e sous forme de chaleur (effet Joule).</div>
           </div>
@@ -212,10 +212,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">L'&eacute;nergie stock&eacute;e dans une inductance de 10 mH parcourue par un courant de 3 A vaut :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">30 mJ</div>
-              <div class="option" onclick="answer(this,true)">45 mJ</div>
-              <div class="option" onclick="answer(this,false)">90 mJ</div>
-              <div class="option" onclick="answer(this,false)">15 mJ</div>
+              <button class="option" onclick="answer(this,false)">30 mJ</button>
+              <button class="option" onclick="answer(this,true)">45 mJ</button>
+              <button class="option" onclick="answer(this,false)">90 mJ</button>
+              <button class="option" onclick="answer(this,false)">15 mJ</button>
             </div>
             <div class="q-feedback">W = &frac12; &times; L &times; I&sup2; = &frac12; &times; 10 &times; 10&minus;&sup3; &times; 3&sup2; = &frac12; &times; 0,01 &times; 9 = 0,045 J = 45 mJ. Cette &eacute;nergie est stock&eacute;e dans le champ magn&eacute;tique de la bobine.</div>
           </div>
@@ -317,8 +317,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

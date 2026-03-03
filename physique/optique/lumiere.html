@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dualité onde-corpuscule, vitesse de la lumière, spectre électromagnétique et photons — comprendre ce qu'est fondamentalement la lumière.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Nature de la lumière — Optique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8e44ad;
   --accent2: #9b59b6;
   --accent-dim: rgba(142,68,173,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔭 Optique</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la valeur exacte de la vitesse de la lumière dans le vide depuis 1983 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">300 000 000 m/s</div>
-              <div class="option" onclick="answer(this,true)">299 792 458 m/s</div>
-              <div class="option" onclick="answer(this,false)">299 000 000 m/s</div>
-              <div class="option" onclick="answer(this,false)">310 000 000 m/s</div>
+              <button class="option" onclick="answer(this,false)">300 000 000 m/s</button>
+              <button class="option" onclick="answer(this,true)">299 792 458 m/s</button>
+              <button class="option" onclick="answer(this,false)">299 000 000 m/s</button>
+              <button class="option" onclick="answer(this,false)">310 000 000 m/s</button>
             </div>
             <div class="q-feedback">Depuis 1983, la vitesse de la lumière dans le vide est fixée par définition à exactement 299 792 458 m/s. Le mètre est alors défini à partir de cette constante.</div>
           </div>
@@ -199,10 +199,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle formule relie l'énergie d'un photon à sa fréquence ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">E = mc²</div>
-              <div class="option" onclick="answer(this,true)">E = hν</div>
-              <div class="option" onclick="answer(this,false)">E = ½mv²</div>
-              <div class="option" onclick="answer(this,false)">E = kT</div>
+              <button class="option" onclick="answer(this,false)">E = mc²</button>
+              <button class="option" onclick="answer(this,true)">E = hν</button>
+              <button class="option" onclick="answer(this,false)">E = ½mv²</button>
+              <button class="option" onclick="answer(this,false)">E = kT</button>
             </div>
             <div class="q-feedback">L'énergie d'un photon est E = hν, où h est la constante de Planck (6,626 × 10⁻³⁴ J·s) et ν la fréquence. Un photon de haute fréquence (violet, UV) porte plus d'énergie qu'un photon de basse fréquence (rouge, IR).</div>
           </div>
@@ -210,10 +210,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel phénomène a permis à Einstein de démontrer la nature corpusculaire de la lumière ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La diffraction</div>
-              <div class="option" onclick="answer(this,false)">Les interférences de Young</div>
-              <div class="option" onclick="answer(this,true)">L'effet photoélectrique</div>
-              <div class="option" onclick="answer(this,false)">La réfraction</div>
+              <button class="option" onclick="answer(this,false)">La diffraction</button>
+              <button class="option" onclick="answer(this,false)">Les interférences de Young</button>
+              <button class="option" onclick="answer(this,true)">L'effet photoélectrique</button>
+              <button class="option" onclick="answer(this,false)">La réfraction</button>
             </div>
             <div class="q-feedback">L'effet photoélectrique (1905) montre qu'un photon individuel transfère toute son énergie hν à un seul électron. L'existence d'un seuil de fréquence et l'absence de délai sont inexplicables par la théorie ondulatoire classique.</div>
           </div>
@@ -221,10 +221,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Dans le spectre visible, quelle couleur correspond à la plus grande longueur d'onde ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le violet (≈ 400 nm)</div>
-              <div class="option" onclick="answer(this,false)">Le vert (≈ 550 nm)</div>
-              <div class="option" onclick="answer(this,true)">Le rouge (≈ 700 nm)</div>
-              <div class="option" onclick="answer(this,false)">Le bleu (≈ 470 nm)</div>
+              <button class="option" onclick="answer(this,false)">Le violet (≈ 400 nm)</button>
+              <button class="option" onclick="answer(this,false)">Le vert (≈ 550 nm)</button>
+              <button class="option" onclick="answer(this,true)">Le rouge (≈ 700 nm)</button>
+              <button class="option" onclick="answer(this,false)">Le bleu (≈ 470 nm)</button>
             </div>
             <div class="q-feedback">Le rouge (λ ≈ 700 nm) a la plus grande longueur d'onde du spectre visible, donc la plus basse fréquence et la plus faible énergie par photon. Le violet (λ ≈ 400 nm) est à l'autre extrémité.</div>
           </div>
@@ -232,10 +232,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qui a le premier mesuré la vitesse de la lumière en observant les satellites de Jupiter ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Hippolyte Fizeau</div>
-              <div class="option" onclick="answer(this,false)">Léon Foucault</div>
-              <div class="option" onclick="answer(this,true)">Ole Rømer</div>
-              <div class="option" onclick="answer(this,false)">James Clerk Maxwell</div>
+              <button class="option" onclick="answer(this,false)">Hippolyte Fizeau</button>
+              <button class="option" onclick="answer(this,false)">Léon Foucault</button>
+              <button class="option" onclick="answer(this,true)">Ole Rømer</button>
+              <button class="option" onclick="answer(this,false)">James Clerk Maxwell</button>
             </div>
             <div class="q-feedback">En 1676, l'astronome danois Ole Rømer observe que les éclipses des satellites de Jupiter sont retardées lorsque la Terre s'éloigne de Jupiter. Il en déduit que la lumière a une vitesse finie, qu'il estime à environ 2,1 × 10⁸ m/s.</div>
           </div>
@@ -243,10 +243,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle est la longueur d'onde de De Broglie associée à une particule ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">λ = mc / h</div>
-              <div class="option" onclick="answer(this,true)">λ = h / p</div>
-              <div class="option" onclick="answer(this,false)">λ = p / h</div>
-              <div class="option" onclick="answer(this,false)">λ = hν</div>
+              <button class="option" onclick="answer(this,false)">λ = mc / h</button>
+              <button class="option" onclick="answer(this,true)">λ = h / p</button>
+              <button class="option" onclick="answer(this,false)">λ = p / h</button>
+              <button class="option" onclick="answer(this,false)">λ = hν</button>
             </div>
             <div class="q-feedback">La longueur d'onde de De Broglie est λ = h/p = h/(mv), où p est la quantité de mouvement. Cette relation généralise la dualité onde-corpuscule à toute particule matérielle.</div>
           </div>
@@ -340,8 +340,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

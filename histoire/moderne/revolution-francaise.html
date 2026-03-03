@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De la prise de la Bastille à Napoléon — la fin de l'Ancien Régime et la naissance de la République.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Révolution française — Époque moderne — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📜 Époque moderne</span>
     <span class="tag-level">Intermédiaire</span>
@@ -141,10 +141,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quel document est adopté le 26 août 1789 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La Constitution</div>
-              <div class="option" onclick="answer(this,true)">La Déclaration des droits de l'homme et du citoyen</div>
-              <div class="option" onclick="answer(this,false)">Le Code civil</div>
-              <div class="option" onclick="answer(this,false)">L'abolition de l'esclavage</div>
+              <button class="option" onclick="answer(this,false)">La Constitution</button>
+              <button class="option" onclick="answer(this,true)">La Déclaration des droits de l'homme et du citoyen</button>
+              <button class="option" onclick="answer(this,false)">Le Code civil</button>
+              <button class="option" onclick="answer(this,false)">L'abolition de l'esclavage</button>
             </div>
             <div class="q-feedback">La Déclaration des droits de l'homme et du citoyen est adoptée le 26 août 1789. Elle proclame que « les hommes naissent et demeurent libres et égaux en droits ».</div>
           </div>
@@ -152,10 +152,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Quand Louis XVI est-il guillotiné ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">14 juillet 1789</div>
-              <div class="option" onclick="answer(this,true)">21 janvier 1793</div>
-              <div class="option" onclick="answer(this,false)">27 juillet 1794</div>
-              <div class="option" onclick="answer(this,false)">9 novembre 1799</div>
+              <button class="option" onclick="answer(this,false)">14 juillet 1789</button>
+              <button class="option" onclick="answer(this,true)">21 janvier 1793</button>
+              <button class="option" onclick="answer(this,false)">27 juillet 1794</button>
+              <button class="option" onclick="answer(this,false)">9 novembre 1799</button>
             </div>
             <div class="q-feedback">Louis XVI est guillotiné le 21 janvier 1793, jugé coupable de « conspiration contre la liberté publique » par la Convention nationale.</div>
           </div>
@@ -163,10 +163,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Comment Napoléon prend-il le pouvoir en 1799 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Par élection</div>
-              <div class="option" onclick="answer(this,false)">Par héritage</div>
-              <div class="option" onclick="answer(this,true)">Par le coup d'État du 18 brumaire</div>
-              <div class="option" onclick="answer(this,false)">Par référendum</div>
+              <button class="option" onclick="answer(this,false)">Par élection</button>
+              <button class="option" onclick="answer(this,false)">Par héritage</button>
+              <button class="option" onclick="answer(this,true)">Par le coup d'État du 18 brumaire</button>
+              <button class="option" onclick="answer(this,false)">Par référendum</button>
             </div>
             <div class="q-feedback">Napoléon Bonaparte s'empare du pouvoir par le coup d'État du 18 brumaire (9 novembre 1799), renversant le Directoire et instaurant le Consulat.</div>
           </div>
@@ -174,10 +174,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quel événement de juin 1791 détruit la confiance du peuple envers Louis XVI ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La prise de la Bastille</div>
-              <div class="option" onclick="answer(this,false)">Le serment du Jeu de paume</div>
-              <div class="option" onclick="answer(this,true)">La fuite à Varennes</div>
-              <div class="option" onclick="answer(this,false)">Le massacre du Champ-de-Mars</div>
+              <button class="option" onclick="answer(this,false)">La prise de la Bastille</button>
+              <button class="option" onclick="answer(this,false)">Le serment du Jeu de paume</button>
+              <button class="option" onclick="answer(this,true)">La fuite à Varennes</button>
+              <button class="option" onclick="answer(this,false)">Le massacre du Champ-de-Mars</button>
             </div>
             <div class="q-feedback">Le 20 juin 1791, la famille royale tente de fuir la France mais est reconnue et arrêtée à Varennes. Cet épisode détruit la confiance du peuple envers la monarchie et renforce le camp républicain.</div>
           </div>
@@ -185,10 +185,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quel surnom était donné à Robespierre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le Citoyen</div>
-              <div class="option" onclick="answer(this,true)">L'Incorruptible</div>
-              <div class="option" onclick="answer(this,false)">Le Libérateur</div>
-              <div class="option" onclick="answer(this,false)">Le Montagnard</div>
+              <button class="option" onclick="answer(this,false)">Le Citoyen</button>
+              <button class="option" onclick="answer(this,true)">L'Incorruptible</button>
+              <button class="option" onclick="answer(this,false)">Le Libérateur</button>
+              <button class="option" onclick="answer(this,false)">Le Montagnard</button>
             </div>
             <div class="q-feedback">Maximilien de Robespierre (1758-1794) était surnommé « l'Incorruptible » en raison de son intégrité morale revendiquée. Il domina le Comité de salut public pendant la Terreur avant d'être guillotiné le 27 juillet 1794.</div>
           </div>
@@ -220,8 +220,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

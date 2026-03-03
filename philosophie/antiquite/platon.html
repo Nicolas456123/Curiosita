@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Le fondateur de l'idéalisme philosophique, penseur de la cité juste et inventeur de l'allégorie la plus célèbre de l'histoire.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Platon — Antiquité — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #9b7ae8;
   --accent2: #b39ddb;
   --accent-dim: rgba(155,122,232,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(155,122,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(155,122,232,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">💡 Antiquité</span>
     <span class="tag-level">Intermédiaire</span>
@@ -137,10 +137,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Dans l'allégorie de la caverne, que symbolise le soleil ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le pouvoir politique</div>
-              <div class="option" onclick="answer(this,false)">La science moderne</div>
-              <div class="option" onclick="answer(this,true)">L'Idée du Bien</div>
-              <div class="option" onclick="answer(this,false)">La religion</div>
+              <button class="option" onclick="answer(this,false)">Le pouvoir politique</button>
+              <button class="option" onclick="answer(this,false)">La science moderne</button>
+              <button class="option" onclick="answer(this,true)">L'Idée du Bien</button>
+              <button class="option" onclick="answer(this,false)">La religion</button>
             </div>
             <div class="q-feedback">Le soleil représente l'Idée du Bien, le principe suprême qui illumine toutes les autres Idées et rend la connaissance possible.</div>
           </div>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Selon Platon, qui devrait gouverner la cité idéale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les guerriers les plus courageux</div>
-              <div class="option" onclick="answer(this,true)">Les philosophes-rois</div>
-              <div class="option" onclick="answer(this,false)">Le peuple par vote direct</div>
-              <div class="option" onclick="answer(this,false)">Les prêtres et devins</div>
+              <button class="option" onclick="answer(this,false)">Les guerriers les plus courageux</button>
+              <button class="option" onclick="answer(this,true)">Les philosophes-rois</button>
+              <button class="option" onclick="answer(this,false)">Le peuple par vote direct</button>
+              <button class="option" onclick="answer(this,false)">Les prêtres et devins</button>
             </div>
             <div class="q-feedback">Platon soutient que seuls les philosophes, qui connaissent le Bien grâce à la raison, sont aptes à gouverner justement.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que signifie la théorie de la réminiscence ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">On ne peut rien connaître avec certitude</div>
-              <div class="option" onclick="answer(this,false)">Le savoir vient uniquement de l'expérience</div>
-              <div class="option" onclick="answer(this,true)">Apprendre, c'est se ressouvenir de ce que l'âme sait déjà</div>
-              <div class="option" onclick="answer(this,false)">La mémoire est la seule source de connaissance</div>
+              <button class="option" onclick="answer(this,false)">On ne peut rien connaître avec certitude</button>
+              <button class="option" onclick="answer(this,false)">Le savoir vient uniquement de l'expérience</button>
+              <button class="option" onclick="answer(this,true)">Apprendre, c'est se ressouvenir de ce que l'âme sait déjà</button>
+              <button class="option" onclick="answer(this,false)">La mémoire est la seule source de connaissance</button>
             </div>
             <div class="q-feedback">Pour Platon, l'âme a contemplé les Idées avant de s'incarner. Apprendre est donc un processus de réminiscence : on redécouvre ce qu'on savait déjà.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelles sont les trois parties de l'âme selon Platon ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Corps, esprit, volonté</div>
-              <div class="option" onclick="answer(this,true)">Raison, courage (thumos), désir</div>
-              <div class="option" onclick="answer(this,false)">Intelligence, mémoire, imagination</div>
-              <div class="option" onclick="answer(this,false)">Sensation, pensée, intuition</div>
+              <button class="option" onclick="answer(this,false)">Corps, esprit, volonté</button>
+              <button class="option" onclick="answer(this,true)">Raison, courage (thumos), désir</button>
+              <button class="option" onclick="answer(this,false)">Intelligence, mémoire, imagination</button>
+              <button class="option" onclick="answer(this,false)">Sensation, pensée, intuition</button>
             </div>
             <div class="q-feedback">Platon divise l'âme en trois parties : la raison (logistikon), le courage ou ardeur (thumoeides) et le désir (epithumètikon). La justice est l'harmonie entre ces trois parties.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle critique Aristote adresse-t-il à la théorie des Idées ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les Idées sont trop simples pour expliquer le monde</div>
-              <div class="option" onclick="answer(this,false)">Les Idées n'ont aucun rapport avec la morale</div>
-              <div class="option" onclick="answer(this,true)">L'argument du « troisième homme » montre une régression à l'infini</div>
-              <div class="option" onclick="answer(this,false)">Les Idées ne sont que des mots sans contenu</div>
+              <button class="option" onclick="answer(this,false)">Les Idées sont trop simples pour expliquer le monde</button>
+              <button class="option" onclick="answer(this,false)">Les Idées n'ont aucun rapport avec la morale</button>
+              <button class="option" onclick="answer(this,true)">L'argument du « troisième homme » montre une régression à l'infini</button>
+              <button class="option" onclick="answer(this,false)">Les Idées ne sont que des mots sans contenu</button>
             </div>
             <div class="q-feedback">Aristote objecte que si l'homme et l'Idée d'Homme se ressemblent, il faut une troisième Idée pour expliquer cette ressemblance, et ainsi de suite à l'infini. C'est l'argument du « troisième homme ».</div>
           </div>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel est le plus haut niveau de connaissance selon Platon ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'imagination (eikasia)</div>
-              <div class="option" onclick="answer(this,false)">La croyance (pistis)</div>
-              <div class="option" onclick="answer(this,false)">La pensée discursive (dianoia)</div>
-              <div class="option" onclick="answer(this,true)">L'intellection (noesis), saisie directe des Idées</div>
+              <button class="option" onclick="answer(this,false)">L'imagination (eikasia)</button>
+              <button class="option" onclick="answer(this,false)">La croyance (pistis)</button>
+              <button class="option" onclick="answer(this,false)">La pensée discursive (dianoia)</button>
+              <button class="option" onclick="answer(this,true)">L'intellection (noesis), saisie directe des Idées</button>
             </div>
             <div class="q-feedback">La noesis (intellection) est le degré suprême de la connaissance : elle saisit directement les Idées par la dialectique, sans passer par des hypothèses ou des images sensibles.</div>
           </div>
@@ -253,8 +253,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

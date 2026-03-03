@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Grands singes, comportement social, culture animale et comparaison avec l&#x27;etre humain.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Primatologie — Anthropologie physique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🏺 Anthropologie</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -105,10 +105,10 @@
             <p class="q-num">Question 1 / 3</p>
             <p class="q-text">Quel est le plus proche parent de l&#x27;Homo sapiens ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le gorille</div>
-              <div class="option" onclick="answer(this,true)">Le chimpanzé et le bonobo</div>
-              <div class="option" onclick="answer(this,false)">L&#x27;orang-outan</div>
-              <div class="option" onclick="answer(this,false)">Le gibbon</div>
+              <button class="option" onclick="answer(this,false)">Le gorille</button>
+              <button class="option" onclick="answer(this,true)">Le chimpanzé et le bonobo</button>
+              <button class="option" onclick="answer(this,false)">L&#x27;orang-outan</button>
+              <button class="option" onclick="answer(this,false)">Le gibbon</button>
             </div>
             <div class="q-feedback">Le chimpanzé (Pan troglodytes) et le bonobo (Pan paniscus) sont nos plus proches parents, partageant environ 98,7 % de notre ADN. La divergence date d&#x27;environ 6-7 millions d&#x27;années.</div>
           </div>
@@ -116,10 +116,10 @@
             <p class="q-num">Question 2 / 3</p>
             <p class="q-text">Qui a révolutionné l&#x27;étude des chimpanzés à Gombe ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Dian Fossey</div>
-              <div class="option" onclick="answer(this,true)">Jane Goodall</div>
-              <div class="option" onclick="answer(this,false)">Biruté Galdikas</div>
-              <div class="option" onclick="answer(this,false)">Franz de Waal</div>
+              <button class="option" onclick="answer(this,false)">Dian Fossey</button>
+              <button class="option" onclick="answer(this,true)">Jane Goodall</button>
+              <button class="option" onclick="answer(this,false)">Biruté Galdikas</button>
+              <button class="option" onclick="answer(this,false)">Franz de Waal</button>
             </div>
             <div class="q-feedback">Jane Goodall a commencé ses recherches à Gombe (Tanzanie) en 1960 et a été la première à documenter l&#x27;utilisation d&#x27;outils et la chasse chez les chimpanzés.</div>
           </div>
@@ -127,10 +127,10 @@
             <p class="q-num">Question 3 / 3</p>
             <p class="q-text">Qu&#x27;est-ce que le grooming chez les primates ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La recherche de nourriture</div>
-              <div class="option" onclick="answer(this,true)">Le toilettage social pour renforcer les liens</div>
-              <div class="option" onclick="answer(this,false)">Un comportement agressif</div>
-              <div class="option" onclick="answer(this,false)">Un rituel de reproduction</div>
+              <button class="option" onclick="answer(this,false)">La recherche de nourriture</button>
+              <button class="option" onclick="answer(this,true)">Le toilettage social pour renforcer les liens</button>
+              <button class="option" onclick="answer(this,false)">Un comportement agressif</button>
+              <button class="option" onclick="answer(this,false)">Un rituel de reproduction</button>
             </div>
             <div class="q-feedback">Le grooming (épouillage mutuel) est un comportement social fondamental chez les primates. Il sert à renforcer les alliances, réduire le stress et maintenir la cohésion du groupe.</div>
           </div>
@@ -184,8 +184,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

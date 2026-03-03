@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Stocker des données avec des paires clé-valeur — la structure la plus puissante pour les données structurées.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Dictionnaires — Structures de données — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08);  --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../python-page.html">Python</a> › <a href="../structures.html">Structures</a> › <span>Dictionnaires</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">📚 Structures de données</span><span class="tag-level">Débutant → Intermédiaire</span><span class="tag-time">⏱ ~40 min</span></div>
   <h1><em>Dictionnaires</em></h1>
   <p class="hero-desc">Stocker des données avec des paires clé-valeur — la structure la plus puissante pour les données structurées.</p>
@@ -197,10 +197,10 @@ d = {<span class="str">"a"</span>: <span class="num">1</span>}
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que retourne <code>{"a": 1, "b": 2}.get("c", 0)</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">None</div>
-              <div class="option" onclick="answer(this,true)">0</div>
-              <div class="option" onclick="answer(this,false)">KeyError</div>
-              <div class="option" onclick="answer(this,false)">"c"</div>
+              <button class="option" onclick="answer(this,false)">None</button>
+              <button class="option" onclick="answer(this,true)">0</button>
+              <button class="option" onclick="answer(this,false)">KeyError</button>
+              <button class="option" onclick="answer(this,false)">"c"</button>
             </div>
             <div class="q-feedback"><code>.get(clé, défaut)</code> retourne la valeur par défaut si la clé n'existe pas. Ici, "c" n'existe pas, donc il retourne 0.</div>
           </div>
@@ -208,10 +208,10 @@ d = {<span class="str">"a"</span>: <span class="num">1</span>}
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Comment itérer sur les clés ET les valeurs d'un dictionnaire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">for k, v in d:</div>
-              <div class="option" onclick="answer(this,true)">for k, v in d.items():</div>
-              <div class="option" onclick="answer(this,false)">for k, v in d.values():</div>
-              <div class="option" onclick="answer(this,false)">for k, v in d.keys():</div>
+              <button class="option" onclick="answer(this,false)">for k, v in d:</button>
+              <button class="option" onclick="answer(this,true)">for k, v in d.items():</button>
+              <button class="option" onclick="answer(this,false)">for k, v in d.values():</button>
+              <button class="option" onclick="answer(this,false)">for k, v in d.keys():</button>
             </div>
             <div class="q-feedback"><code>.items()</code> retourne des paires (clé, valeur). <code>.keys()</code> retourne seulement les clés, <code>.values()</code> seulement les valeurs.</div>
           </div>
@@ -219,10 +219,10 @@ d = {<span class="str">"a"</span>: <span class="num">1</span>}
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que se passe-t-il si on fait <code>d["nouvelle_cle"] = 42</code> sur un dictionnaire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">La clé est créée avec la valeur 42</div>
-              <div class="option" onclick="answer(this,false)">KeyError</div>
-              <div class="option" onclick="answer(this,false)">Rien ne se passe</div>
-              <div class="option" onclick="answer(this,false)">TypeError</div>
+              <button class="option" onclick="answer(this,true)">La clé est créée avec la valeur 42</button>
+              <button class="option" onclick="answer(this,false)">KeyError</button>
+              <button class="option" onclick="answer(this,false)">Rien ne se passe</button>
+              <button class="option" onclick="answer(this,false)">TypeError</button>
             </div>
             <div class="q-feedback">Si la clé n'existe pas, elle est automatiquement créée. Si elle existe déjà, sa valeur est mise à jour. Pas d'erreur dans les deux cas.</div>
           </div>
@@ -230,10 +230,10 @@ d = {<span class="str">"a"</span>: <span class="num">1</span>}
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Peut-on utiliser une liste comme clé de dictionnaire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Oui, sans restriction</div>
-              <div class="option" onclick="answer(this,true)">Non, les clés doivent être hashables (immuables)</div>
-              <div class="option" onclick="answer(this,false)">Oui, mais seulement des listes de nombres</div>
-              <div class="option" onclick="answer(this,false)">Non, seules les chaînes sont autorisées</div>
+              <button class="option" onclick="answer(this,false)">Oui, sans restriction</button>
+              <button class="option" onclick="answer(this,true)">Non, les clés doivent être hashables (immuables)</button>
+              <button class="option" onclick="answer(this,false)">Oui, mais seulement des listes de nombres</button>
+              <button class="option" onclick="answer(this,false)">Non, seules les chaînes sont autorisées</button>
             </div>
             <div class="q-feedback">Les clés doivent être hashables (immuables). Les listes sont mutables, donc interdites. Utilisez un tuple à la place : <code>{(1, 2): "valeur"}</code>.</div>
           </div>
@@ -241,10 +241,10 @@ d = {<span class="str">"a"</span>: <span class="num">1</span>}
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que fait <code>d1.update(d2)</code> si les deux dictionnaires partagent des clés ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Lève une erreur</div>
-              <div class="option" onclick="answer(this,false)">Garde les valeurs de d1</div>
-              <div class="option" onclick="answer(this,true)">Les valeurs de d2 écrasent celles de d1</div>
-              <div class="option" onclick="answer(this,false)">Fusionne les valeurs dans une liste</div>
+              <button class="option" onclick="answer(this,false)">Lève une erreur</button>
+              <button class="option" onclick="answer(this,false)">Garde les valeurs de d1</button>
+              <button class="option" onclick="answer(this,true)">Les valeurs de d2 écrasent celles de d1</button>
+              <button class="option" onclick="answer(this,false)">Fusionne les valeurs dans une liste</button>
             </div>
             <div class="q-feedback"><code>.update()</code> ajoute les paires de d2 dans d1. Si une clé existe déjà dans d1, sa valeur est remplacée par celle de d2.</div>
           </div>
@@ -252,10 +252,10 @@ d = {<span class="str">"a"</span>: <span class="num">1</span>}
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que retourne <code>dict(zip(["a","b"], [1,2]))</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">{"a": 1, "b": 2}</div>
-              <div class="option" onclick="answer(this,false)">[("a", 1), ("b", 2)]</div>
-              <div class="option" onclick="answer(this,false)">{"a": "b", 1: 2}</div>
-              <div class="option" onclick="answer(this,false)">Erreur</div>
+              <button class="option" onclick="answer(this,true)">{"a": 1, "b": 2}</button>
+              <button class="option" onclick="answer(this,false)">[("a", 1), ("b", 2)]</button>
+              <button class="option" onclick="answer(this,false)">{"a": "b", 1: 2}</button>
+              <button class="option" onclick="answer(this,false)">Erreur</button>
             </div>
             <div class="q-feedback"><code>zip()</code> combine les deux listes en paires : ("a",1), ("b",2). <code>dict()</code> transforme ces paires en un dictionnaire <code>{"a": 1, "b": 2}</code>.</div>
           </div>
@@ -380,8 +380,14 @@ for matiere in matieres:
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La loi de Faraday, la loi de Lenz et les courants induits : le ph nom ne qui permet de convertir le mouvement en lectricit et alimente le monde moderne.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Induction &eacute;lectromagn&eacute;tique &mdash; &Eacute;lectromagn&eacute;tisme &mdash; Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08);  --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -21,7 +21,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">&#9889; &Eacute;lectromagn&eacute;tisme</span>
     <span class="tag-level">Interm&eacute;diaire &rarr; Avanc&eacute;</span>
@@ -154,10 +154,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qui a d&eacute;couvert l'induction &eacute;lectromagn&eacute;tique en 1831 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Amp&egrave;re</div>
-              <div class="option" onclick="answer(this,true)">Faraday</div>
-              <div class="option" onclick="answer(this,false)">Maxwell</div>
-              <div class="option" onclick="answer(this,false)">Tesla</div>
+              <button class="option" onclick="answer(this,false)">Amp&egrave;re</button>
+              <button class="option" onclick="answer(this,true)">Faraday</button>
+              <button class="option" onclick="answer(this,false)">Maxwell</button>
+              <button class="option" onclick="answer(this,false)">Tesla</button>
             </div>
             <div class="q-feedback">Michael Faraday d&eacute;couvrit en 1831 qu'un aimant en mouvement pr&egrave;s d'un circuit ferm&eacute; y induit un courant. Joseph Henry fit ind&eacute;pendamment la m&ecirc;me d&eacute;couverte aux &Eacute;tats-Unis la m&ecirc;me ann&eacute;e.</div>
           </div>
@@ -166,10 +166,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">La loi de Faraday s'&eacute;crit &epsilon; = &minus;d&Phi;/dt. Le signe n&eacute;gatif traduit :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'effet Joule dans le circuit</div>
-              <div class="option" onclick="answer(this,false)">La d&eacute;croissance exponentielle du flux</div>
-              <div class="option" onclick="answer(this,true)">La loi de Lenz (opposition &agrave; la cause)</div>
-              <div class="option" onclick="answer(this,false)">Le caract&egrave;re alternatif du courant</div>
+              <button class="option" onclick="answer(this,false)">L'effet Joule dans le circuit</button>
+              <button class="option" onclick="answer(this,false)">La d&eacute;croissance exponentielle du flux</button>
+              <button class="option" onclick="answer(this,true)">La loi de Lenz (opposition &agrave; la cause)</button>
+              <button class="option" onclick="answer(this,false)">Le caract&egrave;re alternatif du courant</button>
             </div>
             <div class="q-feedback">Le signe moins traduit la loi de Lenz : le courant induit s'oppose &agrave; la variation de flux qui l'a cr&eacute;&eacute;. C'est une cons&eacute;quence directe de la conservation de l'&eacute;nergie.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Le flux magn&eacute;tique &agrave; travers une surface est maximal lorsque :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">La surface est perpendiculaire au champ B</div>
-              <div class="option" onclick="answer(this,false)">La surface est parall&egrave;le au champ B</div>
-              <div class="option" onclick="answer(this,false)">Le champ B est nul</div>
-              <div class="option" onclick="answer(this,false)">La surface est inclin&eacute;e &agrave; 45&deg;</div>
+              <button class="option" onclick="answer(this,true)">La surface est perpendiculaire au champ B</button>
+              <button class="option" onclick="answer(this,false)">La surface est parall&egrave;le au champ B</button>
+              <button class="option" onclick="answer(this,false)">Le champ B est nul</button>
+              <button class="option" onclick="answer(this,false)">La surface est inclin&eacute;e &agrave; 45&deg;</button>
             </div>
             <div class="q-feedback">&Phi; = B &middot; S &middot; cos(&theta;). Le flux est maximal quand &theta; = 0 (surface perpendiculaire &agrave; B, c'est-&agrave;-dire la normale &agrave; la surface est parall&egrave;le &agrave; B). Il est nul quand &theta; = 90&deg;.</div>
           </div>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Un transformateur id&eacute;al a 500 spires au primaire et 50 au secondaire. Si la tension d'entr&eacute;e est 230 V, la tension de sortie est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">23 V</div>
-              <div class="option" onclick="answer(this,false)">2300 V</div>
-              <div class="option" onclick="answer(this,false)">115 V</div>
-              <div class="option" onclick="answer(this,false)">46 V</div>
+              <button class="option" onclick="answer(this,true)">23 V</button>
+              <button class="option" onclick="answer(this,false)">2300 V</button>
+              <button class="option" onclick="answer(this,false)">115 V</button>
+              <button class="option" onclick="answer(this,false)">46 V</button>
             </div>
             <div class="q-feedback">U&#8322; = U&#8321; &times; N&#8322;/N&#8321; = 230 &times; 50/500 = 230 &times; 0,1 = 23 V. C'est un transformateur abaisseur (rapport 10:1), utilis&eacute; par exemple pour alimenter des appareils basse tension.</div>
           </div>
@@ -202,10 +202,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Pourquoi transporte-t-on l'&eacute;lectricit&eacute; &agrave; haute tension ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pour augmenter la puissance transmise</div>
-              <div class="option" onclick="answer(this,true)">Pour r&eacute;duire le courant et donc les pertes Joule</div>
-              <div class="option" onclick="answer(this,false)">Pour acc&eacute;l&eacute;rer la vitesse du courant</div>
-              <div class="option" onclick="answer(this,false)">Pour r&eacute;duire la r&eacute;sistance des c&acirc;bles</div>
+              <button class="option" onclick="answer(this,false)">Pour augmenter la puissance transmise</button>
+              <button class="option" onclick="answer(this,true)">Pour r&eacute;duire le courant et donc les pertes Joule</button>
+              <button class="option" onclick="answer(this,false)">Pour acc&eacute;l&eacute;rer la vitesse du courant</button>
+              <button class="option" onclick="answer(this,false)">Pour r&eacute;duire la r&eacute;sistance des c&acirc;bles</button>
             </div>
             <div class="q-feedback">&Agrave; puissance constante P = U &times; I, augmenter U r&eacute;duit I. Les pertes dans les lignes valent P<sub>pertes</sub> = R &times; I&sup2;. En passant de 230 V &agrave; 400 kV (facteur ~1700), les pertes sont divis&eacute;es par ~3 millions.</div>
           </div>
@@ -214,10 +214,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Les courants de Foucault sont utilis&eacute;s dans :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les piles &eacute;lectriques</div>
-              <div class="option" onclick="answer(this,false)">Les condensateurs</div>
-              <div class="option" onclick="answer(this,true)">Les plaques de cuisson &agrave; induction</div>
-              <div class="option" onclick="answer(this,false)">Les panneaux solaires</div>
+              <button class="option" onclick="answer(this,false)">Les piles &eacute;lectriques</button>
+              <button class="option" onclick="answer(this,false)">Les condensateurs</button>
+              <button class="option" onclick="answer(this,true)">Les plaques de cuisson &agrave; induction</button>
+              <button class="option" onclick="answer(this,false)">Les panneaux solaires</button>
             </div>
             <div class="q-feedback">Les plaques &agrave; induction utilisent les courants de Foucault : une bobine sous la plaque cr&eacute;e un champ magn&eacute;tique variable qui induit des courants dans le fond m&eacute;tallique de la casserole, la chauffant directement par effet Joule.</div>
           </div>
@@ -318,8 +318,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

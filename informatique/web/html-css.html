@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Structure et mise en forme du web — balises sémantiques, sélecteurs CSS, modèle de boîte, Flexbox et Grid pour créer des pages modernes et responsives.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>HTML & CSS — Web — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #2980b9;
   --accent2: #3498db;
   --accent-dim: rgba(41,128,185,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(41,128,185,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(41,128,185,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🌐 Web</span>
     <span class="tag-level">Débutant</span>
@@ -229,10 +229,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle balise HTML5 représente le contenu principal d'une page ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">&lt;section&gt;</div>
-              <div class="option" onclick="answer(this,true)">&lt;main&gt;</div>
-              <div class="option" onclick="answer(this,false)">&lt;article&gt;</div>
-              <div class="option" onclick="answer(this,false)">&lt;div id="main"&gt;</div>
+              <button class="option" onclick="answer(this,false)">&lt;section&gt;</button>
+              <button class="option" onclick="answer(this,true)">&lt;main&gt;</button>
+              <button class="option" onclick="answer(this,false)">&lt;article&gt;</button>
+              <button class="option" onclick="answer(this,false)">&lt;div id="main"&gt;</button>
             </div>
             <div class="q-feedback">La balise &lt;main&gt; identifie le contenu principal et unique de la page. Il ne doit y en avoir qu'une seule par document et elle ne doit pas être imbriquée dans &lt;article&gt; ou &lt;aside&gt;.</div>
           </div>
@@ -240,10 +240,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle propriété CSS active le modèle Flexbox ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">position: flex</div>
-              <div class="option" onclick="answer(this,false)">flex: enable</div>
-              <div class="option" onclick="answer(this,true)">display: flex</div>
-              <div class="option" onclick="answer(this,false)">layout: flexbox</div>
+              <button class="option" onclick="answer(this,false)">position: flex</button>
+              <button class="option" onclick="answer(this,false)">flex: enable</button>
+              <button class="option" onclick="answer(this,true)">display: flex</button>
+              <button class="option" onclick="answer(this,false)">layout: flexbox</button>
             </div>
             <div class="q-feedback">On active Flexbox en appliquant <code>display: flex</code> (ou <code>display: inline-flex</code>) sur le conteneur parent. Les enfants directs deviennent alors des « flex items ».</div>
           </div>
@@ -251,10 +251,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel sélecteur a la plus haute spécificité ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">p.intro</div>
-              <div class="option" onclick="answer(this,true)">#header .nav a</div>
-              <div class="option" onclick="answer(this,false)">.nav a:hover</div>
-              <div class="option" onclick="answer(this,false)">body p</div>
+              <button class="option" onclick="answer(this,false)">p.intro</button>
+              <button class="option" onclick="answer(this,true)">#header .nav a</button>
+              <button class="option" onclick="answer(this,false)">.nav a:hover</button>
+              <button class="option" onclick="answer(this,false)">body p</button>
             </div>
             <div class="q-feedback"><code>#header .nav a</code> a une spécificité de (1,1,1) grâce à l'id (#header), la classe (.nav) et l'élément (a). Les autres ont au maximum (0,2,1).</div>
           </div>
@@ -262,10 +262,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Que fait <code>box-sizing: border-box</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Supprime les bordures de l'élément</div>
-              <div class="option" onclick="answer(this,false)">Ajoute une bordure automatique</div>
-              <div class="option" onclick="answer(this,true)">Inclut padding et bordure dans la largeur déclarée</div>
-              <div class="option" onclick="answer(this,false)">Arrondit les coins de la boîte</div>
+              <button class="option" onclick="answer(this,false)">Supprime les bordures de l'élément</button>
+              <button class="option" onclick="answer(this,false)">Ajoute une bordure automatique</button>
+              <button class="option" onclick="answer(this,true)">Inclut padding et bordure dans la largeur déclarée</button>
+              <button class="option" onclick="answer(this,false)">Arrondit les coins de la boîte</button>
             </div>
             <div class="q-feedback">Avec <code>border-box</code>, la propriété <code>width</code> inclut le contenu, le padding et la bordure. Sans cette règle (valeur <code>content-box</code>), seul le contenu est compté, ce qui complique les calculs de mise en page.</div>
           </div>
@@ -273,10 +273,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle propriété CSS Grid permet de nommer des zones de la grille ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">grid-columns</div>
-              <div class="option" onclick="answer(this,false)">grid-layout</div>
-              <div class="option" onclick="answer(this,true)">grid-template-areas</div>
-              <div class="option" onclick="answer(this,false)">grid-zones</div>
+              <button class="option" onclick="answer(this,false)">grid-columns</button>
+              <button class="option" onclick="answer(this,false)">grid-layout</button>
+              <button class="option" onclick="answer(this,true)">grid-template-areas</button>
+              <button class="option" onclick="answer(this,false)">grid-zones</button>
             </div>
             <div class="q-feedback"><code>grid-template-areas</code> permet de dessiner visuellement la grille en nommant les zones. Chaque enfant utilise ensuite <code>grid-area</code> pour s'y placer.</div>
           </div>
@@ -284,10 +284,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle approche consiste à concevoir d'abord pour les petits écrans ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Desktop-first</div>
-              <div class="option" onclick="answer(this,true)">Mobile-first</div>
-              <div class="option" onclick="answer(this,false)">Responsive-first</div>
-              <div class="option" onclick="answer(this,false)">Adaptive design</div>
+              <button class="option" onclick="answer(this,false)">Desktop-first</button>
+              <button class="option" onclick="answer(this,true)">Mobile-first</button>
+              <button class="option" onclick="answer(this,false)">Responsive-first</button>
+              <button class="option" onclick="answer(this,false)">Adaptive design</button>
             </div>
             <div class="q-feedback">L'approche mobile-first écrit les styles de base pour mobile, puis utilise <code>@media (min-width: ...)</code> pour enrichir progressivement l'affichage sur les grands écrans.</div>
           </div>
@@ -440,8 +440,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

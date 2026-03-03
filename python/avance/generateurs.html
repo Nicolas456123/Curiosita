@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Maîtriser yield, les expressions génératrices, le module itertools et le protocole d'itération de Python.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Générateurs et itérateurs — Python avancé — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #27ae60;
   --accent2: #2ecc71;
   --accent-dim: rgba(39,174,96,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(39,174,96,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(39,174,96,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🐍 Python avancé</span>
     <span class="tag-level">Avancé</span>
@@ -329,10 +329,10 @@ gen.close()            <span class="cm"># Fermer proprement le générateur</spa
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la différence principale entre une liste et un générateur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un générateur est plus rapide qu'une liste</div>
-              <div class="option" onclick="answer(this,true)">Un générateur produit ses éléments un par un sans tout stocker en mémoire</div>
-              <div class="option" onclick="answer(this,false)">Un générateur peut contenir plus d'éléments qu'une liste</div>
-              <div class="option" onclick="answer(this,false)">Il n'y a pas de différence, c'est juste une syntaxe alternative</div>
+              <button class="option" onclick="answer(this,false)">Un générateur est plus rapide qu'une liste</button>
+              <button class="option" onclick="answer(this,true)">Un générateur produit ses éléments un par un sans tout stocker en mémoire</button>
+              <button class="option" onclick="answer(this,false)">Un générateur peut contenir plus d'éléments qu'une liste</button>
+              <button class="option" onclick="answer(this,false)">Il n'y a pas de différence, c'est juste une syntaxe alternative</button>
             </div>
             <div class="q-feedback">Le générateur est <strong>paresseux</strong> : il ne produit un élément que quand on le demande (<code>next()</code>). Il n'occupe donc qu'une quantité constante de mémoire, quelle que soit la taille de la séquence.</div>
           </div>
@@ -340,10 +340,10 @@ gen.close()            <span class="cm"># Fermer proprement le générateur</spa
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que se passe-t-il quand on appelle <code>next()</code> sur un générateur épuisé ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il retourne None</div>
-              <div class="option" onclick="answer(this,false)">Il recommence depuis le début</div>
-              <div class="option" onclick="answer(this,true)">Il lève StopIteration</div>
-              <div class="option" onclick="answer(this,false)">Il retourne le dernier élément</div>
+              <button class="option" onclick="answer(this,false)">Il retourne None</button>
+              <button class="option" onclick="answer(this,false)">Il recommence depuis le début</button>
+              <button class="option" onclick="answer(this,true)">Il lève StopIteration</button>
+              <button class="option" onclick="answer(this,false)">Il retourne le dernier élément</button>
             </div>
             <div class="q-feedback">Quand un générateur n'a plus de valeurs à produire (la fonction se termine), <code>next()</code> lève l'exception <code>StopIteration</code>. C'est le signal de fin pour les boucles <code>for</code>.</div>
           </div>
@@ -351,10 +351,10 @@ gen.close()            <span class="cm"># Fermer proprement le générateur</spa
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle syntaxe crée une expression génératrice ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">[x**2 for x in range(10)]</div>
-              <div class="option" onclick="answer(this,true)">(x**2 for x in range(10))</div>
-              <div class="option" onclick="answer(this,false)">{x**2 for x in range(10)}</div>
-              <div class="option" onclick="answer(this,false)">gen x**2 for x in range(10)</div>
+              <button class="option" onclick="answer(this,false)">[x**2 for x in range(10)]</button>
+              <button class="option" onclick="answer(this,true)">(x**2 for x in range(10))</button>
+              <button class="option" onclick="answer(this,false)">{x**2 for x in range(10)}</button>
+              <button class="option" onclick="answer(this,false)">gen x**2 for x in range(10)</button>
             </div>
             <div class="q-feedback">Les parenthèses <code>()</code> créent une expression génératrice. Les crochets <code>[]</code> créent une liste, les accolades <code>{}</code> un ensemble ou un dictionnaire.</div>
           </div>
@@ -362,10 +362,10 @@ gen.close()            <span class="cm"># Fermer proprement le générateur</spa
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Que fait <code>yield from iterable</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Importe un itérable depuis un module</div>
-              <div class="option" onclick="answer(this,true)">Délègue la production de valeurs à un autre itérable</div>
-              <div class="option" onclick="answer(this,false)">Crée une copie de l'itérable</div>
-              <div class="option" onclick="answer(this,false)">Convertit un itérable en générateur</div>
+              <button class="option" onclick="answer(this,false)">Importe un itérable depuis un module</button>
+              <button class="option" onclick="answer(this,true)">Délègue la production de valeurs à un autre itérable</button>
+              <button class="option" onclick="answer(this,false)">Crée une copie de l'itérable</button>
+              <button class="option" onclick="answer(this,false)">Convertit un itérable en générateur</button>
             </div>
             <div class="q-feedback"><code>yield from iterable</code> est équivalent à <code>for item in iterable: yield item</code> mais plus efficace et plus lisible, et gère correctement <code>send()</code> et <code>throw()</code>.</div>
           </div>
@@ -373,10 +373,10 @@ gen.close()            <span class="cm"># Fermer proprement le générateur</spa
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle fonction d'itertools crée un compteur infini ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">itertools.cycle</div>
-              <div class="option" onclick="answer(this,false)">itertools.repeat</div>
-              <div class="option" onclick="answer(this,true)">itertools.count</div>
-              <div class="option" onclick="answer(this,false)">itertools.chain</div>
+              <button class="option" onclick="answer(this,false)">itertools.cycle</button>
+              <button class="option" onclick="answer(this,false)">itertools.repeat</button>
+              <button class="option" onclick="answer(this,true)">itertools.count</button>
+              <button class="option" onclick="answer(this,false)">itertools.chain</button>
             </div>
             <div class="q-feedback"><code>itertools.count(start, step)</code> génère une séquence infinie de nombres. <code>cycle</code> répète un itérable, <code>repeat</code> répète une valeur, <code>chain</code> concatène des itérables.</div>
           </div>
@@ -384,10 +384,10 @@ gen.close()            <span class="cm"># Fermer proprement le générateur</spa
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Peut-on itérer deux fois sur un même générateur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Oui, il se réinitialise automatiquement</div>
-              <div class="option" onclick="answer(this,true)">Non, un générateur s'épuise après une seule itération</div>
-              <div class="option" onclick="answer(this,false)">Oui, avec la méthode reset()</div>
-              <div class="option" onclick="answer(this,false)">Oui, si on utilise itertools.tee</div>
+              <button class="option" onclick="answer(this,false)">Oui, il se réinitialise automatiquement</button>
+              <button class="option" onclick="answer(this,true)">Non, un générateur s'épuise après une seule itération</button>
+              <button class="option" onclick="answer(this,false)">Oui, avec la méthode reset()</button>
+              <button class="option" onclick="answer(this,false)">Oui, si on utilise itertools.tee</button>
             </div>
             <div class="q-feedback">Un générateur ne peut être consommé qu'une seule fois. Pour l'itérer plusieurs fois, il faut soit le recréer, soit le convertir en liste, soit utiliser <code>itertools.tee()</code> (avec précaution).</div>
           </div>
@@ -597,8 +597,14 @@ print(list(round_robin("AB", "CDE", "FG")))
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

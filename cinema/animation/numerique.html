@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'animation numerique englobe les nouvelles formes d'animation nees avec les outils informatiques : mot...">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Animation numerique — Animation — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #e87a7a; --accent2: #f09090; --accent-dim: rgba(232,122,122,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #e87a7a; --accent2: #f09090; --accent-dim: rgba(232,122,122,0.08);  --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -19,7 +19,7 @@
     <a href="../../cinema-page.html">Cinema</a> &rsaquo; <a href="../animation.html">Animation</a> &rsaquo; <span>Animation numerique</span>
   </div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">&#127916; Cinema</span>
     <span class="tag-level">Debutant &rarr; Intermediaire</span>
@@ -89,10 +89,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Qu'est-ce que le motion design ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'animation de personnages 3D</div>
-              <div class="option" onclick="answer(this,true)">L'animation d'elements graphiques</div>
-              <div class="option" onclick="answer(this,false)">Le design de vehicules</div>
-              <div class="option" onclick="answer(this,false)">La creation de logos</div>
+              <button class="option" onclick="answer(this,false)">L'animation de personnages 3D</button>
+              <button class="option" onclick="answer(this,true)">L'animation d'elements graphiques</button>
+              <button class="option" onclick="answer(this,false)">Le design de vehicules</button>
+              <button class="option" onclick="answer(this,false)">La creation de logos</button>
             </div>
             <div class="q-feedback">Le motion design anime des elements graphiques (typographie, formes, infographies) pour communiquer de maniere dynamique et engageante.</div>
           </div>
@@ -100,10 +100,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Quel designer a invente le generique de film comme forme d'art ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Kyle Cooper</div>
-              <div class="option" onclick="answer(this,true)">Saul Bass</div>
-              <div class="option" onclick="answer(this,false)">Maurice Binder</div>
-              <div class="option" onclick="answer(this,false)">Pablo Ferro</div>
+              <button class="option" onclick="answer(this,false)">Kyle Cooper</button>
+              <button class="option" onclick="answer(this,true)">Saul Bass</button>
+              <button class="option" onclick="answer(this,false)">Maurice Binder</button>
+              <button class="option" onclick="answer(this,false)">Pablo Ferro</button>
             </div>
             <div class="q-feedback">Saul Bass a revolutionne les generiques de films dans les annees 1950-60, creant des oeuvres graphiques memorables pour Hitchcock et Preminger.</div>
           </div>
@@ -111,10 +111,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Quel logiciel gratuit est devenu la reference en animation 3D ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Maya</div>
-              <div class="option" onclick="answer(this,false)">3ds Max</div>
-              <div class="option" onclick="answer(this,true)">Blender</div>
-              <div class="option" onclick="answer(this,false)">Cinema 4D</div>
+              <button class="option" onclick="answer(this,false)">Maya</button>
+              <button class="option" onclick="answer(this,false)">3ds Max</button>
+              <button class="option" onclick="answer(this,true)">Blender</button>
+              <button class="option" onclick="answer(this,false)">Cinema 4D</button>
             </div>
             <div class="q-feedback">Blender, logiciel libre et gratuit, est devenu une reference en animation 3D grâce a sa communaute active et ses fonctionnalites professionnelles.</div>
           </div>
@@ -122,10 +122,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Qu'est-ce que l'animation procedurale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Animation dessinee a la main</div>
-              <div class="option" onclick="answer(this,true)">Animation generee par algorithmes</div>
-              <div class="option" onclick="answer(this,false)">Animation en stop motion</div>
-              <div class="option" onclick="answer(this,false)">Animation en temps reel</div>
+              <button class="option" onclick="answer(this,false)">Animation dessinee a la main</button>
+              <button class="option" onclick="answer(this,true)">Animation generee par algorithmes</button>
+              <button class="option" onclick="answer(this,false)">Animation en stop motion</button>
+              <button class="option" onclick="answer(this,false)">Animation en temps reel</button>
             </div>
             <div class="q-feedback">L'animation procedurale genere du mouvement par des algorithmes : simulation de foules, physique des fluides, destruction de bâtiments.</div>
           </div>
@@ -133,10 +133,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quel nouveau support ouvre des territoires pour l'animation ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La television</div>
-              <div class="option" onclick="answer(this,true)">La realite virtuelle</div>
-              <div class="option" onclick="answer(this,false)">Le vinyle</div>
-              <div class="option" onclick="answer(this,false)">La radio</div>
+              <button class="option" onclick="answer(this,false)">La television</button>
+              <button class="option" onclick="answer(this,true)">La realite virtuelle</button>
+              <button class="option" onclick="answer(this,false)">Le vinyle</button>
+              <button class="option" onclick="answer(this,false)">La radio</button>
             </div>
             <div class="q-feedback">La realite virtuelle permet au spectateur de se deplacer a l'interieur d'animations, ouvrant de nouveaux territoires pour la creation.</div>
           </div>
@@ -182,8 +182,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

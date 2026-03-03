@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ouverture, vitesse, ISO, exposition et mise au point — maîtriser les paramètres fondamentaux pour contrôler la lumière et la netteté.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Technique photo — Photographie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e74c3c;
   --accent2: #c0392b;
   --accent-dim: rgba(231,76,60,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(231,76,60,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(231,76,60,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📷 Photographie</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -132,10 +132,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle ouverture produit la plus faible profondeur de champ ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">f/1.4</div>
-              <div class="option" onclick="answer(this,false)">f/8</div>
-              <div class="option" onclick="answer(this,false)">f/16</div>
-              <div class="option" onclick="answer(this,false)">f/22</div>
+              <button class="option" onclick="answer(this,true)">f/1.4</button>
+              <button class="option" onclick="answer(this,false)">f/8</button>
+              <button class="option" onclick="answer(this,false)">f/16</button>
+              <button class="option" onclick="answer(this,false)">f/22</button>
             </div>
             <div class="q-feedback">f/1.4 est la plus grande ouverture proposée ici. Plus l'ouverture est grande (nombre f/ petit), plus la profondeur de champ est réduite et plus l'arrière-plan sera flou.</div>
           </div>
@@ -143,10 +143,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle vitesse d'obturation permet de figer un sujet en mouvement rapide ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1/30 s</div>
-              <div class="option" onclick="answer(this,false)">1/60 s</div>
-              <div class="option" onclick="answer(this,false)">1/250 s</div>
-              <div class="option" onclick="answer(this,true)">1/1000 s</div>
+              <button class="option" onclick="answer(this,false)">1/30 s</button>
+              <button class="option" onclick="answer(this,false)">1/60 s</button>
+              <button class="option" onclick="answer(this,false)">1/250 s</button>
+              <button class="option" onclick="answer(this,true)">1/1000 s</button>
             </div>
             <div class="q-feedback">1/1000 s est suffisamment rapide pour figer la plupart des mouvements sportifs. Pour des sujets très rapides (ailes d'oiseau, gouttes d'eau), on peut aller jusqu'à 1/4000 ou 1/8000 s.</div>
           </div>
@@ -154,10 +154,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel est l'effet principal de l'augmentation des ISO ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Augmenter la profondeur de champ</div>
-              <div class="option" onclick="answer(this,true)">Augmenter la sensibilité à la lumière mais aussi le bruit</div>
-              <div class="option" onclick="answer(this,false)">Réduire la vitesse d'obturation</div>
-              <div class="option" onclick="answer(this,false)">Améliorer la qualité de l'image</div>
+              <button class="option" onclick="answer(this,false)">Augmenter la profondeur de champ</button>
+              <button class="option" onclick="answer(this,true)">Augmenter la sensibilité à la lumière mais aussi le bruit</button>
+              <button class="option" onclick="answer(this,false)">Réduire la vitesse d'obturation</button>
+              <button class="option" onclick="answer(this,false)">Améliorer la qualité de l'image</button>
             </div>
             <div class="q-feedback">Augmenter les ISO rend le capteur plus sensible à la lumière, ce qui permet de photographier dans des conditions plus sombres, mais au prix d'une augmentation du bruit numérique qui dégrade la qualité.</div>
           </div>
@@ -165,10 +165,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">En mode priorité ouverture (A/Av), quel paramètre le photographe contrôle-t-il ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La vitesse d'obturation</div>
-              <div class="option" onclick="answer(this,true)">L'ouverture du diaphragme</div>
-              <div class="option" onclick="answer(this,false)">La sensibilité ISO uniquement</div>
-              <div class="option" onclick="answer(this,false)">La balance des blancs</div>
+              <button class="option" onclick="answer(this,false)">La vitesse d'obturation</button>
+              <button class="option" onclick="answer(this,true)">L'ouverture du diaphragme</button>
+              <button class="option" onclick="answer(this,false)">La sensibilité ISO uniquement</button>
+              <button class="option" onclick="answer(this,false)">La balance des blancs</button>
             </div>
             <div class="q-feedback">En mode priorité ouverture (A ou Av), le photographe choisit l'ouverture et l'appareil calcule automatiquement la vitesse d'obturation correspondante pour une exposition correcte.</div>
           </div>
@@ -176,10 +176,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel mode d'autofocus est adapté aux sujets en mouvement ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">AF ponctuel (AF-S / One Shot)</div>
-              <div class="option" onclick="answer(this,true)">AF continu (AF-C / AI Servo)</div>
-              <div class="option" onclick="answer(this,false)">Mise au point manuelle</div>
-              <div class="option" onclick="answer(this,false)">AF zone large</div>
+              <button class="option" onclick="answer(this,false)">AF ponctuel (AF-S / One Shot)</button>
+              <button class="option" onclick="answer(this,true)">AF continu (AF-C / AI Servo)</button>
+              <button class="option" onclick="answer(this,false)">Mise au point manuelle</button>
+              <button class="option" onclick="answer(this,false)">AF zone large</button>
             </div>
             <div class="q-feedback">L'AF continu (AF-C chez Nikon, AI Servo chez Canon) ajuste la mise au point en permanence tant que le déclencheur est maintenu à mi-course, permettant de suivre un sujet en mouvement.</div>
           </div>
@@ -187,10 +187,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Un histogramme écrasé à droite indique :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une sous-exposition</div>
-              <div class="option" onclick="answer(this,true)">Une surexposition</div>
-              <div class="option" onclick="answer(this,false)">Une exposition parfaite</div>
-              <div class="option" onclick="answer(this,false)">Un problème de mise au point</div>
+              <button class="option" onclick="answer(this,false)">Une sous-exposition</button>
+              <button class="option" onclick="answer(this,true)">Une surexposition</button>
+              <button class="option" onclick="answer(this,false)">Une exposition parfaite</button>
+              <button class="option" onclick="answer(this,false)">Un problème de mise au point</button>
             </div>
             <div class="q-feedback">Un histogramme écrasé à droite (hautes lumières) indique une surexposition avec risque de « cramage » des blancs, c'est-à-dire une perte irréversible d'information dans les zones les plus claires.</div>
           </div>
@@ -253,8 +253,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

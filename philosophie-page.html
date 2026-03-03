@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De Socrate à Sartre, la philosophie est l'art de questionner l'évidence. Apprendre à raisonner avec rigueur, comprendre les grands courants et forger sa...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Philosophie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #9b7ae8;
   --accent2: #b89ff0;
   --accent-dim: rgba(155,122,232,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 20% 50%, rgba(155,122,232,0.08) 0%, transparent 70%); }
+ --accent-hero: rgba(155,122,232,0.08); }
 .hero-deco { color: rgba(155,122,232,0.04); font-size: 18rem; }
 </style>
 </head>
@@ -27,7 +28,7 @@
   <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
 </nav>
 
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">φ</div>
   <div class="hero-meta">
     <span class="tag-domain">📚 Lettres, Langues & Philosophie</span>
@@ -192,90 +193,87 @@
       <div class="quiz-container">
         <div class="quiz-header">
           <span class="quiz-title-text">Quiz — Philosophie</span>
-          <span class="quiz-score">Score : <span id="quizScore">0</span>/6</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span>/6</span>
         </div>
-        <div class="quiz-body">
+        <div class="quiz-body" id="quizBody">
           <div class="question-block active" id="q0">
             <div class="q-num">Question 1 / 6</div>
             <div class="q-text">Qui a formulé la phrase "Cogito ergo sum" (Je pense donc je suis) ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(0,0)">Platon</div>
-              <div class="option" onclick="selectOption(0,1)">René Descartes</div>
-              <div class="option" onclick="selectOption(0,2)">Immanuel Kant</div>
-              <div class="option" onclick="selectOption(0,3)">Aristote</div>
+              <button class="option" onclick="answer(this,false)">Platon</button>
+              <button class="option" onclick="answer(this,true)">René Descartes</button>
+              <button class="option" onclick="answer(this,false)">Immanuel Kant</button>
+              <button class="option" onclick="answer(this,false)">Aristote</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">René Descartes (1596-1650) a formulé ce principe dans le Discours de la méthode (1637). Il en fait le fondement indubitable de toute connaissance : le fait même de douter prouve qu'on pense, et donc qu'on existe.</div>
           </div>
           <div class="question-block" id="q1">
             <div class="q-num">Question 2 / 6</div>
             <div class="q-text">Quelle branche de la philosophie étudie la nature de la connaissance ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(1,0)">L'ontologie</div>
-              <div class="option" onclick="selectOption(1,1)">L'éthique</div>
-              <div class="option" onclick="selectOption(1,2)">L'esthétique</div>
-              <div class="option" onclick="selectOption(1,3)">L'épistémologie</div>
+              <button class="option" onclick="answer(this,false)">L'ontologie</button>
+              <button class="option" onclick="answer(this,false)">L'éthique</button>
+              <button class="option" onclick="answer(this,false)">L'esthétique</button>
+              <button class="option" onclick="answer(this,true)">L'épistémologie</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">L'épistémologie (du grec epistémé = connaissance, logos = discours) étudie la nature, les sources, les limites et la justification de la connaissance humaine.</div>
           </div>
           <div class="question-block" id="q2">
             <div class="q-num">Question 3 / 6</div>
             <div class="q-text">Quel philosophe stoïcien a écrit les "Pensées pour moi-même" ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(2,0)">Sénèque</div>
-              <div class="option" onclick="selectOption(2,1)">Épictète</div>
-              <div class="option" onclick="selectOption(2,2)">Marc Aurèle</div>
-              <div class="option" onclick="selectOption(2,3)">Épicure</div>
+              <button class="option" onclick="answer(this,false)">Sénèque</button>
+              <button class="option" onclick="answer(this,false)">Épictète</button>
+              <button class="option" onclick="answer(this,true)">Marc Aurèle</button>
+              <button class="option" onclick="answer(this,false)">Épicure</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Marc Aurèle (121-180), empereur romain et philosophe stoïcien, a rédigé ce journal intime en grec. Véritable guide de vie stoïcienne, il n'était pas destiné à la publication.</div>
           </div>
           <div class="question-block" id="q3">
             <div class="q-num">Question 4 / 6</div>
             <div class="q-text">Que signifie "l'existence précède l'essence" pour Sartre ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(3,0)">La matière prime sur la conscience</div>
-              <div class="option" onclick="selectOption(3,1)">L'humain se définit librement par ses choix, non par une nature fixe</div>
-              <div class="option" onclick="selectOption(3,2)">La société précède l'individu</div>
-              <div class="option" onclick="selectOption(3,3)">L'instinct guide toujours la raison</div>
+              <button class="option" onclick="answer(this,false)">La matière prime sur la conscience</button>
+              <button class="option" onclick="answer(this,true)">L'humain se définit librement par ses choix, non par une nature fixe</button>
+              <button class="option" onclick="answer(this,false)">La société précède l'individu</button>
+              <button class="option" onclick="answer(this,false)">L'instinct guide toujours la raison</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Contrairement à un couteau (dont l'essence est définie avant d'être fabriqué), l'homme existe d'abord, puis se définit par ses choix. Il n'y a pas de 'nature humaine' figée — c'est le fondement de la liberté et de la responsabilité existentialiste.</div>
           </div>
           <div class="question-block" id="q4">
             <div class="q-num">Question 5 / 6</div>
             <div class="q-text">Qu'est-ce qu'un sophisme ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(4,0)">Une forme de sagesse orientale</div>
-              <div class="option" onclick="selectOption(4,1)">Un argument toujours vrai</div>
-              <div class="option" onclick="selectOption(4,2)">Un raisonnement apparemment logique mais fallacieux</div>
-              <div class="option" onclick="selectOption(4,3)">Un principe de la philosophie de Socrate</div>
+              <button class="option" onclick="answer(this,false)">Une forme de sagesse orientale</button>
+              <button class="option" onclick="answer(this,false)">Un argument toujours vrai</button>
+              <button class="option" onclick="answer(this,true)">Un raisonnement apparemment logique mais fallacieux</button>
+              <button class="option" onclick="answer(this,false)">Un principe de la philosophie de Socrate</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Un sophisme est un raisonnement qui semble convaincant mais contient une erreur cachée. Exemples : l'homme de paille (déformer l'argument adverse), la pente glissante (supposer une cascade d'effets), l'appel à l'autorité.</div>
           </div>
           <div class="question-block" id="q5">
             <div class="q-num">Question 6 / 6</div>
             <div class="q-text">L'impératif catégorique de Kant demande d'agir...</div>
             <div class="options">
-              <div class="option" onclick="selectOption(5,0)">Selon ses propres intérêts</div>
-              <div class="option" onclick="selectOption(5,1)">Pour maximiser le bonheur collectif</div>
-              <div class="option" onclick="selectOption(5,2)">Selon une maxime universalisable</div>
-              <div class="option" onclick="selectOption(5,3)">En obéissant aux lois de la nature</div>
+              <button class="option" onclick="answer(this,false)">Selon ses propres intérêts</button>
+              <button class="option" onclick="answer(this,false)">Pour maximiser le bonheur collectif</button>
+              <button class="option" onclick="answer(this,true)">Selon une maxime universalisable</button>
+              <button class="option" onclick="answer(this,false)">En obéissant aux lois de la nature</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">L'impératif catégorique : «Agis seulement selon la maxime qui fait que tu peux vouloir en même temps qu'elle devienne une loi universelle.» C'est une éthique du devoir (déontologie), indépendante des conséquences.</div>
           </div>
         </div>
         <div class="quiz-nav">
-          <div class="q-dots">
-            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-          </div>
+          <div class="q-dots" id="qDots"></div>
           <div style="display:flex;gap:.8rem">
-            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
-            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQ()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQ()" disabled>Suivant →</button>
           </div>
         </div>
-        <div class="quiz-result">
-          <div class="result-score-big" id="finalScore"></div>
-          <div class="result-msg" id="finalMsg"></div>
-          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore"></div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
         </div>
       </div>
     </section>
@@ -398,147 +396,15 @@
   </main>
 </div>
 
-<script>
-const questions = [
-  { q:"Qui a formulé la phrase «Cogito ergo sum» ?", opts:["Platon","René Descartes","Immanuel Kant","Aristote"], ans:1, expl:"René Descartes (1596-1650) a formulé ce principe dans le Discours de la méthode (1637). Il en fait le fondement indubitable de toute connaissance : le fait même de douter prouve qu'on pense, et donc qu'on existe." },
-  { q:"Quelle branche étudie la nature de la connaissance ?", opts:["L'ontologie","L'éthique","L'esthétique","L'épistémologie"], ans:3, expl:"L'épistémologie (du grec epistémé = connaissance, logos = discours) étudie la nature, les sources, les limites et la justification de la connaissance humaine." },
-  { q:"Quel philosophe stoïcien a écrit les «Pensées pour moi-même» ?", opts:["Sénèque","Épictète","Marc Aurèle","Épicure"], ans:2, expl:"Marc Aurèle (121-180), empereur romain et philosophe stoïcien, a rédigé ce journal intime en grec. Véritable guide de vie stoïcienne, il n'était pas destiné à la publication." },
-  { q:"Que signifie «l'existence précède l'essence» pour Sartre ?", opts:["La matière prime sur la conscience","L'humain se définit librement par ses choix, non par une nature fixe","La société précède l'individu","L'instinct guide toujours la raison"], ans:1, expl:"Contrairement à un couteau (dont l'essence est définie avant d'être fabriqué), l'homme existe d'abord, puis se définit par ses choix. Il n'y a pas de 'nature humaine' figée — c'est le fondement de la liberté et de la responsabilité existentialiste." },
-  { q:"Qu'est-ce qu'un sophisme ?", opts:["Une forme de sagesse orientale","Un argument toujours vrai","Un raisonnement apparemment logique mais fallacieux","Un principe de la philosophie de Socrate"], ans:2, expl:"Un sophisme est un raisonnement qui semble convaincant mais contient une erreur cachée. Exemples : l'homme de paille (déformer l'argument adverse), la pente glissante (supposer une cascade d'effets), l'appel à l'autorité." },
-  { q:"L'impératif catégorique de Kant demande d'agir...", opts:["Selon ses propres intérêts","Pour maximiser le bonheur collectif","Selon une maxime universalisable","En obéissant aux lois de la nature"], ans:2, expl:"L'impératif catégorique : «Agis seulement selon la maxime qui fait que tu peux vouloir en même temps qu'elle devienne une loi universelle.» C'est une éthique du devoir (déontologie), indépendante des conséquences." }
-];
-
-let current=0, score=0, answered=new Array(6).fill(null);
-
-function renderQuestion(){
-  document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));
-  document.querySelectorAll('.q-dot').forEach((d,i)=>{
-    d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');
-  });
-  document.getElementById('btnPrev').disabled=current===0;
-  document.getElementById('btnNext').textContent=current===5?'Voir résultats':'Suivant →';
-}
-
-function selectOption(qi,oi){
-  if(answered[qi]!==null)return;
-  answered[qi]=oi;
-  const block=document.querySelectorAll('.question-block')[qi];
-  block.querySelectorAll('.option').forEach((o,i)=>{
-    o.classList.add('disabled');
-    if(i===questions[qi].ans)o.classList.add('correct');
-    else if(i===oi)o.classList.add('wrong');
-  });
-  const fb=block.querySelector('.q-feedback');
-  fb.textContent=questions[qi].expl;
-  fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');
-  if(oi===questions[qi].ans)score++;
-  document.getElementById('quizScore').textContent=score;
-  document.querySelectorAll('.q-dot')[qi].classList.add('done');
-}
-
-function nextQuestion(){if(current<5){current++;renderQuestion();}else showResult();}
-function prevQuestion(){if(current>0){current--;renderQuestion();}}
-
-function showResult(){
-  document.querySelector('.quiz-body').style.display='none';
-  document.querySelector('.quiz-nav').style.display='none';
-  const r=document.querySelector('.quiz-result');
-  r.style.display='block';
-  document.getElementById('finalScore').textContent=score+'/6';
-  const msgs=["Continue d'apprendre !",'Pas mal !','Très bien !','Excellent !'];
-  document.getElementById('finalMsg').textContent=msgs[score<=2?0:score<=4?1:score<=5?2:3];
-}
-
-function restartQuiz(){
-  current=0;score=0;answered.fill(null);
-  document.querySelector('.quiz-body').style.display='block';
-  document.querySelector('.quiz-nav').style.display='flex';
-  document.querySelector('.quiz-result').style.display='none';
-  document.querySelectorAll('.option').forEach(o=>o.className='option');
-  document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');
-  document.getElementById('quizScore').textContent=0;
-  renderQuestion();
-}
-
-function goTo(id,el){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
-  document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));
-  if(el)el.classList.add('active');
-}
-// Scroll spy
-(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
-
-const sections=['resume','courants','concepts','quiz','ressources','memo'];
-window.addEventListener('scroll',()=>{
-  let vis=0;
-  sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});
-  document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';
-  sections.forEach(id=>{
-    const el=document.getElementById(id);
-    if(el){const r=el.getBoundingClientRect();if(r.top<=120&&r.bottom>120){
-      document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));
-      const lnk=document.querySelector(`.sidebar-link[data-section="${id}"]`);
-      if(lnk)lnk.classList.add('active');
-    }}
-  });
-});
-
-function downloadMemo(){
-  const w=window.open('','_blank','width=900,height=700');
-  w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Philosophie</title>
-  <style>
-    body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}
-    h1{font-size:1.8rem;color:#9b7ae8;border-bottom:3px solid #9b7ae8;padding-bottom:.5rem;margin-bottom:1.5rem}
-    h2{font-size:.75rem;color:#9b7ae8;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}
-    ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}
-    .box{border:1px solid #e0d6f7;padding:1rem;border-radius:4px;background:#faf8ff}
-    .footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}
-    @media print{.no-print{display:none}}
-  </style></head><body>
-  <h1>🧠 Fiche mémo — Philosophie</h1>
-  <div class="grid">
-    <div class="box"><h2>Philosophes clés</h2><ul>
-      <li><strong>Socrate</strong> — "Connais-toi toi-même" (470-399 av. J.-C.)</li>
-      <li><strong>Platon</strong> — Monde des Idées, La République</li>
-      <li><strong>Aristote</strong> — Logique, Éthique à Nicomaque</li>
-      <li><strong>Descartes</strong> — Cogito ergo sum, Dualisme corps/esprit</li>
-      <li><strong>Kant</strong> — Critique de la Raison Pure, Impératif catégorique</li>
-      <li><strong>Nietzsche</strong> — Volonté de puissance, Dieu est mort</li>
-      <li><strong>Sartre</strong> — L'Être et le Néant, Existentialisme</li>
-    </ul></div>
-    <div class="box"><h2>5 branches principales</h2><ul>
-      <li><strong>Épistémologie</strong> — La connaissance et ses limites</li>
-      <li><strong>Ontologie</strong> — L'être, l'existence, la réalité</li>
-      <li><strong>Éthique</strong> — Bien, mal, valeurs morales</li>
-      <li><strong>Logique</strong> — Raisonnement valide, syllogismes</li>
-      <li><strong>Esthétique</strong> — Le beau, l'art, le goût</li>
-    </ul></div>
-    <div class="box"><h2>Courants historiques</h2><ul>
-      <li><strong>Stoïcisme</strong> — Marc Aurèle, Épictète, Sénèque</li>
-      <li><strong>Rationalisme</strong> — Descartes, Spinoza, Leibniz</li>
-      <li><strong>Empirisme</strong> — Locke, Hume, Berkeley</li>
-      <li><strong>Idéalisme</strong> — Kant, Hegel, Fichte</li>
-      <li><strong>Existentialisme</strong> — Sartre, Camus, Beauvoir</li>
-    </ul></div>
-    <div class="box"><h2>Citations célèbres</h2><ul>
-      <li>"Je sais que je ne sais rien" — Socrate</li>
-      <li>"Cogito ergo sum" — Descartes</li>
-      <li>"L'enfer c'est les autres" — Sartre</li>
-      <li>"Il faut imaginer Sisyphe heureux" — Camus</li>
-      <li>"Dieu est mort" — Nietzsche</li>
-      <li>"Deux choses : le ciel étoilé au-dessus de moi, la loi morale en moi" — Kant</li>
-    </ul></div>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
   </div>
-  <div class="footer">Curiosita — Fiche mémo Philosophie — ${new Date().toLocaleDateString('fr-FR')}</div>
-  <button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#9b7ae8;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">🖨️ Imprimer / PDF</button>
-  
-</body></html>`);
-  w.document.close();
-}
-
-renderQuestion();
-</script>
-    <script src="mobile.js?v=2"></script>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

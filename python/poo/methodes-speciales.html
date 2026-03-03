@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="__str__, __repr__, __len__, __eq__, __iter__, context managers — les « dunder methods » qui donnent à vos objets un comportement pythonique.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Méthodes spéciales — POO Python — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #27ae60;
   --accent2: #2ecc71;
   --accent-dim: rgba(39,174,96,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(39,174,96,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(39,174,96,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🐍 POO Python</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -347,10 +347,10 @@ print(f"Eau bouillante : {t:k}")   # Eau bouillante : 373.1K</code></pre>
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la différence entre <code>__str__</code> et <code>__repr__</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il n'y a aucune différence</div>
-              <div class="option" onclick="answer(this,true)">__str__ est pour l'utilisateur (lisible), __repr__ est pour le développeur (technique/debug)</div>
-              <div class="option" onclick="answer(this,false)">__repr__ est obsolète en Python 3</div>
-              <div class="option" onclick="answer(this,false)">__str__ est appelée dans les conteneurs comme les listes</div>
+              <button class="option" onclick="answer(this,false)">Il n'y a aucune différence</button>
+              <button class="option" onclick="answer(this,true)">__str__ est pour l'utilisateur (lisible), __repr__ est pour le développeur (technique/debug)</button>
+              <button class="option" onclick="answer(this,false)">__repr__ est obsolète en Python 3</button>
+              <button class="option" onclick="answer(this,false)">__str__ est appelée dans les conteneurs comme les listes</button>
             </div>
             <div class="q-feedback">__str__ produit une sortie lisible pour l'utilisateur final (appelée par print). __repr__ produit une sortie technique pour le développeur, idéalement recréable par eval(). Dans les conteneurs (listes, dicts), c'est __repr__ qui est utilisée.</div>
           </div>
@@ -358,10 +358,10 @@ print(f"Eau bouillante : {t:k}")   # Eau bouillante : 373.1K</code></pre>
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelles méthodes faut-il implémenter pour utiliser un objet dans une boucle <code>for</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">__loop__ et __each__</div>
-              <div class="option" onclick="answer(this,true)">__iter__ et __next__</div>
-              <div class="option" onclick="answer(this,false)">__for__ et __in__</div>
-              <div class="option" onclick="answer(this,false)">__getitem__ uniquement</div>
+              <button class="option" onclick="answer(this,false)">__loop__ et __each__</button>
+              <button class="option" onclick="answer(this,true)">__iter__ et __next__</button>
+              <button class="option" onclick="answer(this,false)">__for__ et __in__</button>
+              <button class="option" onclick="answer(this,false)">__getitem__ uniquement</button>
             </div>
             <div class="q-feedback">Le protocole itérateur nécessite __iter__ (qui retourne l'itérateur) et __next__ (qui retourne l'élément suivant ou lève StopIteration). Alternativement, __iter__ peut être un générateur avec yield.</div>
           </div>
@@ -369,10 +369,10 @@ print(f"Eau bouillante : {t:k}")   # Eau bouillante : 373.1K</code></pre>
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelles méthodes spéciales permettent d'utiliser la syntaxe <code>with obj as x:</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">__with__ et __as__</div>
-              <div class="option" onclick="answer(this,false)">__open__ et __close__</div>
-              <div class="option" onclick="answer(this,true)">__enter__ et __exit__</div>
-              <div class="option" onclick="answer(this,false)">__start__ et __stop__</div>
+              <button class="option" onclick="answer(this,false)">__with__ et __as__</button>
+              <button class="option" onclick="answer(this,false)">__open__ et __close__</button>
+              <button class="option" onclick="answer(this,true)">__enter__ et __exit__</button>
+              <button class="option" onclick="answer(this,false)">__start__ et __stop__</button>
             </div>
             <div class="q-feedback">__enter__ est appelée au début du bloc with (sa valeur de retour est assignée par as). __exit__ est appelée à la fin, même en cas d'exception. C'est le protocole de context manager.</div>
           </div>
@@ -380,10 +380,10 @@ print(f"Eau bouillante : {t:k}")   # Eau bouillante : 373.1K</code></pre>
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Que se passe-t-il si <code>__eq__</code> est défini mais pas <code>__hash__</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Python génère automatiquement __hash__</div>
-              <div class="option" onclick="answer(this,true)">L'objet devient non-hachable (inutilisable dans set et comme clé de dict)</div>
-              <div class="option" onclick="answer(this,false)">__hash__ utilise la valeur de __eq__</div>
-              <div class="option" onclick="answer(this,false)">Aucun changement, __hash__ par défaut fonctionne toujours</div>
+              <button class="option" onclick="answer(this,false)">Python génère automatiquement __hash__</button>
+              <button class="option" onclick="answer(this,true)">L'objet devient non-hachable (inutilisable dans set et comme clé de dict)</button>
+              <button class="option" onclick="answer(this,false)">__hash__ utilise la valeur de __eq__</button>
+              <button class="option" onclick="answer(this,false)">Aucun changement, __hash__ par défaut fonctionne toujours</button>
             </div>
             <div class="q-feedback">En Python 3, si vous définissez __eq__ sans __hash__, Python met __hash__ à None, rendant l'objet non-hachable. C'est une mesure de sécurité car deux objets égaux doivent avoir le même hash.</div>
           </div>
@@ -391,10 +391,10 @@ print(f"Eau bouillante : {t:k}")   # Eau bouillante : 373.1K</code></pre>
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que fait la méthode <code>__call__</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Elle appelle le constructeur de la classe parente</div>
-              <div class="option" onclick="answer(this,false)">Elle est appelée quand l'objet est supprimé</div>
-              <div class="option" onclick="answer(this,true)">Elle permet d'appeler l'objet comme une fonction : obj()</div>
-              <div class="option" onclick="answer(this,false)">Elle intercepte les appels de méthodes sur l'objet</div>
+              <button class="option" onclick="answer(this,false)">Elle appelle le constructeur de la classe parente</button>
+              <button class="option" onclick="answer(this,false)">Elle est appelée quand l'objet est supprimé</button>
+              <button class="option" onclick="answer(this,true)">Elle permet d'appeler l'objet comme une fonction : obj()</button>
+              <button class="option" onclick="answer(this,false)">Elle intercepte les appels de méthodes sur l'objet</button>
             </div>
             <div class="q-feedback">__call__ rend un objet « appelable » (callable). Quand on écrit obj(args), Python exécute obj.__call__(args). C'est utile pour créer des fonctions avec état ou des décorateurs basés sur des classes.</div>
           </div>
@@ -402,10 +402,10 @@ print(f"Eau bouillante : {t:k}")   # Eau bouillante : 373.1K</code></pre>
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que retourne <code>__exit__</code> pour supprimer (avaler) une exception survenue dans le bloc <code>with</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">None</div>
-              <div class="option" onclick="answer(this,false)">False</div>
-              <div class="option" onclick="answer(this,true)">True</div>
-              <div class="option" onclick="answer(this,false)">L'exception elle-même</div>
+              <button class="option" onclick="answer(this,false)">None</button>
+              <button class="option" onclick="answer(this,false)">False</button>
+              <button class="option" onclick="answer(this,true)">True</button>
+              <button class="option" onclick="answer(this,false)">L'exception elle-même</button>
             </div>
             <div class="q-feedback">Si __exit__ retourne True (ou une valeur truthy), l'exception est supprimée et l'exécution continue après le bloc with. Si elle retourne False ou None, l'exception se propage normalement.</div>
           </div>
@@ -707,8 +707,14 @@ print(fibonacci.stats)   # {'hits': 29, 'misses': 31, 'taux': '48%'}</code></pre
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

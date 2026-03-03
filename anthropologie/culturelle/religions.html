@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Animisme, totémisme, chamanisme, magie et sorcellerie : les formes du sacré dans les sociétés humaines.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Anthropologie des religions — Anthropologie culturelle — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🕌 Anthropologie culturelle</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Selon Durkheim, qu'adorent réellement les hommes à travers la religion ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les forces de la nature</div>
-              <div class="option" onclick="answer(this,true)">La société elle-même transfigurée</div>
-              <div class="option" onclick="answer(this,false)">Les ancêtres fondateurs</div>
-              <div class="option" onclick="answer(this,false)">Leur propre psychisme inconscient</div>
+              <button class="option" onclick="answer(this,false)">Les forces de la nature</button>
+              <button class="option" onclick="answer(this,true)">La société elle-même transfigurée</button>
+              <button class="option" onclick="answer(this,false)">Les ancêtres fondateurs</button>
+              <button class="option" onclick="answer(this,false)">Leur propre psychisme inconscient</button>
             </div>
             <div class="q-feedback">Pour Durkheim, le dieu du clan n'est autre que le clan divinisé. La religion est la projection symbolique de la force de la société elle-même : en adorant leurs dieux, les hommes adorent en réalité le pouvoir de leur propre collectif.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel est le rôle principal du chamane ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Gouverner la communauté</div>
-              <div class="option" onclick="answer(this,false)">Enseigner les mythes aux enfants</div>
-              <div class="option" onclick="answer(this,true)">Servir de médiateur entre le monde visible et le monde des esprits</div>
-              <div class="option" onclick="answer(this,false)">Fabriquer les objets rituels</div>
+              <button class="option" onclick="answer(this,false)">Gouverner la communauté</button>
+              <button class="option" onclick="answer(this,false)">Enseigner les mythes aux enfants</button>
+              <button class="option" onclick="answer(this,true)">Servir de médiateur entre le monde visible et le monde des esprits</button>
+              <button class="option" onclick="answer(this,false)">Fabriquer les objets rituels</button>
             </div>
             <div class="q-feedback">Le chamane est un spécialiste de la médiation entre le monde visible (humain) et le monde invisible (esprits, ancêtres). Par la transe ou le voyage extatique, il communique avec les esprits pour guérir, prédire ou retrouver les âmes égarées.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Selon Evans-Pritchard, la sorcellerie chez les Azandé répond à quelle question ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Comment fonctionne la nature ?</div>
-              <div class="option" onclick="answer(this,true)">Pourquoi ce malheur m'arrive-t-il à moi, maintenant ?</div>
-              <div class="option" onclick="answer(this,false)">Qui sont les dieux ?</div>
-              <div class="option" onclick="answer(this,false)">Comment guérir les maladies ?</div>
+              <button class="option" onclick="answer(this,false)">Comment fonctionne la nature ?</button>
+              <button class="option" onclick="answer(this,true)">Pourquoi ce malheur m'arrive-t-il à moi, maintenant ?</button>
+              <button class="option" onclick="answer(this,false)">Qui sont les dieux ?</button>
+              <button class="option" onclick="answer(this,false)">Comment guérir les maladies ?</button>
             </div>
             <div class="q-feedback">La sorcellerie azandé n'explique pas les causes physiques (les Azandé les connaissent) mais le « pourquoi moi, pourquoi maintenant » — la singularité de l'infortune. Elle est une théorie sociale du malheur, pas une physique naïve.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Dans le modèle de Descola, l'animisme se caractérise par :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Intériorités semblables, physicalités différentes entre humains et non-humains</div>
-              <div class="option" onclick="answer(this,false)">Intériorités et physicalités toutes différentes</div>
-              <div class="option" onclick="answer(this,false)">Intériorités différentes, physicalités semblables</div>
-              <div class="option" onclick="answer(this,false)">Intériorités et physicalités toutes semblables</div>
+              <button class="option" onclick="answer(this,true)">Intériorités semblables, physicalités différentes entre humains et non-humains</button>
+              <button class="option" onclick="answer(this,false)">Intériorités et physicalités toutes différentes</button>
+              <button class="option" onclick="answer(this,false)">Intériorités différentes, physicalités semblables</button>
+              <button class="option" onclick="answer(this,false)">Intériorités et physicalités toutes semblables</button>
             </div>
             <div class="q-feedback">L'animisme selon Descola attribue aux non-humains une intériorité (âme, intentionnalité) semblable à celle des humains, mais reconnaît des corps (physicalités) différents. Les animaux ont une « âme humaine » dans un corps animal.</div>
           </div>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Selon Frazer, la « magie contagieuse » repose sur :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le semblable produit le semblable</div>
-              <div class="option" onclick="answer(this,true)">Les choses qui ont été en contact continuent d'agir l'une sur l'autre</div>
-              <div class="option" onclick="answer(this,false)">Le sacrifice d'un animal au dieu correspondant</div>
-              <div class="option" onclick="answer(this,false)">La récitation d'une formule magique secrète</div>
+              <button class="option" onclick="answer(this,false)">Le semblable produit le semblable</button>
+              <button class="option" onclick="answer(this,true)">Les choses qui ont été en contact continuent d'agir l'une sur l'autre</button>
+              <button class="option" onclick="answer(this,false)">Le sacrifice d'un animal au dieu correspondant</button>
+              <button class="option" onclick="answer(this,false)">La récitation d'une formule magique secrète</button>
             </div>
             <div class="q-feedback">La magie contagieuse (loi de contact) postule que les choses qui ont été en contact conservent un lien et peuvent agir l'une sur l'autre à distance. Exemple : utiliser les cheveux ou les ongles de quelqu'un pour l'ensorceler.</div>
           </div>
@@ -203,10 +203,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Pour Lévi-Strauss, le totémisme est avant tout :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une forme de culte des animaux</div>
-              <div class="option" onclick="answer(this,false)">Un stade primitif de la religion</div>
-              <div class="option" onclick="answer(this,true)">Un système de classification utilisant la nature pour penser la société</div>
-              <div class="option" onclick="answer(this,false)">Un tabou alimentaire universel</div>
+              <button class="option" onclick="answer(this,false)">Une forme de culte des animaux</button>
+              <button class="option" onclick="answer(this,false)">Un stade primitif de la religion</button>
+              <button class="option" onclick="answer(this,true)">Un système de classification utilisant la nature pour penser la société</button>
+              <button class="option" onclick="answer(this,false)">Un tabou alimentaire universel</button>
             </div>
             <div class="q-feedback">Pour Lévi-Strauss, le totémisme n'est pas une religion mais un système intellectuel de classification. Les différences entre espèces naturelles (aigle/ours) servent à penser et à exprimer les différences entre groupes humains (clan A/clan B). C'est un outil logique, pas un culte.</div>
           </div>
@@ -276,8 +276,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

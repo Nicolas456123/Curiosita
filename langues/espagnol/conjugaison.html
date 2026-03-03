@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Indicatif, subjonctif, verbes irréguliers : maîtrisez le système verbal espagnol dans toute sa richesse.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Conjugaison — Espagnol — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e8c97a;
   --accent2: #f5dfa0;
   --accent-dim: rgba(232,201,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,201,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,201,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔄 Espagnol</span>
     <span class="tag-level">Débutant → Avancé</span>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Conjuguez « tener » à la première personne du singulier (yo) :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">tengo</div>
-              <div class="option" onclick="answer(this,false)">tieno</div>
-              <div class="option" onclick="answer(this,false)">teno</div>
-              <div class="option" onclick="answer(this,false)">tiene</div>
+              <button class="option" onclick="answer(this,true)">tengo</button>
+              <button class="option" onclick="answer(this,false)">tieno</button>
+              <button class="option" onclick="answer(this,false)">teno</button>
+              <button class="option" onclick="answer(this,false)">tiene</button>
             </div>
             <div class="q-feedback">« Tener » est irrégulier à la 1re personne : « tengo ». Les autres formes subissent aussi un changement de voyelle : tienes, tiene, tenemos, tenéis, tienen.</div>
           </div>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">« Cuando era niño, jugaba mucho » utilise quel temps ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pretérito indefinido</div>
-              <div class="option" onclick="answer(this,true)">Pretérito imperfecto</div>
-              <div class="option" onclick="answer(this,false)">Presente</div>
-              <div class="option" onclick="answer(this,false)">Futuro</div>
+              <button class="option" onclick="answer(this,false)">Pretérito indefinido</button>
+              <button class="option" onclick="answer(this,true)">Pretérito imperfecto</button>
+              <button class="option" onclick="answer(this,false)">Presente</button>
+              <button class="option" onclick="answer(this,false)">Futuro</button>
             </div>
             <div class="q-feedback">L'imparfait (imperfecto) s'utilise pour décrire des habitudes ou des situations dans le passé. « Quand j'étais enfant, je jouais beaucoup » = description d'une habitude passée.</div>
           </div>
@@ -203,10 +203,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Complétez : « Quiero que ___ (venir, tú) a mi casa. »</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">vienes</div>
-              <div class="option" onclick="answer(this,true)">vengas</div>
-              <div class="option" onclick="answer(this,false)">viniste</div>
-              <div class="option" onclick="answer(this,false)">vendrás</div>
+              <button class="option" onclick="answer(this,false)">vienes</button>
+              <button class="option" onclick="answer(this,true)">vengas</button>
+              <button class="option" onclick="answer(this,false)">viniste</button>
+              <button class="option" onclick="answer(this,false)">vendrás</button>
             </div>
             <div class="q-feedback">Après « quiero que » (je veux que), on utilise le subjonctif présent. « Venir » au subjonctif, 2e personne : « vengas ». Le subjonctif est obligatoire après les verbes de volonté en espagnol.</div>
           </div>
@@ -214,10 +214,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Conjuguez « hacer » au futur, 1re personne (yo) :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">haceré</div>
-              <div class="option" onclick="answer(this,true)">haré</div>
-              <div class="option" onclick="answer(this,false)">hacería</div>
-              <div class="option" onclick="answer(this,false)">hice</div>
+              <button class="option" onclick="answer(this,false)">haceré</button>
+              <button class="option" onclick="answer(this,true)">haré</button>
+              <button class="option" onclick="answer(this,false)">hacería</button>
+              <button class="option" onclick="answer(this,false)">hice</button>
             </div>
             <div class="q-feedback">« Hacer » est irrégulier au futur : le radical devient « har- ». Donc : haré, harás, hará, haremos, haréis, harán. « Haceré » n'existe pas.</div>
           </div>
@@ -225,10 +225,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Le verbe « pensar » au présent, 1re personne, donne :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">penso</div>
-              <div class="option" onclick="answer(this,true)">pienso</div>
-              <div class="option" onclick="answer(this,false)">piense</div>
-              <div class="option" onclick="answer(this,false)">pensó</div>
+              <button class="option" onclick="answer(this,false)">penso</button>
+              <button class="option" onclick="answer(this,true)">pienso</button>
+              <button class="option" onclick="answer(this,false)">piense</button>
+              <button class="option" onclick="answer(this,false)">pensó</button>
             </div>
             <div class="q-feedback">« Pensar » est un verbe à diphtongue (e→ie). Aux formes accentuées, le « e » devient « ie » : pienso, piensas, piensa... mais pensamos, pensáis (sans diphtongue).</div>
           </div>
@@ -236,10 +236,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Complétez : « Cuando ___ (llegar, tú), llámame. »</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">llegas</div>
-              <div class="option" onclick="answer(this,false)">llegarás</div>
-              <div class="option" onclick="answer(this,true)">llegues</div>
-              <div class="option" onclick="answer(this,false)">llegaste</div>
+              <button class="option" onclick="answer(this,false)">llegas</button>
+              <button class="option" onclick="answer(this,false)">llegarás</button>
+              <button class="option" onclick="answer(this,true)">llegues</button>
+              <button class="option" onclick="answer(this,false)">llegaste</button>
             </div>
             <div class="q-feedback">Après « cuando » quand l'action est future, l'espagnol exige le subjonctif : « Cuando llegues, llámame. » On ne peut pas utiliser le futur comme en français (« quand tu arriveras »).</div>
           </div>
@@ -329,8 +329,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

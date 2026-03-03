@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Stocker des données dans des variables et comprendre les types fondamentaux de Python : int, float, str et bool.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Variables et types — Les bases — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #4fc3f7;
   --accent2: #81d4fa;
   --accent-dim: rgba(79,195,247,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📦 Les bases</span>
     <span class="tag-level">Débutant</span>
@@ -259,10 +259,10 @@ age = <span class="num">25</span>
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est le type de la valeur <code>3.14</code> en Python ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">int</div>
-              <div class="option" onclick="answer(this,true)">float</div>
-              <div class="option" onclick="answer(this,false)">str</div>
-              <div class="option" onclick="answer(this,false)">decimal</div>
+              <button class="option" onclick="answer(this,false)">int</button>
+              <button class="option" onclick="answer(this,true)">float</button>
+              <button class="option" onclick="answer(this,false)">str</button>
+              <button class="option" onclick="answer(this,false)">decimal</button>
             </div>
             <div class="q-feedback">3.14 est un nombre décimal, donc de type <code>float</code> en Python. Les entiers sans point décimal sont de type <code>int</code>.</div>
           </div>
@@ -270,10 +270,10 @@ age = <span class="num">25</span>
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que retourne <code>bool("")</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">False</div>
-              <div class="option" onclick="answer(this,false)">True</div>
-              <div class="option" onclick="answer(this,false)">None</div>
-              <div class="option" onclick="answer(this,false)">Erreur</div>
+              <button class="option" onclick="answer(this,true)">False</button>
+              <button class="option" onclick="answer(this,false)">True</button>
+              <button class="option" onclick="answer(this,false)">None</button>
+              <button class="option" onclick="answer(this,false)">Erreur</button>
             </div>
             <div class="q-feedback">Une chaîne vide <code>""</code> est considérée comme « fausse » en Python. De même, <code>0</code>, <code>[]</code>, <code>{}</code> et <code>None</code> sont tous évalués à <code>False</code>.</div>
           </div>
@@ -281,10 +281,10 @@ age = <span class="num">25</span>
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que retourne <code>type(int("42"))</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">&lt;class 'str'&gt;</div>
-              <div class="option" onclick="answer(this,true)">&lt;class 'int'&gt;</div>
-              <div class="option" onclick="answer(this,false)">&lt;class 'float'&gt;</div>
-              <div class="option" onclick="answer(this,false)">42</div>
+              <button class="option" onclick="answer(this,false)">&lt;class 'str'&gt;</button>
+              <button class="option" onclick="answer(this,true)">&lt;class 'int'&gt;</button>
+              <button class="option" onclick="answer(this,false)">&lt;class 'float'&gt;</button>
+              <button class="option" onclick="answer(this,false)">42</button>
             </div>
             <div class="q-feedback"><code>int("42")</code> convertit la chaîne "42" en entier 42. <code>type(42)</code> retourne <code>&lt;class 'int'&gt;</code>.</div>
           </div>
@@ -292,10 +292,10 @@ age = <span class="num">25</span>
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Que retourne <code>0.1 + 0.2 == 0.3</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">True</div>
-              <div class="option" onclick="answer(this,true)">False</div>
-              <div class="option" onclick="answer(this,false)">0.3</div>
-              <div class="option" onclick="answer(this,false)">Erreur</div>
+              <button class="option" onclick="answer(this,false)">True</button>
+              <button class="option" onclick="answer(this,true)">False</button>
+              <button class="option" onclick="answer(this,false)">0.3</button>
+              <button class="option" onclick="answer(this,false)">Erreur</button>
             </div>
             <div class="q-feedback">En raison de la représentation en virgule flottante, <code>0.1 + 0.2</code> donne <code>0.30000000000000004</code>, qui n'est pas strictement égal à <code>0.3</code>. Utilisez <code>round()</code> pour comparer des flottants.</div>
           </div>
@@ -303,10 +303,10 @@ age = <span class="num">25</span>
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Après <code>a, b = 5, 10</code> puis <code>a, b = b, a</code>, que vaut <code>a</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">5</div>
-              <div class="option" onclick="answer(this,true)">10</div>
-              <div class="option" onclick="answer(this,false)">15</div>
-              <div class="option" onclick="answer(this,false)">Erreur</div>
+              <button class="option" onclick="answer(this,false)">5</button>
+              <button class="option" onclick="answer(this,true)">10</button>
+              <button class="option" onclick="answer(this,false)">15</button>
+              <button class="option" onclick="answer(this,false)">Erreur</button>
             </div>
             <div class="q-feedback">L'instruction <code>a, b = b, a</code> échange les valeurs de a et b. Après l'échange, <code>a</code> vaut 10 et <code>b</code> vaut 5.</div>
           </div>
@@ -314,10 +314,10 @@ age = <span class="num">25</span>
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que se passe-t-il avec <code>int("3.14")</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Retourne 3</div>
-              <div class="option" onclick="answer(this,false)">Retourne 3.14</div>
-              <div class="option" onclick="answer(this,true)">Lève une ValueError</div>
-              <div class="option" onclick="answer(this,false)">Retourne 4</div>
+              <button class="option" onclick="answer(this,false)">Retourne 3</button>
+              <button class="option" onclick="answer(this,false)">Retourne 3.14</button>
+              <button class="option" onclick="answer(this,true)">Lève une ValueError</button>
+              <button class="option" onclick="answer(this,false)">Retourne 4</button>
             </div>
             <div class="q-feedback"><code>int()</code> ne peut pas convertir directement une chaîne contenant un point décimal. Il faut d'abord passer par <code>float()</code> : <code>int(float("3.14"))</code> donne 3.</div>
           </div>
@@ -401,8 +401,14 @@ print(f"Après : a = {a}, b = {b}")
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

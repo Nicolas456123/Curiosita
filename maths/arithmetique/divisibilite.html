@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Critères de divisibilité, division euclidienne et algorithme d'Euclide — les outils fondamentaux du calcul entier.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Divisibilité, PGCD et PPCM — Arithmétique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #c0392b; --accent2: #e74c3c; --accent-dim: rgba(192,57,43,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #c0392b; --accent2: #e74c3c; --accent-dim: rgba(192,57,43,0.08);  --accent-hero: rgba(192,57,43,0.04); }
 </style>
 </head>
 <body>
@@ -19,7 +19,7 @@
     <a href="../../maths-page.html">Mathématiques</a> › <a href="../arithmetique.html">Arithmétique</a> › <span>Divisibilité</span>
   </div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">➗ Arithmétique</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -157,10 +157,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est le PGCD de 84 et 126 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">42</div>
-              <div class="option" onclick="answer(this,false)">21</div>
-              <div class="option" onclick="answer(this,false)">14</div>
-              <div class="option" onclick="answer(this,false)">6</div>
+              <button class="option" onclick="answer(this,true)">42</button>
+              <button class="option" onclick="answer(this,false)">21</button>
+              <button class="option" onclick="answer(this,false)">14</button>
+              <button class="option" onclick="answer(this,false)">6</button>
             </div>
             <div class="q-feedback">Par Euclide : 126 = 84 × 1 + 42, puis 84 = 42 × 2 + 0. Donc PGCD = 42.</div>
           </div>
@@ -168,10 +168,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel est le PPCM de 8 et 12 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">24</div>
-              <div class="option" onclick="answer(this,false)">96</div>
-              <div class="option" onclick="answer(this,false)">48</div>
-              <div class="option" onclick="answer(this,false)">4</div>
+              <button class="option" onclick="answer(this,true)">24</button>
+              <button class="option" onclick="answer(this,false)">96</button>
+              <button class="option" onclick="answer(this,false)">48</button>
+              <button class="option" onclick="answer(this,false)">4</button>
             </div>
             <div class="q-feedback">PGCD(8,12) = 4. PPCM = 8 × 12 / 4 = 24. Vérification : 24 = 8 × 3 = 12 × 2.</div>
           </div>
@@ -179,10 +179,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Le nombre 3 456 est-il divisible par 9 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Oui (somme des chiffres = 18)</div>
-              <div class="option" onclick="answer(this,false)">Non (somme des chiffres = 17)</div>
-              <div class="option" onclick="answer(this,false)">Oui (il finit par 6)</div>
-              <div class="option" onclick="answer(this,false)">Non (il est pair)</div>
+              <button class="option" onclick="answer(this,true)">Oui (somme des chiffres = 18)</button>
+              <button class="option" onclick="answer(this,false)">Non (somme des chiffres = 17)</button>
+              <button class="option" onclick="answer(this,false)">Oui (il finit par 6)</button>
+              <button class="option" onclick="answer(this,false)">Non (il est pair)</button>
             </div>
             <div class="q-feedback">Somme des chiffres : 3 + 4 + 5 + 6 = 18. Comme 18 est divisible par 9, 3 456 l'est aussi. Vérification : 3 456 / 9 = 384.</div>
           </div>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Deux nombres dont le PGCD vaut 1 sont dits...</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Premiers entre eux</div>
-              <div class="option" onclick="answer(this,false)">Premiers</div>
-              <div class="option" onclick="answer(this,false)">Consécutifs</div>
-              <div class="option" onclick="answer(this,false)">Complémentaires</div>
+              <button class="option" onclick="answer(this,true)">Premiers entre eux</button>
+              <button class="option" onclick="answer(this,false)">Premiers</button>
+              <button class="option" onclick="answer(this,false)">Consécutifs</button>
+              <button class="option" onclick="answer(this,false)">Complémentaires</button>
             </div>
             <div class="q-feedback">Deux nombres sont premiers entre eux (ou copremiers) si PGCD = 1. Exemple : 15 et 28 sont premiers entre eux (PGCD = 1) bien que ni 15 ni 28 ne soient premiers.</div>
           </div>
@@ -201,10 +201,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel est le reste de la division euclidienne de 157 par 13 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">0</div>
-              <div class="option" onclick="answer(this,true)">1</div>
-              <div class="option" onclick="answer(this,false)">5</div>
-              <div class="option" onclick="answer(this,false)">12</div>
+              <button class="option" onclick="answer(this,false)">0</button>
+              <button class="option" onclick="answer(this,true)">1</button>
+              <button class="option" onclick="answer(this,false)">5</button>
+              <button class="option" onclick="answer(this,false)">12</button>
             </div>
             <div class="q-feedback">157 = 13 × 12 + 1. Le quotient est 12 et le reste est 1. Vérification : 13 × 12 = 156, et 157 - 156 = 1.</div>
           </div>
@@ -212,10 +212,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Si PGCD(a, b) = 15 et a × b = 4 500, que vaut PPCM(a, b) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">300</div>
-              <div class="option" onclick="answer(this,false)">4 500</div>
-              <div class="option" onclick="answer(this,false)">75</div>
-              <div class="option" onclick="answer(this,false)">450</div>
+              <button class="option" onclick="answer(this,true)">300</button>
+              <button class="option" onclick="answer(this,false)">4 500</button>
+              <button class="option" onclick="answer(this,false)">75</button>
+              <button class="option" onclick="answer(this,false)">450</button>
             </div>
             <div class="q-feedback">Par la formule : PPCM(a,b) = a×b / PGCD(a,b) = 4 500 / 15 = 300.</div>
           </div>
@@ -285,8 +285,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Extraire des pépites d'information dans de vastes bases de données — règles d'association, arbres de décision et détection d'anomalies.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Data mining — Analyse de données — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #4fc3f7;
   --accent2: #81d4fa;
   --accent-dim: rgba(79,195,247,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">⛏️ Analyse de données</span>
     <span class="tag-level">Avancé</span>
@@ -137,10 +137,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Que mesure le « lift » d'une règle d'association A → B ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La fréquence de A et B ensemble</div>
-              <div class="option" onclick="answer(this,true)">Le rapport entre la confiance de la règle et le support de B</div>
-              <div class="option" onclick="answer(this,false)">La probabilité de A sachant B</div>
-              <div class="option" onclick="answer(this,false)">Le nombre de transactions contenant A</div>
+              <button class="option" onclick="answer(this,false)">La fréquence de A et B ensemble</button>
+              <button class="option" onclick="answer(this,true)">Le rapport entre la confiance de la règle et le support de B</button>
+              <button class="option" onclick="answer(this,false)">La probabilité de A sachant B</button>
+              <button class="option" onclick="answer(this,false)">Le nombre de transactions contenant A</button>
             </div>
             <div class="q-feedback">lift(A→B) = confiance(A→B) / support(B) = P(B|A) / P(B). Un lift > 1 signifie que A et B apparaissent ensemble plus souvent que si elles étaient indépendantes.</div>
           </div>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">L'algorithme Apriori exploite quelle propriété pour être efficace ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">La propriété anti-monotone : si un ensemble n'est pas fréquent, ses sur-ensembles non plus</div>
-              <div class="option" onclick="answer(this,false)">La propriété de convexité des données</div>
-              <div class="option" onclick="answer(this,false)">La normalité des distributions</div>
-              <div class="option" onclick="answer(this,false)">La linéarité des relations entre items</div>
+              <button class="option" onclick="answer(this,true)">La propriété anti-monotone : si un ensemble n'est pas fréquent, ses sur-ensembles non plus</button>
+              <button class="option" onclick="answer(this,false)">La propriété de convexité des données</button>
+              <button class="option" onclick="answer(this,false)">La normalité des distributions</button>
+              <button class="option" onclick="answer(this,false)">La linéarité des relations entre items</button>
             </div>
             <div class="q-feedback">La propriété anti-monotone (ou de fermeture vers le bas) permet d'élaguer l'espace de recherche : si {pain, beurre} n'est pas fréquent, inutile de tester {pain, beurre, lait}.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">L'indice de Gini d'un noeud contenant uniquement des individus de la même classe vaut :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">0</div>
-              <div class="option" onclick="answer(this,false)">1</div>
-              <div class="option" onclick="answer(this,false)">0,5</div>
-              <div class="option" onclick="answer(this,false)">Cela dépend du nombre d'individus</div>
+              <button class="option" onclick="answer(this,true)">0</button>
+              <button class="option" onclick="answer(this,false)">1</button>
+              <button class="option" onclick="answer(this,false)">0,5</button>
+              <button class="option" onclick="answer(this,false)">Cela dépend du nombre d'individus</button>
             </div>
             <div class="q-feedback">Gini = 1 - Σpₖ². Si tous les individus sont de la même classe, p₁ = 1 et toutes les autres pₖ = 0, donc Gini = 1 - 1² = 0. Le noeud est pur.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Isolation Forest détecte les anomalies car :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les anomalies sont toujours loin de la moyenne</div>
-              <div class="option" onclick="answer(this,true)">Les anomalies nécessitent moins de coupures pour être isolées dans un arbre</div>
-              <div class="option" onclick="answer(this,false)">Les anomalies ont toujours la plus grande variance</div>
-              <div class="option" onclick="answer(this,false)">Les anomalies forment des clusters denses</div>
+              <button class="option" onclick="answer(this,false)">Les anomalies sont toujours loin de la moyenne</button>
+              <button class="option" onclick="answer(this,true)">Les anomalies nécessitent moins de coupures pour être isolées dans un arbre</button>
+              <button class="option" onclick="answer(this,false)">Les anomalies ont toujours la plus grande variance</button>
+              <button class="option" onclick="answer(this,false)">Les anomalies forment des clusters denses</button>
             </div>
             <div class="q-feedback">Les points anomaux, étant isolés et distincts, sont rapidement séparés du reste des données par des coupures aléatoires. Leur profondeur moyenne dans les arbres est plus faible.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Dans le processus CRISP-DM, quelle est la première étape ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La préparation des données</div>
-              <div class="option" onclick="answer(this,false)">La modélisation</div>
-              <div class="option" onclick="answer(this,true)">La compréhension métier</div>
-              <div class="option" onclick="answer(this,false)">L'évaluation</div>
+              <button class="option" onclick="answer(this,false)">La préparation des données</button>
+              <button class="option" onclick="answer(this,false)">La modélisation</button>
+              <button class="option" onclick="answer(this,true)">La compréhension métier</button>
+              <button class="option" onclick="answer(this,false)">L'évaluation</button>
             </div>
             <div class="q-feedback">CRISP-DM commence toujours par la compréhension métier : définir les objectifs, comprendre le contexte et formuler le problème en termes de data mining. C'est cette étape qui guide tout le processus.</div>
           </div>
@@ -245,8 +245,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

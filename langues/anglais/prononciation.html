@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Phonèmes, accentuation et intonation : maîtrisez les sons de l'anglais et déjouez ses pièges phonétiques.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Prononciation — Anglais — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e8c97a;
   --accent2: #f5dfa0;
   --accent-dim: rgba(232,201,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,201,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,201,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔊 Anglais</span>
     <span class="tag-level">Débutant → Avancé</span>
@@ -176,10 +176,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Comment se prononce le « -ed » dans « walked » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">/t/</div>
-              <div class="option" onclick="answer(this,false)">/d/</div>
-              <div class="option" onclick="answer(this,false)">/ɪd/</div>
-              <div class="option" onclick="answer(this,false)">/ed/</div>
+              <button class="option" onclick="answer(this,true)">/t/</button>
+              <button class="option" onclick="answer(this,false)">/d/</button>
+              <button class="option" onclick="answer(this,false)">/ɪd/</button>
+              <button class="option" onclick="answer(this,false)">/ed/</button>
             </div>
             <div class="q-feedback">Le /k/ de « walk » est un son sourd, donc le « -ed » se prononce /t/. On dit /wɔːkt/.</div>
           </div>
@@ -187,10 +187,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Où se place l'accent tonique dans le mot « preSENTation » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Sur la 1re syllabe (PRE-)</div>
-              <div class="option" onclick="answer(this,false)">Sur la 2e syllabe (-SEN-)</div>
-              <div class="option" onclick="answer(this,true)">Sur la 3e syllabe (-TA-)</div>
-              <div class="option" onclick="answer(this,false)">Sur la dernière syllabe (-TION)</div>
+              <button class="option" onclick="answer(this,false)">Sur la 1re syllabe (PRE-)</button>
+              <button class="option" onclick="answer(this,false)">Sur la 2e syllabe (-SEN-)</button>
+              <button class="option" onclick="answer(this,true)">Sur la 3e syllabe (-TA-)</button>
+              <button class="option" onclick="answer(this,false)">Sur la dernière syllabe (-TION)</button>
             </div>
             <div class="q-feedback">Le suffixe « -tion » attire l'accent sur la syllabe qui le précède immédiatement : presen-TA-tion. C'est une règle générale pour tous les mots en -tion/-sion.</div>
           </div>
@@ -198,10 +198,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle est la voyelle la plus fréquente en anglais ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">/iː/ comme dans « see »</div>
-              <div class="option" onclick="answer(this,false)">/æ/ comme dans « cat »</div>
-              <div class="option" onclick="answer(this,true)">/ə/ le schwa</div>
-              <div class="option" onclick="answer(this,false)">/ɑː/ comme dans « car »</div>
+              <button class="option" onclick="answer(this,false)">/iː/ comme dans « see »</button>
+              <button class="option" onclick="answer(this,false)">/æ/ comme dans « cat »</button>
+              <button class="option" onclick="answer(this,true)">/ə/ le schwa</button>
+              <button class="option" onclick="answer(this,false)">/ɑː/ comme dans « car »</button>
             </div>
             <div class="q-feedback">Le schwa /ə/ est la voyelle la plus fréquente en anglais. C'est une voyelle neutre, non accentuée, présente dans presque tous les mots longs (« about », « banana », « comfortable »).</div>
           </div>
@@ -209,10 +209,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle lettre est muette dans « knight » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le « t »</div>
-              <div class="option" onclick="answer(this,true)">Le « k »</div>
-              <div class="option" onclick="answer(this,false)">Le « g »</div>
-              <div class="option" onclick="answer(this,false)">Le « i »</div>
+              <button class="option" onclick="answer(this,false)">Le « t »</button>
+              <button class="option" onclick="answer(this,true)">Le « k »</button>
+              <button class="option" onclick="answer(this,false)">Le « g »</button>
+              <button class="option" onclick="answer(this,false)">Le « i »</button>
             </div>
             <div class="q-feedback">Le « k » est muet devant « n » : knight se prononce /naɪt/. Cette règle s'applique aussi à know, knife, knee, knock.</div>
           </div>
@@ -220,10 +220,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Comment se prononce le « -s » dans « dogs » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">/s/</div>
-              <div class="option" onclick="answer(this,true)">/z/</div>
-              <div class="option" onclick="answer(this,false)">/ɪz/</div>
-              <div class="option" onclick="answer(this,false)">Le « s » est muet</div>
+              <button class="option" onclick="answer(this,false)">/s/</button>
+              <button class="option" onclick="answer(this,true)">/z/</button>
+              <button class="option" onclick="answer(this,false)">/ɪz/</button>
+              <button class="option" onclick="answer(this,false)">Le « s » est muet</button>
             </div>
             <div class="q-feedback">Le /g/ de « dog » est un son sonore, donc le « -s » se prononce /z/. On dit /dɒɡz/. Le « -s » ne se prononce /s/ qu'après les sons sourds.</div>
           </div>
@@ -231,10 +231,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Combien de syllabes a le mot « comfortable » en anglais courant ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">4 syllabes</div>
-              <div class="option" onclick="answer(this,true)">3 syllabes</div>
-              <div class="option" onclick="answer(this,false)">5 syllabes</div>
-              <div class="option" onclick="answer(this,false)">2 syllabes</div>
+              <button class="option" onclick="answer(this,false)">4 syllabes</button>
+              <button class="option" onclick="answer(this,true)">3 syllabes</button>
+              <button class="option" onclick="answer(this,false)">5 syllabes</button>
+              <button class="option" onclick="answer(this,false)">2 syllabes</button>
             </div>
             <div class="q-feedback">En anglais courant, « comfortable » se prononce en 3 syllabes : /ˈkʌmf-tə-bəl/. La syllabe « -or- » est avalée. Les francophones ont tendance à prononcer les 4 syllabes, ce qui sonne non naturel.</div>
           </div>
@@ -315,8 +315,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

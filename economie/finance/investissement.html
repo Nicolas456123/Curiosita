@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rendement, risque, construction de portefeuille, diversification et stratégies d'investissement — les fondamentaux pour faire fructifier son capital.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Investissement — Finance — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #f39c12;
   --accent2: #f1c40f;
   --accent-dim: rgba(243,156,18,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(243,156,18,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(243,156,18,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">💰 Finance</span>
     <span class="tag-level">Intermédiaire</span>
@@ -160,10 +160,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la relation fondamentale entre rendement et risque ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Plus le rendement potentiel est élevé, plus le risque est important</div>
-              <div class="option" onclick="answer(this,false)">Un rendement élevé est toujours sans risque</div>
-              <div class="option" onclick="answer(this,false)">Le risque n'a aucun lien avec le rendement</div>
-              <div class="option" onclick="answer(this,false)">Plus le risque est élevé, plus le rendement est garanti</div>
+              <button class="option" onclick="answer(this,true)">Plus le rendement potentiel est élevé, plus le risque est important</button>
+              <button class="option" onclick="answer(this,false)">Un rendement élevé est toujours sans risque</button>
+              <button class="option" onclick="answer(this,false)">Le risque n'a aucun lien avec le rendement</button>
+              <button class="option" onclick="answer(this,false)">Plus le risque est élevé, plus le rendement est garanti</button>
             </div>
             <div class="q-feedback">La relation rendement-risque est le principe fondamental de la finance : un investissement ne peut offrir un rendement élevé qu'en contrepartie d'un risque plus important. Les placements sûrs (livrets) offrent peu de rendement.</div>
           </div>
@@ -171,10 +171,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'est-ce que la diversification ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Concentrer tous ses investissements sur un seul secteur</div>
-              <div class="option" onclick="answer(this,true)">Répartir son capital entre différents actifs pour réduire le risque</div>
-              <div class="option" onclick="answer(this,false)">Investir uniquement dans des actions à forte croissance</div>
-              <div class="option" onclick="answer(this,false)">Changer fréquemment de stratégie d'investissement</div>
+              <button class="option" onclick="answer(this,false)">Concentrer tous ses investissements sur un seul secteur</button>
+              <button class="option" onclick="answer(this,true)">Répartir son capital entre différents actifs pour réduire le risque</button>
+              <button class="option" onclick="answer(this,false)">Investir uniquement dans des actions à forte croissance</button>
+              <button class="option" onclick="answer(this,false)">Changer fréquemment de stratégie d'investissement</button>
             </div>
             <div class="q-feedback">La diversification consiste à répartir son capital entre différentes classes d'actifs, zones géographiques et secteurs pour réduire le risque global du portefeuille. Si un actif baisse, les autres peuvent compenser.</div>
           </div>
@@ -182,10 +182,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qu'est-ce qu'un ETF ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un compte d'épargne garanti</div>
-              <div class="option" onclick="answer(this,false)">Une action d'une entreprise technologique</div>
-              <div class="option" onclick="answer(this,true)">Un fonds indiciel coté en Bourse qui réplique un indice</div>
-              <div class="option" onclick="answer(this,false)">Un produit dérivé spéculatif</div>
+              <button class="option" onclick="answer(this,false)">Un compte d'épargne garanti</button>
+              <button class="option" onclick="answer(this,false)">Une action d'une entreprise technologique</button>
+              <button class="option" onclick="answer(this,true)">Un fonds indiciel coté en Bourse qui réplique un indice</button>
+              <button class="option" onclick="answer(this,false)">Un produit dérivé spéculatif</button>
             </div>
             <div class="q-feedback">Un ETF (Exchange Traded Fund) est un fonds indiciel coté en Bourse qui réplique la performance d'un indice (CAC 40, S&P 500, MSCI World). Il offre une grande diversification à faible coût (frais de 0,1 à 0,3 % par an).</div>
           </div>
@@ -193,10 +193,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Combien vaut un capital de 10 000 euros placé à 7 % par an après 10 ans (intérêts composés) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">17 000 euros</div>
-              <div class="option" onclick="answer(this,true)">Environ 19 672 euros</div>
-              <div class="option" onclick="answer(this,false)">14 000 euros</div>
-              <div class="option" onclick="answer(this,false)">25 000 euros</div>
+              <button class="option" onclick="answer(this,false)">17 000 euros</button>
+              <button class="option" onclick="answer(this,true)">Environ 19 672 euros</button>
+              <button class="option" onclick="answer(this,false)">14 000 euros</button>
+              <button class="option" onclick="answer(this,false)">25 000 euros</button>
             </div>
             <div class="q-feedback">Avec les intérêts composés : 10 000 x (1,07)^10 = 10 000 x 1,9672 = 19 672 euros. Les intérêts composés produisent un effet « boule de neige » : chaque année, les intérêts de l'année précédente génèrent eux-mêmes des intérêts.</div>
           </div>
@@ -204,10 +204,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce que le DCA (Dollar Cost Averaging) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Investir tout son capital en une seule fois</div>
-              <div class="option" onclick="answer(this,false)">Acheter uniquement quand les cours sont au plus bas</div>
-              <div class="option" onclick="answer(this,true)">Investir une somme fixe régulièrement, quel que soit le niveau du marché</div>
-              <div class="option" onclick="answer(this,false)">Vendre ses positions chaque mois</div>
+              <button class="option" onclick="answer(this,false)">Investir tout son capital en une seule fois</button>
+              <button class="option" onclick="answer(this,false)">Acheter uniquement quand les cours sont au plus bas</button>
+              <button class="option" onclick="answer(this,true)">Investir une somme fixe régulièrement, quel que soit le niveau du marché</button>
+              <button class="option" onclick="answer(this,false)">Vendre ses positions chaque mois</button>
             </div>
             <div class="q-feedback">Le DCA consiste à investir un montant fixe à intervalles réguliers (par exemple 200 euros chaque mois). Cette méthode lisse le coût moyen d'achat : on achète plus de parts quand les prix sont bas et moins quand ils sont hauts.</div>
           </div>
@@ -215,10 +215,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel biais comportemental pousse les investisseurs à vendre en panique lors d'une baisse ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">L'aversion à la perte</div>
-              <div class="option" onclick="answer(this,false)">L'excès de confiance</div>
-              <div class="option" onclick="answer(this,false)">Le biais d'ancrage</div>
-              <div class="option" onclick="answer(this,false)">Le biais de confirmation</div>
+              <button class="option" onclick="answer(this,true)">L'aversion à la perte</button>
+              <button class="option" onclick="answer(this,false)">L'excès de confiance</button>
+              <button class="option" onclick="answer(this,false)">Le biais d'ancrage</button>
+              <button class="option" onclick="answer(this,false)">Le biais de confirmation</button>
             </div>
             <div class="q-feedback">L'aversion à la perte (Kahneman et Tversky) : les investisseurs ressentent la douleur d'une perte environ deux fois plus intensément que le plaisir d'un gain équivalent. Cela les pousse à vendre en panique lors des baisses, réalisant des pertes qui auraient pu être temporaires.</div>
           </div>
@@ -310,8 +310,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

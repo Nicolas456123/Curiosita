@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Des quations de Maxwell au spectre lectromagn tique : comprendre la nature de la lumi re, des ondes radio et de toutes les radiations lectromagn tiques.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Ondes &eacute;lectromagn&eacute;tiques &mdash; &Eacute;lectromagn&eacute;tisme &mdash; Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08);  --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -21,7 +21,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">&#9889; &Eacute;lectromagn&eacute;tisme</span>
     <span class="tag-level">Avanc&eacute;</span>
@@ -157,10 +157,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qui a pr&eacute;dit th&eacute;oriquement l'existence des ondes &eacute;lectromagn&eacute;tiques ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Faraday</div>
-              <div class="option" onclick="answer(this,false)">Hertz</div>
-              <div class="option" onclick="answer(this,true)">Maxwell</div>
-              <div class="option" onclick="answer(this,false)">Einstein</div>
+              <button class="option" onclick="answer(this,false)">Faraday</button>
+              <button class="option" onclick="answer(this,false)">Hertz</button>
+              <button class="option" onclick="answer(this,true)">Maxwell</button>
+              <button class="option" onclick="answer(this,false)">Einstein</button>
             </div>
             <div class="q-feedback">James Clerk Maxwell pr&eacute;dit en 1865 l'existence des ondes EM &agrave; partir de ses &eacute;quations. Heinrich Hertz les d&eacute;montra exp&eacute;rimentalement en 1887, 8 ans apr&egrave;s la mort de Maxwell.</div>
           </div>
@@ -169,10 +169,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">La vitesse de la lumi&egrave;re dans le vide est d&eacute;termin&eacute;e par :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La fr&eacute;quence de l'onde</div>
-              <div class="option" onclick="answer(this,true)">Les constantes &epsilon;&#8320; et &mu;&#8320;</div>
-              <div class="option" onclick="answer(this,false)">L'amplitude du champ &eacute;lectrique</div>
-              <div class="option" onclick="answer(this,false)">La longueur d'onde</div>
+              <button class="option" onclick="answer(this,false)">La fr&eacute;quence de l'onde</button>
+              <button class="option" onclick="answer(this,true)">Les constantes &epsilon;&#8320; et &mu;&#8320;</button>
+              <button class="option" onclick="answer(this,false)">L'amplitude du champ &eacute;lectrique</button>
+              <button class="option" onclick="answer(this,false)">La longueur d'onde</button>
             </div>
             <div class="q-feedback">c = 1/&radic;(&mu;&#8320;&epsilon;&#8320;). La vitesse de la lumi&egrave;re dans le vide ne d&eacute;pend que des propri&eacute;t&eacute;s fondamentales du vide (permittivit&eacute; &epsilon;&#8320; et perm&eacute;abilit&eacute; &mu;&#8320;). C'est une constante universelle.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle est la longueur d'onde d'une onde radio FM &agrave; 100 MHz ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">3 m</div>
-              <div class="option" onclick="answer(this,false)">30 m</div>
-              <div class="option" onclick="answer(this,false)">0,3 m</div>
-              <div class="option" onclick="answer(this,false)">300 m</div>
+              <button class="option" onclick="answer(this,true)">3 m</button>
+              <button class="option" onclick="answer(this,false)">30 m</button>
+              <button class="option" onclick="answer(this,false)">0,3 m</button>
+              <button class="option" onclick="answer(this,false)">300 m</button>
             </div>
             <div class="q-feedback">&lambda; = c/f = 3 &times; 10&#8312; / 100 &times; 10&sup6; = 3 m. C'est pour cela que les antennes FM font environ 75 cm (un quart de longueur d'onde).</div>
           </div>
@@ -193,10 +193,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Les ondes &eacute;lectromagn&eacute;tiques sont des ondes :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Longitudinales, comme le son</div>
-              <div class="option" onclick="answer(this,true)">Transversales (E et B perpendiculaires &agrave; la propagation)</div>
-              <div class="option" onclick="answer(this,false)">De compression</div>
-              <div class="option" onclick="answer(this,false)">Longitudinales dans le vide, transversales dans la mati&egrave;re</div>
+              <button class="option" onclick="answer(this,false)">Longitudinales, comme le son</button>
+              <button class="option" onclick="answer(this,true)">Transversales (E et B perpendiculaires &agrave; la propagation)</button>
+              <button class="option" onclick="answer(this,false)">De compression</button>
+              <button class="option" onclick="answer(this,false)">Longitudinales dans le vide, transversales dans la mati&egrave;re</button>
             </div>
             <div class="q-feedback">Les ondes EM sont transversales : les champs E et B oscillent perpendiculairement &agrave; la direction de propagation. C'est ce qui permet la polarisation, impossible pour les ondes longitudinales.</div>
           </div>
@@ -205,10 +205,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Selon la loi de Malus, si la lumi&egrave;re polaris&eacute;e traverse un polariseur inclin&eacute; &agrave; 60&deg;, l'intensit&eacute; transmise est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">I&#8320;/4</div>
-              <div class="option" onclick="answer(this,false)">I&#8320;/2</div>
-              <div class="option" onclick="answer(this,false)">I&#8320; &times; &radic;3/2</div>
-              <div class="option" onclick="answer(this,false)">I&#8320; &times; 3/4</div>
+              <button class="option" onclick="answer(this,true)">I&#8320;/4</button>
+              <button class="option" onclick="answer(this,false)">I&#8320;/2</button>
+              <button class="option" onclick="answer(this,false)">I&#8320; &times; &radic;3/2</button>
+              <button class="option" onclick="answer(this,false)">I&#8320; &times; 3/4</button>
             </div>
             <div class="q-feedback">I = I&#8320; &middot; cos&sup2;(60&deg;) = I&#8320; &times; (1/2)&sup2; = I&#8320;/4. &Agrave; 90&deg;, aucune lumi&egrave;re ne passe ; &agrave; 0&deg;, toute la lumi&egrave;re passe.</div>
           </div>
@@ -217,10 +217,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel terme Maxwell a-t-il ajout&eacute; aux &eacute;quations pour pr&eacute;dire les ondes EM ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le flux magn&eacute;tique</div>
-              <div class="option" onclick="answer(this,false)">La charge &eacute;lectrique</div>
-              <div class="option" onclick="answer(this,true)">Le courant de d&eacute;placement (&mu;&#8320;&epsilon;&#8320; &part;E/&part;t)</div>
-              <div class="option" onclick="answer(this,false)">La force de Lorentz</div>
+              <button class="option" onclick="answer(this,false)">Le flux magn&eacute;tique</button>
+              <button class="option" onclick="answer(this,false)">La charge &eacute;lectrique</button>
+              <button class="option" onclick="answer(this,true)">Le courant de d&eacute;placement (&mu;&#8320;&epsilon;&#8320; &part;E/&part;t)</button>
+              <button class="option" onclick="answer(this,false)">La force de Lorentz</button>
             </div>
             <div class="q-feedback">Maxwell ajouta le terme &mu;&#8320;&epsilon;&#8320; &middot; &part;E/&part;t (courant de d&eacute;placement) &agrave; la loi d'Amp&egrave;re. Ce terme assure la sym&eacute;trie : un B variable cr&eacute;e un E (Faraday) et un E variable cr&eacute;e un B (Maxwell), permettant la propagation autonome.</div>
           </div>
@@ -318,8 +318,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

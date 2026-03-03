@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'anthropologie est la science de l'etre humain dans toutes ses dimensions : culturelle, biologique, historique et sociale. Des rites des peuples premiers...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Anthropologie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a0f5a0;
   --accent-dim: rgba(122,232,138,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(122,232,138,0.07) 0%, transparent 70%); }
+ --accent-hero: rgba(122,232,138,0.07); }
 .hero-deco { color: rgba(122,232,138,0.04); }
 </style>
 </head>
@@ -23,7 +24,7 @@
   <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
 </nav>
 
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">🏺</div>
   <div class="hero-meta">
     <span class="tag-domain">🌍 Sciences humaines & sociales</span>
@@ -151,136 +152,131 @@
       <div class="quiz-container">
         <div class="quiz-header">
           <span class="quiz-title-text">Quiz — Anthropologie</span>
-          <span class="quiz-score">Score : <span id="quizScore">0</span>/10</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span>/10</span>
         </div>
-        <div class="quiz-body">
+        <div class="quiz-body" id="quizBody">
           <div class="question-block active" id="q0">
             <div class="q-num">Question 1 / 10</div>
             <div class="q-text">Qui est considéré comme le fondateur du structuralisme en anthropologie ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(0,0)">Marcel Mauss</div>
-              <div class="option" onclick="selectOption(0,1)">Claude Lévi-Strauss</div>
-              <div class="option" onclick="selectOption(0,2)">Bronislaw Malinowski</div>
-              <div class="option" onclick="selectOption(0,3)">Franz Boas</div>
+              <button class="option" onclick="answer(this,false)">Marcel Mauss</button>
+              <button class="option" onclick="answer(this,true)">Claude Lévi-Strauss</button>
+              <button class="option" onclick="answer(this,false)">Bronislaw Malinowski</button>
+              <button class="option" onclick="answer(this,false)">Franz Boas</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Claude L\u00e9vi-Strauss (1908-2009) a fond\u00e9 le structuralisme en anthropologie. Dans Les Structures \u00e9l\u00e9mentaires de la parent\u00e9 (1949) et Mythologiques (1964-1971), il a montr\u00e9 que les ph\u00e9nom\u00e8nes culturels sont organis\u00e9s selon des oppositions binaires inconscientes.</div>
           </div>
           <div class="question-block" id="q1">
             <div class="q-num">Question 2 / 10</div>
             <div class="q-text">Qu'est-ce que l'observation participante ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(1,0)">Observer une société à distance, sans interagir</div>
-              <div class="option" onclick="selectOption(1,1)">S'immerger dans une communauté pour étudier sa culture de l'intérieur</div>
-              <div class="option" onclick="selectOption(1,2)">Analyser des textes anciens dans une bibliothèque</div>
-              <div class="option" onclick="selectOption(1,3)">Envoyer des questionnaires par courrier</div>
+              <button class="option" onclick="answer(this,false)">Observer une société à distance, sans interagir</button>
+              <button class="option" onclick="answer(this,true)">S'immerger dans une communauté pour étudier sa culture de l'intérieur</button>
+              <button class="option" onclick="answer(this,false)">Analyser des textes anciens dans une bibliothèque</button>
+              <button class="option" onclick="answer(this,false)">Envoyer des questionnaires par courrier</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">L'observation participante, fond\u00e9e par Malinowski aux \u00eeles Trobriand (1914-1918), consiste \u00e0 vivre au sein de la communaut\u00e9 \u00e9tudi\u00e9e, parler sa langue, participer \u00e0 ses activit\u00e9s. Cette immersion permet de comprendre la culture de l'int\u00e9rieur.</div>
           </div>
           <div class="question-block" id="q2">
             <div class="q-num">Question 3 / 10</div>
             <div class="q-text">Quel hominé fossile, découvert en Éthiopie en 1974, est âgé de 3,2 millions d'années ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(2,0)">Toumai</div>
-              <div class="option" onclick="selectOption(2,1)">Lucy</div>
-              <div class="option" onclick="selectOption(2,2)">L'Homme de Cro-Magnon</div>
-              <div class="option" onclick="selectOption(2,3)">L'Homme de Néandertal</div>
+              <button class="option" onclick="answer(this,false)">Toumai</button>
+              <button class="option" onclick="answer(this,true)">Lucy</button>
+              <button class="option" onclick="answer(this,false)">L'Homme de Cro-Magnon</button>
+              <button class="option" onclick="answer(this,false)">L'Homme de Néandertal</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Lucy (Australopithecus afarensis) a \u00e9t\u00e9 d\u00e9couverte en 1974 en \u00c9thiopie par Donald Johanson et Tom Gray. Son squelette \u00e0 40 % complet a r\u00e9v\u00e9l\u00e9 que la bipédie pr\u00e9c\u00e9dait le d\u00e9veloppement du cerveau. Toumai (7 Ma) est plus ancien mais d\u00e9couvert au Tchad en 2001.</div>
           </div>
           <div class="question-block" id="q3">
             <div class="q-num">Question 4 / 10</div>
             <div class="q-text">Que désigne le « triple obligation » du don selon Marcel Mauss ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(3,0)">Acheter, vendre, échanger</div>
-              <div class="option" onclick="selectOption(3,1)">Donner, recevoir, rendre</div>
-              <div class="option" onclick="selectOption(3,2)">Produire, distribuer, consommer</div>
-              <div class="option" onclick="selectOption(3,3)">Prier, offrir, remercier</div>
+              <button class="option" onclick="answer(this,false)">Acheter, vendre, échanger</button>
+              <button class="option" onclick="answer(this,true)">Donner, recevoir, rendre</button>
+              <button class="option" onclick="answer(this,false)">Produire, distribuer, consommer</button>
+              <button class="option" onclick="answer(this,false)">Prier, offrir, remercier</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Dans l'Essai sur le don (1925), Marcel Mauss a montr\u00e9 que dans de nombreuses soci\u00e9t\u00e9s, l'\u00e9change est r\u00e9gi par une triple obligation : donner, recevoir et rendre. Le potlatch des Am\u00e9rindiens et la kula des Trobriandais illustrent ce syst\u00e8me.</div>
           </div>
           <div class="question-block" id="q4">
             <div class="q-num">Question 5 / 10</div>
             <div class="q-text">Qu'est-ce que le relativisme culturel ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(4,0)">L'idée que toutes les cultures sont identiques</div>
-              <div class="option" onclick="selectOption(4,1)">Le principe de comprendre chaque culture selon ses propres catégories</div>
-              <div class="option" onclick="selectOption(4,2)">Le rejet de toute valeur morale</div>
-              <div class="option" onclick="selectOption(4,3)">La hiérarchisation des civilisations</div>
+              <button class="option" onclick="answer(this,false)">L'idée que toutes les cultures sont identiques</button>
+              <button class="option" onclick="answer(this,true)">Le principe de comprendre chaque culture selon ses propres catégories</button>
+              <button class="option" onclick="answer(this,false)">Le rejet de toute valeur morale</button>
+              <button class="option" onclick="answer(this,false)">La hiérarchisation des civilisations</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le relativisme culturel, introduit par Franz Boas (1887), est un principe m\u00e9thodologique : chaque culture doit \u00eatre comprise selon sa propre logique interne. Ce n'est pas un relativisme moral qui affirmerait que tout se vaut, mais une exigence de compr\u00e9hension.</div>
           </div>
           <div class="question-block" id="q5">
             <div class="q-num">Question 6 / 10</div>
             <div class="q-text">Quelle méthode de datation permet de dater les restes organiques jusqu'à 50 000 ans ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(5,0)">La dendrochronologie</div>
-              <div class="option" onclick="selectOption(5,1)">La thermoluminescence</div>
-              <div class="option" onclick="selectOption(5,2)">Le carbone 14</div>
-              <div class="option" onclick="selectOption(5,3)">Le potassium-argon</div>
+              <button class="option" onclick="answer(this,false)">La dendrochronologie</button>
+              <button class="option" onclick="answer(this,false)">La thermoluminescence</button>
+              <button class="option" onclick="answer(this,true)">Le carbone 14</button>
+              <button class="option" onclick="answer(this,false)">Le potassium-argon</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le carbone 14 (C14 ou radiocarbone), d\u00e9couvert par Willard Libby en 1949 (prix Nobel 1960), mesure la d\u00e9sint\u00e9gration du C14 dans les restes organiques. Sa demi-vie est de 5 730 ans, ce qui permet de dater jusqu'\u00e0 ~50 000 ans. La dendrochronologie date par les anneaux des arbres.</div>
           </div>
           <div class="question-block" id="q6">
             <div class="q-num">Question 7 / 10</div>
             <div class="q-text">Quelles sont les trois phases d'un rite de passage selon Van Gennep ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(6,0)">Naissance, vie, mort</div>
-              <div class="option" onclick="selectOption(6,1)">Séparation, marge, agrégation</div>
-              <div class="option" onclick="selectOption(6,2)">Préparation, initiation, célébration</div>
-              <div class="option" onclick="selectOption(6,3)">Purification, transformation, intégration</div>
+              <button class="option" onclick="answer(this,false)">Naissance, vie, mort</button>
+              <button class="option" onclick="answer(this,true)">Séparation, marge, agrégation</button>
+              <button class="option" onclick="answer(this,false)">Préparation, initiation, célébration</button>
+              <button class="option" onclick="answer(this,false)">Purification, transformation, intégration</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Arnold Van Gennep, dans Les Rites de passage (1909), a identifi\u00e9 trois phases universelles : la s\u00e9paration (l'individu quitte son ancien statut), la marge ou liminalit\u00e9 (p\u00e9riode de transition) et l'agr\u00e9gation (int\u00e9gration dans le nouveau statut).</div>
           </div>
           <div class="question-block" id="q7">
             <div class="q-num">Question 8 / 10</div>
             <div class="q-text">Quand Homo sapiens est-il apparu en Afrique ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(7,0)">Il y a 1 million d'années</div>
-              <div class="option" onclick="selectOption(7,1)">Il y a 300 000 ans</div>
-              <div class="option" onclick="selectOption(7,2)">Il y a 50 000 ans</div>
-              <div class="option" onclick="selectOption(7,3)">Il y a 7 millions d'années</div>
+              <button class="option" onclick="answer(this,false)">Il y a 1 million d'années</button>
+              <button class="option" onclick="answer(this,true)">Il y a 300 000 ans</button>
+              <button class="option" onclick="answer(this,false)">Il y a 50 000 ans</button>
+              <button class="option" onclick="answer(this,false)">Il y a 7 millions d'années</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Les plus anciens fossiles d'Homo sapiens ont \u00e9t\u00e9 d\u00e9couverts \u00e0 Jebel Irhoud (Maroc) et dat\u00e9s d'environ 300 000 ans. L'esp\u00e8ce a ensuite migr\u00e9 hors d'Afrique il y a ~70 000 ans pour coloniser l'ensemble de la plan\u00e8te. 7 Ma correspond \u00e0 Toumai.</div>
           </div>
           <div class="question-block" id="q8">
             <div class="q-num">Question 9 / 10</div>
             <div class="q-text">Quel anthropologue a mené ses recherches aux îles Trobriand ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(8,0)">Claude Lévi-Strauss</div>
-              <div class="option" onclick="selectOption(8,1)">Bronislaw Malinowski</div>
-              <div class="option" onclick="selectOption(8,2)">Margaret Mead</div>
-              <div class="option" onclick="selectOption(8,3)">Marcel Mauss</div>
+              <button class="option" onclick="answer(this,false)">Claude Lévi-Strauss</button>
+              <button class="option" onclick="answer(this,true)">Bronislaw Malinowski</button>
+              <button class="option" onclick="answer(this,false)">Margaret Mead</button>
+              <button class="option" onclick="answer(this,false)">Marcel Mauss</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Bronislaw Malinowski (1884-1942) a s\u00e9journ\u00e9 aux \u00eeles Trobriand (Papouasie-Nouvelle-Guin\u00e9e) de 1914 \u00e0 1918. Son ouvrage Les Argonautes du Pacifique occidental (1922) a fond\u00e9 la m\u00e9thode de l'observation participante et \u00e9tudi\u00e9 le syst\u00e8me d'\u00e9change kula.</div>
           </div>
           <div class="question-block" id="q9">
             <div class="q-num">Question 10 / 10</div>
             <div class="q-text">Selon Lévi-Strauss, quelle règle est à la base de toute culture ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(9,0)">L'invention de l'écriture</div>
-              <div class="option" onclick="selectOption(9,1)">La prohibition de l'inceste</div>
-              <div class="option" onclick="selectOption(9,2)">La propriété privée</div>
-              <div class="option" onclick="selectOption(9,3)">Le monothéisme</div>
+              <button class="option" onclick="answer(this,false)">L'invention de l'écriture</button>
+              <button class="option" onclick="answer(this,true)">La prohibition de l'inceste</button>
+              <button class="option" onclick="answer(this,false)">La propriété privée</button>
+              <button class="option" onclick="answer(this,false)">Le monothéisme</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Pour L\u00e9vi-Strauss, la prohibition de l'inceste est la r\u00e8gle universelle qui fonde le passage de la nature \u00e0 la culture. En interdisant les unions entre proches parents, elle oblige les groupes \u00e0 \u00e9changer des conjoints, cr\u00e9ant ainsi des alliances et du lien social.</div>
           </div>
         </div>
         <div class="quiz-nav">
-          <div class="q-dots">
-            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div>
-          </div>
+          <div class="q-dots" id="qDots"></div>
           <div style="display:flex;gap:.8rem">
-            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
-            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQ()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQ()" disabled>Suivant →</button>
           </div>
         </div>
-        <div class="quiz-result">
-          <div class="result-score-big" id="finalScore"></div>
-          <div class="result-msg" id="finalMsg"></div>
-          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore"></div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
         </div>
       </div>
     </section>
@@ -388,34 +384,15 @@
   </main>
 </div>
 
-<script>
-const questions=[
-  {q:"Qui est consid\u00e9r\u00e9 comme le fondateur du structuralisme en anthropologie ?",opts:["Marcel Mauss","Claude L\u00e9vi-Strauss","Bronislaw Malinowski","Franz Boas"],ans:1,expl:"Claude L\u00e9vi-Strauss (1908-2009) a fond\u00e9 le structuralisme en anthropologie. Dans Les Structures \u00e9l\u00e9mentaires de la parent\u00e9 (1949) et Mythologiques (1964-1971), il a montr\u00e9 que les ph\u00e9nom\u00e8nes culturels sont organis\u00e9s selon des oppositions binaires inconscientes."},
-  {q:"Qu'est-ce que l'observation participante ?",opts:["Observer une soci\u00e9t\u00e9 \u00e0 distance, sans interagir","S'immerger dans une communaut\u00e9 pour \u00e9tudier sa culture de l'int\u00e9rieur","Analyser des textes anciens dans une biblioth\u00e8que","Envoyer des questionnaires par courrier"],ans:1,expl:"L'observation participante, fond\u00e9e par Malinowski aux \u00eeles Trobriand (1914-1918), consiste \u00e0 vivre au sein de la communaut\u00e9 \u00e9tudi\u00e9e, parler sa langue, participer \u00e0 ses activit\u00e9s. Cette immersion permet de comprendre la culture de l'int\u00e9rieur."},
-  {q:"Quel homin\u00e9 fossile, d\u00e9couvert en \u00c9thiopie en 1974, est \u00e2g\u00e9 de 3,2 millions d'ann\u00e9es ?",opts:["Toumai","Lucy","L'Homme de Cro-Magnon","L'Homme de N\u00e9andertal"],ans:1,expl:"Lucy (Australopithecus afarensis) a \u00e9t\u00e9 d\u00e9couverte en 1974 en \u00c9thiopie par Donald Johanson et Tom Gray. Son squelette \u00e0 40 % complet a r\u00e9v\u00e9l\u00e9 que la bipédie pr\u00e9c\u00e9dait le d\u00e9veloppement du cerveau. Toumai (7 Ma) est plus ancien mais d\u00e9couvert au Tchad en 2001."},
-  {q:"Que d\u00e9signe le \u00ab triple obligation \u00bb du don selon Marcel Mauss ?",opts:["Acheter, vendre, \u00e9changer","Donner, recevoir, rendre","Produire, distribuer, consommer","Prier, offrir, remercier"],ans:1,expl:"Dans l'Essai sur le don (1925), Marcel Mauss a montr\u00e9 que dans de nombreuses soci\u00e9t\u00e9s, l'\u00e9change est r\u00e9gi par une triple obligation : donner, recevoir et rendre. Le potlatch des Am\u00e9rindiens et la kula des Trobriandais illustrent ce syst\u00e8me."},
-  {q:"Qu'est-ce que le relativisme culturel ?",opts:["L'id\u00e9e que toutes les cultures sont identiques","Le principe de comprendre chaque culture selon ses propres cat\u00e9gories","Le rejet de toute valeur morale","La hi\u00e9rarchisation des civilisations"],ans:1,expl:"Le relativisme culturel, introduit par Franz Boas (1887), est un principe m\u00e9thodologique : chaque culture doit \u00eatre comprise selon sa propre logique interne. Ce n'est pas un relativisme moral qui affirmerait que tout se vaut, mais une exigence de compr\u00e9hension."},
-  {q:"Quelle m\u00e9thode de datation permet de dater les restes organiques jusqu'\u00e0 50 000 ans ?",opts:["La dendrochronologie","La thermoluminescence","Le carbone 14","Le potassium-argon"],ans:2,expl:"Le carbone 14 (C14 ou radiocarbone), d\u00e9couvert par Willard Libby en 1949 (prix Nobel 1960), mesure la d\u00e9sint\u00e9gration du C14 dans les restes organiques. Sa demi-vie est de 5 730 ans, ce qui permet de dater jusqu'\u00e0 ~50 000 ans. La dendrochronologie date par les anneaux des arbres."},
-  {q:"Quelles sont les trois phases d'un rite de passage selon Van Gennep ?",opts:["Naissance, vie, mort","S\u00e9paration, marge, agr\u00e9gation","Pr\u00e9paration, initiation, c\u00e9l\u00e9bration","Purification, transformation, int\u00e9gration"],ans:1,expl:"Arnold Van Gennep, dans Les Rites de passage (1909), a identifi\u00e9 trois phases universelles : la s\u00e9paration (l'individu quitte son ancien statut), la marge ou liminalit\u00e9 (p\u00e9riode de transition) et l'agr\u00e9gation (int\u00e9gration dans le nouveau statut)."},
-  {q:"Quand Homo sapiens est-il apparu en Afrique ?",opts:["Il y a 1 million d'ann\u00e9es","Il y a 300 000 ans","Il y a 50 000 ans","Il y a 7 millions d'ann\u00e9es"],ans:1,expl:"Les plus anciens fossiles d'Homo sapiens ont \u00e9t\u00e9 d\u00e9couverts \u00e0 Jebel Irhoud (Maroc) et dat\u00e9s d'environ 300 000 ans. L'esp\u00e8ce a ensuite migr\u00e9 hors d'Afrique il y a ~70 000 ans pour coloniser l'ensemble de la plan\u00e8te. 7 Ma correspond \u00e0 Toumai."},
-  {q:"Quel anthropologue a men\u00e9 ses recherches aux \u00eeles Trobriand ?",opts:["Claude L\u00e9vi-Strauss","Bronislaw Malinowski","Margaret Mead","Marcel Mauss"],ans:1,expl:"Bronislaw Malinowski (1884-1942) a s\u00e9journ\u00e9 aux \u00eeles Trobriand (Papouasie-Nouvelle-Guin\u00e9e) de 1914 \u00e0 1918. Son ouvrage Les Argonautes du Pacifique occidental (1922) a fond\u00e9 la m\u00e9thode de l'observation participante et \u00e9tudi\u00e9 le syst\u00e8me d'\u00e9change kula."},
-  {q:"Selon L\u00e9vi-Strauss, quelle r\u00e8gle est \u00e0 la base de toute culture ?",opts:["L'invention de l'\u00e9criture","La prohibition de l'inceste","La propri\u00e9t\u00e9 priv\u00e9e","Le monoth\u00e9isme"],ans:1,expl:"Pour L\u00e9vi-Strauss, la prohibition de l'inceste est la r\u00e8gle universelle qui fonde le passage de la nature \u00e0 la culture. En interdisant les unions entre proches parents, elle oblige les groupes \u00e0 \u00e9changer des conjoints, cr\u00e9ant ainsi des alliances et du lien social."}
-];
-const TOTAL=questions.length;
-let current=0,score=0,answered=new Array(TOTAL).fill(null);
-function renderQuestion(){document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});document.getElementById('btnPrev').disabled=current===0;document.getElementById('btnNext').textContent=current===TOTAL-1?'Voir r\u00e9sultats':'Suivant \u2192';}
-function selectOption(qi,oi){if(answered[qi]!==null)return;answered[qi]=oi;const block=document.querySelectorAll('.question-block')[qi];block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');}
-function nextQuestion(){if(current<TOTAL-1){current++;renderQuestion();}else showResult();}
-function prevQuestion(){if(current>0){current--;renderQuestion();}}
-function showResult(){document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';const r=document.querySelector('.quiz-result');r.style.display='block';document.getElementById('finalScore').textContent=score+'/'+TOTAL;document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Tr\u00e8s bien !','Excellent !'][score<=3?0:score<=6?1:score<=8?2:3];}
-function restartQuiz(){current=0;score=0;answered.fill(null);document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');document.getElementById('quizScore').textContent=0;renderQuestion();}
-function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
-(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
-const sections=['resume','branches','concepts','quiz','ressources','memo'];
-window.addEventListener('scroll',()=>{let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';});
-function downloadMemo(){const w=window.open('','_blank','width=900,height=700');w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche m\u00e9mo \u2014 Anthropologie</title><style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#3d9e4a;border-bottom:3px solid #3d9e4a;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#3d9e4a;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #c8e6ca;padding:1rem;border-radius:4px;background:#f9fef9}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style></head><body><h1>\ud83c\udffa Fiche m\u00e9mo \u2014 Anthropologie</h1><div class="grid"><div class="box"><h2>Fondateurs</h2><ul><li>Boas \u2014 relativisme culturel (1887)</li><li>Malinowski \u2014 observation participante (1922)</li><li>Mauss \u2014 Essai sur le don (1925)</li><li>L\u00e9vi-Strauss \u2014 structuralisme (1949)</li><li>Van Gennep \u2014 Rites de passage (1909)</li></ul></div><div class="box"><h2>\u00c9volution humaine</h2><ul><li>7 Ma : Toumai (plus ancien homin\u00e9)</li><li>3,2 Ma : Lucy (bip\u00e9die)</li><li>1,8 Ma : Homo erectus (sortie d'Afrique)</li><li>300 ka : Homo sapiens (Afrique)</li><li>~70 ka : Out of Africa</li></ul></div><div class="box"><h2>Concepts cl\u00e9s</h2><ul><li>Culture = syst\u00e8me symbolique appris</li><li>Relativisme culturel \u2260 relativisme moral</li><li>Tabou de l'inceste = passage nature/culture</li><li>Don : donner, recevoir, rendre (Mauss)</li><li>Rite de passage : s\u00e9paration, marge, agr\u00e9gation</li></ul></div><div class="box"><h2>Arch\u00e9ologie</h2><ul><li>Carbone 14 : < 50 000 ans (Libby, 1949)</li><li>Stratigraphie : lecture des couches du sol</li><li>Pal\u00e9olithique \u2192 N\u00e9olithique (~10 000 av. J.-C.)</li><li>Lascaux : ~17 000 ans d'art pari\u00e9tal</li><li>\u00c9criture : Sumer, ~3 500 av. J.-C.</li></ul></div></div><div class="footer">Curiosita \u2014 Fiche m\u00e9mo Anthropologie \u2014 ${new Date().toLocaleDateString('fr-FR')}</div><button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#3d9e4a;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">\ud83d\udda8\ufe0f Imprimer / PDF</button></body></html>`);w.document.close();}
-renderQuestion();
-</script>
-    <script src="mobile.js?v=2"></script>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

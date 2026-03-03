@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Maîtriser le module re, les patterns, les groupes de capture, les lookahead/lookbehind et la substitution de texte.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Expressions régulières — Python avancé — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #27ae60;
   --accent2: #2ecc71;
   --accent-dim: rgba(39,174,96,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(39,174,96,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(39,174,96,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🐍 Python avancé</span>
     <span class="tag-level">Avancé</span>
@@ -368,10 +368,10 @@ numeros = PATTERN_TEL.findall(<span class="str">"Appelez le 01 23 45 67 89 ou 06
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que matche le pattern <code>\d+</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un seul chiffre</div>
-              <div class="option" onclick="answer(this,true)">Un ou plusieurs chiffres consécutifs</div>
-              <div class="option" onclick="answer(this,false)">Zéro ou plusieurs chiffres</div>
-              <div class="option" onclick="answer(this,false)">Exactement deux chiffres</div>
+              <button class="option" onclick="answer(this,false)">Un seul chiffre</button>
+              <button class="option" onclick="answer(this,true)">Un ou plusieurs chiffres consécutifs</button>
+              <button class="option" onclick="answer(this,false)">Zéro ou plusieurs chiffres</button>
+              <button class="option" onclick="answer(this,false)">Exactement deux chiffres</button>
             </div>
             <div class="q-feedback"><code>\d</code> correspond à un chiffre et <code>+</code> signifie « un ou plus ». Donc <code>\d+</code> matche une séquence d'au moins un chiffre. Pour « zéro ou plus », on utiliserait <code>\d*</code>.</div>
           </div>
@@ -379,10 +379,10 @@ numeros = PATTERN_TEL.findall(<span class="str">"Appelez le 01 23 45 67 89 ou 06
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle est la différence entre <code>re.search()</code> et <code>re.match()</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">search est plus rapide que match</div>
-              <div class="option" onclick="answer(this,true)">match cherche au début de la chaîne, search cherche partout</div>
-              <div class="option" onclick="answer(this,false)">match retourne toutes les correspondances, search une seule</div>
-              <div class="option" onclick="answer(this,false)">Il n'y a aucune différence</div>
+              <button class="option" onclick="answer(this,false)">search est plus rapide que match</button>
+              <button class="option" onclick="answer(this,true)">match cherche au début de la chaîne, search cherche partout</button>
+              <button class="option" onclick="answer(this,false)">match retourne toutes les correspondances, search une seule</button>
+              <button class="option" onclick="answer(this,false)">Il n'y a aucune différence</button>
             </div>
             <div class="q-feedback"><code>re.match()</code> ne cherche qu'au <strong>début</strong> de la chaîne. <code>re.search()</code> parcourt toute la chaîne et retourne la première correspondance trouvée.</div>
           </div>
@@ -390,10 +390,10 @@ numeros = PATTERN_TEL.findall(<span class="str">"Appelez le 01 23 45 67 89 ou 06
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que fait <code>(?=...)</code> dans une regex ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Capture un groupe nommé</div>
-              <div class="option" onclick="answer(this,false)">Crée un groupe non-capturant</div>
-              <div class="option" onclick="answer(this,true)">Lookahead positif : vérifie ce qui suit sans l'inclure dans le match</div>
-              <div class="option" onclick="answer(this,false)">Lookbehind positif : vérifie ce qui précède</div>
+              <button class="option" onclick="answer(this,false)">Capture un groupe nommé</button>
+              <button class="option" onclick="answer(this,false)">Crée un groupe non-capturant</button>
+              <button class="option" onclick="answer(this,true)">Lookahead positif : vérifie ce qui suit sans l'inclure dans le match</button>
+              <button class="option" onclick="answer(this,false)">Lookbehind positif : vérifie ce qui précède</button>
             </div>
             <div class="q-feedback"><code>(?=...)</code> est un <strong>lookahead positif</strong>. Il vérifie que le pattern est suivi de <code>...</code> mais n'inclut pas cette partie dans le résultat du match.</div>
           </div>
@@ -401,10 +401,10 @@ numeros = PATTERN_TEL.findall(<span class="str">"Appelez le 01 23 45 67 89 ou 06
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Pourquoi utiliser les raw strings (<code>r"..."</code>) pour les regex ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">C'est obligatoire en Python 3</div>
-              <div class="option" onclick="answer(this,false)">Cela rend la regex plus rapide</div>
-              <div class="option" onclick="answer(this,true)">Cela évite les conflits entre les échappements Python et regex</div>
-              <div class="option" onclick="answer(this,false)">Cela active le mode Unicode</div>
+              <button class="option" onclick="answer(this,false)">C'est obligatoire en Python 3</button>
+              <button class="option" onclick="answer(this,false)">Cela rend la regex plus rapide</button>
+              <button class="option" onclick="answer(this,true)">Cela évite les conflits entre les échappements Python et regex</button>
+              <button class="option" onclick="answer(this,false)">Cela active le mode Unicode</button>
             </div>
             <div class="q-feedback">Sans le <code>r</code>, Python interprète les backslashes avant le moteur regex. Par exemple, <code>"\d"</code> serait d'abord traité par Python. Avec <code>r"\d"</code>, le backslash arrive intact au moteur regex.</div>
           </div>
@@ -412,10 +412,10 @@ numeros = PATTERN_TEL.findall(<span class="str">"Appelez le 01 23 45 67 89 ou 06
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Comment référencer le premier groupe capturé dans <code>re.sub()</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">$1</div>
-              <div class="option" onclick="answer(this,true)">\1</div>
-              <div class="option" onclick="answer(this,false)">{1}</div>
-              <div class="option" onclick="answer(this,false)">%1</div>
+              <button class="option" onclick="answer(this,false)">$1</button>
+              <button class="option" onclick="answer(this,true)">\1</button>
+              <button class="option" onclick="answer(this,false)">{1}</button>
+              <button class="option" onclick="answer(this,false)">%1</button>
             </div>
             <div class="q-feedback">Dans la chaîne de remplacement de <code>re.sub()</code>, <code>\1</code> (ou <code>\g&lt;1&gt;</code>) fait référence au premier groupe capturé. Pour un groupe nommé, on utilise <code>\g&lt;nom&gt;</code>.</div>
           </div>
@@ -423,10 +423,10 @@ numeros = PATTERN_TEL.findall(<span class="str">"Appelez le 01 23 45 67 89 ou 06
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle est la différence entre <code>.*</code> (glouton) et <code>.*?</code> (paresseux) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il n'y a aucune différence</div>
-              <div class="option" onclick="answer(this,false)">.* est plus rapide</div>
-              <div class="option" onclick="answer(this,true)">.* matche le plus possible, .*? matche le moins possible</div>
-              <div class="option" onclick="answer(this,false)">.*? ne fonctionne pas en Python</div>
+              <button class="option" onclick="answer(this,false)">Il n'y a aucune différence</button>
+              <button class="option" onclick="answer(this,false)">.* est plus rapide</button>
+              <button class="option" onclick="answer(this,true)">.* matche le plus possible, .*? matche le moins possible</button>
+              <button class="option" onclick="answer(this,false)">.*? ne fonctionne pas en Python</button>
             </div>
             <div class="q-feedback">Le quantificateur glouton <code>.*</code> consomme autant de caractères que possible. La version paresseuse <code>.*?</code> s'arrête dès que le reste du pattern peut matcher. C'est crucial pour extraire des contenus entre balises.</div>
           </div>
@@ -623,8 +623,14 @@ print(convertir_dates(texte))
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

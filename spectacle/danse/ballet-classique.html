@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De la cour de Versailles au Lac des cygnes — positions, technique académique et grands ballets du répertoire.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Ballet classique — Danse — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🩰 Danse</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -126,10 +126,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">En quelle année Louis XIV fonde-t-il l'Académie Royale de Danse ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1581</div>
-              <div class="option" onclick="answer(this,true)">1661</div>
-              <div class="option" onclick="answer(this,false)">1713</div>
-              <div class="option" onclick="answer(this,false)">1760</div>
+              <button class="option" onclick="answer(this,false)">1581</button>
+              <button class="option" onclick="answer(this,true)">1661</button>
+              <button class="option" onclick="answer(this,false)">1713</button>
+              <button class="option" onclick="answer(this,false)">1760</button>
             </div>
             <div class="q-feedback">Louis XIV fonde l'Académie Royale de Danse en 1661, première institution dédiée à la codification de la danse.</div>
           </div>
@@ -137,10 +137,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qui a codifié les cinq positions fondamentales du ballet ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Pierre Beauchamps</div>
-              <div class="option" onclick="answer(this,false)">Jean-Georges Noverre</div>
-              <div class="option" onclick="answer(this,false)">Marius Petipa</div>
-              <div class="option" onclick="answer(this,false)">George Balanchine</div>
+              <button class="option" onclick="answer(this,true)">Pierre Beauchamps</button>
+              <button class="option" onclick="answer(this,false)">Jean-Georges Noverre</button>
+              <button class="option" onclick="answer(this,false)">Marius Petipa</button>
+              <button class="option" onclick="answer(this,false)">George Balanchine</button>
             </div>
             <div class="q-feedback">Pierre Beauchamps, maître de ballet de Louis XIV, a codifié les cinq positions fondamentales qui sont la base de toute la technique classique.</div>
           </div>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel chorégraphe a créé Le Lac des cygnes avec Tchaïkovski ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Jean-Georges Noverre</div>
-              <div class="option" onclick="answer(this,false)">Michel Fokine</div>
-              <div class="option" onclick="answer(this,true)">Marius Petipa</div>
-              <div class="option" onclick="answer(this,false)">Vaslav Nijinski</div>
+              <button class="option" onclick="answer(this,false)">Jean-Georges Noverre</button>
+              <button class="option" onclick="answer(this,false)">Michel Fokine</button>
+              <button class="option" onclick="answer(this,true)">Marius Petipa</button>
+              <button class="option" onclick="answer(this,false)">Vaslav Nijinski</button>
             </div>
             <div class="q-feedback">Marius Petipa a créé la version définitive du Lac des cygnes (1895) ainsi que La Belle au bois dormant et Casse-Noisette avec Tchaïkovski.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce que l'en-dehors en ballet classique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une position des bras</div>
-              <div class="option" onclick="answer(this,true)">La rotation externe des jambes depuis la hanche</div>
-              <div class="option" onclick="answer(this,false)">Un saut en tournant</div>
-              <div class="option" onclick="answer(this,false)">Une révérence de fin de spectacle</div>
+              <button class="option" onclick="answer(this,false)">Une position des bras</button>
+              <button class="option" onclick="answer(this,true)">La rotation externe des jambes depuis la hanche</button>
+              <button class="option" onclick="answer(this,false)">Un saut en tournant</button>
+              <button class="option" onclick="answer(this,false)">Une révérence de fin de spectacle</button>
             </div>
             <div class="q-feedback">L'en-dehors est la rotation externe des jambes depuis l'articulation de la hanche. C'est le principe fondamental sur lequel repose toute la technique classique.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qui a fondé les Ballets russes à Paris en 1909 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Vaslav Nijinski</div>
-              <div class="option" onclick="answer(this,false)">Rudolf Noureev</div>
-              <div class="option" onclick="answer(this,true)">Serge de Diaghilev</div>
-              <div class="option" onclick="answer(this,false)">George Balanchine</div>
+              <button class="option" onclick="answer(this,false)">Vaslav Nijinski</button>
+              <button class="option" onclick="answer(this,false)">Rudolf Noureev</button>
+              <button class="option" onclick="answer(this,true)">Serge de Diaghilev</button>
+              <button class="option" onclick="answer(this,false)">George Balanchine</button>
             </div>
             <div class="q-feedback">Serge de Diaghilev, impresario russe, fonde les Ballets russes à Paris en 1909, compagnie révolutionnaire qui a transformé l'histoire du ballet.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel style George Balanchine a-t-il créé avec le New York City Ballet ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le ballet romantique</div>
-              <div class="option" onclick="answer(this,true)">Le ballet néoclassique</div>
-              <div class="option" onclick="answer(this,false)">La danse contemporaine</div>
-              <div class="option" onclick="answer(this,false)">Le ballet d'action</div>
+              <button class="option" onclick="answer(this,false)">Le ballet romantique</button>
+              <button class="option" onclick="answer(this,true)">Le ballet néoclassique</button>
+              <button class="option" onclick="answer(this,false)">La danse contemporaine</button>
+              <button class="option" onclick="answer(this,false)">Le ballet d'action</button>
             </div>
             <div class="q-feedback">Balanchine a créé le ballet néoclassique : une danse abstraite, sans argument narratif, où la musique et le mouvement pur sont les seuls éléments.</div>
           </div>
@@ -248,8 +248,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

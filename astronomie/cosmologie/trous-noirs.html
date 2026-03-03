@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Horizon des événements, singularité, rayonnement de Hawking et trous noirs supermassifs au cœur des galaxies.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Trous noirs — Cosmologie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #80cbc4;
   --accent-dim: rgba(122,232,216,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔭 Cosmologie</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -136,10 +136,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qu'est-ce que l'horizon des événements ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le centre du trou noir</div>
-              <div class="option" onclick="answer(this,true)">La frontière au-delà de laquelle rien ne peut s'échapper</div>
-              <div class="option" onclick="answer(this,false)">La surface visible du trou noir</div>
-              <div class="option" onclick="answer(this,false)">La zone où les étoiles se forment</div>
+              <button class="option" onclick="answer(this,false)">Le centre du trou noir</button>
+              <button class="option" onclick="answer(this,true)">La frontière au-delà de laquelle rien ne peut s'échapper</button>
+              <button class="option" onclick="answer(this,false)">La surface visible du trou noir</button>
+              <button class="option" onclick="answer(this,false)">La zone où les étoiles se forment</button>
             </div>
             <div class="q-feedback">L'horizon des événements est la surface sphérique au rayon de Schwarzschild (r_s = 2GM/c²) au-delà de laquelle la vitesse de libération dépasse c. Rien ne peut en revenir.</div>
           </div>
@@ -147,10 +147,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel est le rayon de Schwarzschild du Soleil ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Environ 3 km</div>
-              <div class="option" onclick="answer(this,false)">Environ 3 000 km</div>
-              <div class="option" onclick="answer(this,false)">Environ 696 000 km</div>
-              <div class="option" onclick="answer(this,false)">Environ 9 mm</div>
+              <button class="option" onclick="answer(this,true)">Environ 3 km</button>
+              <button class="option" onclick="answer(this,false)">Environ 3 000 km</button>
+              <button class="option" onclick="answer(this,false)">Environ 696 000 km</button>
+              <button class="option" onclick="answer(this,false)">Environ 9 mm</button>
             </div>
             <div class="q-feedback">Le rayon de Schwarzschild du Soleil est d'environ 3 km. 9 mm correspond à celui de la Terre. 696 000 km est le rayon réel du Soleil.</div>
           </div>
@@ -158,10 +158,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Comment se forme un trou noir stellaire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Par collision de deux étoiles légères</div>
-              <div class="option" onclick="answer(this,true)">Par l'effondrement du cœur d'une étoile massive lors d'une supernova</div>
-              <div class="option" onclick="answer(this,false)">Par compression de gaz interstellaire</div>
-              <div class="option" onclick="answer(this,false)">Par refroidissement d'une naine blanche</div>
+              <button class="option" onclick="answer(this,false)">Par collision de deux étoiles légères</button>
+              <button class="option" onclick="answer(this,true)">Par l'effondrement du cœur d'une étoile massive lors d'une supernova</button>
+              <button class="option" onclick="answer(this,false)">Par compression de gaz interstellaire</button>
+              <button class="option" onclick="answer(this,false)">Par refroidissement d'une naine blanche</button>
             </div>
             <div class="q-feedback">Un trou noir stellaire se forme quand le cœur d'une étoile massive (> 25 M☉ environ) s'effondre lors d'une supernova. Le cœur résiduel dépasse la masse limite et s'effondre indéfiniment.</div>
           </div>
@@ -169,10 +169,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle est la masse approximative de Sagittarius A* ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">10 masses solaires</div>
-              <div class="option" onclick="answer(this,false)">1 000 masses solaires</div>
-              <div class="option" onclick="answer(this,true)">4 millions de masses solaires</div>
-              <div class="option" onclick="answer(this,false)">6,5 milliards de masses solaires</div>
+              <button class="option" onclick="answer(this,false)">10 masses solaires</button>
+              <button class="option" onclick="answer(this,false)">1 000 masses solaires</button>
+              <button class="option" onclick="answer(this,true)">4 millions de masses solaires</button>
+              <button class="option" onclick="answer(this,false)">6,5 milliards de masses solaires</button>
             </div>
             <div class="q-feedback">Sagittarius A*, le trou noir supermassif au centre de la Voie lactée, a une masse d'environ 4 millions de masses solaires. 6,5 milliards M☉ correspond au trou noir de M87.</div>
           </div>
@@ -180,10 +180,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce que le rayonnement de Hawking ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La lumière émise par le disque d'accrétion</div>
-              <div class="option" onclick="answer(this,false)">Les ondes gravitationnelles émises par le trou noir</div>
-              <div class="option" onclick="answer(this,true)">Un rayonnement thermique dû aux effets quantiques près de l'horizon</div>
-              <div class="option" onclick="answer(this,false)">Les rayons X émis par la matière en chute</div>
+              <button class="option" onclick="answer(this,false)">La lumière émise par le disque d'accrétion</button>
+              <button class="option" onclick="answer(this,false)">Les ondes gravitationnelles émises par le trou noir</button>
+              <button class="option" onclick="answer(this,true)">Un rayonnement thermique dû aux effets quantiques près de l'horizon</button>
+              <button class="option" onclick="answer(this,false)">Les rayons X émis par la matière en chute</button>
             </div>
             <div class="q-feedback">Le rayonnement de Hawking est un rayonnement thermique prédit théoriquement, dû à la création de paires particule-antiparticule près de l'horizon. Il est extrêmement faible pour les trous noirs stellaires.</div>
           </div>
@@ -191,10 +191,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Comment LIGO détecte-t-il les fusions de trous noirs ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">En observant les rayons X émis</div>
-              <div class="option" onclick="answer(this,false)">En photographiant l'ombre du trou noir</div>
-              <div class="option" onclick="answer(this,false)">En mesurant les neutrinos produits</div>
-              <div class="option" onclick="answer(this,true)">En détectant les ondes gravitationnelles, infimes déformations de l'espace-temps</div>
+              <button class="option" onclick="answer(this,false)">En observant les rayons X émis</button>
+              <button class="option" onclick="answer(this,false)">En photographiant l'ombre du trou noir</button>
+              <button class="option" onclick="answer(this,false)">En mesurant les neutrinos produits</button>
+              <button class="option" onclick="answer(this,true)">En détectant les ondes gravitationnelles, infimes déformations de l'espace-temps</button>
             </div>
             <div class="q-feedback">LIGO utilise l'interférométrie laser pour détecter des déformations de l'espace-temps de l'ordre de 10⁻²¹ m, provoquées par les ondes gravitationnelles émises lors de la fusion de trous noirs.</div>
           </div>
@@ -267,8 +267,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

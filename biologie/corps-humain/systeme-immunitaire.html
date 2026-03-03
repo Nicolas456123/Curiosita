@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Immunité innée et adaptative — les mécanismes de défense qui protègent l'organisme contre les pathogènes.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Système immunitaire — Corps humain — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #7ae8d8; --accent2: #80cbc4; --accent-dim: rgba(122,232,216,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #7ae8d8; --accent2: #80cbc4; --accent-dim: rgba(122,232,216,0.08);  --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -21,7 +21,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧬 Corps humain</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -176,10 +176,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel type de cellule sécrète les anticorps ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les lymphocytes T cytotoxiques</div>
-              <div class="option" onclick="answer(this,true)">Les plasmocytes (lymphocytes B différenciés)</div>
-              <div class="option" onclick="answer(this,false)">Les macrophages</div>
-              <div class="option" onclick="answer(this,false)">Les cellules NK</div>
+              <button class="option" onclick="answer(this,false)">Les lymphocytes T cytotoxiques</button>
+              <button class="option" onclick="answer(this,true)">Les plasmocytes (lymphocytes B différenciés)</button>
+              <button class="option" onclick="answer(this,false)">Les macrophages</button>
+              <button class="option" onclick="answer(this,false)">Les cellules NK</button>
             </div>
             <div class="q-feedback">Les plasmocytes sont les lymphocytes B activés et différenciés. Ils sécrètent massivement des anticorps spécifiques de l'antigène qui les a activés.</div>
           </div>
@@ -187,10 +187,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quels sont les 4 signes cardinaux de la réaction inflammatoire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Rougeur, chaleur, gonflement, douleur</div>
-              <div class="option" onclick="answer(this,false)">Fièvre, toux, fatigue, nausée</div>
-              <div class="option" onclick="answer(this,false)">Pâleur, froid, sécheresse, engourdissement</div>
-              <div class="option" onclick="answer(this,false)">Rougeur, fièvre, démangeaison, saignement</div>
+              <button class="option" onclick="answer(this,true)">Rougeur, chaleur, gonflement, douleur</button>
+              <button class="option" onclick="answer(this,false)">Fièvre, toux, fatigue, nausée</button>
+              <button class="option" onclick="answer(this,false)">Pâleur, froid, sécheresse, engourdissement</button>
+              <button class="option" onclick="answer(this,false)">Rougeur, fièvre, démangeaison, saignement</button>
             </div>
             <div class="q-feedback">Les 4 signes cardinaux de l'inflammation (décrits par Celsius) sont : rubor (rougeur), calor (chaleur), tumor (gonflement/œdème) et dolor (douleur).</div>
           </div>
@@ -198,10 +198,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle molécule permet aux lymphocytes T de distinguer le « soi » du « non-soi » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les anticorps</div>
-              <div class="option" onclick="answer(this,false)">L'histamine</div>
-              <div class="option" onclick="answer(this,true)">Le CMH (complexe majeur d'histocompatibilité)</div>
-              <div class="option" onclick="answer(this,false)">Le lysozyme</div>
+              <button class="option" onclick="answer(this,false)">Les anticorps</button>
+              <button class="option" onclick="answer(this,false)">L'histamine</button>
+              <button class="option" onclick="answer(this,true)">Le CMH (complexe majeur d'histocompatibilité)</button>
+              <button class="option" onclick="answer(this,false)">Le lysozyme</button>
             </div>
             <div class="q-feedback">Le CMH (ou HLA chez l'humain) est un ensemble de protéines membranaires qui présentent les antigènes aux lymphocytes T. Le CMH I est présent sur toutes les cellules nucléées, le CMH II sur les cellules présentatrices d'antigènes.</div>
           </div>
@@ -209,10 +209,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle classe d'immunoglobuline est impliquée dans les réactions allergiques et la dégranulation des mastocytes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">IgG</div>
-              <div class="option" onclick="answer(this,false)">IgM</div>
-              <div class="option" onclick="answer(this,false)">IgA</div>
-              <div class="option" onclick="answer(this,true)">IgE</div>
+              <button class="option" onclick="answer(this,false)">IgG</button>
+              <button class="option" onclick="answer(this,false)">IgM</button>
+              <button class="option" onclick="answer(this,false)">IgA</button>
+              <button class="option" onclick="answer(this,true)">IgE</button>
             </div>
             <div class="q-feedback">Les IgE se fixent sur les récepteurs des mastocytes et des basophiles. Lors d'un second contact avec l'allergène, le pontage des IgE déclenche la dégranulation des mastocytes, libérant l'histamine et d'autres médiateurs de la réaction allergique.</div>
           </div>
@@ -220,10 +220,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle cellule du système immunitaire est la cible principale du VIH ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les lymphocytes B</div>
-              <div class="option" onclick="answer(this,true)">Les lymphocytes T CD4⁺ (auxiliaires)</div>
-              <div class="option" onclick="answer(this,false)">Les cellules NK</div>
-              <div class="option" onclick="answer(this,false)">Les neutrophiles</div>
+              <button class="option" onclick="answer(this,false)">Les lymphocytes B</button>
+              <button class="option" onclick="answer(this,true)">Les lymphocytes T CD4⁺ (auxiliaires)</button>
+              <button class="option" onclick="answer(this,false)">Les cellules NK</button>
+              <button class="option" onclick="answer(this,false)">Les neutrophiles</button>
             </div>
             <div class="q-feedback">Le VIH cible spécifiquement les lymphocytes T CD4⁺ via le récepteur CD4 et les corécepteurs CCR5 ou CXCR4. La destruction progressive des T CD4⁺ effondre l'immunité adaptative, menant au SIDA et aux infections opportunistes.</div>
           </div>
@@ -231,10 +231,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle approche thérapeutique utilise les lymphocytes T modifiés du patient pour cibler les cellules cancéreuses ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La chimiothérapie</div>
-              <div class="option" onclick="answer(this,false)">La radiothérapie</div>
-              <div class="option" onclick="answer(this,true)">La thérapie CAR-T</div>
-              <div class="option" onclick="answer(this,false)">La vaccination thérapeutique</div>
+              <button class="option" onclick="answer(this,false)">La chimiothérapie</button>
+              <button class="option" onclick="answer(this,false)">La radiothérapie</button>
+              <button class="option" onclick="answer(this,true)">La thérapie CAR-T</button>
+              <button class="option" onclick="answer(this,false)">La vaccination thérapeutique</button>
             </div>
             <div class="q-feedback">La thérapie CAR-T consiste à prélever les lymphocytes T du patient, les modifier génétiquement pour qu'ils expriment un récepteur chimérique (CAR) ciblant un antigène tumoral, puis les réinjecter. Cette immunothérapie cellulaire a montré des résultats remarquables dans certaines leucémies et lymphomes.</div>
           </div>
@@ -316,8 +316,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La triade CIA, les menaces et vulnérabilités, la gestion des risques — les bases indispensables pour comprendre et pratiquer la sécurité informatique.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Fondamentaux de la cybersécurité — Cybersécurité — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #2980b9;
   --accent2: #3498db;
   --accent-dim: rgba(41,128,185,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(41,128,185,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(41,128,185,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔒 Cybersécurité</span>
     <span class="tag-level">Débutant</span>
@@ -177,10 +177,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quels sont les trois piliers de la triade CIA ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Contrôle, Identification, Authentification</div>
-              <div class="option" onclick="answer(this,true)">Confidentialité, Intégrité, Disponibilité</div>
-              <div class="option" onclick="answer(this,false)">Chiffrement, Isolation, Audit</div>
-              <div class="option" onclick="answer(this,false)">Conformité, Infrastructure, Analyse</div>
+              <button class="option" onclick="answer(this,false)">Contrôle, Identification, Authentification</button>
+              <button class="option" onclick="answer(this,true)">Confidentialité, Intégrité, Disponibilité</button>
+              <button class="option" onclick="answer(this,false)">Chiffrement, Isolation, Audit</button>
+              <button class="option" onclick="answer(this,false)">Conformité, Infrastructure, Analyse</button>
             </div>
             <div class="q-feedback">La triade CIA (Confidentiality, Integrity, Availability) est le modèle fondamental de la sécurité de l'information : protéger l'accès, la fiabilité et l'accessibilité des données.</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'est-ce qu'une vulnérabilité zero-day ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une faille corrigée le jour même de sa découverte</div>
-              <div class="option" onclick="answer(this,false)">Un virus qui s'active à minuit</div>
-              <div class="option" onclick="answer(this,true)">Une faille inconnue de l'éditeur du logiciel, sans correctif disponible</div>
-              <div class="option" onclick="answer(this,false)">Une attaque qui dure moins de 24 heures</div>
+              <button class="option" onclick="answer(this,false)">Une faille corrigée le jour même de sa découverte</button>
+              <button class="option" onclick="answer(this,false)">Un virus qui s'active à minuit</button>
+              <button class="option" onclick="answer(this,true)">Une faille inconnue de l'éditeur du logiciel, sans correctif disponible</button>
+              <button class="option" onclick="answer(this,false)">Une attaque qui dure moins de 24 heures</button>
             </div>
             <div class="q-feedback">Une vulnérabilité zero-day est une faille encore inconnue de l'éditeur, donc sans patch disponible. Le terme « zero-day » signifie que l'éditeur a eu zéro jour pour la corriger.</div>
           </div>
@@ -199,10 +199,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel principe stipule que chaque utilisateur ne doit avoir que les droits strictement nécessaires ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Défense en profondeur</div>
-              <div class="option" onclick="answer(this,false)">Séparation des devoirs</div>
-              <div class="option" onclick="answer(this,true)">Moindre privilège</div>
-              <div class="option" onclick="answer(this,false)">Zéro confiance</div>
+              <button class="option" onclick="answer(this,false)">Défense en profondeur</button>
+              <button class="option" onclick="answer(this,false)">Séparation des devoirs</button>
+              <button class="option" onclick="answer(this,true)">Moindre privilège</button>
+              <button class="option" onclick="answer(this,false)">Zéro confiance</button>
             </div>
             <div class="q-feedback">Le principe de moindre privilège (least privilege) limite les droits de chaque utilisateur ou processus au strict minimum nécessaire pour accomplir sa tâche, réduisant ainsi la surface d'attaque.</div>
           </div>
@@ -210,10 +210,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Une attaque DDoS cible principalement quel pilier de la triade CIA ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Confidentialité</div>
-              <div class="option" onclick="answer(this,false)">Intégrité</div>
-              <div class="option" onclick="answer(this,true)">Disponibilité</div>
-              <div class="option" onclick="answer(this,false)">Authentification</div>
+              <button class="option" onclick="answer(this,false)">Confidentialité</button>
+              <button class="option" onclick="answer(this,false)">Intégrité</button>
+              <button class="option" onclick="answer(this,true)">Disponibilité</button>
+              <button class="option" onclick="answer(this,false)">Authentification</button>
             </div>
             <div class="q-feedback">Une attaque DDoS (Distributed Denial of Service) vise à rendre un service inaccessible en le submergeant de requêtes. Elle cible donc directement la disponibilité du système.</div>
           </div>
@@ -221,10 +221,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle stratégie de gestion des risques consiste à souscrire une assurance cyber ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Éviter le risque</div>
-              <div class="option" onclick="answer(this,false)">Réduire le risque</div>
-              <div class="option" onclick="answer(this,true)">Transférer le risque</div>
-              <div class="option" onclick="answer(this,false)">Accepter le risque</div>
+              <button class="option" onclick="answer(this,false)">Éviter le risque</button>
+              <button class="option" onclick="answer(this,false)">Réduire le risque</button>
+              <button class="option" onclick="answer(this,true)">Transférer le risque</button>
+              <button class="option" onclick="answer(this,false)">Accepter le risque</button>
             </div>
             <div class="q-feedback">Souscrire une assurance est un transfert de risque : l'impact financier d'un incident est pris en charge par un tiers (l'assureur). L'entreprise ne réduit pas la probabilité mais transfère les conséquences.</div>
           </div>
@@ -232,10 +232,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelles sont les cinq fonctions du NIST Cybersecurity Framework ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Planifier, Implémenter, Vérifier, Agir, Documenter</div>
-              <div class="option" onclick="answer(this,true)">Identifier, Protéger, Détecter, Répondre, Récupérer</div>
-              <div class="option" onclick="answer(this,false)">Analyser, Concevoir, Développer, Tester, Déployer</div>
-              <div class="option" onclick="answer(this,false)">Prévenir, Surveiller, Alerter, Corriger, Auditer</div>
+              <button class="option" onclick="answer(this,false)">Planifier, Implémenter, Vérifier, Agir, Documenter</button>
+              <button class="option" onclick="answer(this,true)">Identifier, Protéger, Détecter, Répondre, Récupérer</button>
+              <button class="option" onclick="answer(this,false)">Analyser, Concevoir, Développer, Tester, Déployer</button>
+              <button class="option" onclick="answer(this,false)">Prévenir, Surveiller, Alerter, Corriger, Auditer</button>
             </div>
             <div class="q-feedback">Le NIST CSF s'articule autour de cinq fonctions : Identify, Protect, Detect, Respond, Recover. Ce cadre offre une approche complète couvrant la prévention, la détection et la réaction aux incidents.</div>
           </div>
@@ -408,8 +408,14 @@ AMÉLIORATIONS RECOMMANDÉES :
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

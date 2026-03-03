@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Fentes de Young, réseaux de diffraction, cohérence, figures d'interférences — quand la lumière se comporte comme une onde.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Interférences et diffraction — Optique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8e44ad;
   --accent2: #9b59b6;
   --accent-dim: rgba(142,68,173,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔭 Optique</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -199,10 +199,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la formule de l'interfrange dans l'expérience des fentes de Young ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">i = aD / λ</div>
-              <div class="option" onclick="answer(this,true)">i = λD / a</div>
-              <div class="option" onclick="answer(this,false)">i = λa / D</div>
-              <div class="option" onclick="answer(this,false)">i = D / (λa)</div>
+              <button class="option" onclick="answer(this,false)">i = aD / λ</button>
+              <button class="option" onclick="answer(this,true)">i = λD / a</button>
+              <button class="option" onclick="answer(this,false)">i = λa / D</button>
+              <button class="option" onclick="answer(this,false)">i = D / (λa)</button>
             </div>
             <div class="q-feedback">L'interfrange est i = λD/a, où λ est la longueur d'onde, D la distance fentes-écran et a l'espacement entre les deux fentes. L'interfrange augmente avec λ et D, et diminue quand a augmente.</div>
           </div>
@@ -210,10 +210,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle condition sur la différence de marche donne une interférence destructive ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">δ = kλ</div>
-              <div class="option" onclick="answer(this,true)">δ = (k + ½)λ</div>
-              <div class="option" onclick="answer(this,false)">δ = 2kλ</div>
-              <div class="option" onclick="answer(this,false)">δ = kλ/4</div>
+              <button class="option" onclick="answer(this,false)">δ = kλ</button>
+              <button class="option" onclick="answer(this,true)">δ = (k + ½)λ</button>
+              <button class="option" onclick="answer(this,false)">δ = 2kλ</button>
+              <button class="option" onclick="answer(this,false)">δ = kλ/4</button>
             </div>
             <div class="q-feedback">Une interférence destructive (intensité nulle) se produit lorsque la différence de marche est un nombre demi-entier de longueurs d'onde : δ = (k + ½)λ. Les deux ondes sont alors en opposition de phase.</div>
           </div>
@@ -221,10 +221,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">La condition des maximums principaux d'un réseau de diffraction est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">b sin(θ) = mλ</div>
-              <div class="option" onclick="answer(this,true)">d sin(θ) = mλ</div>
-              <div class="option" onclick="answer(this,false)">N sin(θ) = mλ</div>
-              <div class="option" onclick="answer(this,false)">d cos(θ) = mλ</div>
+              <button class="option" onclick="answer(this,false)">b sin(θ) = mλ</button>
+              <button class="option" onclick="answer(this,true)">d sin(θ) = mλ</button>
+              <button class="option" onclick="answer(this,false)">N sin(θ) = mλ</button>
+              <button class="option" onclick="answer(this,false)">d cos(θ) = mλ</button>
             </div>
             <div class="q-feedback">La condition du réseau est d sin(θ) = mλ, où d est le pas du réseau (distance entre fentes consécutives) et m l'ordre de diffraction. Ne pas confondre d (pas) et b (largeur de chaque fente).</div>
           </div>
@@ -232,10 +232,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel phénomène explique les couleurs d'une bulle de savon ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La diffraction</div>
-              <div class="option" onclick="answer(this,false)">La réfraction seule</div>
-              <div class="option" onclick="answer(this,true)">Les interférences en lame mince</div>
-              <div class="option" onclick="answer(this,false)">L'effet photoélectrique</div>
+              <button class="option" onclick="answer(this,false)">La diffraction</button>
+              <button class="option" onclick="answer(this,false)">La réfraction seule</button>
+              <button class="option" onclick="answer(this,true)">Les interférences en lame mince</button>
+              <button class="option" onclick="answer(this,false)">L'effet photoélectrique</button>
             </div>
             <div class="q-feedback">Les couleurs d'une bulle de savon résultent des interférences entre les réflexions sur les deux faces du film de savon. Selon l'épaisseur locale, certaines longueurs d'onde interfèrent constructivement (couleur visible) et d'autres destructivement.</div>
           </div>
@@ -243,10 +243,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Selon le critère de Rayleigh, quel est le pouvoir de résolution angulaire d'une ouverture circulaire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">θ = 1,22 λ/D</div>
-              <div class="option" onclick="answer(this,false)">θ = λ/D</div>
-              <div class="option" onclick="answer(this,false)">θ = 2,44 λ/D</div>
-              <div class="option" onclick="answer(this,false)">θ = λ/(2D)</div>
+              <button class="option" onclick="answer(this,true)">θ = 1,22 λ/D</button>
+              <button class="option" onclick="answer(this,false)">θ = λ/D</button>
+              <button class="option" onclick="answer(this,false)">θ = 2,44 λ/D</button>
+              <button class="option" onclick="answer(this,false)">θ = λ/(2D)</button>
             </div>
             <div class="q-feedback">Le critère de Rayleigh pour une ouverture circulaire de diamètre D donne θ = 1,22 λ/D. Le facteur 1,22 provient du premier zéro de la fonction de Bessel J₁, qui décrit la diffraction par un disque.</div>
           </div>
@@ -254,10 +254,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Qui a réalisé la première expérience d'interférences lumineuses démontrant la nature ondulatoire de la lumière ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Isaac Newton</div>
-              <div class="option" onclick="answer(this,false)">Augustin Fresnel</div>
-              <div class="option" onclick="answer(this,true)">Thomas Young</div>
-              <div class="option" onclick="answer(this,false)">Christiaan Huygens</div>
+              <button class="option" onclick="answer(this,false)">Isaac Newton</button>
+              <button class="option" onclick="answer(this,false)">Augustin Fresnel</button>
+              <button class="option" onclick="answer(this,true)">Thomas Young</button>
+              <button class="option" onclick="answer(this,false)">Christiaan Huygens</button>
             </div>
             <div class="q-feedback">Thomas Young a réalisé en 1801 l'expérience des fentes doubles, démontrant que la lumière produit des franges d'interférences — un phénomène exclusivement ondulatoire. Fresnel a ensuite développé la théorie mathématique complète de la diffraction.</div>
           </div>
@@ -358,8 +358,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

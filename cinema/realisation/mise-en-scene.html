@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La mise en scene est l'art de transformer un scenario ecrit en images vivantes. Elle englobe le placeme...">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Mise en scene — Realisation — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #e87a7a; --accent2: #f09090; --accent-dim: rgba(232,122,122,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #e87a7a; --accent2: #f09090; --accent-dim: rgba(232,122,122,0.08);  --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -19,7 +19,7 @@
     <a href="../../cinema-page.html">Cinema</a> &rsaquo; <a href="../realisation.html">Realisation</a> &rsaquo; <span>Mise en scene</span>
   </div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">&#127916; Cinema</span>
     <span class="tag-level">Debutant &rarr; Intermediaire</span>
@@ -89,10 +89,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Que designe le 'plan americain' ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Un plan cadre a mi-cuisse</div>
-              <div class="option" onclick="answer(this,false)">Un plan typiquement hollywoodien</div>
-              <div class="option" onclick="answer(this,false)">Un plan large sur un paysage</div>
-              <div class="option" onclick="answer(this,false)">Un plan en contre-plongee</div>
+              <button class="option" onclick="answer(this,true)">Un plan cadre a mi-cuisse</button>
+              <button class="option" onclick="answer(this,false)">Un plan typiquement hollywoodien</button>
+              <button class="option" onclick="answer(this,false)">Un plan large sur un paysage</button>
+              <button class="option" onclick="answer(this,false)">Un plan en contre-plongee</button>
             </div>
             <div class="q-feedback">Le plan americain cadre le personnage a mi-cuisse. Son nom vient du western americain ou il permettait de voir le colt a la ceinture.</div>
           </div>
@@ -100,10 +100,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Qu'est-ce qu'un travelling ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un rotation de la camera sur son axe</div>
-              <div class="option" onclick="answer(this,true)">Un deplacement physique de la camera</div>
-              <div class="option" onclick="answer(this,false)">Un zoom optique</div>
-              <div class="option" onclick="answer(this,false)">Un changement de mise au point</div>
+              <button class="option" onclick="answer(this,false)">Un rotation de la camera sur son axe</button>
+              <button class="option" onclick="answer(this,true)">Un deplacement physique de la camera</button>
+              <button class="option" onclick="answer(this,false)">Un zoom optique</button>
+              <button class="option" onclick="answer(this,false)">Un changement de mise au point</button>
             </div>
             <div class="q-feedback">Le travelling est un deplacement physique de la camera sur rails, dolly ou vehicule, creant un mouvement fluide dans l'espace.</div>
           </div>
@@ -111,10 +111,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Quel realisateur est celebre pour ses compositions symetriques ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Wes Anderson</div>
-              <div class="option" onclick="answer(this,false)">Christopher Nolan</div>
-              <div class="option" onclick="answer(this,false)">David Fincher</div>
-              <div class="option" onclick="answer(this,false)">Denis Villeneuve</div>
+              <button class="option" onclick="answer(this,true)">Wes Anderson</button>
+              <button class="option" onclick="answer(this,false)">Christopher Nolan</button>
+              <button class="option" onclick="answer(this,false)">David Fincher</button>
+              <button class="option" onclick="answer(this,false)">Denis Villeneuve</button>
             </div>
             <div class="q-feedback">Wes Anderson est connu pour ses compositions obsessionnellement symetriques, devenues sa signature visuelle.</div>
           </div>
@@ -122,10 +122,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Qu'est-ce que le steadicam ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un trepied fixe</div>
-              <div class="option" onclick="answer(this,true)">Un stabilisateur de camera porte</div>
-              <div class="option" onclick="answer(this,false)">Un logiciel de montage</div>
-              <div class="option" onclick="answer(this,false)">Un eclairage mobile</div>
+              <button class="option" onclick="answer(this,false)">Un trepied fixe</button>
+              <button class="option" onclick="answer(this,true)">Un stabilisateur de camera porte</button>
+              <button class="option" onclick="answer(this,false)">Un logiciel de montage</button>
+              <button class="option" onclick="answer(this,false)">Un eclairage mobile</button>
             </div>
             <div class="q-feedback">Le Steadicam est un systeme de stabilisation qui permet de filmer en mouvement avec une fluidite comparable au travelling.</div>
           </div>
@@ -133,10 +133,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quel film est celebre pour sa profondeur de champ revolutionnaire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Psychose</div>
-              <div class="option" onclick="answer(this,true)">Citizen Kane</div>
-              <div class="option" onclick="answer(this,false)">Casablanca</div>
-              <div class="option" onclick="answer(this,false)">Le Magicien d'Oz</div>
+              <button class="option" onclick="answer(this,false)">Psychose</button>
+              <button class="option" onclick="answer(this,true)">Citizen Kane</button>
+              <button class="option" onclick="answer(this,false)">Casablanca</button>
+              <button class="option" onclick="answer(this,false)">Le Magicien d'Oz</button>
             </div>
             <div class="q-feedback">Citizen Kane (1941) d'Orson Welles est celebre pour son utilisation revolutionnaire de la profondeur de champ.</div>
           </div>
@@ -185,8 +185,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

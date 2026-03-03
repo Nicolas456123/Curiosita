@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sartre, Camus, liberté, absurde, mauvaise foi et engagement : l'existence précède l'essence.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Existentialisme — Philosophie moderne — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8e44ad;
   --accent2: #9b59b6;
   --accent-dim: rgba(142,68,173,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">💭 Philosophie moderne</span>
     <span class="tag-level">Intermédiaire</span>
@@ -133,10 +133,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que signifie « l'existence précède l'essence » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'homme existe avant l'univers</div>
-              <div class="option" onclick="answer(this,true)">L'homme n'a pas de nature prédéfinie, il se construit par ses choix</div>
-              <div class="option" onclick="answer(this,false)">L'existence est plus importante que la pensée</div>
-              <div class="option" onclick="answer(this,false)">L'essence de l'homme est d'exister</div>
+              <button class="option" onclick="answer(this,false)">L'homme existe avant l'univers</button>
+              <button class="option" onclick="answer(this,true)">L'homme n'a pas de nature prédéfinie, il se construit par ses choix</button>
+              <button class="option" onclick="answer(this,false)">L'existence est plus importante que la pensée</button>
+              <button class="option" onclick="answer(this,false)">L'essence de l'homme est d'exister</button>
             </div>
             <div class="q-feedback">L'homme n'a pas d'essence (de nature) qui précède et détermine son existence. Il existe d'abord, puis se définit par ses actes et ses choix. C'est la thèse fondamentale de l'existentialisme sartrien.</div>
           </div>
@@ -144,10 +144,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'est-ce que la « mauvaise foi » chez Sartre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Mentir aux autres pour les tromper</div>
-              <div class="option" onclick="answer(this,false)">Ne pas croire en Dieu</div>
-              <div class="option" onclick="answer(this,true)">Se mentir à soi-même pour fuir sa liberté et sa responsabilité</div>
-              <div class="option" onclick="answer(this,false)">Trahir ses engagements politiques</div>
+              <button class="option" onclick="answer(this,false)">Mentir aux autres pour les tromper</button>
+              <button class="option" onclick="answer(this,false)">Ne pas croire en Dieu</button>
+              <button class="option" onclick="answer(this,true)">Se mentir à soi-même pour fuir sa liberté et sa responsabilité</button>
+              <button class="option" onclick="answer(this,false)">Trahir ses engagements politiques</button>
             </div>
             <div class="q-feedback">La mauvaise foi est un mensonge à soi-même : on se persuade qu'on n'est pas libre, qu'on ne peut pas changer, pour fuir l'angoisse de la responsabilité. C'est le contraire de l'authenticité existentielle.</div>
           </div>
@@ -155,10 +155,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Comment Camus définit-il l'absurde ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le caractère irrationnel de l'univers</div>
-              <div class="option" onclick="answer(this,false)">Le manque de logique dans le raisonnement humain</div>
-              <div class="option" onclick="answer(this,true)">La confrontation entre le désir humain de sens et le silence du monde</div>
-              <div class="option" onclick="answer(this,false)">L'impossibilité de communiquer avec autrui</div>
+              <button class="option" onclick="answer(this,false)">Le caractère irrationnel de l'univers</button>
+              <button class="option" onclick="answer(this,false)">Le manque de logique dans le raisonnement humain</button>
+              <button class="option" onclick="answer(this,true)">La confrontation entre le désir humain de sens et le silence du monde</button>
+              <button class="option" onclick="answer(this,false)">L'impossibilité de communiquer avec autrui</button>
             </div>
             <div class="q-feedback">L'absurde naît de la confrontation entre l'appel humain au sens (nous cherchons un but, une raison) et le silence irrationnel du monde (l'univers ne répond pas). Ce n'est ni dans l'homme ni dans le monde seuls, mais dans leur rencontre.</div>
           </div>
@@ -166,10 +166,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quels sont les trois stades de l'existence selon Kierkegaard ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Enfance, maturité, vieillesse</div>
-              <div class="option" onclick="answer(this,false)">Ignorance, doute, certitude</div>
-              <div class="option" onclick="answer(this,true)">Esthétique, éthique, religieux</div>
-              <div class="option" onclick="answer(this,false)">Sensible, intellectuel, spirituel</div>
+              <button class="option" onclick="answer(this,false)">Enfance, maturité, vieillesse</button>
+              <button class="option" onclick="answer(this,false)">Ignorance, doute, certitude</button>
+              <button class="option" onclick="answer(this,true)">Esthétique, éthique, religieux</button>
+              <button class="option" onclick="answer(this,false)">Sensible, intellectuel, spirituel</button>
             </div>
             <div class="q-feedback">Kierkegaard distingue le stade esthétique (plaisir, immédiateté), le stade éthique (engagement moral, devoir) et le stade religieux (saut dans la foi). Le passage se fait par un choix radical, non par la raison.</div>
           </div>
@@ -177,10 +177,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle est la thèse principale de Beauvoir dans Le Deuxième Sexe ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les femmes sont biologiquement inférieures</div>
-              <div class="option" onclick="answer(this,true)">La féminité n'est pas une nature mais une construction sociale et culturelle</div>
-              <div class="option" onclick="answer(this,false)">Hommes et femmes sont identiques en tout</div>
-              <div class="option" onclick="answer(this,false)">Le féminisme est incompatible avec l'existentialisme</div>
+              <button class="option" onclick="answer(this,false)">Les femmes sont biologiquement inférieures</button>
+              <button class="option" onclick="answer(this,true)">La féminité n'est pas une nature mais une construction sociale et culturelle</button>
+              <button class="option" onclick="answer(this,false)">Hommes et femmes sont identiques en tout</button>
+              <button class="option" onclick="answer(this,false)">Le féminisme est incompatible avec l'existentialisme</button>
             </div>
             <div class="q-feedback">Beauvoir applique le principe existentialiste à la condition féminine : la femme n'a pas de « nature féminine » prédéfinie. Elle est construite comme l'Autre par la société. La liberté exige de refuser cette assignation.</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que signifie « l'enfer, c'est les autres » (Sartre, Huis clos) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les relations humaines sont toujours mauvaises</div>
-              <div class="option" onclick="answer(this,false)">Il vaut mieux vivre seul</div>
-              <div class="option" onclick="answer(this,true)">Le regard d'autrui nous fige dans une essence et nous prive de notre liberté</div>
-              <div class="option" onclick="answer(this,false)">La société est fondamentalement injuste</div>
+              <button class="option" onclick="answer(this,false)">Les relations humaines sont toujours mauvaises</button>
+              <button class="option" onclick="answer(this,false)">Il vaut mieux vivre seul</button>
+              <button class="option" onclick="answer(this,true)">Le regard d'autrui nous fige dans une essence et nous prive de notre liberté</button>
+              <button class="option" onclick="answer(this,false)">La société est fondamentalement injuste</button>
             </div>
             <div class="q-feedback">Le regard d'autrui me transforme en objet, me réduit à une essence figée. L'autre me juge, me classe, me définit. Cette objectification est « l'enfer » parce qu'elle menace ma liberté de sujet. Mais Sartre ne dit pas que toute relation est infernale.</div>
           </div>
@@ -274,8 +274,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

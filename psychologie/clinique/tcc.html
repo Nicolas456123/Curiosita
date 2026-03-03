@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Les TCC en trois vagues — du conditionnement à la pleine conscience, l'approche psychothérapeutique la plus validée empiriquement.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Thérapies cognitivo-comportementales — Psychologie Clinique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #b07fe8; --accent2: #c9a0f0; --accent-dim: rgba(176,127,232,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(176,127,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #b07fe8; --accent2: #c9a0f0; --accent-dim: rgba(176,127,232,0.08);  --accent-hero: rgba(176,127,232,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../psychologie-page.html">Psychologie</a> › <a href="../clinique.html">Clinique</a> › <span>TCC</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">🧠 Clinique</span><span class="tag-level">Intermédiaire</span><span class="tag-time">⏱ ~50 min</span></div>
   <h1><em>Thérapies cognitivo-comportementales</em></h1>
   <p class="hero-desc">Les TCC en trois vagues — du conditionnement à la pleine conscience, l'approche psychothérapeutique la plus validée empiriquement.</p>
@@ -150,10 +150,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Selon le modèle cognitif des TCC, qu'est-ce qui détermine principalement nos émotions ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La situation elle-même</div>
-              <div class="option" onclick="answer(this,true)">Notre interprétation de la situation</div>
-              <div class="option" onclick="answer(this,false)">Notre patrimoine génétique</div>
-              <div class="option" onclick="answer(this,false)">Nos expériences de la petite enfance</div>
+              <button class="option" onclick="answer(this,false)">La situation elle-même</button>
+              <button class="option" onclick="answer(this,true)">Notre interprétation de la situation</button>
+              <button class="option" onclick="answer(this,false)">Notre patrimoine génétique</button>
+              <button class="option" onclick="answer(this,false)">Nos expériences de la petite enfance</button>
             </div>
             <div class="q-feedback">Le principe fondamental des TCC : ce n'est pas la situation objective qui détermine nos émotions, mais notre interprétation cognitive. Une même situation peut provoquer des émotions très différentes selon la pensée automatique qui y est associée.</div>
           </div>
@@ -161,10 +161,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">L'exposition graduée consiste à :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Éviter progressivement les situations anxiogènes</div>
-              <div class="option" onclick="answer(this,true)">Confronter progressivement le patient au stimulus redouté</div>
-              <div class="option" onclick="answer(this,false)">Analyser les rêves du patient</div>
-              <div class="option" onclick="answer(this,false)">Prescrire des anxiolytiques à doses croissantes</div>
+              <button class="option" onclick="answer(this,false)">Éviter progressivement les situations anxiogènes</button>
+              <button class="option" onclick="answer(this,true)">Confronter progressivement le patient au stimulus redouté</button>
+              <button class="option" onclick="answer(this,false)">Analyser les rêves du patient</button>
+              <button class="option" onclick="answer(this,false)">Prescrire des anxiolytiques à doses croissantes</button>
             </div>
             <div class="q-feedback">L'exposition graduée est une technique comportementale clé : le patient affronte progressivement la situation redoutée (de la moins anxiogène à la plus anxiogène), ce qui permet l'habituation et la diminution de la peur. C'est le traitement de choix pour les phobies.</div>
           </div>
@@ -172,10 +172,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">La « troisième vague » des TCC se caractérise par l'intégration de :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La psychanalyse freudienne</div>
-              <div class="option" onclick="answer(this,false)">La pharmacothérapie</div>
-              <div class="option" onclick="answer(this,true)">La pleine conscience et l'acceptation</div>
-              <div class="option" onclick="answer(this,false)">L'hypnose clinique</div>
+              <button class="option" onclick="answer(this,false)">La psychanalyse freudienne</button>
+              <button class="option" onclick="answer(this,false)">La pharmacothérapie</button>
+              <button class="option" onclick="answer(this,true)">La pleine conscience et l'acceptation</button>
+              <button class="option" onclick="answer(this,false)">L'hypnose clinique</button>
             </div>
             <div class="q-feedback">La troisième vague (MBCT, ACT, DBT) intègre des éléments de pleine conscience (mindfulness) et d'acceptation. Plutôt que de chercher à modifier les pensées (2e vague), elle vise à changer notre relation aux pensées — les observer sans les juger ni les combattre.</div>
           </div>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quelle distorsion cognitive consiste à tirer une conclusion générale à partir d'un seul événement ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La catastrophisation</div>
-              <div class="option" onclick="answer(this,false)">La pensée tout-ou-rien</div>
-              <div class="option" onclick="answer(this,true)">La surgénéralisation</div>
-              <div class="option" onclick="answer(this,false)">La lecture de pensée</div>
+              <button class="option" onclick="answer(this,false)">La catastrophisation</button>
+              <button class="option" onclick="answer(this,false)">La pensée tout-ou-rien</button>
+              <button class="option" onclick="answer(this,true)">La surgénéralisation</button>
+              <button class="option" onclick="answer(this,false)">La lecture de pensée</button>
             </div>
             <div class="q-feedback">La surgénéralisation consiste à tirer une règle générale à partir d'un seul événement négatif. Par exemple : « J'ai raté cet entretien, je raterai tous les entretiens de ma vie. » C'est l'une des distorsions cognitives les plus fréquentes identifiées par Aaron Beck dans la dépression.</div>
           </div>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">La DBT (thérapie comportementale dialectique) a été initialement développée pour traiter :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La dépression majeure</div>
-              <div class="option" onclick="answer(this,false)">Les phobies spécifiques</div>
-              <div class="option" onclick="answer(this,false)">Le trouble obsessionnel-compulsif</div>
-              <div class="option" onclick="answer(this,true)">Le trouble de la personnalité borderline</div>
+              <button class="option" onclick="answer(this,false)">La dépression majeure</button>
+              <button class="option" onclick="answer(this,false)">Les phobies spécifiques</button>
+              <button class="option" onclick="answer(this,false)">Le trouble obsessionnel-compulsif</button>
+              <button class="option" onclick="answer(this,true)">Le trouble de la personnalité borderline</button>
             </div>
             <div class="q-feedback">La DBT a été créée par Marsha Linehan spécifiquement pour le trouble de la personnalité borderline (TPB). Elle combine acceptation et changement (la dialectique) et comprend quatre modules : pleine conscience, tolérance à la détresse, régulation émotionnelle et efficacité interpersonnelle.</div>
           </div>
@@ -212,8 +212,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

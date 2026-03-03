@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tokenisation, embeddings, attention, modèles de langue, chatbots — apprendre aux machines à comprendre et générer du texte.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Traitement du langage naturel — Intelligence artificielle — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #2980b9;
   --accent2: #3498db;
   --accent-dim: rgba(41,128,185,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(41,128,185,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(41,128,185,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🤖 Intelligence artificielle</span>
     <span class="tag-level">Avancé</span>
@@ -194,10 +194,10 @@ reponse = qa(question=<span class="str">"Où travaillait Marie Curie ?"</span>,
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est l'avantage de la tokenisation par sous-mots (BPE) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Elle est plus rapide que la tokenisation par mots</div>
-              <div class="option" onclick="answer(this,true)">Elle gère un vocabulaire fixe tout en représentant n'importe quel mot</div>
-              <div class="option" onclick="answer(this,false)">Elle produit toujours le même nombre de tokens</div>
-              <div class="option" onclick="answer(this,false)">Elle ne nécessite pas d'entraînement</div>
+              <button class="option" onclick="answer(this,false)">Elle est plus rapide que la tokenisation par mots</button>
+              <button class="option" onclick="answer(this,true)">Elle gère un vocabulaire fixe tout en représentant n'importe quel mot</button>
+              <button class="option" onclick="answer(this,false)">Elle produit toujours le même nombre de tokens</button>
+              <button class="option" onclick="answer(this,false)">Elle ne nécessite pas d'entraînement</button>
             </div>
             <div class="q-feedback">BPE découpe les mots rares en sous-mots fréquents, permettant de représenter n'importe quel mot avec un vocabulaire de taille fixe (typiquement 30k-50k tokens).</div>
           </div>
@@ -205,10 +205,10 @@ reponse = qa(question=<span class="str">"Où travaillait Marie Curie ?"</span>,
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que capturent les embeddings de mots comme Word2Vec ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La fréquence des mots</div>
-              <div class="option" onclick="answer(this,false)">La longueur des mots</div>
-              <div class="option" onclick="answer(this,true)">Les relations sémantiques entre les mots</div>
-              <div class="option" onclick="answer(this,false)">La grammaire des phrases</div>
+              <button class="option" onclick="answer(this,false)">La fréquence des mots</button>
+              <button class="option" onclick="answer(this,false)">La longueur des mots</button>
+              <button class="option" onclick="answer(this,true)">Les relations sémantiques entre les mots</button>
+              <button class="option" onclick="answer(this,false)">La grammaire des phrases</button>
             </div>
             <div class="q-feedback">Les embeddings projettent les mots dans un espace vectoriel où la proximité reflète la similarité sémantique. L'analogie « roi - homme + femme ≈ reine » illustre ces propriétés.</div>
           </div>
@@ -216,10 +216,10 @@ reponse = qa(question=<span class="str">"Où travaillait Marie Curie ?"</span>,
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle est la différence principale entre BERT et GPT ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">BERT est plus récent que GPT</div>
-              <div class="option" onclick="answer(this,true)">BERT est bidirectionnel (compréhension), GPT est auto-régressif (génération)</div>
-              <div class="option" onclick="answer(this,false)">GPT utilise plus de couches que BERT</div>
-              <div class="option" onclick="answer(this,false)">BERT ne peut traiter que l'anglais</div>
+              <button class="option" onclick="answer(this,false)">BERT est plus récent que GPT</button>
+              <button class="option" onclick="answer(this,true)">BERT est bidirectionnel (compréhension), GPT est auto-régressif (génération)</button>
+              <button class="option" onclick="answer(this,false)">GPT utilise plus de couches que BERT</button>
+              <button class="option" onclick="answer(this,false)">BERT ne peut traiter que l'anglais</button>
             </div>
             <div class="q-feedback">BERT lit le texte dans les deux directions (masked language modeling), ce qui est optimal pour comprendre le sens. GPT génère de gauche à droite (auto-régressif), ce qui est optimal pour la génération de texte.</div>
           </div>
@@ -227,10 +227,10 @@ reponse = qa(question=<span class="str">"Où travaillait Marie Curie ?"</span>,
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce que le RLHF dans le contexte des LLM ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un algorithme de tokenisation</div>
-              <div class="option" onclick="answer(this,false)">Une technique de compression de modèles</div>
-              <div class="option" onclick="answer(this,true)">L'alignement du modèle avec les préférences humaines par apprentissage par renforcement</div>
-              <div class="option" onclick="answer(this,false)">Un framework de développement web</div>
+              <button class="option" onclick="answer(this,false)">Un algorithme de tokenisation</button>
+              <button class="option" onclick="answer(this,false)">Une technique de compression de modèles</button>
+              <button class="option" onclick="answer(this,true)">L'alignement du modèle avec les préférences humaines par apprentissage par renforcement</button>
+              <button class="option" onclick="answer(this,false)">Un framework de développement web</button>
             </div>
             <div class="q-feedback">RLHF (Reinforcement Learning from Human Feedback) entraîne un modèle de récompense à partir de préférences humaines, puis utilise cet évaluateur pour aligner le LLM afin qu'il soit plus utile et sûr.</div>
           </div>
@@ -238,10 +238,10 @@ reponse = qa(question=<span class="str">"Où travaillait Marie Curie ?"</span>,
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce que le RAG (Retrieval-Augmented Generation) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Enrichir le prompt avec des documents pertinents issus d'une base de connaissances</div>
-              <div class="option" onclick="answer(this,false)">Un nouveau type de réseau de neurones</div>
-              <div class="option" onclick="answer(this,false)">Une méthode de tokenisation avancée</div>
-              <div class="option" onclick="answer(this,false)">Un algorithme d'optimisation des poids</div>
+              <button class="option" onclick="answer(this,true)">Enrichir le prompt avec des documents pertinents issus d'une base de connaissances</button>
+              <button class="option" onclick="answer(this,false)">Un nouveau type de réseau de neurones</button>
+              <button class="option" onclick="answer(this,false)">Une méthode de tokenisation avancée</button>
+              <button class="option" onclick="answer(this,false)">Un algorithme d'optimisation des poids</button>
             </div>
             <div class="q-feedback">Le RAG combine un système de recherche (retrieval) avec un modèle génératif. Les documents pertinents sont ajoutés au prompt, ce qui réduit les hallucinations et permet au modèle d'accéder à des informations à jour.</div>
           </div>
@@ -249,10 +249,10 @@ reponse = qa(question=<span class="str">"Où travaillait Marie Curie ?"</span>,
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Pourquoi les embeddings contextuels (BERT) sont-ils supérieurs aux embeddings statiques (Word2Vec) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Ils sont plus petits en mémoire</div>
-              <div class="option" onclick="answer(this,false)">Ils sont plus rapides à calculer</div>
-              <div class="option" onclick="answer(this,true)">Un même mot reçoit des vecteurs différents selon le contexte</div>
-              <div class="option" onclick="answer(this,false)">Ils n'ont pas besoin de pré-entraînement</div>
+              <button class="option" onclick="answer(this,false)">Ils sont plus petits en mémoire</button>
+              <button class="option" onclick="answer(this,false)">Ils sont plus rapides à calculer</button>
+              <button class="option" onclick="answer(this,true)">Un même mot reçoit des vecteurs différents selon le contexte</button>
+              <button class="option" onclick="answer(this,false)">Ils n'ont pas besoin de pré-entraînement</button>
             </div>
             <div class="q-feedback">Les embeddings contextuels attribuent des représentations différentes au même mot selon son contexte. « Banque » dans « banque du fleuve » et « banque d'investissement » aura deux vecteurs distincts, capturant la polysémie.</div>
           </div>
@@ -474,8 +474,14 @@ rechercher("Comment fonctionne l'intelligence artificielle ?")
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

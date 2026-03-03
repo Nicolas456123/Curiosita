@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Expression, conscience, presse, association — les libertés protégées par la Constitution et les conventions internationales.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Libertés fondamentales — Droits et libertés — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a9b;
   --accent2: #f09ab5;
   --accent-dim: rgba(232,122,155,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,155,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,155,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🛡️ Droits et libertés</span>
     <span class="tag-level">Débutant → Avancé</span>
@@ -130,10 +130,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle loi garantit la liberté de la presse en France ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">La loi du 29 juillet 1881</div>
-              <div class="option" onclick="answer(this,false)">La loi du 1er juillet 1901</div>
-              <div class="option" onclick="answer(this,false)">La loi du 9 décembre 1905</div>
-              <div class="option" onclick="answer(this,false)">La loi du 15 mars 2004</div>
+              <button class="option" onclick="answer(this,true)">La loi du 29 juillet 1881</button>
+              <button class="option" onclick="answer(this,false)">La loi du 1er juillet 1901</button>
+              <button class="option" onclick="answer(this,false)">La loi du 9 décembre 1905</button>
+              <button class="option" onclick="answer(this,false)">La loi du 15 mars 2004</button>
             </div>
             <div class="q-feedback">La loi du 29 juillet 1881 sur la liberté de la presse est le texte fondateur qui garantit la libre publication des journaux et définit les délits de presse.</div>
           </div>
@@ -141,10 +141,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'est-ce que la QPC ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une question posée au Premier ministre</div>
-              <div class="option" onclick="answer(this,true)">Un recours permettant de contester la constitutionnalité d'une loi</div>
-              <div class="option" onclick="answer(this,false)">Un questionnaire de participation citoyenne</div>
-              <div class="option" onclick="answer(this,false)">Une question posée lors d'un référendum</div>
+              <button class="option" onclick="answer(this,false)">Une question posée au Premier ministre</button>
+              <button class="option" onclick="answer(this,true)">Un recours permettant de contester la constitutionnalité d'une loi</button>
+              <button class="option" onclick="answer(this,false)">Un questionnaire de participation citoyenne</button>
+              <button class="option" onclick="answer(this,false)">Une question posée lors d'un référendum</button>
             </div>
             <div class="q-feedback">La Question prioritaire de constitutionnalité, créée en 2010, permet à tout justiciable de contester la conformité d'une loi aux droits et libertés garantis par la Constitution.</div>
           </div>
@@ -152,10 +152,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Une manifestation sur la voie publique nécessite-t-elle une autorisation ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Oui, une autorisation du préfet</div>
-              <div class="option" onclick="answer(this,true)">Non, une simple déclaration préalable suffit</div>
-              <div class="option" onclick="answer(this,false)">Oui, une autorisation du maire</div>
-              <div class="option" onclick="answer(this,false)">Aucune démarche n'est nécessaire</div>
+              <button class="option" onclick="answer(this,false)">Oui, une autorisation du préfet</button>
+              <button class="option" onclick="answer(this,true)">Non, une simple déclaration préalable suffit</button>
+              <button class="option" onclick="answer(this,false)">Oui, une autorisation du maire</button>
+              <button class="option" onclick="answer(this,false)">Aucune démarche n'est nécessaire</button>
             </div>
             <div class="q-feedback">Les manifestations nécessitent une déclaration préalable en préfecture (3 à 15 jours avant), mais pas une autorisation. Le préfet peut toutefois interdire une manifestation en cas de risque grave pour l'ordre public.</div>
           </div>
@@ -163,10 +163,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Lequel de ces actes n'est PAS protégé par la liberté d'expression ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Critiquer une décision du gouvernement</div>
-              <div class="option" onclick="answer(this,false)">Publier un article d'opinion</div>
-              <div class="option" onclick="answer(this,true)">Inciter à la haine raciale</div>
-              <div class="option" onclick="answer(this,false)">Faire une caricature politique</div>
+              <button class="option" onclick="answer(this,false)">Critiquer une décision du gouvernement</button>
+              <button class="option" onclick="answer(this,false)">Publier un article d'opinion</button>
+              <button class="option" onclick="answer(this,true)">Inciter à la haine raciale</button>
+              <button class="option" onclick="answer(this,false)">Faire une caricature politique</button>
             </div>
             <div class="q-feedback">L'incitation à la haine raciale est un délit pénal (loi Pleven de 1972). La liberté d'expression ne protège pas les discours qui portent atteinte à la dignité humaine ou incitent à la violence.</div>
           </div>
@@ -174,10 +174,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Le Défenseur des droits est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un ministre du gouvernement</div>
-              <div class="option" onclick="answer(this,false)">Un juge du Conseil constitutionnel</div>
-              <div class="option" onclick="answer(this,true)">Une autorité constitutionnelle indépendante</div>
-              <div class="option" onclick="answer(this,false)">Un député spécialisé</div>
+              <button class="option" onclick="answer(this,false)">Un ministre du gouvernement</button>
+              <button class="option" onclick="answer(this,false)">Un juge du Conseil constitutionnel</button>
+              <button class="option" onclick="answer(this,true)">Une autorité constitutionnelle indépendante</button>
+              <button class="option" onclick="answer(this,false)">Un député spécialisé</button>
             </div>
             <div class="q-feedback">Le Défenseur des droits, créé en 2011, est une autorité constitutionnelle indépendante chargée de veiller au respect des droits et libertés par les administrations, les entreprises et les organismes publics.</div>
           </div>
@@ -185,10 +185,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">En combien d'heures le juge du référé-liberté doit-il se prononcer ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">24 heures</div>
-              <div class="option" onclick="answer(this,true)">48 heures</div>
-              <div class="option" onclick="answer(this,false)">72 heures</div>
-              <div class="option" onclick="answer(this,false)">1 semaine</div>
+              <button class="option" onclick="answer(this,false)">24 heures</button>
+              <button class="option" onclick="answer(this,true)">48 heures</button>
+              <button class="option" onclick="answer(this,false)">72 heures</button>
+              <button class="option" onclick="answer(this,false)">1 semaine</button>
             </div>
             <div class="q-feedback">Le référé-liberté (article L. 521-2 du Code de justice administrative) impose au juge de se prononcer dans un délai de 48 heures pour protéger une liberté fondamentale menacée par l'administration.</div>
           </div>
@@ -255,8 +255,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

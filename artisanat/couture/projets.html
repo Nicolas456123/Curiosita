@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Du tote bag à la jupe, en passant par la trousse : projets pratiques pour progresser.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Projets de couture — Couture — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">👗 Couture</span>
     <span class="tag-level">Intermédiaire</span>
@@ -134,10 +134,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est le meilleur premier projet pour un débutant complet en couture ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Un tote bag (coutures droites uniquement)</div>
-              <div class="option" onclick="answer(this,false)">Une chemise avec col</div>
-              <div class="option" onclick="answer(this,false)">Un pantalon</div>
-              <div class="option" onclick="answer(this,false)">Une robe ajustée</div>
+              <button class="option" onclick="answer(this,true)">Un tote bag (coutures droites uniquement)</button>
+              <button class="option" onclick="answer(this,false)">Une chemise avec col</button>
+              <button class="option" onclick="answer(this,false)">Un pantalon</button>
+              <button class="option" onclick="answer(this,false)">Une robe ajustée</button>
             </div>
             <div class="q-feedback">Le tote bag est le projet débutant idéal : il ne nécessite que des coutures droites, pas de patron complexe, et le résultat est utile au quotidien. Il permet de se familiariser avec la machine en toute confiance.</div>
           </div>
@@ -145,10 +145,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Comment crée-t-on le volume (soufflet) d'une trousse ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">En ajoutant un panneau latéral</div>
-              <div class="option" onclick="answer(this,true)">En pinçant les coins du fond et en piquant perpendiculairement</div>
-              <div class="option" onclick="answer(this,false)">En utilisant un tissu rigide</div>
-              <div class="option" onclick="answer(this,false)">En mettant du rembourrage</div>
+              <button class="option" onclick="answer(this,false)">En ajoutant un panneau latéral</button>
+              <button class="option" onclick="answer(this,true)">En pinçant les coins du fond et en piquant perpendiculairement</button>
+              <button class="option" onclick="answer(this,false)">En utilisant un tissu rigide</button>
+              <button class="option" onclick="answer(this,false)">En mettant du rembourrage</button>
             </div>
             <div class="q-feedback">Pour créer un soufflet, on aplatit le fond en alignant la couture de côté avec la couture du fond, formant un triangle. On pique perpendiculairement à une distance qui détermine la profondeur du soufflet.</div>
           </div>
@@ -156,10 +156,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Pour une jupe élastiquée, de combien raccourcit-on l'élastique par rapport au tour de taille ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">On le coupe à la même longueur</div>
-              <div class="option" onclick="answer(this,false)">On enlève 2 cm</div>
-              <div class="option" onclick="answer(this,true)">On enlève environ 5 cm</div>
-              <div class="option" onclick="answer(this,false)">On enlève 15 cm</div>
+              <button class="option" onclick="answer(this,false)">On le coupe à la même longueur</button>
+              <button class="option" onclick="answer(this,false)">On enlève 2 cm</button>
+              <button class="option" onclick="answer(this,true)">On enlève environ 5 cm</button>
+              <button class="option" onclick="answer(this,false)">On enlève 15 cm</button>
             </div>
             <div class="q-feedback">L'élastique doit être légèrement plus court que le tour de taille (environ 5 cm de moins) pour maintenir la jupe sans serrer excessivement. L'élastique s'étire pour compenser la différence.</div>
           </div>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce qu'une « toile d'essai » en couture ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un type de tissu très résistant</div>
-              <div class="option" onclick="answer(this,true)">Un prototype réalisé dans un tissu bon marché pour vérifier le patron</div>
-              <div class="option" onclick="answer(this,false)">La doublure d'un vêtement</div>
-              <div class="option" onclick="answer(this,false)">Le plan de coupe</div>
+              <button class="option" onclick="answer(this,false)">Un type de tissu très résistant</button>
+              <button class="option" onclick="answer(this,true)">Un prototype réalisé dans un tissu bon marché pour vérifier le patron</button>
+              <button class="option" onclick="answer(this,false)">La doublure d'un vêtement</button>
+              <button class="option" onclick="answer(this,false)">Le plan de coupe</button>
             </div>
             <div class="q-feedback">La toile d'essai (ou « toile ») est un prototype cousu dans un tissu bon marché (calicot, percale) pour vérifier les proportions, l'ajustement et le tombé avant de couper le tissu définitif.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Comment tourne-t-on un passepoil dans un coin à angle droit ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">On le coupe et on recommence</div>
-              <div class="option" onclick="answer(this,true)">On crante le ruban du passepoil pour qu'il pivote</div>
-              <div class="option" onclick="answer(this,false)">On plie le passepoil en deux</div>
-              <div class="option" onclick="answer(this,false)">On étire le passepoil</div>
+              <button class="option" onclick="answer(this,false)">On le coupe et on recommence</button>
+              <button class="option" onclick="answer(this,true)">On crante le ruban du passepoil pour qu'il pivote</button>
+              <button class="option" onclick="answer(this,false)">On plie le passepoil en deux</button>
+              <button class="option" onclick="answer(this,false)">On étire le passepoil</button>
             </div>
             <div class="q-feedback">Pour tourner un coin, on fait de petites entailles (crans) dans le ruban du passepoil (pas dans le cordonnet) à l'emplacement du coin. Cela permet au passepoil de pivoter à 90° sans former de pli.</div>
           </div>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">À quoi sert le thermocollant dans la trousse ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">À imperméabiliser le tissu</div>
-              <div class="option" onclick="answer(this,false)">À décorer</div>
-              <div class="option" onclick="answer(this,true)">À donner de la tenue et de la rigidité au tissu</div>
-              <div class="option" onclick="answer(this,false)">À faciliter la couture</div>
+              <button class="option" onclick="answer(this,false)">À imperméabiliser le tissu</button>
+              <button class="option" onclick="answer(this,false)">À décorer</button>
+              <button class="option" onclick="answer(this,true)">À donner de la tenue et de la rigidité au tissu</button>
+              <button class="option" onclick="answer(this,false)">À faciliter la couture</button>
             </div>
             <div class="q-feedback">Le thermocollant (vlieseline) est une toile non tissée avec une face adhésive qui se colle au fer. Il rigidifie le tissu pour que la trousse garde sa forme une fois terminée.</div>
           </div>
@@ -262,8 +262,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

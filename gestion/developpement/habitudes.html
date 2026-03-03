@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Former de nouvelles habitudes, briser les mauvaises et s'adapter au changement avec des méthodes éprouvées.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Habitudes et changement — Développement personnel — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔄 Développement personnel</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Combien de jours faut-il en moyenne pour ancrer une nouvelle habitude ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">21 jours</div>
-              <div class="option" onclick="answer(this,false)">30 jours</div>
-              <div class="option" onclick="answer(this,true)">66 jours</div>
-              <div class="option" onclick="answer(this,false)">90 jours</div>
+              <button class="option" onclick="answer(this,false)">21 jours</button>
+              <button class="option" onclick="answer(this,false)">30 jours</button>
+              <button class="option" onclick="answer(this,true)">66 jours</button>
+              <button class="option" onclick="answer(this,false)">90 jours</button>
             </div>
             <div class="q-feedback">L'étude de Phillippa Lally montre qu'il faut en moyenne 66 jours pour automatiser une habitude. Le chiffre populaire de 21 jours est un mythe.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelles sont les trois étapes de la boucle des habitudes selon Duhigg ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Signal, routine, récompense</div>
-              <div class="option" onclick="answer(this,false)">Motivation, action, résultat</div>
-              <div class="option" onclick="answer(this,false)">Envie, effort, satisfaction</div>
-              <div class="option" onclick="answer(this,false)">Déclencheur, habitude, objectif</div>
+              <button class="option" onclick="answer(this,true)">Signal, routine, récompense</button>
+              <button class="option" onclick="answer(this,false)">Motivation, action, résultat</button>
+              <button class="option" onclick="answer(this,false)">Envie, effort, satisfaction</button>
+              <button class="option" onclick="answer(this,false)">Déclencheur, habitude, objectif</button>
             </div>
             <div class="q-feedback">La boucle de Duhigg : signal (ce qui déclenche), routine (le comportement automatique), récompense (ce qu'on en retire). Pour changer, on modifie la routine en gardant le signal et la récompense.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que propose la « règle des 2 minutes » de James Clear ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Ne jamais faire une tâche de plus de 2 minutes</div>
-              <div class="option" onclick="answer(this,true)">Commencer toute nouvelle habitude par une version de 2 minutes</div>
-              <div class="option" onclick="answer(this,false)">Méditer 2 minutes par jour</div>
-              <div class="option" onclick="answer(this,false)">Attendre 2 minutes avant de céder à une tentation</div>
+              <button class="option" onclick="answer(this,false)">Ne jamais faire une tâche de plus de 2 minutes</button>
+              <button class="option" onclick="answer(this,true)">Commencer toute nouvelle habitude par une version de 2 minutes</button>
+              <button class="option" onclick="answer(this,false)">Méditer 2 minutes par jour</button>
+              <button class="option" onclick="answer(this,false)">Attendre 2 minutes avant de céder à une tentation</button>
             </div>
             <div class="q-feedback">La règle des 2 minutes consiste à réduire toute nouvelle habitude à sa version la plus simple (2 minutes max) pour éliminer la résistance au démarrage. « Lire 30 min » → « Lire une page ».</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce que le « habit stacking » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Faire plusieurs habitudes en même temps</div>
-              <div class="option" onclick="answer(this,true)">Ancrer une nouvelle habitude sur une habitude existante</div>
-              <div class="option" onclick="answer(this,false)">Empiler des récompenses pour se motiver</div>
-              <div class="option" onclick="answer(this,false)">Supprimer toutes ses mauvaises habitudes d'un coup</div>
+              <button class="option" onclick="answer(this,false)">Faire plusieurs habitudes en même temps</button>
+              <button class="option" onclick="answer(this,true)">Ancrer une nouvelle habitude sur une habitude existante</button>
+              <button class="option" onclick="answer(this,false)">Empiler des récompenses pour se motiver</button>
+              <button class="option" onclick="answer(this,false)">Supprimer toutes ses mauvaises habitudes d'un coup</button>
             </div>
             <div class="q-feedback">Le habit stacking utilise la formule « Après [habitude existante], je fais [nouvelle habitude] ». L'habitude existante sert de signal fiable pour déclencher la nouvelle.</div>
           </div>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel pourcentage de nos actions quotidiennes sont des habitudes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">10-15 %</div>
-              <div class="option" onclick="answer(this,false)">25-30 %</div>
-              <div class="option" onclick="answer(this,true)">40-45 %</div>
-              <div class="option" onclick="answer(this,false)">60-70 %</div>
+              <button class="option" onclick="answer(this,false)">10-15 %</button>
+              <button class="option" onclick="answer(this,false)">25-30 %</button>
+              <button class="option" onclick="answer(this,true)">40-45 %</button>
+              <button class="option" onclick="answer(this,false)">60-70 %</button>
             </div>
             <div class="q-feedback">Environ 40 à 45 % de nos actions quotidiennes sont des habitudes automatiques, selon les recherches de Wendy Wood. C'est pourquoi changer ses habitudes a un impact considérable sur sa vie.</div>
           </div>
@@ -203,10 +203,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Selon James Clear, quel est le levier le plus puissant pour un changement durable ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La motivation</div>
-              <div class="option" onclick="answer(this,false)">La discipline</div>
-              <div class="option" onclick="answer(this,true)">Le changement d'identité</div>
-              <div class="option" onclick="answer(this,false)">Les récompenses</div>
+              <button class="option" onclick="answer(this,false)">La motivation</button>
+              <button class="option" onclick="answer(this,false)">La discipline</button>
+              <button class="option" onclick="answer(this,true)">Le changement d'identité</button>
+              <button class="option" onclick="answer(this,false)">Les récompenses</button>
             </div>
             <div class="q-feedback">Clear distingue trois niveaux de changement : résultat, processus et identité. Le plus durable est le changement d'identité : « je suis un coureur » plutôt que « je veux courir ».</div>
           </div>
@@ -276,8 +276,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

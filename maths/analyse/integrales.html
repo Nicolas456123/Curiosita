@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Aire sous la courbe, primitives et méthodes d'intégration — l'opération inverse de la dérivation.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Intégrales — Analyse — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #c0392b;
   --accent2: #e74c3c;
   --accent-dim: rgba(192,57,43,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(192,57,43,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📈 Analyse</span>
     <span class="tag-level">Intermédiaire</span>
@@ -166,10 +166,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est une primitive de f(x) = 3x² ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">6x</div>
-              <div class="option" onclick="answer(this,true)">x³</div>
-              <div class="option" onclick="answer(this,false)">x³/3</div>
-              <div class="option" onclick="answer(this,false)">3x³</div>
+              <button class="option" onclick="answer(this,false)">6x</button>
+              <button class="option" onclick="answer(this,true)">x³</button>
+              <button class="option" onclick="answer(this,false)">x³/3</button>
+              <button class="option" onclick="answer(this,false)">3x³</button>
             </div>
             <div class="q-feedback">La primitive de 3x² est 3 × x³/3 = x³ (plus une constante). On vérifie : (x³)' = 3x² .</div>
           </div>
@@ -177,10 +177,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que vaut ∫<sub>0</sub><sup>1</sup> 2x dx ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">2</div>
-              <div class="option" onclick="answer(this,true)">1</div>
-              <div class="option" onclick="answer(this,false)">0</div>
-              <div class="option" onclick="answer(this,false)">1/2</div>
+              <button class="option" onclick="answer(this,false)">2</button>
+              <button class="option" onclick="answer(this,true)">1</button>
+              <button class="option" onclick="answer(this,false)">0</button>
+              <button class="option" onclick="answer(this,false)">1/2</button>
             </div>
             <div class="q-feedback">∫<sub>0</sub><sup>1</sup> 2x dx = [x²]<sub>0</sub><sup>1</sup> = 1² − 0² = 1. Géométriquement, c'est l'aire d'un triangle de base 1 et de hauteur 2, soit (1 × 2)/2 = 1.</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que dit le théorème fondamental du calcul ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Toute fonction est intégrable</div>
-              <div class="option" onclick="answer(this,false)">L'intégrale d'un produit est le produit des intégrales</div>
-              <div class="option" onclick="answer(this,true)">Si F' = f, alors ∫<sub>a</sub><sup>b</sup> f(x) dx = F(b) − F(a)</div>
-              <div class="option" onclick="answer(this,false)">La dérivée d'une constante est nulle</div>
+              <button class="option" onclick="answer(this,false)">Toute fonction est intégrable</button>
+              <button class="option" onclick="answer(this,false)">L'intégrale d'un produit est le produit des intégrales</button>
+              <button class="option" onclick="answer(this,true)">Si F' = f, alors ∫<sub>a</sub><sup>b</sup> f(x) dx = F(b) − F(a)</button>
+              <button class="option" onclick="answer(this,false)">La dérivée d'une constante est nulle</button>
             </div>
             <div class="q-feedback">Le théorème fondamental relie dérivation et intégration : pour calculer une intégrale définie, il suffit de trouver une primitive F de f et de calculer F(b) − F(a). C'est ce qui rend le calcul intégral pratique.</div>
           </div>
@@ -199,10 +199,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Pour calculer ∫ x·cos(x) dx, quelle méthode est la plus adaptée ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Changement de variable</div>
-              <div class="option" onclick="answer(this,true)">Intégration par parties</div>
-              <div class="option" onclick="answer(this,false)">Décomposition en éléments simples</div>
-              <div class="option" onclick="answer(this,false)">Calcul direct avec une primitive connue</div>
+              <button class="option" onclick="answer(this,false)">Changement de variable</button>
+              <button class="option" onclick="answer(this,true)">Intégration par parties</button>
+              <button class="option" onclick="answer(this,false)">Décomposition en éléments simples</button>
+              <button class="option" onclick="answer(this,false)">Calcul direct avec une primitive connue</button>
             </div>
             <div class="q-feedback">L'intégrale d'un produit polynôme × trigonométrique se traite par intégration par parties. On pose u = x et v' = cos(x), ce qui donne ∫ x·cos(x) dx = x·sin(x) − ∫ sin(x) dx = x·sin(x) + cos(x) + C.</div>
           </div>
@@ -210,10 +210,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">L'intégrale ∫<sub>1</sub><sup>+∞</sup> 1/x dx est-elle convergente ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Oui, elle vaut 1</div>
-              <div class="option" onclick="answer(this,false)">Oui, elle vaut ln(2)</div>
-              <div class="option" onclick="answer(this,true)">Non, elle diverge vers +∞</div>
-              <div class="option" onclick="answer(this,false)">Non, elle diverge vers −∞</div>
+              <button class="option" onclick="answer(this,false)">Oui, elle vaut 1</button>
+              <button class="option" onclick="answer(this,false)">Oui, elle vaut ln(2)</button>
+              <button class="option" onclick="answer(this,true)">Non, elle diverge vers +∞</button>
+              <button class="option" onclick="answer(this,false)">Non, elle diverge vers −∞</button>
             </div>
             <div class="q-feedback">∫<sub>1</sub><sup>+∞</sup> 1/x dx = lim<sub>b→+∞</sub> [ln(x)]<sub>1</sub><sup>b</sup> = lim<sub>b→+∞</sub> ln(b) = +∞. L'intégrale diverge. En revanche, ∫<sub>1</sub><sup>+∞</sup> 1/x² dx converge vers 1. La frontière entre convergence et divergence pour 1/x<sup>α</sup> est α = 1.</div>
           </div>
@@ -221,10 +221,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle est la relation de Chasles pour les intégrales ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">∫<sub>a</sub><sup>b</sup> f dx × ∫<sub>b</sub><sup>c</sup> f dx = ∫<sub>a</sub><sup>c</sup> f dx</div>
-              <div class="option" onclick="answer(this,true)">∫<sub>a</sub><sup>b</sup> f dx + ∫<sub>b</sub><sup>c</sup> f dx = ∫<sub>a</sub><sup>c</sup> f dx</div>
-              <div class="option" onclick="answer(this,false)">∫<sub>a</sub><sup>b</sup> f dx = ∫<sub>a</sub><sup>c</sup> f dx − ∫<sub>c</sub><sup>b</sup> f dx</div>
-              <div class="option" onclick="answer(this,false)">∫<sub>a</sub><sup>b</sup> f dx = ∫<sub>b</sub><sup>a</sup> f dx</div>
+              <button class="option" onclick="answer(this,false)">∫<sub>a</sub><sup>b</sup> f dx × ∫<sub>b</sub><sup>c</sup> f dx = ∫<sub>a</sub><sup>c</sup> f dx</button>
+              <button class="option" onclick="answer(this,true)">∫<sub>a</sub><sup>b</sup> f dx + ∫<sub>b</sub><sup>c</sup> f dx = ∫<sub>a</sub><sup>c</sup> f dx</button>
+              <button class="option" onclick="answer(this,false)">∫<sub>a</sub><sup>b</sup> f dx = ∫<sub>a</sub><sup>c</sup> f dx − ∫<sub>c</sub><sup>b</sup> f dx</button>
+              <button class="option" onclick="answer(this,false)">∫<sub>a</sub><sup>b</sup> f dx = ∫<sub>b</sub><sup>a</sup> f dx</button>
             </div>
             <div class="q-feedback">La relation de Chasles permet de « découper » un intervalle d'intégration : ∫<sub>a</sub><sup>b</sup> + ∫<sub>b</sub><sup>c</sup> = ∫<sub>a</sub><sup>c</sup>. C'est une propriété additive fondamentale de l'intégrale.</div>
           </div>
@@ -294,8 +294,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

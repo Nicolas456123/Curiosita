@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Type I/II, puissance, taille d'effet, significativité — comprendre et maîtriser les erreurs de décision.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Erreurs statistiques — Inférence — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #16a085;
   --accent2: #1abc9c;
   --accent-dim: rgba(22,160,133,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(22,160,133,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(22,160,133,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📊 Inférence</span>
     <span class="tag-level">Intermédiaire</span>
@@ -164,10 +164,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qu'est-ce qu'une erreur de type I ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Rejeter H₀ alors qu'elle est vraie (faux positif)</div>
-              <div class="option" onclick="answer(this,false)">Ne pas rejeter H₀ alors qu'elle est fausse (faux négatif)</div>
-              <div class="option" onclick="answer(this,false)">Utiliser un mauvais test statistique</div>
-              <div class="option" onclick="answer(this,false)">Avoir un échantillon trop petit</div>
+              <button class="option" onclick="answer(this,true)">Rejeter H₀ alors qu'elle est vraie (faux positif)</button>
+              <button class="option" onclick="answer(this,false)">Ne pas rejeter H₀ alors qu'elle est fausse (faux négatif)</button>
+              <button class="option" onclick="answer(this,false)">Utiliser un mauvais test statistique</button>
+              <button class="option" onclick="answer(this,false)">Avoir un échantillon trop petit</button>
             </div>
             <div class="q-feedback">L'erreur de type I (faux positif) consiste à conclure à un effet qui n'existe pas. Sa probabilité est α, le seuil de significativité.</div>
           </div>
@@ -175,10 +175,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que mesure la puissance d'un test (1 − β) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La probabilité de ne pas rejeter H₀ quand elle est vraie</div>
-              <div class="option" onclick="answer(this,true)">La probabilité de rejeter H₀ quand H₁ est vraie</div>
-              <div class="option" onclick="answer(this,false)">La probabilité que H₀ soit vraie</div>
-              <div class="option" onclick="answer(this,false)">Le niveau de confiance de l'intervalle</div>
+              <button class="option" onclick="answer(this,false)">La probabilité de ne pas rejeter H₀ quand elle est vraie</button>
+              <button class="option" onclick="answer(this,true)">La probabilité de rejeter H₀ quand H₁ est vraie</button>
+              <button class="option" onclick="answer(this,false)">La probabilité que H₀ soit vraie</button>
+              <button class="option" onclick="answer(this,false)">Le niveau de confiance de l'intervalle</button>
             </div>
             <div class="q-feedback">La puissance est la capacité du test à détecter un effet réel. Une puissance de 80 % signifie qu'on détecte l'effet 4 fois sur 5 quand il existe.</div>
           </div>
@@ -186,10 +186,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Selon les conventions de Cohen, un d = 0,5 correspond à un effet :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Négligeable</div>
-              <div class="option" onclick="answer(this,false)">Petit</div>
-              <div class="option" onclick="answer(this,true)">Moyen</div>
-              <div class="option" onclick="answer(this,false)">Grand</div>
+              <button class="option" onclick="answer(this,false)">Négligeable</button>
+              <button class="option" onclick="answer(this,false)">Petit</button>
+              <button class="option" onclick="answer(this,true)">Moyen</button>
+              <button class="option" onclick="answer(this,false)">Grand</button>
             </div>
             <div class="q-feedback">Cohen a proposé les conventions suivantes pour le d : petit (0,2), moyen (0,5), grand (0,8). Un d = 0,5 signifie que les moyennes diffèrent d'un demi écart-type.</div>
           </div>
@@ -197,10 +197,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel facteur n'augmente PAS la puissance d'un test ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Augmenter la taille de l'échantillon</div>
-              <div class="option" onclick="answer(this,false)">Augmenter le seuil α</div>
-              <div class="option" onclick="answer(this,true)">Diminuer le seuil α</div>
-              <div class="option" onclick="answer(this,false)">Réduire la variabilité des mesures</div>
+              <button class="option" onclick="answer(this,false)">Augmenter la taille de l'échantillon</button>
+              <button class="option" onclick="answer(this,false)">Augmenter le seuil α</button>
+              <button class="option" onclick="answer(this,true)">Diminuer le seuil α</button>
+              <button class="option" onclick="answer(this,false)">Réduire la variabilité des mesures</button>
             </div>
             <div class="q-feedback">Diminuer α (être plus exigeant pour rejeter H₀) réduit la puissance. C'est le compromis fondamental entre erreur de type I et erreur de type II.</div>
           </div>
@@ -208,10 +208,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce que le p-hacking ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Utiliser un seuil α trop élevé</div>
-              <div class="option" onclick="answer(this,true)">Multiplier les analyses jusqu'à obtenir p < 0,05</div>
-              <div class="option" onclick="answer(this,false)">Corriger la p-value pour tests multiples</div>
-              <div class="option" onclick="answer(this,false)">Utiliser un test non paramétrique</div>
+              <button class="option" onclick="answer(this,false)">Utiliser un seuil α trop élevé</button>
+              <button class="option" onclick="answer(this,true)">Multiplier les analyses jusqu'à obtenir p < 0,05</button>
+              <button class="option" onclick="answer(this,false)">Corriger la p-value pour tests multiples</button>
+              <button class="option" onclick="answer(this,false)">Utiliser un test non paramétrique</button>
             </div>
             <div class="q-feedback">Le p-hacking consiste à essayer différentes analyses, variables ou sous-groupes jusqu'à trouver un résultat significatif, sans corriger pour les comparaisons multiples. C'est une pratique problématique qui gonfle le taux de faux positifs.</div>
           </div>
@@ -219,10 +219,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Un résultat avec p = 0,001 et d = 0,05 est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Important et significatif</div>
-              <div class="option" onclick="answer(this,true)">Significatif mais probablement négligeable en pratique</div>
-              <div class="option" onclick="answer(this,false)">Non significatif mais important</div>
-              <div class="option" onclick="answer(this,false)">Impossible à obtenir</div>
+              <button class="option" onclick="answer(this,false)">Important et significatif</button>
+              <button class="option" onclick="answer(this,true)">Significatif mais probablement négligeable en pratique</button>
+              <button class="option" onclick="answer(this,false)">Non significatif mais important</button>
+              <button class="option" onclick="answer(this,false)">Impossible à obtenir</button>
             </div>
             <div class="q-feedback">Avec un grand échantillon, même un effet minuscule (d = 0,05) peut donner une p-value très petite. Le résultat est statistiquement significatif mais la taille d'effet est négligeable — il n'a probablement aucune importance pratique.</div>
           </div>
@@ -314,8 +314,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

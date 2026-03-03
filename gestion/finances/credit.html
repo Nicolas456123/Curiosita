@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Emprunt immobilier, crédit à la consommation, taux d'intérêt et prévention du surendettement.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Crédit et endettement — Finances personnelles — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">💳 Finances personnelles</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -151,10 +151,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est le taux d'endettement maximum recommandé ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">25 %</div>
-              <div class="option" onclick="answer(this,true)">35 %</div>
-              <div class="option" onclick="answer(this,false)">45 %</div>
-              <div class="option" onclick="answer(this,false)">50 %</div>
+              <button class="option" onclick="answer(this,false)">25 %</button>
+              <button class="option" onclick="answer(this,true)">35 %</button>
+              <button class="option" onclick="answer(this,false)">45 %</button>
+              <button class="option" onclick="answer(this,false)">50 %</button>
             </div>
             <div class="q-feedback">Le seuil de 35 % des revenus nets est la règle utilisée par les banques. Au-delà, l'emprunteur risque de ne pas pouvoir faire face à ses charges courantes.</div>
           </div>
@@ -162,10 +162,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que comprend le TAEG ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Uniquement le taux d'intérêt</div>
-              <div class="option" onclick="answer(this,true)">Taux d'intérêt + frais de dossier + assurance + garanties</div>
-              <div class="option" onclick="answer(this,false)">Le taux et les frais de dossier uniquement</div>
-              <div class="option" onclick="answer(this,false)">Le taux d'intérêt et l'inflation</div>
+              <button class="option" onclick="answer(this,false)">Uniquement le taux d'intérêt</button>
+              <button class="option" onclick="answer(this,true)">Taux d'intérêt + frais de dossier + assurance + garanties</button>
+              <button class="option" onclick="answer(this,false)">Le taux et les frais de dossier uniquement</button>
+              <button class="option" onclick="answer(this,false)">Le taux d'intérêt et l'inflation</button>
             </div>
             <div class="q-feedback">Le TAEG inclut tous les coûts du crédit : taux nominal, frais de dossier, assurance emprunteur et frais de garantie. C'est l'indicateur de comparaison le plus fiable.</div>
           </div>
@@ -173,10 +173,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel type de crédit est la première cause de surendettement ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le crédit immobilier</div>
-              <div class="option" onclick="answer(this,true)">Le crédit revolving (renouvelable)</div>
-              <div class="option" onclick="answer(this,false)">Le prêt personnel</div>
-              <div class="option" onclick="answer(this,false)">Le crédit auto</div>
+              <button class="option" onclick="answer(this,false)">Le crédit immobilier</button>
+              <button class="option" onclick="answer(this,true)">Le crédit revolving (renouvelable)</button>
+              <button class="option" onclick="answer(this,false)">Le prêt personnel</button>
+              <button class="option" onclick="answer(this,false)">Le crédit auto</button>
             </div>
             <div class="q-feedback">Le crédit revolving (renouvelable) est la première cause de surendettement en France. Ses taux très élevés (15-20 %) et sa reconstitution automatique créent un piège de dette permanente.</div>
           </div>
@@ -184,10 +184,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Combien de jours a-t-on pour se rétracter d'un crédit conso ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">7 jours</div>
-              <div class="option" onclick="answer(this,true)">14 jours</div>
-              <div class="option" onclick="answer(this,false)">30 jours</div>
-              <div class="option" onclick="answer(this,false)">60 jours</div>
+              <button class="option" onclick="answer(this,false)">7 jours</button>
+              <button class="option" onclick="answer(this,true)">14 jours</button>
+              <button class="option" onclick="answer(this,false)">30 jours</button>
+              <button class="option" onclick="answer(this,false)">60 jours</button>
             </div>
             <div class="q-feedback">Le délai de rétractation pour un crédit à la consommation est de 14 jours à compter de la signature du contrat. C'est un droit protecteur important du consommateur.</div>
           </div>
@@ -195,10 +195,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle loi permet de changer d'assurance emprunteur à tout moment ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La loi Hamon</div>
-              <div class="option" onclick="answer(this,false)">La loi Lagarde</div>
-              <div class="option" onclick="answer(this,true)">La loi Lemoine (2022)</div>
-              <div class="option" onclick="answer(this,false)">La loi Scrivener</div>
+              <button class="option" onclick="answer(this,false)">La loi Hamon</button>
+              <button class="option" onclick="answer(this,false)">La loi Lagarde</button>
+              <button class="option" onclick="answer(this,true)">La loi Lemoine (2022)</button>
+              <button class="option" onclick="answer(this,false)">La loi Scrivener</button>
             </div>
             <div class="q-feedback">La loi Lemoine (2022) permet de changer d'assurance emprunteur à tout moment, sans frais, pour un contrat offrant des garanties équivalentes. Cela peut générer des économies de plusieurs milliers d'euros.</div>
           </div>
@@ -206,10 +206,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Qu'est-ce que la méthode « boule de neige » pour rembourser ses dettes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Rembourser toutes les dettes en même temps</div>
-              <div class="option" onclick="answer(this,true)">Rembourser d'abord la plus petite dette, puis reporter sur la suivante</div>
-              <div class="option" onclick="answer(this,false)">Ne rembourser que les intérêts</div>
-              <div class="option" onclick="answer(this,false)">Regrouper toutes ses dettes en une seule</div>
+              <button class="option" onclick="answer(this,false)">Rembourser toutes les dettes en même temps</button>
+              <button class="option" onclick="answer(this,true)">Rembourser d'abord la plus petite dette, puis reporter sur la suivante</button>
+              <button class="option" onclick="answer(this,false)">Ne rembourser que les intérêts</button>
+              <button class="option" onclick="answer(this,false)">Regrouper toutes ses dettes en une seule</button>
             </div>
             <div class="q-feedback">La méthode boule de neige consiste à rembourser d'abord la plus petite dette (effet psychologique de victoire), puis à reporter la mensualité libérée sur la dette suivante, créant un effet d'accélération.</div>
           </div>
@@ -282,8 +282,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

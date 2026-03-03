@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mesurer la sensibilité des agents économiques aux variations de prix, de revenu ou des prix d'autres biens.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Élasticité — Microéconomie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #c97ae8;
   --accent2: #ce93d8;
   --accent-dim: rgba(201,122,232,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(201,122,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(201,122,232,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📏 Microéconomie</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -180,10 +180,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Le prix de l'essence augmente de 10 % et la quantité demandée ne baisse que de 3 %. L'élasticité-prix est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Élastique (|Ep| > 1)</div>
-              <div class="option" onclick="answer(this,true)">Inélastique (|Ep| < 1)</div>
-              <div class="option" onclick="answer(this,false)">Unitaire (|Ep| = 1)</div>
-              <div class="option" onclick="answer(this,false)">Parfaitement élastique</div>
+              <button class="option" onclick="answer(this,false)">Élastique (|Ep| > 1)</button>
+              <button class="option" onclick="answer(this,true)">Inélastique (|Ep| < 1)</button>
+              <button class="option" onclick="answer(this,false)">Unitaire (|Ep| = 1)</button>
+              <button class="option" onclick="answer(this,false)">Parfaitement élastique</button>
             </div>
             <div class="q-feedback">Ep = -3% / 10% = -0,3. En valeur absolue |Ep| = 0,3 < 1, donc la demande est inélastique. L'essence est un bien de première nécessité avec peu de substituts à court terme.</div>
           </div>
@@ -191,10 +191,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Si la demande est élastique, une hausse du prix entraîne :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Une baisse de la recette totale</div>
-              <div class="option" onclick="answer(this,false)">Une hausse de la recette totale</div>
-              <div class="option" onclick="answer(this,false)">Aucun changement de la recette</div>
-              <div class="option" onclick="answer(this,false)">Une hausse de la quantité demandée</div>
+              <button class="option" onclick="answer(this,true)">Une baisse de la recette totale</button>
+              <button class="option" onclick="answer(this,false)">Une hausse de la recette totale</button>
+              <button class="option" onclick="answer(this,false)">Aucun changement de la recette</button>
+              <button class="option" onclick="answer(this,false)">Une hausse de la quantité demandée</button>
             </div>
             <div class="q-feedback">Quand la demande est élastique (|Ep| > 1), la baisse de quantité est proportionnellement plus grande que la hausse de prix. La recette totale (P x Q) diminue donc.</div>
           </div>
@@ -202,10 +202,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Un bien dont l'élasticité-revenu est négative est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un bien de luxe</div>
-              <div class="option" onclick="answer(this,false)">Un bien normal</div>
-              <div class="option" onclick="answer(this,true)">Un bien inférieur</div>
-              <div class="option" onclick="answer(this,false)">Un bien complémentaire</div>
+              <button class="option" onclick="answer(this,false)">Un bien de luxe</button>
+              <button class="option" onclick="answer(this,false)">Un bien normal</button>
+              <button class="option" onclick="answer(this,true)">Un bien inférieur</button>
+              <button class="option" onclick="answer(this,false)">Un bien complémentaire</button>
             </div>
             <div class="q-feedback">Un bien inférieur a une élasticité-revenu négative : quand le revenu augmente, les consommateurs achètent moins de ce bien et se tournent vers des alternatives de meilleure qualité.</div>
           </div>
@@ -213,10 +213,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">L'élasticité croisée entre le beurre et la margarine est probablement :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Positive (biens substituts)</div>
-              <div class="option" onclick="answer(this,false)">Négative (biens complémentaires)</div>
-              <div class="option" onclick="answer(this,false)">Nulle (biens indépendants)</div>
-              <div class="option" onclick="answer(this,false)">Infinie</div>
+              <button class="option" onclick="answer(this,true)">Positive (biens substituts)</button>
+              <button class="option" onclick="answer(this,false)">Négative (biens complémentaires)</button>
+              <button class="option" onclick="answer(this,false)">Nulle (biens indépendants)</button>
+              <button class="option" onclick="answer(this,false)">Infinie</button>
             </div>
             <div class="q-feedback">Le beurre et la margarine sont des biens substituts : quand le prix du beurre augmente, les consommateurs se tournent vers la margarine. L'élasticité croisée est donc positive (Exy > 0).</div>
           </div>
@@ -224,10 +224,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Selon l'indice de Lerner, si l'élasticité-prix de la demande est de -2, la marge optimale du monopoleur est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">100 %</div>
-              <div class="option" onclick="answer(this,true)">50 %</div>
-              <div class="option" onclick="answer(this,false)">25 %</div>
-              <div class="option" onclick="answer(this,false)">200 %</div>
+              <button class="option" onclick="answer(this,false)">100 %</button>
+              <button class="option" onclick="answer(this,true)">50 %</button>
+              <button class="option" onclick="answer(this,false)">25 %</button>
+              <button class="option" onclick="answer(this,false)">200 %</button>
             </div>
             <div class="q-feedback">L'indice de Lerner L = (P - Cm) / P = 1 / |Ep| = 1 / 2 = 0,5 soit 50 %. Plus la demande est inélastique, plus le monopoleur peut augmenter sa marge au-dessus du coût marginal.</div>
           </div>
@@ -235,10 +235,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Pourquoi l'offre agricole est-elle très inélastique à court terme ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Parce que les agriculteurs fixent les prix</div>
-              <div class="option" onclick="answer(this,false)">Parce que la demande alimentaire est constante</div>
-              <div class="option" onclick="answer(this,true)">Parce que les cycles de production sont longs et les capacités fixes</div>
-              <div class="option" onclick="answer(this,false)">Parce que l'État subventionne la production</div>
+              <button class="option" onclick="answer(this,false)">Parce que les agriculteurs fixent les prix</button>
+              <button class="option" onclick="answer(this,false)">Parce que la demande alimentaire est constante</button>
+              <button class="option" onclick="answer(this,true)">Parce que les cycles de production sont longs et les capacités fixes</button>
+              <button class="option" onclick="answer(this,false)">Parce que l'État subventionne la production</button>
             </div>
             <div class="q-feedback">Les cycles de production agricole (semis, croissance, récolte) durent plusieurs mois. Un agriculteur ne peut pas augmenter sa production instantanément en réponse à une hausse de prix. L'offre est donc très inélastique à court terme, ce qui explique la forte volatilité des prix agricoles.</div>
           </div>
@@ -305,8 +305,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

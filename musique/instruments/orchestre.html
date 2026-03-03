@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'instrument des instruments — jusqu'a cent musiciens unis sous la direction d'un chef pour produire la palette sonore la plus riche qui soit.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>L'orchestre symphonique — Instruments — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e8b07a;
   --accent2: #ffcc80;
   --accent-dim: rgba(232,176,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,176,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,176,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎻 Instruments</span>
     <span class="tag-level">Intermédiaire</span>
@@ -163,10 +163,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quelle famille d'instruments représente la majorité des musiciens de l'orchestre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Les cordes</div>
-              <div class="option" onclick="answer(this,false)">Les bois</div>
-              <div class="option" onclick="answer(this,false)">Les cuivres</div>
-              <div class="option" onclick="answer(this,false)">Les percussions</div>
+              <button class="option" onclick="answer(this,true)">Les cordes</button>
+              <button class="option" onclick="answer(this,false)">Les bois</button>
+              <button class="option" onclick="answer(this,false)">Les cuivres</button>
+              <button class="option" onclick="answer(this,false)">Les percussions</button>
             </div>
             <div class="q-feedback">Les cordes représentent environ les deux tiers des musiciens de l'orchestre (60 instrumentistes à cordes sur un total de 80-100 musiciens).</div>
           </div>
@@ -174,10 +174,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Quel instrument donne le « la » d'accord à l'orchestre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La flûte</div>
-              <div class="option" onclick="answer(this,true)">Le hautbois</div>
-              <div class="option" onclick="answer(this,false)">Le violon</div>
-              <div class="option" onclick="answer(this,false)">La trompette</div>
+              <button class="option" onclick="answer(this,false)">La flûte</button>
+              <button class="option" onclick="answer(this,true)">Le hautbois</button>
+              <button class="option" onclick="answer(this,false)">Le violon</button>
+              <button class="option" onclick="answer(this,false)">La trompette</button>
             </div>
             <div class="q-feedback">Le hautbois donne le « la » d'accord (440 Hz) car son timbre pénétrant est facilement audible par tous les musiciens, et son intonation est relativement stable et difficile à modifier.</div>
           </div>
@@ -185,10 +185,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Quelles sont les quatre familles d'instruments de l'orchestre symphonique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Piano, guitare, voix, batterie</div>
-              <div class="option" onclick="answer(this,false)">Cordes, vents, harpe, timbales</div>
-              <div class="option" onclick="answer(this,true)">Cordes, bois, cuivres, percussions</div>
-              <div class="option" onclick="answer(this,false)">Violons, flûtes, trompettes, tambours</div>
+              <button class="option" onclick="answer(this,false)">Piano, guitare, voix, batterie</button>
+              <button class="option" onclick="answer(this,false)">Cordes, vents, harpe, timbales</button>
+              <button class="option" onclick="answer(this,true)">Cordes, bois, cuivres, percussions</button>
+              <button class="option" onclick="answer(this,false)">Violons, flûtes, trompettes, tambours</button>
             </div>
             <div class="q-feedback">Les quatre familles de l'orchestre sont les cordes (frottées), les bois (flûte, hautbois, clarinette, basson), les cuivres (cor, trompette, trombone, tuba) et les percussions (timbales, cymbales, etc.).</div>
           </div>
@@ -196,10 +196,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quelle est la différence entre un orchestre symphonique et un orchestre philharmonique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le philharmonique a plus de musiciens</div>
-              <div class="option" onclick="answer(this,false)">Le symphonique n'a pas de percussions</div>
-              <div class="option" onclick="answer(this,true)">Aucune différence de composition — « philharmonique » est un titre honorifique</div>
-              <div class="option" onclick="answer(this,false)">Le philharmonique utilise des instruments anciens</div>
+              <button class="option" onclick="answer(this,false)">Le philharmonique a plus de musiciens</button>
+              <button class="option" onclick="answer(this,false)">Le symphonique n'a pas de percussions</button>
+              <button class="option" onclick="answer(this,true)">Aucune différence de composition — « philharmonique » est un titre honorifique</button>
+              <button class="option" onclick="answer(this,false)">Le philharmonique utilise des instruments anciens</button>
             </div>
             <div class="q-feedback">Il n'y a aucune différence d'effectif ou de composition entre un orchestre symphonique et un orchestre philharmonique. Le terme « philharmonique » est un titre historique honorifique signifiant « qui aime l'harmonie ».</div>
           </div>
@@ -207,10 +207,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quel chef d'orchestre a dirigé le Philharmonique de Berlin pendant 35 ans ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Leonard Bernstein</div>
-              <div class="option" onclick="answer(this,false)">Arturo Toscanini</div>
-              <div class="option" onclick="answer(this,true)">Herbert von Karajan</div>
-              <div class="option" onclick="answer(this,false)">Claudio Abbado</div>
+              <button class="option" onclick="answer(this,false)">Leonard Bernstein</button>
+              <button class="option" onclick="answer(this,false)">Arturo Toscanini</button>
+              <button class="option" onclick="answer(this,true)">Herbert von Karajan</button>
+              <button class="option" onclick="answer(this,false)">Claudio Abbado</button>
             </div>
             <div class="q-feedback">Herbert von Karajan (1908-1989) a dirigé le Philharmonique de Berlin de 1954 à 1989, soit 35 ans. Sous sa direction, l'orchestre est devenu l'un des plus célèbres et des plus enregistrés au monde, avec un son caractéristique lisse et puissant.</div>
           </div>
@@ -239,8 +239,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

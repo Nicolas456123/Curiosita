@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Transgression, étiquetage, contrôle social et construction sociale de la déviance — pourquoi et comment les sociétés définissent ce qui est « normal ».">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Déviance et normes — Culture et identité — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a0f5a0;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">⚡ Culture et identité</span>
     <span class="tag-level">Intermédiaire</span>
@@ -119,10 +119,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Selon Durkheim, la déviance est-elle un phénomène normal ou pathologique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Normal — toute société produit de la déviance</div>
-              <div class="option" onclick="answer(this,false)">Pathologique — elle indique un dysfonctionnement</div>
-              <div class="option" onclick="answer(this,false)">Ni l'un ni l'autre</div>
-              <div class="option" onclick="answer(this,false)">Uniquement pathologique dans les sociétés modernes</div>
+              <button class="option" onclick="answer(this,true)">Normal — toute société produit de la déviance</button>
+              <button class="option" onclick="answer(this,false)">Pathologique — elle indique un dysfonctionnement</button>
+              <button class="option" onclick="answer(this,false)">Ni l'un ni l'autre</button>
+              <button class="option" onclick="answer(this,false)">Uniquement pathologique dans les sociétés modernes</button>
             </div>
             <div class="q-feedback">Pour Durkheim, la déviance est un phénomène normal et universel. Aucune société ne peut exister sans déviance, et elle remplit des fonctions sociales (cohésion, innovation, réactivation des frontières morales).</div>
           </div>
@@ -130,10 +130,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Quel est le principe central de la théorie de l'étiquetage de Becker ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La déviance est innée chez certains individus</div>
-              <div class="option" onclick="answer(this,true)">La déviance est le produit de l'application de normes par les autres</div>
-              <div class="option" onclick="answer(this,false)">La déviance résulte de la pauvreté</div>
-              <div class="option" onclick="answer(this,false)">La déviance est causée par l'anomie</div>
+              <button class="option" onclick="answer(this,false)">La déviance est innée chez certains individus</button>
+              <button class="option" onclick="answer(this,true)">La déviance est le produit de l'application de normes par les autres</button>
+              <button class="option" onclick="answer(this,false)">La déviance résulte de la pauvreté</button>
+              <button class="option" onclick="answer(this,false)">La déviance est causée par l'anomie</button>
             </div>
             <div class="q-feedback">Pour Becker, le déviant est celui auquel l'étiquette de déviant a été appliquée avec succès. La déviance n'est pas une qualité de l'acte mais le résultat d'un processus social d'étiquetage.</div>
           </div>
@@ -141,10 +141,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Chez Merton, comment s'appelle l'adaptation qui utilise des moyens illégaux pour atteindre les buts culturels ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">L'innovation</div>
-              <div class="option" onclick="answer(this,false)">Le ritualisme</div>
-              <div class="option" onclick="answer(this,false)">Le retrait</div>
-              <div class="option" onclick="answer(this,false)">La rébellion</div>
+              <button class="option" onclick="answer(this,true)">L'innovation</button>
+              <button class="option" onclick="answer(this,false)">Le ritualisme</button>
+              <button class="option" onclick="answer(this,false)">Le retrait</button>
+              <button class="option" onclick="answer(this,false)">La rébellion</button>
             </div>
             <div class="q-feedback">L'innovation chez Merton désigne l'adoption de moyens illégitimes (vol, trafic, fraude) pour atteindre les buts culturels valorisés (richesse, réussite). C'est la forme de déviance la plus fréquente quand les moyens légitimes sont inaccessibles.</div>
           </div>
@@ -152,10 +152,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Que désigne l'anomie chez Durkheim ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'absence de lois dans une société</div>
-              <div class="option" onclick="answer(this,true)">Une situation de dérèglement normatif où les repères s'effondrent</div>
-              <div class="option" onclick="answer(this,false)">Le refus individuel de respecter les normes</div>
-              <div class="option" onclick="answer(this,false)">La domination d'un groupe sur un autre</div>
+              <button class="option" onclick="answer(this,false)">L'absence de lois dans une société</button>
+              <button class="option" onclick="answer(this,true)">Une situation de dérèglement normatif où les repères s'effondrent</button>
+              <button class="option" onclick="answer(this,false)">Le refus individuel de respecter les normes</button>
+              <button class="option" onclick="answer(this,false)">La domination d'un groupe sur un autre</button>
             </div>
             <div class="q-feedback">L'anomie désigne un état de dérèglement des normes sociales : les règles deviennent floues, contradictoires ou inefficaces, laissant les individus sans repères, ce qui favorise la déviance et le mal-être.</div>
           </div>
@@ -163,10 +163,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Que sont les « entrepreneurs de morale » dans la théorie de Becker ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Des chefs d'entreprise philanthropes</div>
-              <div class="option" onclick="answer(this,true)">Des acteurs qui créent ou font appliquer les normes</div>
-              <div class="option" onclick="answer(this,false)">Des enseignants de morale</div>
-              <div class="option" onclick="answer(this,false)">Des personnes particulièrement vertueuses</div>
+              <button class="option" onclick="answer(this,false)">Des chefs d'entreprise philanthropes</button>
+              <button class="option" onclick="answer(this,true)">Des acteurs qui créent ou font appliquer les normes</button>
+              <button class="option" onclick="answer(this,false)">Des enseignants de morale</button>
+              <button class="option" onclick="answer(this,false)">Des personnes particulièrement vertueuses</button>
             </div>
             <div class="q-feedback">Les « entrepreneurs de morale » sont les acteurs sociaux qui prennent l'initiative de créer de nouvelles normes (les « créateurs de normes ») ou de les faire appliquer (les « applicateurs de normes » : police, juges), jouant ainsi un rôle clé dans la production de la déviance.</div>
           </div>
@@ -233,8 +233,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

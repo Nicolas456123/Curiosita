@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De la loi de Coulomb au potentiel lectrique : comprendre comment les charges cr ent des champs, des forces et stockent de l' nergie dans les condensateurs.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Charges &eacute;lectriques &mdash; &Eacute;lectromagn&eacute;tisme &mdash; Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08);  --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -21,7 +21,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">&#9889; &Eacute;lectromagn&eacute;tisme</span>
     <span class="tag-level">D&eacute;butant &rarr; Interm&eacute;diaire</span>
@@ -154,10 +154,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la valeur de la charge &eacute;l&eacute;mentaire e ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1,6 &times; 10&minus;&sup1;&sup2; C</div>
-              <div class="option" onclick="answer(this,true)">1,6 &times; 10&minus;&sup1;&sup9; C</div>
-              <div class="option" onclick="answer(this,false)">9,1 &times; 10&minus;&sup3;&sup1; C</div>
-              <div class="option" onclick="answer(this,false)">6,02 &times; 10&sup2;&sup3; C</div>
+              <button class="option" onclick="answer(this,false)">1,6 &times; 10&minus;&sup1;&sup2; C</button>
+              <button class="option" onclick="answer(this,true)">1,6 &times; 10&minus;&sup1;&sup9; C</button>
+              <button class="option" onclick="answer(this,false)">9,1 &times; 10&minus;&sup3;&sup1; C</button>
+              <button class="option" onclick="answer(this,false)">6,02 &times; 10&sup2;&sup3; C</button>
             </div>
             <div class="q-feedback">La charge &eacute;l&eacute;mentaire e = 1,602 &times; 10&minus;&sup1;&sup9; C correspond &agrave; la charge du proton (et &agrave; la valeur absolue de celle de l'&eacute;lectron).</div>
           </div>
@@ -166,10 +166,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Selon la loi de Coulomb, si on double la distance entre deux charges, la force est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Divis&eacute;e par 2</div>
-              <div class="option" onclick="answer(this,true)">Divis&eacute;e par 4</div>
-              <div class="option" onclick="answer(this,false)">Multipli&eacute;e par 2</div>
-              <div class="option" onclick="answer(this,false)">Multipli&eacute;e par 4</div>
+              <button class="option" onclick="answer(this,false)">Divis&eacute;e par 2</button>
+              <button class="option" onclick="answer(this,true)">Divis&eacute;e par 4</button>
+              <button class="option" onclick="answer(this,false)">Multipli&eacute;e par 2</button>
+              <button class="option" onclick="answer(this,false)">Multipli&eacute;e par 4</button>
             </div>
             <div class="q-feedback">La loi de Coulomb est en 1/r&sup2;. Si r est doubl&eacute;e, la force est divis&eacute;e par 2&sup2; = 4. C'est une loi en carr&eacute; inverse, comme la gravitation.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle est l'unit&eacute; du champ &eacute;lectrique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Coulomb (C)</div>
-              <div class="option" onclick="answer(this,false)">Farad (F)</div>
-              <div class="option" onclick="answer(this,true)">Volt par m&egrave;tre (V/m)</div>
-              <div class="option" onclick="answer(this,false)">Tesla (T)</div>
+              <button class="option" onclick="answer(this,false)">Coulomb (C)</button>
+              <button class="option" onclick="answer(this,false)">Farad (F)</button>
+              <button class="option" onclick="answer(this,true)">Volt par m&egrave;tre (V/m)</button>
+              <button class="option" onclick="answer(this,false)">Tesla (T)</button>
             </div>
             <div class="q-feedback">Le champ &eacute;lectrique s'exprime en V/m (ou de mani&egrave;re &eacute;quivalente en N/C). E = F/q donne des N/C, et E = &minus;dV/dr donne des V/m.</div>
           </div>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Comment sont associ&eacute;s les condensateurs pour augmenter la capacit&eacute; totale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">En s&eacute;rie</div>
-              <div class="option" onclick="answer(this,true)">En parall&egrave;le</div>
-              <div class="option" onclick="answer(this,false)">En &eacute;toile</div>
-              <div class="option" onclick="answer(this,false)">Cela n'a pas d'influence</div>
+              <button class="option" onclick="answer(this,false)">En s&eacute;rie</button>
+              <button class="option" onclick="answer(this,true)">En parall&egrave;le</button>
+              <button class="option" onclick="answer(this,false)">En &eacute;toile</button>
+              <button class="option" onclick="answer(this,false)">Cela n'a pas d'influence</button>
             </div>
             <div class="q-feedback">En parall&egrave;le, les capacit&eacute;s s'ajoutent : C<sub>eq</sub> = C&#8321; + C&#8322;. En s&eacute;rie, c'est l'inverse des capacit&eacute;s qui s'ajoutent, ce qui r&eacute;duit la capacit&eacute; totale.</div>
           </div>
@@ -202,10 +202,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Le th&eacute;or&egrave;me de Gauss relie le flux du champ &eacute;lectrique &agrave; :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La tension aux bornes du conducteur</div>
-              <div class="option" onclick="answer(this,false)">Le courant traversant la surface</div>
-              <div class="option" onclick="answer(this,true)">La charge totale contenue dans la surface ferm&eacute;e</div>
-              <div class="option" onclick="answer(this,false)">Le potentiel magn&eacute;tique</div>
+              <button class="option" onclick="answer(this,false)">La tension aux bornes du conducteur</button>
+              <button class="option" onclick="answer(this,false)">Le courant traversant la surface</button>
+              <button class="option" onclick="answer(this,true)">La charge totale contenue dans la surface ferm&eacute;e</button>
+              <button class="option" onclick="answer(this,false)">Le potentiel magn&eacute;tique</button>
             </div>
             <div class="q-feedback">Le th&eacute;or&egrave;me de Gauss : &Phi; = &oint; E &middot; dS = Q<sub>int</sub> / &epsilon;&#8320;. Le flux total du champ &eacute;lectrique &agrave; travers une surface ferm&eacute;e est proportionnel &agrave; la charge enferm&eacute;e.</div>
           </div>
@@ -214,10 +214,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">L'&eacute;nergie stock&eacute;e dans un condensateur de capacit&eacute; C sous tension U vaut :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">W = C &middot; U</div>
-              <div class="option" onclick="answer(this,false)">W = C &middot; U&sup2;</div>
-              <div class="option" onclick="answer(this,true)">W = &frac12; &middot; C &middot; U&sup2;</div>
-              <div class="option" onclick="answer(this,false)">W = 2 &middot; C &middot; U&sup2;</div>
+              <button class="option" onclick="answer(this,false)">W = C &middot; U</button>
+              <button class="option" onclick="answer(this,false)">W = C &middot; U&sup2;</button>
+              <button class="option" onclick="answer(this,true)">W = &frac12; &middot; C &middot; U&sup2;</button>
+              <button class="option" onclick="answer(this,false)">W = 2 &middot; C &middot; U&sup2;</button>
             </div>
             <div class="q-feedback">L'&eacute;nergie stock&eacute;e est W = &frac12;CU&sup2;. Le facteur &frac12; vient de l'int&eacute;gration : l'&eacute;nergie est l'int&eacute;grale de U &middot; dQ de 0 &agrave; Q, avec U = Q/C.</div>
           </div>
@@ -309,8 +309,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

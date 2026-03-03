@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pigmentation, altitude, lactase, metabolisme : comment l&#x27;humain s&#x27;adapte aux environnements extremes.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Adaptations biologiques — Anthropologie physique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🏺 Anthropologie</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -105,10 +105,10 @@
             <p class="q-num">Question 1 / 3</p>
             <p class="q-text">Pourquoi la peau est-elle plus foncée près de l&#x27;équateur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pour résister à la chaleur</div>
-              <div class="option" onclick="answer(this,true)">Pour protéger l&#x27;acide folique des UV</div>
-              <div class="option" onclick="answer(this,false)">Pour absorber plus de vitamine D</div>
-              <div class="option" onclick="answer(this,false)">Pour des raisons esthétiques</div>
+              <button class="option" onclick="answer(this,false)">Pour résister à la chaleur</button>
+              <button class="option" onclick="answer(this,true)">Pour protéger l&#x27;acide folique des UV</button>
+              <button class="option" onclick="answer(this,false)">Pour absorber plus de vitamine D</button>
+              <button class="option" onclick="answer(this,false)">Pour des raisons esthétiques</button>
             </div>
             <div class="q-feedback">La mélanine protège l&#x27;acide folique (vitamine B9), essentielle pour le développement du fœtus, contre la dégradation par les rayons UV intenses des tropiques.</div>
           </div>
@@ -116,10 +116,10 @@
             <p class="q-num">Question 2 / 3</p>
             <p class="q-text">D&#x27;où vient le gène EPAS1 des Tibétains ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">D&#x27;une mutation récente</div>
-              <div class="option" onclick="answer(this,false)">Des Néandertaliens</div>
-              <div class="option" onclick="answer(this,true)">Des Dénisoviens</div>
-              <div class="option" onclick="answer(this,false)">Des Homo erectus</div>
+              <button class="option" onclick="answer(this,false)">D&#x27;une mutation récente</button>
+              <button class="option" onclick="answer(this,false)">Des Néandertaliens</button>
+              <button class="option" onclick="answer(this,true)">Des Dénisoviens</button>
+              <button class="option" onclick="answer(this,false)">Des Homo erectus</button>
             </div>
             <div class="q-feedback">Le gène EPAS1, qui aide les Tibétains à vivre en haute altitude, a été hérité par hybridation avec les Dénisoviens il y a des dizaines de milliers d&#x27;années.</div>
           </div>
@@ -127,10 +127,10 @@
             <p class="q-num">Question 3 / 3</p>
             <p class="q-text">Qu&#x27;est-ce que la persistance de la lactase ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une maladie génétique</div>
-              <div class="option" onclick="answer(this,true)">La capacité à digérer le lait à l&#x27;âge adulte</div>
-              <div class="option" onclick="answer(this,false)">Une allergie au lactose</div>
-              <div class="option" onclick="answer(this,false)">La production excessive de lactose</div>
+              <button class="option" onclick="answer(this,false)">Une maladie génétique</button>
+              <button class="option" onclick="answer(this,true)">La capacité à digérer le lait à l&#x27;âge adulte</button>
+              <button class="option" onclick="answer(this,false)">Une allergie au lactose</button>
+              <button class="option" onclick="answer(this,false)">La production excessive de lactose</button>
             </div>
             <div class="q-feedback">La persistance de la lactase est une adaptation génétique qui permet de continuer à produire l&#x27;enzyme lactase après le sevrage, rendant possible la digestion du lait.</div>
           </div>
@@ -176,8 +176,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Les gammes sont les palettes de notes à partir desquelles toute mélodie et toute harmonie sont construites.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Gammes et modes — Théorie musicale — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e8b07a;
   --accent2: #ffcc80;
   --accent-dim: rgba(232,176,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,176,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,176,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎹 Théorie musicale</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -161,10 +161,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la structure d'intervalles de la gamme majeure ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">T-½-T-T-½-T-T</div>
-              <div class="option" onclick="answer(this,true)">T-T-½-T-T-T-½</div>
-              <div class="option" onclick="answer(this,false)">T-T-T-½-T-T-½</div>
-              <div class="option" onclick="answer(this,false)">½-T-T-T-½-T-T</div>
+              <button class="option" onclick="answer(this,false)">T-½-T-T-½-T-T</button>
+              <button class="option" onclick="answer(this,true)">T-T-½-T-T-T-½</button>
+              <button class="option" onclick="answer(this,false)">T-T-T-½-T-T-½</button>
+              <button class="option" onclick="answer(this,false)">½-T-T-T-½-T-T</button>
             </div>
             <div class="q-feedback">La gamme majeure suit le schéma Ton-Ton-½ton-Ton-Ton-Ton-½ton. Les demi-tons se trouvent entre les degrés III-IV et VII-I.</div>
           </div>
@@ -172,10 +172,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle est la relative mineure de Do majeur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Mi mineur</div>
-              <div class="option" onclick="answer(this,false)">Ré mineur</div>
-              <div class="option" onclick="answer(this,true)">La mineur</div>
-              <div class="option" onclick="answer(this,false)">Sol mineur</div>
+              <button class="option" onclick="answer(this,false)">Mi mineur</button>
+              <button class="option" onclick="answer(this,false)">Ré mineur</button>
+              <button class="option" onclick="answer(this,true)">La mineur</button>
+              <button class="option" onclick="answer(this,false)">Sol mineur</button>
             </div>
             <div class="q-feedback">La relative mineure se trouve une tierce mineure (3 demi-tons) en dessous de la tonique majeure. Do → La. La mineur partage les mêmes notes que Do majeur.</div>
           </div>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Combien de notes contient une gamme pentatonique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">5 notes</div>
-              <div class="option" onclick="answer(this,false)">6 notes</div>
-              <div class="option" onclick="answer(this,false)">7 notes</div>
-              <div class="option" onclick="answer(this,false)">8 notes</div>
+              <button class="option" onclick="answer(this,true)">5 notes</button>
+              <button class="option" onclick="answer(this,false)">6 notes</button>
+              <button class="option" onclick="answer(this,false)">7 notes</button>
+              <button class="option" onclick="answer(this,false)">8 notes</button>
             </div>
             <div class="q-feedback">Le préfixe « penta » signifie cinq. La gamme pentatonique est composée de 5 notes par octave, contrairement aux gammes diatoniques (7 notes) et chromatique (12 notes).</div>
           </div>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel mode a une sonorité « espagnole » avec une seconde mineure ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Dorien</div>
-              <div class="option" onclick="answer(this,true)">Phrygien</div>
-              <div class="option" onclick="answer(this,false)">Lydien</div>
-              <div class="option" onclick="answer(this,false)">Mixolydien</div>
+              <button class="option" onclick="answer(this,false)">Dorien</button>
+              <button class="option" onclick="answer(this,true)">Phrygien</button>
+              <button class="option" onclick="answer(this,false)">Lydien</button>
+              <button class="option" onclick="answer(this,false)">Mixolydien</button>
             </div>
             <div class="q-feedback">Le mode phrygien (construit sur le IIIe degré de la gamme majeure) se caractérise par sa seconde mineure (un demi-ton au-dessus de la tonique), lui donnant une couleur espagnole ou orientale très reconnaissable.</div>
           </div>
@@ -205,10 +205,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle note est ajoutée à la pentatonique mineure pour former la gamme blues ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La tierce majeure</div>
-              <div class="option" onclick="answer(this,false)">La septième majeure</div>
-              <div class="option" onclick="answer(this,true)">La quinte diminuée (blue note)</div>
-              <div class="option" onclick="answer(this,false)">La seconde majeure</div>
+              <button class="option" onclick="answer(this,false)">La tierce majeure</button>
+              <button class="option" onclick="answer(this,false)">La septième majeure</button>
+              <button class="option" onclick="answer(this,true)">La quinte diminuée (blue note)</button>
+              <button class="option" onclick="answer(this,false)">La seconde majeure</button>
             </div>
             <div class="q-feedback">La « blue note » est la quinte diminuée (ou quarte augmentée), ajoutée entre la quarte juste et la quinte juste de la pentatonique mineure. C'est elle qui donne au blues sa tension caractéristique.</div>
           </div>
@@ -216,10 +216,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle est la particularité de la gamme mineure harmonique par rapport à la mineure naturelle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le 3e degré est haussé</div>
-              <div class="option" onclick="answer(this,true)">Le 7e degré est haussé d'un demi-ton</div>
-              <div class="option" onclick="answer(this,false)">Le 6e degré est baissé</div>
-              <div class="option" onclick="answer(this,false)">Le 2e degré est haussé</div>
+              <button class="option" onclick="answer(this,false)">Le 3e degré est haussé</button>
+              <button class="option" onclick="answer(this,true)">Le 7e degré est haussé d'un demi-ton</button>
+              <button class="option" onclick="answer(this,false)">Le 6e degré est baissé</button>
+              <button class="option" onclick="answer(this,false)">Le 2e degré est haussé</button>
             </div>
             <div class="q-feedback">La gamme mineure harmonique hausse le 7e degré d'un demi-ton, créant un intervalle de seconde augmentée entre les 6e et 7e degrés. Cela crée une sensible qui attire fortement vers la tonique.</div>
           </div>
@@ -278,8 +278,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

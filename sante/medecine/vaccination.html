@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Comprendre le principe vaccinal, le calendrier de vaccination en France, l'immunité collective et les réponses aux idées reçues.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Vaccination — Médecine et prévention — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🏥 Médecine et prévention</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est le principe fondamental de la vaccination ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Détruire directement les virus dans le sang</div>
-              <div class="option" onclick="answer(this,true)">Stimuler le système immunitaire avec un antigène pour créer une mémoire</div>
-              <div class="option" onclick="answer(this,false)">Renforcer la peau pour empêcher les virus d'entrer</div>
-              <div class="option" onclick="answer(this,false)">Administrer des antibiotiques préventifs</div>
+              <button class="option" onclick="answer(this,false)">Détruire directement les virus dans le sang</button>
+              <button class="option" onclick="answer(this,true)">Stimuler le système immunitaire avec un antigène pour créer une mémoire</button>
+              <button class="option" onclick="answer(this,false)">Renforcer la peau pour empêcher les virus d'entrer</button>
+              <button class="option" onclick="answer(this,false)">Administrer des antibiotiques préventifs</button>
             </div>
             <div class="q-feedback">Le vaccin introduit un antigène qui déclenche la production d'anticorps et de cellules mémoire, permettant une réponse rapide lors d'une infection réelle.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Combien de vaccins sont obligatoires pour les nourrissons en France depuis 2018 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">3</div>
-              <div class="option" onclick="answer(this,false)">6</div>
-              <div class="option" onclick="answer(this,true)">11</div>
-              <div class="option" onclick="answer(this,false)">15</div>
+              <button class="option" onclick="answer(this,false)">3</button>
+              <button class="option" onclick="answer(this,false)">6</button>
+              <button class="option" onclick="answer(this,true)">11</button>
+              <button class="option" onclick="answer(this,false)">15</button>
             </div>
             <div class="q-feedback">Depuis 2018, 11 vaccins sont obligatoires pour les nourrissons en France : DTP, coqueluche, Hib, hépatite B, pneumocoque, méningocoque C, ROR.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel est le seuil approximatif d'immunité collective pour la rougeole ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">50-60%</div>
-              <div class="option" onclick="answer(this,false)">70-80%</div>
-              <div class="option" onclick="answer(this,true)">93-95%</div>
-              <div class="option" onclick="answer(this,false)">100%</div>
+              <button class="option" onclick="answer(this,false)">50-60%</button>
+              <button class="option" onclick="answer(this,false)">70-80%</button>
+              <button class="option" onclick="answer(this,true)">93-95%</button>
+              <button class="option" onclick="answer(this,false)">100%</button>
             </div>
             <div class="q-feedback">La rougeole est très contagieuse (R0 = 12-18), ce qui nécessite un taux de couverture vaccinale de 93 à 95% pour obtenir l'immunité de groupe.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle maladie a été éradiquée grâce à la vaccination en 1980 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La poliomyélite</div>
-              <div class="option" onclick="answer(this,true)">La variole</div>
-              <div class="option" onclick="answer(this,false)">La rougeole</div>
-              <div class="option" onclick="answer(this,false)">La tuberculose</div>
+              <button class="option" onclick="answer(this,false)">La poliomyélite</button>
+              <button class="option" onclick="answer(this,true)">La variole</button>
+              <button class="option" onclick="answer(this,false)">La rougeole</button>
+              <button class="option" onclick="answer(this,false)">La tuberculose</button>
             </div>
             <div class="q-feedback">La variole est la première et seule maladie humaine à avoir été éradiquée, grâce à une campagne mondiale de vaccination coordonnée par l'OMS.</div>
           </div>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel type de vaccin utilise un fragment d'ARN pour faire produire une protéine virale par nos cellules ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Vaccin vivant atténué</div>
-              <div class="option" onclick="answer(this,false)">Vaccin inactivé</div>
-              <div class="option" onclick="answer(this,true)">Vaccin à ARN messager</div>
-              <div class="option" onclick="answer(this,false)">Vaccin sous-unitaire</div>
+              <button class="option" onclick="answer(this,false)">Vaccin vivant atténué</button>
+              <button class="option" onclick="answer(this,false)">Vaccin inactivé</button>
+              <button class="option" onclick="answer(this,true)">Vaccin à ARN messager</button>
+              <button class="option" onclick="answer(this,false)">Vaccin sous-unitaire</button>
             </div>
             <div class="q-feedback">Les vaccins à ARN messager (comme ceux de Pfizer et Moderna contre le COVID-19) contiennent une instruction génétique qui amène nos cellules à produire une protéine du virus, déclenchant la réponse immunitaire.</div>
           </div>
@@ -203,10 +203,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Pourquoi l'immunité collective est-elle importante ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Elle rend les vaccins moins nécessaires</div>
-              <div class="option" onclick="answer(this,false)">Elle permet de stopper la production de vaccins</div>
-              <div class="option" onclick="answer(this,true)">Elle protège les personnes qui ne peuvent pas être vaccinées</div>
-              <div class="option" onclick="answer(this,false)">Elle élimine définitivement les virus de la planète</div>
+              <button class="option" onclick="answer(this,false)">Elle rend les vaccins moins nécessaires</button>
+              <button class="option" onclick="answer(this,false)">Elle permet de stopper la production de vaccins</button>
+              <button class="option" onclick="answer(this,true)">Elle protège les personnes qui ne peuvent pas être vaccinées</button>
+              <button class="option" onclick="answer(this,false)">Elle élimine définitivement les virus de la planète</button>
             </div>
             <div class="q-feedback">L'immunité collective protège les personnes vulnérables (nourrissons, immunodéprimés) qui ne peuvent pas recevoir certains vaccins, en empêchant la circulation du pathogène dans la population.</div>
           </div>
@@ -270,8 +270,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

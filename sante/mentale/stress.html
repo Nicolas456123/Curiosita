@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mécanismes du stress, techniques de relaxation, méditation de pleine conscience et construction de la résilience.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Gestion du stress — Santé mentale — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧠 Santé mentale</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -130,10 +130,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle hormone est principalement responsable des effets du stress chronique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'adrénaline</div>
-              <div class="option" onclick="answer(this,true)">Le cortisol</div>
-              <div class="option" onclick="answer(this,false)">La dopamine</div>
-              <div class="option" onclick="answer(this,false)">La sérotonine</div>
+              <button class="option" onclick="answer(this,false)">L'adrénaline</button>
+              <button class="option" onclick="answer(this,true)">Le cortisol</button>
+              <button class="option" onclick="answer(this,false)">La dopamine</button>
+              <button class="option" onclick="answer(this,false)">La sérotonine</button>
             </div>
             <div class="q-feedback">Le cortisol est l'hormone du stress chronique, sécrétée par les glandes surrénales via l'axe HHS. Un taux élevé prolongé cause inflammation, immunosuppression et troubles métaboliques.</div>
           </div>
@@ -141,10 +141,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelles sont les trois phases du syndrome général d'adaptation de Selye ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Alarme, résistance, épuisement</div>
-              <div class="option" onclick="answer(this,false)">Déni, colère, acceptation</div>
-              <div class="option" onclick="answer(this,false)">Tension, relâchement, récupération</div>
-              <div class="option" onclick="answer(this,false)">Peur, fuite, soulagement</div>
+              <button class="option" onclick="answer(this,true)">Alarme, résistance, épuisement</button>
+              <button class="option" onclick="answer(this,false)">Déni, colère, acceptation</button>
+              <button class="option" onclick="answer(this,false)">Tension, relâchement, récupération</button>
+              <button class="option" onclick="answer(this,false)">Peur, fuite, soulagement</button>
             </div>
             <div class="q-feedback">Le modèle de Selye décrit trois phases : l'alarme (mobilisation), la résistance (adaptation) et l'épuisement (effondrement des ressources si le stress persiste).</div>
           </div>
@@ -152,10 +152,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel est le rythme respiratoire de la cohérence cardiaque ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">4 secondes inspiration, 4 secondes expiration</div>
-              <div class="option" onclick="answer(this,true)">5 secondes inspiration, 5 secondes expiration (6 respirations/min)</div>
-              <div class="option" onclick="answer(this,false)">10 secondes inspiration, 10 secondes expiration</div>
-              <div class="option" onclick="answer(this,false)">2 secondes inspiration, 8 secondes expiration</div>
+              <button class="option" onclick="answer(this,false)">4 secondes inspiration, 4 secondes expiration</button>
+              <button class="option" onclick="answer(this,true)">5 secondes inspiration, 5 secondes expiration (6 respirations/min)</button>
+              <button class="option" onclick="answer(this,false)">10 secondes inspiration, 10 secondes expiration</button>
+              <button class="option" onclick="answer(this,false)">2 secondes inspiration, 8 secondes expiration</button>
             </div>
             <div class="q-feedback">La cohérence cardiaque repose sur un rythme de 6 respirations par minute (5s in, 5s out), pratiqué 5 minutes, 3 fois par jour. Ce rythme synchronise le coeur et la respiration.</div>
           </div>
@@ -163,10 +163,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelles sont les trois dimensions du burn-out ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Fatigue, insomnie, irritabilité</div>
-              <div class="option" onclick="answer(this,true)">Épuisement émotionnel, dépersonnalisation, réduction de l'accomplissement</div>
-              <div class="option" onclick="answer(this,false)">Stress, anxiété, dépression</div>
-              <div class="option" onclick="answer(this,false)">Colère, tristesse, peur</div>
+              <button class="option" onclick="answer(this,false)">Fatigue, insomnie, irritabilité</button>
+              <button class="option" onclick="answer(this,true)">Épuisement émotionnel, dépersonnalisation, réduction de l'accomplissement</button>
+              <button class="option" onclick="answer(this,false)">Stress, anxiété, dépression</button>
+              <button class="option" onclick="answer(this,false)">Colère, tristesse, peur</button>
             </div>
             <div class="q-feedback">Le burn-out selon Maslach se caractérise par l'épuisement émotionnel (être vidé), la dépersonnalisation (cynisme) et la réduction de l'accomplissement personnel (sentiment d'inefficacité).</div>
           </div>
@@ -174,10 +174,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Combien de temps de méditation quotidienne suffit pour obtenir des bénéfices mesurables ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">10 minutes</div>
-              <div class="option" onclick="answer(this,false)">1 heure</div>
-              <div class="option" onclick="answer(this,false)">30 secondes</div>
-              <div class="option" onclick="answer(this,false)">2 heures</div>
+              <button class="option" onclick="answer(this,true)">10 minutes</button>
+              <button class="option" onclick="answer(this,false)">1 heure</button>
+              <button class="option" onclick="answer(this,false)">30 secondes</button>
+              <button class="option" onclick="answer(this,false)">2 heures</button>
             </div>
             <div class="q-feedback">Des études montrent que 10 minutes par jour de méditation de pleine conscience suffisent pour réduire le stress et l'anxiété. Après 8 semaines, des modifications cérébrales sont observables en imagerie.</div>
           </div>
@@ -185,10 +185,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Pourquoi le stress aigu peut-il être bénéfique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Il mobilise nos ressources et améliore la performance</div>
-              <div class="option" onclick="answer(this,false)">Il détruit les bactéries dans le sang</div>
-              <div class="option" onclick="answer(this,false)">Il n'est jamais bénéfique</div>
-              <div class="option" onclick="answer(this,false)">Il empêche de dormir, ce qui rend plus productif</div>
+              <button class="option" onclick="answer(this,true)">Il mobilise nos ressources et améliore la performance</button>
+              <button class="option" onclick="answer(this,false)">Il détruit les bactéries dans le sang</button>
+              <button class="option" onclick="answer(this,false)">Il n'est jamais bénéfique</button>
+              <button class="option" onclick="answer(this,false)">Il empêche de dormir, ce qui rend plus productif</button>
             </div>
             <div class="q-feedback">Le stress aigu et ponctuel mobilise l'énergie, améliore la vigilance et la concentration. C'est le « bon stress » qui nous aide à performer lors d'un examen ou d'une compétition, à condition qu'il reste temporaire.</div>
           </div>
@@ -255,8 +255,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

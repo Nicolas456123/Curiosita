@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Big Freeze, Big Crunch, Big Rip — les scénarios pour la fin de l'univers et la mort thermique ultime.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Destin de l'univers — Cosmologie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #80cbc4;
   --accent-dim: rgba(122,232,216,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔭 Cosmologie</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est le scénario le plus probable pour le destin de l'univers selon les observations actuelles ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Big Crunch</div>
-              <div class="option" onclick="answer(this,true)">Big Freeze (mort thermique)</div>
-              <div class="option" onclick="answer(this,false)">Big Rip</div>
-              <div class="option" onclick="answer(this,false)">Big Bounce</div>
+              <button class="option" onclick="answer(this,false)">Big Crunch</button>
+              <button class="option" onclick="answer(this,true)">Big Freeze (mort thermique)</button>
+              <button class="option" onclick="answer(this,false)">Big Rip</button>
+              <button class="option" onclick="answer(this,false)">Big Bounce</button>
             </div>
             <div class="q-feedback">Le Big Freeze est le scénario le plus probable : l'expansion accélérée dilue progressivement la matière et l'énergie, menant à un univers froid et vide à entropie maximale.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'arriverait-il dans le scénario du Big Crunch ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'univers se refroidit indéfiniment</div>
-              <div class="option" onclick="answer(this,false)">Les atomes sont déchirés par l'expansion</div>
-              <div class="option" onclick="answer(this,true)">L'univers se recontracte jusqu'à un état de densité extrême</div>
-              <div class="option" onclick="answer(this,false)">L'univers reste stable pour toujours</div>
+              <button class="option" onclick="answer(this,false)">L'univers se refroidit indéfiniment</button>
+              <button class="option" onclick="answer(this,false)">Les atomes sont déchirés par l'expansion</button>
+              <button class="option" onclick="answer(this,true)">L'univers se recontracte jusqu'à un état de densité extrême</button>
+              <button class="option" onclick="answer(this,false)">L'univers reste stable pour toujours</button>
             </div>
             <div class="q-feedback">Dans le Big Crunch, la gravité inverse l'expansion. L'univers se recontracte, se réchauffe et se comprime vers un état comparable à celui du Big Bang, mais en sens inverse.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle condition sur l'énergie sombre mènerait au Big Rip ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'énergie sombre est nulle</div>
-              <div class="option" onclick="answer(this,false)">L'énergie sombre est constante (w = -1)</div>
-              <div class="option" onclick="answer(this,true)">L'énergie sombre augmente avec le temps (w < -1)</div>
-              <div class="option" onclick="answer(this,false)">L'énergie sombre diminue avec le temps</div>
+              <button class="option" onclick="answer(this,false)">L'énergie sombre est nulle</button>
+              <button class="option" onclick="answer(this,false)">L'énergie sombre est constante (w = -1)</button>
+              <button class="option" onclick="answer(this,true)">L'énergie sombre augmente avec le temps (w < -1)</button>
+              <button class="option" onclick="answer(this,false)">L'énergie sombre diminue avec le temps</button>
             </div>
             <div class="q-feedback">Le Big Rip nécessite une « énergie fantôme » avec w < -1, dont la densité augmente avec le temps. L'expansion accélère alors si violemment que toute structure, même les atomes, est déchirée.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce que la mort thermique de l'univers ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'univers devient infiniment chaud</div>
-              <div class="option" onclick="answer(this,true)">L'univers atteint l'entropie maximale, sans gradient d'énergie exploitable</div>
-              <div class="option" onclick="answer(this,false)">Toutes les étoiles explosent simultanément</div>
-              <div class="option" onclick="answer(this,false)">L'univers se remplit de trous noirs</div>
+              <button class="option" onclick="answer(this,false)">L'univers devient infiniment chaud</button>
+              <button class="option" onclick="answer(this,true)">L'univers atteint l'entropie maximale, sans gradient d'énergie exploitable</button>
+              <button class="option" onclick="answer(this,false)">Toutes les étoiles explosent simultanément</button>
+              <button class="option" onclick="answer(this,false)">L'univers se remplit de trous noirs</button>
             </div>
             <div class="q-feedback">La mort thermique est un état d'entropie maximale où l'univers est parfaitement uniforme, sans gradient de température ou d'énergie. Aucun travail ni processus physique complexe n'est plus possible.</div>
           </div>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Dans combien de temps environ les dernières étoiles s'éteindront-elles ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">10 milliards d'années</div>
-              <div class="option" onclick="answer(this,true)">10¹⁴ ans (100 000 milliards d'années)</div>
-              <div class="option" onclick="answer(this,false)">10²⁰ ans</div>
-              <div class="option" onclick="answer(this,false)">10¹⁰⁰ ans</div>
+              <button class="option" onclick="answer(this,false)">10 milliards d'années</button>
+              <button class="option" onclick="answer(this,true)">10¹⁴ ans (100 000 milliards d'années)</button>
+              <button class="option" onclick="answer(this,false)">10²⁰ ans</button>
+              <button class="option" onclick="answer(this,false)">10¹⁰⁰ ans</button>
             </div>
             <div class="q-feedback">Les dernières naines rouges, les étoiles les plus économes en combustible, s'éteindront dans environ 10¹⁴ ans. C'est 10 000 fois l'âge actuel de l'univers.</div>
           </div>
@@ -203,10 +203,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Qu'est-ce que le Big Bounce propose ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Que l'univers est éternel et statique</div>
-              <div class="option" onclick="answer(this,false)">Que l'énergie sombre va disparaître</div>
-              <div class="option" onclick="answer(this,true)">Que l'univers rebondit entre phases de contraction et d'expansion</div>
-              <div class="option" onclick="answer(this,false)">Que les trous noirs créent de nouveaux univers</div>
+              <button class="option" onclick="answer(this,false)">Que l'univers est éternel et statique</button>
+              <button class="option" onclick="answer(this,false)">Que l'énergie sombre va disparaître</button>
+              <button class="option" onclick="answer(this,true)">Que l'univers rebondit entre phases de contraction et d'expansion</button>
+              <button class="option" onclick="answer(this,false)">Que les trous noirs créent de nouveaux univers</button>
             </div>
             <div class="q-feedback">Le Big Bounce, issu de la cosmologie quantique à boucles, propose que l'univers n'est pas né d'une singularité mais d'un rebond : un univers en contraction a atteint une densité maximale (finie) puis a rebondi en expansion.</div>
           </div>
@@ -276,8 +276,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

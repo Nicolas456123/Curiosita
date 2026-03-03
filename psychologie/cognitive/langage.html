@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Comment nous acquérons, produisons et comprenons le langage — la capacité cognitive qui distingue l'humain.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Langage — Psychologie Cognitive — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #b07fe8;
   --accent2: #c9a0f0;
   --accent-dim: rgba(176,127,232,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(176,127,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(176,127,232,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧠 Cognitive</span>
     <span class="tag-level">Intermédiaire</span>
@@ -150,10 +150,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Selon Chomsky, la « grammaire universelle » est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un ensemble de règles grammaticales communes à toutes les langues</div>
-              <div class="option" onclick="answer(this,true)">Une capacité innée permettant d'acquérir n'importe quelle langue</div>
-              <div class="option" onclick="answer(this,false)">La grammaire de la langue anglaise appliquée au monde</div>
-              <div class="option" onclick="answer(this,false)">Un apprentissage par imitation des adultes</div>
+              <button class="option" onclick="answer(this,false)">Un ensemble de règles grammaticales communes à toutes les langues</button>
+              <button class="option" onclick="answer(this,true)">Une capacité innée permettant d'acquérir n'importe quelle langue</button>
+              <button class="option" onclick="answer(this,false)">La grammaire de la langue anglaise appliquée au monde</button>
+              <button class="option" onclick="answer(this,false)">Un apprentissage par imitation des adultes</button>
             </div>
             <div class="q-feedback">Pour Chomsky, la grammaire universelle est un dispositif inné (LAD) qui contient les principes communs à toutes les langues humaines. L'enfant n'apprend pas la grammaire par imitation mais active des paramètres innés au contact de sa langue.</div>
           </div>
@@ -161,10 +161,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Une lésion de l'aire de Broca provoque typiquement :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un discours fluent mais incompréhensible</div>
-              <div class="option" onclick="answer(this,true)">Un discours lent et télégraphique mais une compréhension préservée</div>
-              <div class="option" onclick="answer(this,false)">Une perte totale du langage</div>
-              <div class="option" onclick="answer(this,false)">Des difficultés uniquement à l'écrit</div>
+              <button class="option" onclick="answer(this,false)">Un discours fluent mais incompréhensible</button>
+              <button class="option" onclick="answer(this,true)">Un discours lent et télégraphique mais une compréhension préservée</button>
+              <button class="option" onclick="answer(this,false)">Une perte totale du langage</button>
+              <button class="option" onclick="answer(this,false)">Des difficultés uniquement à l'écrit</button>
             </div>
             <div class="q-feedback">L'aphasie de Broca se caractérise par un discours non fluent, avec des phrases courtes et un effort articulatoire, mais une compréhension relativement préservée. L'inverse (discours fluent mais incohérent) est l'aphasie de Wernicke.</div>
           </div>
@@ -172,10 +172,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">L'hypothèse Sapir-Whorf (version faible) propose que :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La pensée est impossible sans langage</div>
-              <div class="option" onclick="answer(this,false)">Toutes les langues expriment les mêmes concepts</div>
-              <div class="option" onclick="answer(this,true)">Le langage influence (sans déterminer) la pensée</div>
-              <div class="option" onclick="answer(this,false)">Les animaux ne peuvent pas penser car ils n'ont pas de langage</div>
+              <button class="option" onclick="answer(this,false)">La pensée est impossible sans langage</button>
+              <button class="option" onclick="answer(this,false)">Toutes les langues expriment les mêmes concepts</button>
+              <button class="option" onclick="answer(this,true)">Le langage influence (sans déterminer) la pensée</button>
+              <button class="option" onclick="answer(this,false)">Les animaux ne peuvent pas penser car ils n'ont pas de langage</button>
             </div>
             <div class="q-feedback">La version faible du relativisme linguistique est soutenue par de nombreuses recherches modernes : la langue maternelle influence la perception des couleurs, la conceptualisation du temps et même certains jugements, sans pour autant déterminer totalement la pensée.</div>
           </div>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Le cas de Genie soutient principalement l'hypothèse de :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La grammaire universelle de Chomsky</div>
-              <div class="option" onclick="answer(this,true)">La période critique pour l'acquisition du langage</div>
-              <div class="option" onclick="answer(this,false)">Le relativisme linguistique de Sapir-Whorf</div>
-              <div class="option" onclick="answer(this,false)">L'apprentissage du langage par imitation</div>
+              <button class="option" onclick="answer(this,false)">La grammaire universelle de Chomsky</button>
+              <button class="option" onclick="answer(this,true)">La période critique pour l'acquisition du langage</button>
+              <button class="option" onclick="answer(this,false)">Le relativisme linguistique de Sapir-Whorf</button>
+              <button class="option" onclick="answer(this,false)">L'apprentissage du langage par imitation</button>
             </div>
             <div class="q-feedback">Genie, isolée jusqu'à 13 ans, n'a jamais pu acquérir une syntaxe normale malgré des années de rééducation. Ce cas soutient l'hypothèse de Lenneberg (1967) selon laquelle il existe une période critique — approximativement jusqu'à la puberté — après laquelle l'acquisition complète du langage devient impossible.</div>
           </div>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Selon les recherches de Kuhl (2003), que se passe-t-il entre 6 et 12 mois chez le nourrisson ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il perd toute capacité de discrimination phonémique</div>
-              <div class="option" onclick="answer(this,true)">Il se spécialise pour les phonèmes de sa langue maternelle et perd la discrimination des phonèmes étrangers</div>
-              <div class="option" onclick="answer(this,false)">Il apprend à discriminer tous les phonèmes de toutes les langues</div>
-              <div class="option" onclick="answer(this,false)">Il commence à comprendre la grammaire de sa langue</div>
+              <button class="option" onclick="answer(this,false)">Il perd toute capacité de discrimination phonémique</button>
+              <button class="option" onclick="answer(this,true)">Il se spécialise pour les phonèmes de sa langue maternelle et perd la discrimination des phonèmes étrangers</button>
+              <button class="option" onclick="answer(this,false)">Il apprend à discriminer tous les phonèmes de toutes les langues</button>
+              <button class="option" onclick="answer(this,false)">Il commence à comprendre la grammaire de sa langue</button>
             </div>
             <div class="q-feedback">Patricia Kuhl a montré que les bébés naissent « citoyens du monde » phonétique — capables de discriminer tous les contrastes sonores. Mais entre 6 et 12 mois, le cerveau se spécialise pour la langue entendue, créant des « aimants perceptifs » qui facilitent la perception de la langue maternelle au détriment des contrastes étrangers.</div>
           </div>
@@ -205,10 +205,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">L'aphasie de conduction se caractérise principalement par :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'incapacité totale de parler</div>
-              <div class="option" onclick="answer(this,false)">Un discours fluent mais incompréhensible</div>
-              <div class="option" onclick="answer(this,true)">Une incapacité à répéter des phrases malgré une compréhension et une production relativement préservées</div>
-              <div class="option" onclick="answer(this,false)">Des difficultés exclusivement à l'écrit</div>
+              <button class="option" onclick="answer(this,false)">L'incapacité totale de parler</button>
+              <button class="option" onclick="answer(this,false)">Un discours fluent mais incompréhensible</button>
+              <button class="option" onclick="answer(this,true)">Une incapacité à répéter des phrases malgré une compréhension et une production relativement préservées</button>
+              <button class="option" onclick="answer(this,false)">Des difficultés exclusivement à l'écrit</button>
             </div>
             <div class="q-feedback">L'aphasie de conduction résulte d'une lésion du faisceau arqué, le faisceau de fibres blanches qui connecte les aires de Broca et Wernicke. Le patient comprend et produit du langage mais échoue spécifiquement dans les tâches de répétition, car l'information ne peut pas transiter entre les deux aires.</div>
           </div>
@@ -269,8 +269,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

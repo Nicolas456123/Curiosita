@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Serveurs web, API REST, Node.js et Express, gestion des bases de données, authentification et sécurité des applications web.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Développement back-end — Web — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #2980b9;
   --accent2: #3498db;
   --accent-dim: rgba(41,128,185,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(41,128,185,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(41,128,185,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🌐 Web</span>
     <span class="tag-level">Intermédiaire</span>
@@ -242,10 +242,10 @@ app.<span class="fn">post</span>(<span class="str">'/api/login'</span>, <span cl
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle méthode HTTP est utilisée pour créer une nouvelle ressource ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">GET</div>
-              <div class="option" onclick="answer(this,true)">POST</div>
-              <div class="option" onclick="answer(this,false)">PUT</div>
-              <div class="option" onclick="answer(this,false)">DELETE</div>
+              <button class="option" onclick="answer(this,false)">GET</button>
+              <button class="option" onclick="answer(this,true)">POST</button>
+              <button class="option" onclick="answer(this,false)">PUT</button>
+              <button class="option" onclick="answer(this,false)">DELETE</button>
             </div>
             <div class="q-feedback">POST est la méthode standard pour créer une ressource. GET sert à lire, PUT à remplacer, PATCH à modifier partiellement, et DELETE à supprimer.</div>
           </div>
@@ -253,10 +253,10 @@ app.<span class="fn">post</span>(<span class="str">'/api/login'</span>, <span cl
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que signifie le code de statut HTTP 404 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Requête mal formée</div>
-              <div class="option" onclick="answer(this,false)">Non autorisé</div>
-              <div class="option" onclick="answer(this,true)">Ressource non trouvée</div>
-              <div class="option" onclick="answer(this,false)">Erreur serveur interne</div>
+              <button class="option" onclick="answer(this,false)">Requête mal formée</button>
+              <button class="option" onclick="answer(this,false)">Non autorisé</button>
+              <button class="option" onclick="answer(this,true)">Ressource non trouvée</button>
+              <button class="option" onclick="answer(this,false)">Erreur serveur interne</button>
             </div>
             <div class="q-feedback">404 Not Found signifie que le serveur n'a pas trouvé la ressource demandée. 400 = mauvaise requête, 401 = non autorisé, 500 = erreur interne du serveur.</div>
           </div>
@@ -264,10 +264,10 @@ app.<span class="fn">post</span>(<span class="str">'/api/login'</span>, <span cl
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qu'est-ce qu'un middleware dans Express ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un type de base de données</div>
-              <div class="option" onclick="answer(this,true)">Une fonction qui intercepte les requêtes entre la réception et la réponse</div>
-              <div class="option" onclick="answer(this,false)">Un protocole de communication réseau</div>
-              <div class="option" onclick="answer(this,false)">Un composant front-end</div>
+              <button class="option" onclick="answer(this,false)">Un type de base de données</button>
+              <button class="option" onclick="answer(this,true)">Une fonction qui intercepte les requêtes entre la réception et la réponse</button>
+              <button class="option" onclick="answer(this,false)">Un protocole de communication réseau</button>
+              <button class="option" onclick="answer(this,false)">Un composant front-end</button>
             </div>
             <div class="q-feedback">Un middleware est une fonction avec accès à <code>req</code>, <code>res</code> et <code>next()</code>. Il peut modifier la requête/réponse, terminer le cycle ou passer au middleware suivant. Exemples : authentification, journalisation, CORS.</div>
           </div>
@@ -275,10 +275,10 @@ app.<span class="fn">post</span>(<span class="str">'/api/login'</span>, <span cl
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Pourquoi ne faut-il jamais stocker les mots de passe en clair dans la base de données ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Cela ralentit les requêtes</div>
-              <div class="option" onclick="answer(this,false)">Cela prend trop d'espace de stockage</div>
-              <div class="option" onclick="answer(this,true)">En cas de fuite de la base, tous les mots de passe seraient compromis</div>
-              <div class="option" onclick="answer(this,false)">Le navigateur ne peut pas les lire</div>
+              <button class="option" onclick="answer(this,false)">Cela ralentit les requêtes</button>
+              <button class="option" onclick="answer(this,false)">Cela prend trop d'espace de stockage</button>
+              <button class="option" onclick="answer(this,true)">En cas de fuite de la base, tous les mots de passe seraient compromis</button>
+              <button class="option" onclick="answer(this,false)">Le navigateur ne peut pas les lire</button>
             </div>
             <div class="q-feedback">Si la base de données est compromise, les mots de passe en clair sont directement exploitables. On utilise des fonctions de hachage (bcrypt, Argon2) avec un sel unique pour stocker un hash irréversible.</div>
           </div>
@@ -286,10 +286,10 @@ app.<span class="fn">post</span>(<span class="str">'/api/login'</span>, <span cl
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce qu'un JWT (JSON Web Token) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un format de base de données JSON</div>
-              <div class="option" onclick="answer(this,true)">Un token signé contenant des données d'authentification, vérifié côté serveur</div>
-              <div class="option" onclick="answer(this,false)">Un cookie du navigateur</div>
-              <div class="option" onclick="answer(this,false)">Un protocole de chiffrement</div>
+              <button class="option" onclick="answer(this,false)">Un format de base de données JSON</button>
+              <button class="option" onclick="answer(this,true)">Un token signé contenant des données d'authentification, vérifié côté serveur</button>
+              <button class="option" onclick="answer(this,false)">Un cookie du navigateur</button>
+              <button class="option" onclick="answer(this,false)">Un protocole de chiffrement</button>
             </div>
             <div class="q-feedback">Un JWT est composé de trois parties (header, payload, signature) encodées en Base64. Le serveur le signe avec une clé secrète et le vérifie à chaque requête, sans avoir à stocker l'état de session.</div>
           </div>
@@ -297,10 +297,10 @@ app.<span class="fn">post</span>(<span class="str">'/api/login'</span>, <span cl
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Qu'est-ce que le principe « stateless » en API REST ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le serveur ne conserve aucune donnée</div>
-              <div class="option" onclick="answer(this,false)">Le client ne peut pas modifier les données</div>
-              <div class="option" onclick="answer(this,true)">Chaque requête contient toutes les informations nécessaires, sans dépendre d'un état côté serveur</div>
-              <div class="option" onclick="answer(this,false)">Les données sont toujours en lecture seule</div>
+              <button class="option" onclick="answer(this,false)">Le serveur ne conserve aucune donnée</button>
+              <button class="option" onclick="answer(this,false)">Le client ne peut pas modifier les données</button>
+              <button class="option" onclick="answer(this,true)">Chaque requête contient toutes les informations nécessaires, sans dépendre d'un état côté serveur</button>
+              <button class="option" onclick="answer(this,false)">Les données sont toujours en lecture seule</button>
             </div>
             <div class="q-feedback">« Stateless » signifie que le serveur ne conserve pas d'état entre les requêtes. Chaque requête est indépendante et doit contenir toute l'information nécessaire (token, paramètres). Cela facilite la scalabilité horizontale.</div>
           </div>
@@ -535,8 +535,14 @@ app.use(errorHandler);</code></pre></div>
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

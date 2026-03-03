@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Detection, traitement et impact des outliers — ces valeurs extremes qui peuvent fausser toute une analyse statistique.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Donnees aberrantes — Statistiques descriptives — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08);  --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../statistiques-page.html">Statistiques</a> › <a href="../descriptives.html">Descriptives</a> › <span>Aberrantes</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">⚠️ Statistiques descriptives</span><span class="tag-level">Intermediaire</span><span class="tag-time">⏱ ~35 min</span></div>
   <h1><em>Donnees aberrantes</em></h1>
   <p class="hero-desc">Detection, traitement et impact des outliers — ces valeurs extremes qui peuvent fausser toute une analyse statistique.</p>
@@ -94,50 +94,50 @@
           <div class="question-block active" data-q="0">
             <p class="q-num">Question 1 / 5</p><p class="q-text">Selon la methode de Tukey, un outlier est au-dela de :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Q₁ - IQR et Q₃ + IQR</div>
-              <div class="option" onclick="answer(this,true)">Q₁ - 1,5×IQR et Q₃ + 1,5×IQR</div>
-              <div class="option" onclick="answer(this,false)">Moyenne ± ecart-type</div>
-              <div class="option" onclick="answer(this,false)">Moyenne ± 2 × ecart-type</div>
+              <button class="option" onclick="answer(this,false)">Q₁ - IQR et Q₃ + IQR</button>
+              <button class="option" onclick="answer(this,true)">Q₁ - 1,5×IQR et Q₃ + 1,5×IQR</button>
+              <button class="option" onclick="answer(this,false)">Moyenne ± ecart-type</button>
+              <button class="option" onclick="answer(this,false)">Moyenne ± 2 × ecart-type</button>
             </div>
             <div class="q-feedback">Les barrieres de Tukey utilisent le facteur 1,5 × IQR au-dela de Q₁ et Q₃.</div>
           </div>
           <div class="question-block" data-q="1">
             <p class="q-num">Question 2 / 5</p><p class="q-text">Le z-score d'un outlier est generalement :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Proche de 0</div>
-              <div class="option" onclick="answer(this,false)">Entre -1 et 1</div>
-              <div class="option" onclick="answer(this,true)">|z| > 2 ou |z| > 3</div>
-              <div class="option" onclick="answer(this,false)">Toujours negatif</div>
+              <button class="option" onclick="answer(this,false)">Proche de 0</button>
+              <button class="option" onclick="answer(this,false)">Entre -1 et 1</button>
+              <button class="option" onclick="answer(this,true)">|z| > 2 ou |z| > 3</button>
+              <button class="option" onclick="answer(this,false)">Toujours negatif</button>
             </div>
             <div class="q-feedback">Un z-score en valeur absolue superieur a 2 ou 3 indique que l'observation est a plus de 2 ou 3 ecarts-types de la moyenne.</div>
           </div>
           <div class="question-block" data-q="2">
             <p class="q-num">Question 3 / 5</p><p class="q-text">Quelle mesure est la moins affectee par les outliers ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La moyenne</div>
-              <div class="option" onclick="answer(this,true)">La mediane</div>
-              <div class="option" onclick="answer(this,false)">La variance</div>
-              <div class="option" onclick="answer(this,false)">L'etendue</div>
+              <button class="option" onclick="answer(this,false)">La moyenne</button>
+              <button class="option" onclick="answer(this,true)">La mediane</button>
+              <button class="option" onclick="answer(this,false)">La variance</button>
+              <button class="option" onclick="answer(this,false)">L'etendue</button>
             </div>
             <div class="q-feedback">La mediane est robuste : elle ne depend que de la position des valeurs centrales, pas de leur magnitude.</div>
           </div>
           <div class="question-block" data-q="3">
             <p class="q-num">Question 4 / 5</p><p class="q-text">La winsorisation consiste a :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Supprimer les outliers</div>
-              <div class="option" onclick="answer(this,true)">Remplacer les extremes par des valeurs aux percentiles choisis</div>
-              <div class="option" onclick="answer(this,false)">Calculer la moyenne sans les outliers</div>
-              <div class="option" onclick="answer(this,false)">Appliquer un logarithme</div>
+              <button class="option" onclick="answer(this,false)">Supprimer les outliers</button>
+              <button class="option" onclick="answer(this,true)">Remplacer les extremes par des valeurs aux percentiles choisis</button>
+              <button class="option" onclick="answer(this,false)">Calculer la moyenne sans les outliers</button>
+              <button class="option" onclick="answer(this,false)">Appliquer un logarithme</button>
             </div>
             <div class="q-feedback">La winsorisation remplace les valeurs au-dela d'un certain percentile par la valeur du percentile, plutot que de les supprimer.</div>
           </div>
           <div class="question-block" data-q="4">
             <p class="q-num">Question 5 / 5</p><p class="q-text">Faut-il toujours supprimer les outliers ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Oui, ils faussent toujours l'analyse</div>
-              <div class="option" onclick="answer(this,true)">Non, il faut d'abord comprendre leur cause</div>
-              <div class="option" onclick="answer(this,false)">Oui, si |z| > 2</div>
-              <div class="option" onclick="answer(this,false)">Non, il ne faut jamais les supprimer</div>
+              <button class="option" onclick="answer(this,false)">Oui, ils faussent toujours l'analyse</button>
+              <button class="option" onclick="answer(this,true)">Non, il faut d'abord comprendre leur cause</button>
+              <button class="option" onclick="answer(this,false)">Oui, si |z| > 2</button>
+              <button class="option" onclick="answer(this,false)">Non, il ne faut jamais les supprimer</button>
             </div>
             <div class="q-feedback">Un outlier peut etre une erreur (a corriger) ou un phenomene reel et important (a conserver). Il faut comprendre son origine avant de decider.</div>
           </div>
@@ -166,8 +166,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

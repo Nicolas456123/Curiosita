@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hormones, glandes et boucles de rétroaction — la communication chimique qui régule l'ensemble de l'organisme.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Système endocrinien — Corps humain — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #7ae8d8; --accent2: #80cbc4; --accent-dim: rgba(122,232,216,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #7ae8d8; --accent2: #80cbc4; --accent-dim: rgba(122,232,216,0.08);  --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -21,7 +21,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧬 Corps humain</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -155,10 +155,10 @@
             <p class="q-num">Question 1 / 3</p>
             <p class="q-text">Quelle hormone diminue la glycémie en favorisant l'absorption du glucose par les cellules ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le glucagon</div>
-              <div class="option" onclick="answer(this,true)">L'insuline</div>
-              <div class="option" onclick="answer(this,false)">Le cortisol</div>
-              <div class="option" onclick="answer(this,false)">L'adrénaline</div>
+              <button class="option" onclick="answer(this,false)">Le glucagon</button>
+              <button class="option" onclick="answer(this,true)">L'insuline</button>
+              <button class="option" onclick="answer(this,false)">Le cortisol</button>
+              <button class="option" onclick="answer(this,false)">L'adrénaline</button>
             </div>
             <div class="q-feedback">L'insuline, sécrétée par les cellules bêta des îlots de Langerhans, est la seule hormone hypoglycémiante. Elle favorise l'entrée du glucose dans les cellules via les transporteurs GLUT4.</div>
           </div>
@@ -166,10 +166,10 @@
             <p class="q-num">Question 2 / 3</p>
             <p class="q-text">Quel type de rétrocontrôle régule principalement la sécrétion hormonale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Rétrocontrôle négatif</div>
-              <div class="option" onclick="answer(this,false)">Rétrocontrôle positif</div>
-              <div class="option" onclick="answer(this,false)">Contrôle antérograde</div>
-              <div class="option" onclick="answer(this,false)">Contrôle paracrine</div>
+              <button class="option" onclick="answer(this,true)">Rétrocontrôle négatif</button>
+              <button class="option" onclick="answer(this,false)">Rétrocontrôle positif</button>
+              <button class="option" onclick="answer(this,false)">Contrôle antérograde</button>
+              <button class="option" onclick="answer(this,false)">Contrôle paracrine</button>
             </div>
             <div class="q-feedback">Le rétrocontrôle négatif est le mécanisme principal : lorsque le taux d'une hormone atteint un niveau suffisant, il inhibe sa propre production. Cela maintient l'homéostasie.</div>
           </div>
@@ -177,10 +177,10 @@
             <p class="q-num">Question 3 / 3</p>
             <p class="q-text">Quelle glande est considérée comme la « glande maîtresse » du système endocrinien ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La thyroïde</div>
-              <div class="option" onclick="answer(this,false)">Les surrénales</div>
-              <div class="option" onclick="answer(this,true)">L'hypophyse</div>
-              <div class="option" onclick="answer(this,false)">Le pancréas</div>
+              <button class="option" onclick="answer(this,false)">La thyroïde</button>
+              <button class="option" onclick="answer(this,false)">Les surrénales</button>
+              <button class="option" onclick="answer(this,true)">L'hypophyse</button>
+              <button class="option" onclick="answer(this,false)">Le pancréas</button>
             </div>
             <div class="q-feedback">L'hypophyse est appelée « glande maîtresse » car ses hormones (TSH, ACTH, FSH, LH, GH) contrôlent l'activité de nombreuses autres glandes endocrines. Elle est elle-même contrôlée par l'hypothalamus.</div>
           </div>
@@ -209,8 +209,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

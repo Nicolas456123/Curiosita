@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La loi universelle de Newton, les champs gravitationnels, les orbites des satellites et la distinction fondamentale entre poids et masse.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Gravitation — Mécanique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08);  --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../sciences-exactes.html">Sciences exactes</a> › <a href="../mecanique.html">Mécanique</a> › <span>Gravitation</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">⚙️ Mécanique</span>
     <span class="tag-level">Intermédiaire</span>
@@ -114,10 +114,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est l'expression de la force gravitationnelle entre deux masses m₁ et m₂ séparées par une distance r ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">F = G·(m₁ + m₂) / r²</div>
-              <div class="option" onclick="answer(this,true)">F = G·m₁·m₂ / r²</div>
-              <div class="option" onclick="answer(this,false)">F = G·m₁·m₂ / r</div>
-              <div class="option" onclick="answer(this,false)">F = G·m₁·m₂ · r²</div>
+              <button class="option" onclick="answer(this,false)">F = G·(m₁ + m₂) / r²</button>
+              <button class="option" onclick="answer(this,true)">F = G·m₁·m₂ / r²</button>
+              <button class="option" onclick="answer(this,false)">F = G·m₁·m₂ / r</button>
+              <button class="option" onclick="answer(this,false)">F = G·m₁·m₂ · r²</button>
             </div>
             <div class="q-feedback">La loi de Newton stipule F = G·m₁·m₂ / r². La force est proportionnelle au produit des masses et inversement proportionnelle au carré de la distance.</div>
           </div>
@@ -126,10 +126,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Pourquoi les astronautes de l'ISS semblent-ils flotter en impesanteur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il n'y a aucune gravité à cette altitude</div>
-              <div class="option" onclick="answer(this,false)">La rotation de la Terre annule la gravité</div>
-              <div class="option" onclick="answer(this,true)">Ils sont en chute libre permanente autour de la Terre</div>
-              <div class="option" onclick="answer(this,false)">L'atmosphère les protège de la gravité</div>
+              <button class="option" onclick="answer(this,false)">Il n'y a aucune gravité à cette altitude</button>
+              <button class="option" onclick="answer(this,false)">La rotation de la Terre annule la gravité</button>
+              <button class="option" onclick="answer(this,true)">Ils sont en chute libre permanente autour de la Terre</button>
+              <button class="option" onclick="answer(this,false)">L'atmosphère les protège de la gravité</button>
             </div>
             <div class="q-feedback">À 400 km d'altitude, g ≈ 8,7 m/s², encore très fort. L'ISS et ses occupants sont en chute libre permanente, créant l'état d'impesanteur.</div>
           </div>
@@ -138,10 +138,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Un objet de 10 kg est transporté de la Terre à la Lune. Qu'arrive-t-il à sa masse et à son poids ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les deux diminuent</div>
-              <div class="option" onclick="answer(this,false)">Les deux restent identiques</div>
-              <div class="option" onclick="answer(this,true)">La masse reste la même, le poids diminue</div>
-              <div class="option" onclick="answer(this,false)">La masse diminue, le poids reste le même</div>
+              <button class="option" onclick="answer(this,false)">Les deux diminuent</button>
+              <button class="option" onclick="answer(this,false)">Les deux restent identiques</button>
+              <button class="option" onclick="answer(this,true)">La masse reste la même, le poids diminue</button>
+              <button class="option" onclick="answer(this,false)">La masse diminue, le poids reste le même</button>
             </div>
             <div class="q-feedback">La masse est intrinsèque (10 kg partout). Le poids dépend de g local : P = mg. Sur la Lune, g ≈ 1,62 m/s², donc le poids passe de 98 N à 16 N.</div>
           </div>
@@ -150,10 +150,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Selon la troisième loi de Kepler, si on quadruple le demi-grand axe d'une orbite, la période est multipliée par...</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">4</div>
-              <div class="option" onclick="answer(this,false)">16</div>
-              <div class="option" onclick="answer(this,true)">8</div>
-              <div class="option" onclick="answer(this,false)">2</div>
+              <button class="option" onclick="answer(this,false)">4</button>
+              <button class="option" onclick="answer(this,false)">16</button>
+              <button class="option" onclick="answer(this,true)">8</button>
+              <button class="option" onclick="answer(this,false)">2</button>
             </div>
             <div class="q-feedback">T² ∝ a³. Si a × 4, alors T² × 64, donc T × √64 = 8. La période est multipliée par 8.</div>
           </div>
@@ -162,10 +162,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle est la vitesse de libération à la surface de la Terre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">7,9 km/s</div>
-              <div class="option" onclick="answer(this,true)">11,2 km/s</div>
-              <div class="option" onclick="answer(this,false)">3,1 km/s</div>
-              <div class="option" onclick="answer(this,false)">30 km/s</div>
+              <button class="option" onclick="answer(this,false)">7,9 km/s</button>
+              <button class="option" onclick="answer(this,true)">11,2 km/s</button>
+              <button class="option" onclick="answer(this,false)">3,1 km/s</button>
+              <button class="option" onclick="answer(this,false)">30 km/s</button>
             </div>
             <div class="q-feedback">v_lib = √(2GM/R) ≈ 11,2 km/s. C'est la vitesse minimale pour qu'un objet échappe définitivement à l'attraction terrestre (sans propulsion continue).</div>
           </div>
@@ -174,10 +174,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Pourquoi la Lune produit-elle des marées plus fortes que le Soleil sur Terre, malgré sa masse bien plus faible ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La Lune est plus massive qu'on ne le pense</div>
-              <div class="option" onclick="answer(this,false)">Le Soleil est trop loin pour avoir un effet</div>
-              <div class="option" onclick="answer(this,true)">La force de marée varie en 1/r³ et la Lune est bien plus proche</div>
-              <div class="option" onclick="answer(this,false)">La rotation de la Lune amplifie son effet</div>
+              <button class="option" onclick="answer(this,false)">La Lune est plus massive qu'on ne le pense</button>
+              <button class="option" onclick="answer(this,false)">Le Soleil est trop loin pour avoir un effet</button>
+              <button class="option" onclick="answer(this,true)">La force de marée varie en 1/r³ et la Lune est bien plus proche</button>
+              <button class="option" onclick="answer(this,false)">La rotation de la Lune amplifie son effet</button>
             </div>
             <div class="q-feedback">La force de marée dépend du gradient du champ, qui varie en 1/r³. La Lune, environ 390 fois plus proche que le Soleil, produit un effet de marée environ 2,2 fois plus important.</div>
           </div>
@@ -278,8 +278,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

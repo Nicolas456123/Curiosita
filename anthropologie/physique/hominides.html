@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Australopithèques, Homo habilis, Homo erectus, Néandertal : l'arbre généalogique de l'humanité.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Hominidés fossiles — Anthropologie physique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🦴 Anthropologie physique</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -158,10 +158,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est le plus ancien hominidé connu à ce jour ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Lucy (Australopithecus afarensis)</div>
-              <div class="option" onclick="answer(this,true)">Toumaï (Sahelanthropus tchadensis)</div>
-              <div class="option" onclick="answer(this,false)">Homo habilis</div>
-              <div class="option" onclick="answer(this,false)">Ardi (Ardipithecus ramidus)</div>
+              <button class="option" onclick="answer(this,false)">Lucy (Australopithecus afarensis)</button>
+              <button class="option" onclick="answer(this,true)">Toumaï (Sahelanthropus tchadensis)</button>
+              <button class="option" onclick="answer(this,false)">Homo habilis</button>
+              <button class="option" onclick="answer(this,false)">Ardi (Ardipithecus ramidus)</button>
             </div>
             <div class="q-feedback">Toumaï (Sahelanthropus tchadensis), découvert au Tchad en 2001, est daté d'environ 7 millions d'années, ce qui en fait le plus ancien hominidé connu. Lucy est beaucoup plus récente (3,2 Ma) et Ardi date de 4,4 Ma.</div>
           </div>
@@ -169,10 +169,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle innovation technique est associée à Homo erectus ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le galet aménagé (oldowayen)</div>
-              <div class="option" onclick="answer(this,true)">Le biface acheuléen</div>
-              <div class="option" onclick="answer(this,false)">L'art pariétal</div>
-              <div class="option" onclick="answer(this,false)">La poterie</div>
+              <button class="option" onclick="answer(this,false)">Le galet aménagé (oldowayen)</button>
+              <button class="option" onclick="answer(this,true)">Le biface acheuléen</button>
+              <button class="option" onclick="answer(this,false)">L'art pariétal</button>
+              <button class="option" onclick="answer(this,false)">La poterie</button>
             </div>
             <div class="q-feedback">Le biface acheuléen — outil symétrique taillé sur deux faces — est l'innovation associée à Homo erectus. Les galets aménagés (oldowayen) sont associés à H. habilis, et l'art pariétal à H. sapiens.</div>
           </div>
@@ -180,10 +180,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel pourcentage d'ADN néandertalien portent les populations non africaines actuelles ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">0 % (aucun métissage)</div>
-              <div class="option" onclick="answer(this,true)">1 à 4 %</div>
-              <div class="option" onclick="answer(this,false)">10 à 15 %</div>
-              <div class="option" onclick="answer(this,false)">25 à 30 %</div>
+              <button class="option" onclick="answer(this,false)">0 % (aucun métissage)</button>
+              <button class="option" onclick="answer(this,true)">1 à 4 %</button>
+              <button class="option" onclick="answer(this,false)">10 à 15 %</button>
+              <button class="option" onclick="answer(this,false)">25 à 30 %</button>
             </div>
             <div class="q-feedback">Les populations non africaines portent entre 1 et 4 % d'ADN néandertalien, preuve d'hybridations entre Homo sapiens et Néandertal lors de la sortie d'Afrique. Les populations africaines n'en portent presque pas car le métissage s'est produit hors d'Afrique.</div>
           </div>
@@ -191,10 +191,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle caractéristique distingue les Paranthropus des autres australopithèques ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un cerveau beaucoup plus gros</div>
-              <div class="option" onclick="answer(this,true)">Une mâchoire massive et des molaires très développées</div>
-              <div class="option" onclick="answer(this,false)">La fabrication d'outils en pierre</div>
-              <div class="option" onclick="answer(this,false)">Une bipédie plus efficace</div>
+              <button class="option" onclick="answer(this,false)">Un cerveau beaucoup plus gros</button>
+              <button class="option" onclick="answer(this,true)">Une mâchoire massive et des molaires très développées</button>
+              <button class="option" onclick="answer(this,false)">La fabrication d'outils en pierre</button>
+              <button class="option" onclick="answer(this,false)">Une bipédie plus efficace</button>
             </div>
             <div class="q-feedback">Les Paranthropus (australopithèques « robustes ») se distinguent par leur appareil masticateur hypertrophié : mâchoires massives, molaires énormes et crête sagittale pour l'insertion de puissants muscles masticateurs. C'est une adaptation à un régime de végétaux durs.</div>
           </div>
@@ -202,10 +202,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Homo floresiensis (le « Hobbit ») illustre quel phénomène biologique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le gigantisme continental</div>
-              <div class="option" onclick="answer(this,true)">Le nanisme insulaire</div>
-              <div class="option" onclick="answer(this,false)">L'adaptation au froid</div>
-              <div class="option" onclick="answer(this,false)">L'hybridation interspécifique</div>
+              <button class="option" onclick="answer(this,false)">Le gigantisme continental</button>
+              <button class="option" onclick="answer(this,true)">Le nanisme insulaire</button>
+              <button class="option" onclick="answer(this,false)">L'adaptation au froid</button>
+              <button class="option" onclick="answer(this,false)">L'hybridation interspécifique</button>
             </div>
             <div class="q-feedback">Homo floresiensis (1 m, 380 cm³ de cerveau) illustre le nanisme insulaire : sur une île aux ressources limitées, la sélection naturelle favorise une réduction de la taille corporelle. Ce phénomène est bien connu chez d'autres mammifères insulaires.</div>
           </div>
@@ -213,10 +213,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Pourquoi parle-t-on d'un « buisson évolutif » plutôt que d'une « ligne droite » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Parce que toutes les espèces vivaient dans des forêts</div>
-              <div class="option" onclick="answer(this,false)">Parce que l'évolution est toujours progressive</div>
-              <div class="option" onclick="answer(this,true)">Parce que plusieurs espèces d'hominidés ont coexisté simultanément</div>
-              <div class="option" onclick="answer(this,false)">Parce que les fossiles sont trop fragmentaires pour tracer une ligne</div>
+              <button class="option" onclick="answer(this,false)">Parce que toutes les espèces vivaient dans des forêts</button>
+              <button class="option" onclick="answer(this,false)">Parce que l'évolution est toujours progressive</button>
+              <button class="option" onclick="answer(this,true)">Parce que plusieurs espèces d'hominidés ont coexisté simultanément</button>
+              <button class="option" onclick="answer(this,false)">Parce que les fossiles sont trop fragmentaires pour tracer une ligne</button>
             </div>
             <div class="q-feedback">L'image du « buisson » reflète le fait que plusieurs espèces d'hominidés ont coexisté à la même époque, parfois sur le même territoire. L'évolution humaine n'est pas une succession linéaire mais un arbre ramifié avec de nombreuses branches parallèles et des impasses.</div>
           </div>
@@ -286,8 +286,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

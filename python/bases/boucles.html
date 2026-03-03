@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Répéter des actions avec for et while — itérer sur des séquences et contrôler le flux avec break et continue.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Boucles — Les bases — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #4fc3f7;
   --accent2: #81d4fa;
   --accent-dim: rgba(79,195,247,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔁 Les bases</span>
     <span class="tag-level">Débutant</span>
@@ -251,10 +251,10 @@ nums = [<span class="num">1</span>, <span class="num">2</span>, <span class="num
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Combien de fois s'exécute <code>for i in range(3, 8)</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">5 fois</div>
-              <div class="option" onclick="answer(this,false)">6 fois</div>
-              <div class="option" onclick="answer(this,false)">3 fois</div>
-              <div class="option" onclick="answer(this,false)">8 fois</div>
+              <button class="option" onclick="answer(this,true)">5 fois</button>
+              <button class="option" onclick="answer(this,false)">6 fois</button>
+              <button class="option" onclick="answer(this,false)">3 fois</button>
+              <button class="option" onclick="answer(this,false)">8 fois</button>
             </div>
             <div class="q-feedback"><code>range(3, 8)</code> génère 3, 4, 5, 6, 7 — soit 5 valeurs (8 est exclu). La boucle s'exécute donc 5 fois.</div>
           </div>
@@ -262,10 +262,10 @@ nums = [<span class="num">1</span>, <span class="num">2</span>, <span class="num
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle est la différence entre <code>break</code> et <code>continue</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">break saute une itération, continue arrête la boucle</div>
-              <div class="option" onclick="answer(this,true)">break arrête la boucle, continue saute à l'itération suivante</div>
-              <div class="option" onclick="answer(this,false)">Les deux arrêtent la boucle</div>
-              <div class="option" onclick="answer(this,false)">Les deux sont identiques</div>
+              <button class="option" onclick="answer(this,false)">break saute une itération, continue arrête la boucle</button>
+              <button class="option" onclick="answer(this,true)">break arrête la boucle, continue saute à l'itération suivante</button>
+              <button class="option" onclick="answer(this,false)">Les deux arrêtent la boucle</button>
+              <button class="option" onclick="answer(this,false)">Les deux sont identiques</button>
             </div>
             <div class="q-feedback"><code>break</code> sort immédiatement de la boucle. <code>continue</code> passe à l'itération suivante sans exécuter le reste du bloc.</div>
           </div>
@@ -273,10 +273,10 @@ nums = [<span class="num">1</span>, <span class="num">2</span>, <span class="num
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que produit <code>list(range(0, 10, 3))</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">[0, 1, 2, 3]</div>
-              <div class="option" onclick="answer(this,true)">[0, 3, 6, 9]</div>
-              <div class="option" onclick="answer(this,false)">[3, 6, 9]</div>
-              <div class="option" onclick="answer(this,false)">[0, 3, 6, 9, 12]</div>
+              <button class="option" onclick="answer(this,false)">[0, 1, 2, 3]</button>
+              <button class="option" onclick="answer(this,true)">[0, 3, 6, 9]</button>
+              <button class="option" onclick="answer(this,false)">[3, 6, 9]</button>
+              <button class="option" onclick="answer(this,false)">[0, 3, 6, 9, 12]</button>
             </div>
             <div class="q-feedback"><code>range(0, 10, 3)</code> commence à 0, avance de 3 en 3 et s'arrête avant 10 : 0, 3, 6, 9.</div>
           </div>
@@ -284,10 +284,10 @@ nums = [<span class="num">1</span>, <span class="num">2</span>, <span class="num
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quand le bloc <code>else</code> d'un <code>for</code> s'exécute-t-il ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Quand la boucle fait un break</div>
-              <div class="option" onclick="answer(this,true)">Quand la boucle se termine normalement (sans break)</div>
-              <div class="option" onclick="answer(this,false)">Quand la boucle est vide</div>
-              <div class="option" onclick="answer(this,false)">Jamais, c'est une erreur de syntaxe</div>
+              <button class="option" onclick="answer(this,false)">Quand la boucle fait un break</button>
+              <button class="option" onclick="answer(this,true)">Quand la boucle se termine normalement (sans break)</button>
+              <button class="option" onclick="answer(this,false)">Quand la boucle est vide</button>
+              <button class="option" onclick="answer(this,false)">Jamais, c'est une erreur de syntaxe</button>
             </div>
             <div class="q-feedback">Le bloc <code>else</code> d'une boucle <code>for</code> ou <code>while</code> s'exécute seulement si la boucle se termine naturellement, sans qu'un <code>break</code> ne soit déclenché.</div>
           </div>
@@ -295,10 +295,10 @@ nums = [<span class="num">1</span>, <span class="num">2</span>, <span class="num
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que retourne <code>for i, v in enumerate(["a","b","c"])</code> pour la première itération ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">i=0, v="a"</div>
-              <div class="option" onclick="answer(this,false)">i=1, v="a"</div>
-              <div class="option" onclick="answer(this,false)">i="a", v=0</div>
-              <div class="option" onclick="answer(this,false)">Erreur</div>
+              <button class="option" onclick="answer(this,true)">i=0, v="a"</button>
+              <button class="option" onclick="answer(this,false)">i=1, v="a"</button>
+              <button class="option" onclick="answer(this,false)">i="a", v=0</button>
+              <button class="option" onclick="answer(this,false)">Erreur</button>
             </div>
             <div class="q-feedback"><code>enumerate()</code> retourne des paires (index, valeur). L'index commence à 0 par défaut. Première itération : i=0, v="a".</div>
           </div>
@@ -306,10 +306,10 @@ nums = [<span class="num">1</span>, <span class="num">2</span>, <span class="num
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Pourquoi ne faut-il pas modifier une liste pendant qu'on itère dessus ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Python lève une erreur</div>
-              <div class="option" onclick="answer(this,true)">Le comportement est imprévisible, des éléments peuvent être sautés</div>
-              <div class="option" onclick="answer(this,false)">La boucle devient infinie</div>
-              <div class="option" onclick="answer(this,false)">C'est interdit par la syntaxe</div>
+              <button class="option" onclick="answer(this,false)">Python lève une erreur</button>
+              <button class="option" onclick="answer(this,true)">Le comportement est imprévisible, des éléments peuvent être sautés</button>
+              <button class="option" onclick="answer(this,false)">La boucle devient infinie</button>
+              <button class="option" onclick="answer(this,false)">C'est interdit par la syntaxe</button>
             </div>
             <div class="q-feedback">Modifier une liste pendant l'itération peut causer des sauts d'éléments car les indices changent. Itérez sur une copie (<code>liste[:]</code>) ou créez une nouvelle liste.</div>
           </div>
@@ -411,8 +411,14 @@ for n in range(2, 51):
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

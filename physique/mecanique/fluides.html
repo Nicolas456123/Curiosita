@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pression, poussée d'Archimède, théorème de Bernoulli, viscosité et les différents régimes d'écoulement.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Mécanique des fluides — Mécanique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08);  --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../sciences-exactes.html">Sciences exactes</a> › <a href="../mecanique.html">Mécanique</a> › <span>Mécanique des fluides</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">⚙️ Mécanique</span>
     <span class="tag-level">Intermédiaire</span>
@@ -128,10 +128,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle pression supplémentaire subit un plongeur à 20 m de profondeur dans l'eau (ρ = 1 000 kg/m³) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">9 810 Pa</div>
-              <div class="option" onclick="answer(this,true)">196 200 Pa</div>
-              <div class="option" onclick="answer(this,false)">20 000 Pa</div>
-              <div class="option" onclick="answer(this,false)">1 013 250 Pa</div>
+              <button class="option" onclick="answer(this,false)">9 810 Pa</button>
+              <button class="option" onclick="answer(this,true)">196 200 Pa</button>
+              <button class="option" onclick="answer(this,false)">20 000 Pa</button>
+              <button class="option" onclick="answer(this,false)">1 013 250 Pa</button>
             </div>
             <div class="q-feedback">ΔP = ρgh = 1 000 × 9,81 × 20 = 196 200 Pa ≈ 2 atm. A 20 m, la pression totale est environ 3 atm (2 atm dues a l'eau + 1 atm atmospherique).</div>
           </div>
@@ -140,10 +140,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Un objet flotte lorsque...</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Sa masse est faible</div>
-              <div class="option" onclick="answer(this,true)">Sa masse volumique est inférieure à celle du fluide</div>
-              <div class="option" onclick="answer(this,false)">Son volume est grand</div>
-              <div class="option" onclick="answer(this,false)">Sa forme est plate</div>
+              <button class="option" onclick="answer(this,false)">Sa masse est faible</button>
+              <button class="option" onclick="answer(this,true)">Sa masse volumique est inférieure à celle du fluide</button>
+              <button class="option" onclick="answer(this,false)">Son volume est grand</button>
+              <button class="option" onclick="answer(this,false)">Sa forme est plate</button>
             </div>
             <div class="q-feedback">La condition de flottabilité est ρ_objet < ρ_fluide. La poussée d'Archimède dépasse alors le poids. La masse seule ne suffit pas : un pétrolier de 100 000 tonnes flotte car sa masse volumique moyenne est inférieure à celle de l'eau.</div>
           </div>
@@ -152,10 +152,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Selon le théorème de Bernoulli, quand la vitesse d'un fluide augmente dans un rétrécissement...</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La pression augmente aussi</div>
-              <div class="option" onclick="answer(this,true)">La pression diminue</div>
-              <div class="option" onclick="answer(this,false)">La pression reste constante</div>
-              <div class="option" onclick="answer(this,false)">La densité change</div>
+              <button class="option" onclick="answer(this,false)">La pression augmente aussi</button>
+              <button class="option" onclick="answer(this,true)">La pression diminue</button>
+              <button class="option" onclick="answer(this,false)">La pression reste constante</button>
+              <button class="option" onclick="answer(this,false)">La densité change</button>
             </div>
             <div class="q-feedback">P + ½ρv² + ρgh = cte. Si v augmente, P doit diminuer pour que la somme reste constante (à hauteur égale). C'est l'effet Venturi.</div>
           </div>
@@ -164,10 +164,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Dans la loi de Poiseuille, le débit dans un tube dépend du rayon r selon...</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Q ∝ r</div>
-              <div class="option" onclick="answer(this,false)">Q ∝ r²</div>
-              <div class="option" onclick="answer(this,true)">Q ∝ r⁴</div>
-              <div class="option" onclick="answer(this,false)">Q ∝ r³</div>
+              <button class="option" onclick="answer(this,false)">Q ∝ r</button>
+              <button class="option" onclick="answer(this,false)">Q ∝ r²</button>
+              <button class="option" onclick="answer(this,true)">Q ∝ r⁴</button>
+              <button class="option" onclick="answer(this,false)">Q ∝ r³</button>
             </div>
             <div class="q-feedback">Q = πr⁴ΔP/(8μL). La dépendance en r⁴ est remarquable : une réduction de 10 % du rayon diminue le débit de 34 %. C'est crucial en médecine (artériosclérose).</div>
           </div>
@@ -176,10 +176,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Un écoulement est considéré comme turbulent lorsque le nombre de Reynolds est...</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Inférieur à 100</div>
-              <div class="option" onclick="answer(this,false)">Compris entre 100 et 2 000</div>
-              <div class="option" onclick="answer(this,false)">Exactement 2 000</div>
-              <div class="option" onclick="answer(this,true)">Supérieur à 4 000</div>
+              <button class="option" onclick="answer(this,false)">Inférieur à 100</button>
+              <button class="option" onclick="answer(this,false)">Compris entre 100 et 2 000</button>
+              <button class="option" onclick="answer(this,false)">Exactement 2 000</button>
+              <button class="option" onclick="answer(this,true)">Supérieur à 4 000</button>
             </div>
             <div class="q-feedback">Re > 4 000 correspond au régime turbulent. Re < 2 000 est laminaire, et 2 000-4 000 est la zone de transition.</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">La force de traînée sur un objet dans un fluide dépend de la vitesse selon...</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">F ∝ v</div>
-              <div class="option" onclick="answer(this,true)">F ∝ v²</div>
-              <div class="option" onclick="answer(this,false)">F ∝ v³</div>
-              <div class="option" onclick="answer(this,false)">F ∝ √v</div>
+              <button class="option" onclick="answer(this,false)">F ∝ v</button>
+              <button class="option" onclick="answer(this,true)">F ∝ v²</button>
+              <button class="option" onclick="answer(this,false)">F ∝ v³</button>
+              <button class="option" onclick="answer(this,false)">F ∝ √v</button>
             </div>
             <div class="q-feedback">F = ½·C_D·ρ·A·v². La traînée croît avec le carré de la vitesse. Doubler la vitesse quadruple la résistance, ce qui explique l'augmentation rapide de la consommation de carburant à haute vitesse.</div>
           </div>
@@ -293,8 +293,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

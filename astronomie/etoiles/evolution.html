@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Séquence principale, géantes rouges, supernovae, naines blanches et étoiles à neutrons — la vie et la mort des étoiles.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Évolution stellaire — Étoiles et galaxies — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #80cbc4;
   --accent-dim: rgba(122,232,216,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔭 Étoiles et galaxies</span>
     <span class="tag-level">Intermédiaire</span>
@@ -132,10 +132,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qu'est-ce qui détermine principalement le destin d'une étoile ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Sa température de surface</div>
-              <div class="option" onclick="answer(this,true)">Sa masse initiale</div>
-              <div class="option" onclick="answer(this,false)">Sa couleur</div>
-              <div class="option" onclick="answer(this,false)">Sa distance à la Terre</div>
+              <button class="option" onclick="answer(this,false)">Sa température de surface</button>
+              <button class="option" onclick="answer(this,true)">Sa masse initiale</button>
+              <button class="option" onclick="answer(this,false)">Sa couleur</button>
+              <button class="option" onclick="answer(this,false)">Sa distance à la Terre</button>
             </div>
             <div class="q-feedback">La masse initiale détermine la luminosité, la durée de vie, le type de nucléosynthèse et le résidu final (naine blanche, étoile à neutrons ou trou noir).</div>
           </div>
@@ -143,10 +143,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle est la limite de Chandrasekhar ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">1,4 masse solaire — masse maximale d'une naine blanche</div>
-              <div class="option" onclick="answer(this,false)">3 masses solaires — masse maximale d'une étoile à neutrons</div>
-              <div class="option" onclick="answer(this,false)">8 masses solaires — seuil pour les supernovae</div>
-              <div class="option" onclick="answer(this,false)">100 masses solaires — masse maximale d'une étoile</div>
+              <button class="option" onclick="answer(this,true)">1,4 masse solaire — masse maximale d'une naine blanche</button>
+              <button class="option" onclick="answer(this,false)">3 masses solaires — masse maximale d'une étoile à neutrons</button>
+              <button class="option" onclick="answer(this,false)">8 masses solaires — seuil pour les supernovae</button>
+              <button class="option" onclick="answer(this,false)">100 masses solaires — masse maximale d'une étoile</button>
             </div>
             <div class="q-feedback">La limite de Chandrasekhar (1,4 M☉) est la masse maximale d'une naine blanche stable. Au-delà, la pression de dégénérescence des électrons ne suffit plus à contrer la gravité.</div>
           </div>
@@ -154,10 +154,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Pourquoi la fusion du fer ne peut-elle pas alimenter l'étoile ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le fer est trop léger</div>
-              <div class="option" onclick="answer(this,true)">La fusion du fer consomme de l'énergie au lieu d'en libérer</div>
-              <div class="option" onclick="answer(this,false)">Le fer ne peut pas fusionner</div>
-              <div class="option" onclick="answer(this,false)">Le fer est gazeux dans l'étoile</div>
+              <button class="option" onclick="answer(this,false)">Le fer est trop léger</button>
+              <button class="option" onclick="answer(this,true)">La fusion du fer consomme de l'énergie au lieu d'en libérer</button>
+              <button class="option" onclick="answer(this,false)">Le fer ne peut pas fusionner</button>
+              <button class="option" onclick="answer(this,false)">Le fer est gazeux dans l'étoile</button>
             </div>
             <div class="q-feedback">Le fer (⁵⁶Fe) a l'énergie de liaison par nucléon la plus élevée. Fusionner des noyaux au-delà du fer consomme de l'énergie, privant l'étoile de sa source de soutien contre la gravité.</div>
           </div>
@@ -165,10 +165,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce qu'un pulsar ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une étoile variable sur la séquence principale</div>
-              <div class="option" onclick="answer(this,false)">Une naine blanche en rotation</div>
-              <div class="option" onclick="answer(this,true)">Une étoile à neutrons en rotation rapide émettant des faisceaux de rayonnement</div>
-              <div class="option" onclick="answer(this,false)">Un trou noir émettant des jets</div>
+              <button class="option" onclick="answer(this,false)">Une étoile variable sur la séquence principale</button>
+              <button class="option" onclick="answer(this,false)">Une naine blanche en rotation</button>
+              <button class="option" onclick="answer(this,true)">Une étoile à neutrons en rotation rapide émettant des faisceaux de rayonnement</button>
+              <button class="option" onclick="answer(this,false)">Un trou noir émettant des jets</button>
             </div>
             <div class="q-feedback">Un pulsar est une étoile à neutrons en rotation rapide dont le champ magnétique intense canalise le rayonnement en faisceaux étroits, comme un phare cosmique.</div>
           </div>
@@ -176,10 +176,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle est la durée de vie approximative du Soleil sur la séquence principale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1 milliard d'années</div>
-              <div class="option" onclick="answer(this,true)">10 milliards d'années</div>
-              <div class="option" onclick="answer(this,false)">100 milliards d'années</div>
-              <div class="option" onclick="answer(this,false)">1 000 milliards d'années</div>
+              <button class="option" onclick="answer(this,false)">1 milliard d'années</button>
+              <button class="option" onclick="answer(this,true)">10 milliards d'années</button>
+              <button class="option" onclick="answer(this,false)">100 milliards d'années</button>
+              <button class="option" onclick="answer(this,false)">1 000 milliards d'années</button>
             </div>
             <div class="q-feedback">Le Soleil passera environ 10 milliards d'années sur la séquence principale. Il en a déjà consommé 4,6 milliards, il lui en reste donc environ 5 milliards.</div>
           </div>
@@ -187,10 +187,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que deviendra le Soleil en fin de vie ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un trou noir</div>
-              <div class="option" onclick="answer(this,false)">Une étoile à neutrons</div>
-              <div class="option" onclick="answer(this,true)">Une naine blanche entourée d'une nébuleuse planétaire</div>
-              <div class="option" onclick="answer(this,false)">Il explosera en supernova</div>
+              <button class="option" onclick="answer(this,false)">Un trou noir</button>
+              <button class="option" onclick="answer(this,false)">Une étoile à neutrons</button>
+              <button class="option" onclick="answer(this,true)">Une naine blanche entourée d'une nébuleuse planétaire</button>
+              <button class="option" onclick="answer(this,false)">Il explosera en supernova</button>
             </div>
             <div class="q-feedback">Le Soleil (1 M☉) n'est pas assez massif pour exploser en supernova. Il deviendra une géante rouge, éjectera ses couches externes (nébuleuse planétaire) et laissera un cœur de carbone-oxygène : une naine blanche.</div>
           </div>
@@ -263,8 +263,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

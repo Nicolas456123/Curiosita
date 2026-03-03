@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Règle des tiers, lignes directrices, cadrage et profondeur — les principes fondamentaux pour structurer une image forte et lisible.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Composition photographique — Photographie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e74c3c;
   --accent2: #c0392b;
   --accent-dim: rgba(231,76,60,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(231,76,60,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(231,76,60,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📷 Photographie</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -129,10 +129,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Combien de points forts la règle des tiers définit-elle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">2</div>
-              <div class="option" onclick="answer(this,false)">3</div>
-              <div class="option" onclick="answer(this,true)">4</div>
-              <div class="option" onclick="answer(this,false)">9</div>
+              <button class="option" onclick="answer(this,false)">2</button>
+              <button class="option" onclick="answer(this,false)">3</button>
+              <button class="option" onclick="answer(this,true)">4</button>
+              <button class="option" onclick="answer(this,false)">9</button>
             </div>
             <div class="q-feedback">La règle des tiers crée 4 points forts, situés aux intersections des deux lignes horizontales et des deux lignes verticales qui divisent l'image en neuf rectangles égaux.</div>
           </div>
@@ -140,10 +140,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel type de ligne crée le plus de dynamisme dans une image ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les lignes horizontales</div>
-              <div class="option" onclick="answer(this,false)">Les lignes verticales</div>
-              <div class="option" onclick="answer(this,true)">Les lignes diagonales</div>
-              <div class="option" onclick="answer(this,false)">Les lignes courbes</div>
+              <button class="option" onclick="answer(this,false)">Les lignes horizontales</button>
+              <button class="option" onclick="answer(this,false)">Les lignes verticales</button>
+              <button class="option" onclick="answer(this,true)">Les lignes diagonales</button>
+              <button class="option" onclick="answer(this,false)">Les lignes courbes</button>
             </div>
             <div class="q-feedback">Les lignes diagonales sont les plus dynamiques car elles créent du mouvement et de la tension dans l'image. Les lignes horizontales évoquent le calme, les verticales la puissance.</div>
           </div>
@@ -151,10 +151,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel effet produit une prise de vue en contre-plongée sur le sujet ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Elle l'écrase et le diminue</div>
-              <div class="option" onclick="answer(this,true)">Elle le grandit et le magnifie</div>
-              <div class="option" onclick="answer(this,false)">Elle le rend plus naturel</div>
-              <div class="option" onclick="answer(this,false)">Elle l'éloigne du spectateur</div>
+              <button class="option" onclick="answer(this,false)">Elle l'écrase et le diminue</button>
+              <button class="option" onclick="answer(this,true)">Elle le grandit et le magnifie</button>
+              <button class="option" onclick="answer(this,false)">Elle le rend plus naturel</button>
+              <button class="option" onclick="answer(this,false)">Elle l'éloigne du spectateur</button>
             </div>
             <div class="q-feedback">La contre-plongée (vue du dessous) grandit et magnifie le sujet en le faisant paraître imposant et dominant. C'est l'inverse de la plongée qui écrase et diminue.</div>
           </div>
@@ -162,10 +162,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Comment appelle-t-on le flou d'arrière-plan obtenu avec une grande ouverture ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le vignettage</div>
-              <div class="option" onclick="answer(this,false)">Le grain</div>
-              <div class="option" onclick="answer(this,true)">Le bokeh</div>
-              <div class="option" onclick="answer(this,false)">Le flare</div>
+              <button class="option" onclick="answer(this,false)">Le vignettage</button>
+              <button class="option" onclick="answer(this,false)">Le grain</button>
+              <button class="option" onclick="answer(this,true)">Le bokeh</button>
+              <button class="option" onclick="answer(this,false)">Le flare</button>
             </div>
             <div class="q-feedback">Le bokeh (du japonais « boke », flou) désigne le rendu esthétique du flou dans les zones hors de la profondeur de champ. Il est obtenu avec une grande ouverture (petit nombre f/).</div>
           </div>
@@ -173,10 +173,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce que l'espace négatif en photographie ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une zone surexposée</div>
-              <div class="option" onclick="answer(this,false)">Un défaut de composition</div>
-              <div class="option" onclick="answer(this,true)">Les zones vides ou uniformes autour du sujet</div>
-              <div class="option" onclick="answer(this,false)">L'ombre portée du sujet</div>
+              <button class="option" onclick="answer(this,false)">Une zone surexposée</button>
+              <button class="option" onclick="answer(this,false)">Un défaut de composition</button>
+              <button class="option" onclick="answer(this,true)">Les zones vides ou uniformes autour du sujet</button>
+              <button class="option" onclick="answer(this,false)">L'ombre portée du sujet</button>
             </div>
             <div class="q-feedback">L'espace négatif désigne les zones vides ou uniformes de l'image (ciel uni, mur blanc, étendue d'eau). Il isole le sujet, crée une respiration visuelle et renforce l'impact de la composition.</div>
           </div>
@@ -184,10 +184,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel élément rend un motif répétitif particulièrement intéressant en photographie ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Sa parfaite régularité</div>
-              <div class="option" onclick="answer(this,true)">Une rupture dans la répétition</div>
-              <div class="option" onclick="answer(this,false)">Sa symétrie exacte</div>
-              <div class="option" onclick="answer(this,false)">Son cadrage serré</div>
+              <button class="option" onclick="answer(this,false)">Sa parfaite régularité</button>
+              <button class="option" onclick="answer(this,true)">Une rupture dans la répétition</button>
+              <button class="option" onclick="answer(this,false)">Sa symétrie exacte</button>
+              <button class="option" onclick="answer(this,false)">Son cadrage serré</button>
             </div>
             <div class="q-feedback">Un élément qui rompt la répétition (une fenêtre ouverte, un objet de couleur différente) crée un point focal immédiat et rend le motif beaucoup plus captivant qu'une simple régularité.</div>
           </div>
@@ -250,8 +250,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

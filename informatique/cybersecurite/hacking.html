@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tests d'intrusion, OWASP Top 10, injection SQL, XSS et ingénierie sociale — attaquer pour mieux défendre, dans un cadre légal et éthique.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Hacking éthique — Cybersécurité — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #2980b9;
   --accent2: #3498db;
   --accent-dim: rgba(41,128,185,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(41,128,185,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(41,128,185,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔒 Cybersécurité</span>
     <span class="tag-level">Avancé</span>
@@ -248,10 +248,10 @@ Set-Cookie: session=abc123; <span class="kw">HttpOnly</span>; <span class="kw">S
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la première phase d'un test d'intrusion ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Exploitation</div>
-              <div class="option" onclick="answer(this,true)">Reconnaissance</div>
-              <div class="option" onclick="answer(this,false)">Rapport</div>
-              <div class="option" onclick="answer(this,false)">Scanning</div>
+              <button class="option" onclick="answer(this,false)">Exploitation</button>
+              <button class="option" onclick="answer(this,true)">Reconnaissance</button>
+              <button class="option" onclick="answer(this,false)">Rapport</button>
+              <button class="option" onclick="answer(this,false)">Scanning</button>
             </div>
             <div class="q-feedback">La reconnaissance est la première phase : elle consiste à collecter un maximum d'informations sur la cible (OSINT, DNS, réseaux sociaux) avant toute interaction technique directe.</div>
           </div>
@@ -259,10 +259,10 @@ Set-Cookie: session=abc123; <span class="kw">HttpOnly</span>; <span class="kw">S
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle est la meilleure défense contre l'injection SQL ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un pare-feu réseau</div>
-              <div class="option" onclick="answer(this,false)">Le chiffrement des données</div>
-              <div class="option" onclick="answer(this,true)">Les requêtes paramétrées (prepared statements)</div>
-              <div class="option" onclick="answer(this,false)">Un mot de passe complexe pour la base de données</div>
+              <button class="option" onclick="answer(this,false)">Un pare-feu réseau</button>
+              <button class="option" onclick="answer(this,false)">Le chiffrement des données</button>
+              <button class="option" onclick="answer(this,true)">Les requêtes paramétrées (prepared statements)</button>
+              <button class="option" onclick="answer(this,false)">Un mot de passe complexe pour la base de données</button>
             </div>
             <div class="q-feedback">Les requêtes paramétrées séparent le code SQL des données utilisateur. Les entrées sont toujours traitées comme des valeurs, jamais comme du code exécutable, ce qui rend l'injection impossible.</div>
           </div>
@@ -270,10 +270,10 @@ Set-Cookie: session=abc123; <span class="kw">HttpOnly</span>; <span class="kw">S
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel type de XSS est le plus dangereux car il touche tous les visiteurs d'une page ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">XSS réfléchi (Reflected)</div>
-              <div class="option" onclick="answer(this,true)">XSS stocké (Stored)</div>
-              <div class="option" onclick="answer(this,false)">XSS basé sur le DOM</div>
-              <div class="option" onclick="answer(this,false)">XSS aveugle (Blind)</div>
+              <button class="option" onclick="answer(this,false)">XSS réfléchi (Reflected)</button>
+              <button class="option" onclick="answer(this,true)">XSS stocké (Stored)</button>
+              <button class="option" onclick="answer(this,false)">XSS basé sur le DOM</button>
+              <button class="option" onclick="answer(this,false)">XSS aveugle (Blind)</button>
             </div>
             <div class="q-feedback">Le XSS stocké est le plus dangereux car le script malveillant est enregistré en base de données et exécuté automatiquement dans le navigateur de chaque visiteur, sans nécessiter de clic sur un lien piégé.</div>
           </div>
@@ -281,10 +281,10 @@ Set-Cookie: session=abc123; <span class="kw">HttpOnly</span>; <span class="kw">S
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce que le « spear phishing » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un phishing envoyé à des millions de personnes</div>
-              <div class="option" onclick="answer(this,true)">Un phishing ciblé visant un individu spécifique avec des informations personnalisées</div>
-              <div class="option" onclick="answer(this,false)">Un phishing par téléphone</div>
-              <div class="option" onclick="answer(this,false)">Un phishing via les réseaux sociaux</div>
+              <button class="option" onclick="answer(this,false)">Un phishing envoyé à des millions de personnes</button>
+              <button class="option" onclick="answer(this,true)">Un phishing ciblé visant un individu spécifique avec des informations personnalisées</button>
+              <button class="option" onclick="answer(this,false)">Un phishing par téléphone</button>
+              <button class="option" onclick="answer(this,false)">Un phishing via les réseaux sociaux</button>
             </div>
             <div class="q-feedback">Le spear phishing est une attaque ciblée : l'attaquant recherche des informations sur sa victime (poste, collègues, projets) pour créer un message crédible et personnalisé, rendant la détection beaucoup plus difficile.</div>
           </div>
@@ -292,10 +292,10 @@ Set-Cookie: session=abc123; <span class="kw">HttpOnly</span>; <span class="kw">S
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel en-tête HTTP aide à prévenir les attaques XSS ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Content-Security-Policy</div>
-              <div class="option" onclick="answer(this,false)">X-Forwarded-For</div>
-              <div class="option" onclick="answer(this,false)">Cache-Control</div>
-              <div class="option" onclick="answer(this,false)">Accept-Encoding</div>
+              <button class="option" onclick="answer(this,true)">Content-Security-Policy</button>
+              <button class="option" onclick="answer(this,false)">X-Forwarded-For</button>
+              <button class="option" onclick="answer(this,false)">Cache-Control</button>
+              <button class="option" onclick="answer(this,false)">Accept-Encoding</button>
             </div>
             <div class="q-feedback">Content-Security-Policy (CSP) permet de définir quelles sources de scripts sont autorisées. En bloquant les scripts inline et les sources non approuvées, CSP empêche l'exécution de code injecté par XSS.</div>
           </div>
@@ -303,10 +303,10 @@ Set-Cookie: session=abc123; <span class="kw">HttpOnly</span>; <span class="kw">S
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Dans le cadre légal français, que faut-il obligatoirement avant de réaliser un pentest ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un diplôme en cybersécurité</div>
-              <div class="option" onclick="answer(this,false)">Une certification CEH ou OSCP</div>
-              <div class="option" onclick="answer(this,true)">Une autorisation écrite du propriétaire du système</div>
-              <div class="option" onclick="answer(this,false)">Une déclaration à l'ANSSI</div>
+              <button class="option" onclick="answer(this,false)">Un diplôme en cybersécurité</button>
+              <button class="option" onclick="answer(this,false)">Une certification CEH ou OSCP</button>
+              <button class="option" onclick="answer(this,true)">Une autorisation écrite du propriétaire du système</button>
+              <button class="option" onclick="answer(this,false)">Une déclaration à l'ANSSI</button>
             </div>
             <div class="q-feedback">En France, toute tentative d'intrusion sans autorisation est un délit pénal (art. 323-1 du Code pénal). Un contrat de mission détaillant le périmètre, les méthodes autorisées et les limites est indispensable avant tout test.</div>
           </div>
@@ -569,8 +569,14 @@ getcap -r / 2>/dev/null
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

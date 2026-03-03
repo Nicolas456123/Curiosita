@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tableaux de frequences, frequences cumulees, classes et effectifs — organiser les donnees brutes en categories exploitables.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Distributions de frequences — Statistiques descriptives — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08);  --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../statistiques-page.html">Statistiques</a> › <a href="../descriptives.html">Descriptives</a> › <span>Distributions</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">📈 Statistiques descriptives</span><span class="tag-level">Debutant</span><span class="tag-time">⏱ ~35 min</span></div>
   <h1><em>Distributions de frequences</em></h1>
   <p class="hero-desc">Tableaux de frequences, frequences cumulees, classes et effectifs — organiser les donnees brutes en categories exploitables.</p>
@@ -92,50 +92,50 @@
           <div class="question-block active" data-q="0">
             <p class="q-num">Question 1 / 5</p><p class="q-text">La frequence relative est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le nombre d'observations dans une classe</div>
-              <div class="option" onclick="answer(this,true)">La proportion d'observations dans une classe (nᵢ/N)</div>
-              <div class="option" onclick="answer(this,false)">La somme de tous les effectifs</div>
-              <div class="option" onclick="answer(this,false)">La difference entre deux effectifs</div>
+              <button class="option" onclick="answer(this,false)">Le nombre d'observations dans une classe</button>
+              <button class="option" onclick="answer(this,true)">La proportion d'observations dans une classe (nᵢ/N)</button>
+              <button class="option" onclick="answer(this,false)">La somme de tous les effectifs</button>
+              <button class="option" onclick="answer(this,false)">La difference entre deux effectifs</button>
             </div>
             <div class="q-feedback">La frequence relative fᵢ = nᵢ/N est la proportion. La somme de toutes les frequences relatives vaut 1 (ou 100 %).</div>
           </div>
           <div class="question-block" data-q="1">
             <p class="q-num">Question 2 / 5</p><p class="q-text">Le centre de la classe [20 ; 30[ est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">20</div>
-              <div class="option" onclick="answer(this,true)">25</div>
-              <div class="option" onclick="answer(this,false)">30</div>
-              <div class="option" onclick="answer(this,false)">10</div>
+              <button class="option" onclick="answer(this,false)">20</button>
+              <button class="option" onclick="answer(this,true)">25</button>
+              <button class="option" onclick="answer(this,false)">30</button>
+              <button class="option" onclick="answer(this,false)">10</button>
             </div>
             <div class="q-feedback">Centre = (20 + 30) / 2 = 25. L'amplitude de cette classe est 30 - 20 = 10.</div>
           </div>
           <div class="question-block" data-q="2">
             <p class="q-num">Question 3 / 5</p><p class="q-text">La frequence cumulee a Q₃ vaut :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">25 %</div>
-              <div class="option" onclick="answer(this,false)">50 %</div>
-              <div class="option" onclick="answer(this,true)">75 %</div>
-              <div class="option" onclick="answer(this,false)">100 %</div>
+              <button class="option" onclick="answer(this,false)">25 %</button>
+              <button class="option" onclick="answer(this,false)">50 %</button>
+              <button class="option" onclick="answer(this,true)">75 %</button>
+              <button class="option" onclick="answer(this,false)">100 %</button>
             </div>
             <div class="q-feedback">Q₃ est le 3e quartile : 75 % des observations sont en dessous de cette valeur.</div>
           </div>
           <div class="question-block" data-q="3">
             <p class="q-num">Question 4 / 5</p><p class="q-text">Quand les classes ont des amplitudes differentes, on represente :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'effectif brut</div>
-              <div class="option" onclick="answer(this,true)">La densite de frequence</div>
-              <div class="option" onclick="answer(this,false)">La frequence cumulee</div>
-              <div class="option" onclick="answer(this,false)">L'amplitude</div>
+              <button class="option" onclick="answer(this,false)">L'effectif brut</button>
+              <button class="option" onclick="answer(this,true)">La densite de frequence</button>
+              <button class="option" onclick="answer(this,false)">La frequence cumulee</button>
+              <button class="option" onclick="answer(this,false)">L'amplitude</button>
             </div>
             <div class="q-feedback">La densite de frequence (fᵢ/aᵢ) corrige l'effet des amplitudes inegales pour une representation fidele.</div>
           </div>
           <div class="question-block" data-q="4">
             <p class="q-num">Question 5 / 5</p><p class="q-text">Une distribution bimodale suggere :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Des donnees uniformes</div>
-              <div class="option" onclick="answer(this,true)">La presence de deux sous-populations</div>
-              <div class="option" onclick="answer(this,false)">Une seule population homogene</div>
-              <div class="option" onclick="answer(this,false)">Des erreurs de mesure</div>
+              <button class="option" onclick="answer(this,false)">Des donnees uniformes</button>
+              <button class="option" onclick="answer(this,true)">La presence de deux sous-populations</button>
+              <button class="option" onclick="answer(this,false)">Une seule population homogene</button>
+              <button class="option" onclick="answer(this,false)">Des erreurs de mesure</button>
             </div>
             <div class="q-feedback">Deux pics dans la distribution suggerent souvent le melange de deux groupes distincts (ex : tailles d'hommes et de femmes melanges).</div>
           </div>
@@ -164,8 +164,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

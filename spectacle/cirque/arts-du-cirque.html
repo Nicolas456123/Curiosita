@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Acrobatie, trapèze, fil, jonglage — les disciplines fondamentales du cirque, leur histoire et leurs techniques.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Arts du cirque — Cirque — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎪 Cirque</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -137,10 +137,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qui est considéré comme le fondateur du cirque moderne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">P.T. Barnum</div>
-              <div class="option" onclick="answer(this,true)">Philip Astley</div>
-              <div class="option" onclick="answer(this,false)">Jules Léotard</div>
-              <div class="option" onclick="answer(this,false)">Achille Zavatta</div>
+              <button class="option" onclick="answer(this,false)">P.T. Barnum</button>
+              <button class="option" onclick="answer(this,true)">Philip Astley</button>
+              <button class="option" onclick="answer(this,false)">Jules Léotard</button>
+              <button class="option" onclick="answer(this,false)">Achille Zavatta</button>
             </div>
             <div class="q-feedback">Philip Astley, ancien cavalier militaire anglais, fonde le premier cirque moderne à Londres en 1768 avec ses spectacles équestres.</div>
           </div>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel est le diamètre standard d'une piste de cirque traditionnelle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">10 mètres</div>
-              <div class="option" onclick="answer(this,true)">13 mètres</div>
-              <div class="option" onclick="answer(this,false)">15 mètres</div>
-              <div class="option" onclick="answer(this,false)">20 mètres</div>
+              <button class="option" onclick="answer(this,false)">10 mètres</button>
+              <button class="option" onclick="answer(this,true)">13 mètres</button>
+              <button class="option" onclick="answer(this,false)">15 mètres</button>
+              <button class="option" onclick="answer(this,false)">20 mètres</button>
             </div>
             <div class="q-feedback">La piste de cirque mesure 13 mètres de diamètre, dimension établie par Astley pour le galop des chevaux et devenue un standard universel.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qui a inventé le trapèze volant en 1859 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Philip Astley</div>
-              <div class="option" onclick="answer(this,false)">Les frères Fratellini</div>
-              <div class="option" onclick="answer(this,true)">Jules Léotard</div>
-              <div class="option" onclick="answer(this,false)">Annie Fratellini</div>
+              <button class="option" onclick="answer(this,false)">Philip Astley</button>
+              <button class="option" onclick="answer(this,false)">Les frères Fratellini</button>
+              <button class="option" onclick="answer(this,true)">Jules Léotard</button>
+              <button class="option" onclick="answer(this,false)">Annie Fratellini</button>
             </div>
             <div class="q-feedback">Jules Léotard a inventé le trapèze volant en 1859. Le justaucorps des acrobates porte d'ailleurs son nom : le léotard.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Comment appelle-t-on le clown élégant et autoritaire, maquillé de blanc ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Le clown blanc</div>
-              <div class="option" onclick="answer(this,false)">L'auguste</div>
-              <div class="option" onclick="answer(this,false)">Le contre-pitre</div>
-              <div class="option" onclick="answer(this,false)">Le bouffon</div>
+              <button class="option" onclick="answer(this,true)">Le clown blanc</button>
+              <button class="option" onclick="answer(this,false)">L'auguste</button>
+              <button class="option" onclick="answer(this,false)">Le contre-pitre</button>
+              <button class="option" onclick="answer(this,false)">Le bouffon</button>
             </div>
             <div class="q-feedback">Le clown blanc est le personnage élégant et autoritaire. Il s'oppose à l'auguste, maladroit et coloré au nez rouge, dans le duo traditionnel.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel système de notation mathématique permet de décrire les figures de jonglage ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le labanotation</div>
-              <div class="option" onclick="answer(this,true)">Le siteswap</div>
-              <div class="option" onclick="answer(this,false)">La tablature</div>
-              <div class="option" onclick="answer(this,false)">Le benesh</div>
+              <button class="option" onclick="answer(this,false)">Le labanotation</button>
+              <button class="option" onclick="answer(this,true)">Le siteswap</button>
+              <button class="option" onclick="answer(this,false)">La tablature</button>
+              <button class="option" onclick="answer(this,false)">Le benesh</button>
             </div>
             <div class="q-feedback">Le siteswap est un système de notation mathématique qui décrit les trajectoires des objets jonglés par des séquences de chiffres.</div>
           </div>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Où se trouve le CNAC, école supérieure française des arts du cirque ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Paris</div>
-              <div class="option" onclick="answer(this,false)">Lyon</div>
-              <div class="option" onclick="answer(this,true)">Châlons-en-Champagne</div>
-              <div class="option" onclick="answer(this,false)">Montréal</div>
+              <button class="option" onclick="answer(this,false)">Paris</button>
+              <button class="option" onclick="answer(this,false)">Lyon</button>
+              <button class="option" onclick="answer(this,true)">Châlons-en-Champagne</button>
+              <button class="option" onclick="answer(this,false)">Montréal</button>
             </div>
             <div class="q-feedback">Le Centre National des Arts du Cirque (CNAC) est situé à Châlons-en-Champagne. Il a été fondé en 1985 et forme des artistes circassiens de haut niveau.</div>
           </div>
@@ -259,8 +259,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

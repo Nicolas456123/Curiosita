@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Temples grecs, thermes et amphithéâtres romains — les fondements de l'architecture occidentale.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Architecture antique — Architecture — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🏛️ Architecture</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -149,10 +149,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quel architecte égyptien est considéré comme le premier architecte connu de l'histoire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Sénenmout</div>
-              <div class="option" onclick="answer(this,true)">Imhotep</div>
-              <div class="option" onclick="answer(this,false)">Hémiounou</div>
-              <div class="option" onclick="answer(this,false)">Amenhotep</div>
+              <button class="option" onclick="answer(this,false)">Sénenmout</button>
+              <button class="option" onclick="answer(this,true)">Imhotep</button>
+              <button class="option" onclick="answer(this,false)">Hémiounou</button>
+              <button class="option" onclick="answer(this,false)">Amenhotep</button>
             </div>
             <div class="q-feedback">Imhotep, architecte du pharaon Djéser (vers 2650 av. J.-C.), conçut la pyramide à degrés de Saqqarah, la première grande construction en pierre de taille de l'histoire. Il fut ultérieurement divinisé par les Égyptiens.</div>
           </div>
@@ -160,10 +160,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Quel est le diamètre de la coupole du Panthéon de Rome ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">30 mètres</div>
-              <div class="option" onclick="answer(this,false)">38 mètres</div>
-              <div class="option" onclick="answer(this,true)">43,3 mètres</div>
-              <div class="option" onclick="answer(this,false)">52 mètres</div>
+              <button class="option" onclick="answer(this,false)">30 mètres</button>
+              <button class="option" onclick="answer(this,false)">38 mètres</button>
+              <button class="option" onclick="answer(this,true)">43,3 mètres</button>
+              <button class="option" onclick="answer(this,false)">52 mètres</button>
             </div>
             <div class="q-feedback">La coupole du Panthéon mesure 43,3 mètres de diamètre. Construite en béton romain non armé vers 125 ap. J.-C., elle est restée la plus grande coupole du monde pendant plus de 1 300 ans.</div>
           </div>
@@ -171,10 +171,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Quel ordre grec est caractérisé par un chapiteau orné de feuilles d'acanthe ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'ordre dorique</div>
-              <div class="option" onclick="answer(this,false)">L'ordre ionique</div>
-              <div class="option" onclick="answer(this,true)">L'ordre corinthien</div>
-              <div class="option" onclick="answer(this,false)">L'ordre toscan</div>
+              <button class="option" onclick="answer(this,false)">L'ordre dorique</button>
+              <button class="option" onclick="answer(this,false)">L'ordre ionique</button>
+              <button class="option" onclick="answer(this,true)">L'ordre corinthien</button>
+              <button class="option" onclick="answer(this,false)">L'ordre toscan</button>
             </div>
             <div class="q-feedback">L'ordre corinthien, le plus décoratif des trois ordres grecs, se distingue par son chapiteau orné de deux rangées de feuilles d'acanthe surmontées de petites volutes. Il fut particulièrement apprécié par les Romains.</div>
           </div>
@@ -182,10 +182,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quelle innovation majeure des Romains a permis de construire des espaces couverts immenses ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La colonne dorique</div>
-              <div class="option" onclick="answer(this,false)">Le système trabéé</div>
-              <div class="option" onclick="answer(this,true)">Le béton romain (opus caementicium)</div>
-              <div class="option" onclick="answer(this,false)">Le marbre de Carrare</div>
+              <button class="option" onclick="answer(this,false)">La colonne dorique</button>
+              <button class="option" onclick="answer(this,false)">Le système trabéé</button>
+              <button class="option" onclick="answer(this,true)">Le béton romain (opus caementicium)</button>
+              <button class="option" onclick="answer(this,false)">Le marbre de Carrare</button>
             </div>
             <div class="q-feedback">Le béton romain, composé de chaux, de pouzzolane (sable volcanique) et de gravats, a permis de couler des voûtes et des coupoles de formes complexes, couvrant des espaces sans précédent, comme la coupole du Panthéon.</div>
           </div>
@@ -193,10 +193,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Selon Vitruve, quels sont les trois principes fondamentaux de l'architecture ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Hauteur, largeur, profondeur</div>
-              <div class="option" onclick="answer(this,false)">Pierre, bois, marbre</div>
-              <div class="option" onclick="answer(this,false)">Symétrie, proportion, harmonie</div>
-              <div class="option" onclick="answer(this,true)">Solidité (firmitas), utilité (utilitas), beauté (venustas)</div>
+              <button class="option" onclick="answer(this,false)">Hauteur, largeur, profondeur</button>
+              <button class="option" onclick="answer(this,false)">Pierre, bois, marbre</button>
+              <button class="option" onclick="answer(this,false)">Symétrie, proportion, harmonie</button>
+              <button class="option" onclick="answer(this,true)">Solidité (firmitas), utilité (utilitas), beauté (venustas)</button>
             </div>
             <div class="q-feedback">Vitruve, architecte romain du Ier siècle av. J.-C., définit dans De Architectura les trois principes fondamentaux : firmitas (solidité structurelle), utilitas (adéquation à l'usage) et venustas (beauté esthétique).</div>
           </div>
@@ -225,8 +225,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

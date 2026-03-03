@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Classification spectrale O-B-A-F-G-K-M, diagramme de Hertzsprung-Russell et propriétés physiques des étoiles.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Types d'étoiles — Étoiles et galaxies — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #80cbc4;
   --accent-dim: rgba(122,232,216,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔭 Étoiles et galaxies</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -147,10 +147,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel type spectral correspond aux étoiles les plus chaudes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">O</div>
-              <div class="option" onclick="answer(this,false)">A</div>
-              <div class="option" onclick="answer(this,false)">G</div>
-              <div class="option" onclick="answer(this,false)">M</div>
+              <button class="option" onclick="answer(this,true)">O</button>
+              <button class="option" onclick="answer(this,false)">A</button>
+              <button class="option" onclick="answer(this,false)">G</button>
+              <button class="option" onclick="answer(this,false)">M</button>
             </div>
             <div class="q-feedback">Les étoiles de type O sont les plus chaudes (> 30 000 K), bleues et très massives. La séquence va de O (chaud) à M (froid).</div>
           </div>
@@ -158,10 +158,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel est le type spectral du Soleil ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">A2V</div>
-              <div class="option" onclick="answer(this,false)">F5III</div>
-              <div class="option" onclick="answer(this,true)">G2V</div>
-              <div class="option" onclick="answer(this,false)">K0V</div>
+              <button class="option" onclick="answer(this,false)">A2V</button>
+              <button class="option" onclick="answer(this,false)">F5III</button>
+              <button class="option" onclick="answer(this,true)">G2V</button>
+              <button class="option" onclick="answer(this,false)">K0V</button>
             </div>
             <div class="q-feedback">Le Soleil est de type G2V : type spectral G2 (jaune, 5 800 K) et classe de luminosité V (séquence principale).</div>
           </div>
@@ -169,10 +169,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel type d'étoile est le plus nombreux dans la Voie lactée ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les supergéantes bleues</div>
-              <div class="option" onclick="answer(this,false)">Les étoiles de type solaire (G)</div>
-              <div class="option" onclick="answer(this,true)">Les naines rouges (type M)</div>
-              <div class="option" onclick="answer(this,false)">Les naines blanches</div>
+              <button class="option" onclick="answer(this,false)">Les supergéantes bleues</button>
+              <button class="option" onclick="answer(this,false)">Les étoiles de type solaire (G)</button>
+              <button class="option" onclick="answer(this,true)">Les naines rouges (type M)</button>
+              <button class="option" onclick="answer(this,false)">Les naines blanches</button>
             </div>
             <div class="q-feedback">Les naines rouges de type M représentent environ 75 % de toutes les étoiles. Elles sont si faibles qu'aucune n'est visible à l'œil nu, malgré leur nombre considérable.</div>
           </div>
@@ -180,10 +180,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Où se trouvent les géantes rouges sur le diagramme HR ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">En bas à gauche</div>
-              <div class="option" onclick="answer(this,true)">En haut à droite</div>
-              <div class="option" onclick="answer(this,false)">En bas à droite</div>
-              <div class="option" onclick="answer(this,false)">Au centre exact</div>
+              <button class="option" onclick="answer(this,false)">En bas à gauche</button>
+              <button class="option" onclick="answer(this,true)">En haut à droite</button>
+              <button class="option" onclick="answer(this,false)">En bas à droite</button>
+              <button class="option" onclick="answer(this,false)">Au centre exact</button>
             </div>
             <div class="q-feedback">Les géantes rouges sont en haut à droite du diagramme HR : très lumineuses (haut) mais relativement froides (droite). Leur grande taille compense leur faible température.</div>
           </div>
@@ -191,10 +191,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce qu'une naine brune ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une étoile mourante de faible masse</div>
-              <div class="option" onclick="answer(this,true)">Un objet trop peu massif pour fusionner l'hydrogène</div>
-              <div class="option" onclick="answer(this,false)">Une naine blanche refroidie</div>
-              <div class="option" onclick="answer(this,false)">Une planète géante gazeuse</div>
+              <button class="option" onclick="answer(this,false)">Une étoile mourante de faible masse</button>
+              <button class="option" onclick="answer(this,true)">Un objet trop peu massif pour fusionner l'hydrogène</button>
+              <button class="option" onclick="answer(this,false)">Une naine blanche refroidie</button>
+              <button class="option" onclick="answer(this,false)">Une planète géante gazeuse</button>
             </div>
             <div class="q-feedback">Les naines brunes ont une masse entre ~13 et 80 fois celle de Jupiter (0,01 à 0,08 M☉). Trop légères pour la fusion de H, elles ne sont ni étoiles ni planètes.</div>
           </div>
@@ -202,10 +202,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Selon la loi de Stefan-Boltzmann, que se passe-t-il si on double la température de surface d'une étoile (à rayon constant) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La luminosité double</div>
-              <div class="option" onclick="answer(this,false)">La luminosité quadruple</div>
-              <div class="option" onclick="answer(this,true)">La luminosité est multipliée par 16</div>
-              <div class="option" onclick="answer(this,false)">La luminosité est multipliée par 8</div>
+              <button class="option" onclick="answer(this,false)">La luminosité double</button>
+              <button class="option" onclick="answer(this,false)">La luminosité quadruple</button>
+              <button class="option" onclick="answer(this,true)">La luminosité est multipliée par 16</button>
+              <button class="option" onclick="answer(this,false)">La luminosité est multipliée par 8</button>
             </div>
             <div class="q-feedback">L = 4πR²σT⁴ : la luminosité varie comme T⁴. Si T double, L est multipliée par 2⁴ = 16. C'est pourquoi les étoiles chaudes sont extraordinairement lumineuses.</div>
           </div>
@@ -278,8 +278,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

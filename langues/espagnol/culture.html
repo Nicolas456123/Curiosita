@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Littérature, traditions, variantes régionales : comprendre la culture pour mieux parler la langue.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Culture hispanique — Espagnol — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e8c97a;
   --accent2: #f5dfa0;
   --accent-dim: rgba(232,201,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,201,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,201,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎭 Espagnol</span>
     <span class="tag-level">Tous niveaux</span>
@@ -169,10 +169,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qui est l'auteur de « Cien años de soledad » (Cent ans de solitude) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pablo Neruda</div>
-              <div class="option" onclick="answer(this,true)">Gabriel García Márquez</div>
-              <div class="option" onclick="answer(this,false)">Miguel de Cervantes</div>
-              <div class="option" onclick="answer(this,false)">Federico García Lorca</div>
+              <button class="option" onclick="answer(this,false)">Pablo Neruda</button>
+              <button class="option" onclick="answer(this,true)">Gabriel García Márquez</button>
+              <button class="option" onclick="answer(this,false)">Miguel de Cervantes</button>
+              <button class="option" onclick="answer(this,false)">Federico García Lorca</button>
             </div>
             <div class="q-feedback">Gabriel García Márquez, écrivain colombien et prix Nobel de littérature en 1982, est l'auteur de « Cien años de soledad », chef-d'œuvre du réalisme magique publié en 1967.</div>
           </div>
@@ -180,10 +180,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'est-ce que « la sobremesa » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le dessert</div>
-              <div class="option" onclick="answer(this,false)">La nappe de table</div>
-              <div class="option" onclick="answer(this,true)">Le temps de discussion après le repas</div>
-              <div class="option" onclick="answer(this,false)">Le pourboire au restaurant</div>
+              <button class="option" onclick="answer(this,false)">Le dessert</button>
+              <button class="option" onclick="answer(this,false)">La nappe de table</button>
+              <button class="option" onclick="answer(this,true)">Le temps de discussion après le repas</button>
+              <button class="option" onclick="answer(this,false)">Le pourboire au restaurant</button>
             </div>
             <div class="q-feedback">La sobremesa est le temps passé à table après le repas, à discuter et socialiser. C'est une tradition très importante dans la culture hispanique, un moment de convivialité à ne pas écourter.</div>
           </div>
@@ -191,10 +191,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Comment dit-on « ordinateur » en Espagne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Ordenador</div>
-              <div class="option" onclick="answer(this,false)">Computadora</div>
-              <div class="option" onclick="answer(this,false)">Computador</div>
-              <div class="option" onclick="answer(this,false)">Máquina</div>
+              <button class="option" onclick="answer(this,true)">Ordenador</button>
+              <button class="option" onclick="answer(this,false)">Computadora</button>
+              <button class="option" onclick="answer(this,false)">Computador</button>
+              <button class="option" onclick="answer(this,false)">Máquina</button>
             </div>
             <div class="q-feedback">En Espagne, on dit « ordenador ». En Amérique latine, on utilise « computadora » (ou « computador » dans certains pays). C'est un exemple typique des différences de vocabulaire entre les deux continents.</div>
           </div>
@@ -202,10 +202,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce que « El Día de los Muertos » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un festival de musique</div>
-              <div class="option" onclick="answer(this,false)">Une fête de la moisson</div>
-              <div class="option" onclick="answer(this,true)">Une fête honorant les défunts au Mexique</div>
-              <div class="option" onclick="answer(this,false)">Un carnaval espagnol</div>
+              <button class="option" onclick="answer(this,false)">Un festival de musique</button>
+              <button class="option" onclick="answer(this,false)">Une fête de la moisson</button>
+              <button class="option" onclick="answer(this,true)">Une fête honorant les défunts au Mexique</button>
+              <button class="option" onclick="answer(this,false)">Un carnaval espagnol</button>
             </div>
             <div class="q-feedback">El Día de los Muertos (le Jour des Morts) est une fête mexicaine célébrée les 1er et 2 novembre. Les familles honorent leurs défunts avec des autels colorés (<em>ofrendas</em>), des fleurs de <em>cempasúchil</em> et de la nourriture.</div>
           </div>
@@ -213,10 +213,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">En Argentine, on utilise « vos » au lieu de :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">tú</div>
-              <div class="option" onclick="answer(this,false)">usted</div>
-              <div class="option" onclick="answer(this,false)">él</div>
-              <div class="option" onclick="answer(this,false)">nosotros</div>
+              <button class="option" onclick="answer(this,true)">tú</button>
+              <button class="option" onclick="answer(this,false)">usted</button>
+              <button class="option" onclick="answer(this,false)">él</button>
+              <button class="option" onclick="answer(this,false)">nosotros</button>
             </div>
             <div class="q-feedback">Le « voseo » est l'utilisation de « vos » à la place de « tú » pour la deuxième personne du singulier. C'est une caractéristique majeure de l'espagnol argentin, uruguayen et de quelques pays d'Amérique centrale.</div>
           </div>
@@ -224,10 +224,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">D'où vient la paella traditionnelle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Madrid</div>
-              <div class="option" onclick="answer(this,true)">Valence</div>
-              <div class="option" onclick="answer(this,false)">Barcelone</div>
-              <div class="option" onclick="answer(this,false)">Séville</div>
+              <button class="option" onclick="answer(this,false)">Madrid</button>
+              <button class="option" onclick="answer(this,true)">Valence</button>
+              <button class="option" onclick="answer(this,false)">Barcelone</button>
+              <button class="option" onclick="answer(this,false)">Séville</button>
             </div>
             <div class="q-feedback">La paella est originaire de Valence, dans l'est de l'Espagne. La recette traditionnelle valencienne contient du riz, du poulet, du lapin et des haricots verts — pas de fruits de mer ! La paella aux fruits de mer est une variante plus récente.</div>
           </div>
@@ -314,8 +314,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

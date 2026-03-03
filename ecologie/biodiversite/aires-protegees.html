@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Parcs nationaux, reserves naturelles, corridors ecologiques et objectif 30x30 — les espaces dedies a la preservation de la nature dans le monde.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Aires protegees — Biodiversite — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #80cbc4;
   --accent-dim: rgba(122,232,216,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🏞️ Biodiversite</span>
     <span class="tag-level">Intermediaire</span>
@@ -145,10 +145,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est le premier parc national moderne cree dans le monde ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Yellowstone (1872)</div>
-              <div class="option" onclick="answer(this,false)">Vanoise (1963)</div>
-              <div class="option" onclick="answer(this,false)">Kruger (1926)</div>
-              <div class="option" onclick="answer(this,false)">Galapagos (1959)</div>
+              <button class="option" onclick="answer(this,true)">Yellowstone (1872)</button>
+              <button class="option" onclick="answer(this,false)">Vanoise (1963)</button>
+              <button class="option" onclick="answer(this,false)">Kruger (1926)</button>
+              <button class="option" onclick="answer(this,false)">Galapagos (1959)</button>
             </div>
             <div class="q-feedback">Le parc national de Yellowstone, cree en 1872 aux Etats-Unis, est considere comme le premier parc national moderne au monde.</div>
           </div>
@@ -156,10 +156,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que signifie l'objectif « 30x30 » adopte a la COP15 de Montreal ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Reduire les emissions de 30 % d'ici 2030</div>
-              <div class="option" onclick="answer(this,true)">Proteger 30 % des terres et 30 % des oceans d'ici 2030</div>
-              <div class="option" onclick="answer(this,false)">Planter 30 milliards d'arbres d'ici 2030</div>
-              <div class="option" onclick="answer(this,false)">Creer 30 nouveaux parcs nationaux par an</div>
+              <button class="option" onclick="answer(this,false)">Reduire les emissions de 30 % d'ici 2030</button>
+              <button class="option" onclick="answer(this,true)">Proteger 30 % des terres et 30 % des oceans d'ici 2030</button>
+              <button class="option" onclick="answer(this,false)">Planter 30 milliards d'arbres d'ici 2030</button>
+              <button class="option" onclick="answer(this,false)">Creer 30 nouveaux parcs nationaux par an</button>
             </div>
             <div class="q-feedback">L'objectif 30x30, adopte en decembre 2022, engage les nations a proteger au moins 30 % des surfaces terrestres et 30 % des oceans d'ici 2030.</div>
           </div>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle categorie UICN correspond a un parc national ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Categorie Ia</div>
-              <div class="option" onclick="answer(this,true)">Categorie II</div>
-              <div class="option" onclick="answer(this,false)">Categorie IV</div>
-              <div class="option" onclick="answer(this,false)">Categorie VI</div>
+              <button class="option" onclick="answer(this,false)">Categorie Ia</button>
+              <button class="option" onclick="answer(this,true)">Categorie II</button>
+              <button class="option" onclick="answer(this,false)">Categorie IV</button>
+              <button class="option" onclick="answer(this,false)">Categorie VI</button>
             </div>
             <div class="q-feedback">La categorie II de l'UICN correspond aux parcs nationaux, qui visent la protection des ecosystemes tout en permettant le tourisme et l'education.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel pourcentage des oceans est actuellement couvert par des aires marines protegees ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">2 %</div>
-              <div class="option" onclick="answer(this,true)">Environ 8 %</div>
-              <div class="option" onclick="answer(this,false)">17 %</div>
-              <div class="option" onclick="answer(this,false)">30 %</div>
+              <button class="option" onclick="answer(this,false)">2 %</button>
+              <button class="option" onclick="answer(this,true)">Environ 8 %</button>
+              <button class="option" onclick="answer(this,false)">17 %</button>
+              <button class="option" onclick="answer(this,false)">30 %</button>
             </div>
             <div class="q-feedback">Environ 8 % des oceans sont couverts par des AMP, mais seulement 2,4 % sont en protection forte (reserve integrale).</div>
           </div>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Comment s'appelle la politique francaise de reseau ecologique national ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le Plan Biodiversite</div>
-              <div class="option" onclick="answer(this,true)">La Trame verte et bleue</div>
-              <div class="option" onclick="answer(this,false)">Le Reseau Natura 2000</div>
-              <div class="option" onclick="answer(this,false)">Le Programme Ecophyto</div>
+              <button class="option" onclick="answer(this,false)">Le Plan Biodiversite</button>
+              <button class="option" onclick="answer(this,true)">La Trame verte et bleue</button>
+              <button class="option" onclick="answer(this,false)">Le Reseau Natura 2000</button>
+              <button class="option" onclick="answer(this,false)">Le Programme Ecophyto</button>
             </div>
             <div class="q-feedback">La Trame verte et bleue (TVB) est la politique francaise qui identifie et protege les reservoirs de biodiversite et les corridors ecologiques sur le territoire.</div>
           </div>
@@ -200,10 +200,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Qu'est-ce qu'un « parc de papier » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un parc cree en zone urbaine</div>
-              <div class="option" onclick="answer(this,false)">Un parc finance par le secteur prive</div>
-              <div class="option" onclick="answer(this,true)">Une aire protegee n'existant que sur le papier, sans gestion reelle</div>
-              <div class="option" onclick="answer(this,false)">Un parc temporaire</div>
+              <button class="option" onclick="answer(this,false)">Un parc cree en zone urbaine</button>
+              <button class="option" onclick="answer(this,false)">Un parc finance par le secteur prive</button>
+              <button class="option" onclick="answer(this,true)">Une aire protegee n'existant que sur le papier, sans gestion reelle</button>
+              <button class="option" onclick="answer(this,false)">Un parc temporaire</button>
             </div>
             <div class="q-feedback">Un « parc de papier » est une aire protegee officiellement designee mais qui ne beneficie d'aucune gestion effective, financement ou application des lois.</div>
           </div>
@@ -267,8 +267,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

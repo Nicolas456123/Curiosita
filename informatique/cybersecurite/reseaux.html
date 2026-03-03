@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pare-feu, VPN, IDS/IPS, protocoles sécurisés et attaques réseau — protéger les communications et les infrastructures connectées.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Sécurité des réseaux — Cybersécurité — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #2980b9;
   --accent2: #3498db;
   --accent-dim: rgba(41,128,185,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(41,128,185,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(41,128,185,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔒 Cybersécurité</span>
     <span class="tag-level">Intermédiaire</span>
@@ -234,10 +234,10 @@ Réseau local       <span class="kw">HTTP</span>            →    <span class="
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel type de pare-feu peut détecter une injection SQL dans une requête HTTP ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pare-feu à filtrage de paquets</div>
-              <div class="option" onclick="answer(this,false)">Pare-feu à état (stateful)</div>
-              <div class="option" onclick="answer(this,true)">Pare-feu applicatif (WAF)</div>
-              <div class="option" onclick="answer(this,false)">Pare-feu matériel</div>
+              <button class="option" onclick="answer(this,false)">Pare-feu à filtrage de paquets</button>
+              <button class="option" onclick="answer(this,false)">Pare-feu à état (stateful)</button>
+              <button class="option" onclick="answer(this,true)">Pare-feu applicatif (WAF)</button>
+              <button class="option" onclick="answer(this,false)">Pare-feu matériel</button>
             </div>
             <div class="q-feedback">Seul un pare-feu applicatif (WAF) opère au niveau de la couche 7 (application) et peut inspecter le contenu des requêtes HTTP pour y détecter des motifs d'attaque comme les injections SQL.</div>
           </div>
@@ -245,10 +245,10 @@ Réseau local       <span class="kw">HTTP</span>            →    <span class="
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle est la différence principale entre un IDS et un IPS ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'IDS est matériel, l'IPS est logiciel</div>
-              <div class="option" onclick="answer(this,true)">L'IDS détecte et alerte, l'IPS détecte et bloque automatiquement</div>
-              <div class="option" onclick="answer(this,false)">L'IDS analyse le réseau, l'IPS analyse les applications</div>
-              <div class="option" onclick="answer(this,false)">L'IDS est gratuit, l'IPS est payant</div>
+              <button class="option" onclick="answer(this,false)">L'IDS est matériel, l'IPS est logiciel</button>
+              <button class="option" onclick="answer(this,true)">L'IDS détecte et alerte, l'IPS détecte et bloque automatiquement</button>
+              <button class="option" onclick="answer(this,false)">L'IDS analyse le réseau, l'IPS analyse les applications</button>
+              <button class="option" onclick="answer(this,false)">L'IDS est gratuit, l'IPS est payant</button>
             </div>
             <div class="q-feedback">L'IDS (Intrusion Detection System) se contente de détecter et d'alerter, tandis que l'IPS (Intrusion Prevention System) peut en plus bloquer automatiquement le trafic identifié comme malveillant.</div>
           </div>
@@ -256,10 +256,10 @@ Réseau local       <span class="kw">HTTP</span>            →    <span class="
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qu'est-ce qu'une DMZ dans un réseau d'entreprise ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un réseau Wi-Fi pour les visiteurs</div>
-              <div class="option" onclick="answer(this,true)">Une zone isolée entre Internet et le réseau interne pour les serveurs publics</div>
-              <div class="option" onclick="answer(this,false)">Un VPN réservé aux administrateurs</div>
-              <div class="option" onclick="answer(this,false)">Un pare-feu placé devant le routeur</div>
+              <button class="option" onclick="answer(this,false)">Un réseau Wi-Fi pour les visiteurs</button>
+              <button class="option" onclick="answer(this,true)">Une zone isolée entre Internet et le réseau interne pour les serveurs publics</button>
+              <button class="option" onclick="answer(this,false)">Un VPN réservé aux administrateurs</button>
+              <button class="option" onclick="answer(this,false)">Un pare-feu placé devant le routeur</button>
             </div>
             <div class="q-feedback">La DMZ (Zone Démilitarisée) est un sous-réseau isolé hébergeant les serveurs accessibles depuis Internet (web, mail, DNS), protégé par des pare-feu des deux côtés pour limiter l'impact d'une compromission.</div>
           </div>
@@ -267,10 +267,10 @@ Réseau local       <span class="kw">HTTP</span>            →    <span class="
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle attaque consiste à s'interposer entre deux parties pour intercepter leurs communications ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Man-in-the-Middle (MITM)</div>
-              <div class="option" onclick="answer(this,false)">DDoS</div>
-              <div class="option" onclick="answer(this,false)">DNS poisoning</div>
-              <div class="option" onclick="answer(this,false)">Brute force</div>
+              <button class="option" onclick="answer(this,true)">Man-in-the-Middle (MITM)</button>
+              <button class="option" onclick="answer(this,false)">DDoS</button>
+              <button class="option" onclick="answer(this,false)">DNS poisoning</button>
+              <button class="option" onclick="answer(this,false)">Brute force</button>
             </div>
             <div class="q-feedback">L'attaque Man-in-the-Middle (MITM) place l'attaquant entre deux parties communicantes, lui permettant d'intercepter, lire et potentiellement modifier les échanges. L'ARP spoofing est une technique courante pour y parvenir.</div>
           </div>
@@ -278,10 +278,10 @@ Réseau local       <span class="kw">HTTP</span>            →    <span class="
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel protocole VPN moderne est intégré au noyau Linux et ne compte qu'environ 4000 lignes de code ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">OpenVPN</div>
-              <div class="option" onclick="answer(this,false)">IPsec</div>
-              <div class="option" onclick="answer(this,true)">WireGuard</div>
-              <div class="option" onclick="answer(this,false)">L2TP</div>
+              <button class="option" onclick="answer(this,false)">OpenVPN</button>
+              <button class="option" onclick="answer(this,false)">IPsec</button>
+              <button class="option" onclick="answer(this,true)">WireGuard</button>
+              <button class="option" onclick="answer(this,false)">L2TP</button>
             </div>
             <div class="q-feedback">WireGuard est un protocole VPN moderne et minimaliste (~4000 lignes de code) intégré au noyau Linux depuis la version 5.6. Sa simplicité réduit la surface d'attaque et améliore les performances par rapport aux solutions plus anciennes.</div>
           </div>
@@ -289,10 +289,10 @@ Réseau local       <span class="kw">HTTP</span>            →    <span class="
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle est l'alternative sécurisée au protocole Telnet ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">FTP</div>
-              <div class="option" onclick="answer(this,true)">SSH</div>
-              <div class="option" onclick="answer(this,false)">HTTP</div>
-              <div class="option" onclick="answer(this,false)">SMTP</div>
+              <button class="option" onclick="answer(this,false)">FTP</button>
+              <button class="option" onclick="answer(this,true)">SSH</button>
+              <button class="option" onclick="answer(this,false)">HTTP</button>
+              <button class="option" onclick="answer(this,false)">SMTP</button>
             </div>
             <div class="q-feedback">SSH (Secure Shell) est l'alternative sécurisée à Telnet. Tandis que Telnet transmet tout en clair (y compris les mots de passe), SSH chiffre l'intégralité de la session, incluant l'authentification et les commandes.</div>
           </div>
@@ -519,8 +519,14 @@ nmap -sV -sC scanme.nmap.org
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

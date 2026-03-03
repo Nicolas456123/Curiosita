@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'âge de la passion et de la virtuosité — Chopin, Liszt, Wagner et les grandes symphonies de Brahms, Tchaïkovsky et Mahler (1820-1910).">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Le romantisme — Histoire — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e8b07a;
   --accent2: #ffcc80;
   --accent-dim: rgba(232,176,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,176,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,176,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🌹 Histoire de la musique</span>
     <span class="tag-level">Intermédiaire</span>
@@ -139,10 +139,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Qui a inventé le poème symphonique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Chopin</div>
-              <div class="option" onclick="answer(this,false)">Wagner</div>
-              <div class="option" onclick="answer(this,true)">Liszt</div>
-              <div class="option" onclick="answer(this,false)">Brahms</div>
+              <button class="option" onclick="answer(this,false)">Chopin</button>
+              <button class="option" onclick="answer(this,false)">Wagner</button>
+              <button class="option" onclick="answer(this,true)">Liszt</button>
+              <button class="option" onclick="answer(this,false)">Brahms</button>
             </div>
             <div class="q-feedback">Franz Liszt a inventé le poème symphonique, une oeuvre orchestrale en un mouvement inspirée par un programme extra-musical (littérature, peinture, nature).</div>
           </div>
@@ -150,10 +150,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Quel concept wagnérien désigne un motif musical associé à un personnage ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Le leitmotiv</div>
-              <div class="option" onclick="answer(this,false)">Le bel canto</div>
-              <div class="option" onclick="answer(this,false)">Le récitatif</div>
-              <div class="option" onclick="answer(this,false)">L'aria</div>
+              <button class="option" onclick="answer(this,true)">Le leitmotiv</button>
+              <button class="option" onclick="answer(this,false)">Le bel canto</button>
+              <button class="option" onclick="answer(this,false)">Le récitatif</button>
+              <button class="option" onclick="answer(this,false)">L'aria</button>
             </div>
             <div class="q-feedback">Le leitmotiv est un motif musical récurrent associé à un personnage, un objet ou une idée dans l'opéra wagnérien. Il permet de tisser un réseau de significations musicales à travers l'oeuvre entière.</div>
           </div>
@@ -161,10 +161,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Quel compositeur est particulièrement associé aux nocturnes pour piano ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Liszt</div>
-              <div class="option" onclick="answer(this,false)">Schumann</div>
-              <div class="option" onclick="answer(this,true)">Chopin</div>
-              <div class="option" onclick="answer(this,false)">Brahms</div>
+              <button class="option" onclick="answer(this,false)">Liszt</button>
+              <button class="option" onclick="answer(this,false)">Schumann</button>
+              <button class="option" onclick="answer(this,true)">Chopin</button>
+              <button class="option" onclick="answer(this,false)">Brahms</button>
             </div>
             <div class="q-feedback">Chopin a composé 21 nocturnes pour piano, portant ce genre (créé par John Field) à son apogée. Ses nocturnes sont des modèles de lyrisme pianistique et de raffinement harmonique.</div>
           </div>
@@ -172,10 +172,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quel compositeur a créé le genre du Lied romantique avec plus de 600 mélodies ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Schumann</div>
-              <div class="option" onclick="answer(this,true)">Schubert</div>
-              <div class="option" onclick="answer(this,false)">Brahms</div>
-              <div class="option" onclick="answer(this,false)">Hugo Wolf</div>
+              <button class="option" onclick="answer(this,false)">Schumann</button>
+              <button class="option" onclick="answer(this,true)">Schubert</button>
+              <button class="option" onclick="answer(this,false)">Brahms</button>
+              <button class="option" onclick="answer(this,false)">Hugo Wolf</button>
             </div>
             <div class="q-feedback">Franz Schubert (1797-1828) a composé plus de 600 Lieder, créant véritablement le genre du Lied romantique. Ses cycles Winterreise (Voyage d'hiver) et Die schöne Müllerin (La Belle Meunière) sont des chefs-d'oeuvre absolus du genre.</div>
           </div>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Comment appelle-t-on le concept wagnérien d'oeuvre d'art totale fusionnant musique, poésie et théâtre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le bel canto</div>
-              <div class="option" onclick="answer(this,false)">Le leitmotiv</div>
-              <div class="option" onclick="answer(this,true)">Le Gesamtkunstwerk</div>
-              <div class="option" onclick="answer(this,false)">Le Singspiel</div>
+              <button class="option" onclick="answer(this,false)">Le bel canto</button>
+              <button class="option" onclick="answer(this,false)">Le leitmotiv</button>
+              <button class="option" onclick="answer(this,true)">Le Gesamtkunstwerk</button>
+              <button class="option" onclick="answer(this,false)">Le Singspiel</button>
             </div>
             <div class="q-feedback">Le Gesamtkunstwerk (oeuvre d'art totale) est le concept wagnérien selon lequel l'opéra doit fusionner musique, poésie, théâtre et arts visuels en une oeuvre unifiée. Wagner a fait construire le Festspielhaus de Bayreuth spécialement pour réaliser cette vision.</div>
           </div>
@@ -218,8 +218,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

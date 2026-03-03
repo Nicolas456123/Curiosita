@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Des tablettes mésopotamiennes à Google Earth : l'évolution de la représentation du monde à travers les siècles.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Histoire de la cartographie — Cartographie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🗺️ Cartographie</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -123,10 +123,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel savant grec a calculé la circonférence de la Terre vers 240 av. J.-C. ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Ptolémée</div>
-              <div class="option" onclick="answer(this,true)">Ératosthène</div>
-              <div class="option" onclick="answer(this,false)">Aristote</div>
-              <div class="option" onclick="answer(this,false)">Strabon</div>
+              <button class="option" onclick="answer(this,false)">Ptolémée</button>
+              <button class="option" onclick="answer(this,true)">Ératosthène</button>
+              <button class="option" onclick="answer(this,false)">Aristote</button>
+              <button class="option" onclick="answer(this,false)">Strabon</button>
             </div>
             <div class="q-feedback">Ératosthène (276–194 av. J.-C.) a mesuré la différence d'angle du soleil entre Alexandrie et Syène pour estimer la circonférence terrestre à environ 40 000 km.</div>
           </div>
@@ -134,10 +134,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle caractéristique principale ont les mappemondes médiévales en T-O ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Elles sont très précises géographiquement</div>
-              <div class="option" onclick="answer(this,false)">Elles utilisent des projections coniques</div>
-              <div class="option" onclick="answer(this,true)">Elles placent Jérusalem au centre du monde</div>
-              <div class="option" onclick="answer(this,false)">Elles montrent les cinq continents</div>
+              <button class="option" onclick="answer(this,false)">Elles sont très précises géographiquement</button>
+              <button class="option" onclick="answer(this,false)">Elles utilisent des projections coniques</button>
+              <button class="option" onclick="answer(this,true)">Elles placent Jérusalem au centre du monde</button>
+              <button class="option" onclick="answer(this,false)">Elles montrent les cinq continents</button>
             </div>
             <div class="q-feedback">Les mappemondes en T-O sont des représentations symboliques et théologiques qui placent Jérusalem au centre, avec l'Est (le Paradis) en haut.</div>
           </div>
@@ -145,10 +145,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel est le principal avantage de la projection de Mercator (1569) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Elle conserve les surfaces</div>
-              <div class="option" onclick="answer(this,true)">Elle conserve les angles (projection conforme)</div>
-              <div class="option" onclick="answer(this,false)">Elle montre les pôles sans déformation</div>
-              <div class="option" onclick="answer(this,false)">Elle est équidistante</div>
+              <button class="option" onclick="answer(this,false)">Elle conserve les surfaces</button>
+              <button class="option" onclick="answer(this,true)">Elle conserve les angles (projection conforme)</button>
+              <button class="option" onclick="answer(this,false)">Elle montre les pôles sans déformation</button>
+              <button class="option" onclick="answer(this,false)">Elle est équidistante</button>
             </div>
             <div class="q-feedback">La projection de Mercator est conforme : elle conserve les angles, ce qui permet de tracer des routes maritimes en lignes droites (loxodromies). En contrepartie, elle déforme considérablement les surfaces aux hautes latitudes.</div>
           </div>
@@ -156,10 +156,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle famille a réalisé la première carte topographique complète de la France ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les Mercator</div>
-              <div class="option" onclick="answer(this,false)">Les Ptolémée</div>
-              <div class="option" onclick="answer(this,true)">Les Cassini</div>
-              <div class="option" onclick="answer(this,false)">Les Vidal de la Blache</div>
+              <button class="option" onclick="answer(this,false)">Les Mercator</button>
+              <button class="option" onclick="answer(this,false)">Les Ptolémée</button>
+              <button class="option" onclick="answer(this,true)">Les Cassini</button>
+              <button class="option" onclick="answer(this,false)">Les Vidal de la Blache</button>
             </div>
             <div class="q-feedback">La famille Cassini (quatre générations) a réalisé entre 1756 et 1815 la première carte topographique couvrant l'intégralité du territoire français, à l'échelle 1:86 400.</div>
           </div>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel est le premier satellite civil d'observation de la Terre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Spot 1 (1986)</div>
-              <div class="option" onclick="answer(this,true)">Landsat 1 (1972)</div>
-              <div class="option" onclick="answer(this,false)">Sentinel 1 (2014)</div>
-              <div class="option" onclick="answer(this,false)">Terra (1999)</div>
+              <button class="option" onclick="answer(this,false)">Spot 1 (1986)</button>
+              <button class="option" onclick="answer(this,true)">Landsat 1 (1972)</button>
+              <button class="option" onclick="answer(this,false)">Sentinel 1 (2014)</button>
+              <button class="option" onclick="answer(this,false)">Terra (1999)</button>
             </div>
             <div class="q-feedback">Landsat 1, lancé en 1972 par la NASA, est le premier satellite civil dédié à l'observation de la Terre. Le programme Landsat continue encore aujourd'hui et constitue la plus longue série d'images satellites continues.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel projet lancé en 2004 permet à tout citoyen de contribuer à la cartographie mondiale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Google Maps</div>
-              <div class="option" onclick="answer(this,false)">Bing Maps</div>
-              <div class="option" onclick="answer(this,true)">OpenStreetMap</div>
-              <div class="option" onclick="answer(this,false)">Waze</div>
+              <button class="option" onclick="answer(this,false)">Google Maps</button>
+              <button class="option" onclick="answer(this,false)">Bing Maps</button>
+              <button class="option" onclick="answer(this,true)">OpenStreetMap</button>
+              <button class="option" onclick="answer(this,false)">Waze</button>
             </div>
             <div class="q-feedback">OpenStreetMap (OSM), lancé en 2004, est un projet collaboratif de cartographie libre. N'importe qui peut ajouter ou corriger des données, à la manière de Wikipédia pour les cartes.</div>
           </div>
@@ -251,8 +251,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

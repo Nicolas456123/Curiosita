@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Relativité restreinte, dilatation du temps, contraction des longueurs, E=mc² et introduction à la relativité générale — la révolution einsteinienne de...">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Relativité — Physique moderne — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8e44ad;
   --accent2: #9b59b6;
   --accent-dim: rgba(142,68,173,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">⚛️ Physique moderne</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -157,10 +157,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est le second postulat de la relativité restreinte ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La masse d'un objet est constante quel que soit son mouvement</div>
-              <div class="option" onclick="answer(this,true)">La vitesse de la lumière dans le vide est la même pour tous les observateurs inertiels</div>
-              <div class="option" onclick="answer(this,false)">L'énergie se conserve uniquement dans les référentiels au repos</div>
-              <div class="option" onclick="answer(this,false)">Le temps s'écoule de manière uniforme pour tous les observateurs</div>
+              <button class="option" onclick="answer(this,false)">La masse d'un objet est constante quel que soit son mouvement</button>
+              <button class="option" onclick="answer(this,true)">La vitesse de la lumière dans le vide est la même pour tous les observateurs inertiels</button>
+              <button class="option" onclick="answer(this,false)">L'énergie se conserve uniquement dans les référentiels au repos</button>
+              <button class="option" onclick="answer(this,false)">Le temps s'écoule de manière uniforme pour tous les observateurs</button>
             </div>
             <div class="q-feedback">Le second postulat d'Einstein affirme que la vitesse de la lumière dans le vide (c ≈ 3 × 10⁸ m/s) est invariante : elle ne dépend ni du mouvement de la source, ni de celui de l'observateur.</div>
           </div>
@@ -168,10 +168,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">À quelle vitesse le facteur de Lorentz γ vaut-il environ 2 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">v = 0,5c</div>
-              <div class="option" onclick="answer(this,false)">v = 0,75c</div>
-              <div class="option" onclick="answer(this,true)">v ≈ 0,87c</div>
-              <div class="option" onclick="answer(this,false)">v = 0,99c</div>
+              <button class="option" onclick="answer(this,false)">v = 0,5c</button>
+              <button class="option" onclick="answer(this,false)">v = 0,75c</button>
+              <button class="option" onclick="answer(this,true)">v ≈ 0,87c</button>
+              <button class="option" onclick="answer(this,false)">v = 0,99c</button>
             </div>
             <div class="q-feedback">Pour γ = 2, il faut résoudre 1/√(1 − v²/c²) = 2, ce qui donne v²/c² = 3/4, soit v = c√3/2 ≈ 0,866c. À v = 0,99c, γ vaut environ 7,1.</div>
           </div>
@@ -179,10 +179,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle expérience historique a montré l'absence d'éther luminifère ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'expérience de Young (double fente)</div>
-              <div class="option" onclick="answer(this,true)">L'expérience de Michelson-Morley</div>
-              <div class="option" onclick="answer(this,false)">L'expérience de Rutherford</div>
-              <div class="option" onclick="answer(this,false)">L'expérience de Stern-Gerlach</div>
+              <button class="option" onclick="answer(this,false)">L'expérience de Young (double fente)</button>
+              <button class="option" onclick="answer(this,true)">L'expérience de Michelson-Morley</button>
+              <button class="option" onclick="answer(this,false)">L'expérience de Rutherford</button>
+              <button class="option" onclick="answer(this,false)">L'expérience de Stern-Gerlach</button>
             </div>
             <div class="q-feedback">L'expérience de Michelson-Morley (1887) utilise un interféromètre pour détecter un éventuel « vent d'éther ». Le résultat nul a contribué à l'abandon de l'éther et a préparé le terrain pour la relativité restreinte.</div>
           </div>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle est l'énergie de masse d'un objet de 1 kg au repos ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">3 × 10⁸ J</div>
-              <div class="option" onclick="answer(this,false)">9 × 10⁸ J</div>
-              <div class="option" onclick="answer(this,true)">9 × 10¹⁶ J</div>
-              <div class="option" onclick="answer(this,false)">3 × 10¹⁶ J</div>
+              <button class="option" onclick="answer(this,false)">3 × 10⁸ J</button>
+              <button class="option" onclick="answer(this,false)">9 × 10⁸ J</button>
+              <button class="option" onclick="answer(this,true)">9 × 10¹⁶ J</button>
+              <button class="option" onclick="answer(this,false)">3 × 10¹⁶ J</button>
             </div>
             <div class="q-feedback">E₀ = mc² = 1 × (3 × 10⁸)² = 9 × 10¹⁶ J. C'est une quantité d'énergie colossale, équivalente à environ 21,5 mégatonnes de TNT.</div>
           </div>
@@ -201,10 +201,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">En relativité générale, qu'est-ce que la gravitation ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une force d'attraction entre deux masses</div>
-              <div class="option" onclick="answer(this,false)">Un échange de gravitons entre particules</div>
-              <div class="option" onclick="answer(this,true)">Une courbure de l'espace-temps causée par la masse et l'énergie</div>
-              <div class="option" onclick="answer(this,false)">Une propriété intrinsèque de la matière baryonique</div>
+              <button class="option" onclick="answer(this,false)">Une force d'attraction entre deux masses</button>
+              <button class="option" onclick="answer(this,false)">Un échange de gravitons entre particules</button>
+              <button class="option" onclick="answer(this,true)">Une courbure de l'espace-temps causée par la masse et l'énergie</button>
+              <button class="option" onclick="answer(this,false)">Une propriété intrinsèque de la matière baryonique</button>
             </div>
             <div class="q-feedback">En relativité générale, la gravitation n'est pas une force mais une manifestation de la courbure de l'espace-temps. Les objets suivent des géodésiques dans cet espace-temps courbe.</div>
           </div>
@@ -212,10 +212,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle observation de 1919 a confirmé la relativité générale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La découverte du rayonnement cosmique</div>
-              <div class="option" onclick="answer(this,false)">La mesure du décalage vers le rouge des galaxies</div>
-              <div class="option" onclick="answer(this,true)">La déviation de la lumière des étoiles par le Soleil lors d'une éclipse</div>
-              <div class="option" onclick="answer(this,false)">La détection des ondes gravitationnelles</div>
+              <button class="option" onclick="answer(this,false)">La découverte du rayonnement cosmique</button>
+              <button class="option" onclick="answer(this,false)">La mesure du décalage vers le rouge des galaxies</button>
+              <button class="option" onclick="answer(this,true)">La déviation de la lumière des étoiles par le Soleil lors d'une éclipse</button>
+              <button class="option" onclick="answer(this,false)">La détection des ondes gravitationnelles</button>
             </div>
             <div class="q-feedback">Lors de l'éclipse solaire du 29 mai 1919, Arthur Eddington mesure la déviation de la position apparente des étoiles proches du bord solaire, confirmant la prédiction de 1,75 seconde d'arc de la relativité générale.</div>
           </div>
@@ -309,8 +309,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

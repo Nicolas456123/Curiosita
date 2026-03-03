@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Les quatre principes fondamentaux qui gouvernent tous les échanges d'énergie dans l'univers.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Lois de la thermodynamique — Thermodynamique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08);  --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../sciences-exactes.html">Sciences exactes</a> › <a href="../thermodynamique.html">Thermodynamique</a> › <span>Lois de la thermodynamique</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🌡️ Thermodynamique</span>
     <span class="tag-level">Intermédiaire</span>
@@ -96,12 +96,12 @@
       <div class="quiz-container">
         <div class="quiz-header"><span class="quiz-title-text">🌡️ Lois de la thermodynamique — Quiz</span><span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span></div>
         <div class="quiz-body" id="quizBody">
-          <div class="question-block active" data-q="0"><p class="q-num">Question 1 / 6</p><p class="q-text">Le premier principe de la thermodynamique exprime...</p><div class="options"><div class="option" onclick="answer(this,false)">L'irréversibilité des transformations</div><div class="option" onclick="answer(this,true)">La conservation de l'énergie</div><div class="option" onclick="answer(this,false)">L'impossibilité d'atteindre 0 K</div><div class="option" onclick="answer(this,false)">L'équilibre thermique</div></div><div class="q-feedback">Le premier principe ΔU = Q + W exprime la conservation de l'énergie : l'énergie ne peut être ni créée ni détruite.</div></div>
-          <div class="question-block" data-q="1"><p class="q-num">Question 2 / 6</p><p class="q-text">Pour une transformation adiabatique d'un gaz parfait, quelle loi s'applique ?</p><div class="options"><div class="option" onclick="answer(this,false)">pV = constante</div><div class="option" onclick="answer(this,false)">p/T = constante</div><div class="option" onclick="answer(this,true)">pV^γ = constante</div><div class="option" onclick="answer(this,false)">V/T = constante</div></div><div class="q-feedback">La loi de Laplace pV^γ = constante s'applique aux transformations adiabatiques réversibles d'un gaz parfait.</div></div>
-          <div class="question-block" data-q="2"><p class="q-num">Question 3 / 6</p><p class="q-text">Quel est le rendement d'un moteur de Carnot fonctionnant entre 600 K et 300 K ?</p><div class="options"><div class="option" onclick="answer(this,false)">25 %</div><div class="option" onclick="answer(this,true)">50 %</div><div class="option" onclick="answer(this,false)">75 %</div><div class="option" onclick="answer(this,false)">100 %</div></div><div class="q-feedback">η = 1 − T_f/T_c = 1 − 300/600 = 0,50 = 50 %. C'est le rendement maximal théorique entre ces deux sources.</div></div>
-          <div class="question-block" data-q="3"><p class="q-num">Question 4 / 6</p><p class="q-text">Lors d'une transformation isochore, le travail des forces de pression est...</p><div class="options"><div class="option" onclick="answer(this,true)">Nul</div><div class="option" onclick="answer(this,false)">Maximal</div><div class="option" onclick="answer(this,false)">Égal à Q</div><div class="option" onclick="answer(this,false)">Égal à ΔH</div></div><div class="q-feedback">Isochore signifie V = cte, donc W = −p×ΔV = 0. Toute la chaleur échangée modifie l'énergie interne : ΔU = Q.</div></div>
-          <div class="question-block" data-q="4"><p class="q-num">Question 5 / 6</p><p class="q-text">Le deuxième principe interdit...</p><div class="options"><div class="option" onclick="answer(this,false)">La création d'énergie</div><div class="option" onclick="answer(this,false)">Le refroidissement d'un corps</div><div class="option" onclick="answer(this,true)">La conversion totale de chaleur en travail sur un cycle</div><div class="option" onclick="answer(this,false)">Le transfert de chaleur</div></div><div class="q-feedback">L'énoncé de Kelvin-Planck : il est impossible de convertir intégralement la chaleur en travail sur un cycle. C'est le mouvement perpétuel de 2e espèce.</div></div>
-          <div class="question-block" data-q="5"><p class="q-num">Question 6 / 6</p><p class="q-text">Quelle fonction d'état est la plus utile pour étudier les réactions chimiques à T et p constants ?</p><div class="options"><div class="option" onclick="answer(this,false)">Énergie interne U</div><div class="option" onclick="answer(this,false)">Enthalpie H</div><div class="option" onclick="answer(this,false)">Énergie libre F</div><div class="option" onclick="answer(this,true)">Enthalpie libre G</div></div><div class="q-feedback">L'enthalpie libre de Gibbs G = H − TS est la fonction fondamentale en chimie : une réaction est spontanée si ΔG &lt; 0 à T et p constants.</div></div>
+          <div class="question-block active" data-q="0"><p class="q-num">Question 1 / 6</p><p class="q-text">Le premier principe de la thermodynamique exprime...</p><div class="options"><button class="option" onclick="answer(this,false)">L'irréversibilité des transformations</button><button class="option" onclick="answer(this,true)">La conservation de l'énergie</button><button class="option" onclick="answer(this,false)">L'impossibilité d'atteindre 0 K</button><button class="option" onclick="answer(this,false)">L'équilibre thermique</button></div><div class="q-feedback">Le premier principe ΔU = Q + W exprime la conservation de l'énergie : l'énergie ne peut être ni créée ni détruite.</div></div>
+          <div class="question-block" data-q="1"><p class="q-num">Question 2 / 6</p><p class="q-text">Pour une transformation adiabatique d'un gaz parfait, quelle loi s'applique ?</p><div class="options"><button class="option" onclick="answer(this,false)">pV = constante</button><button class="option" onclick="answer(this,false)">p/T = constante</button><button class="option" onclick="answer(this,true)">pV^γ = constante</button><button class="option" onclick="answer(this,false)">V/T = constante</button></div><div class="q-feedback">La loi de Laplace pV^γ = constante s'applique aux transformations adiabatiques réversibles d'un gaz parfait.</div></div>
+          <div class="question-block" data-q="2"><p class="q-num">Question 3 / 6</p><p class="q-text">Quel est le rendement d'un moteur de Carnot fonctionnant entre 600 K et 300 K ?</p><div class="options"><button class="option" onclick="answer(this,false)">25 %</button><button class="option" onclick="answer(this,true)">50 %</button><button class="option" onclick="answer(this,false)">75 %</button><button class="option" onclick="answer(this,false)">100 %</button></div><div class="q-feedback">η = 1 − T_f/T_c = 1 − 300/600 = 0,50 = 50 %. C'est le rendement maximal théorique entre ces deux sources.</div></div>
+          <div class="question-block" data-q="3"><p class="q-num">Question 4 / 6</p><p class="q-text">Lors d'une transformation isochore, le travail des forces de pression est...</p><div class="options"><button class="option" onclick="answer(this,true)">Nul</button><button class="option" onclick="answer(this,false)">Maximal</button><button class="option" onclick="answer(this,false)">Égal à Q</button><button class="option" onclick="answer(this,false)">Égal à ΔH</button></div><div class="q-feedback">Isochore signifie V = cte, donc W = −p×ΔV = 0. Toute la chaleur échangée modifie l'énergie interne : ΔU = Q.</div></div>
+          <div class="question-block" data-q="4"><p class="q-num">Question 5 / 6</p><p class="q-text">Le deuxième principe interdit...</p><div class="options"><button class="option" onclick="answer(this,false)">La création d'énergie</button><button class="option" onclick="answer(this,false)">Le refroidissement d'un corps</button><button class="option" onclick="answer(this,true)">La conversion totale de chaleur en travail sur un cycle</button><button class="option" onclick="answer(this,false)">Le transfert de chaleur</button></div><div class="q-feedback">L'énoncé de Kelvin-Planck : il est impossible de convertir intégralement la chaleur en travail sur un cycle. C'est le mouvement perpétuel de 2e espèce.</div></div>
+          <div class="question-block" data-q="5"><p class="q-num">Question 6 / 6</p><p class="q-text">Quelle fonction d'état est la plus utile pour étudier les réactions chimiques à T et p constants ?</p><div class="options"><button class="option" onclick="answer(this,false)">Énergie interne U</button><button class="option" onclick="answer(this,false)">Enthalpie H</button><button class="option" onclick="answer(this,false)">Énergie libre F</button><button class="option" onclick="answer(this,true)">Enthalpie libre G</button></div><div class="q-feedback">L'enthalpie libre de Gibbs G = H − TS est la fonction fondamentale en chimie : une réaction est spontanée si ΔG &lt; 0 à T et p constants.</div></div>
         </div>
         <div class="quiz-result" id="quizResult"><div class="result-score-big" id="resultScore">0/6</div><div class="result-msg" id="resultMsg"></div><button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button></div>
         <div class="quiz-nav"><button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button><div class="q-dots" id="qDots"></div><button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button></div>
@@ -137,8 +137,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

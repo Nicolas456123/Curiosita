@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'expérience d'Asch, influence informationnelle et normative, pensée de groupe et soumission à l'autorité — pourquoi nous suivons le groupe.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Conformisme — Psychologie Sociale — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #b07fe8;
   --accent2: #c9a0f0;
   --accent-dim: rgba(176,127,232,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(176,127,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(176,127,232,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧠 Sociale</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -145,10 +145,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Dans l'expérience d'Asch, quel pourcentage de participants s'est conformé au moins une fois ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">25%</div>
-              <div class="option" onclick="answer(this,false)">50%</div>
-              <div class="option" onclick="answer(this,true)">75%</div>
-              <div class="option" onclick="answer(this,false)">95%</div>
+              <button class="option" onclick="answer(this,false)">25%</button>
+              <button class="option" onclick="answer(this,false)">50%</button>
+              <button class="option" onclick="answer(this,true)">75%</button>
+              <button class="option" onclick="answer(this,false)">95%</button>
             </div>
             <div class="q-feedback">75% des participants se sont conformés au moins une fois à la réponse unanime mais fausse du groupe. En moyenne, la conformité s'est produite dans 37% des essais critiques.</div>
           </div>
@@ -156,10 +156,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle est la différence entre influence informationnelle et normative ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'une est positive, l'autre négative</div>
-              <div class="option" onclick="answer(this,true)">L'une vient du besoin de savoir, l'autre du besoin d'être accepté</div>
-              <div class="option" onclick="answer(this,false)">L'une est consciente, l'autre inconsciente</div>
-              <div class="option" onclick="answer(this,false)">L'une est verbale, l'autre non verbale</div>
+              <button class="option" onclick="answer(this,false)">L'une est positive, l'autre négative</button>
+              <button class="option" onclick="answer(this,true)">L'une vient du besoin de savoir, l'autre du besoin d'être accepté</button>
+              <button class="option" onclick="answer(this,false)">L'une est consciente, l'autre inconsciente</button>
+              <button class="option" onclick="answer(this,false)">L'une est verbale, l'autre non verbale</button>
             </div>
             <div class="q-feedback">L'influence informationnelle vient du besoin d'avoir raison (on croit que le groupe détient l'information). L'influence normative vient du besoin d'être accepté (on se conforme pour éviter le rejet).</div>
           </div>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Dans l'expérience de Milgram, quel pourcentage de participants est allé jusqu'à 450V ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">10%</div>
-              <div class="option" onclick="answer(this,false)">35%</div>
-              <div class="option" onclick="answer(this,true)">65%</div>
-              <div class="option" onclick="answer(this,false)">90%</div>
+              <button class="option" onclick="answer(this,false)">10%</button>
+              <button class="option" onclick="answer(this,false)">35%</button>
+              <button class="option" onclick="answer(this,true)">65%</button>
+              <button class="option" onclick="answer(this,false)">90%</button>
             </div>
             <div class="q-feedback">65% des participants ont administré la décharge maximale de 450V, obéissant à l'autorité de l'expérimentateur malgré les protestations de la « victime ».</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel est le facteur le plus efficace pour réduire la conformité dans l'expérience d'Asch ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Augmenter la taille du groupe</div>
-              <div class="option" onclick="answer(this,true)">Avoir un seul allié qui donne la bonne réponse</div>
-              <div class="option" onclick="answer(this,false)">Donner plus de temps pour répondre</div>
-              <div class="option" onclick="answer(this,false)">Offrir une récompense financière</div>
+              <button class="option" onclick="answer(this,false)">Augmenter la taille du groupe</button>
+              <button class="option" onclick="answer(this,true)">Avoir un seul allié qui donne la bonne réponse</button>
+              <button class="option" onclick="answer(this,false)">Donner plus de temps pour répondre</button>
+              <button class="option" onclick="answer(this,false)">Offrir une récompense financière</button>
             </div>
             <div class="q-feedback">Un seul allié fait chuter la conformité de 37% à environ 5%. La rupture de l'unanimité est le facteur le plus puissant pour libérer l'individu de la pression du groupe.</div>
           </div>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce que le « groupthink » selon Janis ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">La recherche du consensus au détriment de l'analyse rationnelle</div>
-              <div class="option" onclick="answer(this,false)">L'intelligence collective qui émerge des groupes</div>
-              <div class="option" onclick="answer(this,false)">La capacité de penser comme un groupe</div>
-              <div class="option" onclick="answer(this,false)">La télépathie entre membres d'un groupe</div>
+              <button class="option" onclick="answer(this,true)">La recherche du consensus au détriment de l'analyse rationnelle</button>
+              <button class="option" onclick="answer(this,false)">L'intelligence collective qui émerge des groupes</button>
+              <button class="option" onclick="answer(this,false)">La capacité de penser comme un groupe</button>
+              <button class="option" onclick="answer(this,false)">La télépathie entre membres d'un groupe</button>
             </div>
             <div class="q-feedback">Le groupthink est un mode de pensée pathologique où le désir de cohésion et de consensus étouffe l'esprit critique, conduisant à des décisions irrationnelles.</div>
           </div>
@@ -200,10 +200,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Selon Moscovici, que doit être une minorité pour influencer la majorité ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Agressive et visible</div>
-              <div class="option" onclick="answer(this,false)">Nombreuse et bien organisée</div>
-              <div class="option" onclick="answer(this,true)">Consistante, flexible et autonome</div>
-              <div class="option" onclick="answer(this,false)">Silencieuse et patiente</div>
+              <button class="option" onclick="answer(this,false)">Agressive et visible</button>
+              <button class="option" onclick="answer(this,false)">Nombreuse et bien organisée</button>
+              <button class="option" onclick="answer(this,true)">Consistante, flexible et autonome</button>
+              <button class="option" onclick="answer(this,false)">Silencieuse et patiente</button>
             </div>
             <div class="q-feedback">Moscovici a montré qu'une minorité influence la majorité si elle est consistante (position stable dans le temps), flexible (pas dogmatique) et perçue comme autonome (sans intérêt personnel).</div>
           </div>
@@ -267,8 +267,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mitose, méiose et cycle cellulaire — les mécanismes par lesquels les cellules se reproduisent et transmettent leur patrimoine génétique.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Division cellulaire — La cellule — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #80cbc4;
   --accent-dim: rgba(122,232,216,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧬 La cellule</span>
     <span class="tag-level">Intermédiaire</span>
@@ -182,10 +182,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Pendant quelle phase de l'interphase l'ADN est-il répliqué ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Phase G1</div>
-              <div class="option" onclick="answer(this,true)">Phase S</div>
-              <div class="option" onclick="answer(this,false)">Phase G2</div>
-              <div class="option" onclick="answer(this,false)">Phase M</div>
+              <button class="option" onclick="answer(this,false)">Phase G1</button>
+              <button class="option" onclick="answer(this,true)">Phase S</button>
+              <button class="option" onclick="answer(this,false)">Phase G2</button>
+              <button class="option" onclick="answer(this,false)">Phase M</button>
             </div>
             <div class="q-feedback">La phase S (Synthèse) est la phase de réplication de l'ADN. Chaque chromosome passe de 1 chromatide à 2 chromatides sœurs reliées par le centromère.</div>
           </div>
@@ -193,10 +193,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Combien de cellules filles la méiose produit-elle à partir d'une cellule mère diploïde ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">2 cellules diploïdes</div>
-              <div class="option" onclick="answer(this,false)">2 cellules haploïdes</div>
-              <div class="option" onclick="answer(this,true)">4 cellules haploïdes</div>
-              <div class="option" onclick="answer(this,false)">4 cellules diploïdes</div>
+              <button class="option" onclick="answer(this,false)">2 cellules diploïdes</button>
+              <button class="option" onclick="answer(this,false)">2 cellules haploïdes</button>
+              <button class="option" onclick="answer(this,true)">4 cellules haploïdes</button>
+              <button class="option" onclick="answer(this,false)">4 cellules diploïdes</button>
             </div>
             <div class="q-feedback">La méiose comporte deux divisions successives (réductionnelle puis équationnelle) et produit 4 cellules haploïdes (n) génétiquement différentes.</div>
           </div>
@@ -204,10 +204,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel phénomène de la prophase I de la méiose permet le brassage intrachromosomique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La condensation des chromosomes</div>
-              <div class="option" onclick="answer(this,false)">La cytocinèse</div>
-              <div class="option" onclick="answer(this,true)">Le crossing-over</div>
-              <div class="option" onclick="answer(this,false)">La séparation des chromatides</div>
+              <button class="option" onclick="answer(this,false)">La condensation des chromosomes</button>
+              <button class="option" onclick="answer(this,false)">La cytocinèse</button>
+              <button class="option" onclick="answer(this,true)">Le crossing-over</button>
+              <button class="option" onclick="answer(this,false)">La séparation des chromatides</button>
             </div>
             <div class="q-feedback">Le crossing-over (enjambement) est l'échange de segments entre chromatides non-sœurs de chromosomes homologues. Il crée de nouvelles combinaisons d'allèles sur un même chromosome.</div>
           </div>
@@ -215,10 +215,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle protéine est surnommée le « gardien du génome » et arrête le cycle cellulaire en cas de dommages à l'ADN ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La cycline B</div>
-              <div class="option" onclick="answer(this,true)">La protéine p53</div>
-              <div class="option" onclick="answer(this,false)">La CDK2</div>
-              <div class="option" onclick="answer(this,false)">La protéine Ras</div>
+              <button class="option" onclick="answer(this,false)">La cycline B</button>
+              <button class="option" onclick="answer(this,true)">La protéine p53</button>
+              <button class="option" onclick="answer(this,false)">La CDK2</button>
+              <button class="option" onclick="answer(this,false)">La protéine Ras</button>
             </div>
             <div class="q-feedback">La protéine p53 est un suppresseur de tumeur qui arrête le cycle en G1 lorsque l'ADN est endommagé. Elle permet la réparation de l'ADN ou déclenche l'apoptose si les dommages sont irréparables. Elle est mutée dans plus de 50 % des cancers.</div>
           </div>
@@ -226,10 +226,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle anomalie chromosomique résulte d'une non-disjonction du chromosome 21 lors de la méiose ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le syndrome de Turner</div>
-              <div class="option" onclick="answer(this,false)">Le syndrome de Klinefelter</div>
-              <div class="option" onclick="answer(this,true)">La trisomie 21 (syndrome de Down)</div>
-              <div class="option" onclick="answer(this,false)">Le syndrome de Marfan</div>
+              <button class="option" onclick="answer(this,false)">Le syndrome de Turner</button>
+              <button class="option" onclick="answer(this,false)">Le syndrome de Klinefelter</button>
+              <button class="option" onclick="answer(this,true)">La trisomie 21 (syndrome de Down)</button>
+              <button class="option" onclick="answer(this,false)">Le syndrome de Marfan</button>
             </div>
             <div class="q-feedback">La trisomie 21 résulte d'une non-disjonction des chromosomes 21 pendant la méiose I ou II. Le gamète anormal contient deux copies du chromosome 21, donnant 3 copies après fécondation (47 chromosomes au total).</div>
           </div>
@@ -237,10 +237,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel processus de mort cellulaire programmée élimine les cellules endommagées sans déclencher d'inflammation ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La nécrose</div>
-              <div class="option" onclick="answer(this,true)">L'apoptose</div>
-              <div class="option" onclick="answer(this,false)">L'autophagie</div>
-              <div class="option" onclick="answer(this,false)">La lyse cellulaire</div>
+              <button class="option" onclick="answer(this,false)">La nécrose</button>
+              <button class="option" onclick="answer(this,true)">L'apoptose</button>
+              <button class="option" onclick="answer(this,false)">L'autophagie</button>
+              <button class="option" onclick="answer(this,false)">La lyse cellulaire</button>
             </div>
             <div class="q-feedback">L'apoptose est une mort cellulaire programmée, ordonnée et non inflammatoire. La cellule se fragmente en corps apoptotiques qui sont phagocytés par les macrophages, contrairement à la nécrose qui libère le contenu cellulaire et provoque une inflammation.</div>
           </div>
@@ -315,8 +315,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Points à la main, coutures droites, ourlets, fermetures éclair, boutonnières et surfilage.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Techniques de couture — Couture — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">✂️ Couture</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -137,10 +137,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel point à la main est le plus solide pour un assemblage définitif ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le point devant</div>
-              <div class="option" onclick="answer(this,true)">Le point arrière</div>
-              <div class="option" onclick="answer(this,false)">Le point de chausson</div>
-              <div class="option" onclick="answer(this,false)">Le point glissé</div>
+              <button class="option" onclick="answer(this,false)">Le point devant</button>
+              <button class="option" onclick="answer(this,true)">Le point arrière</button>
+              <button class="option" onclick="answer(this,false)">Le point de chausson</button>
+              <button class="option" onclick="answer(this,false)">Le point glissé</button>
             </div>
             <div class="q-feedback">Le point arrière est le plus solide des points à la main. L'aiguille revient en arrière à chaque point, créant une ligne continue comme le point droit machine.</div>
           </div>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle couture enferme les bords bruts entre deux piqûres ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La couture ouverte</div>
-              <div class="option" onclick="answer(this,true)">La couture anglaise</div>
-              <div class="option" onclick="answer(this,false)">La couture rabattue</div>
-              <div class="option" onclick="answer(this,false)">La couture surfilée</div>
+              <button class="option" onclick="answer(this,false)">La couture ouverte</button>
+              <button class="option" onclick="answer(this,true)">La couture anglaise</button>
+              <button class="option" onclick="answer(this,false)">La couture rabattue</button>
+              <button class="option" onclick="answer(this,false)">La couture surfilée</button>
             </div>
             <div class="q-feedback">La couture anglaise enferme les bords bruts : on coud d'abord envers contre envers, puis on retourne et on recoud. Aucun bord brut n'est visible à l'intérieur.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">À quoi sert le bâti ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">À maintenir temporairement les pièces avant la couture définitive</div>
-              <div class="option" onclick="answer(this,false)">À décorer le vêtement</div>
-              <div class="option" onclick="answer(this,false)">À renforcer les coutures</div>
-              <div class="option" onclick="answer(this,false)">À empêcher le tissu de s'effilocher</div>
+              <button class="option" onclick="answer(this,true)">À maintenir temporairement les pièces avant la couture définitive</button>
+              <button class="option" onclick="answer(this,false)">À décorer le vêtement</button>
+              <button class="option" onclick="answer(this,false)">À renforcer les coutures</button>
+              <button class="option" onclick="answer(this,false)">À empêcher le tissu de s'effilocher</button>
             </div>
             <div class="q-feedback">Le bâti est une couture temporaire à grands points (point devant) qui maintient les pièces en place avant la piqûre définitive. Il est retiré ensuite.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Pourquoi faut-il repasser les coutures après chaque assemblage ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pour sécher le tissu</div>
-              <div class="option" onclick="answer(this,false)">Pour tuer les bactéries</div>
-              <div class="option" onclick="answer(this,true)">Pour ouvrir les marges et obtenir un résultat plat et net</div>
-              <div class="option" onclick="answer(this,false)">Pour assouplir le fil de couture</div>
+              <button class="option" onclick="answer(this,false)">Pour sécher le tissu</button>
+              <button class="option" onclick="answer(this,false)">Pour tuer les bactéries</button>
+              <button class="option" onclick="answer(this,true)">Pour ouvrir les marges et obtenir un résultat plat et net</button>
+              <button class="option" onclick="answer(this,false)">Pour assouplir le fil de couture</button>
             </div>
             <div class="q-feedback">Le repassage ouvre les marges de couture, les aplatit et fixe la forme du vêtement. C'est l'étape qui fait la différence entre un résultat amateur et professionnel.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle est la formule pour calculer la taille d'une boutonnière ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Largeur du bouton seulement</div>
-              <div class="option" onclick="answer(this,true)">Diamètre du bouton + épaisseur du bouton</div>
-              <div class="option" onclick="answer(this,false)">Deux fois le diamètre du bouton</div>
-              <div class="option" onclick="answer(this,false)">Diamètre du bouton + 2 cm</div>
+              <button class="option" onclick="answer(this,false)">Largeur du bouton seulement</button>
+              <button class="option" onclick="answer(this,true)">Diamètre du bouton + épaisseur du bouton</button>
+              <button class="option" onclick="answer(this,false)">Deux fois le diamètre du bouton</button>
+              <button class="option" onclick="answer(this,false)">Diamètre du bouton + 2 cm</button>
             </div>
             <div class="q-feedback">La boutonnière doit mesurer le diamètre du bouton plus son épaisseur. Un bouton plat de 2 cm donnera une boutonnière de ~2,2 cm, un bouton bombé de 2 cm donnera ~2,5 cm.</div>
           </div>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel type de couture retrouve-t-on typiquement sur un jean ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La couture anglaise</div>
-              <div class="option" onclick="answer(this,false)">La couture ouverte</div>
-              <div class="option" onclick="answer(this,true)">La couture rabattue</div>
-              <div class="option" onclick="answer(this,false)">La couture surjetée</div>
+              <button class="option" onclick="answer(this,false)">La couture anglaise</button>
+              <button class="option" onclick="answer(this,false)">La couture ouverte</button>
+              <button class="option" onclick="answer(this,true)">La couture rabattue</button>
+              <button class="option" onclick="answer(this,false)">La couture surjetée</button>
             </div>
             <div class="q-feedback">La couture rabattue, visible par ses deux lignes de surpiqûre parallèles, est la signature des jeans. Elle est extrêmement solide car les bords bruts sont repliés et piqués.</div>
           </div>
@@ -268,8 +268,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

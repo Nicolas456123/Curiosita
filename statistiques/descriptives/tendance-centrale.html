@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Moyenne, mediane, mode — les trois indicateurs fondamentaux qui resument le centre d'une distribution de donnees.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Mesures de tendance centrale — Statistiques descriptives — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08);  --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -21,7 +21,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📏 Statistiques descriptives</span>
     <span class="tag-level">Debutant</span>
@@ -142,10 +142,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">La moyenne de 4, 8, 6, 10 et 12 est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">6</div>
-              <div class="option" onclick="answer(this,true)">8</div>
-              <div class="option" onclick="answer(this,false)">10</div>
-              <div class="option" onclick="answer(this,false)">7</div>
+              <button class="option" onclick="answer(this,false)">6</button>
+              <button class="option" onclick="answer(this,true)">8</button>
+              <button class="option" onclick="answer(this,false)">10</button>
+              <button class="option" onclick="answer(this,false)">7</button>
             </div>
             <div class="q-feedback">(4+8+6+10+12)/5 = 40/5 = 8.</div>
           </div>
@@ -153,10 +153,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">La mediane de 3, 7, 1, 9, 5, 2, 8 est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">5</div>
-              <div class="option" onclick="answer(this,false)">7</div>
-              <div class="option" onclick="answer(this,false)">4</div>
-              <div class="option" onclick="answer(this,false)">6</div>
+              <button class="option" onclick="answer(this,true)">5</button>
+              <button class="option" onclick="answer(this,false)">7</button>
+              <button class="option" onclick="answer(this,false)">4</button>
+              <button class="option" onclick="answer(this,false)">6</button>
             </div>
             <div class="q-feedback">Ordonnees : 1, 2, 3, 5, 7, 8, 9. La 4e valeur (sur 7) est 5.</div>
           </div>
@@ -164,10 +164,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Quelle mesure est la plus robuste aux valeurs extremes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La moyenne</div>
-              <div class="option" onclick="answer(this,true)">La mediane</div>
-              <div class="option" onclick="answer(this,false)">La moyenne ponderee</div>
-              <div class="option" onclick="answer(this,false)">La moyenne geometrique</div>
+              <button class="option" onclick="answer(this,false)">La moyenne</button>
+              <button class="option" onclick="answer(this,true)">La mediane</button>
+              <button class="option" onclick="answer(this,false)">La moyenne ponderee</button>
+              <button class="option" onclick="answer(this,false)">La moyenne geometrique</button>
             </div>
             <div class="q-feedback">La mediane n'est pas affectee par les valeurs extremes car elle ne depend que de la position, pas des valeurs elles-memes.</div>
           </div>
@@ -175,10 +175,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Si moyenne > mediane, la distribution est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Asymetrique a droite</div>
-              <div class="option" onclick="answer(this,false)">Asymetrique a gauche</div>
-              <div class="option" onclick="answer(this,false)">Symetrique</div>
-              <div class="option" onclick="answer(this,false)">Bimodale</div>
+              <button class="option" onclick="answer(this,true)">Asymetrique a droite</button>
+              <button class="option" onclick="answer(this,false)">Asymetrique a gauche</button>
+              <button class="option" onclick="answer(this,false)">Symetrique</button>
+              <button class="option" onclick="answer(this,false)">Bimodale</button>
             </div>
             <div class="q-feedback">Quand la moyenne est tiree vers la droite par des valeurs elevees, elle depasse la mediane : c'est l'asymetrie positive (a droite).</div>
           </div>
@@ -186,10 +186,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quel type de moyenne utilise-t-on pour les taux de croissance ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Arithmetique</div>
-              <div class="option" onclick="answer(this,true)">Geometrique</div>
-              <div class="option" onclick="answer(this,false)">Harmonique</div>
-              <div class="option" onclick="answer(this,false)">Quadratique</div>
+              <button class="option" onclick="answer(this,false)">Arithmetique</button>
+              <button class="option" onclick="answer(this,true)">Geometrique</button>
+              <button class="option" onclick="answer(this,false)">Harmonique</button>
+              <button class="option" onclick="answer(this,false)">Quadratique</button>
             </div>
             <div class="q-feedback">La moyenne geometrique est adaptee aux grandeurs multiplicatives comme les taux de croissance, les rendements et les ratios.</div>
           </div>
@@ -245,8 +245,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

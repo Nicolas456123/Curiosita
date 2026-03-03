@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Protéines, glucides et lipides — les trois piliers énergétiques de l'alimentation, leurs rôles, leurs sources et les besoins quotidiens.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Macronutriments — Nutrition — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🍔 Nutrition</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -140,10 +140,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Combien de kilocalories fournit 1 gramme de lipides ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">4 kcal</div>
-              <div class="option" onclick="answer(this,false)">7 kcal</div>
-              <div class="option" onclick="answer(this,true)">9 kcal</div>
-              <div class="option" onclick="answer(this,false)">2 kcal</div>
+              <button class="option" onclick="answer(this,false)">4 kcal</button>
+              <button class="option" onclick="answer(this,false)">7 kcal</button>
+              <button class="option" onclick="answer(this,true)">9 kcal</button>
+              <button class="option" onclick="answer(this,false)">2 kcal</button>
             </div>
             <div class="q-feedback">Les lipides fournissent 9 kcal par gramme, contre 4 kcal/g pour les protéines et les glucides. C'est le macronutriment le plus énergétique.</div>
           </div>
@@ -151,10 +151,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Combien d'acides aminés essentiels le corps humain ne peut-il pas fabriquer ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">5</div>
-              <div class="option" onclick="answer(this,true)">9</div>
-              <div class="option" onclick="answer(this,false)">12</div>
-              <div class="option" onclick="answer(this,false)">20</div>
+              <button class="option" onclick="answer(this,false)">5</button>
+              <button class="option" onclick="answer(this,true)">9</button>
+              <button class="option" onclick="answer(this,false)">12</button>
+              <button class="option" onclick="answer(this,false)">20</button>
             </div>
             <div class="q-feedback">Sur les 20 acides aminés, 9 sont dits « essentiels » car le corps ne peut pas les synthétiser : il faut les apporter par l'alimentation.</div>
           </div>
@@ -162,10 +162,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qu'est-ce que l'index glycémique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La teneur en sucre d'un aliment</div>
-              <div class="option" onclick="answer(this,true)">La vitesse à laquelle un aliment fait monter la glycémie</div>
-              <div class="option" onclick="answer(this,false)">Le nombre de calories d'un glucide</div>
-              <div class="option" onclick="answer(this,false)">Le taux de glucose dans le sang à jeun</div>
+              <button class="option" onclick="answer(this,false)">La teneur en sucre d'un aliment</button>
+              <button class="option" onclick="answer(this,true)">La vitesse à laquelle un aliment fait monter la glycémie</button>
+              <button class="option" onclick="answer(this,false)">Le nombre de calories d'un glucide</button>
+              <button class="option" onclick="answer(this,false)">Le taux de glucose dans le sang à jeun</button>
             </div>
             <div class="q-feedback">L'index glycémique mesure la vitesse à laquelle un aliment élève la glycémie après ingestion, sur une échelle de 0 à 100 (glucose pur = 100).</div>
           </div>
@@ -173,10 +173,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quels sont les acides gras les plus néfastes pour la santé ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les oméga-3</div>
-              <div class="option" onclick="answer(this,false)">Les monoinsaturés</div>
-              <div class="option" onclick="answer(this,true)">Les acides gras trans</div>
-              <div class="option" onclick="answer(this,false)">Les oméga-6</div>
+              <button class="option" onclick="answer(this,false)">Les oméga-3</button>
+              <button class="option" onclick="answer(this,false)">Les monoinsaturés</button>
+              <button class="option" onclick="answer(this,true)">Les acides gras trans</button>
+              <button class="option" onclick="answer(this,false)">Les oméga-6</button>
             </div>
             <div class="q-feedback">Les acides gras trans (issus de l'hydrogénation industrielle) sont les plus néfastes : ils augmentent le mauvais cholestérol (LDL), diminuent le bon (HDL) et favorisent les maladies cardiovasculaires.</div>
           </div>
@@ -184,10 +184,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Comment obtenir tous les acides aminés essentiels sans viande ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Manger uniquement des légumes verts</div>
-              <div class="option" onclick="answer(this,true)">Associer céréales et légumineuses</div>
-              <div class="option" onclick="answer(this,false)">Prendre des compléments alimentaires</div>
-              <div class="option" onclick="answer(this,false)">Manger plus de fruits</div>
+              <button class="option" onclick="answer(this,false)">Manger uniquement des légumes verts</button>
+              <button class="option" onclick="answer(this,true)">Associer céréales et légumineuses</button>
+              <button class="option" onclick="answer(this,false)">Prendre des compléments alimentaires</button>
+              <button class="option" onclick="answer(this,false)">Manger plus de fruits</button>
             </div>
             <div class="q-feedback">L'association céréales + légumineuses (riz + lentilles, semoule + pois chiches, pain + haricots) permet d'obtenir tous les acides aminés essentiels par complémentarité.</div>
           </div>
@@ -195,10 +195,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel pourcentage de la dépense énergétique le métabolisme de base représente-t-il ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">30-40 %</div>
-              <div class="option" onclick="answer(this,true)">60-70 %</div>
-              <div class="option" onclick="answer(this,false)">80-90 %</div>
-              <div class="option" onclick="answer(this,false)">50 %</div>
+              <button class="option" onclick="answer(this,false)">30-40 %</button>
+              <button class="option" onclick="answer(this,true)">60-70 %</button>
+              <button class="option" onclick="answer(this,false)">80-90 %</button>
+              <button class="option" onclick="answer(this,false)">50 %</button>
             </div>
             <div class="q-feedback">Le métabolisme de base représente 60 à 70 % de la dépense énergétique totale. L'activité physique ne compte que pour 15 à 30 % et la thermogenèse alimentaire pour environ 10 %.</div>
           </div>
@@ -262,8 +262,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

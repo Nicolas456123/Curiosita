@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Méthode SMART, vision personnelle, valeurs et plan d'action pour atteindre ses buts.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Définir ses objectifs — Développement personnel — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎯 Développement personnel</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -147,10 +147,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que signifie le « A » dans SMART ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Ambitieux</div>
-              <div class="option" onclick="answer(this,true)">Atteignable</div>
-              <div class="option" onclick="answer(this,false)">Attractif</div>
-              <div class="option" onclick="answer(this,false)">Automatique</div>
+              <button class="option" onclick="answer(this,false)">Ambitieux</button>
+              <button class="option" onclick="answer(this,true)">Atteignable</button>
+              <button class="option" onclick="answer(this,false)">Attractif</button>
+              <button class="option" onclick="answer(this,false)">Automatique</button>
             </div>
             <div class="q-feedback">Le A de SMART signifie Atteignable : l'objectif doit être ambitieux mais réaliste avec les ressources et contraintes actuelles.</div>
           </div>
@@ -158,10 +158,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que représente la méthode WOOP ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Wish, Outcome, Obstacle, Plan</div>
-              <div class="option" onclick="answer(this,false)">Work, Organize, Optimize, Perform</div>
-              <div class="option" onclick="answer(this,false)">Write, Observe, Order, Prioritize</div>
-              <div class="option" onclick="answer(this,false)">Want, Obtain, Overcome, Persist</div>
+              <button class="option" onclick="answer(this,true)">Wish, Outcome, Obstacle, Plan</button>
+              <button class="option" onclick="answer(this,false)">Work, Organize, Optimize, Perform</button>
+              <button class="option" onclick="answer(this,false)">Write, Observe, Order, Prioritize</button>
+              <button class="option" onclick="answer(this,false)">Want, Obtain, Overcome, Persist</button>
             </div>
             <div class="q-feedback">WOOP signifie Wish (souhait), Outcome (résultat espéré), Obstacle (obstacle principal), Plan (plan si l'obstacle survient). Cette méthode combine rêve et réalisme.</div>
           </div>
@@ -169,10 +169,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Lequel de ces objectifs est formulé de façon SMART ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Je veux être en meilleure santé</div>
-              <div class="option" onclick="answer(this,false)">Je vais faire du sport</div>
-              <div class="option" onclick="answer(this,true)">Je cours 30 min 3 fois par semaine pendant 3 mois</div>
-              <div class="option" onclick="answer(this,false)">Je vais perdre du poids cette année</div>
+              <button class="option" onclick="answer(this,false)">Je veux être en meilleure santé</button>
+              <button class="option" onclick="answer(this,false)">Je vais faire du sport</button>
+              <button class="option" onclick="answer(this,true)">Je cours 30 min 3 fois par semaine pendant 3 mois</button>
+              <button class="option" onclick="answer(this,false)">Je vais perdre du poids cette année</button>
             </div>
             <div class="q-feedback">« Courir 30 min 3 fois par semaine pendant 3 mois » est SMART : spécifique (courir), mesurable (30 min, 3 fois), atteignable, relevant et temporel (3 mois).</div>
           </div>
@@ -180,10 +180,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Combien d'objectifs simultanés maximum recommande-t-on ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1</div>
-              <div class="option" onclick="answer(this,true)">3</div>
-              <div class="option" onclick="answer(this,false)">5</div>
-              <div class="option" onclick="answer(this,false)">10</div>
+              <button class="option" onclick="answer(this,false)">1</button>
+              <button class="option" onclick="answer(this,true)">3</button>
+              <button class="option" onclick="answer(this,false)">5</button>
+              <button class="option" onclick="answer(this,false)">10</button>
             </div>
             <div class="q-feedback">Se concentrer sur 3 objectifs maximum simultanément évite la dispersion. Mieux vaut avancer significativement sur peu d'objectifs que stagner sur beaucoup.</div>
           </div>
@@ -191,10 +191,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce qu'une intention d'implémentation ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une liste de tâches quotidiennes</div>
-              <div class="option" onclick="answer(this,true)">Une formule « Quand [situation], je ferai [action] »</div>
-              <div class="option" onclick="answer(this,false)">Un objectif à long terme</div>
-              <div class="option" onclick="answer(this,false)">Un tableau de visualisation</div>
+              <button class="option" onclick="answer(this,false)">Une liste de tâches quotidiennes</button>
+              <button class="option" onclick="answer(this,true)">Une formule « Quand [situation], je ferai [action] »</button>
+              <button class="option" onclick="answer(this,false)">Un objectif à long terme</button>
+              <button class="option" onclick="answer(this,false)">Un tableau de visualisation</button>
             </div>
             <div class="q-feedback">L'intention d'implémentation associe une situation déclencheuse à une action prédéfinie : « Quand je rentre du travail, je cours 30 minutes. » Cette technique double les chances de passer à l'action.</div>
           </div>
@@ -202,10 +202,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Pourquoi privilégier les objectifs de processus aux objectifs de résultat ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les résultats ne comptent pas</div>
-              <div class="option" onclick="answer(this,true)">Le processus est directement actionnable au quotidien</div>
-              <div class="option" onclick="answer(this,false)">Les objectifs de résultat sont toujours irréalistes</div>
-              <div class="option" onclick="answer(this,false)">Le processus est plus facile à mesurer</div>
+              <button class="option" onclick="answer(this,false)">Les résultats ne comptent pas</button>
+              <button class="option" onclick="answer(this,true)">Le processus est directement actionnable au quotidien</button>
+              <button class="option" onclick="answer(this,false)">Les objectifs de résultat sont toujours irréalistes</button>
+              <button class="option" onclick="answer(this,false)">Le processus est plus facile à mesurer</button>
             </div>
             <div class="q-feedback">Un objectif de processus (« faire du sport 4 fois par semaine ») est directement actionnable, tandis qu'un objectif de résultat (« perdre 10 kg ») dépend de facteurs qu'on ne contrôle pas entièrement.</div>
           </div>
@@ -278,8 +278,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

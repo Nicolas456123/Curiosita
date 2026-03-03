@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Le son represente la moitie de l'experience cinematographique. La conception sonore et la musique de fi...">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Son et musique de film — Realisation — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #e87a7a; --accent2: #f09090; --accent-dim: rgba(232,122,122,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #e87a7a; --accent2: #f09090; --accent-dim: rgba(232,122,122,0.08);  --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -19,7 +19,7 @@
     <a href="../../cinema-page.html">Cinema</a> &rsaquo; <a href="../realisation.html">Realisation</a> &rsaquo; <span>Son et musique de film</span>
   </div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">&#127916; Cinema</span>
     <span class="tag-level">Debutant &rarr; Intermediaire</span>
@@ -89,10 +89,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Qui est le pionnier du sound design cinematographique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">John Williams</div>
-              <div class="option" onclick="answer(this,false)">Ben Burtt</div>
-              <div class="option" onclick="answer(this,true)">Walter Murch</div>
-              <div class="option" onclick="answer(this,false)">Gary Rydstrom</div>
+              <button class="option" onclick="answer(this,false)">John Williams</button>
+              <button class="option" onclick="answer(this,false)">Ben Burtt</button>
+              <button class="option" onclick="answer(this,true)">Walter Murch</button>
+              <button class="option" onclick="answer(this,false)">Gary Rydstrom</button>
             </div>
             <div class="q-feedback">Walter Murch a invente le concept de sound design pour Apocalypse Now (1979), creant un univers sonore d'une complexite inedite.</div>
           </div>
@@ -100,10 +100,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Qu'est-ce que le bruitage (Foley) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La musique de film</div>
-              <div class="option" onclick="answer(this,true)">La recreation de sons en studio</div>
-              <div class="option" onclick="answer(this,false)">L'enregistrement sur le plateau</div>
-              <div class="option" onclick="answer(this,false)">Le doublage des voix</div>
+              <button class="option" onclick="answer(this,false)">La musique de film</button>
+              <button class="option" onclick="answer(this,true)">La recreation de sons en studio</button>
+              <button class="option" onclick="answer(this,false)">L'enregistrement sur le plateau</button>
+              <button class="option" onclick="answer(this,false)">Le doublage des voix</button>
             </div>
             <div class="q-feedback">Le bruitage Foley est l'art de recreer les sons quotidiens (pas, vetements, objets) en studio, en synchronisation avec l'image.</div>
           </div>
@@ -111,10 +111,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Quel compositeur a cree la musique de Star Wars ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Hans Zimmer</div>
-              <div class="option" onclick="answer(this,false)">Ennio Morricone</div>
-              <div class="option" onclick="answer(this,true)">John Williams</div>
-              <div class="option" onclick="answer(this,false)">Howard Shore</div>
+              <button class="option" onclick="answer(this,false)">Hans Zimmer</button>
+              <button class="option" onclick="answer(this,false)">Ennio Morricone</button>
+              <button class="option" onclick="answer(this,true)">John Williams</button>
+              <button class="option" onclick="answer(this,false)">Howard Shore</button>
             </div>
             <div class="q-feedback">John Williams a compose la musique de Star Wars, l'une des bandes originales les plus celebres et reconnaissables de l'histoire du cinema.</div>
           </div>
@@ -122,10 +122,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Qu'est-ce qu'un son diegetique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un son ajoute en post-production</div>
-              <div class="option" onclick="answer(this,true)">Un son audible par les personnages</div>
-              <div class="option" onclick="answer(this,false)">Un son de musique orchestrale</div>
-              <div class="option" onclick="answer(this,false)">Un son inaudible</div>
+              <button class="option" onclick="answer(this,false)">Un son ajoute en post-production</button>
+              <button class="option" onclick="answer(this,true)">Un son audible par les personnages</button>
+              <button class="option" onclick="answer(this,false)">Un son de musique orchestrale</button>
+              <button class="option" onclick="answer(this,false)">Un son inaudible</button>
             </div>
             <div class="q-feedback">Un son diegetique fait partie de l'univers du film : il est audible par les personnages (une radio, un klaxon, une conversation).</div>
           </div>
@@ -133,10 +133,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Qu'est-ce que le Dolby Atmos ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un type de camera</div>
-              <div class="option" onclick="answer(this,false)">Un format de pellicule</div>
-              <div class="option" onclick="answer(this,true)">Un systeme de spatialisation sonore</div>
-              <div class="option" onclick="answer(this,false)">Un logiciel de montage</div>
+              <button class="option" onclick="answer(this,false)">Un type de camera</button>
+              <button class="option" onclick="answer(this,false)">Un format de pellicule</button>
+              <button class="option" onclick="answer(this,true)">Un systeme de spatialisation sonore</button>
+              <button class="option" onclick="answer(this,false)">Un logiciel de montage</button>
             </div>
             <div class="q-feedback">Le Dolby Atmos est un systeme de spatialisation sonore qui place les sons dans un espace tridimensionnel autour du spectateur.</div>
           </div>
@@ -182,8 +182,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

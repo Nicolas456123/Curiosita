@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'art de compter les atomes et les mol cules : moles, masses molaires, r actifs limitants et rendements. Les outils quantitatifs indispensables du...">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>St&oelig;chiom&eacute;trie &mdash; Chimie g&eacute;n&eacute;rale &mdash; Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #d35400; --accent2: #e67e22; --accent-dim: rgba(211,84,0,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(211,84,0,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #d35400; --accent2: #e67e22; --accent-dim: rgba(211,84,0,0.08);  --accent-hero: rgba(211,84,0,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../sciences-exactes.html">Sciences exactes</a> &rsaquo; <a href="../generale.html">Chimie g&eacute;n&eacute;rale</a> &rsaquo; <span>St&oelig;chiom&eacute;trie</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">&#9883; Chimie</span><span class="tag-level">Interm&eacute;diaire</span><span class="tag-time">&#9201; ~50 min</span></div>
   <h1><em>St&oelig;chiom&eacute;trie</em></h1>
   <p class="hero-desc">L'art de compter les atomes et les mol&eacute;cules : moles, masses molaires, r&eacute;actifs limitants et rendements. Les outils quantitatifs indispensables du chimiste.</p>
@@ -109,10 +109,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la masse molaire de l'acide sulfurique H&#8322;SO&#8324; ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">64 g/mol</div>
-              <div class="option" onclick="answer(this,true)">98 g/mol</div>
-              <div class="option" onclick="answer(this,false)">80 g/mol</div>
-              <div class="option" onclick="answer(this,false)">114 g/mol</div>
+              <button class="option" onclick="answer(this,false)">64 g/mol</button>
+              <button class="option" onclick="answer(this,true)">98 g/mol</button>
+              <button class="option" onclick="answer(this,false)">80 g/mol</button>
+              <button class="option" onclick="answer(this,false)">114 g/mol</button>
             </div>
             <div class="q-feedback">M(H&#8322;SO&#8324;) = 2(1) + 32 + 4(16) = 2 + 32 + 64 = 98 g/mol. Toujours additionner les masses atomiques de tous les atomes pr&eacute;sents dans la formule.</div>
           </div>
@@ -120,10 +120,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Combien de moles repr&eacute;sentent 44 g de CO&#8322; ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">1 mol</div>
-              <div class="option" onclick="answer(this,false)">0,5 mol</div>
-              <div class="option" onclick="answer(this,false)">2 mol</div>
-              <div class="option" onclick="answer(this,false)">0,44 mol</div>
+              <button class="option" onclick="answer(this,true)">1 mol</button>
+              <button class="option" onclick="answer(this,false)">0,5 mol</button>
+              <button class="option" onclick="answer(this,false)">2 mol</button>
+              <button class="option" onclick="answer(this,false)">0,44 mol</button>
             </div>
             <div class="q-feedback">M(CO&#8322;) = 12 + 2(16) = 44 g/mol. Donc n = m/M = 44/44 = 1 mol. Une mole de CO&#8322; p&egrave;se exactement 44 g.</div>
           </div>
@@ -131,10 +131,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que repr&eacute;sente le nombre d'Avogadro ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le nombre d'atomes dans 1 g de carbone</div>
-              <div class="option" onclick="answer(this,true)">Le nombre d'entit&eacute;s dans une mole</div>
-              <div class="option" onclick="answer(this,false)">La masse d'un atome en grammes</div>
-              <div class="option" onclick="answer(this,false)">Le volume d'une mole de gaz</div>
+              <button class="option" onclick="answer(this,false)">Le nombre d'atomes dans 1 g de carbone</button>
+              <button class="option" onclick="answer(this,true)">Le nombre d'entit&eacute;s dans une mole</button>
+              <button class="option" onclick="answer(this,false)">La masse d'un atome en grammes</button>
+              <button class="option" onclick="answer(this,false)">Le volume d'une mole de gaz</button>
             </div>
             <div class="q-feedback">N&#7424; = 6,022 &times; 10&sup2;&sup3; mol&minus;&sup1;. C'est le nombre d'entit&eacute;s (atomes, mol&eacute;cules, ions) contenues dans une mole de substance.</div>
           </div>
@@ -142,10 +142,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Pour la r&eacute;action 2Na + Cl&#8322; &rarr; 2NaCl, si on dispose de 3 mol de Na et 2 mol de Cl&#8322;, quel est le r&eacute;actif limitant ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Na</div>
-              <div class="option" onclick="answer(this,false)">Cl&#8322;</div>
-              <div class="option" onclick="answer(this,false)">Les deux en proportions exactes</div>
-              <div class="option" onclick="answer(this,false)">Impossible &agrave; d&eacute;terminer</div>
+              <button class="option" onclick="answer(this,true)">Na</button>
+              <button class="option" onclick="answer(this,false)">Cl&#8322;</button>
+              <button class="option" onclick="answer(this,false)">Les deux en proportions exactes</button>
+              <button class="option" onclick="answer(this,false)">Impossible &agrave; d&eacute;terminer</button>
             </div>
             <div class="q-feedback">Rapports : Na = 3/2 = 1,5 ; Cl&#8322; = 2/1 = 2. Le plus petit (1,5) d&eacute;signe Na comme r&eacute;actif limitant. Il faudrait 4 mol de Na pour consommer les 2 mol de Cl&#8322;.</div>
           </div>
@@ -153,10 +153,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel volume occupe 2 mol de gaz parfait aux CNTP (0 &deg;C, 1 atm) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">22,4 L</div>
-              <div class="option" onclick="answer(this,true)">44,8 L</div>
-              <div class="option" onclick="answer(this,false)">11,2 L</div>
-              <div class="option" onclick="answer(this,false)">24,8 L</div>
+              <button class="option" onclick="answer(this,false)">22,4 L</button>
+              <button class="option" onclick="answer(this,true)">44,8 L</button>
+              <button class="option" onclick="answer(this,false)">11,2 L</button>
+              <button class="option" onclick="answer(this,false)">24,8 L</button>
             </div>
             <div class="q-feedback">Aux CNTP, 1 mol de gaz = 22,4 L. Donc 2 mol = 2 &times; 22,4 = 44,8 L. Le volume est proportionnel au nombre de moles, ind&eacute;pendamment de la nature du gaz (loi d'Avogadro).</div>
           </div>
@@ -164,10 +164,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Si une r&eacute;action devrait produire 50 g de produit mais n'en donne que 40 g, quel est le rendement ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">50 %</div>
-              <div class="option" onclick="answer(this,false)">40 %</div>
-              <div class="option" onclick="answer(this,true)">80 %</div>
-              <div class="option" onclick="answer(this,false)">125 %</div>
+              <button class="option" onclick="answer(this,false)">50 %</button>
+              <button class="option" onclick="answer(this,false)">40 %</button>
+              <button class="option" onclick="answer(this,true)">80 %</button>
+              <button class="option" onclick="answer(this,false)">125 %</button>
             </div>
             <div class="q-feedback">Rendement = (40/50) &times; 100 = 80 %. C'est un bon rendement en chimie. Les 10 g manquants sont dus aux pertes (purification, r&eacute;actions secondaires, etc.).</div>
           </div>
@@ -209,8 +209,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

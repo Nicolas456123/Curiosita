@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CNN, RNN, Transformers, GPU, entraînement de modèles profonds — les architectures qui ont révolutionné l'intelligence artificielle.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Deep Learning — Intelligence artificielle — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #2980b9;
   --accent2: #3498db;
   --accent-dim: rgba(41,128,185,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(41,128,185,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(41,128,185,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🤖 Intelligence artificielle</span>
     <span class="tag-level">Avancé</span>
@@ -205,10 +205,10 @@ optimiseur = torch.optim.Adam(modele.fc.parameters(), lr=<span class="num">0.001
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est le rôle d'une couche de convolution dans un CNN ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Réduire la taille de l'image</div>
-              <div class="option" onclick="answer(this,true)">Détecter des motifs locaux à l'aide de filtres</div>
-              <div class="option" onclick="answer(this,false)">Classifier les pixels individuellement</div>
-              <div class="option" onclick="answer(this,false)">Augmenter la résolution de l'image</div>
+              <button class="option" onclick="answer(this,false)">Réduire la taille de l'image</button>
+              <button class="option" onclick="answer(this,true)">Détecter des motifs locaux à l'aide de filtres</button>
+              <button class="option" onclick="answer(this,false)">Classifier les pixels individuellement</button>
+              <button class="option" onclick="answer(this,false)">Augmenter la résolution de l'image</button>
             </div>
             <div class="q-feedback">Une couche de convolution applique des filtres (kernels) qui glissent sur l'image pour détecter des motifs locaux comme des bords, des textures ou des formes.</div>
           </div>
@@ -216,10 +216,10 @@ optimiseur = torch.optim.Adam(modele.fc.parameters(), lr=<span class="num">0.001
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel problème les LSTM résolvent-elles par rapport aux RNN simples ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La lenteur d'entraînement</div>
-              <div class="option" onclick="answer(this,true)">Le gradient évanescent pour les dépendances longue distance</div>
-              <div class="option" onclick="answer(this,false)">Le manque de parallélisme</div>
-              <div class="option" onclick="answer(this,false)">La taille du vocabulaire</div>
+              <button class="option" onclick="answer(this,false)">La lenteur d'entraînement</button>
+              <button class="option" onclick="answer(this,true)">Le gradient évanescent pour les dépendances longue distance</button>
+              <button class="option" onclick="answer(this,false)">Le manque de parallélisme</button>
+              <button class="option" onclick="answer(this,false)">La taille du vocabulaire</button>
             </div>
             <div class="q-feedback">Les LSTM utilisent des portes (forget, input, output) pour contrôler le flux d'information, ce qui permet de conserver des informations sur de longues séquences sans que le gradient ne disparaisse.</div>
           </div>
@@ -227,10 +227,10 @@ optimiseur = torch.optim.Adam(modele.fc.parameters(), lr=<span class="num">0.001
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel est l'avantage principal du mécanisme d'attention dans les Transformers ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il réduit le nombre de paramètres</div>
-              <div class="option" onclick="answer(this,false)">Il élimine le besoin de GPU</div>
-              <div class="option" onclick="answer(this,true)">Il permet à chaque position de la séquence d'accéder directement à toutes les autres</div>
-              <div class="option" onclick="answer(this,false)">Il rend le réseau plus petit</div>
+              <button class="option" onclick="answer(this,false)">Il réduit le nombre de paramètres</button>
+              <button class="option" onclick="answer(this,false)">Il élimine le besoin de GPU</button>
+              <button class="option" onclick="answer(this,true)">Il permet à chaque position de la séquence d'accéder directement à toutes les autres</button>
+              <button class="option" onclick="answer(this,false)">Il rend le réseau plus petit</button>
             </div>
             <div class="q-feedback">L'auto-attention permet à chaque token de « regarder » directement tous les autres tokens de la séquence, capturant les dépendances longue distance sans traitement séquentiel.</div>
           </div>
@@ -238,10 +238,10 @@ optimiseur = torch.optim.Adam(modele.fc.parameters(), lr=<span class="num">0.001
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Pourquoi les GPU sont-ils essentiels au deep learning ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Ils consomment moins d'énergie</div>
-              <div class="option" onclick="answer(this,false)">Ils ont plus de mémoire RAM</div>
-              <div class="option" onclick="answer(this,true)">Ils sont optimisés pour le calcul matriciel parallèle</div>
-              <div class="option" onclick="answer(this,false)">Ils sont moins chers que les CPU</div>
+              <button class="option" onclick="answer(this,false)">Ils consomment moins d'énergie</button>
+              <button class="option" onclick="answer(this,false)">Ils ont plus de mémoire RAM</button>
+              <button class="option" onclick="answer(this,true)">Ils sont optimisés pour le calcul matriciel parallèle</button>
+              <button class="option" onclick="answer(this,false)">Ils sont moins chers que les CPU</button>
             </div>
             <div class="q-feedback">Les GPU possèdent des milliers de coeurs capables d'effectuer des multiplications matricielles en parallèle, ce qui accélère considérablement les opérations tensorielles au coeur du deep learning.</div>
           </div>
@@ -249,10 +249,10 @@ optimiseur = torch.optim.Adam(modele.fc.parameters(), lr=<span class="num">0.001
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce que le transfer learning ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Réutiliser un modèle pré-entraîné et l'adapter à une nouvelle tâche</div>
-              <div class="option" onclick="answer(this,false)">Transférer les données d'un format à un autre</div>
-              <div class="option" onclick="answer(this,false)">Copier les poids d'un réseau vers un autre identique</div>
-              <div class="option" onclick="answer(this,false)">Entraîner un modèle sur plusieurs GPU</div>
+              <button class="option" onclick="answer(this,true)">Réutiliser un modèle pré-entraîné et l'adapter à une nouvelle tâche</button>
+              <button class="option" onclick="answer(this,false)">Transférer les données d'un format à un autre</button>
+              <button class="option" onclick="answer(this,false)">Copier les poids d'un réseau vers un autre identique</button>
+              <button class="option" onclick="answer(this,false)">Entraîner un modèle sur plusieurs GPU</button>
             </div>
             <div class="q-feedback">Le transfer learning consiste à prendre un modèle pré-entraîné sur un grand dataset et à le fine-tuner pour une tâche spécifique. Les représentations déjà apprises accélèrent l'apprentissage et améliorent les résultats.</div>
           </div>
@@ -260,10 +260,10 @@ optimiseur = torch.optim.Adam(modele.fc.parameters(), lr=<span class="num">0.001
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle innovation a permis d'entraîner des réseaux de plus de 100 couches ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le dropout</div>
-              <div class="option" onclick="answer(this,false)">La batch normalization</div>
-              <div class="option" onclick="answer(this,true)">Les connexions résiduelles (skip connections)</div>
-              <div class="option" onclick="answer(this,false)">L'augmentation de données</div>
+              <button class="option" onclick="answer(this,false)">Le dropout</button>
+              <button class="option" onclick="answer(this,false)">La batch normalization</button>
+              <button class="option" onclick="answer(this,true)">Les connexions résiduelles (skip connections)</button>
+              <button class="option" onclick="answer(this,false)">L'augmentation de données</button>
             </div>
             <div class="q-feedback">Les connexions résiduelles de ResNet permettent au gradient de « sauter » des couches, évitant la dégradation du signal dans les réseaux très profonds. Sans elles, ajouter des couches peut paradoxalement dégrader les performances.</div>
           </div>
@@ -467,8 +467,14 @@ for s in sizes:
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

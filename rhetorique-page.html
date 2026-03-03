@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De l'art oratoire des Grecs aux stratégies de communication modernes, maîtrisez les techniques de persuasion, d'argumentation et d'expression qui...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Rhétorique & Communication — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #9b7ae8;
   --accent2: #b49aef;
   --accent-dim: rgba(155,122,232,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(155,122,232,0.07) 0%, transparent 70%); }
+ --accent-hero: rgba(155,122,232,0.07); }
 .hero-deco { color: rgba(155,122,232,0.04); font-size: 18rem; }
 </style>
 </head>
@@ -27,7 +28,7 @@
   <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
 </nav>
 
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">🗣️</div>
   <div class="hero-meta">
     <span class="tag-domain">📚 Lettres, Langues & Philosophie</span>
@@ -172,79 +173,76 @@
       <div class="quiz-container">
         <div class="quiz-header">
           <span class="quiz-title-text">Quiz — Rhétorique & Communication</span>
-          <span class="quiz-score">Score : <span id="quizScore">0</span>/5</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span>/5</span>
         </div>
-        <div class="quiz-body">
+        <div class="quiz-body" id="quizBody">
           <div class="question-block active" id="q0">
             <div class="q-num">Question 1 / 5</div>
             <div class="q-text">Quel philosophe grec a formalisé les trois moyens de persuasion (ethos, pathos, logos) ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(0,0)">Platon</div>
-              <div class="option" onclick="selectOption(0,1)">Socrate</div>
-              <div class="option" onclick="selectOption(0,2)">Aristote</div>
-              <div class="option" onclick="selectOption(0,3)">Gorgias</div>
+              <button class="option" onclick="answer(this,false)">Platon</button>
+              <button class="option" onclick="answer(this,false)">Socrate</button>
+              <button class="option" onclick="answer(this,true)">Aristote</button>
+              <button class="option" onclick="answer(this,false)">Gorgias</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Aristote (384-322 av. J.-C.) formalise les trois preuves rhétoriques dans sa Rhétorique : l'ethos (crédibilité), le pathos (émotion) et le logos (logique). Cette tripartition reste le fondement de toute analyse rhétorique.</div>
           </div>
           <div class="question-block" id="q1">
             <div class="q-num">Question 2 / 5</div>
             <div class="q-text">Qu'est-ce qu'un sophisme de l'homme de paille ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(1,0)">Utiliser un argument d'autorité</div>
-              <div class="option" onclick="selectOption(1,1)">Déformer l'argument de l'adversaire pour le réfuter plus facilement</div>
-              <div class="option" onclick="selectOption(1,2)">Attaquer la personne plutôt que l'argument</div>
-              <div class="option" onclick="selectOption(1,3)">Présenter un faux dilemme</div>
+              <button class="option" onclick="answer(this,false)">Utiliser un argument d'autorité</button>
+              <button class="option" onclick="answer(this,true)">Déformer l'argument de l'adversaire pour le réfuter plus facilement</button>
+              <button class="option" onclick="answer(this,false)">Attaquer la personne plutôt que l'argument</button>
+              <button class="option" onclick="answer(this,false)">Présenter un faux dilemme</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le sophisme de l'homme de paille (straw man) consiste à déformer ou simplifier l'argument de l'adversaire pour le rendre plus facile à réfuter. Au lieu de répondre à l'argument réel, on attaque une version affaiblie.</div>
           </div>
           <div class="question-block" id="q2">
             <div class="q-num">Question 3 / 5</div>
             <div class="q-text">Qu'est-ce que l'anaphore en rhétorique ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(2,0)">Une question dont on connaît déjà la réponse</div>
-              <div class="option" onclick="selectOption(2,1)">Une exagération volontaire</div>
-              <div class="option" onclick="selectOption(2,2)">La répétition d'un mot ou groupe de mots en début de phrases successives</div>
-              <div class="option" onclick="selectOption(2,3)">Une comparaison implicite</div>
+              <button class="option" onclick="answer(this,false)">Une question dont on connaît déjà la réponse</button>
+              <button class="option" onclick="answer(this,false)">Une exagération volontaire</button>
+              <button class="option" onclick="answer(this,true)">La répétition d'un mot ou groupe de mots en début de phrases successives</button>
+              <button class="option" onclick="answer(this,false)">Une comparaison implicite</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">L'anaphore est la répétition d'un même mot ou groupe de mots au début de phrases ou de vers successifs. Elle crée un effet de martèlement et d'insistance rhétorique très puissant à l'oral.</div>
           </div>
           <div class="question-block" id="q3">
             <div class="q-num">Question 4 / 5</div>
             <div class="q-text">Quel concept grec désigne le « moment opportun » pour agir ou parler ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(3,0)">Chronos</div>
-              <div class="option" onclick="selectOption(3,1)">Logos</div>
-              <div class="option" onclick="selectOption(3,2)">Kairos</div>
-              <div class="option" onclick="selectOption(3,3)">Pathos</div>
+              <button class="option" onclick="answer(this,false)">Chronos</button>
+              <button class="option" onclick="answer(this,false)">Logos</button>
+              <button class="option" onclick="answer(this,true)">Kairos</button>
+              <button class="option" onclick="answer(this,false)">Pathos</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le kairos est un concept grec désignant le moment opportun, le bon timing. Contrairement au chronos (temps linéaire, mesurable), le kairos est le temps qualitatif — le moment où tout bascule.</div>
           </div>
           <div class="question-block" id="q4">
             <div class="q-num">Question 5 / 5</div>
             <div class="q-text">L'ethos désigne en rhétorique...</div>
             <div class="options">
-              <div class="option" onclick="selectOption(4,0)">La logique de l'argumentation</div>
-              <div class="option" onclick="selectOption(4,1)">L'appel aux émotions de l'auditoire</div>
-              <div class="option" onclick="selectOption(4,2)">La crédibilité et le caractère moral de l'orateur</div>
-              <div class="option" onclick="selectOption(4,3)">La beauté du style</div>
+              <button class="option" onclick="answer(this,false)">La logique de l'argumentation</button>
+              <button class="option" onclick="answer(this,false)">L'appel aux émotions de l'auditoire</button>
+              <button class="option" onclick="answer(this,true)">La crédibilité et le caractère moral de l'orateur</button>
+              <button class="option" onclick="answer(this,false)">La beauté du style</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">L'ethos (du grec èthos = caractère moral) est la crédibilité de l'orateur telle que perçue par l'auditoire. Elle repose sur trois qualités : la compétence, la vertu et la bienveillance perçues.</div>
           </div>
         </div>
         <div class="quiz-nav">
-          <div class="q-dots">
-            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div>
-          </div>
+          <div class="q-dots" id="qDots"></div>
           <div style="display:flex;gap:.8rem">
-            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
-            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQ()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQ()" disabled>Suivant →</button>
           </div>
         </div>
-        <div class="quiz-result">
-          <div class="result-score-big" id="finalScore"></div>
-          <div class="result-msg" id="finalMsg"></div>
-          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore"></div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
         </div>
       </div>
     </section>
@@ -359,130 +357,15 @@
   </main>
 </div>
 
-<script>
-const TOTAL=5;
-const questions = [
-  { q:"Quel philosophe grec a formalisé les trois moyens de persuasion (ethos, pathos, logos) ?", opts:["Platon","Socrate","Aristote","Gorgias"], ans:2, expl:"Aristote (384-322 av. J.-C.) formalise les trois preuves rhétoriques dans sa Rhétorique : l'ethos (crédibilité), le pathos (émotion) et le logos (logique). Cette tripartition reste le fondement de toute analyse rhétorique." },
-  { q:"Qu'est-ce qu'un sophisme de l'homme de paille ?", opts:["Utiliser un argument d'autorité","Déformer l'argument de l'adversaire pour le réfuter plus facilement","Attaquer la personne plutôt que l'argument","Présenter un faux dilemme"], ans:1, expl:"Le sophisme de l'homme de paille (straw man) consiste à déformer ou simplifier l'argument de l'adversaire pour le rendre plus facile à réfuter. Au lieu de répondre à l'argument réel, on attaque une version affaiblie." },
-  { q:"Qu'est-ce que l'anaphore en rhétorique ?", opts:["Une question dont on connaît déjà la réponse","Une exagération volontaire","La répétition d'un mot ou groupe de mots en début de phrases successives","Une comparaison implicite"], ans:2, expl:"L'anaphore est la répétition d'un même mot ou groupe de mots au début de phrases ou de vers successifs. Elle crée un effet de martèlement et d'insistance rhétorique très puissant à l'oral." },
-  { q:"Quel concept grec désigne le « moment opportun » ?", opts:["Chronos","Logos","Kairos","Pathos"], ans:2, expl:"Le kairos est un concept grec désignant le moment opportun, le bon timing. Contrairement au chronos (temps linéaire, mesurable), le kairos est le temps qualitatif — le moment où tout bascule." },
-  { q:"L'ethos désigne en rhétorique...", opts:["La logique de l'argumentation","L'appel aux émotions de l'auditoire","La crédibilité et le caractère moral de l'orateur","La beauté du style"], ans:2, expl:"L'ethos (du grec èthos = caractère moral) est la crédibilité de l'orateur telle que perçue par l'auditoire. Elle repose sur trois qualités : la compétence, la vertu et la bienveillance perçues." }
-];
-
-let current=0, score=0, answered=new Array(TOTAL).fill(null);
-
-function renderQuestion(){
-  document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));
-  document.querySelectorAll('.q-dot').forEach((d,i)=>{
-    d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');
-  });
-  document.getElementById('btnPrev').disabled=current===0;
-  document.getElementById('btnNext').textContent=current===TOTAL-1?'Voir résultats':'Suivant →';
-}
-
-function selectOption(qi,oi){
-  if(answered[qi]!==null)return;
-  answered[qi]=oi;
-  const block=document.querySelectorAll('.question-block')[qi];
-  block.querySelectorAll('.option').forEach((o,i)=>{
-    o.classList.add('disabled');
-    if(i===questions[qi].ans)o.classList.add('correct');
-    else if(i===oi)o.classList.add('wrong');
-  });
-  const fb=block.querySelector('.q-feedback');
-  fb.textContent=questions[qi].expl;
-  fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');
-  if(oi===questions[qi].ans)score++;
-  document.getElementById('quizScore').textContent=score;
-  document.querySelectorAll('.q-dot')[qi].classList.add('done');
-}
-
-function nextQuestion(){if(current<TOTAL-1){current++;renderQuestion();}else showResult();}
-function prevQuestion(){if(current>0){current--;renderQuestion();}}
-
-function showResult(){
-  document.querySelector('.quiz-body').style.display='none';
-  document.querySelector('.quiz-nav').style.display='none';
-  const r=document.querySelector('.quiz-result');
-  r.style.display='block';
-  document.getElementById('finalScore').textContent=score+'/'+TOTAL;
-  const msgs=["Continue d'apprendre !",'Pas mal !','Bien !','Très bien !','Excellent !'];
-  document.getElementById('finalMsg').textContent=msgs[score<=1?0:score<=2?1:score<=3?2:score<=4?3:4];
-}
-
-function restartQuiz(){
-  current=0;score=0;answered.fill(null);
-  document.querySelector('.quiz-body').style.display='block';
-  document.querySelector('.quiz-nav').style.display='flex';
-  document.querySelector('.quiz-result').style.display='none';
-  document.querySelectorAll('.option').forEach(o=>o.className='option');
-  document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');
-  document.getElementById('quizScore').textContent=0;
-  renderQuestion();
-}
-
-function goTo(id,el){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
-  document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));
-  if(el)el.classList.add('active');
-}
-(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
-
-const sections=['resume','concepts','quiz','ressources','memo'];
-window.addEventListener('scroll',()=>{
-  let vis=0;
-  sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});
-  document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';
-});
-
-function downloadMemo(){
-  const w=window.open('','_blank','width=900,height=700');
-  w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Rhétorique & Communication</title>
-  <style>
-    body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}
-    h1{font-size:1.8rem;color:#9b7ae8;border-bottom:3px solid #9b7ae8;padding-bottom:.5rem;margin-bottom:1.5rem}
-    h2{font-size:.75rem;color:#9b7ae8;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}
-    ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}
-    .box{border:1px solid #e0d6f7;padding:1rem;border-radius:4px;background:#faf8ff}
-    .footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}
-    @media print{.no-print{display:none}}
-  </style></head><body>
-  <h1>🗣️ Fiche mémo — Rhétorique & Communication</h1>
-  <div class="grid">
-    <div class="box"><h2>Persuasion (Aristote)</h2><ul>
-      <li><strong>Ethos</strong> — crédibilité et autorité morale de l'orateur</li>
-      <li><strong>Pathos</strong> — émotions suscitées chez l'auditoire</li>
-      <li><strong>Logos</strong> — logique et raisonnement de l'argument</li>
-      <li><strong>Kairos</strong> — choisir le moment opportun pour parler</li>
-    </ul></div>
-    <div class="box"><h2>Structure du discours</h2><ul>
-      <li><strong>Exorde</strong> — introduction, captatio benevolentiae</li>
-      <li><strong>Narration</strong> — exposé des faits</li>
-      <li><strong>Confirmation</strong> — développement des arguments</li>
-      <li><strong>Péroraison</strong> — conclusion percutante</li>
-    </ul></div>
-    <div class="box"><h2>Sophismes courants</h2><ul>
-      <li><strong>Ad hominem</strong> — attaquer la personne</li>
-      <li><strong>Homme de paille</strong> — déformer l'argument adverse</li>
-      <li><strong>Faux dilemme</strong> — réduire à deux options</li>
-      <li><strong>Pente glissante</strong> — enchaînement catastrophiste</li>
-    </ul></div>
-    <div class="box"><h2>Figures de style</h2><ul>
-      <li><strong>Anaphore</strong> — répétition en début de phrase</li>
-      <li><strong>Antithèse</strong> — opposition de deux idées</li>
-      <li><strong>Hyperbole</strong> — exagération intentionnelle</li>
-      <li><strong>Chiasme</strong> — structure croisée (AB-BA)</li>
-    </ul></div>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
   </div>
-  <div class="footer">Curiosita — Fiche mémo Rhétorique & Communication — ${new Date().toLocaleDateString('fr-FR')}</div>
-  <button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#9b7ae8;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">Imprimer / PDF</button>
-</body></html>`);
-  w.document.close();
-}
-
-renderQuestion();
-</script>
-<script src="mobile.js?v=2"></script>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

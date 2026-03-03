@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Membrane, cytoplasme, noyau et organites — l'architecture fondamentale des cellules eucaryotes et procaryotes.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Structure cellulaire — La cellule — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #80cbc4;
   --accent-dim: rgba(122,232,216,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧬 La cellule</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -198,10 +198,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel organite est responsable de la production d'ATP par respiration cellulaire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le réticulum endoplasmique</div>
-              <div class="option" onclick="answer(this,true)">La mitochondrie</div>
-              <div class="option" onclick="answer(this,false)">L'appareil de Golgi</div>
-              <div class="option" onclick="answer(this,false)">Le lysosome</div>
+              <button class="option" onclick="answer(this,false)">Le réticulum endoplasmique</button>
+              <button class="option" onclick="answer(this,true)">La mitochondrie</button>
+              <button class="option" onclick="answer(this,false)">L'appareil de Golgi</button>
+              <button class="option" onclick="answer(this,false)">Le lysosome</button>
             </div>
             <div class="q-feedback">La mitochondrie est la centrale énergétique de la cellule. Elle produit l'ATP grâce au cycle de Krebs et à la chaîne de transport d'électrons.</div>
           </div>
@@ -209,10 +209,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle structure est présente dans les cellules végétales mais absente des cellules animales ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La membrane plasmique</div>
-              <div class="option" onclick="answer(this,false)">Les ribosomes</div>
-              <div class="option" onclick="answer(this,true)">La paroi cellulaire de cellulose</div>
-              <div class="option" onclick="answer(this,false)">Les mitochondries</div>
+              <button class="option" onclick="answer(this,false)">La membrane plasmique</button>
+              <button class="option" onclick="answer(this,false)">Les ribosomes</button>
+              <button class="option" onclick="answer(this,true)">La paroi cellulaire de cellulose</button>
+              <button class="option" onclick="answer(this,false)">Les mitochondries</button>
             </div>
             <div class="q-feedback">La paroi cellulaire de cellulose est spécifique aux cellules végétales. Elle confère rigidité et protection à la cellule.</div>
           </div>
@@ -220,10 +220,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel modèle décrit la membrane plasmique comme une bicouche lipidique fluide parsemée de protéines ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le modèle de Davson-Danielli</div>
-              <div class="option" onclick="answer(this,true)">Le modèle de la mosaïque fluide</div>
-              <div class="option" onclick="answer(this,false)">Le modèle de Watson-Crick</div>
-              <div class="option" onclick="answer(this,false)">Le modèle en sandwich</div>
+              <button class="option" onclick="answer(this,false)">Le modèle de Davson-Danielli</button>
+              <button class="option" onclick="answer(this,true)">Le modèle de la mosaïque fluide</button>
+              <button class="option" onclick="answer(this,false)">Le modèle de Watson-Crick</button>
+              <button class="option" onclick="answer(this,false)">Le modèle en sandwich</button>
             </div>
             <div class="q-feedback">Le modèle de la mosaïque fluide (Singer et Nicolson, 1972) décrit la membrane comme une bicouche lipidique dynamique dans laquelle les protéines se déplacent latéralement.</div>
           </div>
@@ -231,10 +231,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel organite est responsable de la dégradation du peroxyde d'hydrogène (H₂O₂) grâce à la catalase ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le lysosome</div>
-              <div class="option" onclick="answer(this,false)">La mitochondrie</div>
-              <div class="option" onclick="answer(this,true)">Le peroxysome</div>
-              <div class="option" onclick="answer(this,false)">L'appareil de Golgi</div>
+              <button class="option" onclick="answer(this,false)">Le lysosome</button>
+              <button class="option" onclick="answer(this,false)">La mitochondrie</button>
+              <button class="option" onclick="answer(this,true)">Le peroxysome</button>
+              <button class="option" onclick="answer(this,false)">L'appareil de Golgi</button>
             </div>
             <div class="q-feedback">Les peroxysomes contiennent de la catalase, une enzyme qui décompose le H₂O₂ toxique en eau et oxygène. Ils jouent aussi un rôle dans la beta-oxydation des acides gras à très longue chaîne.</div>
           </div>
@@ -242,10 +242,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel type de jonction intercellulaire permet le passage direct de petites molécules entre cellules voisines ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les jonctions serrées</div>
-              <div class="option" onclick="answer(this,false)">Les desmosomes</div>
-              <div class="option" onclick="answer(this,true)">Les jonctions communicantes (gap junctions)</div>
-              <div class="option" onclick="answer(this,false)">Les hémidesmosomes</div>
+              <button class="option" onclick="answer(this,false)">Les jonctions serrées</button>
+              <button class="option" onclick="answer(this,false)">Les desmosomes</button>
+              <button class="option" onclick="answer(this,true)">Les jonctions communicantes (gap junctions)</button>
+              <button class="option" onclick="answer(this,false)">Les hémidesmosomes</button>
             </div>
             <div class="q-feedback">Les jonctions communicantes (gap junctions) sont des canaux formés de connexines qui permettent le passage direct d'ions et de petites molécules entre les cytoplasmes de cellules adjacentes.</div>
           </div>
@@ -253,10 +253,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle théorie explique l'origine des mitochondries et des chloroplastes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La théorie cellulaire</div>
-              <div class="option" onclick="answer(this,false)">La théorie de la biogenèse</div>
-              <div class="option" onclick="answer(this,true)">La théorie de l'endosymbiose</div>
-              <div class="option" onclick="answer(this,false)">La théorie de la panspermie</div>
+              <button class="option" onclick="answer(this,false)">La théorie cellulaire</button>
+              <button class="option" onclick="answer(this,false)">La théorie de la biogenèse</button>
+              <button class="option" onclick="answer(this,true)">La théorie de l'endosymbiose</button>
+              <button class="option" onclick="answer(this,false)">La théorie de la panspermie</button>
             </div>
             <div class="q-feedback">La théorie de l'endosymbiose (Lynn Margulis, 1967) propose que les mitochondries et les chloroplastes dérivent de bactéries ancestrales englobées par des cellules eucaryotes primitives. Leur double membrane, leur ADN circulaire propre et leurs ribosomes 70S soutiennent cette hypothèse.</div>
           </div>
@@ -329,8 +329,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

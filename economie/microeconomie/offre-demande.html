@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Le mécanisme fondamental de l'économie de marché — comment les prix se forment à l'intersection de ce que les vendeurs proposent et de ce que les...">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Offre et demande — Microéconomie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #c97ae8;
   --accent2: #ce93d8;
   --accent-dim: rgba(201,122,232,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(201,122,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(201,122,232,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📈 Microéconomie</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -171,10 +171,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Si le prix du café augmente fortement, que se passe-t-il sur le marché du thé (bien substitut) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La demande de thé diminue</div>
-              <div class="option" onclick="answer(this,true)">La demande de thé augmente</div>
-              <div class="option" onclick="answer(this,false)">L'offre de thé diminue</div>
-              <div class="option" onclick="answer(this,false)">Le prix du thé baisse</div>
+              <button class="option" onclick="answer(this,false)">La demande de thé diminue</button>
+              <button class="option" onclick="answer(this,true)">La demande de thé augmente</button>
+              <button class="option" onclick="answer(this,false)">L'offre de thé diminue</button>
+              <button class="option" onclick="answer(this,false)">Le prix du thé baisse</button>
             </div>
             <div class="q-feedback">Le thé est un bien substitut du café. Quand le prix du café augmente, les consommateurs se reportent sur le thé → la demande de thé augmente, ce qui fait monter son prix.</div>
           </div>
@@ -182,10 +182,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Un prix plafond fixé en dessous du prix d'équilibre crée :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un surplus (excès d'offre)</div>
-              <div class="option" onclick="answer(this,true)">Une pénurie (excès de demande)</div>
-              <div class="option" onclick="answer(this,false)">Un nouvel équilibre stable</div>
-              <div class="option" onclick="answer(this,false)">Aucun effet sur le marché</div>
+              <button class="option" onclick="answer(this,false)">Un surplus (excès d'offre)</button>
+              <button class="option" onclick="answer(this,true)">Une pénurie (excès de demande)</button>
+              <button class="option" onclick="answer(this,false)">Un nouvel équilibre stable</button>
+              <button class="option" onclick="answer(this,false)">Aucun effet sur le marché</button>
             </div>
             <div class="q-feedback">Un prix plafond sous l'équilibre rend le bien trop « bon marché » : la demande dépasse l'offre, créant une pénurie. Exemple classique : le contrôle des loyers qui réduit l'offre de logements.</div>
           </div>
@@ -193,10 +193,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">À l'équilibre de marché, le surplus total est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Nul</div>
-              <div class="option" onclick="answer(this,false)">Égal au surplus du producteur uniquement</div>
-              <div class="option" onclick="answer(this,true)">Maximisé</div>
-              <div class="option" onclick="answer(this,false)">Réparti également entre consommateur et producteur</div>
+              <button class="option" onclick="answer(this,false)">Nul</button>
+              <button class="option" onclick="answer(this,false)">Égal au surplus du producteur uniquement</button>
+              <button class="option" onclick="answer(this,true)">Maximisé</button>
+              <button class="option" onclick="answer(this,false)">Réparti également entre consommateur et producteur</button>
             </div>
             <div class="q-feedback">L'équilibre concurrentiel maximise le surplus total (consommateur + producteur). Toute intervention qui éloigne le prix de l'équilibre réduit ce surplus total — c'est la « perte sèche ».</div>
           </div>
@@ -204,10 +204,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Une taxe unitaire sur un bien est principalement supportée par :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Toujours le consommateur</div>
-              <div class="option" onclick="answer(this,false)">Toujours le producteur</div>
-              <div class="option" onclick="answer(this,true)">Le côté du marché dont la demande ou l'offre est la moins élastique</div>
-              <div class="option" onclick="answer(this,false)">Ni le consommateur ni le producteur</div>
+              <button class="option" onclick="answer(this,false)">Toujours le consommateur</button>
+              <button class="option" onclick="answer(this,false)">Toujours le producteur</button>
+              <button class="option" onclick="answer(this,true)">Le côté du marché dont la demande ou l'offre est la moins élastique</button>
+              <button class="option" onclick="answer(this,false)">Ni le consommateur ni le producteur</button>
             </div>
             <div class="q-feedback">L'incidence fiscale dépend des élasticités relatives de l'offre et de la demande. Le côté le moins élastique (le moins capable de s'adapter) supporte la charge la plus lourde, indépendamment de celui sur lequel la taxe est légalement prélevée.</div>
           </div>
@@ -215,10 +215,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Sur un marché où Qd = 100 - 2P et Qs = 20 + 3P, le prix d'équilibre est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">12</div>
-              <div class="option" onclick="answer(this,true)">16</div>
-              <div class="option" onclick="answer(this,false)">20</div>
-              <div class="option" onclick="answer(this,false)">24</div>
+              <button class="option" onclick="answer(this,false)">12</button>
+              <button class="option" onclick="answer(this,true)">16</button>
+              <button class="option" onclick="answer(this,false)">20</button>
+              <button class="option" onclick="answer(this,false)">24</button>
             </div>
             <div class="q-feedback">À l'équilibre, Qd = Qs : 100 - 2P = 20 + 3P → 80 = 5P → P* = 16. La quantité d'équilibre est Q* = 100 - 2(16) = 68 (ou 20 + 3(16) = 68).</div>
           </div>
@@ -226,10 +226,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Le « surge pricing » pratiqué par Uber lors des périodes de forte demande illustre :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un abus de position dominante</div>
-              <div class="option" onclick="answer(this,false)">Un prix plafond imposé par l'État</div>
-              <div class="option" onclick="answer(this,true)">Le mécanisme d'ajustement des prix par l'offre et la demande</div>
-              <div class="option" onclick="answer(this,false)">L'effet d'une taxe pigouvienne</div>
+              <button class="option" onclick="answer(this,false)">Un abus de position dominante</button>
+              <button class="option" onclick="answer(this,false)">Un prix plafond imposé par l'État</button>
+              <button class="option" onclick="answer(this,true)">Le mécanisme d'ajustement des prix par l'offre et la demande</button>
+              <button class="option" onclick="answer(this,false)">L'effet d'une taxe pigouvienne</button>
             </div>
             <div class="q-feedback">Le surge pricing est un exemple de tarification dynamique fondée sur l'offre et la demande : quand la demande de courses augmente (pluie, événement), le prix monte pour attirer plus de chauffeurs (hausse de l'offre) et rationner la demande excédentaire.</div>
           </div>
@@ -293,8 +293,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

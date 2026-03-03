@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Guignol, bunraku, ombres chinoises — l'art universel de donner vie à la matière inerte et de raconter le monde par l'objet animé.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Marionnettes — Cirque — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎎 Cirque</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -131,10 +131,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qui a créé le personnage de Guignol et en quelle année ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Molière, 1664</div>
-              <div class="option" onclick="answer(this,true)">Laurent Mourguet, 1808</div>
-              <div class="option" onclick="answer(this,false)">Carlo Goldoni, 1750</div>
-              <div class="option" onclick="answer(this,false)">Philippe Genty, 1968</div>
+              <button class="option" onclick="answer(this,false)">Molière, 1664</button>
+              <button class="option" onclick="answer(this,true)">Laurent Mourguet, 1808</button>
+              <button class="option" onclick="answer(this,false)">Carlo Goldoni, 1750</button>
+              <button class="option" onclick="answer(this,false)">Philippe Genty, 1968</button>
             </div>
             <div class="q-feedback">Laurent Mourguet, arracheur de dents reconverti en marionnettiste, a créé Guignol à Lyon en 1808.</div>
           </div>
@@ -142,10 +142,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Combien de manipulateurs animent une marionnette de bunraku ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un seul</div>
-              <div class="option" onclick="answer(this,false)">Deux</div>
-              <div class="option" onclick="answer(this,true)">Trois</div>
-              <div class="option" onclick="answer(this,false)">Cinq</div>
+              <button class="option" onclick="answer(this,false)">Un seul</button>
+              <button class="option" onclick="answer(this,false)">Deux</button>
+              <button class="option" onclick="answer(this,true)">Trois</button>
+              <button class="option" onclick="answer(this,false)">Cinq</button>
             </div>
             <div class="q-feedback">Dans le bunraku, trois manipulateurs animent chaque marionnette : le maître (tête et main droite), le second (main gauche) et le troisième (pieds).</div>
           </div>
@@ -153,10 +153,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Comment appelle-t-on le théâtre d'ombres traditionnel indonésien ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Karagöz</div>
-              <div class="option" onclick="answer(this,true)">Wayang kulit</div>
-              <div class="option" onclick="answer(this,false)">Bunraku</div>
-              <div class="option" onclick="answer(this,false)">Fantoccini</div>
+              <button class="option" onclick="answer(this,false)">Karagöz</button>
+              <button class="option" onclick="answer(this,true)">Wayang kulit</button>
+              <button class="option" onclick="answer(this,false)">Bunraku</button>
+              <button class="option" onclick="answer(this,false)">Fantoccini</button>
             </div>
             <div class="q-feedback">Le wayang kulit est le théâtre d'ombres traditionnel indonésien qui met en scène les épopées du Ramayana et du Mahabharata avec des figures en cuir ciselé.</div>
           </div>
@@ -164,10 +164,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle technique de manipulation utilise Guignol ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Marionnette à gaine</div>
-              <div class="option" onclick="answer(this,false)">Marionnette à fils</div>
-              <div class="option" onclick="answer(this,false)">Marionnette à tige</div>
-              <div class="option" onclick="answer(this,false)">Ombres</div>
+              <button class="option" onclick="answer(this,true)">Marionnette à gaine</button>
+              <button class="option" onclick="answer(this,false)">Marionnette à fils</button>
+              <button class="option" onclick="answer(this,false)">Marionnette à tige</button>
+              <button class="option" onclick="answer(this,false)">Ombres</button>
             </div>
             <div class="q-feedback">Guignol est une marionnette à gaine : le manipulateur glisse sa main dans un gant qui forme le corps du personnage.</div>
           </div>
@@ -175,10 +175,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle compagnie est célèbre pour ses marionnettes géantes investissant les rues ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Compagnie Philippe Genty</div>
-              <div class="option" onclick="answer(this,true)">Royal de Luxe</div>
-              <div class="option" onclick="answer(this,false)">Compagnie Turak</div>
-              <div class="option" onclick="answer(this,false)">Les Sages Fous</div>
+              <button class="option" onclick="answer(this,false)">Compagnie Philippe Genty</button>
+              <button class="option" onclick="answer(this,true)">Royal de Luxe</button>
+              <button class="option" onclick="answer(this,false)">Compagnie Turak</button>
+              <button class="option" onclick="answer(this,false)">Les Sages Fous</button>
             </div>
             <div class="q-feedback">Royal de Luxe est célèbre pour ses géants mécaniques de plusieurs mètres de haut qui déambulent dans les rues des villes du monde entier.</div>
           </div>
@@ -186,10 +186,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Depuis quelle année le bunraku est-il inscrit au patrimoine immatériel de l'UNESCO ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1995</div>
-              <div class="option" onclick="answer(this,false)">2000</div>
-              <div class="option" onclick="answer(this,true)">2003</div>
-              <div class="option" onclick="answer(this,false)">2010</div>
+              <button class="option" onclick="answer(this,false)">1995</button>
+              <button class="option" onclick="answer(this,false)">2000</button>
+              <button class="option" onclick="answer(this,true)">2003</button>
+              <button class="option" onclick="answer(this,false)">2010</button>
             </div>
             <div class="q-feedback">Le bunraku a été inscrit au patrimoine culturel immatériel de l'UNESCO en 2003, reconnaissant son caractère unique et sa valeur universelle.</div>
           </div>
@@ -256,8 +256,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

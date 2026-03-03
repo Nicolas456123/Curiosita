@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Les fondations du calcul probabiliste — univers, événements, opérations ensemblistes et axiomes de Kolmogorov.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Événements et espaces — Probabilités — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08);  --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -19,7 +19,7 @@
     <a href="../../statistiques-page.html">Statistiques</a> › <a href="../probabilites.html">Probabilités</a> › <span>Événements et espaces</span>
   </div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎯 Probabilités</span>
     <span class="tag-level">Intermédiaire</span>
@@ -99,10 +99,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">P(Ω) vaut toujours :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">0</div>
-              <div class="option" onclick="answer(this,true)">1</div>
-              <div class="option" onclick="answer(this,false)">0,5</div>
-              <div class="option" onclick="answer(this,false)">Cela dépend de l'expérience</div>
+              <button class="option" onclick="answer(this,false)">0</button>
+              <button class="option" onclick="answer(this,true)">1</button>
+              <button class="option" onclick="answer(this,false)">0,5</button>
+              <button class="option" onclick="answer(this,false)">Cela dépend de l'expérience</button>
             </div>
             <div class="q-feedback">C'est le deuxième axiome de Kolmogorov : la probabilité de l'univers (l'événement certain) vaut toujours 1.</div>
           </div>
@@ -110,10 +110,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Si P(A) = 0,6 et P(B) = 0,5 et P(A ∩ B) = 0,3, alors P(A ∪ B) = ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1,1</div>
-              <div class="option" onclick="answer(this,true)">0,8</div>
-              <div class="option" onclick="answer(this,false)">0,3</div>
-              <div class="option" onclick="answer(this,false)">0,2</div>
+              <button class="option" onclick="answer(this,false)">1,1</button>
+              <button class="option" onclick="answer(this,true)">0,8</button>
+              <button class="option" onclick="answer(this,false)">0,3</button>
+              <button class="option" onclick="answer(this,false)">0,2</button>
             </div>
             <div class="q-feedback">P(A ∪ B) = P(A) + P(B) - P(A ∩ B) = 0,6 + 0,5 - 0,3 = 0,8.</div>
           </div>
@@ -121,10 +121,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Combien de combinaisons de 3 éléments parmi 5 existe-t-il ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">10</div>
-              <div class="option" onclick="answer(this,false)">60</div>
-              <div class="option" onclick="answer(this,false)">15</div>
-              <div class="option" onclick="answer(this,false)">20</div>
+              <button class="option" onclick="answer(this,true)">10</button>
+              <button class="option" onclick="answer(this,false)">60</button>
+              <button class="option" onclick="answer(this,false)">15</button>
+              <button class="option" onclick="answer(this,false)">20</button>
             </div>
             <div class="q-feedback">C(5,3) = 5!/(3!×2!) = 120/(6×2) = 10. Il y a 10 façons de choisir 3 éléments parmi 5 sans tenir compte de l'ordre.</div>
           </div>
@@ -132,10 +132,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Deux événements A et B sont incompatibles si :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">P(A) + P(B) = 1</div>
-              <div class="option" onclick="answer(this,true)">A ∩ B = ∅</div>
-              <div class="option" onclick="answer(this,false)">P(A|B) = P(A)</div>
-              <div class="option" onclick="answer(this,false)">A = Ā</div>
+              <button class="option" onclick="answer(this,false)">P(A) + P(B) = 1</button>
+              <button class="option" onclick="answer(this,true)">A ∩ B = ∅</button>
+              <button class="option" onclick="answer(this,false)">P(A|B) = P(A)</button>
+              <button class="option" onclick="answer(this,false)">A = Ā</button>
             </div>
             <div class="q-feedback">Deux événements sont incompatibles (ou mutuellement exclusifs) si leur intersection est vide : ils ne peuvent pas se produire en même temps. Attention : incompatible ≠ indépendant !</div>
           </div>
@@ -143,10 +143,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">On tire une carte d'un jeu de 52. P(as ou coeur) = ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">17/52</div>
-              <div class="option" onclick="answer(this,true)">16/52</div>
-              <div class="option" onclick="answer(this,false)">4/52</div>
-              <div class="option" onclick="answer(this,false)">13/52</div>
+              <button class="option" onclick="answer(this,false)">17/52</button>
+              <button class="option" onclick="answer(this,true)">16/52</button>
+              <button class="option" onclick="answer(this,false)">4/52</button>
+              <button class="option" onclick="answer(this,false)">13/52</button>
             </div>
             <div class="q-feedback">P(as ∪ coeur) = P(as) + P(coeur) - P(as de coeur) = 4/52 + 13/52 - 1/52 = 16/52 = 4/13. Il ne faut pas compter l'as de coeur deux fois.</div>
           </div>
@@ -192,8 +192,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

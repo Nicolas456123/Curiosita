@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Seigneurs et vassaux, châteaux forts et cathédrales — le système qui structure l'Europe médiévale.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Féodalité — Moyen Âge — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📜 Moyen Âge</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -128,10 +128,10 @@
             <p class="q-num">Question 1 / 3</p>
             <p class="q-text">Quel traité de 843 partage l'Empire carolingien en trois ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Le traité de Verdun</div>
-              <div class="option" onclick="answer(this,false)">Le traité de Westphalie</div>
-              <div class="option" onclick="answer(this,false)">Le traité de Paris</div>
-              <div class="option" onclick="answer(this,false)">Le traité de Mersen</div>
+              <button class="option" onclick="answer(this,true)">Le traité de Verdun</button>
+              <button class="option" onclick="answer(this,false)">Le traité de Westphalie</button>
+              <button class="option" onclick="answer(this,false)">Le traité de Paris</button>
+              <button class="option" onclick="answer(this,false)">Le traité de Mersen</button>
             </div>
             <div class="q-feedback">Le traité de Verdun (843) partage l'Empire de Charlemagne entre ses trois petits-fils, posant les bases de la France et de l'Allemagne futures.</div>
           </div>
@@ -139,10 +139,10 @@
             <p class="q-num">Question 2 / 3</p>
             <p class="q-text">Quelle proportion de la population européenne la Peste noire tue-t-elle (1347-1353) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un dixième</div>
-              <div class="option" onclick="answer(this,false)">Un quart</div>
-              <div class="option" onclick="answer(this,true)">Entre un tiers et la moitié</div>
-              <div class="option" onclick="answer(this,false)">Les trois quarts</div>
+              <button class="option" onclick="answer(this,false)">Un dixième</button>
+              <button class="option" onclick="answer(this,false)">Un quart</button>
+              <button class="option" onclick="answer(this,true)">Entre un tiers et la moitié</button>
+              <button class="option" onclick="answer(this,false)">Les trois quarts</button>
             </div>
             <div class="q-feedback">La Peste noire (1347-1353) tue entre un tiers et la moitié de la population européenne, soit environ 25 millions de personnes.</div>
           </div>
@@ -150,10 +150,10 @@
             <p class="q-num">Question 3 / 3</p>
             <p class="q-text">Quels sont les « trois ordres » de la société féodale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Roi, nobles, bourgeois</div>
-              <div class="option" onclick="answer(this,true)">Ceux qui prient, combattent, travaillent</div>
-              <div class="option" onclick="answer(this,false)">Seigneurs, vassaux, serfs</div>
-              <div class="option" onclick="answer(this,false)">Clergé, marchands, paysans</div>
+              <button class="option" onclick="answer(this,false)">Roi, nobles, bourgeois</button>
+              <button class="option" onclick="answer(this,true)">Ceux qui prient, combattent, travaillent</button>
+              <button class="option" onclick="answer(this,false)">Seigneurs, vassaux, serfs</button>
+              <button class="option" onclick="answer(this,false)">Clergé, marchands, paysans</button>
             </div>
             <div class="q-feedback">Les trois ordres sont : oratores (ceux qui prient — clergé), bellatores (ceux qui combattent — noblesse) et laboratores (ceux qui travaillent — paysans).</div>
           </div>
@@ -185,8 +185,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

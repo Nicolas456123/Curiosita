@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Échelles de température, capacité thermique, transferts de chaleur et calorimétrie.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Température et chaleur — Thermodynamique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08);  --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../sciences-exactes.html">Sciences exactes</a> › <a href="../thermodynamique.html">Thermodynamique</a> › <span>Température et chaleur</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🌡️ Thermodynamique</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -90,12 +90,12 @@
       <div class="quiz-container">
         <div class="quiz-header"><span class="quiz-title-text">🌡️ Température et chaleur — Quiz</span><span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span></div>
         <div class="quiz-body" id="quizBody">
-          <div class="question-block active" data-q="0"><p class="q-num">Question 1 / 6</p><p class="q-text">Quelle est la température du zéro absolu en degrés Celsius ?</p><div class="options"><div class="option" onclick="answer(this,false)">0 °C</div><div class="option" onclick="answer(this,false)">−100 °C</div><div class="option" onclick="answer(this,true)">−273,15 °C</div><div class="option" onclick="answer(this,false)">−460 °C</div></div><div class="q-feedback">Le zéro absolu correspond à 0 K = −273,15 °C, température théorique où l'agitation thermique cesse.</div></div>
-          <div class="question-block" data-q="1"><p class="q-num">Question 2 / 6</p><p class="q-text">Parmi ces matériaux, lequel a la capacité thermique massique la plus élevée ?</p><div class="options"><div class="option" onclick="answer(this,false)">Fer (449 J/(kg·K))</div><div class="option" onclick="answer(this,true)">Eau (4 185 J/(kg·K))</div><div class="option" onclick="answer(this,false)">Cuivre (385 J/(kg·K))</div><div class="option" onclick="answer(this,false)">Aluminium (897 J/(kg·K))</div></div><div class="q-feedback">L'eau possède une capacité thermique massique exceptionnellement élevée (4 185 J/(kg·K)), ce qui en fait un excellent régulateur thermique.</div></div>
-          <div class="question-block" data-q="2"><p class="q-num">Question 3 / 6</p><p class="q-text">Quel mode de transfert de chaleur ne nécessite aucun support matériel ?</p><div class="options"><div class="option" onclick="answer(this,false)">Conduction</div><div class="option" onclick="answer(this,false)">Convection</div><div class="option" onclick="answer(this,true)">Rayonnement</div><div class="option" onclick="answer(this,false)">Diffusion</div></div><div class="q-feedback">Le rayonnement se propage par ondes électromagnétiques et peut traverser le vide. C'est ainsi que le Soleil réchauffe la Terre.</div></div>
-          <div class="question-block" data-q="3"><p class="q-num">Question 4 / 6</p><p class="q-text">Quelle est la relation de Mayer pour un gaz parfait ?</p><div class="options"><div class="option" onclick="answer(this,false)">C_p × C_v = R</div><div class="option" onclick="answer(this,true)">C_p − C_v = R</div><div class="option" onclick="answer(this,false)">C_p + C_v = R</div><div class="option" onclick="answer(this,false)">C_p / C_v = R</div></div><div class="q-feedback">La relation de Mayer C_p − C_v = R relie les capacités thermiques à pression et volume constants d'un gaz parfait.</div></div>
-          <div class="question-block" data-q="4"><p class="q-num">Question 5 / 6</p><p class="q-text">La loi de Stefan-Boltzmann indique que la puissance rayonnée est proportionnelle à...</p><div class="options"><div class="option" onclick="answer(this,false)">T</div><div class="option" onclick="answer(this,false)">T²</div><div class="option" onclick="answer(this,false)">T³</div><div class="option" onclick="answer(this,true)">T⁴</div></div><div class="q-feedback">P = εσAT⁴. La puissance rayonnée est proportionnelle à la puissance quatrième de la température absolue.</div></div>
-          <div class="question-block" data-q="5"><p class="q-num">Question 6 / 6</p><p class="q-text">À quelle température l'eau atteint-elle sa densité maximale ?</p><div class="options"><div class="option" onclick="answer(this,false)">0 °C</div><div class="option" onclick="answer(this,true)">4 °C</div><div class="option" onclick="answer(this,false)">20 °C</div><div class="option" onclick="answer(this,false)">100 °C</div></div><div class="q-feedback">L'eau atteint sa densité maximale à 4 °C. Cette anomalie permet aux lacs de geler par la surface tout en préservant la vie aquatique.</div></div>
+          <div class="question-block active" data-q="0"><p class="q-num">Question 1 / 6</p><p class="q-text">Quelle est la température du zéro absolu en degrés Celsius ?</p><div class="options"><button class="option" onclick="answer(this,false)">0 °C</button><button class="option" onclick="answer(this,false)">−100 °C</button><button class="option" onclick="answer(this,true)">−273,15 °C</button><button class="option" onclick="answer(this,false)">−460 °C</button></div><div class="q-feedback">Le zéro absolu correspond à 0 K = −273,15 °C, température théorique où l'agitation thermique cesse.</div></div>
+          <div class="question-block" data-q="1"><p class="q-num">Question 2 / 6</p><p class="q-text">Parmi ces matériaux, lequel a la capacité thermique massique la plus élevée ?</p><div class="options"><button class="option" onclick="answer(this,false)">Fer (449 J/(kg·K))</button><button class="option" onclick="answer(this,true)">Eau (4 185 J/(kg·K))</button><button class="option" onclick="answer(this,false)">Cuivre (385 J/(kg·K))</button><button class="option" onclick="answer(this,false)">Aluminium (897 J/(kg·K))</button></div><div class="q-feedback">L'eau possède une capacité thermique massique exceptionnellement élevée (4 185 J/(kg·K)), ce qui en fait un excellent régulateur thermique.</div></div>
+          <div class="question-block" data-q="2"><p class="q-num">Question 3 / 6</p><p class="q-text">Quel mode de transfert de chaleur ne nécessite aucun support matériel ?</p><div class="options"><button class="option" onclick="answer(this,false)">Conduction</button><button class="option" onclick="answer(this,false)">Convection</button><button class="option" onclick="answer(this,true)">Rayonnement</button><button class="option" onclick="answer(this,false)">Diffusion</button></div><div class="q-feedback">Le rayonnement se propage par ondes électromagnétiques et peut traverser le vide. C'est ainsi que le Soleil réchauffe la Terre.</div></div>
+          <div class="question-block" data-q="3"><p class="q-num">Question 4 / 6</p><p class="q-text">Quelle est la relation de Mayer pour un gaz parfait ?</p><div class="options"><button class="option" onclick="answer(this,false)">C_p × C_v = R</button><button class="option" onclick="answer(this,true)">C_p − C_v = R</button><button class="option" onclick="answer(this,false)">C_p + C_v = R</button><button class="option" onclick="answer(this,false)">C_p / C_v = R</button></div><div class="q-feedback">La relation de Mayer C_p − C_v = R relie les capacités thermiques à pression et volume constants d'un gaz parfait.</div></div>
+          <div class="question-block" data-q="4"><p class="q-num">Question 5 / 6</p><p class="q-text">La loi de Stefan-Boltzmann indique que la puissance rayonnée est proportionnelle à...</p><div class="options"><button class="option" onclick="answer(this,false)">T</button><button class="option" onclick="answer(this,false)">T²</button><button class="option" onclick="answer(this,false)">T³</button><button class="option" onclick="answer(this,true)">T⁴</button></div><div class="q-feedback">P = εσAT⁴. La puissance rayonnée est proportionnelle à la puissance quatrième de la température absolue.</div></div>
+          <div class="question-block" data-q="5"><p class="q-num">Question 6 / 6</p><p class="q-text">À quelle température l'eau atteint-elle sa densité maximale ?</p><div class="options"><button class="option" onclick="answer(this,false)">0 °C</button><button class="option" onclick="answer(this,true)">4 °C</button><button class="option" onclick="answer(this,false)">20 °C</button><button class="option" onclick="answer(this,false)">100 °C</button></div><div class="q-feedback">L'eau atteint sa densité maximale à 4 °C. Cette anomalie permet aux lacs de geler par la surface tout en préservant la vie aquatique.</div></div>
         </div>
         <div class="quiz-result" id="quizResult"><div class="result-score-big" id="resultScore">0/6</div><div class="result-msg" id="resultMsg"></div><button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button></div>
         <div class="quiz-nav"><button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button><div class="q-dots" id="qDots"></div><button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button></div>
@@ -131,8 +131,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

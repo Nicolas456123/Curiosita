@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Résoudre une équation, c'est trouver la valeur inconnue qui rend l'égalité vraie. La base de tout raisonnement algébrique.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Équations du 1er et 2nd degré — Algèbre — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #c0392b;
   --accent2: #e74c3c;
   --accent-dim: rgba(192,57,43,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(192,57,43,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📝 Algèbre</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -206,10 +206,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la solution de 4x + 8 = 0 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">x = 2</div>
-              <div class="option" onclick="answer(this,true)">x = -2</div>
-              <div class="option" onclick="answer(this,false)">x = 8</div>
-              <div class="option" onclick="answer(this,false)">x = -8</div>
+              <button class="option" onclick="answer(this,false)">x = 2</button>
+              <button class="option" onclick="answer(this,true)">x = -2</button>
+              <button class="option" onclick="answer(this,false)">x = 8</button>
+              <button class="option" onclick="answer(this,false)">x = -8</button>
             </div>
             <div class="q-feedback">x = -b/a = -8/4 = -2. Vérification : 4(-2) + 8 = -8 + 8 = 0 ✓</div>
           </div>
@@ -217,10 +217,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel est le discriminant de 2x² - 4x + 2 = 0 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Δ = 0</div>
-              <div class="option" onclick="answer(this,false)">Δ = 8</div>
-              <div class="option" onclick="answer(this,false)">Δ = -8</div>
-              <div class="option" onclick="answer(this,false)">Δ = 4</div>
+              <button class="option" onclick="answer(this,true)">Δ = 0</button>
+              <button class="option" onclick="answer(this,false)">Δ = 8</button>
+              <button class="option" onclick="answer(this,false)">Δ = -8</button>
+              <button class="option" onclick="answer(this,false)">Δ = 4</button>
             </div>
             <div class="q-feedback">Δ = (-4)² - 4(2)(2) = 16 - 16 = 0. L'équation a une solution double : x₀ = 4/4 = 1.</div>
           </div>
@@ -228,10 +228,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Si x₁ et x₂ sont les racines de x² - 7x + 12 = 0, combien vaut x₁ · x₂ ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">7</div>
-              <div class="option" onclick="answer(this,true)">12</div>
-              <div class="option" onclick="answer(this,false)">-7</div>
-              <div class="option" onclick="answer(this,false)">-12</div>
+              <button class="option" onclick="answer(this,false)">7</button>
+              <button class="option" onclick="answer(this,true)">12</button>
+              <button class="option" onclick="answer(this,false)">-7</button>
+              <button class="option" onclick="answer(this,false)">-12</button>
             </div>
             <div class="q-feedback">Par les formules de Viète : x₁ · x₂ = c/a = 12/1 = 12. Les racines sont 3 et 4, et bien 3 × 4 = 12.</div>
           </div>
@@ -239,10 +239,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle est la forme canonique de f(x) = x² - 6x + 11 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">(x - 6)² + 11</div>
-              <div class="option" onclick="answer(this,true)">(x - 3)² + 2</div>
-              <div class="option" onclick="answer(this,false)">(x - 3)² - 2</div>
-              <div class="option" onclick="answer(this,false)">(x + 3)² + 2</div>
+              <button class="option" onclick="answer(this,false)">(x - 6)² + 11</button>
+              <button class="option" onclick="answer(this,true)">(x - 3)² + 2</button>
+              <button class="option" onclick="answer(this,false)">(x - 3)² - 2</button>
+              <button class="option" onclick="answer(this,false)">(x + 3)² + 2</button>
             </div>
             <div class="q-feedback">α = 6/(2×1) = 3 et β = 11 - 36/4 = 11 - 9 = 2. Donc f(x) = (x - 3)² + 2. Le sommet est (3, 2).</div>
           </div>
@@ -250,10 +250,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">L'équation x² + 4x + 5 = 0 admet...</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Deux solutions réelles distinctes</div>
-              <div class="option" onclick="answer(this,false)">Une solution double</div>
-              <div class="option" onclick="answer(this,true)">Aucune solution réelle</div>
-              <div class="option" onclick="answer(this,false)">Une seule solution</div>
+              <button class="option" onclick="answer(this,false)">Deux solutions réelles distinctes</button>
+              <button class="option" onclick="answer(this,false)">Une solution double</button>
+              <button class="option" onclick="answer(this,true)">Aucune solution réelle</button>
+              <button class="option" onclick="answer(this,false)">Une seule solution</button>
             </div>
             <div class="q-feedback">Δ = 16 - 20 = -4 < 0. Le discriminant est négatif, donc l'équation n'admet aucune solution réelle (mais deux solutions complexes conjuguées).</div>
           </div>
@@ -261,10 +261,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Résoudre x² = 3x. Les solutions sont :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">x = 3 uniquement</div>
-              <div class="option" onclick="answer(this,true)">x = 0 et x = 3</div>
-              <div class="option" onclick="answer(this,false)">x = 0 uniquement</div>
-              <div class="option" onclick="answer(this,false)">x = -3 et x = 3</div>
+              <button class="option" onclick="answer(this,false)">x = 3 uniquement</button>
+              <button class="option" onclick="answer(this,true)">x = 0 et x = 3</button>
+              <button class="option" onclick="answer(this,false)">x = 0 uniquement</button>
+              <button class="option" onclick="answer(this,false)">x = -3 et x = 3</button>
             </div>
             <div class="q-feedback">On factorise : x² - 3x = 0, soit x(x - 3) = 0. Donc x = 0 ou x = 3. Attention : diviser par x ferait perdre la solution x = 0.</div>
           </div>
@@ -334,8 +334,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

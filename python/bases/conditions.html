@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Orienter le flux d'exécution avec if, elif et else — le programme prend des décisions.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Conditions — Les bases — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #4fc3f7;
   --accent2: #81d4fa;
   --accent-dim: rgba(79,195,247,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔀 Les bases</span>
     <span class="tag-level">Débutant</span>
@@ -250,10 +250,10 @@ a_revenu_suffisant = revenu > <span class="num">2000</span>
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que retourne <code>"majeur" if 15 >= 18 else "mineur"</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">"majeur"</div>
-              <div class="option" onclick="answer(this,true)">"mineur"</div>
-              <div class="option" onclick="answer(this,false)">True</div>
-              <div class="option" onclick="answer(this,false)">Erreur</div>
+              <button class="option" onclick="answer(this,false)">"majeur"</button>
+              <button class="option" onclick="answer(this,true)">"mineur"</button>
+              <button class="option" onclick="answer(this,false)">True</button>
+              <button class="option" onclick="answer(this,false)">Erreur</button>
             </div>
             <div class="q-feedback">15 >= 18 est False, donc l'expression ternaire retourne la partie après <code>else</code>, soit "mineur".</div>
           </div>
@@ -261,10 +261,10 @@ a_revenu_suffisant = revenu > <span class="num">2000</span>
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Combien de branches peut avoir une structure if/elif/else au maximum ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">3</div>
-              <div class="option" onclick="answer(this,false)">5</div>
-              <div class="option" onclick="answer(this,false)">10</div>
-              <div class="option" onclick="answer(this,true)">Illimité (autant de elif que nécessaire)</div>
+              <button class="option" onclick="answer(this,false)">3</button>
+              <button class="option" onclick="answer(this,false)">5</button>
+              <button class="option" onclick="answer(this,false)">10</button>
+              <button class="option" onclick="answer(this,true)">Illimité (autant de elif que nécessaire)</button>
             </div>
             <div class="q-feedback">On peut mettre autant de <code>elif</code> qu'on veut. Il n'y a pas de limite. Seuls <code>if</code> (1 seul) et <code>else</code> (0 ou 1) sont limités.</div>
           </div>
@@ -272,10 +272,10 @@ a_revenu_suffisant = revenu > <span class="num">2000</span>
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que se passe-t-il si on oublie l'indentation après un <code>if</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le code s'exécute normalement</div>
-              <div class="option" onclick="answer(this,true)">Python lève une IndentationError</div>
-              <div class="option" onclick="answer(this,false)">Le bloc est ignoré</div>
-              <div class="option" onclick="answer(this,false)">Python indente automatiquement</div>
+              <button class="option" onclick="answer(this,false)">Le code s'exécute normalement</button>
+              <button class="option" onclick="answer(this,true)">Python lève une IndentationError</button>
+              <button class="option" onclick="answer(this,false)">Le bloc est ignoré</button>
+              <button class="option" onclick="answer(this,false)">Python indente automatiquement</button>
             </div>
             <div class="q-feedback">Python exige un bloc indenté après les <code>:</code>. Sans indentation, il lève une <code>IndentationError</code>. L'indentation fait partie de la syntaxe.</div>
           </div>
@@ -283,10 +283,10 @@ a_revenu_suffisant = revenu > <span class="num">2000</span>
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle valeur est considérée comme « falsy » en Python ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">"0"</div>
-              <div class="option" onclick="answer(this,false)">[0]</div>
-              <div class="option" onclick="answer(this,true)">[]</div>
-              <div class="option" onclick="answer(this,false)">" "</div>
+              <button class="option" onclick="answer(this,false)">"0"</button>
+              <button class="option" onclick="answer(this,false)">[0]</button>
+              <button class="option" onclick="answer(this,true)">[]</button>
+              <button class="option" onclick="answer(this,false)">" "</button>
             </div>
             <div class="q-feedback">Une liste vide <code>[]</code> est falsy. <code>"0"</code> est une chaîne non vide (truthy), <code>[0]</code> est une liste non vide (truthy), et <code>" "</code> est une chaîne contenant un espace (truthy).</div>
           </div>
@@ -294,10 +294,10 @@ a_revenu_suffisant = revenu > <span class="num">2000</span>
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel est le résultat de ce code ?<br><code>x = 10; print("A" if x > 5 else "B" if x > 15 else "C")</code></p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">A</div>
-              <div class="option" onclick="answer(this,false)">B</div>
-              <div class="option" onclick="answer(this,false)">C</div>
-              <div class="option" onclick="answer(this,false)">Erreur</div>
+              <button class="option" onclick="answer(this,true)">A</button>
+              <button class="option" onclick="answer(this,false)">B</button>
+              <button class="option" onclick="answer(this,false)">C</button>
+              <button class="option" onclick="answer(this,false)">Erreur</button>
             </div>
             <div class="q-feedback">L'expression ternaire s'évalue de gauche à droite. <code>x > 5</code> est True, donc le résultat est "A" sans évaluer la suite.</div>
           </div>
@@ -305,10 +305,10 @@ a_revenu_suffisant = revenu > <span class="num">2000</span>
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel est le rôle de <code>_</code> dans un <code>match/case</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il capture la valeur dans une variable</div>
-              <div class="option" onclick="answer(this,false)">Il ignore le match/case</div>
-              <div class="option" onclick="answer(this,true)">Il correspond à toutes les valeurs (cas par défaut)</div>
-              <div class="option" onclick="answer(this,false)">Il lève une erreur</div>
+              <button class="option" onclick="answer(this,false)">Il capture la valeur dans une variable</button>
+              <button class="option" onclick="answer(this,false)">Il ignore le match/case</button>
+              <button class="option" onclick="answer(this,true)">Il correspond à toutes les valeurs (cas par défaut)</button>
+              <button class="option" onclick="answer(this,false)">Il lève une erreur</button>
             </div>
             <div class="q-feedback">Le <code>_</code> (wildcard) dans un <code>match/case</code> est le cas par défaut qui correspond à toute valeur non capturée par les cas précédents, similaire au <code>else</code> d'un <code>if</code>.</div>
           </div>
@@ -427,8 +427,14 @@ print(f"Tarif : {tarif} euros")</code></pre></div>
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

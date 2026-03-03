@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Structure des acides nucl iques, r plication, transcription et traduction : comprendre le support de l'information g n tique et son expression en prot...">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>ADN et ARN &mdash; Biochimie &mdash; Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #d35400; --accent2: #e67e22; --accent-dim: rgba(211,84,0,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(211,84,0,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #d35400; --accent2: #e67e22; --accent-dim: rgba(211,84,0,0.08);  --accent-hero: rgba(211,84,0,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../sciences-exactes.html">Sciences exactes</a> &rsaquo; <a href="../biochimie.html">Biochimie</a> &rsaquo; <span>ADN et ARN</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">&#129516; Biochimie</span>
     <span class="tag-level">Interm&eacute;diaire</span>
@@ -136,10 +136,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle base azot&eacute;e est pr&eacute;sente dans l'ARN mais pas dans l'ADN ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Thymine</div>
-              <div class="option" onclick="answer(this,true)">Uracile</div>
-              <div class="option" onclick="answer(this,false)">Cytosine</div>
-              <div class="option" onclick="answer(this,false)">Guanine</div>
+              <button class="option" onclick="answer(this,false)">Thymine</button>
+              <button class="option" onclick="answer(this,true)">Uracile</button>
+              <button class="option" onclick="answer(this,false)">Cytosine</button>
+              <button class="option" onclick="answer(this,false)">Guanine</button>
             </div>
             <div class="q-feedback">L'uracile (U) remplace la thymine (T) dans l'ARN. L'uracile s'apparie avec l'ad&eacute;nine par 2 liaisons hydrog&egrave;ne, comme la thymine.</div>
           </div>
@@ -147,10 +147,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Combien de liaisons hydrog&egrave;ne relient G et C ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1</div>
-              <div class="option" onclick="answer(this,false)">2</div>
-              <div class="option" onclick="answer(this,true)">3</div>
-              <div class="option" onclick="answer(this,false)">4</div>
+              <button class="option" onclick="answer(this,false)">1</button>
+              <button class="option" onclick="answer(this,false)">2</button>
+              <button class="option" onclick="answer(this,true)">3</button>
+              <button class="option" onclick="answer(this,false)">4</button>
             </div>
             <div class="q-feedback">La paire G-C est stabilis&eacute;e par 3 liaisons hydrog&egrave;ne, contre 2 pour A-T. C'est pourquoi un ADN riche en G-C a une temp&eacute;rature de fusion plus &eacute;lev&eacute;e.</div>
           </div>
@@ -158,10 +158,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Dans quel sens l'ADN polym&eacute;rase synth&eacute;tise-t-elle le nouveau brin ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">5' &rarr; 3'</div>
-              <div class="option" onclick="answer(this,false)">3' &rarr; 5'</div>
-              <div class="option" onclick="answer(this,false)">Dans les deux sens</div>
-              <div class="option" onclick="answer(this,false)">Au hasard</div>
+              <button class="option" onclick="answer(this,true)">5' &rarr; 3'</button>
+              <button class="option" onclick="answer(this,false)">3' &rarr; 5'</button>
+              <button class="option" onclick="answer(this,false)">Dans les deux sens</button>
+              <button class="option" onclick="answer(this,false)">Au hasard</button>
             </div>
             <div class="q-feedback">L'ADN polym&eacute;rase ne peut ajouter des nucl&eacute;otides qu'en 3' d'un brin existant, synth&eacute;tisant dans le sens 5'&rarr;3'. C'est pourquoi le brin retard&eacute; est synth&eacute;tis&eacute; de mani&egrave;re discontinue (fragments d'Okazaki).</div>
           </div>
@@ -169,10 +169,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Que signifie &laquo; r&eacute;plication semi-conservative &raquo; ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Chaque mol&eacute;cule fille contient un brin ancien et un brin nouveau</div>
-              <div class="option" onclick="answer(this,false)">Les deux brins anciens restent ensemble</div>
-              <div class="option" onclick="answer(this,false)">Seule la moiti&eacute; de l'ADN est r&eacute;pliqu&eacute;e</div>
-              <div class="option" onclick="answer(this,false)">La r&eacute;plication est impr&eacute;cise</div>
+              <button class="option" onclick="answer(this,true)">Chaque mol&eacute;cule fille contient un brin ancien et un brin nouveau</button>
+              <button class="option" onclick="answer(this,false)">Les deux brins anciens restent ensemble</button>
+              <button class="option" onclick="answer(this,false)">Seule la moiti&eacute; de l'ADN est r&eacute;pliqu&eacute;e</button>
+              <button class="option" onclick="answer(this,false)">La r&eacute;plication est impr&eacute;cise</button>
             </div>
             <div class="q-feedback">D&eacute;montr&eacute;e par Meselson et Stahl (1958), la r&eacute;plication semi-conservative signifie que chaque double h&eacute;lice fille conserve un brin parental et synth&eacute;tise un brin compl&eacute;mentaire nouveau.</div>
           </div>
@@ -180,10 +180,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel codon initie la traduction ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">UAA</div>
-              <div class="option" onclick="answer(this,false)">UAG</div>
-              <div class="option" onclick="answer(this,true)">AUG</div>
-              <div class="option" onclick="answer(this,false)">UGA</div>
+              <button class="option" onclick="answer(this,false)">UAA</button>
+              <button class="option" onclick="answer(this,false)">UAG</button>
+              <button class="option" onclick="answer(this,true)">AUG</button>
+              <button class="option" onclick="answer(this,false)">UGA</button>
             </div>
             <div class="q-feedback">AUG code la m&eacute;thionine et sert de codon d'initiation. UAA, UAG et UGA sont les trois codons stop. Le code g&eacute;n&eacute;tique comporte 61 codons sens et 3 codons stop.</div>
           </div>
@@ -191,10 +191,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Qu'est-ce que l'&eacute;pissage de l'ARN ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'ajout de la coiffe 5'</div>
-              <div class="option" onclick="answer(this,true)">L'excision des introns et la jonction des exons</div>
-              <div class="option" onclick="answer(this,false)">La polyadenylation en 3'</div>
-              <div class="option" onclick="answer(this,false)">La d&eacute;gradation de l'ARNm</div>
+              <button class="option" onclick="answer(this,false)">L'ajout de la coiffe 5'</button>
+              <button class="option" onclick="answer(this,true)">L'excision des introns et la jonction des exons</button>
+              <button class="option" onclick="answer(this,false)">La polyadenylation en 3'</button>
+              <button class="option" onclick="answer(this,false)">La d&eacute;gradation de l'ARNm</button>
             </div>
             <div class="q-feedback">L'&eacute;pissage (splicing) retire les introns (s&eacute;quences non codantes) et joint les exons (s&eacute;quences codantes) pour former l'ARNm mature. L'&eacute;pissage alternatif permet &agrave; un g&egrave;ne de coder plusieurs prot&eacute;ines.</div>
           </div>
@@ -259,8 +259,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

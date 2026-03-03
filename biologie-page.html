@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De la cellule à l'écosystème, la biologie explore le mystère de la vie dans toute sa diversité. ADN, évolution darwinienne, génétique, écologie : les clés...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Biologie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #a0f5ee;
   --accent-dim: rgba(122,232,216,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(122,232,216,0.07) 0%, transparent 70%); }
+ --accent-hero: rgba(122,232,216,0.07); }
 .hero-deco { color: rgba(122,232,216,0.04); }
 </style>
 </head>
@@ -23,7 +24,7 @@
   <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
 </nav>
 
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">🧬</div>
   <div class="hero-meta">
     <span class="tag-domain">🌱 Sciences de la nature</span>
@@ -151,90 +152,87 @@
       <div class="quiz-container">
         <div class="quiz-header">
           <span class="quiz-title-text">Quiz — Biologie</span>
-          <span class="quiz-score">Score : <span id="quizScore">0</span>/6</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span>/6</span>
         </div>
-        <div class="quiz-body">
+        <div class="quiz-body" id="quizBody">
           <div class="question-block active" id="q0">
             <div class="q-num">Question 1 / 6</div>
             <div class="q-text">Quelle est l'unité fondamentale de tous les êtres vivants ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(0,0)">L'atome</div>
-              <div class="option" onclick="selectOption(0,1)">La cellule</div>
-              <div class="option" onclick="selectOption(0,2)">Le gène</div>
-              <div class="option" onclick="selectOption(0,3)">La molécule</div>
+              <button class="option" onclick="answer(this,false)">L'atome</button>
+              <button class="option" onclick="answer(this,true)">La cellule</button>
+              <button class="option" onclick="answer(this,false)">Le gène</button>
+              <button class="option" onclick="answer(this,false)">La molécule</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">La cellule est l'unité structurelle et fonctionnelle du vivant — c'est un des principes de la théorie cellulaire (Schleiden & Schwann, 1839). Tout être vivant est constitué d'au moins une cellule. L'atome, bien que composant toute matière, n'est pas spécifique au vivant.</div>
           </div>
           <div class="question-block" id="q1">
             <div class="q-num">Question 2 / 6</div>
             <div class="q-text">Qui a proposé la théorie de l'évolution par sélection naturelle en 1859 ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(1,0)">Gregor Mendel</div>
-              <div class="option" onclick="selectOption(1,1)">Louis Pasteur</div>
-              <div class="option" onclick="selectOption(1,2)">Charles Darwin</div>
-              <div class="option" onclick="selectOption(1,3)">James Watson</div>
+              <button class="option" onclick="answer(this,false)">Gregor Mendel</button>
+              <button class="option" onclick="answer(this,false)">Louis Pasteur</button>
+              <button class="option" onclick="answer(this,true)">Charles Darwin</button>
+              <button class="option" onclick="answer(this,false)">James Watson</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Charles Darwin a publié «De l'origine des espèces» en 1859. Il observa la diversité des espèces aux Galápagos et proposa que la sélection naturelle — la survie préférentielle des individus les mieux adaptés — est le moteur de l'évolution. Alfred Russel Wallace développa la même théorie indépendamment.</div>
           </div>
           <div class="question-block" id="q2">
             <div class="q-num">Question 3 / 6</div>
             <div class="q-text">La photosynthèse produit du glucose à partir de...</div>
             <div class="options">
-              <div class="option" onclick="selectOption(2,0)">Azote et oxygène</div>
-              <div class="option" onclick="selectOption(2,1)">CO₂, eau et lumière solaire</div>
-              <div class="option" onclick="selectOption(2,2)">Minéraux du sol uniquement</div>
-              <div class="option" onclick="selectOption(2,3)">Protéines et lipides</div>
+              <button class="option" onclick="answer(this,false)">Azote et oxygène</button>
+              <button class="option" onclick="answer(this,true)">CO₂, eau et lumière solaire</button>
+              <button class="option" onclick="answer(this,false)">Minéraux du sol uniquement</button>
+              <button class="option" onclick="answer(this,false)">Protéines et lipides</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Équation : 6CO₂ + 6H₂O + énergie lumineuse → C₆H₁₂O₆ + 6O₂. La photosynthèse se déroule dans les chloroplastes des cellules végétales. Elle est à la base de toutes les chaînes alimentaires et est responsable de l'oxygène atmosphérique.</div>
           </div>
           <div class="question-block" id="q3">
             <div class="q-num">Question 4 / 6</div>
             <div class="q-text">Combien de bases différentes compose l'ADN ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(3,0)">2 (A et T)</div>
-              <div class="option" onclick="selectOption(3,1)">3 (A, T, G)</div>
-              <div class="option" onclick="selectOption(3,2)">4 (A, T, G, C)</div>
-              <div class="option" onclick="selectOption(3,3)">20 (comme les acides aminés)</div>
+              <button class="option" onclick="answer(this,false)">2 (A et T)</button>
+              <button class="option" onclick="answer(this,false)">3 (A, T, G)</button>
+              <button class="option" onclick="answer(this,true)">4 (A, T, G, C)</button>
+              <button class="option" onclick="answer(this,false)">20 (comme les acides aminés)</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">L'ADN est composé de 4 bases azotées : Adénine (A), Thymine (T), Guanine (G) et Cytosine (C). Elles s'apparient toujours par paires complémentaires : A-T et G-C. La séquence de ces bases encode l'information génétique. Les 20 acides aminés, eux, sont codés par des codons (triplets de bases ARN).</div>
           </div>
           <div class="question-block" id="q4">
             <div class="q-num">Question 5 / 6</div>
             <div class="q-text">Qu'est-ce que l'homéostasie ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(4,0)">La reproduction sexuée des mammifères</div>
-              <div class="option" onclick="selectOption(4,1)">La capacité à maintenir stable l'environnement interne de l'organisme</div>
-              <div class="option" onclick="selectOption(4,2)">L'ensemble des gènes d'un organisme</div>
-              <div class="option" onclick="selectOption(4,3)">La symbiose entre deux espèces</div>
+              <button class="option" onclick="answer(this,false)">La reproduction sexuée des mammifères</button>
+              <button class="option" onclick="answer(this,true)">La capacité à maintenir stable l'environnement interne de l'organisme</button>
+              <button class="option" onclick="answer(this,false)">L'ensemble des gènes d'un organisme</button>
+              <button class="option" onclick="answer(this,false)">La symbiose entre deux espèces</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">L'homéostasie (du grec homoios = semblable, stasis = stabilité) est la propriété des êtres vivants de maintenir leurs paramètres internes (température, pH, glycémie, pression osmotique) dans des plages stables, malgré les variations du milieu externe. Ex : notre température reste ~37°C par tous les temps.</div>
           </div>
           <div class="question-block" id="q5">
             <div class="q-num">Question 6 / 6</div>
             <div class="q-text">Dans quelle organite cellulaire se déroule la respiration cellulaire ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(5,0)">Le noyau</div>
-              <div class="option" onclick="selectOption(5,1)">Le ribosome</div>
-              <div class="option" onclick="selectOption(5,2)">La mitochondrie</div>
-              <div class="option" onclick="selectOption(5,3)">Le chloroplaste</div>
+              <button class="option" onclick="answer(this,false)">Le noyau</button>
+              <button class="option" onclick="answer(this,false)">Le ribosome</button>
+              <button class="option" onclick="answer(this,true)">La mitochondrie</button>
+              <button class="option" onclick="answer(this,false)">Le chloroplaste</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">La mitochondrie est l'organite de la respiration cellulaire — c'est pourquoi on l'appelle «centrale énergétique de la cellule». Elle convertit le glucose en ATP (molécule universelle d'énergie). Le chloroplaste est dédié à la photosynthèse (cellules végétales). Le noyau contient l'ADN. Le ribosome synthétise les protéines.</div>
           </div>
         </div>
         <div class="quiz-nav">
-          <div class="q-dots">
-            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-          </div>
+          <div class="q-dots" id="qDots"></div>
           <div style="display:flex;gap:.8rem">
-            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
-            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQ()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQ()" disabled>Suivant →</button>
           </div>
         </div>
-        <div class="quiz-result">
-          <div class="result-score-big" id="finalScore"></div>
-          <div class="result-msg" id="finalMsg"></div>
-          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore"></div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
         </div>
       </div>
     </section>
@@ -344,31 +342,15 @@
   </main>
 </div>
 
-<script>
-const questions=[
-  {q:"Quelle est l'unité fondamentale de tous les êtres vivants ?",opts:["L'atome","La cellule","Le gène","La molécule"],ans:1,expl:"La cellule est l'unité structurelle et fonctionnelle du vivant — c'est un des principes de la théorie cellulaire (Schleiden & Schwann, 1839). Tout être vivant est constitué d'au moins une cellule. L'atome, bien que composant toute matière, n'est pas spécifique au vivant."},
-  {q:"Qui a proposé la théorie de l'évolution par sélection naturelle en 1859 ?",opts:["Gregor Mendel","Louis Pasteur","Charles Darwin","James Watson"],ans:2,expl:"Charles Darwin a publié «De l'origine des espèces» en 1859. Il observa la diversité des espèces aux Galápagos et proposa que la sélection naturelle — la survie préférentielle des individus les mieux adaptés — est le moteur de l'évolution. Alfred Russel Wallace développa la même théorie indépendamment."},
-  {q:"La photosynthèse produit du glucose à partir de...",opts:["Azote et oxygène","CO₂, eau et lumière solaire","Minéraux du sol uniquement","Protéines et lipides"],ans:1,expl:"Équation : 6CO₂ + 6H₂O + énergie lumineuse → C₆H₁₂O₆ + 6O₂. La photosynthèse se déroule dans les chloroplastes des cellules végétales. Elle est à la base de toutes les chaînes alimentaires et est responsable de l'oxygène atmosphérique."},
-  {q:"Combien de bases différentes compose l'ADN ?",opts:["2 (A et T)","3 (A, T, G)","4 (A, T, G, C)","20 (comme les acides aminés)"],ans:2,expl:"L'ADN est composé de 4 bases azotées : Adénine (A), Thymine (T), Guanine (G) et Cytosine (C). Elles s'apparient toujours par paires complémentaires : A-T et G-C. La séquence de ces bases encode l'information génétique. Les 20 acides aminés, eux, sont codés par des codons (triplets de bases ARN)."},
-  {q:"Qu'est-ce que l'homéostasie ?",opts:["La reproduction sexuée des mammifères","La capacité à maintenir stable l'environnement interne de l'organisme","L'ensemble des gènes d'un organisme","La symbiose entre deux espèces"],ans:1,expl:"L'homéostasie (du grec homoios = semblable, stasis = stabilité) est la propriété des êtres vivants de maintenir leurs paramètres internes (température, pH, glycémie, pression osmotique) dans des plages stables, malgré les variations du milieu externe. Ex : notre température reste ~37°C par tous les temps."},
-  {q:"Dans quelle organite cellulaire se déroule la respiration cellulaire ?",opts:["Le noyau","Le ribosome","La mitochondrie","Le chloroplaste"],ans:2,expl:"La mitochondrie est l'organite de la respiration cellulaire — c'est pourquoi on l'appelle «centrale énergétique de la cellule». Elle convertit le glucose en ATP (molécule universelle d'énergie). Le chloroplaste est dédié à la photosynthèse (cellules végétales). Le noyau contient l'ADN. Le ribosome synthétise les protéines."}
-];
-let current=0,score=0,answered=new Array(6).fill(null);
-function renderQuestion(){document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});document.getElementById('btnPrev').disabled=current===0;document.getElementById('btnNext').textContent=current===5?'Voir résultats':'Suivant →';}
-function selectOption(qi,oi){if(answered[qi]!==null)return;answered[qi]=oi;const block=document.querySelectorAll('.question-block')[qi];block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');}
-function nextQuestion(){if(current<5){current++;renderQuestion();}else showResult();}
-function prevQuestion(){if(current>0){current--;renderQuestion();}}
-function showResult(){document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';const r=document.querySelector('.quiz-result');r.style.display='block';document.getElementById('finalScore').textContent=score+'/6';document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Très bien !','Excellent !'][score<=2?0:score<=4?1:score<=5?2:3];}
-function restartQuiz(){current=0;score=0;answered.fill(null);document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');document.getElementById('quizScore').textContent=0;renderQuestion();}
-function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
-// Scroll spy
-(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
-const sections=['resume','evolution','concepts','quiz','ressources','memo'];
-window.addEventListener('scroll',()=>{let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';});
-function downloadMemo(){const w=window.open('','_blank','width=900,height=700');w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Biologie</title><style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#1a8a7e;border-bottom:3px solid #1a8a7e;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#1a8a7e;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #b2dfdb;padding:1rem;border-radius:4px;background:#f0fffe}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style></head><body><h1>🌱 Fiche mémo — Biologie & Sciences du vivant</h1><div class="grid"><div class="box"><h2>Niveaux d'organisation</h2><ul><li>Atome → Molécule → Organite → Cellule</li><li>Tissu → Organe → Système → Organisme</li><li>Population → Communauté → Écosystème → Biosphère</li></ul></div><div class="box"><h2>ADN & Génétique</h2><ul><li>4 bases : A-T, G-C (appariement)</li><li>Génome humain : ~3 milliards paires de bases</li><li>~20 000 gènes codants</li><li>ADN → ARNm → Protéine (dogme central)</li><li>Mendel : dominant/récessif (1866)</li><li>CRISPR-Cas9 : édition du génome (2012)</li></ul></div><div class="box"><h2>Photosynthèse & Respiration</h2><ul><li>Photosynthèse : CO₂ + H₂O + ☀️ → glucose + O₂</li><li>Lieu : chloroplaste</li><li>Respiration cellulaire : glucose + O₂ → CO₂ + H₂O + ATP</li><li>Lieu : mitochondrie</li></ul></div><div class="box"><h2>Évolution</h2><ul><li>Darwin — sélection naturelle (1859)</li><li>Wallace — même découverte simultanée</li><li>Variation + hérédité + sélection = évolution</li><li>Toutes les espèces partagent un ancêtre commun</li><li>Spéciation = isolation reproductrice</li></ul></div></div><div class="footer">Curiosita — Fiche mémo Biologie — ${new Date().toLocaleDateString('fr-FR')}</div><button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#1a8a7e;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">🖨️ Imprimer / PDF</button>
-</body></html>`);w.document.close();}
-renderQuestion();
-</script>
-    <script src="mobile.js?v=2"></script>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

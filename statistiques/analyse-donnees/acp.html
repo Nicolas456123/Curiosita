@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Réduire la dimensionnalité des données tout en conservant l'essentiel de l'information — valeurs propres, vecteurs propres et cercle des corrélations.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Analyse en composantes principales — Analyse de données — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #4fc3f7;
   --accent2: #81d4fa;
   --accent-dim: rgba(79,195,247,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔬 Analyse de données</span>
     <span class="tag-level">Avancé</span>
@@ -138,10 +138,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Que cherche à maximiser le premier axe principal de l'ACP ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La corrélation entre les variables</div>
-              <div class="option" onclick="answer(this,true)">La variance projetée des données</div>
-              <div class="option" onclick="answer(this,false)">Le nombre d'individus projetés</div>
-              <div class="option" onclick="answer(this,false)">La distance entre les individus</div>
+              <button class="option" onclick="answer(this,false)">La corrélation entre les variables</button>
+              <button class="option" onclick="answer(this,true)">La variance projetée des données</button>
+              <button class="option" onclick="answer(this,false)">Le nombre d'individus projetés</button>
+              <button class="option" onclick="answer(this,false)">La distance entre les individus</button>
             </div>
             <div class="q-feedback">Le premier axe principal est la direction qui maximise la variance des projections des individus sur cet axe.</div>
           </div>
@@ -149,10 +149,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Selon le critère de Kaiser, on retient les composantes dont la valeur propre est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Supérieure à 0</div>
-              <div class="option" onclick="answer(this,true)">Supérieure à 1</div>
-              <div class="option" onclick="answer(this,false)">Supérieure à la moyenne</div>
-              <div class="option" onclick="answer(this,false)">Supérieure à 0,5</div>
+              <button class="option" onclick="answer(this,false)">Supérieure à 0</button>
+              <button class="option" onclick="answer(this,true)">Supérieure à 1</button>
+              <button class="option" onclick="answer(this,false)">Supérieure à la moyenne</button>
+              <button class="option" onclick="answer(this,false)">Supérieure à 0,5</button>
             </div>
             <div class="q-feedback">Le critère de Kaiser retient les composantes dont la valeur propre est supérieure à 1, car elles expliquent plus de variance qu'une variable seule dans une ACP normée.</div>
           </div>
@@ -160,10 +160,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Pourquoi faut-il centrer et réduire les données avant une ACP ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pour accélérer les calculs</div>
-              <div class="option" onclick="answer(this,false)">Pour éliminer les valeurs aberrantes</div>
-              <div class="option" onclick="answer(this,true)">Pour rendre les variables comparables malgré des unités différentes</div>
-              <div class="option" onclick="answer(this,false)">Pour obtenir des valeurs propres positives</div>
+              <button class="option" onclick="answer(this,false)">Pour accélérer les calculs</button>
+              <button class="option" onclick="answer(this,false)">Pour éliminer les valeurs aberrantes</button>
+              <button class="option" onclick="answer(this,true)">Pour rendre les variables comparables malgré des unités différentes</button>
+              <button class="option" onclick="answer(this,false)">Pour obtenir des valeurs propres positives</button>
             </div>
             <div class="q-feedback">Si les variables ont des unités et des échelles différentes, la standardisation empêche les variables avec les plus grandes variances de dominer artificiellement les axes.</div>
           </div>
@@ -171,10 +171,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Sur le cercle des corrélations, deux variables proches indiquent :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Qu'elles sont positivement corrélées</div>
-              <div class="option" onclick="answer(this,false)">Qu'elles sont indépendantes</div>
-              <div class="option" onclick="answer(this,false)">Qu'elles mesurent la même chose exactement</div>
-              <div class="option" onclick="answer(this,false)">Qu'elles sont négativement corrélées</div>
+              <button class="option" onclick="answer(this,true)">Qu'elles sont positivement corrélées</button>
+              <button class="option" onclick="answer(this,false)">Qu'elles sont indépendantes</button>
+              <button class="option" onclick="answer(this,false)">Qu'elles mesurent la même chose exactement</button>
+              <button class="option" onclick="answer(this,false)">Qu'elles sont négativement corrélées</button>
             </div>
             <div class="q-feedback">Sur le cercle des corrélations, deux variables proches sont positivement corrélées. Deux variables diamétralement opposées sont négativement corrélées, et deux variables à 90° sont non corrélées.</div>
           </div>
@@ -182,10 +182,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">L'inertie totale dans une ACP normée (sur matrice de corrélation) vaut :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1</div>
-              <div class="option" onclick="answer(this,false)">Le nombre d'individus n</div>
-              <div class="option" onclick="answer(this,true)">Le nombre de variables p</div>
-              <div class="option" onclick="answer(this,false)">La trace de la matrice de covariance</div>
+              <button class="option" onclick="answer(this,false)">1</button>
+              <button class="option" onclick="answer(this,false)">Le nombre d'individus n</button>
+              <button class="option" onclick="answer(this,true)">Le nombre de variables p</button>
+              <button class="option" onclick="answer(this,false)">La trace de la matrice de covariance</button>
             </div>
             <div class="q-feedback">Dans une ACP normée, l'inertie totale est la somme des valeurs propres de la matrice de corrélation, qui vaut p (le nombre de variables), car chaque variable standardisée a une variance de 1.</div>
           </div>
@@ -243,8 +243,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

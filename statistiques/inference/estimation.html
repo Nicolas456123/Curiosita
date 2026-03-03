@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Estimateurs, biais, convergence, maximum de vraisemblance — les fondements de l'estimation statistique.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Estimation — Inférence — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #16a085;
   --accent2: #1abc9c;
   --accent-dim: rgba(22,160,133,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(22,160,133,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(22,160,133,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📊 Inférence</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -142,10 +142,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que signifie qu'un estimateur est « sans biais » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Sa variance est nulle</div>
-              <div class="option" onclick="answer(this,true)">Son espérance est égale au paramètre estimé</div>
-              <div class="option" onclick="answer(this,false)">Il converge toujours vers la vraie valeur</div>
-              <div class="option" onclick="answer(this,false)">Il minimise l'erreur quadratique moyenne</div>
+              <button class="option" onclick="answer(this,false)">Sa variance est nulle</button>
+              <button class="option" onclick="answer(this,true)">Son espérance est égale au paramètre estimé</button>
+              <button class="option" onclick="answer(this,false)">Il converge toujours vers la vraie valeur</button>
+              <button class="option" onclick="answer(this,false)">Il minimise l'erreur quadratique moyenne</button>
             </div>
             <div class="q-feedback">Un estimateur sans biais vérifie E(θ̂) = θ : en moyenne sur tous les échantillons possibles, il donne la vraie valeur du paramètre.</div>
           </div>
@@ -153,10 +153,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Pourquoi divise-t-on par (n−1) et non par n dans la variance corrigée ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pour simplifier les calculs</div>
-              <div class="option" onclick="answer(this,false)">Pour obtenir une valeur plus grande</div>
-              <div class="option" onclick="answer(this,true)">Pour corriger le biais de l'estimateur</div>
-              <div class="option" onclick="answer(this,false)">Pour tenir compte des valeurs aberrantes</div>
+              <button class="option" onclick="answer(this,false)">Pour simplifier les calculs</button>
+              <button class="option" onclick="answer(this,false)">Pour obtenir une valeur plus grande</button>
+              <button class="option" onclick="answer(this,true)">Pour corriger le biais de l'estimateur</button>
+              <button class="option" onclick="answer(this,false)">Pour tenir compte des valeurs aberrantes</button>
             </div>
             <div class="q-feedback">La division par n donne un estimateur biaisé (il sous-estime σ²). La correction de Bessel (division par n−1) compense ce biais en tenant compte du degré de liberté perdu lors de l'estimation de la moyenne.</div>
           </div>
@@ -164,10 +164,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle est la formule de l'erreur quadratique moyenne (EQM) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">EQM = Variance − Biais</div>
-              <div class="option" onclick="answer(this,false)">EQM = Biais + Variance</div>
-              <div class="option" onclick="answer(this,true)">EQM = Variance + Biais²</div>
-              <div class="option" onclick="answer(this,false)">EQM = (Biais × Variance)²</div>
+              <button class="option" onclick="answer(this,false)">EQM = Variance − Biais</button>
+              <button class="option" onclick="answer(this,false)">EQM = Biais + Variance</button>
+              <button class="option" onclick="answer(this,true)">EQM = Variance + Biais²</button>
+              <button class="option" onclick="answer(this,false)">EQM = (Biais × Variance)²</button>
             </div>
             <div class="q-feedback">L'EQM se décompose en EQM(θ̂) = Var(θ̂) + [B(θ̂)]². C'est la somme de la variance et du carré du biais.</div>
           </div>
@@ -175,10 +175,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Que maximise l'estimateur du maximum de vraisemblance ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La probabilité a priori du paramètre</div>
-              <div class="option" onclick="answer(this,true)">La probabilité d'observer les données en fonction du paramètre</div>
-              <div class="option" onclick="answer(this,false)">La variance de l'estimateur</div>
-              <div class="option" onclick="answer(this,false)">Le nombre de degrés de liberté</div>
+              <button class="option" onclick="answer(this,false)">La probabilité a priori du paramètre</button>
+              <button class="option" onclick="answer(this,true)">La probabilité d'observer les données en fonction du paramètre</button>
+              <button class="option" onclick="answer(this,false)">La variance de l'estimateur</button>
+              <button class="option" onclick="answer(this,false)">Le nombre de degrés de liberté</button>
             </div>
             <div class="q-feedback">L'EMV cherche la valeur du paramètre θ qui rend les données observées les plus probables, c'est-à-dire qui maximise la fonction de vraisemblance L(θ).</div>
           </div>
@@ -186,10 +186,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que mesure l'information de Fisher I(θ) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le biais de l'estimateur</div>
-              <div class="option" onclick="answer(this,false)">La taille minimale de l'échantillon</div>
-              <div class="option" onclick="answer(this,true)">La quantité d'information sur θ contenue dans les données</div>
-              <div class="option" onclick="answer(this,false)">La probabilité de rejet de H0</div>
+              <button class="option" onclick="answer(this,false)">Le biais de l'estimateur</button>
+              <button class="option" onclick="answer(this,false)">La taille minimale de l'échantillon</button>
+              <button class="option" onclick="answer(this,true)">La quantité d'information sur θ contenue dans les données</button>
+              <button class="option" onclick="answer(this,false)">La probabilité de rejet de H0</button>
             </div>
             <div class="q-feedback">L'information de Fisher quantifie la précision avec laquelle on peut estimer θ. Plus I(θ) est élevée, plus la borne inférieure de la variance des estimateurs sans biais est petite.</div>
           </div>
@@ -197,10 +197,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel théorème donne la variance minimale d'un estimateur sans biais ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le théorème central limite</div>
-              <div class="option" onclick="answer(this,false)">La loi des grands nombres</div>
-              <div class="option" onclick="answer(this,true)">La borne de Cramér-Rao</div>
-              <div class="option" onclick="answer(this,false)">Le théorème de Bayes</div>
+              <button class="option" onclick="answer(this,false)">Le théorème central limite</button>
+              <button class="option" onclick="answer(this,false)">La loi des grands nombres</button>
+              <button class="option" onclick="answer(this,true)">La borne de Cramér-Rao</button>
+              <button class="option" onclick="answer(this,false)">Le théorème de Bayes</button>
             </div>
             <div class="q-feedback">La borne de Cramér-Rao établit que Var(θ̂) ≥ 1/(n·I(θ)) pour tout estimateur sans biais. Un estimateur qui atteint cette borne est dit efficace.</div>
           </div>
@@ -294,8 +294,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

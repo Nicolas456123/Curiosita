@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Science fondamentale de la matière, de l'énergie et des forces qui régissent l'univers. De la mécanique classique de Newton à la relativité d'Einstein et...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Physique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #4fc3f7;
   --accent2: #81d4fa;
   --accent-dim: rgba(79,195,247,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(79,195,247,0.07) 0%, transparent 70%); }
+ --accent-hero: rgba(79,195,247,0.07); }
 .hero-deco { color: rgba(79,195,247,0.04); }
 </style>
 </head>
@@ -23,7 +24,7 @@
   <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
 </nav>
 
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">⚛️</div>
   <div class="hero-meta">
     <span class="tag-domain">🔬 Sciences exactes & Informatique</span>
@@ -167,136 +168,131 @@
       <div class="quiz-container">
         <div class="quiz-header">
           <span class="quiz-title-text">Quiz — Physique</span>
-          <span class="quiz-score">Score : <span id="quizScore">0</span>/10</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span>/10</span>
         </div>
-        <div class="quiz-body">
+        <div class="quiz-body" id="quizBody">
           <div class="question-block active" id="q0">
             <div class="q-num">Question 1 / 10</div>
             <div class="q-text">Quelle est l'unité de mesure de la force dans le Système International ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(0,0)">Le joule (J)</div>
-              <div class="option" onclick="selectOption(0,1)">Le newton (N)</div>
-              <div class="option" onclick="selectOption(0,2)">Le watt (W)</div>
-              <div class="option" onclick="selectOption(0,3)">Le pascal (Pa)</div>
+              <button class="option" onclick="answer(this,false)">Le joule (J)</button>
+              <button class="option" onclick="answer(this,true)">Le newton (N)</button>
+              <button class="option" onclick="answer(this,false)">Le watt (W)</button>
+              <button class="option" onclick="answer(this,false)">Le pascal (Pa)</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le newton (N) est l'unité de force dans le SI. 1 N = 1 kg·m/s². Le joule mesure l'énergie, le watt la puissance et le pascal la pression.</div>
           </div>
           <div class="question-block" id="q1">
             <div class="q-num">Question 2 / 10</div>
             <div class="q-text">Que stipule la première loi de Newton ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(1,0)">F = ma</div>
-              <div class="option" onclick="selectOption(1,1)">E = mc²</div>
-              <div class="option" onclick="selectOption(1,2)">Un corps reste au repos ou en mouvement rectiligne uniforme sans force extérieure</div>
-              <div class="option" onclick="selectOption(1,3)">Toute action entraîne une réaction égale et opposée</div>
+              <button class="option" onclick="answer(this,false)">F = ma</button>
+              <button class="option" onclick="answer(this,false)">E = mc²</button>
+              <button class="option" onclick="answer(this,true)">Un corps reste au repos ou en mouvement rectiligne uniforme sans force extérieure</button>
+              <button class="option" onclick="answer(this,false)">Toute action entraîne une réaction égale et opposée</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">La première loi de Newton, ou principe d'inertie, stipule qu'un corps persévère dans son état de repos ou de mouvement rectiligne uniforme à moins qu'une force extérieure ne le contraigne à changer.</div>
           </div>
           <div class="question-block" id="q2">
             <div class="q-num">Question 3 / 10</div>
             <div class="q-text">Quelle est la valeur approximative de l'accélération gravitationnelle à la surface de la Terre ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(2,0)">3,14 m/s²</div>
-              <div class="option" onclick="selectOption(2,1)">9,81 m/s²</div>
-              <div class="option" onclick="selectOption(2,2)">6,67 m/s²</div>
-              <div class="option" onclick="selectOption(2,3)">1,62 m/s²</div>
+              <button class="option" onclick="answer(this,false)">3,14 m/s²</button>
+              <button class="option" onclick="answer(this,true)">9,81 m/s²</button>
+              <button class="option" onclick="answer(this,false)">6,67 m/s²</button>
+              <button class="option" onclick="answer(this,false)">1,62 m/s²</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">L'accélération gravitationnelle à la surface de la Terre vaut g ≈ 9,81 m/s². La valeur 1,62 m/s² correspond à la Lune, et 6,674 × 10⁻¹¹ est la constante gravitationnelle G.</div>
           </div>
           <div class="question-block" id="q3">
             <div class="q-num">Question 4 / 10</div>
             <div class="q-text">Quelle formule relie l'énergie cinétique à la masse et la vitesse ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(3,0)">Ec = mv</div>
-              <div class="option" onclick="selectOption(3,1)">Ec = ½mv²</div>
-              <div class="option" onclick="selectOption(3,2)">Ec = mgh</div>
-              <div class="option" onclick="selectOption(3,3)">Ec = mc²</div>
+              <button class="option" onclick="answer(this,false)">Ec = mv</button>
+              <button class="option" onclick="answer(this,true)">Ec = ½mv²</button>
+              <button class="option" onclick="answer(this,false)">Ec = mgh</button>
+              <button class="option" onclick="answer(this,false)">Ec = mc²</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">L'énergie cinétique est Ec = ½mv². Elle dépend du carré de la vitesse : doubler la vitesse quadruple l'énergie cinétique. mgh est l'énergie potentielle de pesanteur.</div>
           </div>
           <div class="question-block" id="q4">
             <div class="q-num">Question 5 / 10</div>
             <div class="q-text">Quelle est la vitesse de la lumière dans le vide ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(4,0)">3 × 10⁶ m/s</div>
-              <div class="option" onclick="selectOption(4,1)">3 × 10⁸ m/s</div>
-              <div class="option" onclick="selectOption(4,2)">3 × 10¹⁰ m/s</div>
-              <div class="option" onclick="selectOption(4,3)">3 × 10⁵ m/s</div>
+              <button class="option" onclick="answer(this,false)">3 × 10⁶ m/s</button>
+              <button class="option" onclick="answer(this,true)">3 × 10⁸ m/s</button>
+              <button class="option" onclick="answer(this,false)">3 × 10¹⁰ m/s</button>
+              <button class="option" onclick="answer(this,false)">3 × 10⁵ m/s</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">La vitesse de la lumière dans le vide est c ≈ 299 792 458 m/s, soit environ 3 × 10⁸ m/s. C'est la vitesse maximale dans l'univers selon la relativité restreinte d'Einstein.</div>
           </div>
           <div class="question-block" id="q5">
             <div class="q-num">Question 6 / 10</div>
             <div class="q-text">Quel principe stipule que l'énergie totale d'un système isolé reste constante ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(5,0)">Le principe de conservation de l'énergie</div>
-              <div class="option" onclick="selectOption(5,1)">Le principe d'incertitude d'Heisenberg</div>
-              <div class="option" onclick="selectOption(5,2)">Le principe de relativité</div>
-              <div class="option" onclick="selectOption(5,3)">Le principe d'Archimède</div>
+              <button class="option" onclick="answer(this,true)">Le principe de conservation de l'énergie</button>
+              <button class="option" onclick="answer(this,false)">Le principe d'incertitude d'Heisenberg</button>
+              <button class="option" onclick="answer(this,false)">Le principe de relativité</button>
+              <button class="option" onclick="answer(this,false)">Le principe d'Archimède</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le principe de conservation de l'énergie (premier principe de la thermodynamique) stipule que l'énergie ne peut être ni créée ni détruite, seulement transformée d'une forme à une autre.</div>
           </div>
           <div class="question-block" id="q6">
             <div class="q-num">Question 7 / 10</div>
             <div class="q-text">Qu'est-ce que le zéro absolu ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(6,0)">0 °C, la température de fusion de la glace</div>
-              <div class="option" onclick="selectOption(6,1)">−273,15 °C, la température la plus basse possible</div>
-              <div class="option" onclick="selectOption(6,2)">−100 °C, le point de congélation de l'azote</div>
-              <div class="option" onclick="selectOption(6,3)">0 °F, le point de congélation de l'eau salée</div>
+              <button class="option" onclick="answer(this,false)">0 °C, la température de fusion de la glace</button>
+              <button class="option" onclick="answer(this,true)">−273,15 °C, la température la plus basse possible</button>
+              <button class="option" onclick="answer(this,false)">−100 °C, le point de congélation de l'azote</button>
+              <button class="option" onclick="answer(this,false)">0 °F, le point de congélation de l'eau salée</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le zéro absolu (0 K = −273,15 °C) est la température théorique minimale, où l'agitation thermique des particules est nulle. Il est impossible de l'atteindre exactement (troisième principe de la thermodynamique).</div>
           </div>
           <div class="question-block" id="q7">
             <div class="q-num">Question 8 / 10</div>
             <div class="q-text">Quelle célèbre équation d'Einstein relie masse et énergie ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(7,0)">F = ma</div>
-              <div class="option" onclick="selectOption(7,1)">PV = nRT</div>
-              <div class="option" onclick="selectOption(7,2)">E = mc²</div>
-              <div class="option" onclick="selectOption(7,3)">E = hf</div>
+              <button class="option" onclick="answer(this,false)">F = ma</button>
+              <button class="option" onclick="answer(this,false)">PV = nRT</button>
+              <button class="option" onclick="answer(this,true)">E = mc²</button>
+              <button class="option" onclick="answer(this,false)">E = hf</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">E = mc² (1905) montre l'équivalence masse-énergie. Une petite masse correspond à une énergie colossale car c² ≈ 9 × 10¹⁶ m²/s². E = hf relie l'énergie d'un photon à sa fréquence (relation de Planck-Einstein).</div>
           </div>
           <div class="question-block" id="q8">
             <div class="q-num">Question 9 / 10</div>
             <div class="q-text">Quel physicien a unifié l'électricité et le magnétisme en un seul cadre théorique ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(8,0)">Isaac Newton</div>
-              <div class="option" onclick="selectOption(8,1)">James Clerk Maxwell</div>
-              <div class="option" onclick="selectOption(8,2)">Niels Bohr</div>
-              <div class="option" onclick="selectOption(8,3)">Michael Faraday</div>
+              <button class="option" onclick="answer(this,false)">Isaac Newton</button>
+              <button class="option" onclick="answer(this,true)">James Clerk Maxwell</button>
+              <button class="option" onclick="answer(this,false)">Niels Bohr</button>
+              <button class="option" onclick="answer(this,false)">Michael Faraday</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">James Clerk Maxwell a publié ses quatre équations de l'électromagnétisme en 1865, unifiant les phénomènes électriques et magnétiques et prédisant l'existence des ondes électromagnétiques. Faraday avait découvert l'induction, mais Maxwell en a fait la synthèse mathématique.</div>
           </div>
           <div class="question-block" id="q9">
             <div class="q-num">Question 10 / 10</div>
             <div class="q-text">Quelle propriété d'une onde détermine sa couleur dans le spectre visible ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(9,0)">Son amplitude</div>
-              <div class="option" onclick="selectOption(9,1)">Sa longueur d'onde (ou fréquence)</div>
-              <div class="option" onclick="selectOption(9,2)">Sa vitesse de propagation</div>
-              <div class="option" onclick="selectOption(9,3)">Sa polarisation</div>
+              <button class="option" onclick="answer(this,false)">Son amplitude</button>
+              <button class="option" onclick="answer(this,true)">Sa longueur d'onde (ou fréquence)</button>
+              <button class="option" onclick="answer(this,false)">Sa vitesse de propagation</button>
+              <button class="option" onclick="answer(this,false)">Sa polarisation</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">La couleur perçue dépend de la longueur d'onde (ou de la fréquence) de l'onde lumineuse. Le spectre visible s'étend d'environ 380 nm (violet) à 780 nm (rouge). L'amplitude détermine l'intensité (luminosité), pas la couleur.</div>
           </div>
         </div>
         <div class="quiz-nav">
-          <div class="q-dots">
-            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div>
-          </div>
+          <div class="q-dots" id="qDots"></div>
           <div style="display:flex;gap:.8rem">
-            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
-            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQ()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQ()" disabled>Suivant →</button>
           </div>
         </div>
-        <div class="quiz-result">
-          <div class="result-score-big" id="finalScore"></div>
-          <div class="result-msg" id="finalMsg"></div>
-          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore"></div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
         </div>
       </div>
     </section>
@@ -420,33 +416,15 @@
   </main>
 </div>
 
-<script>
-const questions=[
-  {q:"Quelle est l'unité de mesure de la force dans le Système International ?",opts:["Le joule (J)","Le newton (N)","Le watt (W)","Le pascal (Pa)"],ans:1,expl:"Le newton (N) est l'unité de force dans le SI. 1 N = 1 kg·m/s². Le joule mesure l'énergie, le watt la puissance et le pascal la pression."},
-  {q:"Que stipule la première loi de Newton ?",opts:["F = ma","E = mc²","Un corps reste au repos ou en mouvement rectiligne uniforme sans force extérieure","Toute action entraîne une réaction égale et opposée"],ans:2,expl:"La première loi de Newton, ou principe d'inertie, stipule qu'un corps persévère dans son état de repos ou de mouvement rectiligne uniforme à moins qu'une force extérieure ne le contraigne à changer."},
-  {q:"Quelle est la valeur approximative de l'accélération gravitationnelle à la surface de la Terre ?",opts:["3,14 m/s²","9,81 m/s²","6,67 m/s²","1,62 m/s²"],ans:1,expl:"L'accélération gravitationnelle à la surface de la Terre vaut g ≈ 9,81 m/s². La valeur 1,62 m/s² correspond à la Lune, et 6,674 × 10⁻¹¹ est la constante gravitationnelle G."},
-  {q:"Quelle formule relie l'énergie cinétique à la masse et la vitesse ?",opts:["Ec = mv","Ec = ½mv²","Ec = mgh","Ec = mc²"],ans:1,expl:"L'énergie cinétique est Ec = ½mv². Elle dépend du carré de la vitesse : doubler la vitesse quadruple l'énergie cinétique. mgh est l'énergie potentielle de pesanteur."},
-  {q:"Quelle est la vitesse de la lumière dans le vide ?",opts:["3 × 10⁶ m/s","3 × 10⁸ m/s","3 × 10¹⁰ m/s","3 × 10⁵ m/s"],ans:1,expl:"La vitesse de la lumière dans le vide est c ≈ 299 792 458 m/s, soit environ 3 × 10⁸ m/s. C'est la vitesse maximale dans l'univers selon la relativité restreinte d'Einstein."},
-  {q:"Quel principe stipule que l'énergie totale d'un système isolé reste constante ?",opts:["Le principe de conservation de l'énergie","Le principe d'incertitude d'Heisenberg","Le principe de relativité","Le principe d'Archimède"],ans:0,expl:"Le principe de conservation de l'énergie (premier principe de la thermodynamique) stipule que l'énergie ne peut être ni créée ni détruite, seulement transformée d'une forme à une autre."},
-  {q:"Qu'est-ce que le zéro absolu ?",opts:["0 °C, la température de fusion de la glace","−273,15 °C, la température la plus basse possible","−100 °C, le point de congélation de l'azote","0 °F, le point de congélation de l'eau salée"],ans:1,expl:"Le zéro absolu (0 K = −273,15 °C) est la température théorique minimale, où l'agitation thermique des particules est nulle. Il est impossible de l'atteindre exactement (troisième principe de la thermodynamique)."},
-  {q:"Quelle célèbre équation d'Einstein relie masse et énergie ?",opts:["F = ma","PV = nRT","E = mc²","E = hf"],ans:2,expl:"E = mc² (1905) montre l'équivalence masse-énergie. Une petite masse correspond à une énergie colossale car c² ≈ 9 × 10¹⁶ m²/s². E = hf relie l'énergie d'un photon à sa fréquence (relation de Planck-Einstein)."},
-  {q:"Quel physicien a unifié l'électricité et le magnétisme en un seul cadre théorique ?",opts:["Isaac Newton","James Clerk Maxwell","Niels Bohr","Michael Faraday"],ans:1,expl:"James Clerk Maxwell a publié ses quatre équations de l'électromagnétisme en 1865, unifiant les phénomènes électriques et magnétiques et prédisant l'existence des ondes électromagnétiques. Faraday avait découvert l'induction, mais Maxwell en a fait la synthèse mathématique."},
-  {q:"Quelle propriété d'une onde détermine sa couleur dans le spectre visible ?",opts:["Son amplitude","Sa longueur d'onde (ou fréquence)","Sa vitesse de propagation","Sa polarisation"],ans:1,expl:"La couleur perçue dépend de la longueur d'onde (ou de la fréquence) de l'onde lumineuse. Le spectre visible s'étend d'environ 380 nm (violet) à 780 nm (rouge). L'amplitude détermine l'intensité (luminosité), pas la couleur."}
-];
-let current=0,score=0,answered=new Array(10).fill(null);
-function renderQuestion(){document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});document.getElementById('btnPrev').disabled=current===0;document.getElementById('btnNext').textContent=current===9?'Voir résultats':'Suivant →';}
-function selectOption(qi,oi){if(answered[qi]!==null)return;answered[qi]=oi;const block=document.querySelectorAll('.question-block')[qi];block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');}
-function nextQuestion(){if(current<9){current++;renderQuestion();}else showResult();}
-function prevQuestion(){if(current>0){current--;renderQuestion();}}
-function showResult(){document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';const r=document.querySelector('.quiz-result');r.style.display='block';document.getElementById('finalScore').textContent=score+'/10';document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Bien !','Très bien !','Excellent !'][score<=3?0:score<=5?1:score<=7?2:score<=9?3:4];}
-function restartQuiz(){current=0;score=0;answered.fill(null);document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');document.getElementById('quizScore').textContent=0;renderQuestion();}
-function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
-(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
-const sections=['resume','lois','concepts','quiz','ressources','memo'];
-window.addEventListener('scroll',()=>{let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';});
-function downloadMemo(){const w=window.open('','_blank','width=900,height=700');w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Physique</title><style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#0288d1;border-bottom:3px solid #0288d1;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#0288d1;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #b3e5fc;padding:1rem;border-radius:4px;background:#e1f5fe}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style></head><body><h1>⚛️ Fiche mémo — Physique</h1><div class="grid"><div class="box"><h2>Lois de Newton</h2><ul><li>1ère loi : inertie (repos ou MRU sans force)</li><li>2ème loi : F = ma (force = masse × accélération)</li><li>3ème loi : action = −réaction</li><li>Gravitation : F = Gm₁m₂/r²</li></ul></div><div class="box"><h2>Énergie</h2><ul><li>Cinétique : Ec = ½mv²</li><li>Potentielle pesanteur : Ep = mgh</li><li>Mécanique : Em = Ec + Ep (conservée)</li><li>Travail : W = F·d·cos(θ)</li><li>Puissance : P = W/t (watt)</li><li>Einstein : E = mc²</li></ul></div><div class="box"><h2>Constantes fondamentales</h2><ul><li>c = 299 792 458 m/s (lumière)</li><li>g = 9,81 m/s² (pesanteur terrestre)</li><li>G = 6,674 × 10⁻¹¹ N·m²/kg²</li><li>h = 6,626 × 10⁻³⁴ J·s (Planck)</li><li>k = 1,381 × 10⁻²³ J/K (Boltzmann)</li><li>e = 1,602 × 10⁻¹⁹ C (charge élémentaire)</li></ul></div><div class="box"><h2>Thermodynamique</h2><ul><li>1er principe : ΔU = Q + W (conservation)</li><li>2ème principe : entropie ≥ 0 (irréversibilité)</li><li>3ème principe : S → 0 quand T → 0 K</li><li>Gaz parfait : PV = nRT</li><li>0 K = −273,15 °C (zéro absolu)</li></ul></div></div><div class="footer">Curiosita — Fiche mémo Physique — ${new Date().toLocaleDateString('fr-FR')}</div><button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#0288d1;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">🖨️ Imprimer / PDF</button></body></html>`);w.document.close();}
-renderQuestion();
-</script>
-    <script src="mobile.js?v=2"></script>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Taxonomie, phylogenie et arbre du vivant — comment les scientifiques organisent et nomment la diversite des especes depuis Linne jusqu'a la genetique...">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Classification du vivant — Biodiversite — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #80cbc4;
   --accent-dim: rgba(122,232,216,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔬 Biodiversite</span>
     <span class="tag-level">Debutant → Intermediaire</span>
@@ -152,10 +152,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qui a etabli le systeme de nomenclature binomiale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Darwin</div>
-              <div class="option" onclick="answer(this,true)">Linne</div>
-              <div class="option" onclick="answer(this,false)">Aristote</div>
-              <div class="option" onclick="answer(this,false)">Woese</div>
+              <button class="option" onclick="answer(this,false)">Darwin</button>
+              <button class="option" onclick="answer(this,true)">Linne</button>
+              <button class="option" onclick="answer(this,false)">Aristote</button>
+              <button class="option" onclick="answer(this,false)">Woese</button>
             </div>
             <div class="q-feedback">Carl von Linne a publie son Systema Naturae en 1735, etablissant la nomenclature binomiale encore utilisee aujourd'hui.</div>
           </div>
@@ -163,10 +163,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Combien de domaines du vivant distingue-t-on actuellement ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">2</div>
-              <div class="option" onclick="answer(this,true)">3</div>
-              <div class="option" onclick="answer(this,false)">5</div>
-              <div class="option" onclick="answer(this,false)">6</div>
+              <button class="option" onclick="answer(this,false)">2</button>
+              <button class="option" onclick="answer(this,true)">3</button>
+              <button class="option" onclick="answer(this,false)">5</button>
+              <button class="option" onclick="answer(this,false)">6</button>
             </div>
             <div class="q-feedback">Les trois domaines sont Bacteria, Archaea et Eukarya, proposes par Carl Woese en 1990 sur la base de l'ARN ribosomal.</div>
           </div>
@@ -174,10 +174,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Dans le nom Panthera leo, que represente « Panthera » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'espece</div>
-              <div class="option" onclick="answer(this,false)">La famille</div>
-              <div class="option" onclick="answer(this,true)">Le genre</div>
-              <div class="option" onclick="answer(this,false)">L'ordre</div>
+              <button class="option" onclick="answer(this,false)">L'espece</button>
+              <button class="option" onclick="answer(this,false)">La famille</button>
+              <button class="option" onclick="answer(this,true)">Le genre</button>
+              <button class="option" onclick="answer(this,false)">L'ordre</button>
             </div>
             <div class="q-feedback">Dans la nomenclature binomiale, le premier mot designe le genre (majuscule) et le second l'espece (minuscule).</div>
           </div>
@@ -185,10 +185,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle methode regroupe les organismes selon leurs caracteres derives partages ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La taxonomie numerique</div>
-              <div class="option" onclick="answer(this,true)">La cladistique</div>
-              <div class="option" onclick="answer(this,false)">La phenologie</div>
-              <div class="option" onclick="answer(this,false)">La biogeographie</div>
+              <button class="option" onclick="answer(this,false)">La taxonomie numerique</button>
+              <button class="option" onclick="answer(this,true)">La cladistique</button>
+              <button class="option" onclick="answer(this,false)">La phenologie</button>
+              <button class="option" onclick="answer(this,false)">La biogeographie</button>
             </div>
             <div class="q-feedback">La cladistique classe les organismes en clades bases sur des synapomorphies (caracteres derives partages), refletant l'histoire evolutive.</div>
           </div>
@@ -196,10 +196,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Combien d'especes eucaryotes estime-t-on sur Terre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1,5 million</div>
-              <div class="option" onclick="answer(this,false)">3 millions</div>
-              <div class="option" onclick="answer(this,true)">8 a 10 millions</div>
-              <div class="option" onclick="answer(this,false)">100 millions</div>
+              <button class="option" onclick="answer(this,false)">1,5 million</button>
+              <button class="option" onclick="answer(this,false)">3 millions</button>
+              <button class="option" onclick="answer(this,true)">8 a 10 millions</button>
+              <button class="option" onclick="answer(this,false)">100 millions</button>
             </div>
             <div class="q-feedback">On estime entre 8 et 10 millions d'especes eucaryotes, dont seulement 1,5 million ont ete scientifiquement decrites.</div>
           </div>
@@ -207,10 +207,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel gene sert de « code-barres ADN » pour identifier les especes animales ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">ARN 16S</div>
-              <div class="option" onclick="answer(this,true)">COI (cytochrome c oxydase I)</div>
-              <div class="option" onclick="answer(this,false)">Hemoglobine</div>
-              <div class="option" onclick="answer(this,false)">Insuline</div>
+              <button class="option" onclick="answer(this,false)">ARN 16S</button>
+              <button class="option" onclick="answer(this,true)">COI (cytochrome c oxydase I)</button>
+              <button class="option" onclick="answer(this,false)">Hemoglobine</button>
+              <button class="option" onclick="answer(this,false)">Insuline</button>
             </div>
             <div class="q-feedback">Le gene COI (cytochrome c oxydase I), localise dans l'ADN mitochondrial, est le marqueur standard du code-barres ADN pour les animaux.</div>
           </div>
@@ -280,8 +280,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Notation Big-O, complexité temporelle et spatiale — mesurer l'efficacité d'un algorithme et prédire son comportement.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Complexité algorithmique — Algorithmes — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #4fc3f7;
   --accent2: #81d4fa;
   --accent-dim: rgba(79,195,247,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">💻 Informatique</span>
     <span class="tag-level">Intermédiaire</span>
@@ -207,10 +207,10 @@ O(n!)      Factoriel     — Permutations, voyageur de commerce</code></pre>
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quelle est la complexité d'un accès direct à un élément d'un tableau par son indice ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">O(1)</div>
-              <div class="option" onclick="answer(this,false)">O(n)</div>
-              <div class="option" onclick="answer(this,false)">O(log n)</div>
-              <div class="option" onclick="answer(this,false)">O(n²)</div>
+              <button class="option" onclick="answer(this,true)">O(1)</button>
+              <button class="option" onclick="answer(this,false)">O(n)</button>
+              <button class="option" onclick="answer(this,false)">O(log n)</button>
+              <button class="option" onclick="answer(this,false)">O(n²)</button>
             </div>
             <div class="q-feedback">L'accès par indice dans un tableau est en O(1) car l'adresse mémoire est calculée directement à partir de l'indice, sans parcours.</div>
           </div>
@@ -218,10 +218,10 @@ O(n!)      Factoriel     — Permutations, voyageur de commerce</code></pre>
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Que devient O(3n² + 5n + 100) en notation Big-O simplifiée ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">O(3n²)</div>
-              <div class="option" onclick="answer(this,true)">O(n²)</div>
-              <div class="option" onclick="answer(this,false)">O(n² + n)</div>
-              <div class="option" onclick="answer(this,false)">O(100)</div>
+              <button class="option" onclick="answer(this,false)">O(3n²)</button>
+              <button class="option" onclick="answer(this,true)">O(n²)</button>
+              <button class="option" onclick="answer(this,false)">O(n² + n)</button>
+              <button class="option" onclick="answer(this,false)">O(100)</button>
             </div>
             <div class="q-feedback">On ignore les constantes multiplicatives (3) et les termes de moindre ordre (5n, 100). Le terme dominant est n², donc la complexité est O(n²).</div>
           </div>
@@ -229,10 +229,10 @@ O(n!)      Factoriel     — Permutations, voyageur de commerce</code></pre>
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Si un algorithme divise l'espace de recherche par 2 à chaque étape, quelle est sa complexité ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">O(n)</div>
-              <div class="option" onclick="answer(this,false)">O(n/2)</div>
-              <div class="option" onclick="answer(this,true)">O(log n)</div>
-              <div class="option" onclick="answer(this,false)">O(1)</div>
+              <button class="option" onclick="answer(this,false)">O(n)</button>
+              <button class="option" onclick="answer(this,false)">O(n/2)</button>
+              <button class="option" onclick="answer(this,true)">O(log n)</button>
+              <button class="option" onclick="answer(this,false)">O(1)</button>
             </div>
             <div class="q-feedback">Diviser par 2 à chaque étape donne log₂(n) étapes au total. C'est le principe de la recherche dichotomique, en O(log n).</div>
           </div>
@@ -240,10 +240,10 @@ O(n!)      Factoriel     — Permutations, voyageur de commerce</code></pre>
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quelle est la complexité de deux boucles imbriquées de taille n ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">O(n)</div>
-              <div class="option" onclick="answer(this,false)">O(2n)</div>
-              <div class="option" onclick="answer(this,true)">O(n²)</div>
-              <div class="option" onclick="answer(this,false)">O(n log n)</div>
+              <button class="option" onclick="answer(this,false)">O(n)</button>
+              <button class="option" onclick="answer(this,false)">O(2n)</button>
+              <button class="option" onclick="answer(this,true)">O(n²)</button>
+              <button class="option" onclick="answer(this,false)">O(n log n)</button>
             </div>
             <div class="q-feedback">Deux boucles imbriquées, chacune de taille n, donnent n × n = n² itérations, soit une complexité O(n²).</div>
           </div>
@@ -251,10 +251,10 @@ O(n!)      Factoriel     — Permutations, voyageur de commerce</code></pre>
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Parmi ces complexités, laquelle est la plus efficace pour de grandes entrées ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">O(n)</div>
-              <div class="option" onclick="answer(this,true)">O(log n)</div>
-              <div class="option" onclick="answer(this,false)">O(n log n)</div>
-              <div class="option" onclick="answer(this,false)">O(n²)</div>
+              <button class="option" onclick="answer(this,false)">O(n)</button>
+              <button class="option" onclick="answer(this,true)">O(log n)</button>
+              <button class="option" onclick="answer(this,false)">O(n log n)</button>
+              <button class="option" onclick="answer(this,false)">O(n²)</button>
             </div>
             <div class="q-feedback">O(log n) croît le plus lentement parmi ces options. Pour n = 1 000 000, log₂(n) ≈ 20, ce qui est considérablement plus rapide que O(n) = 1 000 000.</div>
           </div>
@@ -355,8 +355,14 @@ def paire_somme_rapide(liste, cible):
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

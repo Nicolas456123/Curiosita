@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Une approche alternative et puissante — inférence bayésienne, lois a priori et a posteriori, MCMC et modélisation probabiliste.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Statistiques bayésiennes — Analyse de données — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #4fc3f7;
   --accent2: #81d4fa;
   --accent-dim: rgba(79,195,247,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧠 Analyse de données</span>
     <span class="tag-level">Avancé</span>
@@ -141,10 +141,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Dans la formule de Bayes, P(θ) représente :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La vraisemblance</div>
-              <div class="option" onclick="answer(this,true)">La loi a priori</div>
-              <div class="option" onclick="answer(this,false)">La loi a posteriori</div>
-              <div class="option" onclick="answer(this,false)">L'evidence</div>
+              <button class="option" onclick="answer(this,false)">La vraisemblance</button>
+              <button class="option" onclick="answer(this,true)">La loi a priori</button>
+              <button class="option" onclick="answer(this,false)">La loi a posteriori</button>
+              <button class="option" onclick="answer(this,false)">L'evidence</button>
             </div>
             <div class="q-feedback">P(θ) est la loi a priori : elle encode nos croyances sur le paramètre avant d'observer les données. P(D|θ) est la vraisemblance, et P(θ|D) est la loi a posteriori.</div>
           </div>
@@ -152,10 +152,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Un prior conjugué est choisi pour que :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La vraisemblance soit maximale</div>
-              <div class="option" onclick="answer(this,true)">La loi a posteriori appartienne à la même famille que la loi a priori</div>
-              <div class="option" onclick="answer(this,false)">Le prior soit toujours non informatif</div>
-              <div class="option" onclick="answer(this,false)">L'intervalle de crédibilité soit minimal</div>
+              <button class="option" onclick="answer(this,false)">La vraisemblance soit maximale</button>
+              <button class="option" onclick="answer(this,true)">La loi a posteriori appartienne à la même famille que la loi a priori</button>
+              <button class="option" onclick="answer(this,false)">Le prior soit toujours non informatif</button>
+              <button class="option" onclick="answer(this,false)">L'intervalle de crédibilité soit minimal</button>
             </div>
             <div class="q-feedback">Un prior conjugué garantit que la loi a posteriori est de la même famille de distributions que la loi a priori, ce qui simplifie les calculs. Ex : Beta(α,β) est conjugué de la vraisemblance binomiale.</div>
           </div>
@@ -163,10 +163,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">L'intervalle de crédibilité à 95 % signifie :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Il y a 95 % de probabilité que le paramètre soit dans cet intervalle</div>
-              <div class="option" onclick="answer(this,false)">95 % des échantillons donneraient un intervalle contenant le vrai paramètre</div>
-              <div class="option" onclick="answer(this,false)">La p-value est inférieure à 0,05</div>
-              <div class="option" onclick="answer(this,false)">L'erreur standard est de 5 %</div>
+              <button class="option" onclick="answer(this,true)">Il y a 95 % de probabilité que le paramètre soit dans cet intervalle</button>
+              <button class="option" onclick="answer(this,false)">95 % des échantillons donneraient un intervalle contenant le vrai paramètre</button>
+              <button class="option" onclick="answer(this,false)">La p-value est inférieure à 0,05</button>
+              <button class="option" onclick="answer(this,false)">L'erreur standard est de 5 %</button>
             </div>
             <div class="q-feedback">C'est l'interprétation directe et intuitive de l'intervalle bayésien : la probabilité que θ soit dans [a,b] vaut 0,95. L'intervalle de confiance fréquentiste ne permet pas cette interprétation.</div>
           </div>
@@ -174,10 +174,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Les méthodes MCMC servent à :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Maximiser la vraisemblance</div>
-              <div class="option" onclick="answer(this,false)">Tester des hypothèses fréquentistes</div>
-              <div class="option" onclick="answer(this,true)">Échantillonner la loi a posteriori quand elle n'a pas de forme analytique</div>
-              <div class="option" onclick="answer(this,false)">Calculer des p-values bayésiennes</div>
+              <button class="option" onclick="answer(this,false)">Maximiser la vraisemblance</button>
+              <button class="option" onclick="answer(this,false)">Tester des hypothèses fréquentistes</button>
+              <button class="option" onclick="answer(this,true)">Échantillonner la loi a posteriori quand elle n'a pas de forme analytique</button>
+              <button class="option" onclick="answer(this,false)">Calculer des p-values bayésiennes</button>
             </div>
             <div class="q-feedback">Les méthodes MCMC (Metropolis-Hastings, Gibbs, HMC) génèrent des échantillons de la distribution a posteriori quand celle-ci est trop complexe pour être calculée analytiquement.</div>
           </div>
@@ -185,10 +185,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Avec beaucoup de données, l'influence du prior :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Diminue — la vraisemblance domine</div>
-              <div class="option" onclick="answer(this,false)">Augmente proportionnellement</div>
-              <div class="option" onclick="answer(this,false)">Reste constante</div>
-              <div class="option" onclick="answer(this,false)">Devient imprévisible</div>
+              <button class="option" onclick="answer(this,true)">Diminue — la vraisemblance domine</button>
+              <button class="option" onclick="answer(this,false)">Augmente proportionnellement</button>
+              <button class="option" onclick="answer(this,false)">Reste constante</button>
+              <button class="option" onclick="answer(this,false)">Devient imprévisible</button>
             </div>
             <div class="q-feedback">Avec un grand échantillon, la vraisemblance concentre la loi a posteriori autour du maximum de vraisemblance, quel que soit le prior (tant qu'il est raisonnable). C'est la propriété de cohérence bayésienne.</div>
           </div>
@@ -246,8 +246,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

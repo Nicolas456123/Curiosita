@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La science qui étudie les sociétés humaines, leurs structures, leurs transformations et les interactions entre individus. Comprendre la société, c'est...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Sociologie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a0f5a0;
   --accent-dim: rgba(122,232,138,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(122,232,138,0.07) 0%, transparent 70%); }
+ --accent-hero: rgba(122,232,138,0.07); }
 .hero-deco { color: rgba(122,232,138,0.04); }
 </style>
 </head>
@@ -26,7 +27,7 @@
   <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
 </nav>
 
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">👥</div>
   <div class="hero-meta">
     <span class="tag-domain">🌍 Sciences humaines & sociales</span>
@@ -175,10 +176,10 @@
             <p class="q-num">Question 1 / 10</p>
             <p class="q-text">Qui est considéré comme le fondateur de la sociologie comme discipline scientifique en France ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Auguste Comte</div>
-              <div class="option" onclick="answer(this,true)">Emile Durkheim</div>
-              <div class="option" onclick="answer(this,false)">Max Weber</div>
-              <div class="option" onclick="answer(this,false)">Karl Marx</div>
+              <button class="option" onclick="answer(this,false)">Auguste Comte</button>
+              <button class="option" onclick="answer(this,true)">Emile Durkheim</button>
+              <button class="option" onclick="answer(this,false)">Max Weber</button>
+              <button class="option" onclick="answer(this,false)">Karl Marx</button>
             </div>
             <div class="q-feedback">Durkheim fonde la sociologie universitaire en France, crée la revue L'Année sociologique (1898) et établit les règles de la méthode sociologique. Comte a inventé le mot, mais Durkheim a fondé la discipline.</div>
           </div>
@@ -187,10 +188,10 @@
             <p class="q-num">Question 2 / 10</p>
             <p class="q-text">Qu'est-ce qu'un « fait social » selon Durkheim ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un événement historique marquant</div>
-              <div class="option" onclick="answer(this,false)">Une opinion partagée par la majorité</div>
-              <div class="option" onclick="answer(this,true)">Une manière d'agir extérieure à l'individu et dotée d'un pouvoir de coercition</div>
-              <div class="option" onclick="answer(this,false)">Un phénomène psychologique collectif</div>
+              <button class="option" onclick="answer(this,false)">Un événement historique marquant</button>
+              <button class="option" onclick="answer(this,false)">Une opinion partagée par la majorité</button>
+              <button class="option" onclick="answer(this,true)">Une manière d'agir extérieure à l'individu et dotée d'un pouvoir de coercition</button>
+              <button class="option" onclick="answer(this,false)">Un phénomène psychologique collectif</button>
             </div>
             <div class="q-feedback">Le fait social est le concept central de Durkheim : il s'impose à l'individu de l'extérieur (normes, institutions, coutumes) avec une force contraignante, indépendamment de sa volonté.</div>
           </div>
@@ -199,10 +200,10 @@
             <p class="q-num">Question 3 / 10</p>
             <p class="q-text">Quel concept de Bourdieu désigne les dispositions durables acquises par la socialisation ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le capital social</div>
-              <div class="option" onclick="answer(this,true)">L'habitus</div>
-              <div class="option" onclick="answer(this,false)">Le champ</div>
-              <div class="option" onclick="answer(this,false)">La distinction</div>
+              <button class="option" onclick="answer(this,false)">Le capital social</button>
+              <button class="option" onclick="answer(this,true)">L'habitus</button>
+              <button class="option" onclick="answer(this,false)">Le champ</button>
+              <button class="option" onclick="answer(this,false)">La distinction</button>
             </div>
             <div class="q-feedback">L'habitus est un système de dispositions durables et transposables, acquis au cours de la socialisation, qui oriente nos pratiques, nos goûts et nos perceptions sans que nous en ayons conscience.</div>
           </div>
@@ -211,10 +212,10 @@
             <p class="q-num">Question 4 / 10</p>
             <p class="q-text">Max Weber distingue trois types de domination légitime. Lequel n'en fait PAS partie ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Domination traditionnelle</div>
-              <div class="option" onclick="answer(this,false)">Domination charismatique</div>
-              <div class="option" onclick="answer(this,true)">Domination économique</div>
-              <div class="option" onclick="answer(this,false)">Domination rationnelle-légale</div>
+              <button class="option" onclick="answer(this,false)">Domination traditionnelle</button>
+              <button class="option" onclick="answer(this,false)">Domination charismatique</button>
+              <button class="option" onclick="answer(this,true)">Domination économique</button>
+              <button class="option" onclick="answer(this,false)">Domination rationnelle-légale</button>
             </div>
             <div class="q-feedback">Weber distingue domination traditionnelle (coutume), charismatique (qualités du leader) et rationnelle-légale (lois, bureaucratie). La domination économique n'est pas un type webérien.</div>
           </div>
@@ -223,10 +224,10 @@
             <p class="q-num">Question 5 / 10</p>
             <p class="q-text">Selon Durkheim, l'anomie désigne :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un excès de normes sociales</div>
-              <div class="option" onclick="answer(this,true)">Un affaiblissement des normes qui laisse l'individu sans repères</div>
-              <div class="option" onclick="answer(this,false)">Une forme de solidarité mécanique</div>
-              <div class="option" onclick="answer(this,false)">Le refus de toute autorité</div>
+              <button class="option" onclick="answer(this,false)">Un excès de normes sociales</button>
+              <button class="option" onclick="answer(this,true)">Un affaiblissement des normes qui laisse l'individu sans repères</button>
+              <button class="option" onclick="answer(this,false)">Une forme de solidarité mécanique</button>
+              <button class="option" onclick="answer(this,false)">Le refus de toute autorité</button>
             </div>
             <div class="q-feedback">L'anomie est un état de dérégulation sociale où les normes sont insuffisantes ou contradictoires. Durkheim la lie au suicide anomique : dans les périodes de bouleversements, les repères disparaissent.</div>
           </div>
@@ -235,10 +236,10 @@
             <p class="q-num">Question 6 / 10</p>
             <p class="q-text">Le concept de « capital culturel » chez Bourdieu inclut :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Uniquement les diplômes</div>
-              <div class="option" onclick="answer(this,false)">Uniquement l'argent et le patrimoine</div>
-              <div class="option" onclick="answer(this,true)">Diplômes, savoirs, manières et dispositions culturelles</div>
-              <div class="option" onclick="answer(this,false)">Le réseau de relations sociales</div>
+              <button class="option" onclick="answer(this,false)">Uniquement les diplômes</button>
+              <button class="option" onclick="answer(this,false)">Uniquement l'argent et le patrimoine</button>
+              <button class="option" onclick="answer(this,true)">Diplômes, savoirs, manières et dispositions culturelles</button>
+              <button class="option" onclick="answer(this,false)">Le réseau de relations sociales</button>
             </div>
             <div class="q-feedback">Le capital culturel existe sous trois formes : incorporé (savoirs, manières), objectivé (livres, oeuvres d'art) et institutionnalisé (diplômes). Le réseau de relations, c'est le capital social.</div>
           </div>
@@ -247,10 +248,10 @@
             <p class="q-num">Question 7 / 10</p>
             <p class="q-text">La socialisation primaire se déroule principalement :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Dans la famille et à l'école durant l'enfance</div>
-              <div class="option" onclick="answer(this,false)">Au travail et dans les associations</div>
-              <div class="option" onclick="answer(this,false)">Sur les réseaux sociaux</div>
-              <div class="option" onclick="answer(this,false)">À l'âge adulte uniquement</div>
+              <button class="option" onclick="answer(this,true)">Dans la famille et à l'école durant l'enfance</button>
+              <button class="option" onclick="answer(this,false)">Au travail et dans les associations</button>
+              <button class="option" onclick="answer(this,false)">Sur les réseaux sociaux</button>
+              <button class="option" onclick="answer(this,false)">À l'âge adulte uniquement</button>
             </div>
             <div class="q-feedback">La socialisation primaire (famille, école) transmet les fondamentaux durant l'enfance. La socialisation secondaire (travail, pairs, médias) se poursuit toute la vie mais s'appuie sur les bases de la première.</div>
           </div>
@@ -259,10 +260,10 @@
             <p class="q-num">Question 8 / 10</p>
             <p class="q-text">Selon Howard Becker, la déviance est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un comportement intrinsèquement mauvais</div>
-              <div class="option" onclick="answer(this,false)">Une maladie mentale</div>
-              <div class="option" onclick="answer(this,true)">Le résultat d'un processus d'étiquetage par le groupe social</div>
-              <div class="option" onclick="answer(this,false)">Un choix rationnel de l'individu</div>
+              <button class="option" onclick="answer(this,false)">Un comportement intrinsèquement mauvais</button>
+              <button class="option" onclick="answer(this,false)">Une maladie mentale</button>
+              <button class="option" onclick="answer(this,true)">Le résultat d'un processus d'étiquetage par le groupe social</button>
+              <button class="option" onclick="answer(this,false)">Un choix rationnel de l'individu</button>
             </div>
             <div class="q-feedback">Pour Becker (Outsiders, 1963), la déviance n'est pas une qualité de l'acte mais le résultat d'un étiquetage : ce sont les groupes sociaux qui créent la déviance en définissant les règles et en les appliquant.</div>
           </div>
@@ -271,10 +272,10 @@
             <p class="q-num">Question 9 / 10</p>
             <p class="q-text">La « solidarité organique » selon Durkheim caractérise :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les sociétés traditionnelles où tous se ressemblent</div>
-              <div class="option" onclick="answer(this,true)">Les sociétés modernes fondées sur la division du travail</div>
-              <div class="option" onclick="answer(this,false)">Les mouvements écologistes</div>
-              <div class="option" onclick="answer(this,false)">Les groupes familiaux restreints</div>
+              <button class="option" onclick="answer(this,false)">Les sociétés traditionnelles où tous se ressemblent</button>
+              <button class="option" onclick="answer(this,true)">Les sociétés modernes fondées sur la division du travail</button>
+              <button class="option" onclick="answer(this,false)">Les mouvements écologistes</button>
+              <button class="option" onclick="answer(this,false)">Les groupes familiaux restreints</button>
             </div>
             <div class="q-feedback">La solidarité organique lie les individus par leur complémentarité (chacun a une fonction spécialisée), comme les organes d'un corps. La solidarité mécanique, elle, repose sur la ressemblance des membres.</div>
           </div>
@@ -283,10 +284,10 @@
             <p class="q-num">Question 10 / 10</p>
             <p class="q-text">Quel sociologue a théorisé le lien entre éthique protestante et capitalisme ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Emile Durkheim</div>
-              <div class="option" onclick="answer(this,false)">Karl Marx</div>
-              <div class="option" onclick="answer(this,true)">Max Weber</div>
-              <div class="option" onclick="answer(this,false)">Georg Simmel</div>
+              <button class="option" onclick="answer(this,false)">Emile Durkheim</button>
+              <button class="option" onclick="answer(this,false)">Karl Marx</button>
+              <button class="option" onclick="answer(this,true)">Max Weber</button>
+              <button class="option" onclick="answer(this,false)">Georg Simmel</button>
             </div>
             <div class="q-feedback">Dans L'Éthique protestante et l'esprit du capitalisme (1905), Weber montre que l'ascétisme protestant (travail acharné, épargne, réinvestissement) a favorisé l'essor du capitalisme rationnel en Europe.</div>
           </div>
@@ -401,8 +402,15 @@
   </main>
 </div>
 
-<script src="utils.js"></script>
-<script src="quiz.js"></script>
-    <script src="mobile.js?v=2"></script>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

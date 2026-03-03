@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mesurer la richesse d'une nation et comprendre les moteurs qui font progresser (ou reculer) le niveau de vie.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>PIB et croissance — Macroéconomie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #c97ae8;
   --accent2: #ce93d8;
   --accent-dim: rgba(201,122,232,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(201,122,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(201,122,232,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📊 Macroéconomie</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -177,10 +177,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Dans la formule PIB = C + I + G + (X - M), que représente « G » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le gain des entreprises</div>
-              <div class="option" onclick="answer(this,true)">Les dépenses publiques (gouvernement)</div>
-              <div class="option" onclick="answer(this,false)">La croissance (growth)</div>
-              <div class="option" onclick="answer(this,false)">Le PIB global</div>
+              <button class="option" onclick="answer(this,false)">Le gain des entreprises</button>
+              <button class="option" onclick="answer(this,true)">Les dépenses publiques (gouvernement)</button>
+              <button class="option" onclick="answer(this,false)">La croissance (growth)</button>
+              <button class="option" onclick="answer(this,false)">Le PIB global</button>
             </div>
             <div class="q-feedback">G représente les dépenses publiques (Government spending) : achats de biens et services par l'État (éducation, défense, infrastructures). En France, G représente environ 25 % du PIB.</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle est la différence entre le PIB nominal et le PIB réel ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le PIB nominal exclut les exportations</div>
-              <div class="option" onclick="answer(this,false)">Le PIB réel inclut l'économie souterraine</div>
-              <div class="option" onclick="answer(this,true)">Le PIB réel est corrigé de l'inflation</div>
-              <div class="option" onclick="answer(this,false)">Il n'y a aucune différence</div>
+              <button class="option" onclick="answer(this,false)">Le PIB nominal exclut les exportations</button>
+              <button class="option" onclick="answer(this,false)">Le PIB réel inclut l'économie souterraine</button>
+              <button class="option" onclick="answer(this,true)">Le PIB réel est corrigé de l'inflation</button>
+              <button class="option" onclick="answer(this,false)">Il n'y a aucune différence</button>
             </div>
             <div class="q-feedback">Le PIB nominal utilise les prix courants (il mélange effet volume et effet prix). Le PIB réel utilise les prix d'une année de base, ce qui isole les variations de quantités produites — c'est lui qui mesure la croissance économique réelle.</div>
           </div>
@@ -199,10 +199,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Selon le modèle de Solow, le principal moteur de la croissance à long terme est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'accumulation de capital</div>
-              <div class="option" onclick="answer(this,false)">La croissance de la population</div>
-              <div class="option" onclick="answer(this,true)">Le progrès technique</div>
-              <div class="option" onclick="answer(this,false)">Les dépenses publiques</div>
+              <button class="option" onclick="answer(this,false)">L'accumulation de capital</button>
+              <button class="option" onclick="answer(this,false)">La croissance de la population</button>
+              <button class="option" onclick="answer(this,true)">Le progrès technique</button>
+              <button class="option" onclick="answer(this,false)">Les dépenses publiques</button>
             </div>
             <div class="q-feedback">Solow a montré que l'accumulation de capital est soumise aux rendements décroissants. Seul le progrès technique (productivité totale des facteurs) peut soutenir la croissance à long terme. C'est le « résidu de Solow ».</div>
           </div>
@@ -210,10 +210,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Une récession est techniquement définie comme :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une hausse du chômage de plus de 2 points</div>
-              <div class="option" onclick="answer(this,true)">Un recul du PIB réel pendant au moins deux trimestres consécutifs</div>
-              <div class="option" onclick="answer(this,false)">Une baisse de la consommation des ménages</div>
-              <div class="option" onclick="answer(this,false)">Un déficit budgétaire supérieur à 3 % du PIB</div>
+              <button class="option" onclick="answer(this,false)">Une hausse du chômage de plus de 2 points</button>
+              <button class="option" onclick="answer(this,true)">Un recul du PIB réel pendant au moins deux trimestres consécutifs</button>
+              <button class="option" onclick="answer(this,false)">Une baisse de la consommation des ménages</button>
+              <button class="option" onclick="answer(this,false)">Un déficit budgétaire supérieur à 3 % du PIB</button>
             </div>
             <div class="q-feedback">La définition technique d'une récession est un recul du PIB réel pendant au moins deux trimestres consécutifs. Cette définition simple est parfois critiquée car elle ne prend pas en compte l'ampleur du recul ni la situation du marché du travail.</div>
           </div>
@@ -221,10 +221,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">L'IDH (Indice de Développement Humain) prend en compte :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Uniquement le PIB par habitant</div>
-              <div class="option" onclick="answer(this,false)">Le PIB et les inégalités</div>
-              <div class="option" onclick="answer(this,true)">Le revenu, l'espérance de vie et l'éducation</div>
-              <div class="option" onclick="answer(this,false)">Le PIB et les émissions de CO2</div>
+              <button class="option" onclick="answer(this,false)">Uniquement le PIB par habitant</button>
+              <button class="option" onclick="answer(this,false)">Le PIB et les inégalités</button>
+              <button class="option" onclick="answer(this,true)">Le revenu, l'espérance de vie et l'éducation</button>
+              <button class="option" onclick="answer(this,false)">Le PIB et les émissions de CO2</button>
             </div>
             <div class="q-feedback">L'IDH, développé par Amartya Sen et Mahbub ul Haq pour le PNUD, combine trois dimensions : le revenu national brut par habitant (niveau de vie), l'espérance de vie à la naissance (santé) et la durée de scolarisation (éducation). Il offre une vision plus complète du développement que le seul PIB.</div>
           </div>
@@ -232,10 +232,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Selon la théorie de la convergence conditionnelle, les pays pauvres devraient :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Toujours croître plus lentement que les pays riches</div>
-              <div class="option" onclick="answer(this,false)">Toujours rattraper les pays riches</div>
-              <div class="option" onclick="answer(this,true)">Croître plus vite que les pays riches, à condition d'avoir des institutions similaires</div>
-              <div class="option" onclick="answer(this,false)">Avoir le même PIB que les pays riches à long terme</div>
+              <button class="option" onclick="answer(this,false)">Toujours croître plus lentement que les pays riches</button>
+              <button class="option" onclick="answer(this,false)">Toujours rattraper les pays riches</button>
+              <button class="option" onclick="answer(this,true)">Croître plus vite que les pays riches, à condition d'avoir des institutions similaires</button>
+              <button class="option" onclick="answer(this,false)">Avoir le même PIB que les pays riches à long terme</button>
             </div>
             <div class="q-feedback">La convergence conditionnelle prédit que les pays pauvres croissent plus vite car le capital y est plus productif (rendements décroissants). Mais cette convergence n'est « conditionnelle » que si les pays partagent les mêmes paramètres structurels (institutions, taux d'épargne, capital humain). C'est pourquoi la Corée du Sud a convergé mais pas le Niger.</div>
           </div>
@@ -299,8 +299,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

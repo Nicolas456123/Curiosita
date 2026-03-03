@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Psychologue, psychiatre, lignes d'écoute : quand et comment demander de l'aide pour sa santé mentale.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Chercher de l'aide — Santé mentale — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #8ae87a; --accent2: #a5f598; --accent-dim: rgba(138,232,122,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #8ae87a; --accent2: #a5f598; --accent-dim: rgba(138,232,122,0.08);  --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../sante-page.html">Santé</a> › <a href="../mentale.html">Santé mentale</a> › <span>Chercher de l'aide</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">🧠 Santé mentale</span><span class="tag-level">Débutant → Intermédiaire</span><span class="tag-time">⏱ ~35 min</span></div>
   <h1><em>Chercher de l'aide</em></h1>
   <p class="hero-desc">Psychologue, psychiatre, lignes d'écoute : quand et comment demander de l'aide pour sa santé mentale.</p>
@@ -97,10 +97,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la principale différence entre un psychologue et un psychiatre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le psychologue traite les cas graves, le psychiatre les cas légers</div>
-              <div class="option" onclick="answer(this,true)">Le psychiatre est médecin et peut prescrire des médicaments</div>
-              <div class="option" onclick="answer(this,false)">Le psychologue est plus qualifié</div>
-              <div class="option" onclick="answer(this,false)">Il n'y a aucune différence</div>
+              <button class="option" onclick="answer(this,false)">Le psychologue traite les cas graves, le psychiatre les cas légers</button>
+              <button class="option" onclick="answer(this,true)">Le psychiatre est médecin et peut prescrire des médicaments</button>
+              <button class="option" onclick="answer(this,false)">Le psychologue est plus qualifié</button>
+              <button class="option" onclick="answer(this,false)">Il n'y a aucune différence</button>
             </div>
             <div class="q-feedback">Le psychiatre est un médecin (bac+10) qui peut prescrire des médicaments. Le psychologue (bac+5 en psychologie) pratique la psychothérapie mais ne peut pas prescrire. Les deux sont complémentaires.</div>
           </div>
@@ -108,10 +108,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel numéro appeler pour la prévention du suicide en France ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">3114</div>
-              <div class="option" onclick="answer(this,false)">15</div>
-              <div class="option" onclick="answer(this,false)">3615</div>
-              <div class="option" onclick="answer(this,false)">112</div>
+              <button class="option" onclick="answer(this,true)">3114</button>
+              <button class="option" onclick="answer(this,false)">15</button>
+              <button class="option" onclick="answer(this,false)">3615</button>
+              <button class="option" onclick="answer(this,false)">112</button>
             </div>
             <div class="q-feedback">Le 3114 est le numéro national de prévention du suicide, accessible 24h/24 et 7j/7, gratuit et confidentiel. Des professionnels formés répondent aux personnes en détresse ou à leurs proches.</div>
           </div>
@@ -119,10 +119,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle thérapie est recommandée en première intention pour les troubles anxieux et la dépression légère à modérée ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Les TCC (thérapies cognitivo-comportementales)</div>
-              <div class="option" onclick="answer(this,false)">L'hypnose</div>
-              <div class="option" onclick="answer(this,false)">La psychanalyse classique</div>
-              <div class="option" onclick="answer(this,false)">L'art-thérapie uniquement</div>
+              <button class="option" onclick="answer(this,true)">Les TCC (thérapies cognitivo-comportementales)</button>
+              <button class="option" onclick="answer(this,false)">L'hypnose</button>
+              <button class="option" onclick="answer(this,false)">La psychanalyse classique</button>
+              <button class="option" onclick="answer(this,false)">L'art-thérapie uniquement</button>
             </div>
             <div class="q-feedback">Les TCC sont recommandées en première intention par la HAS pour la dépression légère à modérée et les troubles anxieux. Elles sont courtes, structurées et leur efficacité est largement démontrée.</div>
           </div>
@@ -130,10 +130,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel dispositif permet le remboursement de séances chez un psychologue en France ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La carte Vitale seule</div>
-              <div class="option" onclick="answer(this,true)">Mon soutien psy</div>
-              <div class="option" onclick="answer(this,false)">La CMU uniquement</div>
-              <div class="option" onclick="answer(this,false)">Aucun dispositif n'existe</div>
+              <button class="option" onclick="answer(this,false)">La carte Vitale seule</button>
+              <button class="option" onclick="answer(this,true)">Mon soutien psy</button>
+              <button class="option" onclick="answer(this,false)">La CMU uniquement</button>
+              <button class="option" onclick="answer(this,false)">Aucun dispositif n'existe</button>
             </div>
             <div class="q-feedback">Mon soutien psy permet de bénéficier de séances chez un psychologue conventionné, remboursées par l'Assurance maladie, sur adressage du médecin traitant.</div>
           </div>
@@ -141,10 +141,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Pour quelle pathologie l'EMDR est-elle particulièrement efficace ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La schizophrénie</div>
-              <div class="option" onclick="answer(this,true)">Le stress post-traumatique</div>
-              <div class="option" onclick="answer(this,false)">Le trouble bipolaire</div>
-              <div class="option" onclick="answer(this,false)">L'autisme</div>
+              <button class="option" onclick="answer(this,false)">La schizophrénie</button>
+              <button class="option" onclick="answer(this,true)">Le stress post-traumatique</button>
+              <button class="option" onclick="answer(this,false)">Le trouble bipolaire</button>
+              <button class="option" onclick="answer(this,false)">L'autisme</button>
             </div>
             <div class="q-feedback">L'EMDR (Eye Movement Desensitization and Reprocessing) est reconnue par l'OMS comme un traitement de référence du stress post-traumatique. Elle aide à retraiter les souvenirs traumatiques.</div>
           </div>
@@ -152,10 +152,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle est la meilleure réaction face à un proche qui exprime des pensées suicidaires ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Changer de sujet pour le distraire</div>
-              <div class="option" onclick="answer(this,false)">Lui dire que ça va passer tout seul</div>
-              <div class="option" onclick="answer(this,true)">L'écouter, prendre au sérieux et l'orienter vers le 3114</div>
-              <div class="option" onclick="answer(this,false)">Lui expliquer pourquoi il ne devrait pas penser comme ça</div>
+              <button class="option" onclick="answer(this,false)">Changer de sujet pour le distraire</button>
+              <button class="option" onclick="answer(this,false)">Lui dire que ça va passer tout seul</button>
+              <button class="option" onclick="answer(this,true)">L'écouter, prendre au sérieux et l'orienter vers le 3114</button>
+              <button class="option" onclick="answer(this,false)">Lui expliquer pourquoi il ne devrait pas penser comme ça</button>
             </div>
             <div class="q-feedback">Il faut écouter sans juger, prendre les propos au sérieux (ne jamais minimiser), et orienter vers une aide professionnelle (3114 ou 15 en cas de danger immédiat). Parler du suicide ne le provoque pas — cela peut sauver une vie.</div>
           </div>
@@ -187,8 +187,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

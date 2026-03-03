@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De l'Antiquité au XXIe siècle — les grands styles, mouvements et révolutions qui ont façonné l'art de bâtir.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Histoire de l'architecture — Architecture — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🏛️ Architecture</span>
     <span class="tag-level">Débutant → Avancé</span>
@@ -133,10 +133,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle innovation structurelle caractérise l'architecture gothique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La voûte en berceau</div>
-              <div class="option" onclick="answer(this,true)">La croisée d'ogives</div>
-              <div class="option" onclick="answer(this,false)">Le pilotis en béton</div>
-              <div class="option" onclick="answer(this,false)">L'arc en plein cintre</div>
+              <button class="option" onclick="answer(this,false)">La voûte en berceau</button>
+              <button class="option" onclick="answer(this,true)">La croisée d'ogives</button>
+              <button class="option" onclick="answer(this,false)">Le pilotis en béton</button>
+              <button class="option" onclick="answer(this,false)">L'arc en plein cintre</button>
             </div>
             <div class="q-feedback">La croisée d'ogives permet de concentrer les poussées sur quatre points d'appui, libérant les murs pour d'immenses vitraux. C'est la clé de la verticalité gothique.</div>
           </div>
@@ -144,10 +144,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel bâtiment antique possède une coupole de 43 mètres de diamètre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le Parthénon</div>
-              <div class="option" onclick="answer(this,false)">Le Colisée</div>
-              <div class="option" onclick="answer(this,true)">Le Panthéon de Rome</div>
-              <div class="option" onclick="answer(this,false)">Le temple de Zeus</div>
+              <button class="option" onclick="answer(this,false)">Le Parthénon</button>
+              <button class="option" onclick="answer(this,false)">Le Colisée</button>
+              <button class="option" onclick="answer(this,true)">Le Panthéon de Rome</button>
+              <button class="option" onclick="answer(this,false)">Le temple de Zeus</button>
             </div>
             <div class="q-feedback">Le Panthéon de Rome (125 apr. J.-C.) possède une coupole en béton non armé de 43 mètres, un exploit technique resté inégalé pendant plus de mille ans.</div>
           </div>
@@ -155,10 +155,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quels sont les cinq points de l'architecture moderne selon Le Corbusier ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Symétrie, colonnes, fronton, socle, corniche</div>
-              <div class="option" onclick="answer(this,true)">Pilotis, plan libre, façade libre, fenêtre en bandeau, toit-terrasse</div>
-              <div class="option" onclick="answer(this,false)">Béton, acier, verre, aluminium, bois</div>
-              <div class="option" onclick="answer(this,false)">Forme, fonction, matériau, lumière, couleur</div>
+              <button class="option" onclick="answer(this,false)">Symétrie, colonnes, fronton, socle, corniche</button>
+              <button class="option" onclick="answer(this,true)">Pilotis, plan libre, façade libre, fenêtre en bandeau, toit-terrasse</button>
+              <button class="option" onclick="answer(this,false)">Béton, acier, verre, aluminium, bois</button>
+              <button class="option" onclick="answer(this,false)">Forme, fonction, matériau, lumière, couleur</button>
             </div>
             <div class="q-feedback">Les cinq points formulés en 1927 libèrent l'architecture des contraintes du mur porteur grâce à la structure poteau-dalle en béton armé.</div>
           </div>
@@ -166,10 +166,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">À quel mouvement appartient le Centre Pompidou (1977) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Brutalisme</div>
-              <div class="option" onclick="answer(this,true)">High-tech</div>
-              <div class="option" onclick="answer(this,false)">Déconstructivisme</div>
-              <div class="option" onclick="answer(this,false)">Art nouveau</div>
+              <button class="option" onclick="answer(this,false)">Brutalisme</button>
+              <button class="option" onclick="answer(this,true)">High-tech</button>
+              <button class="option" onclick="answer(this,false)">Déconstructivisme</button>
+              <button class="option" onclick="answer(this,false)">Art nouveau</button>
             </div>
             <div class="q-feedback">Le Centre Pompidou de Renzo Piano et Richard Rogers expose la structure et les services techniques (escalators, gaines) en façade, caractéristique du style high-tech.</div>
           </div>
@@ -177,10 +177,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel architecte a réalisé la coupole de Santa Maria del Fiore à Florence ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Andrea Palladio</div>
-              <div class="option" onclick="answer(this,false)">Leon Battista Alberti</div>
-              <div class="option" onclick="answer(this,true)">Filippo Brunelleschi</div>
-              <div class="option" onclick="answer(this,false)">Michel-Ange</div>
+              <button class="option" onclick="answer(this,false)">Andrea Palladio</button>
+              <button class="option" onclick="answer(this,false)">Leon Battista Alberti</button>
+              <button class="option" onclick="answer(this,true)">Filippo Brunelleschi</button>
+              <button class="option" onclick="answer(this,false)">Michel-Ange</button>
             </div>
             <div class="q-feedback">Brunelleschi acheva la coupole en 1436, sans cintre ni coffrage, grâce à une technique révolutionnaire de double coque en briques disposées en arête de poisson.</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle école a fédéré architecture, art et design autour du principe « la forme suit la fonction » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'École des Beaux-Arts</div>
-              <div class="option" onclick="answer(this,true)">Le Bauhaus</div>
-              <div class="option" onclick="answer(this,false)">L'Académie de Florence</div>
-              <div class="option" onclick="answer(this,false)">L'Atelier de Le Corbusier</div>
+              <button class="option" onclick="answer(this,false)">L'École des Beaux-Arts</button>
+              <button class="option" onclick="answer(this,true)">Le Bauhaus</button>
+              <button class="option" onclick="answer(this,false)">L'Académie de Florence</button>
+              <button class="option" onclick="answer(this,false)">L'Atelier de Le Corbusier</button>
             </div>
             <div class="q-feedback">Le Bauhaus (1919-1933), fondé par Walter Gropius à Weimar, a profondément influencé l'architecture, le design et l'art du XXe siècle par son approche fonctionnaliste et interdisciplinaire.</div>
           </div>
@@ -255,8 +255,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

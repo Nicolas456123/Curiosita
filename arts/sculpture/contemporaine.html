@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Installations, land art, art cinétique — quand la sculpture repousse les limites de la forme et de l'espace.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>La sculpture contemporaine — Sculpture — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎨 Sculpture</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -139,10 +139,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel artiste a créé la Spiral Jetty dans le Grand Lac Salé en 1970 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Robert Smithson</div>
-              <div class="option" onclick="answer(this,false)">Christo</div>
-              <div class="option" onclick="answer(this,false)">Richard Serra</div>
-              <div class="option" onclick="answer(this,false)">Andy Goldsworthy</div>
+              <button class="option" onclick="answer(this,true)">Robert Smithson</button>
+              <button class="option" onclick="answer(this,false)">Christo</button>
+              <button class="option" onclick="answer(this,false)">Richard Serra</button>
+              <button class="option" onclick="answer(this,false)">Andy Goldsworthy</button>
             </div>
             <div class="q-feedback">Robert Smithson a construit cette spirale de 457 mètres en pierres et terre dans le Grand Lac Salé (Utah), icône du Land Art soumise aux variations naturelles du niveau de l'eau.</div>
           </div>
@@ -150,10 +150,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle artiste est célèbre pour ses araignées géantes Maman ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Yayoi Kusama</div>
-              <div class="option" onclick="answer(this,true)">Louise Bourgeois</div>
-              <div class="option" onclick="answer(this,false)">Niki de Saint Phalle</div>
-              <div class="option" onclick="answer(this,false)">Marina Abramovic</div>
+              <button class="option" onclick="answer(this,false)">Yayoi Kusama</button>
+              <button class="option" onclick="answer(this,true)">Louise Bourgeois</button>
+              <button class="option" onclick="answer(this,false)">Niki de Saint Phalle</button>
+              <button class="option" onclick="answer(this,false)">Marina Abramovic</button>
             </div>
             <div class="q-feedback">Louise Bourgeois a créé Maman en 1999, une araignée en bronze et acier de plus de 9 mètres de haut, oeuvre profondément personnelle liée à la mémoire de sa mère tisserande.</div>
           </div>
@@ -161,10 +161,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Comment appelle-t-on une oeuvre d'art qui transforme un espace entier et dans laquelle le spectateur pénètre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un mobile</div>
-              <div class="option" onclick="answer(this,false)">Un ready-made</div>
-              <div class="option" onclick="answer(this,true)">Une installation</div>
-              <div class="option" onclick="answer(this,false)">Un relief</div>
+              <button class="option" onclick="answer(this,false)">Un mobile</button>
+              <button class="option" onclick="answer(this,false)">Un ready-made</button>
+              <button class="option" onclick="answer(this,true)">Une installation</button>
+              <button class="option" onclick="answer(this,false)">Un relief</button>
             </div>
             <div class="q-feedback">L'installation transforme un espace entier en oeuvre d'art. Le spectateur n'est plus face à l'oeuvre — il est dedans, vivant une expérience immersive.</div>
           </div>
@@ -172,10 +172,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel matériau Richard Serra utilise-t-il principalement pour ses sculptures monumentales ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le bronze</div>
-              <div class="option" onclick="answer(this,false)">Le marbre</div>
-              <div class="option" onclick="answer(this,true)">L'acier Corten</div>
-              <div class="option" onclick="answer(this,false)">L'aluminium</div>
+              <button class="option" onclick="answer(this,false)">Le bronze</button>
+              <button class="option" onclick="answer(this,false)">Le marbre</button>
+              <button class="option" onclick="answer(this,true)">L'acier Corten</button>
+              <button class="option" onclick="answer(this,false)">L'aluminium</button>
             </div>
             <div class="q-feedback">L'acier Corten, acier auto-patinable qui développe une couche de rouille protectrice, est le matériau de prédilection de Serra pour ses plaques massives et incurvées qui transforment l'expérience spatiale.</div>
           </div>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle artiste japonaise est célèbre pour ses Infinity Mirror Rooms ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Mariko Mori</div>
-              <div class="option" onclick="answer(this,true)">Yayoi Kusama</div>
-              <div class="option" onclick="answer(this,false)">Chiharu Shiota</div>
-              <div class="option" onclick="answer(this,false)">Takashi Murakami</div>
+              <button class="option" onclick="answer(this,false)">Mariko Mori</button>
+              <button class="option" onclick="answer(this,true)">Yayoi Kusama</button>
+              <button class="option" onclick="answer(this,false)">Chiharu Shiota</button>
+              <button class="option" onclick="answer(this,false)">Takashi Murakami</button>
             </div>
             <div class="q-feedback">Yayoi Kusama (née en 1929) crée des espaces clos tapissés de miroirs et de points lumineux qui génèrent une illusion d'espace infini, à la frontière entre sculpture, architecture et expérience mystique.</div>
           </div>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Comment appelle-t-on une oeuvre conçue pour un lieu précis et ne pouvant être déplacée ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un ready-made</div>
-              <div class="option" onclick="answer(this,false)">Un mobile</div>
-              <div class="option" onclick="answer(this,false)">Un multiple</div>
-              <div class="option" onclick="answer(this,true)">Une oeuvre site-specific</div>
+              <button class="option" onclick="answer(this,false)">Un ready-made</button>
+              <button class="option" onclick="answer(this,false)">Un mobile</button>
+              <button class="option" onclick="answer(this,false)">Un multiple</button>
+              <button class="option" onclick="answer(this,true)">Une oeuvre site-specific</button>
             </div>
             <div class="q-feedback">Les oeuvres site-specific sont conçues pour un lieu précis et ne peuvent être déplacées sans perdre leur sens. Elles transforment l'expérience du lieu lui-même.</div>
           </div>
@@ -249,8 +249,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

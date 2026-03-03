@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Le mécanisme qui sélectionne, filtre et concentre nos ressources mentales — le gardien de la conscience.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Attention — Psychologie Cognitive — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #b07fe8;
   --accent2: #c9a0f0;
   --accent-dim: rgba(176,127,232,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(176,127,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(176,127,232,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧠 Cognitive</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -154,10 +154,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que démontre l'expérience du « gorille invisible » de Simons et Chabris ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Que nous voyons tout ce qui se passe autour de nous</div>
-              <div class="option" onclick="answer(this,true)">Que sans attention, même des stimuli très visibles passent inaperçus</div>
-              <div class="option" onclick="answer(this,false)">Que les gorilles sont difficiles à percevoir</div>
-              <div class="option" onclick="answer(this,false)">Que la mémoire déforme nos souvenirs</div>
+              <button class="option" onclick="answer(this,false)">Que nous voyons tout ce qui se passe autour de nous</button>
+              <button class="option" onclick="answer(this,true)">Que sans attention, même des stimuli très visibles passent inaperçus</button>
+              <button class="option" onclick="answer(this,false)">Que les gorilles sont difficiles à percevoir</button>
+              <button class="option" onclick="answer(this,false)">Que la mémoire déforme nos souvenirs</button>
             </div>
             <div class="q-feedback">La cécité inattentionnelle montre que l'attention est nécessaire à la perception consciente. Environ 50% des participants ne voient pas le gorille quand ils sont concentrés sur une autre tâche.</div>
           </div>
@@ -165,10 +165,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Selon le modèle de Broadbent, le filtre attentionnel sélectionne l'information sur la base de :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Caractéristiques physiques (localisation, tonalité)</div>
-              <div class="option" onclick="answer(this,false)">Le contenu sémantique (sens du message)</div>
-              <div class="option" onclick="answer(this,false)">L'importance émotionnelle</div>
-              <div class="option" onclick="answer(this,false)">La familiarité du stimulus</div>
+              <button class="option" onclick="answer(this,true)">Caractéristiques physiques (localisation, tonalité)</button>
+              <button class="option" onclick="answer(this,false)">Le contenu sémantique (sens du message)</button>
+              <button class="option" onclick="answer(this,false)">L'importance émotionnelle</button>
+              <button class="option" onclick="answer(this,false)">La familiarité du stimulus</button>
             </div>
             <div class="q-feedback">Le modèle du filtre précoce de Broadbent (1958) propose que la sélection se fait sur les caractéristiques physiques AVANT le traitement du sens. Ce modèle a été nuancé par Treisman qui propose un filtre atténué.</div>
           </div>
@@ -176,10 +176,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">L'effet « cocktail party » fait référence à la capacité de :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Mémoriser les noms de tous les invités</div>
-              <div class="option" onclick="answer(this,false)">Parler plus fort dans un environnement bruyant</div>
-              <div class="option" onclick="answer(this,true)">Suivre une conversation tout en détectant son nom dans une autre</div>
-              <div class="option" onclick="answer(this,false)">Oublier les conversations ennuyeuses</div>
+              <button class="option" onclick="answer(this,false)">Mémoriser les noms de tous les invités</button>
+              <button class="option" onclick="answer(this,false)">Parler plus fort dans un environnement bruyant</button>
+              <button class="option" onclick="answer(this,true)">Suivre une conversation tout en détectant son nom dans une autre</button>
+              <button class="option" onclick="answer(this,false)">Oublier les conversations ennuyeuses</button>
             </div>
             <div class="q-feedback">L'effet cocktail party (Cherry, 1953) montre qu'on peut filtrer sélectivement les voix, mais que certains stimuli très pertinents (comme son propre nom) percent le filtre attentionnel — ce qui a conduit à réviser le modèle de Broadbent.</div>
           </div>
@@ -187,10 +187,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">L'effet Stroop montre principalement que :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Nous lisons toujours les mots correctement</div>
-              <div class="option" onclick="answer(this,true)">La lecture automatique interfère avec la tâche de nommer la couleur de l'encre</div>
-              <div class="option" onclick="answer(this,false)">La perception des couleurs est indépendante du langage</div>
-              <div class="option" onclick="answer(this,false)">L'attention ne peut jamais être divisée</div>
+              <button class="option" onclick="answer(this,false)">Nous lisons toujours les mots correctement</button>
+              <button class="option" onclick="answer(this,true)">La lecture automatique interfère avec la tâche de nommer la couleur de l'encre</button>
+              <button class="option" onclick="answer(this,false)">La perception des couleurs est indépendante du langage</button>
+              <button class="option" onclick="answer(this,false)">L'attention ne peut jamais être divisée</button>
             </div>
             <div class="q-feedback">L'effet Stroop (1935) démontre que la lecture est un processus automatique difficile à inhiber. Quand le mot « ROUGE » est écrit en bleu, nommer la couleur (bleu) est ralenti car le cerveau traite automatiquement le sens du mot, créant un conflit que le contrôle exécutif doit résoudre.</div>
           </div>
@@ -198,10 +198,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Combien de réseaux attentionnels distincts Michael Posner a-t-il identifiés dans le cerveau ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Deux (alerte et orientation)</div>
-              <div class="option" onclick="answer(this,true)">Trois (alerte, orientation, contrôle exécutif)</div>
-              <div class="option" onclick="answer(this,false)">Quatre (alerte, orientation, contrôle, mémoire)</div>
-              <div class="option" onclick="answer(this,false)">Un seul réseau global</div>
+              <button class="option" onclick="answer(this,false)">Deux (alerte et orientation)</button>
+              <button class="option" onclick="answer(this,true)">Trois (alerte, orientation, contrôle exécutif)</button>
+              <button class="option" onclick="answer(this,false)">Quatre (alerte, orientation, contrôle, mémoire)</button>
+              <button class="option" onclick="answer(this,false)">Un seul réseau global</button>
             </div>
             <div class="q-feedback">Posner (1990) a identifié trois réseaux attentionnels : le réseau d'alerte (vigilance, noradrénaline), le réseau d'orientation (direction spatiale de l'attention, cortex pariétal) et le réseau de contrôle exécutif (résolution de conflits, cortex cingulaire antérieur).</div>
           </div>
@@ -209,10 +209,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Selon les recherches, combien de temps faut-il en moyenne pour retrouver une concentration profonde après une interruption (notification) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">30 secondes</div>
-              <div class="option" onclick="answer(this,false)">5 minutes</div>
-              <div class="option" onclick="answer(this,true)">Environ 23 minutes</div>
-              <div class="option" onclick="answer(this,false)">1 heure</div>
+              <button class="option" onclick="answer(this,false)">30 secondes</button>
+              <button class="option" onclick="answer(this,false)">5 minutes</button>
+              <button class="option" onclick="answer(this,true)">Environ 23 minutes</button>
+              <button class="option" onclick="answer(this,false)">1 heure</button>
             </div>
             <div class="q-feedback">Les recherches de Gloria Mark (2008) à l'Université de Californie montrent qu'après une interruption, il faut en moyenne 23 minutes et 15 secondes pour retrouver une concentration profonde sur la tâche initiale. Cela explique pourquoi les notifications constantes nuisent tant à la productivité.</div>
           </div>
@@ -273,8 +273,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

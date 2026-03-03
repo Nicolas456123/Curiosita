@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De Cartier-Bresson à Leibovitz — les maîtres qui ont défini les courants majeurs de la photographie et influencé notre regard sur le monde.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Grands photographes — Photographie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e74c3c;
   --accent2: #c0392b;
   --accent-dim: rgba(231,76,60,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(231,76,60,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(231,76,60,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📷 Photographie</span>
     <span class="tag-level">Intermédiaire</span>
@@ -128,10 +128,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel concept Henri Cartier-Bresson a-t-il théorisé ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La photographie directe</div>
-              <div class="option" onclick="answer(this,true)">L'instant décisif</div>
-              <div class="option" onclick="answer(this,false)">Le style documentaire</div>
-              <div class="option" onclick="answer(this,false)">La photographie humaniste</div>
+              <button class="option" onclick="answer(this,false)">La photographie directe</button>
+              <button class="option" onclick="answer(this,true)">L'instant décisif</button>
+              <button class="option" onclick="answer(this,false)">Le style documentaire</button>
+              <button class="option" onclick="answer(this,false)">La photographie humaniste</button>
             </div>
             <div class="q-feedback">Henri Cartier-Bresson a théorisé « l'instant décisif », ce moment fugace où la géométrie de la scène, le mouvement et l'émotion convergent en une fraction de seconde pour créer l'image parfaite.</div>
           </div>
@@ -139,10 +139,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle agence photographique Cartier-Bresson a-t-il cofondée en 1947 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Getty Images</div>
-              <div class="option" onclick="answer(this,false)">Gamma-Rapho</div>
-              <div class="option" onclick="answer(this,true)">Magnum Photos</div>
-              <div class="option" onclick="answer(this,false)">Sipa Press</div>
+              <button class="option" onclick="answer(this,false)">Getty Images</button>
+              <button class="option" onclick="answer(this,false)">Gamma-Rapho</button>
+              <button class="option" onclick="answer(this,true)">Magnum Photos</button>
+              <button class="option" onclick="answer(this,false)">Sipa Press</button>
             </div>
             <div class="q-feedback">Magnum Photos a été cofondée en 1947 par Cartier-Bresson, Robert Capa, David Seymour et George Rodger. C'est la première coopérative de photographes, permettant aux auteurs de conserver les droits sur leurs images.</div>
           </div>
@@ -150,10 +150,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel photographe est célèbre pour ses images en noir et blanc sur les migrations et le travail humain ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Robert Doisneau</div>
-              <div class="option" onclick="answer(this,false)">Annie Leibovitz</div>
-              <div class="option" onclick="answer(this,true)">Sebastião Salgado</div>
-              <div class="option" onclick="answer(this,false)">Martin Parr</div>
+              <button class="option" onclick="answer(this,false)">Robert Doisneau</button>
+              <button class="option" onclick="answer(this,false)">Annie Leibovitz</button>
+              <button class="option" onclick="answer(this,true)">Sebastião Salgado</button>
+              <button class="option" onclick="answer(this,false)">Martin Parr</button>
             </div>
             <div class="q-feedback">Sebastião Salgado est célèbre pour ses grands projets documentaires en noir et blanc : La Main de l'homme (travail), Exodes (migrations), Genesis (territoires préservés).</div>
           </div>
@@ -161,10 +161,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Pour quel magazine Annie Leibovitz est-elle devenue photographe en chef ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Rolling Stone</div>
-              <div class="option" onclick="answer(this,false)">National Geographic</div>
-              <div class="option" onclick="answer(this,false)">Time Magazine</div>
-              <div class="option" onclick="answer(this,false)">Life</div>
+              <button class="option" onclick="answer(this,true)">Rolling Stone</button>
+              <button class="option" onclick="answer(this,false)">National Geographic</button>
+              <button class="option" onclick="answer(this,false)">Time Magazine</button>
+              <button class="option" onclick="answer(this,false)">Life</button>
             </div>
             <div class="q-feedback">Annie Leibovitz a été photographe en chef de Rolling Stone dans les années 1970, où elle a forgé son style de portraits élaborés et théâtraux, avant de rejoindre Vanity Fair.</div>
           </div>
@@ -172,10 +172,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel courant photographique Robert Doisneau incarne-t-il ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le pictorialisme</div>
-              <div class="option" onclick="answer(this,false)">La Straight Photography</div>
-              <div class="option" onclick="answer(this,true)">La photographie humaniste</div>
-              <div class="option" onclick="answer(this,false)">La photographie conceptuelle</div>
+              <button class="option" onclick="answer(this,false)">Le pictorialisme</button>
+              <button class="option" onclick="answer(this,false)">La Straight Photography</button>
+              <button class="option" onclick="answer(this,true)">La photographie humaniste</button>
+              <button class="option" onclick="answer(this,false)">La photographie conceptuelle</button>
             </div>
             <div class="q-feedback">Robert Doisneau est une figure majeure de la photographie humaniste française, un mouvement des années 1930-1960 qui célèbre la poésie du quotidien et la dignité des gens ordinaires.</div>
           </div>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel photographe a défini le « documentary style » aux États-Unis dans les années 1930 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Ansel Adams</div>
-              <div class="option" onclick="answer(this,true)">Walker Evans</div>
-              <div class="option" onclick="answer(this,false)">Edward Weston</div>
-              <div class="option" onclick="answer(this,false)">Alfred Stieglitz</div>
+              <button class="option" onclick="answer(this,false)">Ansel Adams</button>
+              <button class="option" onclick="answer(this,true)">Walker Evans</button>
+              <button class="option" onclick="answer(this,false)">Edward Weston</button>
+              <button class="option" onclick="answer(this,false)">Alfred Stieglitz</button>
             </div>
             <div class="q-feedback">Walker Evans a défini le « documentary style » lors de ses missions pour la Farm Security Administration (FSA). Son approche frontale et apparemment objective a influencé des générations de photographes documentaires.</div>
           </div>
@@ -246,8 +246,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

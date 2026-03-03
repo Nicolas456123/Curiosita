@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Volonté de puissance, surhomme, éternel retour, mort de Dieu et nihilisme : la philosophie au marteau.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Nietzsche — Philosophie moderne — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8e44ad;
   --accent2: #9b59b6;
   --accent-dim: rgba(142,68,173,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">💭 Philosophie moderne</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -137,10 +137,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que signifie « Dieu est mort » pour Nietzsche ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un simple constat d'athéisme personnel</div>
-              <div class="option" onclick="answer(this,true)">L'effondrement du fondement métaphysique de la civilisation occidentale</div>
-              <div class="option" onclick="answer(this,false)">La victoire de la science sur la religion</div>
-              <div class="option" onclick="answer(this,false)">Une provocation sans portée philosophique</div>
+              <button class="option" onclick="answer(this,false)">Un simple constat d'athéisme personnel</button>
+              <button class="option" onclick="answer(this,true)">L'effondrement du fondement métaphysique de la civilisation occidentale</button>
+              <button class="option" onclick="answer(this,false)">La victoire de la science sur la religion</button>
+              <button class="option" onclick="answer(this,false)">Une provocation sans portée philosophique</button>
             </div>
             <div class="q-feedback">La mort de Dieu n'est pas un simple athéisme : c'est le constat que toutes les valeurs fondées sur la transcendance religieuse ont perdu leur fondement. L'homme moderne fait face au nihilisme.</div>
           </div>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'est-ce que la volonté de puissance ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le désir de dominer politiquement les autres</div>
-              <div class="option" onclick="answer(this,false)">La force physique brute</div>
-              <div class="option" onclick="answer(this,true)">La force fondamentale de croissance, d'affirmation et de dépassement de soi</div>
-              <div class="option" onclick="answer(this,false)">La volonté de survivre à tout prix</div>
+              <button class="option" onclick="answer(this,false)">Le désir de dominer politiquement les autres</button>
+              <button class="option" onclick="answer(this,false)">La force physique brute</button>
+              <button class="option" onclick="answer(this,true)">La force fondamentale de croissance, d'affirmation et de dépassement de soi</button>
+              <button class="option" onclick="answer(this,false)">La volonté de survivre à tout prix</button>
             </div>
             <div class="q-feedback">La volonté de puissance n'est pas un désir de domination. C'est la tendance fondamentale de tout être vivant à croître, s'affirmer et se dépasser. Elle se manifeste dans l'art, la connaissance et la création.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelles sont les trois métamorphoses de l'esprit dans Zarathoustra ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'aigle, le serpent et le lion</div>
-              <div class="option" onclick="answer(this,true)">Le chameau, le lion et l'enfant</div>
-              <div class="option" onclick="answer(this,false)">L'esclave, le maître et le surhomme</div>
-              <div class="option" onclick="answer(this,false)">Le croyant, le nihiliste et le créateur</div>
+              <button class="option" onclick="answer(this,false)">L'aigle, le serpent et le lion</button>
+              <button class="option" onclick="answer(this,true)">Le chameau, le lion et l'enfant</button>
+              <button class="option" onclick="answer(this,false)">L'esclave, le maître et le surhomme</button>
+              <button class="option" onclick="answer(this,false)">Le croyant, le nihiliste et le créateur</button>
             </div>
             <div class="q-feedback">Le chameau porte le fardeau de la tradition, le lion se révolte et dit « non », l'enfant crée librement dans l'innocence. Ces trois stades mènent vers le surhomme.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce que la « morale des esclaves » selon Nietzsche ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La morale des sociétés esclavagistes antiques</div>
-              <div class="option" onclick="answer(this,false)">L'absence totale de morale</div>
-              <div class="option" onclick="answer(this,true)">Une morale née du ressentiment qui glorifie la faiblesse et diabolise la force</div>
-              <div class="option" onclick="answer(this,false)">La morale naturelle de tous les êtres humains</div>
+              <button class="option" onclick="answer(this,false)">La morale des sociétés esclavagistes antiques</button>
+              <button class="option" onclick="answer(this,false)">L'absence totale de morale</button>
+              <button class="option" onclick="answer(this,true)">Une morale née du ressentiment qui glorifie la faiblesse et diabolise la force</button>
+              <button class="option" onclick="answer(this,false)">La morale naturelle de tous les êtres humains</button>
             </div>
             <div class="q-feedback">La morale des esclaves naît du ressentiment des faibles contre les forts. Elle inverse les valeurs aristocratiques : la faiblesse devient vertu, la force devient vice. Nietzsche y voit l'origine de la morale judéo-chrétienne.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle fonction remplit l'éternel retour dans la pensée de Nietzsche ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une théorie cosmologique sur le temps cyclique</div>
-              <div class="option" onclick="answer(this,true)">Un critère éthique : aimer assez la vie pour vouloir la revivre éternellement</div>
-              <div class="option" onclick="answer(this,false)">Une preuve de l'existence de la réincarnation</div>
-              <div class="option" onclick="answer(this,false)">Un argument contre le libre arbitre</div>
+              <button class="option" onclick="answer(this,false)">Une théorie cosmologique sur le temps cyclique</button>
+              <button class="option" onclick="answer(this,true)">Un critère éthique : aimer assez la vie pour vouloir la revivre éternellement</button>
+              <button class="option" onclick="answer(this,false)">Une preuve de l'existence de la réincarnation</button>
+              <button class="option" onclick="answer(this,false)">Un argument contre le libre arbitre</button>
             </div>
             <div class="q-feedback">L'éternel retour fonctionne comme un critère éthique suprême : si ta vie devait se répéter éternellement, la voudrais-tu ? Seul celui qui dit oui a atteint l'amor fati, l'amour du destin.</div>
           </div>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Qu'est-ce que le perspectivisme nietzschéen ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'idée que toutes les opinions se valent</div>
-              <div class="option" onclick="answer(this,false)">Une technique de dessin en trois dimensions</div>
-              <div class="option" onclick="answer(this,false)">La théorie selon laquelle seule la science dit le vrai</div>
-              <div class="option" onclick="answer(this,true)">L'idée qu'il n'y a pas de faits, seulement des interprétations</div>
+              <button class="option" onclick="answer(this,false)">L'idée que toutes les opinions se valent</button>
+              <button class="option" onclick="answer(this,false)">Une technique de dessin en trois dimensions</button>
+              <button class="option" onclick="answer(this,false)">La théorie selon laquelle seule la science dit le vrai</button>
+              <button class="option" onclick="answer(this,true)">L'idée qu'il n'y a pas de faits, seulement des interprétations</button>
             </div>
             <div class="q-feedback">Le perspectivisme affirme qu'il n'y a pas de vérité objective indépendante de tout point de vue. Chaque connaissance est une interprétation liée à une perspective. Cela ne signifie pas que tout se vaut : certaines perspectives sont plus riches que d'autres.</div>
           </div>
@@ -278,8 +278,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

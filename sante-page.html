@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De la médecine préventive aux premiers secours, en passant par la santé mentale et l'activité physique — les connaissances essentielles pour prendre soin...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Santé & Bien-être — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #8ae87a;
   --accent2: #b0f5a0;
   --accent-dim: rgba(138,232,122,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(138,232,122,0.07) 0%, transparent 70%); }
+ --accent-hero: rgba(138,232,122,0.07); }
 .hero-deco { color: rgba(138,232,122,0.04); }
 </style>
 </head>
@@ -26,7 +27,7 @@
   <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
 </nav>
 
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">❤️‍🩹</div>
   <div class="hero-meta">
     <span class="tag-domain">🔧 Savoir-faire & Vie pratique</span>
@@ -156,10 +157,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quel numéro appeler en France pour le SAMU (urgences médicales) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">15</div>
-              <div class="option" onclick="answer(this,false)">17</div>
-              <div class="option" onclick="answer(this,false)">18</div>
-              <div class="option" onclick="answer(this,false)">114</div>
+              <button class="option" onclick="answer(this,true)">15</button>
+              <button class="option" onclick="answer(this,false)">17</button>
+              <button class="option" onclick="answer(this,false)">18</button>
+              <button class="option" onclick="answer(this,false)">114</button>
             </div>
             <div class="q-feedback">Le 15 est le numéro du SAMU (Service d'Aide Médicale Urgente). Le 17 correspond à la police, le 18 aux pompiers et le 112 est le numéro européen d'urgence universel.</div>
           </div>
@@ -168,10 +169,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">La position latérale de sécurité (PLS) est utilisée quand une victime :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Saigne abondamment</div>
-              <div class="option" onclick="answer(this,true)">Est inconsciente mais respire</div>
-              <div class="option" onclick="answer(this,false)">Est en arrêt cardiaque</div>
-              <div class="option" onclick="answer(this,false)">A une fracture</div>
+              <button class="option" onclick="answer(this,false)">Saigne abondamment</button>
+              <button class="option" onclick="answer(this,true)">Est inconsciente mais respire</button>
+              <button class="option" onclick="answer(this,false)">Est en arrêt cardiaque</button>
+              <button class="option" onclick="answer(this,false)">A une fracture</button>
             </div>
             <div class="q-feedback">La PLS est indiquée pour une victime inconsciente qui respire. Elle évite l'obstruction des voies aériennes par la langue ou les vomissements. En arrêt cardiaque, on pratique la RCP.</div>
           </div>
@@ -180,10 +181,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">L'OMS recommande combien de minutes d'activité physique modérée par semaine pour un adulte ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">60 minutes</div>
-              <div class="option" onclick="answer(this,true)">150 minutes</div>
-              <div class="option" onclick="answer(this,false)">300 minutes</div>
-              <div class="option" onclick="answer(this,false)">30 minutes</div>
+              <button class="option" onclick="answer(this,false)">60 minutes</button>
+              <button class="option" onclick="answer(this,true)">150 minutes</button>
+              <button class="option" onclick="answer(this,false)">300 minutes</button>
+              <button class="option" onclick="answer(this,false)">30 minutes</button>
             </div>
             <div class="q-feedback">L'OMS recommande au moins 150 minutes d'activité modérée par semaine (environ 30 min/jour, 5 jours) ou 75 minutes d'activité intense, plus du renforcement musculaire 2 fois par semaine.</div>
           </div>
@@ -192,10 +193,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Le cortisol est une hormone associée à :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La croissance musculaire</div>
-              <div class="option" onclick="answer(this,false)">Le plaisir et la récompense</div>
-              <div class="option" onclick="answer(this,true)">Le stress</div>
-              <div class="option" onclick="answer(this,false)">Le sommeil</div>
+              <button class="option" onclick="answer(this,false)">La croissance musculaire</button>
+              <button class="option" onclick="answer(this,false)">Le plaisir et la récompense</button>
+              <button class="option" onclick="answer(this,true)">Le stress</button>
+              <button class="option" onclick="answer(this,false)">Le sommeil</button>
             </div>
             <div class="q-feedback">Le cortisol est l'hormone du stress. Utile à court terme (vigilance, énergie), un excès chronique peut causer inflammation, insomnie, anxiété et affaiblissement du système immunitaire.</div>
           </div>
@@ -204,10 +205,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Combien d'heures de sommeil par nuit sont recommandées pour un adulte ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">5 à 6 heures</div>
-              <div class="option" onclick="answer(this,true)">7 à 9 heures</div>
-              <div class="option" onclick="answer(this,false)">10 à 12 heures</div>
-              <div class="option" onclick="answer(this,false)">6 à 7 heures</div>
+              <button class="option" onclick="answer(this,false)">5 à 6 heures</button>
+              <button class="option" onclick="answer(this,true)">7 à 9 heures</button>
+              <button class="option" onclick="answer(this,false)">10 à 12 heures</button>
+              <button class="option" onclick="answer(this,false)">6 à 7 heures</button>
             </div>
             <div class="q-feedback">7 à 9 heures de sommeil par nuit sont recommandées pour un adulte (18-64 ans). Un manque chronique augmente les risques cardiovasculaires, l'obésité et les troubles cognitifs.</div>
           </div>
@@ -324,8 +325,15 @@
   </main>
 </div>
 
-<script src="utils.js"></script>
-<script src="quiz.js"></script>
-<script src="mobile.js?v=2"></script>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'écologie est la science des interactions entre les êtres vivants et leur milieu. Écosystèmes, biodiversité, changement climatique et développement...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Écologie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #a0f5ee;
   --accent-dim: rgba(122,232,216,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(122,232,216,0.07) 0%, transparent 70%); }
+ --accent-hero: rgba(122,232,216,0.07); }
 .hero-deco { color: rgba(122,232,216,0.04); }
 </style>
 </head>
@@ -23,7 +24,7 @@
   <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
 </nav>
 
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">🌿</div>
   <div class="hero-meta">
     <span class="tag-domain">🌱 Sciences de la nature</span>
@@ -148,136 +149,131 @@
       <div class="quiz-container">
         <div class="quiz-header">
           <span class="quiz-title-text">Quiz — Écologie</span>
-          <span class="quiz-score">Score : <span id="quizScore">0</span>/10</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span>/10</span>
         </div>
-        <div class="quiz-body">
+        <div class="quiz-body" id="quizBody">
           <div class="question-block active" id="q0">
             <div class="q-num">Question 1 / 10</div>
             <div class="q-text">Qu'est-ce qu'un écosystème ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(0,0)">Un groupe d'animaux de la même espèce</div>
-              <div class="option" onclick="selectOption(0,1)">Une communauté d'êtres vivants et leur milieu physique</div>
-              <div class="option" onclick="selectOption(0,2)">Un parc national protégé</div>
-              <div class="option" onclick="selectOption(0,3)">Un type de forêt tropicale</div>
+              <button class="option" onclick="answer(this,false)">Un groupe d'animaux de la même espèce</button>
+              <button class="option" onclick="answer(this,true)">Une communauté d'êtres vivants et leur milieu physique</button>
+              <button class="option" onclick="answer(this,false)">Un parc national protégé</button>
+              <button class="option" onclick="answer(this,false)">Un type de forêt tropicale</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Un écosystème est l'ensemble formé par une communauté d'êtres vivants (biocénose) en interaction avec leur milieu physico-chimique (biotope). Il inclut les flux d'énergie (soleil → producteurs → consommateurs → décomposeurs) et les cycles biogéochimiques (carbone, azote, eau).</div>
           </div>
           <div class="question-block" id="q1">
             <div class="q-num">Question 2 / 10</div>
             <div class="q-text">Quel gaz est le principal responsable de l'effet de serre renforcé ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(1,0)">L'oxygène (O₂)</div>
-              <div class="option" onclick="selectOption(1,1)">L'azote (N₂)</div>
-              <div class="option" onclick="selectOption(1,2)">Le dioxyde de carbone (CO₂)</div>
-              <div class="option" onclick="selectOption(1,3)">L'hélium (He)</div>
+              <button class="option" onclick="answer(this,false)">L'oxygène (O₂)</button>
+              <button class="option" onclick="answer(this,false)">L'azote (N₂)</button>
+              <button class="option" onclick="answer(this,true)">Le dioxyde de carbone (CO₂)</button>
+              <button class="option" onclick="answer(this,false)">L'hélium (He)</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le CO₂ est le principal gaz à effet de serre émis par les activités humaines (combustion d'énergies fossiles, déforestation). Il représente ~76 % des émissions de GES. Le méthane (CH₄) est aussi puissant mais moins abondant. L'oxygène et l'azote ne sont pas des gaz à effet de serre.</div>
           </div>
           <div class="question-block" id="q2">
             <div class="q-num">Question 3 / 10</div>
             <div class="q-text">Combien d'espèces sont menacées d'extinction selon l'IPBES (2019) ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(2,0)">100 000</div>
-              <div class="option" onclick="selectOption(2,1)">1 million</div>
-              <div class="option" onclick="selectOption(2,2)">10 millions</div>
-              <div class="option" onclick="selectOption(2,3)">500 000</div>
+              <button class="option" onclick="answer(this,false)">100 000</button>
+              <button class="option" onclick="answer(this,true)">1 million</button>
+              <button class="option" onclick="answer(this,false)">10 millions</button>
+              <button class="option" onclick="answer(this,false)">500 000</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le rapport de l'IPBES (Plateforme intergouvernementale sur la biodiversité et les services écosystémiques) de 2019 estime qu'environ 1 million d'espèces animales et végétales sont menacées d'extinction, beaucoup dans les prochaines décennies, un taux sans précédent dans l'histoire humaine.</div>
           </div>
           <div class="question-block" id="q3">
             <div class="q-num">Question 4 / 10</div>
             <div class="q-text">Quel pourcentage d'énergie est transféré d'un maillon à l'autre dans une chaîne alimentaire ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(3,0)">~50 %</div>
-              <div class="option" onclick="selectOption(3,1)">~10 %</div>
-              <div class="option" onclick="selectOption(3,2)">~90 %</div>
-              <div class="option" onclick="selectOption(3,3)">~1 %</div>
+              <button class="option" onclick="answer(this,false)">~50 %</button>
+              <button class="option" onclick="answer(this,true)">~10 %</button>
+              <button class="option" onclick="answer(this,false)">~90 %</button>
+              <button class="option" onclick="answer(this,false)">~1 %</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">En moyenne, seulement ~10 % de l'énergie est transférée d'un niveau trophique au suivant (loi des 10 %). Le reste est perdu sous forme de chaleur (métabolisme), de déchets ou n'est tout simplement pas consommé. C'est pourquoi les chaînes alimentaires dépassent rarement 4-5 maillons.</div>
           </div>
           <div class="question-block" id="q4">
             <div class="q-num">Question 5 / 10</div>
             <div class="q-text">Quelle serait la température moyenne de la Terre sans effet de serre naturel ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(4,0)">+15 °C</div>
-              <div class="option" onclick="selectOption(4,1)">0 °C</div>
-              <div class="option" onclick="selectOption(4,2)">−18 °C</div>
-              <div class="option" onclick="selectOption(4,3)">−50 °C</div>
+              <button class="option" onclick="answer(this,false)">+15 °C</button>
+              <button class="option" onclick="answer(this,false)">0 °C</button>
+              <button class="option" onclick="answer(this,true)">−18 °C</button>
+              <button class="option" onclick="answer(this,false)">−50 °C</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Sans l'effet de serre naturel (principalement dû à la vapeur d'eau, au CO₂ et au méthane), la température moyenne de la Terre serait de −18 °C au lieu de +15 °C. L'effet de serre naturel est donc vital. C'est son renforcement par les émissions humaines qui pose problème.</div>
           </div>
           <div class="question-block" id="q5">
             <div class="q-num">Question 6 / 10</div>
             <div class="q-text">Qui a défini le concept de « limites planétaires » en 2009 ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(5,0)">James Lovelock</div>
-              <div class="option" onclick="selectOption(5,1)">Rachel Carson</div>
-              <div class="option" onclick="selectOption(5,2)">Johan Rockström</div>
-              <div class="option" onclick="selectOption(5,3)">Al Gore</div>
+              <button class="option" onclick="answer(this,false)">James Lovelock</button>
+              <button class="option" onclick="answer(this,false)">Rachel Carson</button>
+              <button class="option" onclick="answer(this,true)">Johan Rockström</button>
+              <button class="option" onclick="answer(this,false)">Al Gore</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Johan Rockström (Stockholm Resilience Centre) a publié en 2009 le cadre des 9 limites planétaires, seuils au-delà desquels la stabilité du système Terre est menacée. Lovelock est connu pour l'hypothèse Gaïa, Carson pour «Printemps silencieux» (1962) sur les pesticides.</div>
           </div>
           <div class="question-block" id="q6">
             <div class="q-num">Question 7 / 10</div>
             <div class="q-text">Que signifie le sigle GIEC ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(6,0)">Groupe international d'experts du climat</div>
-              <div class="option" onclick="selectOption(6,1)">Groupe intergouvernemental d'experts sur l'évolution du climat</div>
-              <div class="option" onclick="selectOption(6,2)">Groupement industriel pour l'écologie et le climat</div>
-              <div class="option" onclick="selectOption(6,3)">Groupe interuniversitaire d'études climatiques</div>
+              <button class="option" onclick="answer(this,false)">Groupe international d'experts du climat</button>
+              <button class="option" onclick="answer(this,true)">Groupe intergouvernemental d'experts sur l'évolution du climat</button>
+              <button class="option" onclick="answer(this,false)">Groupement industriel pour l'écologie et le climat</button>
+              <button class="option" onclick="answer(this,false)">Groupe interuniversitaire d'études climatiques</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le GIEC (Groupe d'experts intergouvernemental sur l'évolution du climat), ou IPCC en anglais, a été créé en 1988 par l'ONU. Il évalue les connaissances scientifiques sur le changement climatique et publie des rapports de synthèse. Prix Nobel de la paix en 2007.</div>
           </div>
           <div class="question-block" id="q7">
             <div class="q-num">Question 8 / 10</div>
             <div class="q-text">Quel est le principal facteur de perte de biodiversité ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(7,0)">Le changement climatique</div>
-              <div class="option" onclick="selectOption(7,1)">La pollution chimique</div>
-              <div class="option" onclick="selectOption(7,2)">La destruction des habitats</div>
-              <div class="option" onclick="selectOption(7,3)">Les espèces invasives</div>
+              <button class="option" onclick="answer(this,false)">Le changement climatique</button>
+              <button class="option" onclick="answer(this,false)">La pollution chimique</button>
+              <button class="option" onclick="answer(this,true)">La destruction des habitats</button>
+              <button class="option" onclick="answer(this,false)">Les espèces invasives</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">La destruction et la fragmentation des habitats naturels (déforestation, urbanisation, agriculture intensive) est la cause n°1 de perte de biodiversité selon l'IPBES. Le changement climatique est en hausse rapide et pourrait devenir la première cause d'ici quelques décennies.</div>
           </div>
           <div class="question-block" id="q8">
             <div class="q-num">Question 9 / 10</div>
             <div class="q-text">Quelle est la concentration actuelle de CO₂ dans l'atmosphère (2024) ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(8,0)">280 ppm</div>
-              <div class="option" onclick="selectOption(8,1)">350 ppm</div>
-              <div class="option" onclick="selectOption(8,2)">Plus de 420 ppm</div>
-              <div class="option" onclick="selectOption(8,3)">600 ppm</div>
+              <button class="option" onclick="answer(this,false)">280 ppm</button>
+              <button class="option" onclick="answer(this,false)">350 ppm</button>
+              <button class="option" onclick="answer(this,true)">Plus de 420 ppm</button>
+              <button class="option" onclick="answer(this,false)">600 ppm</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">La concentration de CO₂ atmosphérique dépasse 420 ppm (parties par million) en 2024, contre 280 ppm à l'ère pré-industrielle. C'est une augmentation de 50 % en moins de 200 ans. Le niveau actuel est le plus élevé depuis au moins 800 000 ans.</div>
           </div>
           <div class="question-block" id="q9">
             <div class="q-num">Question 10 / 10</div>
             <div class="q-text">En quelle année le rapport Brundtland a-t-il défini le développement durable ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(9,0)">1972</div>
-              <div class="option" onclick="selectOption(9,1)">1987</div>
-              <div class="option" onclick="selectOption(9,2)">1992</div>
-              <div class="option" onclick="selectOption(9,3)">2000</div>
+              <button class="option" onclick="answer(this,false)">1972</button>
+              <button class="option" onclick="answer(this,true)">1987</button>
+              <button class="option" onclick="answer(this,false)">1992</button>
+              <button class="option" onclick="answer(this,false)">2000</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le rapport Brundtland («Notre avenir à tous»), publié en 1987, a défini le développement durable comme «un développement qui répond aux besoins du présent sans compromettre la capacité des générations futures à répondre aux leurs». 1972 = rapport Meadows (Club de Rome). 1992 = Sommet de Rio.</div>
           </div>
         </div>
         <div class="quiz-nav">
-          <div class="q-dots">
-            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div>
-          </div>
+          <div class="q-dots" id="qDots"></div>
           <div style="display:flex;gap:.8rem">
-            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
-            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQ()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQ()" disabled>Suivant →</button>
           </div>
         </div>
-        <div class="quiz-result">
-          <div class="result-score-big" id="finalScore"></div>
-          <div class="result-msg" id="finalMsg"></div>
-          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore"></div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
         </div>
       </div>
     </section>
@@ -385,34 +381,15 @@
   </main>
 </div>
 
-<script>
-const questions=[
-  {q:"Qu'est-ce qu'un écosystème ?",opts:["Un groupe d'animaux de la même espèce","Une communauté d'êtres vivants et leur milieu physique","Un parc national protégé","Un type de forêt tropicale"],ans:1,expl:"Un écosystème est l'ensemble formé par une communauté d'êtres vivants (biocénose) en interaction avec leur milieu physico-chimique (biotope). Il inclut les flux d'énergie (soleil → producteurs → consommateurs → décomposeurs) et les cycles biogéochimiques (carbone, azote, eau)."},
-  {q:"Quel gaz est le principal responsable de l'effet de serre renforcé ?",opts:["L'oxygène (O₂)","L'azote (N₂)","Le dioxyde de carbone (CO₂)","L'hélium (He)"],ans:2,expl:"Le CO₂ est le principal gaz à effet de serre émis par les activités humaines (combustion d'énergies fossiles, déforestation). Il représente ~76 % des émissions de GES. Le méthane (CH₄) est aussi puissant mais moins abondant. L'oxygène et l'azote ne sont pas des gaz à effet de serre."},
-  {q:"Combien d'espèces sont menacées d'extinction selon l'IPBES (2019) ?",opts:["100 000","1 million","10 millions","500 000"],ans:1,expl:"Le rapport de l'IPBES (Plateforme intergouvernementale sur la biodiversité et les services écosystémiques) de 2019 estime qu'environ 1 million d'espèces animales et végétales sont menacées d'extinction, beaucoup dans les prochaines décennies, un taux sans précédent dans l'histoire humaine."},
-  {q:"Quel pourcentage d'énergie est transféré d'un maillon à l'autre dans une chaîne alimentaire ?",opts:["~50 %","~10 %","~90 %","~1 %"],ans:1,expl:"En moyenne, seulement ~10 % de l'énergie est transférée d'un niveau trophique au suivant (loi des 10 %). Le reste est perdu sous forme de chaleur (métabolisme), de déchets ou n'est tout simplement pas consommé. C'est pourquoi les chaînes alimentaires dépassent rarement 4-5 maillons."},
-  {q:"Quelle serait la température moyenne de la Terre sans effet de serre naturel ?",opts:["+15 °C","0 °C","−18 °C","−50 °C"],ans:2,expl:"Sans l'effet de serre naturel (principalement dû à la vapeur d'eau, au CO₂ et au méthane), la température moyenne de la Terre serait de −18 °C au lieu de +15 °C. L'effet de serre naturel est donc vital. C'est son renforcement par les émissions humaines qui pose problème."},
-  {q:"Qui a défini le concept de « limites planétaires » en 2009 ?",opts:["James Lovelock","Rachel Carson","Johan Rockström","Al Gore"],ans:2,expl:"Johan Rockström (Stockholm Resilience Centre) a publié en 2009 le cadre des 9 limites planétaires, seuils au-delà desquels la stabilité du système Terre est menacée. Lovelock est connu pour l'hypothèse Gaïa, Carson pour «Printemps silencieux» (1962) sur les pesticides."},
-  {q:"Que signifie le sigle GIEC ?",opts:["Groupe international d'experts du climat","Groupe intergouvernemental d'experts sur l'évolution du climat","Groupement industriel pour l'écologie et le climat","Groupe interuniversitaire d'études climatiques"],ans:1,expl:"Le GIEC (Groupe d'experts intergouvernemental sur l'évolution du climat), ou IPCC en anglais, a été créé en 1988 par l'ONU. Il évalue les connaissances scientifiques sur le changement climatique et publie des rapports de synthèse. Prix Nobel de la paix en 2007."},
-  {q:"Quel est le principal facteur de perte de biodiversité ?",opts:["Le changement climatique","La pollution chimique","La destruction des habitats","Les espèces invasives"],ans:2,expl:"La destruction et la fragmentation des habitats naturels (déforestation, urbanisation, agriculture intensive) est la cause n°1 de perte de biodiversité selon l'IPBES. Le changement climatique est en hausse rapide et pourrait devenir la première cause d'ici quelques décennies."},
-  {q:"Quelle est la concentration actuelle de CO₂ dans l'atmosphère (2024) ?",opts:["280 ppm","350 ppm","Plus de 420 ppm","600 ppm"],ans:2,expl:"La concentration de CO₂ atmosphérique dépasse 420 ppm (parties par million) en 2024, contre 280 ppm à l'ère pré-industrielle. C'est une augmentation de 50 % en moins de 200 ans. Le niveau actuel est le plus élevé depuis au moins 800 000 ans."},
-  {q:"En quelle année le rapport Brundtland a-t-il défini le développement durable ?",opts:["1972","1987","1992","2000"],ans:1,expl:"Le rapport Brundtland («Notre avenir à tous»), publié en 1987, a défini le développement durable comme «un développement qui répond aux besoins du présent sans compromettre la capacité des générations futures à répondre aux leurs». 1972 = rapport Meadows (Club de Rome). 1992 = Sommet de Rio."}
-];
-const TOTAL=questions.length;
-let current=0,score=0,answered=new Array(TOTAL).fill(null);
-function renderQuestion(){document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});document.getElementById('btnPrev').disabled=current===0;document.getElementById('btnNext').textContent=current===TOTAL-1?'Voir résultats':'Suivant →';}
-function selectOption(qi,oi){if(answered[qi]!==null)return;answered[qi]=oi;const block=document.querySelectorAll('.question-block')[qi];block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');}
-function nextQuestion(){if(current<TOTAL-1){current++;renderQuestion();}else showResult();}
-function prevQuestion(){if(current>0){current--;renderQuestion();}}
-function showResult(){document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';const r=document.querySelector('.quiz-result');r.style.display='block';document.getElementById('finalScore').textContent=score+'/'+TOTAL;document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Très bien !','Excellent !'][score<=3?0:score<=6?1:score<=8?2:3];}
-function restartQuiz(){current=0;score=0;answered.fill(null);document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');document.getElementById('quizScore').textContent=0;renderQuestion();}
-function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
-(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
-const sections=['resume','enjeux','concepts','quiz','ressources','memo'];
-window.addEventListener('scroll',()=>{let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';});
-function downloadMemo(){const w=window.open('','_blank','width=900,height=700');w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Écologie</title><style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#1a8a7e;border-bottom:3px solid #1a8a7e;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#1a8a7e;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #b2dfdb;padding:1rem;border-radius:4px;background:#f0fffe}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style></head><body><h1>🌿 Fiche mémo — Écologie & Environnement</h1><div class="grid"><div class="box"><h2>Écosystèmes</h2><ul><li>Biocénose (vivant) + Biotope (milieu) = Écosystème</li><li>Producteurs → Consommateurs → Décomposeurs</li><li>~10 % d'énergie transférée par maillon</li><li>Cycles biogéochimiques : C, N, P, H₂O</li></ul></div><div class="box"><h2>Changement climatique</h2><ul><li>CO₂ : 280 ppm → 420+ ppm</li><li>+1,1 °C depuis 1850</li><li>GIEC : +1,5 à +4,4 °C d'ici 2100</li><li>GES : CO₂ (76 %), CH₄ (16 %), N₂O (6 %)</li><li>Sans effet de serre : −18 °C</li></ul></div><div class="box"><h2>Biodiversité</h2><ul><li>8-10 millions d'espèces estimées</li><li>1 million menacées (IPBES, 2019)</li><li>6e extinction de masse</li><li>Cause n°1 : destruction des habitats</li><li>Services écosystémiques = pollinisation, eau, climat</li></ul></div><div class="box"><h2>Repères</h2><ul><li>Limites planétaires : 6/9 franchies (2023)</li><li>Brundtland 1987 → développement durable</li><li>Rio 1992, Kyoto 1997, Paris 2015</li><li>17 ODD (Objectifs de développement durable)</li><li>Empreinte FR : 2,9 planètes nécessaires</li></ul></div></div><div class="footer">Curiosita — Fiche mémo Écologie — ${new Date().toLocaleDateString('fr-FR')}</div><button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#1a8a7e;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">🖨️ Imprimer / PDF</button></body></html>`);w.document.close();}
-renderQuestion();
-</script>
-    <script src="mobile.js?v=2"></script>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

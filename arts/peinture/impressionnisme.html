@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La révolution de la lumière et de l'instant — quand la peinture sort de l'atelier pour capturer le monde tel qu'il apparaît.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>L'Impressionnisme — Peinture — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎨 Peinture</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -150,10 +150,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel tableau de Monet a donné son nom au mouvement impressionniste ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les Nymphéas</div>
-              <div class="option" onclick="answer(this,true)">Impression, soleil levant</div>
-              <div class="option" onclick="answer(this,false)">La Cathédrale de Rouen</div>
-              <div class="option" onclick="answer(this,false)">Les Meules</div>
+              <button class="option" onclick="answer(this,false)">Les Nymphéas</button>
+              <button class="option" onclick="answer(this,true)">Impression, soleil levant</button>
+              <button class="option" onclick="answer(this,false)">La Cathédrale de Rouen</button>
+              <button class="option" onclick="answer(this,false)">Les Meules</button>
             </div>
             <div class="q-feedback">Impression, soleil levant (1872), exposé en 1874 chez Nadar, inspira le critique Louis Leroy à inventer le terme « impressionnisme ».</div>
           </div>
@@ -161,10 +161,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle innovation technique a rendu possible la peinture en plein air ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'invention de la photographie</div>
-              <div class="option" onclick="answer(this,false)">La perspective linéaire</div>
-              <div class="option" onclick="answer(this,true)">L'invention du tube de peinture</div>
-              <div class="option" onclick="answer(this,false)">Le chevalet portable</div>
+              <button class="option" onclick="answer(this,false)">L'invention de la photographie</button>
+              <button class="option" onclick="answer(this,false)">La perspective linéaire</button>
+              <button class="option" onclick="answer(this,true)">L'invention du tube de peinture</button>
+              <button class="option" onclick="answer(this,false)">Le chevalet portable</button>
             </div>
             <div class="q-feedback">Le tube de peinture en étain, inventé vers 1840, a permis aux peintres de transporter facilement leurs couleurs pour peindre en extérieur.</div>
           </div>
@@ -172,10 +172,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel artiste impressionniste est particulièrement connu pour ses scènes de ballet ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Claude Monet</div>
-              <div class="option" onclick="answer(this,false)">Pierre-Auguste Renoir</div>
-              <div class="option" onclick="answer(this,true)">Edgar Degas</div>
-              <div class="option" onclick="answer(this,false)">Camille Pissarro</div>
+              <button class="option" onclick="answer(this,false)">Claude Monet</button>
+              <button class="option" onclick="answer(this,false)">Pierre-Auguste Renoir</button>
+              <button class="option" onclick="answer(this,true)">Edgar Degas</button>
+              <button class="option" onclick="answer(this,false)">Camille Pissarro</button>
             </div>
             <div class="q-feedback">Edgar Degas a consacré une grande partie de son oeuvre aux danseuses de l'Opéra de Paris, avec des cadrages audacieux inspirés de la photographie.</div>
           </div>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel principe optique les impressionnistes utilisent-ils en juxtaposant des touches de couleur pure ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le clair-obscur</div>
-              <div class="option" onclick="answer(this,true)">Le mélange optique</div>
-              <div class="option" onclick="answer(this,false)">La perspective atmosphérique</div>
-              <div class="option" onclick="answer(this,false)">Le sfumato</div>
+              <button class="option" onclick="answer(this,false)">Le clair-obscur</button>
+              <button class="option" onclick="answer(this,true)">Le mélange optique</button>
+              <button class="option" onclick="answer(this,false)">La perspective atmosphérique</button>
+              <button class="option" onclick="answer(this,false)">Le sfumato</button>
             </div>
             <div class="q-feedback">Le mélange optique repose sur la juxtaposition de touches de couleur pure : c'est l'oeil du spectateur qui mélange les teintes à distance, produisant des couleurs plus vibrantes.</div>
           </div>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle artiste impressionniste a apporté une sensibilité intimiste au mouvement avec ses scènes domestiques ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Mary Cassatt</div>
-              <div class="option" onclick="answer(this,true)">Berthe Morisot</div>
-              <div class="option" onclick="answer(this,false)">Rosa Bonheur</div>
-              <div class="option" onclick="answer(this,false)">Eva Gonzalès</div>
+              <button class="option" onclick="answer(this,false)">Mary Cassatt</button>
+              <button class="option" onclick="answer(this,true)">Berthe Morisot</button>
+              <button class="option" onclick="answer(this,false)">Rosa Bonheur</button>
+              <button class="option" onclick="answer(this,false)">Eva Gonzalès</button>
             </div>
             <div class="q-feedback">Berthe Morisot (1841-1895) a peint des scènes domestiques et des portraits avec une touche libre et lumineuse, défiant les conventions qui marginalisaient les femmes artistes.</div>
           </div>
@@ -205,10 +205,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel courant artistique étranger a fortement influencé la composition des impressionnistes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'art byzantin</div>
-              <div class="option" onclick="answer(this,false)">L'art précolombien</div>
-              <div class="option" onclick="answer(this,true)">L'estampe japonaise (japonisme)</div>
-              <div class="option" onclick="answer(this,false)">L'art islamique</div>
+              <button class="option" onclick="answer(this,false)">L'art byzantin</button>
+              <button class="option" onclick="answer(this,false)">L'art précolombien</button>
+              <button class="option" onclick="answer(this,true)">L'estampe japonaise (japonisme)</button>
+              <button class="option" onclick="answer(this,false)">L'art islamique</button>
             </div>
             <div class="q-feedback">Les estampes japonaises (ukiyo-e), découvertes à Paris dans les années 1860, ont influencé les impressionnistes par leurs cadrages audacieux, aplats de couleur et compositions asymétriques.</div>
           </div>
@@ -263,8 +263,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

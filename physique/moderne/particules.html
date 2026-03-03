@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Modèle standard, quarks, leptons, bosons, accélérateurs et boson de Higgs — explorer les briques élémentaires de l'univers et les forces qui les...">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Physique des particules — Physique moderne — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8e44ad;
   --accent2: #9b59b6;
   --accent-dim: rgba(142,68,173,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">⚛️ Physique moderne</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">De quels quarks le proton est-il constitué ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Trois quarks up (uuu)</div>
-              <div class="option" onclick="answer(this,true)">Deux quarks up et un quark down (uud)</div>
-              <div class="option" onclick="answer(this,false)">Un quark up et deux quarks down (udd)</div>
-              <div class="option" onclick="answer(this,false)">Un quark charm et deux quarks strange</div>
+              <button class="option" onclick="answer(this,false)">Trois quarks up (uuu)</button>
+              <button class="option" onclick="answer(this,true)">Deux quarks up et un quark down (uud)</button>
+              <button class="option" onclick="answer(this,false)">Un quark up et deux quarks down (udd)</button>
+              <button class="option" onclick="answer(this,false)">Un quark charm et deux quarks strange</button>
             </div>
             <div class="q-feedback">Le proton est composé de deux quarks up (charge +2/3 chacun) et un quark down (charge −1/3), donnant une charge totale de +2/3 + 2/3 − 1/3 = +1. Le neutron est udd (charge nulle).</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel boson médie la force électromagnétique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le gluon</div>
-              <div class="option" onclick="answer(this,false)">Le boson W</div>
-              <div class="option" onclick="answer(this,true)">Le photon</div>
-              <div class="option" onclick="answer(this,false)">Le boson de Higgs</div>
+              <button class="option" onclick="answer(this,false)">Le gluon</button>
+              <button class="option" onclick="answer(this,false)">Le boson W</button>
+              <button class="option" onclick="answer(this,true)">Le photon</button>
+              <button class="option" onclick="answer(this,false)">Le boson de Higgs</button>
             </div>
             <div class="q-feedback">Le photon (γ) est le boson de jauge de la force électromagnétique. Il est sans masse et de portée infinie, ce qui explique que la force électromagnétique agit à toute distance.</div>
           </div>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">En quelle année le boson de Higgs a-t-il été découvert au CERN ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1995</div>
-              <div class="option" onclick="answer(this,false)">2008</div>
-              <div class="option" onclick="answer(this,true)">2012</div>
-              <div class="option" onclick="answer(this,false)">2016</div>
+              <button class="option" onclick="answer(this,false)">1995</button>
+              <button class="option" onclick="answer(this,false)">2008</button>
+              <button class="option" onclick="answer(this,true)">2012</button>
+              <button class="option" onclick="answer(this,false)">2016</button>
             </div>
             <div class="q-feedback">Le boson de Higgs a été découvert le 4 juillet 2012 par les expériences ATLAS et CMS au LHC du CERN, avec une masse d'environ 125 GeV/c². Peter Higgs et François Englert ont reçu le prix Nobel en 2013.</div>
           </div>
@@ -200,10 +200,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Pourquoi les quarks ne sont-ils jamais observés isolément ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Ils sont trop petits pour être détectés</div>
-              <div class="option" onclick="answer(this,false)">Ils se désintègrent trop rapidement</div>
-              <div class="option" onclick="answer(this,true)">À cause du confinement par la force forte</div>
-              <div class="option" onclick="answer(this,false)">Ils n'existent que dans les étoiles</div>
+              <button class="option" onclick="answer(this,false)">Ils sont trop petits pour être détectés</button>
+              <button class="option" onclick="answer(this,false)">Ils se désintègrent trop rapidement</button>
+              <button class="option" onclick="answer(this,true)">À cause du confinement par la force forte</button>
+              <button class="option" onclick="answer(this,false)">Ils n'existent que dans les étoiles</button>
             </div>
             <div class="q-feedback">Le confinement est une propriété fondamentale de la chromodynamique quantique (QCD) : l'énergie de liaison entre quarks augmente avec la distance. Si l'on tente de séparer deux quarks, l'énergie crée de nouvelles paires quark-antiquark plutôt que de libérer des quarks isolés.</div>
           </div>
@@ -211,10 +211,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle particule hypothétique constitue le principal candidat pour la matière noire dans le cadre de la supersymétrie ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le graviton</div>
-              <div class="option" onclick="answer(this,true)">Les WIMPs (particules massives interagissant faiblement)</div>
-              <div class="option" onclick="answer(this,false)">Les photons noirs</div>
-              <div class="option" onclick="answer(this,false)">Les tachyons</div>
+              <button class="option" onclick="answer(this,false)">Le graviton</button>
+              <button class="option" onclick="answer(this,true)">Les WIMPs (particules massives interagissant faiblement)</button>
+              <button class="option" onclick="answer(this,false)">Les photons noirs</button>
+              <button class="option" onclick="answer(this,false)">Les tachyons</button>
             </div>
             <div class="q-feedback">Les WIMPs (Weakly Interacting Massive Particles) sont les candidats les plus étudiés pour la matière noire. Dans les modèles supersymétriques, le neutralino (particule supersymétrique la plus légère) est un candidat WIMP naturel.</div>
           </div>
@@ -222,10 +222,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle est l'énergie de collision maximale du LHC ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1,96 TeV</div>
-              <div class="option" onclick="answer(this,false)">7 TeV</div>
-              <div class="option" onclick="answer(this,true)">13,6 TeV</div>
-              <div class="option" onclick="answer(this,false)">100 TeV</div>
+              <button class="option" onclick="answer(this,false)">1,96 TeV</button>
+              <button class="option" onclick="answer(this,false)">7 TeV</button>
+              <button class="option" onclick="answer(this,true)">13,6 TeV</button>
+              <button class="option" onclick="answer(this,false)">100 TeV</button>
             </div>
             <div class="q-feedback">Le LHC atteint une énergie de collision de 13,6 TeV (6,8 TeV par faisceau) depuis le Run 3 débuté en 2022. C'est le collisionneur le plus puissant jamais construit, avec un anneau de 27 km de circonférence.</div>
           </div>
@@ -321,8 +321,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

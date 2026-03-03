@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Regrouper les observations similaires — k-means, classification hiérarchique, dendrogramme et mesures de qualité du clustering.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Classification — Analyse de données — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #4fc3f7;
   --accent2: #81d4fa;
   --accent-dim: rgba(79,195,247,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🗂️ Analyse de données</span>
     <span class="tag-level">Avancé</span>
@@ -142,10 +142,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Que minimise l'algorithme k-means ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La variance inter-classes</div>
-              <div class="option" onclick="answer(this,true)">L'inertie intra-classe</div>
-              <div class="option" onclick="answer(this,false)">Le nombre de classes</div>
-              <div class="option" onclick="answer(this,false)">La distance entre les centres</div>
+              <button class="option" onclick="answer(this,false)">La variance inter-classes</button>
+              <button class="option" onclick="answer(this,true)">L'inertie intra-classe</button>
+              <button class="option" onclick="answer(this,false)">Le nombre de classes</button>
+              <button class="option" onclick="answer(this,false)">La distance entre les centres</button>
             </div>
             <div class="q-feedback">K-means minimise la somme des distances au carré entre chaque individu et le centre de sa classe, c'est-à-dire l'inertie intra-classe.</div>
           </div>
@@ -153,10 +153,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Quel est l'avantage principal de la CAH par rapport à k-means ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Elle est plus rapide</div>
-              <div class="option" onclick="answer(this,false)">Elle produit toujours de meilleurs résultats</div>
-              <div class="option" onclick="answer(this,true)">Elle ne nécessite pas de fixer k à l'avance</div>
-              <div class="option" onclick="answer(this,false)">Elle fonctionne sans mesure de distance</div>
+              <button class="option" onclick="answer(this,false)">Elle est plus rapide</button>
+              <button class="option" onclick="answer(this,false)">Elle produit toujours de meilleurs résultats</button>
+              <button class="option" onclick="answer(this,true)">Elle ne nécessite pas de fixer k à l'avance</button>
+              <button class="option" onclick="answer(this,false)">Elle fonctionne sans mesure de distance</button>
             </div>
             <div class="q-feedback">La CAH produit un dendrogramme complet qui permet de choisir le nombre de classes a posteriori en coupant l'arbre à différents niveaux.</div>
           </div>
@@ -164,10 +164,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">L'indice de silhouette mesure :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le nombre optimal de clusters</div>
-              <div class="option" onclick="answer(this,true)">La qualité de l'affectation de chaque individu à son cluster</div>
-              <div class="option" onclick="answer(this,false)">La distance entre les centres des clusters</div>
-              <div class="option" onclick="answer(this,false)">La variance totale des données</div>
+              <button class="option" onclick="answer(this,false)">Le nombre optimal de clusters</button>
+              <button class="option" onclick="answer(this,true)">La qualité de l'affectation de chaque individu à son cluster</button>
+              <button class="option" onclick="answer(this,false)">La distance entre les centres des clusters</button>
+              <button class="option" onclick="answer(this,false)">La variance totale des données</button>
             </div>
             <div class="q-feedback">L'indice de silhouette compare, pour chaque individu, sa distance moyenne aux membres de son cluster à sa distance moyenne aux membres du cluster le plus proche. Il varie de -1 à 1.</div>
           </div>
@@ -175,10 +175,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Le critère de Ward en CAH cherche à minimiser :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La distance entre les deux individus les plus éloignés</div>
-              <div class="option" onclick="answer(this,true)">L'augmentation d'inertie intra-classe à chaque fusion</div>
-              <div class="option" onclick="answer(this,false)">Le nombre total de fusions</div>
-              <div class="option" onclick="answer(this,false)">La taille du plus grand cluster</div>
+              <button class="option" onclick="answer(this,false)">La distance entre les deux individus les plus éloignés</button>
+              <button class="option" onclick="answer(this,true)">L'augmentation d'inertie intra-classe à chaque fusion</button>
+              <button class="option" onclick="answer(this,false)">Le nombre total de fusions</button>
+              <button class="option" onclick="answer(this,false)">La taille du plus grand cluster</button>
             </div>
             <div class="q-feedback">À chaque étape, le critère de Ward fusionne les deux groupes dont la réunion entraîne la plus petite augmentation d'inertie intra-classe. Il produit des classes compactes et équilibrées.</div>
           </div>
@@ -186,10 +186,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Pourquoi lance-t-on souvent k-means plusieurs fois avec des initialisations différentes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pour augmenter la vitesse de convergence</div>
-              <div class="option" onclick="answer(this,true)">Parce que l'algorithme converge vers un minimum local qui dépend de l'initialisation</div>
-              <div class="option" onclick="answer(this,false)">Pour trouver automatiquement le bon nombre de classes</div>
-              <div class="option" onclick="answer(this,false)">Pour réduire le nombre d'itérations nécessaires</div>
+              <button class="option" onclick="answer(this,false)">Pour augmenter la vitesse de convergence</button>
+              <button class="option" onclick="answer(this,true)">Parce que l'algorithme converge vers un minimum local qui dépend de l'initialisation</button>
+              <button class="option" onclick="answer(this,false)">Pour trouver automatiquement le bon nombre de classes</button>
+              <button class="option" onclick="answer(this,false)">Pour réduire le nombre d'itérations nécessaires</button>
             </div>
             <div class="q-feedback">K-means converge toujours, mais vers un minimum local de l'inertie intra-classe. Le résultat dépend des centres initiaux, donc on lance plusieurs fois l'algorithme et on conserve le meilleur résultat.</div>
           </div>
@@ -250,8 +250,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -90,6 +90,20 @@ nav {
   position: relative;
   overflow: hidden;
 }
+/* Hero tier variants — gradient + padding driven by --accent-hero */
+.hero--course {
+  padding: 6rem 2.5rem 2.5rem;
+  background: radial-gradient(ellipse 50% 40% at 25% 50%, var(--accent-hero, transparent) 0%, transparent 70%);
+}
+.hero--course h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+.hero--hub {
+  padding: 7rem 2.5rem 3rem;
+  background: radial-gradient(ellipse 50% 40% at 25% 50%, var(--accent-hero, transparent) 0%, transparent 70%);
+}
+.hero--hub h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+.hero--discipline {
+  background: radial-gradient(ellipse 70% 60% at 25% 50%, var(--accent-hero, transparent) 0%, transparent 70%);
+}
 .hero-deco {
   position: absolute; top: -2rem; right: 3rem;
   font-family: 'Playfair Display', serif; font-size: 16rem; font-weight: 900;
@@ -215,6 +229,10 @@ nav {
 .q-num { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.8rem; }
 .q-text { font-size: 1rem; font-weight: 400; margin-bottom: 1.5rem; line-height: 1.6; }
 .options { display: flex; flex-direction: column; gap: 0.7rem; }
+button.option {
+  width: 100%; text-align: left; font-family: inherit;
+  font-size: inherit; line-height: inherit; color: inherit; cursor: pointer;
+}
 .option {
   padding: 0.85rem 1.2rem; border: 1px solid var(--border); border-radius: 5px;
   cursor: pointer; font-size: 0.9rem; transition: all 0.2s; background: var(--surface2);
@@ -337,17 +355,6 @@ nav {
   color: rgba(79,195,247,0.07); padding: 8rem 2rem; line-height: 1.8;
   pointer-events: none; overflow: hidden; white-space: pre;
 }
-.hero-grid-bg {
-  position: absolute; inset: 0;
-  background-image: linear-gradient(rgba(240,237,232,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(240,237,232,0.04) 1px, transparent 1px);
-  background-size: 40px 40px; pointer-events: none;
-}
-.hero-formula {
-  position: absolute; top: 50%; right: 3rem; transform: translateY(-50%);
-  font-size: clamp(1.2rem, 3vw, 1.8rem); color: rgba(240,237,232,0.06);
-  font-family: 'Lora', serif; font-style: italic; line-height: 2.2;
-  pointer-events: none; text-align: right;
-}
 .hero-orbs { position: absolute; inset: 0; pointer-events: none; }
 .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; }
 .orb1 { width: 400px; height: 400px; background: var(--accent); top: -100px; right: 10%; }
@@ -407,6 +414,18 @@ nav {
 .course-content ul, .course-content ol { color: var(--content-color); font-size: 0.92rem; line-height: 1.8; margin: 1rem 0 1.5rem 1.5rem; }
 .course-content li { margin-bottom: 0.5rem; }
 .course-content strong { color: var(--text); }
+
+/* === FOOTER === */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 2.5rem;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.site-footer a { color: var(--muted); text-decoration: none; }
+.site-footer a:hover { color: var(--accent); }
+.footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 0.5rem; }
 
 /* === ANIMATIONS === */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -492,7 +511,6 @@ nav {
   .tag-domain, .tag-level, .tag-time { font-size: 0.6rem; padding: 0.2rem 0.5rem; }
   .hero-deco { display: none; }
   .hero-bg-code { display: none; }
-  .hero-formula { display: none; }
   .hero-stats { gap: 1.2rem; flex-wrap: wrap; }
   .hstat-val { font-size: 1.2rem; }
   .hstat-lab { font-size: 0.6rem; }

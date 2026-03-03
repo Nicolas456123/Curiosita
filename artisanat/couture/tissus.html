@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Coton, lin, soie, laine, synthétiques : propriétés, usages et choix du bon tissu pour chaque projet.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Tissus et fibres — Couture — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧶 Couture</span>
     <span class="tag-level">Débutant</span>
@@ -142,10 +142,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle fibre naturelle est la plus utilisée au monde ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Le coton</div>
-              <div class="option" onclick="answer(this,false)">La soie</div>
-              <div class="option" onclick="answer(this,false)">Le lin</div>
-              <div class="option" onclick="answer(this,false)">La laine</div>
+              <button class="option" onclick="answer(this,true)">Le coton</button>
+              <button class="option" onclick="answer(this,false)">La soie</button>
+              <button class="option" onclick="answer(this,false)">Le lin</button>
+              <button class="option" onclick="answer(this,false)">La laine</button>
             </div>
             <div class="q-feedback">Le coton est de loin la fibre naturelle la plus cultivée et utilisée au monde, représentant environ 25 % de la production textile mondiale.</div>
           </div>
@@ -153,10 +153,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle armure produit les diagonales caractéristiques du denim ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'armure toile</div>
-              <div class="option" onclick="answer(this,true)">L'armure sergé</div>
-              <div class="option" onclick="answer(this,false)">L'armure satin</div>
-              <div class="option" onclick="answer(this,false)">L'armure jacquard</div>
+              <button class="option" onclick="answer(this,false)">L'armure toile</button>
+              <button class="option" onclick="answer(this,true)">L'armure sergé</button>
+              <button class="option" onclick="answer(this,false)">L'armure satin</button>
+              <button class="option" onclick="answer(this,false)">L'armure jacquard</button>
             </div>
             <div class="q-feedback">Le sergé est reconnaissable à ses diagonales. Le denim est l'exemple le plus emblématique de cette armure, avec ses côtes obliques visibles.</div>
           </div>
@@ -164,10 +164,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Pourquoi faut-il prélaver certains tissus avant la coupe ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pour les assouplir</div>
-              <div class="option" onclick="answer(this,false)">Pour enlever les produits chimiques</div>
-              <div class="option" onclick="answer(this,true)">Pour anticiper le retrait au lavage</div>
-              <div class="option" onclick="answer(this,false)">Pour faciliter la coupe</div>
+              <button class="option" onclick="answer(this,false)">Pour les assouplir</button>
+              <button class="option" onclick="answer(this,false)">Pour enlever les produits chimiques</button>
+              <button class="option" onclick="answer(this,true)">Pour anticiper le retrait au lavage</button>
+              <button class="option" onclick="answer(this,false)">Pour faciliter la coupe</button>
             </div>
             <div class="q-feedback">Le coton et le lin peuvent rétrécir de 3 à 8 % au premier lavage. Prélaver le tissu permet d'éviter que le vêtement fini ne rétrécisse et ne change de taille.</div>
           </div>
@@ -175,10 +175,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle est la caractéristique principale de l'élasthanne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Sa résistance à la chaleur</div>
-              <div class="option" onclick="answer(this,false)">Son lustre brillant</div>
-              <div class="option" onclick="answer(this,true)">Son extensibilité exceptionnelle</div>
-              <div class="option" onclick="answer(this,false)">Sa capacité d'absorption</div>
+              <button class="option" onclick="answer(this,false)">Sa résistance à la chaleur</button>
+              <button class="option" onclick="answer(this,false)">Son lustre brillant</button>
+              <button class="option" onclick="answer(this,true)">Son extensibilité exceptionnelle</button>
+              <button class="option" onclick="answer(this,false)">Sa capacité d'absorption</button>
             </div>
             <div class="q-feedback">L'élasthanne (aussi appelé Lycra ou Spandex) peut s'étirer jusqu'à 600 % de sa longueur initiale. Même 2 à 5 % dans un mélange suffisent à apporter un confort notable.</div>
           </div>
@@ -186,10 +186,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Comment reconnaît-on une armure satin ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Par ses diagonales régulières</div>
-              <div class="option" onclick="answer(this,false)">Par son aspect identique des deux côtés</div>
-              <div class="option" onclick="answer(this,true)">Par sa surface lisse et brillante d'un côté</div>
-              <div class="option" onclick="answer(this,false)">Par ses carreaux réguliers</div>
+              <button class="option" onclick="answer(this,false)">Par ses diagonales régulières</button>
+              <button class="option" onclick="answer(this,false)">Par son aspect identique des deux côtés</button>
+              <button class="option" onclick="answer(this,true)">Par sa surface lisse et brillante d'un côté</button>
+              <button class="option" onclick="answer(this,false)">Par ses carreaux réguliers</button>
             </div>
             <div class="q-feedback">L'armure satin produit une face brillante et lisse (les fils flottent longtemps en surface) et un envers mat. C'est ce qui donne au satin son lustre caractéristique.</div>
           </div>
@@ -197,10 +197,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel est le grammage approximatif d'un denim classique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">60 g/m²</div>
-              <div class="option" onclick="answer(this,false)">120 g/m²</div>
-              <div class="option" onclick="answer(this,true)">300-400 g/m²</div>
-              <div class="option" onclick="answer(this,false)">600 g/m²</div>
+              <button class="option" onclick="answer(this,false)">60 g/m²</button>
+              <button class="option" onclick="answer(this,false)">120 g/m²</button>
+              <button class="option" onclick="answer(this,true)">300-400 g/m²</button>
+              <button class="option" onclick="answer(this,false)">600 g/m²</button>
             </div>
             <div class="q-feedback">Un denim classique pèse entre 300 et 400 g/m². Les denims légers (chambray) peuvent descendre à 150 g/m², tandis que les denims lourds (selvage) peuvent atteindre 500 g/m².</div>
           </div>
@@ -270,8 +270,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

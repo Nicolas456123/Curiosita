@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Désordre, irréversibilité, flèche du temps et entropie statistique de Boltzmann.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Entropie — Thermodynamique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08);  --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../sciences-exactes.html">Sciences exactes</a> › <a href="../thermodynamique.html">Thermodynamique</a> › <span>Entropie</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🌡️ Thermodynamique</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -97,12 +97,12 @@
       <div class="quiz-container">
         <div class="quiz-header"><span class="quiz-title-text">🌡️ Entropie — Quiz</span><span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span></div>
         <div class="quiz-body" id="quizBody">
-          <div class="question-block active" data-q="0"><p class="q-num">Question 1 / 6</p><p class="q-text">Quelle est la formule de l'entropie statistique de Boltzmann ?</p><div class="options"><div class="option" onclick="answer(this,false)">S = k_B × Ω</div><div class="option" onclick="answer(this,true)">S = k_B × ln(Ω)</div><div class="option" onclick="answer(this,false)">S = k_B × Ω²</div><div class="option" onclick="answer(this,false)">S = k_B / ln(Ω)</div></div><div class="q-feedback">S = k_B × ln(Ω), où Ω est le nombre de micro-états accessibles. Le logarithme assure l'additivité de l'entropie pour des systèmes indépendants.</div></div>
-          <div class="question-block" data-q="1"><p class="q-num">Question 2 / 6</p><p class="q-text">Pour un système isolé, l'entropie...</p><div class="options"><div class="option" onclick="answer(this,false)">Diminue toujours</div><div class="option" onclick="answer(this,false)">Reste constante</div><div class="option" onclick="answer(this,true)">Ne peut qu'augmenter ou rester constante</div><div class="option" onclick="answer(this,false)">Peut augmenter ou diminuer</div></div><div class="q-feedback">Pour un système isolé, ΔS ≥ 0 (deuxième principe). L'entropie augmente lors de transformations irréversibles et reste constante uniquement pour les transformations réversibles.</div></div>
-          <div class="question-block" data-q="2"><p class="q-num">Question 3 / 6</p><p class="q-text">La variation d'entropie d'une transformation adiabatique réversible est...</p><div class="options"><div class="option" onclick="answer(this,true)">Nulle (isentropique)</div><div class="option" onclick="answer(this,false)">Toujours positive</div><div class="option" onclick="answer(this,false)">Toujours négative</div><div class="option" onclick="answer(this,false)">Égale à Q/T</div></div><div class="q-feedback">Adiabatique (Q = 0) et réversible → dS = δQ_rév/T = 0. La transformation est isentropique (S = constante).</div></div>
-          <div class="question-block" data-q="3"><p class="q-num">Question 4 / 6</p><p class="q-text">Pourquoi un verre brisé ne se reconstitue-t-il jamais spontanément ?</p><div class="options"><div class="option" onclick="answer(this,false)">Les lois de Newton l'interdisent</div><div class="option" onclick="answer(this,false)">La conservation de l'énergie l'empêche</div><div class="option" onclick="answer(this,true)">Le nombre de micro-états désordonnés est astronomiquement plus grand</div><div class="option" onclick="answer(this,false)">La gravité empêche les morceaux de remonter</div></div><div class="q-feedback">Les lois microscopiques sont réversibles, mais les états désordonnés sont tellement plus nombreux que le retour à l'ordre est statistiquement impossible pour ~10²³ particules.</div></div>
-          <div class="question-block" data-q="4"><p class="q-num">Question 5 / 6</p><p class="q-text">Le principe de Landauer stipule que l'effacement d'un bit d'information...</p><div class="options"><div class="option" onclick="answer(this,false)">Ne produit aucune chaleur</div><div class="option" onclick="answer(this,true)">Produit au minimum k_B × T × ln(2) joules de chaleur</div><div class="option" onclick="answer(this,false)">Diminue l'entropie de l'univers</div><div class="option" onclick="answer(this,false)">Viole le deuxième principe</div></div><div class="q-feedback">Le principe de Landauer (1961) établit un lien fondamental entre information et thermodynamique : effacer un bit coûte au minimum k_B × T × ln(2) joules de chaleur.</div></div>
-          <div class="question-block" data-q="5"><p class="q-num">Question 6 / 6</p><p class="q-text">L'entropie d'un gaz parfait lors d'une détente isotherme (V₂ > V₁)...</p><div class="options"><div class="option" onclick="answer(this,true)">Augmente</div><div class="option" onclick="answer(this,false)">Diminue</div><div class="option" onclick="answer(this,false)">Reste constante</div><div class="option" onclick="answer(this,false)">Dépend de la pression</div></div><div class="q-feedback">ΔS = nR ln(V₂/V₁). Comme V₂ > V₁, ln(V₂/V₁) > 0, donc ΔS > 0. Le gaz a plus de volume accessible, donc plus de micro-états possibles.</div></div>
+          <div class="question-block active" data-q="0"><p class="q-num">Question 1 / 6</p><p class="q-text">Quelle est la formule de l'entropie statistique de Boltzmann ?</p><div class="options"><button class="option" onclick="answer(this,false)">S = k_B × Ω</button><button class="option" onclick="answer(this,true)">S = k_B × ln(Ω)</button><button class="option" onclick="answer(this,false)">S = k_B × Ω²</button><button class="option" onclick="answer(this,false)">S = k_B / ln(Ω)</button></div><div class="q-feedback">S = k_B × ln(Ω), où Ω est le nombre de micro-états accessibles. Le logarithme assure l'additivité de l'entropie pour des systèmes indépendants.</div></div>
+          <div class="question-block" data-q="1"><p class="q-num">Question 2 / 6</p><p class="q-text">Pour un système isolé, l'entropie...</p><div class="options"><button class="option" onclick="answer(this,false)">Diminue toujours</button><button class="option" onclick="answer(this,false)">Reste constante</button><button class="option" onclick="answer(this,true)">Ne peut qu'augmenter ou rester constante</button><button class="option" onclick="answer(this,false)">Peut augmenter ou diminuer</button></div><div class="q-feedback">Pour un système isolé, ΔS ≥ 0 (deuxième principe). L'entropie augmente lors de transformations irréversibles et reste constante uniquement pour les transformations réversibles.</div></div>
+          <div class="question-block" data-q="2"><p class="q-num">Question 3 / 6</p><p class="q-text">La variation d'entropie d'une transformation adiabatique réversible est...</p><div class="options"><button class="option" onclick="answer(this,true)">Nulle (isentropique)</button><button class="option" onclick="answer(this,false)">Toujours positive</button><button class="option" onclick="answer(this,false)">Toujours négative</button><button class="option" onclick="answer(this,false)">Égale à Q/T</button></div><div class="q-feedback">Adiabatique (Q = 0) et réversible → dS = δQ_rév/T = 0. La transformation est isentropique (S = constante).</div></div>
+          <div class="question-block" data-q="3"><p class="q-num">Question 4 / 6</p><p class="q-text">Pourquoi un verre brisé ne se reconstitue-t-il jamais spontanément ?</p><div class="options"><button class="option" onclick="answer(this,false)">Les lois de Newton l'interdisent</button><button class="option" onclick="answer(this,false)">La conservation de l'énergie l'empêche</button><button class="option" onclick="answer(this,true)">Le nombre de micro-états désordonnés est astronomiquement plus grand</button><button class="option" onclick="answer(this,false)">La gravité empêche les morceaux de remonter</button></div><div class="q-feedback">Les lois microscopiques sont réversibles, mais les états désordonnés sont tellement plus nombreux que le retour à l'ordre est statistiquement impossible pour ~10²³ particules.</div></div>
+          <div class="question-block" data-q="4"><p class="q-num">Question 5 / 6</p><p class="q-text">Le principe de Landauer stipule que l'effacement d'un bit d'information...</p><div class="options"><button class="option" onclick="answer(this,false)">Ne produit aucune chaleur</button><button class="option" onclick="answer(this,true)">Produit au minimum k_B × T × ln(2) joules de chaleur</button><button class="option" onclick="answer(this,false)">Diminue l'entropie de l'univers</button><button class="option" onclick="answer(this,false)">Viole le deuxième principe</button></div><div class="q-feedback">Le principe de Landauer (1961) établit un lien fondamental entre information et thermodynamique : effacer un bit coûte au minimum k_B × T × ln(2) joules de chaleur.</div></div>
+          <div class="question-block" data-q="5"><p class="q-num">Question 6 / 6</p><p class="q-text">L'entropie d'un gaz parfait lors d'une détente isotherme (V₂ > V₁)...</p><div class="options"><button class="option" onclick="answer(this,true)">Augmente</button><button class="option" onclick="answer(this,false)">Diminue</button><button class="option" onclick="answer(this,false)">Reste constante</button><button class="option" onclick="answer(this,false)">Dépend de la pression</button></div><div class="q-feedback">ΔS = nR ln(V₂/V₁). Comme V₂ > V₁, ln(V₂/V₁) > 0, donc ΔS > 0. Le gaz a plus de volume accessible, donc plus de micro-états possibles.</div></div>
         </div>
         <div class="quiz-result" id="quizResult"><div class="result-score-big" id="resultScore">0/6</div><div class="result-msg" id="resultMsg"></div><button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button></div>
         <div class="quiz-nav"><button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button><div class="q-dots" id="qDots"></div><button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button></div>
@@ -138,8 +138,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

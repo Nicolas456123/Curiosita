@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'étude scientifique de l'esprit humain — comment nous percevons, mémorisons, raisonnons et prenons des décisions. Comprendre son cerveau pour mieux vivre.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Psychologie Cognitive — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -29,8 +31,7 @@
   --red-dim: rgba(248,113,113,0.1);
   --red-border: rgba(248,113,113,0.3);
   --red-text: var(--red);
-}
-.hero { padding: 9rem 2.5rem 5rem; background: radial-gradient(ellipse 80% 60% at 30% 50%, rgba(176,127,232,0.08) 0%, transparent 70%); }
+ --accent-hero: rgba(176,127,232,0.08); }
 .highlight-box strong { color: var(--accent2); }
 .quiz-header { background: linear-gradient(135deg, var(--surface2), var(--surface3)); }
 </style>
@@ -45,7 +46,7 @@
   <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
 </nav>
 
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-orbs"><div class="orb orb1"></div><div class="orb orb2"></div></div>
   <div class="hero-meta">
     <span class="tag-domain">🌍 Sciences humaines & sociales</span>
@@ -273,10 +274,10 @@
             <p class="q-num">Question 1 / 10</p>
             <p class="q-text">Selon George Miller, combien d'éléments notre mémoire de travail peut-elle contenir en moyenne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">3 ± 1</div>
-              <div class="option" onclick="answer(this,true)">7 ± 2</div>
-              <div class="option" onclick="answer(this,false)">12 ± 3</div>
-              <div class="option" onclick="answer(this,false)">5 ± 1</div>
+              <button class="option" onclick="answer(this,false)">3 ± 1</button>
+              <button class="option" onclick="answer(this,true)">7 ± 2</button>
+              <button class="option" onclick="answer(this,false)">12 ± 3</button>
+              <button class="option" onclick="answer(this,false)">5 ± 1</button>
             </div>
             <div class="q-feedback">Miller (1956) a établi que notre mémoire de travail peut retenir 7 ± 2 "chunks" d'information. C'est pour ça que les numéros de téléphone classiques ont 7 chiffres !</div>
           </div>
@@ -286,10 +287,10 @@
             <p class="q-text">Quel biais cognitif se manifeste dans cette situation ?</p>
             <div class="q-scenario">Antoine voit un manteau affiché "Prix normal : 400€, Prix soldé : 199€". Il pense faire une bonne affaire, même s'il n'avait pas l'intention d'acheter ce manteau.</div>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Effet de halo</div>
-              <div class="option" onclick="answer(this,true)">Biais d'ancrage</div>
-              <div class="option" onclick="answer(this,false)">Aversion à la perte</div>
-              <div class="option" onclick="answer(this,false)">Biais de confirmation</div>
+              <button class="option" onclick="answer(this,false)">Effet de halo</button>
+              <button class="option" onclick="answer(this,true)">Biais d'ancrage</button>
+              <button class="option" onclick="answer(this,false)">Aversion à la perte</button>
+              <button class="option" onclick="answer(this,false)">Biais de confirmation</button>
             </div>
             <div class="q-feedback">Le biais d'ancrage : le prix "normal" de 400€ sert d'ancre. Tous les jugements suivants sont relatifs à cette première information, qui peut être arbitraire ou même inventée.</div>
           </div>
@@ -298,10 +299,10 @@
             <p class="q-num">Question 3 / 10</p>
             <p class="q-text">Dans le modèle de Kahneman, le Système 1 de pensée est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Lent, délibéré et analytique</div>
-              <div class="option" onclick="answer(this,true)">Rapide, automatique et intuitif</div>
-              <div class="option" onclick="answer(this,false)">Logique et mathématique</div>
-              <div class="option" onclick="answer(this,false)">Contrôlé par le cortex préfrontal</div>
+              <button class="option" onclick="answer(this,false)">Lent, délibéré et analytique</button>
+              <button class="option" onclick="answer(this,true)">Rapide, automatique et intuitif</button>
+              <button class="option" onclick="answer(this,false)">Logique et mathématique</button>
+              <button class="option" onclick="answer(this,false)">Contrôlé par le cortex préfrontal</button>
             </div>
             <div class="q-feedback">Le Système 1 est automatique, rapide et heuristique. Il gère nos actions habituelles et nos jugements rapides. Le Système 2 est délibéré et cognitvement coûteux — on l'utilise le moins possible.</div>
           </div>
@@ -310,10 +311,10 @@
             <p class="q-num">Question 4 / 10</p>
             <p class="q-text">L'aversion à la perte signifie que psychologiquement :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Perdre et gagner la même somme ont le même impact</div>
-              <div class="option" onclick="answer(this,false)">Gagner est plus motivant que perdre</div>
-              <div class="option" onclick="answer(this,true)">Perdre 100€ est environ 2x plus douloureux que gagner 100€ est agréable</div>
-              <div class="option" onclick="answer(this,false)">On ne ressent pas les gains</div>
+              <button class="option" onclick="answer(this,false)">Perdre et gagner la même somme ont le même impact</button>
+              <button class="option" onclick="answer(this,false)">Gagner est plus motivant que perdre</button>
+              <button class="option" onclick="answer(this,true)">Perdre 100€ est environ 2x plus douloureux que gagner 100€ est agréable</button>
+              <button class="option" onclick="answer(this,false)">On ne ressent pas les gains</button>
             </div>
             <div class="q-feedback">Kahneman et Tversky ont quantifié : l'impact négatif d'une perte est environ 2 à 2,5 fois plus intense que l'impact positif d'un gain équivalent. Cela explique des comportements économiques "irrationnels".</div>
           </div>
@@ -322,10 +323,10 @@
             <p class="q-num">Question 5 / 10</p>
             <p class="q-text">La thérapie cognitivo-comportementale (TCC) repose sur :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'analyse des rêves et de l'inconscient</div>
-              <div class="option" onclick="answer(this,true)">Le lien entre pensées, émotions et comportements</div>
-              <div class="option" onclick="answer(this,false)">La médication exclusive</div>
-              <div class="option" onclick="answer(this,false)">L'hypnose et la suggestion</div>
+              <button class="option" onclick="answer(this,false)">L'analyse des rêves et de l'inconscient</button>
+              <button class="option" onclick="answer(this,true)">Le lien entre pensées, émotions et comportements</button>
+              <button class="option" onclick="answer(this,false)">La médication exclusive</button>
+              <button class="option" onclick="answer(this,false)">L'hypnose et la suggestion</button>
             </div>
             <div class="q-feedback">La TCC part du principe que nos pensées influencent nos émotions et nos comportements. En identifiant et modifiant les schémas de pensée dysfonctionnels, on peut changer les émotions et comportements associés.</div>
           </div>
@@ -334,10 +335,10 @@
             <p class="q-num">Question 6 / 10</p>
             <p class="q-text">Qu'est-ce que l'"effet Dunning-Kruger" ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La tendance à suivre l'avis de la majorité</div>
-              <div class="option" onclick="answer(this,false)">La difficulté à changer d'avis face aux preuves</div>
-              <div class="option" onclick="answer(this,true)">Les personnes peu compétentes surestiment leurs capacités ; les experts les sous-estiment</div>
-              <div class="option" onclick="answer(this,false)">La peur de l'échec qui paralyse l'action</div>
+              <button class="option" onclick="answer(this,false)">La tendance à suivre l'avis de la majorité</button>
+              <button class="option" onclick="answer(this,false)">La difficulté à changer d'avis face aux preuves</button>
+              <button class="option" onclick="answer(this,true)">Les personnes peu compétentes surestiment leurs capacités ; les experts les sous-estiment</button>
+              <button class="option" onclick="answer(this,false)">La peur de l'échec qui paralyse l'action</button>
             </div>
             <div class="q-feedback">Dunning & Kruger (1999) : ceux qui manquent de compétence manquent aussi de métacognition pour le réaliser. Les experts, eux, supposent que ce qui est facile pour eux l'est pour tous — et sous-estiment leur niveau.</div>
           </div>
@@ -346,10 +347,10 @@
             <p class="q-num">Question 7 / 10</p>
             <p class="q-text">Selon Piaget, à quel stade un enfant comprend-il la "conservation" (qu'un même volume d'eau reste identique quelle que soit la forme du récipient) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Stade sensori-moteur (0-2 ans)</div>
-              <div class="option" onclick="answer(this,false)">Stade pré-opératoire (2-7 ans)</div>
-              <div class="option" onclick="answer(this,true)">Stade opératoire concret (7-11 ans)</div>
-              <div class="option" onclick="answer(this,false)">Stade formel (11+ ans)</div>
+              <button class="option" onclick="answer(this,false)">Stade sensori-moteur (0-2 ans)</button>
+              <button class="option" onclick="answer(this,false)">Stade pré-opératoire (2-7 ans)</button>
+              <button class="option" onclick="answer(this,true)">Stade opératoire concret (7-11 ans)</button>
+              <button class="option" onclick="answer(this,false)">Stade formel (11+ ans)</button>
             </div>
             <div class="q-feedback">Au stade pré-opératoire, les enfants pensent que "plus haut = plus de liquide". C'est au stade opératoire concret qu'ils comprennent la conservation : la quantité reste la même malgré la forme.</div>
           </div>
@@ -358,10 +359,10 @@
             <p class="q-num">Question 8 / 10</p>
             <p class="q-text">Le biais de confirmation signifie que nous :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Confirmons toujours nos erreurs</div>
-              <div class="option" onclick="answer(this,true)">Recherchons surtout les informations qui confirment nos croyances</div>
-              <div class="option" onclick="answer(this,false)">Copions les comportements de notre entourage</div>
-              <div class="option" onclick="answer(this,false)">Préférons les informations récentes</div>
+              <button class="option" onclick="answer(this,false)">Confirmons toujours nos erreurs</button>
+              <button class="option" onclick="answer(this,true)">Recherchons surtout les informations qui confirment nos croyances</button>
+              <button class="option" onclick="answer(this,false)">Copions les comportements de notre entourage</button>
+              <button class="option" onclick="answer(this,false)">Préférons les informations récentes</button>
             </div>
             <div class="q-feedback">Le biais de confirmation est un des plus puissants : on filtre l'information pour ne voir que ce qui confirme ce qu'on croit déjà. C'est un obstacle majeur à la pensée critique et scientifique.</div>
           </div>
@@ -370,10 +371,10 @@
             <p class="q-num">Question 9 / 10</p>
             <p class="q-text">La "mémoire épisodique" concerne :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les connaissances générales sur le monde</div>
-              <div class="option" onclick="answer(this,false)">Les habiletés motrices automatisées</div>
-              <div class="option" onclick="answer(this,true)">Les souvenirs autobiographiques d'expériences personnelles</div>
-              <div class="option" onclick="answer(this,false)">La mémoire de travail</div>
+              <button class="option" onclick="answer(this,false)">Les connaissances générales sur le monde</button>
+              <button class="option" onclick="answer(this,false)">Les habiletés motrices automatisées</button>
+              <button class="option" onclick="answer(this,true)">Les souvenirs autobiographiques d'expériences personnelles</button>
+              <button class="option" onclick="answer(this,false)">La mémoire de travail</button>
             </div>
             <div class="q-feedback">Tulving (1972) distingue mémoire épisodique (souvenirs personnels situés dans le temps et l'espace) et mémoire sémantique (connaissances générales comme "Paris est la capitale de la France").</div>
           </div>
@@ -382,10 +383,10 @@
             <p class="q-num">Question 10 / 10</p>
             <p class="q-text">Quel est le phénomène qui explique que témoins oculaires peuvent avoir des souvenirs faux mais très convaincants ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'amnésie sélective</div>
-              <div class="option" onclick="answer(this,false)">Le déni psychologique</div>
-              <div class="option" onclick="answer(this,true)">La malléabilité de la mémoire et les faux souvenirs</div>
-              <div class="option" onclick="answer(this,false)">L'effet placebo</div>
+              <button class="option" onclick="answer(this,false)">L'amnésie sélective</button>
+              <button class="option" onclick="answer(this,false)">Le déni psychologique</button>
+              <button class="option" onclick="answer(this,true)">La malléabilité de la mémoire et les faux souvenirs</button>
+              <button class="option" onclick="answer(this,false)">L'effet placebo</button>
             </div>
             <div class="q-feedback">Elizabeth Loftus a démontré que la mémoire n'est pas un enregistrement fidèle mais une reconstruction active. Des questions suggestives après un événement peuvent implanter de faux souvenirs très détaillés — avec de graves implications pour la justice.</div>
           </div>
@@ -506,8 +507,15 @@
   </main>
 </div>
 
-<script src="utils.js"></script>
-<script src="quiz.js"></script>
-    <script src="mobile.js?v=2"></script>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

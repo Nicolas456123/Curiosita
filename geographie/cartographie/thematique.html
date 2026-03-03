@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cartes choroplèthes, en cercles proportionnels, de flux et anamorphoses : visualiser les données sur un territoire.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Cartographie thématique — Cartographie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🗺️ Cartographie</span>
     <span class="tag-level">Intermédiaire</span>
@@ -147,10 +147,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel type de donnée doit-on représenter sur une carte choroplèthe ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Des valeurs absolues (population totale)</div>
-              <div class="option" onclick="answer(this,true)">Des valeurs relatives (densité, taux, pourcentage)</div>
-              <div class="option" onclick="answer(this,false)">Des données qualitatives</div>
-              <div class="option" onclick="answer(this,false)">Des flux entre territoires</div>
+              <button class="option" onclick="answer(this,false)">Des valeurs absolues (population totale)</button>
+              <button class="option" onclick="answer(this,true)">Des valeurs relatives (densité, taux, pourcentage)</button>
+              <button class="option" onclick="answer(this,false)">Des données qualitatives</button>
+              <button class="option" onclick="answer(this,false)">Des flux entre territoires</button>
             </div>
             <div class="q-feedback">Une carte choroplèthe ne doit représenter que des données relatives (densité, ratio, taux). Des valeurs absolues seraient trompeuses car les grands territoires attireraient visuellement l'attention indépendamment de leur valeur.</div>
           </div>
@@ -158,10 +158,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Combien de variables visuelles Jacques Bertin a-t-il identifiées ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">4</div>
-              <div class="option" onclick="answer(this,true)">6</div>
-              <div class="option" onclick="answer(this,false)">8</div>
-              <div class="option" onclick="answer(this,false)">10</div>
+              <button class="option" onclick="answer(this,false)">4</button>
+              <button class="option" onclick="answer(this,true)">6</button>
+              <button class="option" onclick="answer(this,false)">8</button>
+              <button class="option" onclick="answer(this,false)">10</button>
             </div>
             <div class="q-feedback">Jacques Bertin a identifié six variables visuelles dans sa Sémiologie graphique (1967) : taille, valeur, grain, couleur, orientation et forme. Ces variables constituent la grammaire de la représentation cartographique.</div>
           </div>
@@ -169,10 +169,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Dans une carte en cercles proportionnels, qu'est-ce qui est proportionnel à la valeur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le rayon du cercle</div>
-              <div class="option" onclick="answer(this,false)">Le diamètre du cercle</div>
-              <div class="option" onclick="answer(this,true)">La surface du cercle</div>
-              <div class="option" onclick="answer(this,false)">La couleur du cercle</div>
+              <button class="option" onclick="answer(this,false)">Le rayon du cercle</button>
+              <button class="option" onclick="answer(this,false)">Le diamètre du cercle</button>
+              <button class="option" onclick="answer(this,true)">La surface du cercle</button>
+              <button class="option" onclick="answer(this,false)">La couleur du cercle</button>
             </div>
             <div class="q-feedback">C'est la surface du cercle qui doit être proportionnelle à la valeur représentée. Le rayon varie donc comme la racine carrée de la valeur (puisque la surface = pi × r²).</div>
           </div>
@@ -180,10 +180,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce qu'une anamorphose cartographique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une carte sans déformation</div>
-              <div class="option" onclick="answer(this,false)">Une carte animée</div>
-              <div class="option" onclick="answer(this,true)">Une carte où la surface des territoires est proportionnelle à une variable</div>
-              <div class="option" onclick="answer(this,false)">Une carte en 3D</div>
+              <button class="option" onclick="answer(this,false)">Une carte sans déformation</button>
+              <button class="option" onclick="answer(this,false)">Une carte animée</button>
+              <button class="option" onclick="answer(this,true)">Une carte où la surface des territoires est proportionnelle à une variable</button>
+              <button class="option" onclick="answer(this,false)">Une carte en 3D</button>
             </div>
             <div class="q-feedback">Une anamorphose (ou cartogramme) déforme la géométrie des territoires pour que leur surface soit proportionnelle à la variable représentée. Cela crée un effet visuel saisissant qui met en évidence les inégalités.</div>
           </div>
@@ -191,10 +191,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel type de carte utilise-t-on pour représenter des échanges commerciaux entre pays ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Carte choroplèthe</div>
-              <div class="option" onclick="answer(this,false)">Carte en cercles proportionnels</div>
-              <div class="option" onclick="answer(this,true)">Carte de flux</div>
-              <div class="option" onclick="answer(this,false)">Anamorphose</div>
+              <button class="option" onclick="answer(this,false)">Carte choroplèthe</button>
+              <button class="option" onclick="answer(this,false)">Carte en cercles proportionnels</button>
+              <button class="option" onclick="answer(this,true)">Carte de flux</button>
+              <button class="option" onclick="answer(this,false)">Anamorphose</button>
             </div>
             <div class="q-feedback">Les échanges commerciaux sont des mouvements entre lieux : on utilise une carte de flux avec des flèches dont la largeur est proportionnelle à la valeur des échanges et dont le sens indique la direction.</div>
           </div>
@@ -202,10 +202,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel élément n'est PAS obligatoire sur une carte thématique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le titre</div>
-              <div class="option" onclick="answer(this,false)">La légende</div>
-              <div class="option" onclick="answer(this,true)">Une photographie satellite en fond</div>
-              <div class="option" onclick="answer(this,false)">La source des données</div>
+              <button class="option" onclick="answer(this,false)">Le titre</button>
+              <button class="option" onclick="answer(this,false)">La légende</button>
+              <button class="option" onclick="answer(this,true)">Une photographie satellite en fond</button>
+              <button class="option" onclick="answer(this,false)">La source des données</button>
             </div>
             <div class="q-feedback">Une photographie satellite en fond n'est pas obligatoire et peut même nuire à la lisibilité. Les éléments obligatoires sont : titre, légende, échelle, orientation, source des données, auteur et date.</div>
           </div>
@@ -275,8 +275,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

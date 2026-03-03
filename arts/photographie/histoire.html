@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Du daguerréotype au numérique — deux siècles d'inventions qui ont changé notre regard sur le monde.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Histoire de la photographie — Photographie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎨 Photographie</span>
     <span class="tag-level">Débutant</span>
@@ -143,10 +143,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qui a réalisé la première photographie connue en 1826 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Louis Daguerre</div>
-              <div class="option" onclick="answer(this,true)">Nicéphore Niépce</div>
-              <div class="option" onclick="answer(this,false)">William Fox Talbot</div>
-              <div class="option" onclick="answer(this,false)">George Eastman</div>
+              <button class="option" onclick="answer(this,false)">Louis Daguerre</button>
+              <button class="option" onclick="answer(this,true)">Nicéphore Niépce</button>
+              <button class="option" onclick="answer(this,false)">William Fox Talbot</button>
+              <button class="option" onclick="answer(this,false)">George Eastman</button>
             </div>
             <div class="q-feedback">Nicéphore Niépce a réalisé Point de vue du Gras en 1826, la plus ancienne photographie connue, avec un temps de pose d'environ 8 heures.</div>
           </div>
@@ -154,10 +154,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel appareil photo compact, lancé en 1925, a révolutionné la pratique photographique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le Kodak Brownie</div>
-              <div class="option" onclick="answer(this,false)">Le Rolleiflex</div>
-              <div class="option" onclick="answer(this,true)">Le Leica</div>
-              <div class="option" onclick="answer(this,false)">Le Hasselblad</div>
+              <button class="option" onclick="answer(this,false)">Le Kodak Brownie</button>
+              <button class="option" onclick="answer(this,false)">Le Rolleiflex</button>
+              <button class="option" onclick="answer(this,true)">Le Leica</button>
+              <button class="option" onclick="answer(this,false)">Le Hasselblad</button>
             </div>
             <div class="q-feedback">Le Leica, premier appareil compact utilisant le film 35 mm, a permis aux photographes de travailler de manière discrète et spontanée, donnant naissance au photojournalisme moderne.</div>
           </div>
@@ -165,10 +165,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle est la date retenue comme naissance officielle de la photographie ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1826</div>
-              <div class="option" onclick="answer(this,true)">1839</div>
-              <div class="option" onclick="answer(this,false)">1841</div>
-              <div class="option" onclick="answer(this,false)">1888</div>
+              <button class="option" onclick="answer(this,false)">1826</button>
+              <button class="option" onclick="answer(this,true)">1839</button>
+              <button class="option" onclick="answer(this,false)">1841</button>
+              <button class="option" onclick="answer(this,false)">1888</button>
             </div>
             <div class="q-feedback">Le 19 août 1839, Daguerre présente le daguerréotype à l'Académie des sciences de Paris. Cette date est célébrée chaque année comme la Journée mondiale de la photographie.</div>
           </div>
@@ -176,10 +176,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel concept Henri Cartier-Bresson a-t-il théorisé pour décrire le moment parfait d'une photographie ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La photogénie</div>
-              <div class="option" onclick="answer(this,true)">L'instant décisif</div>
-              <div class="option" onclick="answer(this,false)">La photographie pure</div>
-              <div class="option" onclick="answer(this,false)">Le moment sublime</div>
+              <button class="option" onclick="answer(this,false)">La photogénie</button>
+              <button class="option" onclick="answer(this,true)">L'instant décisif</button>
+              <button class="option" onclick="answer(this,false)">La photographie pure</button>
+              <button class="option" onclick="answer(this,false)">Le moment sublime</button>
             </div>
             <div class="q-feedback">L'instant décisif, théorisé par Cartier-Bresson, désigne le moment unique où la composition géométrique et le sens émotionnel convergent en une fraction de seconde.</div>
           </div>
@@ -187,10 +187,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel procédé, lancé par les frères Lumière en 1907, est le premier procédé couleur commercialisé ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le Kodachrome</div>
-              <div class="option" onclick="answer(this,true)">L'Autochrome</div>
-              <div class="option" onclick="answer(this,false)">Le daguerréotype couleur</div>
-              <div class="option" onclick="answer(this,false)">Le Technicolor</div>
+              <button class="option" onclick="answer(this,false)">Le Kodachrome</button>
+              <button class="option" onclick="answer(this,true)">L'Autochrome</button>
+              <button class="option" onclick="answer(this,false)">Le daguerréotype couleur</button>
+              <button class="option" onclick="answer(this,false)">Le Technicolor</button>
             </div>
             <div class="q-feedback">L'Autochrome des frères Lumière (1907) utilise des grains de fécule de pomme de terre teints en trois couleurs pour filtrer la lumière et produire une image couleur sur plaque de verre.</div>
           </div>
@@ -198,10 +198,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel est l'apport fondamental du calotype de Fox Talbot par rapport au daguerréotype ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une image plus nette</div>
-              <div class="option" onclick="answer(this,false)">Un temps de pose plus court</div>
-              <div class="option" onclick="answer(this,true)">La possibilité de tirer plusieurs épreuves à partir d'un négatif</div>
-              <div class="option" onclick="answer(this,false)">La photographie en couleur</div>
+              <button class="option" onclick="answer(this,false)">Une image plus nette</button>
+              <button class="option" onclick="answer(this,false)">Un temps de pose plus court</button>
+              <button class="option" onclick="answer(this,true)">La possibilité de tirer plusieurs épreuves à partir d'un négatif</button>
+              <button class="option" onclick="answer(this,false)">La photographie en couleur</button>
             </div>
             <div class="q-feedback">Le calotype de Talbot (1841) est le premier procédé négatif-positif, permettant de reproduire une image en multiples exemplaires. Ce principe restera la base de la photographie argentique pendant plus de 150 ans.</div>
           </div>
@@ -230,8 +230,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Classification des mineraux, cycle des roches et proprietes physiques et chimiques des materiaux terrestres.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Mineraux et roches — Geologie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #7ae8d8; --accent2: #80cbc4; --accent-dim: rgba(122,232,216,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #7ae8d8; --accent2: #80cbc4; --accent-dim: rgba(122,232,216,0.08);  --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../terre-page.html">Sciences de la Terre</a> &rsaquo; <a href="../geologie.html">Geologie</a> &rsaquo; <span>Mineraux et roches</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">&#129704; Geologie</span><span class="tag-level">Debutant &rarr; Intermediaire</span><span class="tag-time">&#9201; ~45 min</span></div>
   <h1><em>Mineraux et roches</em></h1>
   <p class="hero-desc">Classification des mineraux, cycle des roches et proprietes physiques et chimiques des materiaux terrestres.</p>
@@ -93,11 +93,11 @@
       <div class="quiz-container">
         <div class="quiz-header"><span class="quiz-title-text">&#129704; Mineraux et roches — Quiz</span><span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">5</span></span></div>
         <div class="quiz-body" id="quizBody">
-          <div class="question-block active" data-q="0"><p class="q-num">Question 1 / 5</p><p class="q-text">Quel mineral a une durete de 10 sur l'echelle de Mohs ?</p><div class="options"><div class="option" onclick="answer(this,false)">Le quartz</div><div class="option" onclick="answer(this,false)">Le corindon</div><div class="option" onclick="answer(this,true)">Le diamant</div><div class="option" onclick="answer(this,false)">La topaze</div></div><div class="q-feedback">Le diamant (durete 10) est le mineral naturel le plus dur. Il est compose de carbone pur cristallise dans le systeme cubique sous tres haute pression.</div></div>
-          <div class="question-block" data-q="1"><p class="q-num">Question 2 / 5</p><p class="q-text">Quelle famille de mineraux represente environ 90% de la croute terrestre ?</p><div class="options"><div class="option" onclick="answer(this,true)">Les silicates</div><div class="option" onclick="answer(this,false)">Les carbonates</div><div class="option" onclick="answer(this,false)">Les oxydes</div><div class="option" onclick="answer(this,false)">Les sulfures</div></div><div class="q-feedback">Les silicates, bases sur le tetraedre SiO4, constituent environ 90% de la croute terrestre. Le quartz et les feldspaths sont les plus abondants.</div></div>
-          <div class="question-block" data-q="2"><p class="q-num">Question 3 / 5</p><p class="q-text">Comment se forme une roche metamorphique ?</p><div class="options"><div class="option" onclick="answer(this,false)">Par refroidissement du magma</div><div class="option" onclick="answer(this,true)">Par transformation sous pression et temperature</div><div class="option" onclick="answer(this,false)">Par accumulation de sediments</div><div class="option" onclick="answer(this,false)">Par evaporation de l'eau</div></div><div class="q-feedback">Les roches metamorphiques se forment par transformation a l'etat solide sous l'effet de la pression et/ou de la temperature. Le marbre est un calcaire metamorphise.</div></div>
-          <div class="question-block" data-q="3"><p class="q-num">Question 4 / 5</p><p class="q-text">Quel est le mineral le plus abondant dans la croute terrestre ?</p><div class="options"><div class="option" onclick="answer(this,false)">Le quartz</div><div class="option" onclick="answer(this,true)">Le feldspath</div><div class="option" onclick="answer(this,false)">L'olivine</div><div class="option" onclick="answer(this,false)">Le mica</div></div><div class="q-feedback">Les feldspaths constituent environ 60% de la croute terrestre. On distingue les feldspaths potassiques (orthose) et les plagioclases (albite a anorthite).</div></div>
-          <div class="question-block" data-q="4"><p class="q-num">Question 5 / 5</p><p class="q-text">Le granite est une roche...</p><div class="options"><div class="option" onclick="answer(this,false)">Sedimentaire</div><div class="option" onclick="answer(this,true)">Ignee plutonique</div><div class="option" onclick="answer(this,false)">Metamorphique</div><div class="option" onclick="answer(this,false)">Ignee volcanique</div></div><div class="q-feedback">Le granite est une roche ignee plutonique : il cristallise lentement en profondeur a partir du magma. Ses cristaux de quartz, feldspath et mica sont visibles a l'oeil nu.</div></div>
+          <div class="question-block active" data-q="0"><p class="q-num">Question 1 / 5</p><p class="q-text">Quel mineral a une durete de 10 sur l'echelle de Mohs ?</p><div class="options"><button class="option" onclick="answer(this,false)">Le quartz</button><button class="option" onclick="answer(this,false)">Le corindon</button><button class="option" onclick="answer(this,true)">Le diamant</button><button class="option" onclick="answer(this,false)">La topaze</button></div><div class="q-feedback">Le diamant (durete 10) est le mineral naturel le plus dur. Il est compose de carbone pur cristallise dans le systeme cubique sous tres haute pression.</div></div>
+          <div class="question-block" data-q="1"><p class="q-num">Question 2 / 5</p><p class="q-text">Quelle famille de mineraux represente environ 90% de la croute terrestre ?</p><div class="options"><button class="option" onclick="answer(this,true)">Les silicates</button><button class="option" onclick="answer(this,false)">Les carbonates</button><button class="option" onclick="answer(this,false)">Les oxydes</button><button class="option" onclick="answer(this,false)">Les sulfures</button></div><div class="q-feedback">Les silicates, bases sur le tetraedre SiO4, constituent environ 90% de la croute terrestre. Le quartz et les feldspaths sont les plus abondants.</div></div>
+          <div class="question-block" data-q="2"><p class="q-num">Question 3 / 5</p><p class="q-text">Comment se forme une roche metamorphique ?</p><div class="options"><button class="option" onclick="answer(this,false)">Par refroidissement du magma</button><button class="option" onclick="answer(this,true)">Par transformation sous pression et temperature</button><button class="option" onclick="answer(this,false)">Par accumulation de sediments</button><button class="option" onclick="answer(this,false)">Par evaporation de l'eau</button></div><div class="q-feedback">Les roches metamorphiques se forment par transformation a l'etat solide sous l'effet de la pression et/ou de la temperature. Le marbre est un calcaire metamorphise.</div></div>
+          <div class="question-block" data-q="3"><p class="q-num">Question 4 / 5</p><p class="q-text">Quel est le mineral le plus abondant dans la croute terrestre ?</p><div class="options"><button class="option" onclick="answer(this,false)">Le quartz</button><button class="option" onclick="answer(this,true)">Le feldspath</button><button class="option" onclick="answer(this,false)">L'olivine</button><button class="option" onclick="answer(this,false)">Le mica</button></div><div class="q-feedback">Les feldspaths constituent environ 60% de la croute terrestre. On distingue les feldspaths potassiques (orthose) et les plagioclases (albite a anorthite).</div></div>
+          <div class="question-block" data-q="4"><p class="q-num">Question 5 / 5</p><p class="q-text">Le granite est une roche...</p><div class="options"><button class="option" onclick="answer(this,false)">Sedimentaire</button><button class="option" onclick="answer(this,true)">Ignee plutonique</button><button class="option" onclick="answer(this,false)">Metamorphique</button><button class="option" onclick="answer(this,false)">Ignee volcanique</button></div><div class="q-feedback">Le granite est une roche ignee plutonique : il cristallise lentement en profondeur a partir du magma. Ses cristaux de quartz, feldspath et mica sont visibles a l'oeil nu.</div></div>
         </div>
         <div class="quiz-result" id="quizResult"><div class="result-score-big" id="resultScore">0/5</div><div class="result-msg" id="resultMsg"></div><button class="btn-retry" onclick="resetQuiz()">&#8634; Recommencer</button></div>
         <div class="quiz-nav"><button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>&larr; Precedent</button><div class="q-dots" id="qDots"></div><button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant &rarr;</button></div>
@@ -120,8 +120,14 @@
     <div class="course-nav"><div></div><a href="tectonique.html" class="next"><span class="course-nav-label">Cours suivant</span><span class="course-nav-title">Tectonique des plaques &rarr;</span></a></div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

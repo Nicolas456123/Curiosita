@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Le Corbusier, Frank Lloyd Wright, Zaha Hadid, Tadao Ando — les visionnaires qui ont redéfini l'espace bâti.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Grands architectes — Architecture — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">✨ Architecture</span>
     <span class="tag-level">Débutant → Avancé</span>
@@ -133,10 +133,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel architecte a formulé les « cinq points de l'architecture moderne » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Mies van der Rohe</div>
-              <div class="option" onclick="answer(this,true)">Le Corbusier</div>
-              <div class="option" onclick="answer(this,false)">Frank Lloyd Wright</div>
-              <div class="option" onclick="answer(this,false)">Walter Gropius</div>
+              <button class="option" onclick="answer(this,false)">Mies van der Rohe</button>
+              <button class="option" onclick="answer(this,true)">Le Corbusier</button>
+              <button class="option" onclick="answer(this,false)">Frank Lloyd Wright</button>
+              <button class="option" onclick="answer(this,false)">Walter Gropius</button>
             </div>
             <div class="q-feedback">Le Corbusier a formulé ses cinq points en 1927 : pilotis, plan libre, façade libre, fenêtre en bandeau, toit-terrasse. La Villa Savoye (1931) en est l'illustration parfaite.</div>
           </div>
@@ -144,10 +144,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle maison de Frank Lloyd Wright est construite au-dessus d'une cascade ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Taliesin West</div>
-              <div class="option" onclick="answer(this,true)">Fallingwater</div>
-              <div class="option" onclick="answer(this,false)">Robie House</div>
-              <div class="option" onclick="answer(this,false)">Villa Savoye</div>
+              <button class="option" onclick="answer(this,false)">Taliesin West</button>
+              <button class="option" onclick="answer(this,true)">Fallingwater</button>
+              <button class="option" onclick="answer(this,false)">Robie House</button>
+              <button class="option" onclick="answer(this,false)">Villa Savoye</button>
             </div>
             <div class="q-feedback">Fallingwater (1935), construite en porte-à-faux au-dessus de la cascade de Bear Run en Pennsylvanie, est le manifeste de l'architecture organique de Wright et l'une des maisons les plus célèbres du monde.</div>
           </div>
@@ -155,10 +155,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle est la devise de Mies van der Rohe ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Form follows function</div>
-              <div class="option" onclick="answer(this,true)">Less is more</div>
-              <div class="option" onclick="answer(this,false)">God is in the details</div>
-              <div class="option" onclick="answer(this,false)">Less is a bore</div>
+              <button class="option" onclick="answer(this,false)">Form follows function</button>
+              <button class="option" onclick="answer(this,true)">Less is more</button>
+              <button class="option" onclick="answer(this,false)">God is in the details</button>
+              <button class="option" onclick="answer(this,false)">Less is a bore</button>
             </div>
             <div class="q-feedback">« Less is more » résume la philosophie minimaliste de Mies van der Rohe : une architecture réduite à l'essentiel, où la pureté des lignes et la noblesse des matériaux suffisent à créer la beauté.</div>
           </div>
@@ -166,10 +166,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle architecte est la première femme à recevoir le prix Pritzker ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Kazuyo Sejima</div>
-              <div class="option" onclick="answer(this,true)">Zaha Hadid</div>
-              <div class="option" onclick="answer(this,false)">Jeanne Gang</div>
-              <div class="option" onclick="answer(this,false)">Odile Decq</div>
+              <button class="option" onclick="answer(this,false)">Kazuyo Sejima</button>
+              <button class="option" onclick="answer(this,true)">Zaha Hadid</button>
+              <button class="option" onclick="answer(this,false)">Jeanne Gang</button>
+              <button class="option" onclick="answer(this,false)">Odile Decq</button>
             </div>
             <div class="q-feedback">Zaha Hadid a reçu le prix Pritzker en 2004, devenant la première femme lauréate de cette distinction considérée comme le « Nobel de l'architecture ».</div>
           </div>
@@ -177,10 +177,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel matériau est la signature de Tadao Ando ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'acier Corten</div>
-              <div class="option" onclick="answer(this,false)">Le bois lamellé</div>
-              <div class="option" onclick="answer(this,true)">Le béton apparent lisse</div>
-              <div class="option" onclick="answer(this,false)">Le verre structurel</div>
+              <button class="option" onclick="answer(this,false)">L'acier Corten</button>
+              <button class="option" onclick="answer(this,false)">Le bois lamellé</button>
+              <button class="option" onclick="answer(this,true)">Le béton apparent lisse</button>
+              <button class="option" onclick="answer(this,false)">Le verre structurel</button>
             </div>
             <div class="q-feedback">Tadao Ando est le maître du béton apparent lisse (« fair-faced concrete »), qu'il utilise avec une précision extrême pour créer des espaces méditatifs où la lumière joue un rôle central.</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel bâtiment a lancé le style « high-tech » en architecture ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le Guggenheim de Bilbao</div>
-              <div class="option" onclick="answer(this,false)">Le Seagram Building</div>
-              <div class="option" onclick="answer(this,true)">Le Centre Pompidou</div>
-              <div class="option" onclick="answer(this,false)">La Villa Savoye</div>
+              <button class="option" onclick="answer(this,false)">Le Guggenheim de Bilbao</button>
+              <button class="option" onclick="answer(this,false)">Le Seagram Building</button>
+              <button class="option" onclick="answer(this,true)">Le Centre Pompidou</button>
+              <button class="option" onclick="answer(this,false)">La Villa Savoye</button>
             </div>
             <div class="q-feedback">Le Centre Pompidou (1977), conçu par Renzo Piano et Richard Rogers, a révolutionné l'architecture en exposant la structure et les services techniques (escalators, gaines colorées) en façade, devenant le manifeste du style high-tech.</div>
           </div>
@@ -255,8 +255,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Arithmétique, comparaison, logique et affectation — tous les opérateurs Python pour manipuler les données.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Opérateurs — Les bases — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #4fc3f7;
   --accent2: #81d4fa;
   --accent-dim: rgba(79,195,247,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">➕ Les bases</span>
     <span class="tag-level">Débutant</span>
@@ -252,10 +252,10 @@ x = <span class="num">0</span>
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que retourne <code>17 % 5</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">3.4</div>
-              <div class="option" onclick="answer(this,true)">2</div>
-              <div class="option" onclick="answer(this,false)">3</div>
-              <div class="option" onclick="answer(this,false)">5</div>
+              <button class="option" onclick="answer(this,false)">3.4</button>
+              <button class="option" onclick="answer(this,true)">2</button>
+              <button class="option" onclick="answer(this,false)">3</button>
+              <button class="option" onclick="answer(this,false)">5</button>
             </div>
             <div class="q-feedback">L'opérateur <code>%</code> (modulo) retourne le reste de la division entière. 17 ÷ 5 = 3 reste 2, donc 17 % 5 = 2.</div>
           </div>
@@ -263,10 +263,10 @@ x = <span class="num">0</span>
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que retourne <code>True and False or True</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">True</div>
-              <div class="option" onclick="answer(this,false)">False</div>
-              <div class="option" onclick="answer(this,false)">None</div>
-              <div class="option" onclick="answer(this,false)">Erreur</div>
+              <button class="option" onclick="answer(this,true)">True</button>
+              <button class="option" onclick="answer(this,false)">False</button>
+              <button class="option" onclick="answer(this,false)">None</button>
+              <button class="option" onclick="answer(this,false)">Erreur</button>
             </div>
             <div class="q-feedback"><code>and</code> a priorité sur <code>or</code>. Donc : (True and False) or True = False or True = True.</div>
           </div>
@@ -274,10 +274,10 @@ x = <span class="num">0</span>
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que vaut <code>x</code> après : <code>x = 10; x *= 3; x -= 5</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">25</div>
-              <div class="option" onclick="answer(this,false)">30</div>
-              <div class="option" onclick="answer(this,false)">15</div>
-              <div class="option" onclick="answer(this,false)">35</div>
+              <button class="option" onclick="answer(this,true)">25</button>
+              <button class="option" onclick="answer(this,false)">30</button>
+              <button class="option" onclick="answer(this,false)">15</button>
+              <button class="option" onclick="answer(this,false)">35</button>
             </div>
             <div class="q-feedback">x = 10, puis x *= 3 donne x = 30, puis x -= 5 donne x = 25.</div>
           </div>
@@ -285,10 +285,10 @@ x = <span class="num">0</span>
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Que retourne <code>-7 // 2</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">-3</div>
-              <div class="option" onclick="answer(this,true)">-4</div>
-              <div class="option" onclick="answer(this,false)">-3.5</div>
-              <div class="option" onclick="answer(this,false)">3</div>
+              <button class="option" onclick="answer(this,false)">-3</button>
+              <button class="option" onclick="answer(this,true)">-4</button>
+              <button class="option" onclick="answer(this,false)">-3.5</button>
+              <button class="option" onclick="answer(this,false)">3</button>
             </div>
             <div class="q-feedback">La division entière <code>//</code> arrondit vers le bas (floor). -7 / 2 = -3.5, arrondi vers le bas donne -4.</div>
           </div>
@@ -296,10 +296,10 @@ x = <span class="num">0</span>
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que retourne <code>"Py" in "Python"</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">True</div>
-              <div class="option" onclick="answer(this,false)">False</div>
-              <div class="option" onclick="answer(this,false)">0</div>
-              <div class="option" onclick="answer(this,false)">Erreur</div>
+              <button class="option" onclick="answer(this,true)">True</button>
+              <button class="option" onclick="answer(this,false)">False</button>
+              <button class="option" onclick="answer(this,false)">0</button>
+              <button class="option" onclick="answer(this,false)">Erreur</button>
             </div>
             <div class="q-feedback">L'opérateur <code>in</code> vérifie si une sous-chaîne est contenue dans une chaîne. <code>"Py"</code> est bien au début de <code>"Python"</code>, donc le résultat est <code>True</code>.</div>
           </div>
@@ -307,10 +307,10 @@ x = <span class="num">0</span>
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que retourne <code>2 ** 3 ** 2</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">64</div>
-              <div class="option" onclick="answer(this,true)">512</div>
-              <div class="option" onclick="answer(this,false)">36</div>
-              <div class="option" onclick="answer(this,false)">81</div>
+              <button class="option" onclick="answer(this,false)">64</button>
+              <button class="option" onclick="answer(this,true)">512</button>
+              <button class="option" onclick="answer(this,false)">36</button>
+              <button class="option" onclick="answer(this,false)">81</button>
             </div>
             <div class="q-feedback">L'opérateur <code>**</code> est associatif à droite. Donc <code>2 ** 3 ** 2</code> = <code>2 ** 9</code> = 512, et non <code>8 ** 2</code> = 64.</div>
           </div>
@@ -407,8 +407,14 @@ else:
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Les premiers philosophes grecs qui ont cherché à expliquer le monde par la raison plutôt que par les mythes.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Les Présocratiques — Antiquité — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #9b7ae8;
   --accent2: #b39ddb;
   --accent-dim: rgba(155,122,232,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(155,122,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(155,122,232,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🌊 Antiquité</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -145,10 +145,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel élément Thalès considère-t-il comme le principe premier de toute chose ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le feu</div>
-              <div class="option" onclick="answer(this,true)">L'eau</div>
-              <div class="option" onclick="answer(this,false)">L'air</div>
-              <div class="option" onclick="answer(this,false)">La terre</div>
+              <button class="option" onclick="answer(this,false)">Le feu</button>
+              <button class="option" onclick="answer(this,true)">L'eau</button>
+              <button class="option" onclick="answer(this,false)">L'air</button>
+              <button class="option" onclick="answer(this,false)">La terre</button>
             </div>
             <div class="q-feedback">Thalès de Milet considère l'eau comme le principe originel (archè) de toute chose. Tout vient de l'eau et y retourne.</div>
           </div>
@@ -156,10 +156,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que signifie la formule d'Héraclite « panta rhei » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Tout est nombre</div>
-              <div class="option" onclick="answer(this,false)">L'être est immobile</div>
-              <div class="option" onclick="answer(this,true)">Tout s'écoule</div>
-              <div class="option" onclick="answer(this,false)">Rien n'existe</div>
+              <button class="option" onclick="answer(this,false)">Tout est nombre</button>
+              <button class="option" onclick="answer(this,false)">L'être est immobile</button>
+              <button class="option" onclick="answer(this,true)">Tout s'écoule</button>
+              <button class="option" onclick="answer(this,false)">Rien n'existe</button>
             </div>
             <div class="q-feedback">« Panta rhei » signifie « tout s'écoule » : tout est en perpétuel changement, comme un fleuve dont les eaux se renouvellent sans cesse.</div>
           </div>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Selon Démocrite, de quoi la réalité est-elle constituée ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Des quatre éléments</div>
-              <div class="option" onclick="answer(this,false)">De l'apeiron (l'illimité)</div>
-              <div class="option" onclick="answer(this,false)">Du Logos universel</div>
-              <div class="option" onclick="answer(this,true)">D'atomes et de vide</div>
+              <button class="option" onclick="answer(this,false)">Des quatre éléments</button>
+              <button class="option" onclick="answer(this,false)">De l'apeiron (l'illimité)</button>
+              <button class="option" onclick="answer(this,false)">Du Logos universel</button>
+              <button class="option" onclick="answer(this,true)">D'atomes et de vide</button>
             </div>
             <div class="q-feedback">Démocrite soutient que tout est composé d'atomes (particules indivisibles) et de vide. Les qualités sensibles résultent de la combinaison des atomes.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce que l'apeiron selon Anaximandre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le feu primordial</div>
-              <div class="option" onclick="answer(this,false)">L'âme du monde</div>
-              <div class="option" onclick="answer(this,true)">L'illimité, le principe indéfini dont tout provient</div>
-              <div class="option" onclick="answer(this,false)">Le vide entre les atomes</div>
+              <button class="option" onclick="answer(this,false)">Le feu primordial</button>
+              <button class="option" onclick="answer(this,false)">L'âme du monde</button>
+              <button class="option" onclick="answer(this,true)">L'illimité, le principe indéfini dont tout provient</button>
+              <button class="option" onclick="answer(this,false)">Le vide entre les atomes</button>
             </div>
             <div class="q-feedback">L'apeiron (l'illimité, l'indéfini) est le principe premier selon Anaximandre. Contrairement à Thalès, il considère que l'archè ne peut pas être un élément déterminé.</div>
           </div>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que soutient Parménide au sujet du changement ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le changement est la loi fondamentale de l'univers</div>
-              <div class="option" onclick="answer(this,true)">Le changement est une illusion, car l'Être est immobile et éternel</div>
-              <div class="option" onclick="answer(this,false)">Le changement n'affecte que la matière, pas l'esprit</div>
-              <div class="option" onclick="answer(this,false)">Le changement est cyclique et revient toujours au même point</div>
+              <button class="option" onclick="answer(this,false)">Le changement est la loi fondamentale de l'univers</button>
+              <button class="option" onclick="answer(this,true)">Le changement est une illusion, car l'Être est immobile et éternel</button>
+              <button class="option" onclick="answer(this,false)">Le changement n'affecte que la matière, pas l'esprit</button>
+              <button class="option" onclick="answer(this,false)">Le changement est cyclique et revient toujours au même point</button>
             </div>
             <div class="q-feedback">Pour Parménide, le changement est logiquement impossible : il impliquerait un passage du non-être à l'être, ce qui est contradictoire. Seule la raison atteint la vérité ; les sens nous trompent.</div>
           </div>
@@ -200,10 +200,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel est le principe fondamental de la philosophie pythagoricienne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'harmonie des contraires</div>
-              <div class="option" onclick="answer(this,false)">L'atome indivisible</div>
-              <div class="option" onclick="answer(this,false)">L'eau comme élément premier</div>
-              <div class="option" onclick="answer(this,true)">Le nombre comme principe de toute chose</div>
+              <button class="option" onclick="answer(this,false)">L'harmonie des contraires</button>
+              <button class="option" onclick="answer(this,false)">L'atome indivisible</button>
+              <button class="option" onclick="answer(this,false)">L'eau comme élément premier</button>
+              <button class="option" onclick="answer(this,true)">Le nombre comme principe de toute chose</button>
             </div>
             <div class="q-feedback">Pour les pythagoriciens, le nombre est le principe de toute chose. Les rapports mathématiques gouvernent l'harmonie musicale, les astres et la structure du cosmos.</div>
           </div>
@@ -258,8 +258,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

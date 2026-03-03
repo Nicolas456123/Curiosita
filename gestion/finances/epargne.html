@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Livret A, LDDS, assurance-vie, PEL — où placer son argent, combien épargner et comment faire fructifier ses économies.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Épargne — Finances personnelles — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🏦 Finances personnelles</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -150,10 +150,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est le plafond du Livret A ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">12 000 €</div>
-              <div class="option" onclick="answer(this,true)">22 950 €</div>
-              <div class="option" onclick="answer(this,false)">30 000 €</div>
-              <div class="option" onclick="answer(this,false)">50 000 €</div>
+              <button class="option" onclick="answer(this,false)">12 000 €</button>
+              <button class="option" onclick="answer(this,true)">22 950 €</button>
+              <button class="option" onclick="answer(this,false)">30 000 €</button>
+              <button class="option" onclick="answer(this,false)">50 000 €</button>
             </div>
             <div class="q-feedback">Le plafond du Livret A est de 22 950 € (hors intérêts capitalisés). Il est limité à un par personne et exonéré d'impôts.</div>
           </div>
@@ -161,10 +161,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Combien de mois de dépenses recommande-t-on pour un fonds d'urgence ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1 à 2 mois</div>
-              <div class="option" onclick="answer(this,true)">3 à 6 mois</div>
-              <div class="option" onclick="answer(this,false)">6 à 12 mois</div>
-              <div class="option" onclick="answer(this,false)">12 à 24 mois</div>
+              <button class="option" onclick="answer(this,false)">1 à 2 mois</button>
+              <button class="option" onclick="answer(this,true)">3 à 6 mois</button>
+              <button class="option" onclick="answer(this,false)">6 à 12 mois</button>
+              <button class="option" onclick="answer(this,false)">12 à 24 mois</button>
             </div>
             <div class="q-feedback">Un fonds d'urgence de 3 à 6 mois de dépenses courantes est recommandé. Il doit être placé sur un compte liquide (Livret A) pour être accessible immédiatement en cas de besoin.</div>
           </div>
@@ -172,10 +172,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Après combien d'années l'assurance-vie bénéficie-t-elle d'une fiscalité avantageuse ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">3 ans</div>
-              <div class="option" onclick="answer(this,false)">5 ans</div>
-              <div class="option" onclick="answer(this,true)">8 ans</div>
-              <div class="option" onclick="answer(this,false)">10 ans</div>
+              <button class="option" onclick="answer(this,false)">3 ans</button>
+              <button class="option" onclick="answer(this,false)">5 ans</button>
+              <button class="option" onclick="answer(this,true)">8 ans</button>
+              <button class="option" onclick="answer(this,false)">10 ans</button>
             </div>
             <div class="q-feedback">Après 8 ans de détention, les retraits sur l'assurance-vie bénéficient d'un abattement annuel de 4 600 € sur les gains (9 200 € pour un couple). D'où l'intérêt d'ouvrir tôt pour « prendre date ».</div>
           </div>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce que le principe « se payer en premier » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Se faire plaisir avant d'épargner</div>
-              <div class="option" onclick="answer(this,true)">Épargner automatiquement dès réception du salaire</div>
-              <div class="option" onclick="answer(this,false)">Payer ses dettes avant tout</div>
-              <div class="option" onclick="answer(this,false)">Investir dans son propre business</div>
+              <button class="option" onclick="answer(this,false)">Se faire plaisir avant d'épargner</button>
+              <button class="option" onclick="answer(this,true)">Épargner automatiquement dès réception du salaire</button>
+              <button class="option" onclick="answer(this,false)">Payer ses dettes avant tout</button>
+              <button class="option" onclick="answer(this,false)">Investir dans son propre business</button>
             </div>
             <div class="q-feedback">« Se payer en premier » signifie mettre de côté son épargne dès réception du salaire, avant toute autre dépense. L'épargne n'est pas ce qui reste en fin de mois, c'est une priorité.</div>
           </div>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel est le plafond de versements sur un PEA ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">50 000 €</div>
-              <div class="option" onclick="answer(this,false)">100 000 €</div>
-              <div class="option" onclick="answer(this,true)">150 000 €</div>
-              <div class="option" onclick="answer(this,false)">225 000 €</div>
+              <button class="option" onclick="answer(this,false)">50 000 €</button>
+              <button class="option" onclick="answer(this,false)">100 000 €</button>
+              <button class="option" onclick="answer(this,true)">150 000 €</button>
+              <button class="option" onclick="answer(this,false)">225 000 €</button>
             </div>
             <div class="q-feedback">Le plafond du PEA est de 150 000 € de versements. Après 5 ans, les plus-values sont exonérées d'impôt sur le revenu (seuls les prélèvements sociaux de 17,2 % s'appliquent).</div>
           </div>
@@ -205,10 +205,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle est la première étape dans la stratégie d'épargne par paliers ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Constituer un fonds d'urgence</div>
-              <div class="option" onclick="answer(this,false)">Ouvrir une assurance-vie</div>
-              <div class="option" onclick="answer(this,false)">Investir en bourse</div>
-              <div class="option" onclick="answer(this,false)">Acheter de l'immobilier</div>
+              <button class="option" onclick="answer(this,true)">Constituer un fonds d'urgence</button>
+              <button class="option" onclick="answer(this,false)">Ouvrir une assurance-vie</button>
+              <button class="option" onclick="answer(this,false)">Investir en bourse</button>
+              <button class="option" onclick="answer(this,false)">Acheter de l'immobilier</button>
             </div>
             <div class="q-feedback">La première étape est toujours le fonds d'urgence (3-6 mois de dépenses sur Livret A/LDDS). Sans ce matelas de sécurité, un imprévu peut forcer à vendre ses investissements au pire moment.</div>
           </div>
@@ -281,8 +281,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

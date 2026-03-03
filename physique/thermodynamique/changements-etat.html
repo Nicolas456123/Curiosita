@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Fusion, vaporisation, sublimation, diagrammes de phase et chaleur latente.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Changements d'état — Thermodynamique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08);  --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../sciences-exactes.html">Sciences exactes</a> › <a href="../thermodynamique.html">Thermodynamique</a> › <span>Changements d'état</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🌡️ Thermodynamique</span>
     <span class="tag-level">Intermédiaire</span>
@@ -94,12 +94,12 @@
       <div class="quiz-container">
         <div class="quiz-header"><span class="quiz-title-text">🌡️ Changements d'état — Quiz</span><span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span></div>
         <div class="quiz-body" id="quizBody">
-          <div class="question-block active" data-q="0"><p class="q-num">Question 1 / 6</p><p class="q-text">Quelle est la chaleur latente de vaporisation de l'eau ?</p><div class="options"><div class="option" onclick="answer(this,false)">334 kJ/kg</div><div class="option" onclick="answer(this,false)">418 kJ/kg</div><div class="option" onclick="answer(this,true)">2 260 kJ/kg</div><div class="option" onclick="answer(this,false)">4 185 kJ/kg</div></div><div class="q-feedback">L_vaporisation = 2 260 kJ/kg. C'est environ 7 fois plus que la chaleur latente de fusion (334 kJ/kg).</div></div>
-          <div class="question-block" data-q="1"><p class="q-num">Question 2 / 6</p><p class="q-text">Au point triple de l'eau, combien de phases coexistent ?</p><div class="options"><div class="option" onclick="answer(this,false)">Une</div><div class="option" onclick="answer(this,false)">Deux</div><div class="option" onclick="answer(this,true)">Trois</div><div class="option" onclick="answer(this,false)">Quatre</div></div><div class="q-feedback">Au point triple (0,01 °C, 611 Pa), les trois phases — solide, liquide et gaz — coexistent en équilibre.</div></div>
-          <div class="question-block" data-q="2"><p class="q-num">Question 3 / 6</p><p class="q-text">Comment appelle-t-on le passage direct de l'état solide à l'état gazeux ?</p><div class="options"><div class="option" onclick="answer(this,false)">Vaporisation</div><div class="option" onclick="answer(this,false)">Fusion</div><div class="option" onclick="answer(this,true)">Sublimation</div><div class="option" onclick="answer(this,false)">Liquéfaction</div></div><div class="q-feedback">La sublimation est le passage direct solide → gaz. Exemple : la neige carbonique (CO₂ solide) se sublime à pression atmosphérique.</div></div>
-          <div class="question-block" data-q="3"><p class="q-num">Question 4 / 6</p><p class="q-text">Pendant un changement d'état d'un corps pur, la température...</p><div class="options"><div class="option" onclick="answer(this,true)">Reste constante</div><div class="option" onclick="answer(this,false)">Augmente toujours</div><div class="option" onclick="answer(this,false)">Diminue toujours</div><div class="option" onclick="answer(this,false)">Oscille</div></div><div class="q-feedback">Pendant un changement d'état d'un corps pur, la température reste constante. L'énergie fournie sert à modifier les liaisons intermoléculaires.</div></div>
-          <div class="question-block" data-q="4"><p class="q-num">Question 5 / 6</p><p class="q-text">Pourquoi la glace flotte-t-elle sur l'eau liquide ?</p><div class="options"><div class="option" onclick="answer(this,false)">La glace est plus chaude</div><div class="option" onclick="answer(this,true)">La glace est moins dense que l'eau liquide</div><div class="option" onclick="answer(this,false)">L'eau repousse la glace</div><div class="option" onclick="answer(this,false)">La pression atmosphérique la maintient</div></div><div class="q-feedback">L'eau est l'une des rares substances dont le solide est moins dense que le liquide. La structure cristalline de la glace occupe plus de volume.</div></div>
-          <div class="question-block" data-q="5"><p class="q-num">Question 6 / 6</p><p class="q-text">Qu'est-ce qu'un fluide supercritique ?</p><div class="options"><div class="option" onclick="answer(this,false)">Un gaz très froid</div><div class="option" onclick="answer(this,false)">Un liquide sous vide</div><div class="option" onclick="answer(this,true)">Une substance au-delà du point critique, ni liquide ni gaz</div><div class="option" onclick="answer(this,false)">Un solide à très haute pression</div></div><div class="q-feedback">Au-delà du point critique, la distinction liquide/gaz disparaît. Le fluide supercritique combine les propriétés des deux phases.</div></div>
+          <div class="question-block active" data-q="0"><p class="q-num">Question 1 / 6</p><p class="q-text">Quelle est la chaleur latente de vaporisation de l'eau ?</p><div class="options"><button class="option" onclick="answer(this,false)">334 kJ/kg</button><button class="option" onclick="answer(this,false)">418 kJ/kg</button><button class="option" onclick="answer(this,true)">2 260 kJ/kg</button><button class="option" onclick="answer(this,false)">4 185 kJ/kg</button></div><div class="q-feedback">L_vaporisation = 2 260 kJ/kg. C'est environ 7 fois plus que la chaleur latente de fusion (334 kJ/kg).</div></div>
+          <div class="question-block" data-q="1"><p class="q-num">Question 2 / 6</p><p class="q-text">Au point triple de l'eau, combien de phases coexistent ?</p><div class="options"><button class="option" onclick="answer(this,false)">Une</button><button class="option" onclick="answer(this,false)">Deux</button><button class="option" onclick="answer(this,true)">Trois</button><button class="option" onclick="answer(this,false)">Quatre</button></div><div class="q-feedback">Au point triple (0,01 °C, 611 Pa), les trois phases — solide, liquide et gaz — coexistent en équilibre.</div></div>
+          <div class="question-block" data-q="2"><p class="q-num">Question 3 / 6</p><p class="q-text">Comment appelle-t-on le passage direct de l'état solide à l'état gazeux ?</p><div class="options"><button class="option" onclick="answer(this,false)">Vaporisation</button><button class="option" onclick="answer(this,false)">Fusion</button><button class="option" onclick="answer(this,true)">Sublimation</button><button class="option" onclick="answer(this,false)">Liquéfaction</button></div><div class="q-feedback">La sublimation est le passage direct solide → gaz. Exemple : la neige carbonique (CO₂ solide) se sublime à pression atmosphérique.</div></div>
+          <div class="question-block" data-q="3"><p class="q-num">Question 4 / 6</p><p class="q-text">Pendant un changement d'état d'un corps pur, la température...</p><div class="options"><button class="option" onclick="answer(this,true)">Reste constante</button><button class="option" onclick="answer(this,false)">Augmente toujours</button><button class="option" onclick="answer(this,false)">Diminue toujours</button><button class="option" onclick="answer(this,false)">Oscille</button></div><div class="q-feedback">Pendant un changement d'état d'un corps pur, la température reste constante. L'énergie fournie sert à modifier les liaisons intermoléculaires.</div></div>
+          <div class="question-block" data-q="4"><p class="q-num">Question 5 / 6</p><p class="q-text">Pourquoi la glace flotte-t-elle sur l'eau liquide ?</p><div class="options"><button class="option" onclick="answer(this,false)">La glace est plus chaude</button><button class="option" onclick="answer(this,true)">La glace est moins dense que l'eau liquide</button><button class="option" onclick="answer(this,false)">L'eau repousse la glace</button><button class="option" onclick="answer(this,false)">La pression atmosphérique la maintient</button></div><div class="q-feedback">L'eau est l'une des rares substances dont le solide est moins dense que le liquide. La structure cristalline de la glace occupe plus de volume.</div></div>
+          <div class="question-block" data-q="5"><p class="q-num">Question 6 / 6</p><p class="q-text">Qu'est-ce qu'un fluide supercritique ?</p><div class="options"><button class="option" onclick="answer(this,false)">Un gaz très froid</button><button class="option" onclick="answer(this,false)">Un liquide sous vide</button><button class="option" onclick="answer(this,true)">Une substance au-delà du point critique, ni liquide ni gaz</button><button class="option" onclick="answer(this,false)">Un solide à très haute pression</button></div><div class="q-feedback">Au-delà du point critique, la distinction liquide/gaz disparaît. Le fluide supercritique combine les propriétés des deux phases.</div></div>
         </div>
         <div class="quiz-result" id="quizResult"><div class="result-score-big" id="resultScore">0/6</div><div class="result-msg" id="resultMsg"></div><button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button></div>
         <div class="quiz-nav"><button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button><div class="q-dots" id="qDots"></div><button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button></div>
@@ -135,8 +135,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

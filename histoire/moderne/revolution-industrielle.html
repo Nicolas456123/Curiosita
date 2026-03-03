@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Machine à vapeur, usines et urbanisation — la transformation radicale de l'économie et de la société.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Révolution industrielle — Époque moderne — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📜 Époque moderne</span>
     <span class="tag-level">Intermédiaire</span>
@@ -138,10 +138,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Qui perfectionne la machine à vapeur en 1769 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Thomas Edison</div>
-              <div class="option" onclick="answer(this,true)">James Watt</div>
-              <div class="option" onclick="answer(this,false)">George Stephenson</div>
-              <div class="option" onclick="answer(this,false)">Henry Ford</div>
+              <button class="option" onclick="answer(this,false)">Thomas Edison</button>
+              <button class="option" onclick="answer(this,true)">James Watt</button>
+              <button class="option" onclick="answer(this,false)">George Stephenson</button>
+              <button class="option" onclick="answer(this,false)">Henry Ford</button>
             </div>
             <div class="q-feedback">James Watt perfectionne la machine à vapeur en 1769, la rendant assez efficace pour alimenter les usines. C'est l'invention clé de la Révolution industrielle.</div>
           </div>
@@ -149,10 +149,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Dans quel pays la Révolution industrielle commence-t-elle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">France</div>
-              <div class="option" onclick="answer(this,true)">Angleterre</div>
-              <div class="option" onclick="answer(this,false)">Allemagne</div>
-              <div class="option" onclick="answer(this,false)">États-Unis</div>
+              <button class="option" onclick="answer(this,false)">France</button>
+              <button class="option" onclick="answer(this,true)">Angleterre</button>
+              <button class="option" onclick="answer(this,false)">Allemagne</button>
+              <button class="option" onclick="answer(this,false)">États-Unis</button>
             </div>
             <div class="q-feedback">La Révolution industrielle commence en Angleterre vers 1760, grâce à l'abondance de charbon, de fer, de capitaux et à la stabilité politique.</div>
           </div>
@@ -160,10 +160,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Quel texte Marx et Engels publient-ils en 1848 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le Capital</div>
-              <div class="option" onclick="answer(this,true)">Le Manifeste du Parti communiste</div>
-              <div class="option" onclick="answer(this,false)">La Richesse des nations</div>
-              <div class="option" onclick="answer(this,false)">Du Contrat social</div>
+              <button class="option" onclick="answer(this,false)">Le Capital</button>
+              <button class="option" onclick="answer(this,true)">Le Manifeste du Parti communiste</button>
+              <button class="option" onclick="answer(this,false)">La Richesse des nations</button>
+              <button class="option" onclick="answer(this,false)">Du Contrat social</button>
             </div>
             <div class="q-feedback">Marx et Engels publient le Manifeste du Parti communiste en 1848, analysant la lutte des classes et appelant les prolétaires à s'unir.</div>
           </div>
@@ -171,10 +171,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quel procédé permet la production d'acier en masse à partir de 1856 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le procédé de puddlage</div>
-              <div class="option" onclick="answer(this,true)">Le procédé Bessemer</div>
-              <div class="option" onclick="answer(this,false)">Le procédé Haber</div>
-              <div class="option" onclick="answer(this,false)">Le procédé Solvay</div>
+              <button class="option" onclick="answer(this,false)">Le procédé de puddlage</button>
+              <button class="option" onclick="answer(this,true)">Le procédé Bessemer</button>
+              <button class="option" onclick="answer(this,false)">Le procédé Haber</button>
+              <button class="option" onclick="answer(this,false)">Le procédé Solvay</button>
             </div>
             <div class="q-feedback">Le procédé Bessemer (1856) permet de transformer la fonte en acier rapidement et à moindre coût, rendant possible la construction de gratte-ciel, de ponts et de navires en acier.</div>
           </div>
@@ -182,10 +182,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quel industriel américain introduit la chaîne de montage en 1913 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Thomas Edison</div>
-              <div class="option" onclick="answer(this,false)">Andrew Carnegie</div>
-              <div class="option" onclick="answer(this,false)">Frederick Taylor</div>
-              <div class="option" onclick="answer(this,true)">Henry Ford</div>
+              <button class="option" onclick="answer(this,false)">Thomas Edison</button>
+              <button class="option" onclick="answer(this,false)">Andrew Carnegie</button>
+              <button class="option" onclick="answer(this,false)">Frederick Taylor</button>
+              <button class="option" onclick="answer(this,true)">Henry Ford</button>
             </div>
             <div class="q-feedback">Henry Ford introduit la chaîne de montage dans ses usines en 1913, réduisant le temps d'assemblage d'une Ford T de 12 heures à 93 minutes et rendant l'automobile accessible à la classe moyenne.</div>
           </div>
@@ -217,8 +217,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

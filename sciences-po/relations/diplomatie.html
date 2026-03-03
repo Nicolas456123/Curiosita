@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ONU, UE, OTAN, OMS : les institutions de la coopération et de la gouvernance mondiale.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Diplomatie et organisations — Relations internationales — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a9b;
   --accent2: #f09ab5;
   --accent-dim: rgba(232,122,155,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,155,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,155,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🤝 Relations internationales</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -138,10 +138,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Combien de membres permanents siègent au Conseil de sécurité de l'ONU ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">5</div>
-              <div class="option" onclick="answer(this,false)">7</div>
-              <div class="option" onclick="answer(this,false)">10</div>
-              <div class="option" onclick="answer(this,false)">15</div>
+              <button class="option" onclick="answer(this,true)">5</button>
+              <button class="option" onclick="answer(this,false)">7</button>
+              <button class="option" onclick="answer(this,false)">10</button>
+              <button class="option" onclick="answer(this,false)">15</button>
             </div>
             <div class="q-feedback">Le Conseil de sécurité comprend 5 membres permanents (P5 : États-Unis, Russie, Chine, France, Royaume-Uni) dotés du droit de veto, et 10 membres non permanents élus pour 2 ans. Le nombre total de membres est donc 15.</div>
           </div>
@@ -149,10 +149,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel traité de 1648 est considéré comme fondateur du système international moderne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le traité de Versailles</div>
-              <div class="option" onclick="answer(this,true)">Les traités de Westphalie</div>
-              <div class="option" onclick="answer(this,false)">Le traité de Vienne</div>
-              <div class="option" onclick="answer(this,false)">La Charte de San Francisco</div>
+              <button class="option" onclick="answer(this,false)">Le traité de Versailles</button>
+              <button class="option" onclick="answer(this,true)">Les traités de Westphalie</button>
+              <button class="option" onclick="answer(this,false)">Le traité de Vienne</button>
+              <button class="option" onclick="answer(this,false)">La Charte de San Francisco</button>
             </div>
             <div class="q-feedback">Les traités de Westphalie (1648) ont mis fin à la guerre de Trente Ans et établi le principe de la souveraineté étatique : chaque État est souverain sur son territoire et ne reconnaît aucune autorité supérieure. Ce principe reste le fondement du système international.</div>
           </div>
@@ -160,10 +160,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle est la particularité de l'article 5 du traité de l'OTAN ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Une attaque contre un membre est considérée comme une attaque contre tous</div>
-              <div class="option" onclick="answer(this,false)">Il interdit le recours aux armes nucléaires</div>
-              <div class="option" onclick="answer(this,false)">Il autorise les interventions humanitaires</div>
-              <div class="option" onclick="answer(this,false)">Il crée un tribunal militaire international</div>
+              <button class="option" onclick="answer(this,true)">Une attaque contre un membre est considérée comme une attaque contre tous</button>
+              <button class="option" onclick="answer(this,false)">Il interdit le recours aux armes nucléaires</button>
+              <button class="option" onclick="answer(this,false)">Il autorise les interventions humanitaires</button>
+              <button class="option" onclick="answer(this,false)">Il crée un tribunal militaire international</button>
             </div>
             <div class="q-feedback">L'article 5 du traité de Washington (1949) établit la clause de défense collective : une attaque armée contre un ou plusieurs membres est considérée comme une attaque contre tous. Il n'a été invoqué qu'une seule fois, après les attentats du 11 septembre 2001.</div>
           </div>
@@ -171,10 +171,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce que la Cour pénale internationale (CPI) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un tribunal qui règle les différends commerciaux entre États</div>
-              <div class="option" onclick="answer(this,true)">Un tribunal qui poursuit les individus responsables de génocide, crimes de guerre et crimes contre l'humanité</div>
-              <div class="option" onclick="answer(this,false)">Un organe de l'ONU qui conseille le Conseil de sécurité</div>
-              <div class="option" onclick="answer(this,false)">Un tribunal qui juge les États pour violation du droit international</div>
+              <button class="option" onclick="answer(this,false)">Un tribunal qui règle les différends commerciaux entre États</button>
+              <button class="option" onclick="answer(this,true)">Un tribunal qui poursuit les individus responsables de génocide, crimes de guerre et crimes contre l'humanité</button>
+              <button class="option" onclick="answer(this,false)">Un organe de l'ONU qui conseille le Conseil de sécurité</button>
+              <button class="option" onclick="answer(this,false)">Un tribunal qui juge les États pour violation du droit international</button>
             </div>
             <div class="q-feedback">La CPI, créée par le Statut de Rome (1998) et opérationnelle depuis 2002, est une juridiction pénale internationale permanente qui poursuit les individus (et non les États) responsables de génocide, crimes de guerre, crimes contre l'humanité et crime d'agression. Les États-Unis, la Russie et la Chine n'y ont pas adhéré.</div>
           </div>
@@ -182,10 +182,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Combien d'États membres compte l'ONU ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">150</div>
-              <div class="option" onclick="answer(this,false)">180</div>
-              <div class="option" onclick="answer(this,true)">193</div>
-              <div class="option" onclick="answer(this,false)">200</div>
+              <button class="option" onclick="answer(this,false)">150</button>
+              <button class="option" onclick="answer(this,false)">180</button>
+              <button class="option" onclick="answer(this,true)">193</button>
+              <button class="option" onclick="answer(this,false)">200</button>
             </div>
             <div class="q-feedback">L'ONU compte 193 États membres, ce qui en fait l'organisation internationale la plus universelle. Le dernier État admis est le Soudan du Sud en 2011. Certaines entités (Palestine, Vatican) ont un statut d'observateur.</div>
           </div>
@@ -193,10 +193,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle est la différence entre une organisation intergouvernementale et supranationale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La taille (nombre de membres)</div>
-              <div class="option" onclick="answer(this,true)">Le degré de transfert de souveraineté des États membres</div>
-              <div class="option" onclick="answer(this,false)">Le domaine d'intervention (militaire vs économique)</div>
-              <div class="option" onclick="answer(this,false)">La localisation du siège</div>
+              <button class="option" onclick="answer(this,false)">La taille (nombre de membres)</button>
+              <button class="option" onclick="answer(this,true)">Le degré de transfert de souveraineté des États membres</button>
+              <button class="option" onclick="answer(this,false)">Le domaine d'intervention (militaire vs économique)</button>
+              <button class="option" onclick="answer(this,false)">La localisation du siège</button>
             </div>
             <div class="q-feedback">Dans une organisation intergouvernementale (ONU, OTAN), les États conservent leur souveraineté et les décisions sont prises à l'unanimité ou par consensus. Dans une organisation supranationale (UE), les États transfèrent une partie de leur souveraineté à des institutions qui peuvent prendre des décisions contraignantes à la majorité.</div>
           </div>
@@ -269,8 +269,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

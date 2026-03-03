@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'instrument roi de la musique occidentale — 88 touches, sept octaves et une expressivité sans limite, du pianissimo au fortissimo.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Le piano — Instruments — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e8b07a;
   --accent2: #ffcc80;
   --accent-dim: rgba(232,176,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,176,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,176,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎹 Instruments</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Combien de touches possède un piano moderne standard ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">76 touches</div>
-              <div class="option" onclick="answer(this,true)">88 touches</div>
-              <div class="option" onclick="answer(this,false)">96 touches</div>
-              <div class="option" onclick="answer(this,false)">64 touches</div>
+              <button class="option" onclick="answer(this,false)">76 touches</button>
+              <button class="option" onclick="answer(this,true)">88 touches</button>
+              <button class="option" onclick="answer(this,false)">96 touches</button>
+              <button class="option" onclick="answer(this,false)">64 touches</button>
             </div>
             <div class="q-feedback">Un piano moderne standard possède 88 touches : 52 blanches (notes naturelles) et 36 noires (dièses et bémols), couvrant plus de 7 octaves.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Qui a inventé le piano ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Bartolomeo Cristofori</div>
-              <div class="option" onclick="answer(this,false)">Antonio Stradivari</div>
-              <div class="option" onclick="answer(this,false)">Johann Sebastian Bach</div>
-              <div class="option" onclick="answer(this,false)">Wolfgang Amadeus Mozart</div>
+              <button class="option" onclick="answer(this,true)">Bartolomeo Cristofori</button>
+              <button class="option" onclick="answer(this,false)">Antonio Stradivari</button>
+              <button class="option" onclick="answer(this,false)">Johann Sebastian Bach</button>
+              <button class="option" onclick="answer(this,false)">Wolfgang Amadeus Mozart</button>
             </div>
             <div class="q-feedback">Bartolomeo Cristofori, facteur d'instruments florentin, a inventé le piano vers 1700. Son innovation clé : remplacer les plectres du clavecin par des marteaux, permettant le contrôle dynamique.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Quel est le rôle de la pédale de sustain ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Adoucir le son</div>
-              <div class="option" onclick="answer(this,true)">Lever tous les étouffoirs pour laisser résonner les cordes</div>
-              <div class="option" onclick="answer(this,false)">Changer l'accordage</div>
-              <div class="option" onclick="answer(this,false)">Amplifier le volume</div>
+              <button class="option" onclick="answer(this,false)">Adoucir le son</button>
+              <button class="option" onclick="answer(this,true)">Lever tous les étouffoirs pour laisser résonner les cordes</button>
+              <button class="option" onclick="answer(this,false)">Changer l'accordage</button>
+              <button class="option" onclick="answer(this,false)">Amplifier le volume</button>
             </div>
             <div class="q-feedback">La pédale de sustain (pédale de droite) lève tous les étouffoirs simultanément, permettant aux cordes de vibrer librement même après avoir relâché les touches. Elle enrichit la résonance et lie les sons.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quelle innovation de Sébastien Érard permet de répéter rapidement une note sans relâcher complètement la touche ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le cadre en fonte</div>
-              <div class="option" onclick="answer(this,true)">Le double échappement</div>
-              <div class="option" onclick="answer(this,false)">La pédale sostenuto</div>
-              <div class="option" onclick="answer(this,false)">La table d'harmonie</div>
+              <button class="option" onclick="answer(this,false)">Le cadre en fonte</button>
+              <button class="option" onclick="answer(this,true)">Le double échappement</button>
+              <button class="option" onclick="answer(this,false)">La pédale sostenuto</button>
+              <button class="option" onclick="answer(this,false)">La table d'harmonie</button>
             </div>
             <div class="q-feedback">Le mécanisme de double échappement, inventé par Sébastien Érard en 1821, permet au marteau de revenir en position de frappe sans que la touche soit complètement relâchée. Cette innovation est essentielle pour les trilles et les passages virtuoses rapides.</div>
           </div>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quel pianiste a abandonné les concerts en 1964 pour se consacrer exclusivement au studio d'enregistrement ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Vladimir Horowitz</div>
-              <div class="option" onclick="answer(this,false)">Arthur Rubinstein</div>
-              <div class="option" onclick="answer(this,true)">Glenn Gould</div>
-              <div class="option" onclick="answer(this,false)">Martha Argerich</div>
+              <button class="option" onclick="answer(this,false)">Vladimir Horowitz</button>
+              <button class="option" onclick="answer(this,false)">Arthur Rubinstein</button>
+              <button class="option" onclick="answer(this,true)">Glenn Gould</button>
+              <button class="option" onclick="answer(this,false)">Martha Argerich</button>
             </div>
             <div class="q-feedback">Glenn Gould (1932-1982) a abandonné les concerts en 1964 à l'âge de 31 ans, préférant le contrôle et la perfection du studio d'enregistrement. Son interprétation des Variations Goldberg de Bach (1955) reste l'un des disques les plus célèbres de l'histoire.</div>
           </div>
@@ -224,8 +224,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

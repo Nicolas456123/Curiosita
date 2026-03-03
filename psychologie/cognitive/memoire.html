@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Comment nous encodons, stockons et récupérons l'information — de la mémoire sensorielle à la mémoire à long terme.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Mémoire — Psychologie Cognitive — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #b07fe8;
   --accent2: #c9a0f0;
   --accent-dim: rgba(176,127,232,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(176,127,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(176,127,232,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧠 Cognitive</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -162,10 +162,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Selon le modèle d'Atkinson et Shiffrin, quelle est la capacité de la mémoire à court terme ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Illimitée</div>
-              <div class="option" onclick="answer(this,true)">7 ± 2 éléments</div>
-              <div class="option" onclick="answer(this,false)">3 éléments</div>
-              <div class="option" onclick="answer(this,false)">12 ± 3 éléments</div>
+              <button class="option" onclick="answer(this,false)">Illimitée</button>
+              <button class="option" onclick="answer(this,true)">7 ± 2 éléments</button>
+              <button class="option" onclick="answer(this,false)">3 éléments</button>
+              <button class="option" onclick="answer(this,false)">12 ± 3 éléments</button>
             </div>
             <div class="q-feedback">George Miller (1956) a établi que la mémoire à court terme peut retenir environ 7 ± 2 « chunks » d'information. Le chunking (regroupement) permet d'augmenter la quantité d'information mémorisée.</div>
           </div>
@@ -173,10 +173,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'a révélé le cas du patient H.M. sur la mémoire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La mémoire est entièrement localisée dans le cortex</div>
-              <div class="option" onclick="answer(this,false)">L'oubli est toujours irréversible</div>
-              <div class="option" onclick="answer(this,true)">L'hippocampe est essentiel pour former de nouveaux souvenirs conscients</div>
-              <div class="option" onclick="answer(this,false)">La mémoire procédurale dépend de l'hippocampe</div>
+              <button class="option" onclick="answer(this,false)">La mémoire est entièrement localisée dans le cortex</button>
+              <button class="option" onclick="answer(this,false)">L'oubli est toujours irréversible</button>
+              <button class="option" onclick="answer(this,true)">L'hippocampe est essentiel pour former de nouveaux souvenirs conscients</button>
+              <button class="option" onclick="answer(this,false)">La mémoire procédurale dépend de l'hippocampe</button>
             </div>
             <div class="q-feedback">H.M. pouvait encore apprendre de nouvelles compétences motrices (mémoire procédurale) mais pas former de nouveaux souvenirs épisodiques, prouvant que l'hippocampe est crucial pour la mémoire déclarative mais pas pour la mémoire procédurale.</div>
           </div>
@@ -184,10 +184,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">La « boucle phonologique » dans le modèle de Baddeley est responsable de :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La coordination des tâches</div>
-              <div class="option" onclick="answer(this,false)">Le stockage d'images mentales</div>
-              <div class="option" onclick="answer(this,true)">Le maintien temporaire de l'information verbale et sonore</div>
-              <div class="option" onclick="answer(this,false)">L'intégration avec la mémoire à long terme</div>
+              <button class="option" onclick="answer(this,false)">La coordination des tâches</button>
+              <button class="option" onclick="answer(this,false)">Le stockage d'images mentales</button>
+              <button class="option" onclick="answer(this,true)">Le maintien temporaire de l'information verbale et sonore</button>
+              <button class="option" onclick="answer(this,false)">L'intégration avec la mémoire à long terme</button>
             </div>
             <div class="q-feedback">La boucle phonologique maintient l'information verbale par répétition subvocale (parole intérieure). C'est elle qui vous permet de retenir un numéro de téléphone en le répétant mentalement.</div>
           </div>
@@ -195,10 +195,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">La reconsolidation de la mémoire (Nader, 2000) implique que :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un souvenir consolidé ne peut plus jamais être modifié</div>
-              <div class="option" onclick="answer(this,true)">Un souvenir réactivé redevient temporairement fragile et modifiable</div>
-              <div class="option" onclick="answer(this,false)">La consolidation se produit uniquement pendant l'éveil</div>
-              <div class="option" onclick="answer(this,false)">Tous les souvenirs sont stockés de manière permanente et fidèle</div>
+              <button class="option" onclick="answer(this,false)">Un souvenir consolidé ne peut plus jamais être modifié</button>
+              <button class="option" onclick="answer(this,true)">Un souvenir réactivé redevient temporairement fragile et modifiable</button>
+              <button class="option" onclick="answer(this,false)">La consolidation se produit uniquement pendant l'éveil</button>
+              <button class="option" onclick="answer(this,false)">Tous les souvenirs sont stockés de manière permanente et fidèle</button>
             </div>
             <div class="q-feedback">Nader a montré que lorsqu'un souvenir est rappelé, il entre dans un état labile où il doit être reconsolidé. Pendant cette fenêtre, il peut être modifié par de nouvelles informations ou même affaibli par des agents pharmacologiques — une piste pour traiter les souvenirs traumatiques.</div>
           </div>
@@ -206,10 +206,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">L'expérience de Loftus & Palmer (1974) a démontré que :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les témoins oculaires sont toujours fiables</div>
-              <div class="option" onclick="answer(this,false)">La mémoire est comme un enregistrement vidéo fidèle</div>
-              <div class="option" onclick="answer(this,true)">La formulation d'une question peut modifier le souvenir d'un événement</div>
-              <div class="option" onclick="answer(this,false)">Les souvenirs visuels sont plus fiables que les souvenirs verbaux</div>
+              <button class="option" onclick="answer(this,false)">Les témoins oculaires sont toujours fiables</button>
+              <button class="option" onclick="answer(this,false)">La mémoire est comme un enregistrement vidéo fidèle</button>
+              <button class="option" onclick="answer(this,true)">La formulation d'une question peut modifier le souvenir d'un événement</button>
+              <button class="option" onclick="answer(this,false)">Les souvenirs visuels sont plus fiables que les souvenirs verbaux</button>
             </div>
             <div class="q-feedback">Loftus et Palmer ont montré que le simple changement d'un verbe dans une question (« fracassées » vs « heurtées ») modifiait les estimations de vitesse et pouvait même implanter de faux détails (bris de verre inexistants). La mémoire est reconstructive et influençable.</div>
           </div>
@@ -217,10 +217,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel rôle joue le sommeil lent profond dans la mémoire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il efface les souvenirs inutiles uniquement</div>
-              <div class="option" onclick="answer(this,false)">Il n'a aucun rôle dans la consolidation</div>
-              <div class="option" onclick="answer(this,true)">L'hippocampe rejoue les expériences pour les transférer au néocortex</div>
-              <div class="option" onclick="answer(this,false)">Il renforce uniquement la mémoire émotionnelle</div>
+              <button class="option" onclick="answer(this,false)">Il efface les souvenirs inutiles uniquement</button>
+              <button class="option" onclick="answer(this,false)">Il n'a aucun rôle dans la consolidation</button>
+              <button class="option" onclick="answer(this,true)">L'hippocampe rejoue les expériences pour les transférer au néocortex</button>
+              <button class="option" onclick="answer(this,false)">Il renforce uniquement la mémoire émotionnelle</button>
             </div>
             <div class="q-feedback">Pendant le sommeil lent profond, l'hippocampe réactive les traces mnésiques de la journée et les transfère progressivement vers le néocortex pour un stockage à long terme. C'est pourquoi dormir après l'apprentissage améliore significativement la rétention.</div>
           </div>
@@ -281,8 +281,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

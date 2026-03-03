@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Synthèse additive et soustractive, perception des couleurs, arc-en-ciel et dispersion — la physique et la physiologie de la couleur.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Couleurs et vision — Optique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8e44ad;
   --accent2: #9b59b6;
   --accent-dim: rgba(142,68,173,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔭 Optique</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelles sont les trois couleurs primaires en synthèse additive ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Cyan, Magenta, Jaune</div>
-              <div class="option" onclick="answer(this,true)">Rouge, Vert, Bleu</div>
-              <div class="option" onclick="answer(this,false)">Rouge, Jaune, Bleu</div>
-              <div class="option" onclick="answer(this,false)">Orange, Vert, Violet</div>
+              <button class="option" onclick="answer(this,false)">Cyan, Magenta, Jaune</button>
+              <button class="option" onclick="answer(this,true)">Rouge, Vert, Bleu</button>
+              <button class="option" onclick="answer(this,false)">Rouge, Jaune, Bleu</button>
+              <button class="option" onclick="answer(this,false)">Orange, Vert, Violet</button>
             </div>
             <div class="q-feedback">Les primaires additives sont Rouge, Vert, Bleu (RVB/RGB). Leur superposition donne le blanc. Cyan, Magenta et Jaune sont les primaires soustractives (imprimerie, peinture).</div>
           </div>
@@ -203,10 +203,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Pourquoi le ciel est-il bleu ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Parce que l'atmosphère absorbe le rouge</div>
-              <div class="option" onclick="answer(this,true)">En raison de la diffusion de Rayleigh (proportionnelle à 1/λ⁴)</div>
-              <div class="option" onclick="answer(this,false)">Parce que l'eau des océans se réfléchit</div>
-              <div class="option" onclick="answer(this,false)">À cause de la couche d'ozone</div>
+              <button class="option" onclick="answer(this,false)">Parce que l'atmosphère absorbe le rouge</button>
+              <button class="option" onclick="answer(this,true)">En raison de la diffusion de Rayleigh (proportionnelle à 1/λ⁴)</button>
+              <button class="option" onclick="answer(this,false)">Parce que l'eau des océans se réfléchit</button>
+              <button class="option" onclick="answer(this,false)">À cause de la couche d'ozone</button>
             </div>
             <div class="q-feedback">La diffusion de Rayleigh par les molécules de l'air est proportionnelle à 1/λ⁴. Les courtes longueurs d'onde (bleu, violet) sont beaucoup plus diffusées que les grandes (rouge). Le bleu domine car nos yeux sont moins sensibles au violet et que celui-ci est partiellement absorbé en haute atmosphère.</div>
           </div>
@@ -214,10 +214,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Combien de types de cônes la rétine humaine possède-t-elle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Deux (dichromatie)</div>
-              <div class="option" onclick="answer(this,true)">Trois (trichromatie)</div>
-              <div class="option" onclick="answer(this,false)">Quatre (tétrachromatie)</div>
-              <div class="option" onclick="answer(this,false)">Un seul</div>
+              <button class="option" onclick="answer(this,false)">Deux (dichromatie)</button>
+              <button class="option" onclick="answer(this,true)">Trois (trichromatie)</button>
+              <button class="option" onclick="answer(this,false)">Quatre (tétrachromatie)</button>
+              <button class="option" onclick="answer(this,false)">Un seul</button>
             </div>
             <div class="q-feedback">La vision humaine normale est trichromate : trois types de cônes (S, M, L) sensibles respectivement au bleu-violet (~420 nm), vert (~534 nm) et jaune-vert (~564 nm). Toute couleur perçue est encodée par le rapport des signaux de ces trois types.</div>
           </div>
@@ -225,10 +225,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel mélange soustractif donne la couleur verte ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Magenta + Jaune</div>
-              <div class="option" onclick="answer(this,true)">Cyan + Jaune</div>
-              <div class="option" onclick="answer(this,false)">Cyan + Magenta</div>
-              <div class="option" onclick="answer(this,false)">Rouge + Bleu</div>
+              <button class="option" onclick="answer(this,false)">Magenta + Jaune</button>
+              <button class="option" onclick="answer(this,true)">Cyan + Jaune</button>
+              <button class="option" onclick="answer(this,false)">Cyan + Magenta</button>
+              <button class="option" onclick="answer(this,false)">Rouge + Bleu</button>
             </div>
             <div class="q-feedback">En synthèse soustractive : le cyan absorbe le rouge et le jaune absorbe le bleu. Il ne reste que le vert, qui n'est absorbé par aucun des deux pigments. Cyan + Jaune = Vert.</div>
           </div>
@@ -236,10 +236,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">À quel angle par rapport à la direction anti-solaire observe-t-on l'arc-en-ciel primaire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">22°</div>
-              <div class="option" onclick="answer(this,true)">≈ 42°</div>
-              <div class="option" onclick="answer(this,false)">≈ 51°</div>
-              <div class="option" onclick="answer(this,false)">90°</div>
+              <button class="option" onclick="answer(this,false)">22°</button>
+              <button class="option" onclick="answer(this,true)">≈ 42°</button>
+              <button class="option" onclick="answer(this,false)">≈ 51°</button>
+              <button class="option" onclick="answer(this,false)">90°</button>
             </div>
             <div class="q-feedback">L'arc-en-ciel primaire apparaît à environ 42° de la direction anti-solaire (point anti-solaire). L'arc secondaire, résultant de deux réflexions internes, apparaît à environ 51°.</div>
           </div>
@@ -247,10 +247,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel type de daltonisme est le plus fréquent ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Tritanopie (confusion bleu/jaune)</div>
-              <div class="option" onclick="answer(this,true)">Deutéranomalie/deutéranopie (confusion rouge/vert)</div>
-              <div class="option" onclick="answer(this,false)">Protanopie (absence de cônes L)</div>
-              <div class="option" onclick="answer(this,false)">Achromatopsie (vision en gris)</div>
+              <button class="option" onclick="answer(this,false)">Tritanopie (confusion bleu/jaune)</button>
+              <button class="option" onclick="answer(this,true)">Deutéranomalie/deutéranopie (confusion rouge/vert)</button>
+              <button class="option" onclick="answer(this,false)">Protanopie (absence de cônes L)</button>
+              <button class="option" onclick="answer(this,false)">Achromatopsie (vision en gris)</button>
             </div>
             <div class="q-feedback">La deutéranomalie (déficience des cônes M) est la forme la plus fréquente de daltonisme, affectant environ 5 % des hommes. Elle entraîne une confusion entre le rouge et le vert. Les gènes des cônes L et M sont situés sur le chromosome X, expliquant la prédominance masculine.</div>
           </div>
@@ -354,8 +354,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

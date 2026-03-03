@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SIG, bases de données spatiales, couches vectorielles et raster, analyses géospatiales avec QGIS.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Systèmes d'information géographique — Cartographie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🗺️ Cartographie</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -144,10 +144,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la différence principale entre données vectorielles et raster ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Vecteur = points/lignes/polygones ; raster = grille de pixels</div>
-              <div class="option" onclick="answer(this,false)">Vecteur = 2D ; raster = 3D</div>
-              <div class="option" onclick="answer(this,false)">Vecteur = images ; raster = texte</div>
-              <div class="option" onclick="answer(this,false)">Il n'y a pas de différence significative</div>
+              <button class="option" onclick="answer(this,true)">Vecteur = points/lignes/polygones ; raster = grille de pixels</button>
+              <button class="option" onclick="answer(this,false)">Vecteur = 2D ; raster = 3D</button>
+              <button class="option" onclick="answer(this,false)">Vecteur = images ; raster = texte</button>
+              <button class="option" onclick="answer(this,false)">Il n'y a pas de différence significative</button>
             </div>
             <div class="q-feedback">Les données vectorielles représentent les objets par des géométries (points, lignes, polygones) avec des attributs. Les données raster sont des grilles de pixels, chaque pixel portant une valeur numérique.</div>
           </div>
@@ -155,10 +155,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'est-ce qu'une zone tampon (buffer) dans un SIG ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une zone de mémoire informatique</div>
-              <div class="option" onclick="answer(this,true)">Une zone créée autour d'un objet à une distance donnée</div>
-              <div class="option" onclick="answer(this,false)">Une zone sans données</div>
-              <div class="option" onclick="answer(this,false)">Une zone de protection contre les virus</div>
+              <button class="option" onclick="answer(this,false)">Une zone de mémoire informatique</button>
+              <button class="option" onclick="answer(this,true)">Une zone créée autour d'un objet à une distance donnée</button>
+              <button class="option" onclick="answer(this,false)">Une zone sans données</button>
+              <button class="option" onclick="answer(this,false)">Une zone de protection contre les virus</button>
             </div>
             <div class="q-feedback">Un buffer (zone tampon) crée un polygone à une distance définie autour d'un objet géographique. Par exemple, une zone de 200 m autour d'un cours d'eau pour identifier les bâtiments en zone à risque.</div>
           </div>
@@ -166,10 +166,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel système de coordonnées mondial est utilisé par le GPS ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Lambert-93</div>
-              <div class="option" onclick="answer(this,true)">WGS 84</div>
-              <div class="option" onclick="answer(this,false)">UTM zone 31</div>
-              <div class="option" onclick="answer(this,false)">NAD 83</div>
+              <button class="option" onclick="answer(this,false)">Lambert-93</button>
+              <button class="option" onclick="answer(this,true)">WGS 84</button>
+              <button class="option" onclick="answer(this,false)">UTM zone 31</button>
+              <button class="option" onclick="answer(this,false)">NAD 83</button>
             </div>
             <div class="q-feedback">Le WGS 84 (World Geodetic System 1984, EPSG:4326) est le système de coordonnées de référence mondial utilisé par les satellites GPS. Il exprime les positions en degrés de latitude et longitude.</div>
           </div>
@@ -177,10 +177,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel logiciel SIG est libre et open source ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">ArcGIS Pro</div>
-              <div class="option" onclick="answer(this,true)">QGIS</div>
-              <div class="option" onclick="answer(this,false)">MapInfo</div>
-              <div class="option" onclick="answer(this,false)">Google Maps</div>
+              <button class="option" onclick="answer(this,false)">ArcGIS Pro</button>
+              <button class="option" onclick="answer(this,true)">QGIS</button>
+              <button class="option" onclick="answer(this,false)">MapInfo</button>
+              <button class="option" onclick="answer(this,false)">Google Maps</button>
             </div>
             <div class="q-feedback">QGIS est le logiciel SIG libre et open source de référence. Il est développé par une communauté internationale et disponible gratuitement sur toutes les plateformes (Windows, Mac, Linux).</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel format de fichier est le plus courant pour les données vectorielles SIG ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Shapefile (.shp)</div>
-              <div class="option" onclick="answer(this,false)">GeoTIFF (.tif)</div>
-              <div class="option" onclick="answer(this,false)">CSV (.csv)</div>
-              <div class="option" onclick="answer(this,false)">PDF (.pdf)</div>
+              <button class="option" onclick="answer(this,true)">Shapefile (.shp)</button>
+              <button class="option" onclick="answer(this,false)">GeoTIFF (.tif)</button>
+              <button class="option" onclick="answer(this,false)">CSV (.csv)</button>
+              <button class="option" onclick="answer(this,false)">PDF (.pdf)</button>
             </div>
             <div class="q-feedback">Le Shapefile (.shp) d'Esri est historiquement le format vectoriel le plus répandu en SIG, bien qu'il soit progressivement remplacé par le GeoPackage (.gpkg) et le GeoJSON.</div>
           </div>
@@ -199,10 +199,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel est le système de coordonnées officiel en France métropolitaine ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">WGS 84</div>
-              <div class="option" onclick="answer(this,false)">UTM zone 31N</div>
-              <div class="option" onclick="answer(this,true)">Lambert-93 (EPSG:2154)</div>
-              <div class="option" onclick="answer(this,false)">Mercator Web</div>
+              <button class="option" onclick="answer(this,false)">WGS 84</button>
+              <button class="option" onclick="answer(this,false)">UTM zone 31N</button>
+              <button class="option" onclick="answer(this,true)">Lambert-93 (EPSG:2154)</button>
+              <button class="option" onclick="answer(this,false)">Mercator Web</button>
             </div>
             <div class="q-feedback">Le Lambert-93 (RGF93 / Lambert-93, code EPSG:2154) est le système de projection officiel pour la France métropolitaine depuis 2006. C'est une projection conique conforme.</div>
           </div>
@@ -275,8 +275,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

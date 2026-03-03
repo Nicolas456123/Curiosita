@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mercator, Peters, Robinson, UTM : comment transformer une sphère en plan et quelles déformations en résultent.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Projections cartographiques — Cartographie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🗺️ Cartographie</span>
     <span class="tag-level">Intermédiaire</span>
@@ -136,10 +136,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qu'est-ce qu'une projection conforme ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Elle conserve les surfaces</div>
-              <div class="option" onclick="answer(this,true)">Elle conserve les angles</div>
-              <div class="option" onclick="answer(this,false)">Elle conserve les distances</div>
-              <div class="option" onclick="answer(this,false)">Elle n'a aucune déformation</div>
+              <button class="option" onclick="answer(this,false)">Elle conserve les surfaces</button>
+              <button class="option" onclick="answer(this,true)">Elle conserve les angles</button>
+              <button class="option" onclick="answer(this,false)">Elle conserve les distances</button>
+              <button class="option" onclick="answer(this,false)">Elle n'a aucune déformation</button>
             </div>
             <div class="q-feedback">Une projection conforme conserve les angles locaux, ce qui signifie que les formes des petites régions sont fidèles à la réalité. En contrepartie, les surfaces sont déformées.</div>
           </div>
@@ -147,10 +147,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel défaut majeur présente la projection de Mercator ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Elle ne montre pas les océans</div>
-              <div class="option" onclick="answer(this,false)">Elle déforme les angles</div>
-              <div class="option" onclick="answer(this,true)">Elle exagère les surfaces aux hautes latitudes</div>
-              <div class="option" onclick="answer(this,false)">Elle ne peut pas montrer l'équateur</div>
+              <button class="option" onclick="answer(this,false)">Elle ne montre pas les océans</button>
+              <button class="option" onclick="answer(this,false)">Elle déforme les angles</button>
+              <button class="option" onclick="answer(this,true)">Elle exagère les surfaces aux hautes latitudes</button>
+              <button class="option" onclick="answer(this,false)">Elle ne peut pas montrer l'équateur</button>
             </div>
             <div class="q-feedback">La projection de Mercator exagère considérablement les surfaces aux hautes latitudes. Le Groenland (2,2 M km²) paraît aussi grand que l'Afrique (30,4 M km²), soit un facteur d'exagération de 14.</div>
           </div>
@@ -158,10 +158,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Combien de fuseaux comporte le système UTM ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">24</div>
-              <div class="option" onclick="answer(this,false)">36</div>
-              <div class="option" onclick="answer(this,true)">60</div>
-              <div class="option" onclick="answer(this,false)">90</div>
+              <button class="option" onclick="answer(this,false)">24</button>
+              <button class="option" onclick="answer(this,false)">36</button>
+              <button class="option" onclick="answer(this,true)">60</button>
+              <button class="option" onclick="answer(this,false)">90</button>
             </div>
             <div class="q-feedback">Le système UTM divise le globe en 60 fuseaux de 6° de longitude chacun (360° ÷ 6° = 60 fuseaux), entre 80°S et 84°N.</div>
           </div>
@@ -169,10 +169,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle projection est idéale pour une carte thématique montrant les densités de population ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Mercator (conforme)</div>
-              <div class="option" onclick="answer(this,true)">Une projection équivalente</div>
-              <div class="option" onclick="answer(this,false)">Robinson (compromis)</div>
-              <div class="option" onclick="answer(this,false)">Azimutale stéréographique</div>
+              <button class="option" onclick="answer(this,false)">Mercator (conforme)</button>
+              <button class="option" onclick="answer(this,true)">Une projection équivalente</button>
+              <button class="option" onclick="answer(this,false)">Robinson (compromis)</button>
+              <button class="option" onclick="answer(this,false)">Azimutale stéréographique</button>
             </div>
             <div class="q-feedback">Pour une carte thématique de densité, il faut une projection équivalente qui conserve les rapports de surfaces. Sinon, les densités seraient faussées par les déformations de surface.</div>
           </div>
@@ -180,10 +180,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle projection a été adoptée par la National Geographic Society en 1998 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Mercator</div>
-              <div class="option" onclick="answer(this,false)">Robinson</div>
-              <div class="option" onclick="answer(this,true)">Winkel-Tripel</div>
-              <div class="option" onclick="answer(this,false)">Peters</div>
+              <button class="option" onclick="answer(this,false)">Mercator</button>
+              <button class="option" onclick="answer(this,false)">Robinson</button>
+              <button class="option" onclick="answer(this,true)">Winkel-Tripel</button>
+              <button class="option" onclick="answer(this,false)">Peters</button>
             </div>
             <div class="q-feedback">La National Geographic Society a adopté la projection Winkel-Tripel en 1998, remplaçant la projection Robinson utilisée depuis 1988. Winkel-Tripel minimise simultanément les distorsions de surface, distance et direction.</div>
           </div>
@@ -191,10 +191,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Selon le théorème d'Euler, que ne peut-on PAS faire avec une projection ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Conserver les angles</div>
-              <div class="option" onclick="answer(this,false)">Conserver les surfaces</div>
-              <div class="option" onclick="answer(this,true)">Conserver simultanément angles, surfaces, distances et directions</div>
-              <div class="option" onclick="answer(this,false)">Représenter les pôles</div>
+              <button class="option" onclick="answer(this,false)">Conserver les angles</button>
+              <button class="option" onclick="answer(this,false)">Conserver les surfaces</button>
+              <button class="option" onclick="answer(this,true)">Conserver simultanément angles, surfaces, distances et directions</button>
+              <button class="option" onclick="answer(this,false)">Représenter les pôles</button>
             </div>
             <div class="q-feedback">Le théorème d'Euler établit qu'il est impossible de projeter une surface sphérique sur un plan en conservant simultanément toutes les propriétés géométriques. Toute projection est nécessairement un compromis.</div>
           </div>
@@ -267,8 +267,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

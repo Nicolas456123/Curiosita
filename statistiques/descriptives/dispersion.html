@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Etendue, variance, ecart-type, coefficient de variation — mesurer a quel point les donnees sont etalees autour de leur centre.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Dispersion et variabilite — Statistiques descriptives — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08);  --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -19,7 +19,7 @@
     <a href="../../statistiques-page.html">Statistiques</a> › <a href="../descriptives.html">Descriptives</a> › <span>Dispersion</span>
   </div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📐 Statistiques descriptives</span>
     <span class="tag-level">Debutant → Intermediaire</span>
@@ -110,10 +110,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">L'etendue de {3, 7, 2, 15, 9} est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">7</div>
-              <div class="option" onclick="answer(this,true)">13</div>
-              <div class="option" onclick="answer(this,false)">12</div>
-              <div class="option" onclick="answer(this,false)">9</div>
+              <button class="option" onclick="answer(this,false)">7</button>
+              <button class="option" onclick="answer(this,true)">13</button>
+              <button class="option" onclick="answer(this,false)">12</button>
+              <button class="option" onclick="answer(this,false)">9</button>
             </div>
             <div class="q-feedback">E = 15 - 2 = 13.</div>
           </div>
@@ -121,10 +121,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Pourquoi divise-t-on par (n-1) dans la variance d'echantillon ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pour simplifier le calcul</div>
-              <div class="option" onclick="answer(this,true)">Pour obtenir un estimateur sans biais</div>
-              <div class="option" onclick="answer(this,false)">Par convention</div>
-              <div class="option" onclick="answer(this,false)">Pour obtenir une valeur plus petite</div>
+              <button class="option" onclick="answer(this,false)">Pour simplifier le calcul</button>
+              <button class="option" onclick="answer(this,true)">Pour obtenir un estimateur sans biais</button>
+              <button class="option" onclick="answer(this,false)">Par convention</button>
+              <button class="option" onclick="answer(this,false)">Pour obtenir une valeur plus petite</button>
             </div>
             <div class="q-feedback">La correction de Bessel (n-1 au lieu de n) compense le fait que la moyenne echantillonnale sous-estime la variabilite reelle de la population.</div>
           </div>
@@ -132,10 +132,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">L'ecart-type est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le carre de la variance</div>
-              <div class="option" onclick="answer(this,true)">La racine carree de la variance</div>
-              <div class="option" onclick="answer(this,false)">La moitie de la variance</div>
-              <div class="option" onclick="answer(this,false)">La variance divisee par n</div>
+              <button class="option" onclick="answer(this,false)">Le carre de la variance</button>
+              <button class="option" onclick="answer(this,true)">La racine carree de la variance</button>
+              <button class="option" onclick="answer(this,false)">La moitie de la variance</button>
+              <button class="option" onclick="answer(this,false)">La variance divisee par n</button>
             </div>
             <div class="q-feedback">σ = √(σ²). L'ecart-type est la racine carree de la variance, ce qui le ramene dans l'unite d'origine des donnees.</div>
           </div>
@@ -143,10 +143,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">L'IQR mesure l'etendue des :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">25 % centraux</div>
-              <div class="option" onclick="answer(this,true)">50 % centraux</div>
-              <div class="option" onclick="answer(this,false)">75 % centraux</div>
-              <div class="option" onclick="answer(this,false)">100 % des donnees</div>
+              <button class="option" onclick="answer(this,false)">25 % centraux</button>
+              <button class="option" onclick="answer(this,true)">50 % centraux</button>
+              <button class="option" onclick="answer(this,false)">75 % centraux</button>
+              <button class="option" onclick="answer(this,false)">100 % des donnees</button>
             </div>
             <div class="q-feedback">IQR = Q₃ - Q₁ couvre les 50 % centraux des donnees (du 25e au 75e percentile).</div>
           </div>
@@ -154,10 +154,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quel indicateur permet de comparer la dispersion de variables d'echelles differentes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La variance</div>
-              <div class="option" onclick="answer(this,false)">L'etendue</div>
-              <div class="option" onclick="answer(this,true)">Le coefficient de variation</div>
-              <div class="option" onclick="answer(this,false)">L'ecart-type</div>
+              <button class="option" onclick="answer(this,false)">La variance</button>
+              <button class="option" onclick="answer(this,false)">L'etendue</button>
+              <button class="option" onclick="answer(this,true)">Le coefficient de variation</button>
+              <button class="option" onclick="answer(this,false)">L'ecart-type</button>
             </div>
             <div class="q-feedback">Le CV = σ/μ × 100 % est sans dimension, ce qui permet de comparer la variabilite relative de variables mesurees dans des unites differentes.</div>
           </div>
@@ -203,8 +203,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

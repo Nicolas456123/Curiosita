@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Les sons du langage humain : comment nous les produisons, les percevons et les organisons en systèmes.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Phonétique et phonologie — Linguistique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e8c97a;
   --accent2: #f5dfa0;
   --accent-dim: rgba(232,201,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,201,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,201,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔊 Linguistique</span>
     <span class="tag-level">Intermédiaire</span>
@@ -177,10 +177,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la différence entre phonétique et phonologie ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La phonétique étudie l'écriture, la phonologie les sons</div>
-              <div class="option" onclick="answer(this,true)">La phonétique étudie les sons physiques, la phonologie leur organisation en système</div>
-              <div class="option" onclick="answer(this,false)">Ce sont des synonymes</div>
-              <div class="option" onclick="answer(this,false)">La phonologie étudie les sons, la phonétique les phrases</div>
+              <button class="option" onclick="answer(this,false)">La phonétique étudie l'écriture, la phonologie les sons</button>
+              <button class="option" onclick="answer(this,true)">La phonétique étudie les sons physiques, la phonologie leur organisation en système</button>
+              <button class="option" onclick="answer(this,false)">Ce sont des synonymes</button>
+              <button class="option" onclick="answer(this,false)">La phonologie étudie les sons, la phonétique les phrases</button>
             </div>
             <div class="q-feedback">La phonétique étudie les propriétés physiques des sons (acoustique, articulatoire). La phonologie étudie comment ces sons fonctionnent en système dans une langue donnée (quels sons sont distinctifs, lesquels sont des variantes).</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'est-ce qu'une paire minimale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Deux mots qui se prononcent de la même façon</div>
-              <div class="option" onclick="answer(this,true)">Deux mots qui ne diffèrent que par un seul son</div>
-              <div class="option" onclick="answer(this,false)">Deux sons qui se prononcent au même endroit</div>
-              <div class="option" onclick="answer(this,false)">Deux voyelles de même aperture</div>
+              <button class="option" onclick="answer(this,false)">Deux mots qui se prononcent de la même façon</button>
+              <button class="option" onclick="answer(this,true)">Deux mots qui ne diffèrent que par un seul son</button>
+              <button class="option" onclick="answer(this,false)">Deux sons qui se prononcent au même endroit</button>
+              <button class="option" onclick="answer(this,false)">Deux voyelles de même aperture</button>
             </div>
             <div class="q-feedback">Une paire minimale est constituée de deux mots qui ne diffèrent que par un seul son et qui ont des sens différents. Exemple : « bas » /ba/ vs « pas » /pa/. Cela prouve que /b/ et /p/ sont des phonèmes distincts en français.</div>
           </div>
@@ -199,10 +199,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Le son /b/ est classifié comme :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Fricative alvéolaire sonore</div>
-              <div class="option" onclick="answer(this,false)">Occlusive vélaire sourde</div>
-              <div class="option" onclick="answer(this,true)">Occlusive bilabiale sonore</div>
-              <div class="option" onclick="answer(this,false)">Nasale bilabiale sonore</div>
+              <button class="option" onclick="answer(this,false)">Fricative alvéolaire sonore</button>
+              <button class="option" onclick="answer(this,false)">Occlusive vélaire sourde</button>
+              <button class="option" onclick="answer(this,true)">Occlusive bilabiale sonore</button>
+              <button class="option" onclick="answer(this,false)">Nasale bilabiale sonore</button>
             </div>
             <div class="q-feedback">/b/ est une occlusive (blocage total de l'air), bilabiale (produite par les deux lèvres) et sonore (les cordes vocales vibrent). C'est le pendant sonore de /p/ (occlusive bilabiale sourde).</div>
           </div>
@@ -210,10 +210,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce que l'assimilation en phonologie ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Un son prend les caractéristiques d'un son voisin</div>
-              <div class="option" onclick="answer(this,false)">Deux sons fusionnent en un seul</div>
-              <div class="option" onclick="answer(this,false)">Un son disparaît complètement</div>
-              <div class="option" onclick="answer(this,false)">Un nouveau son est ajouté</div>
+              <button class="option" onclick="answer(this,true)">Un son prend les caractéristiques d'un son voisin</button>
+              <button class="option" onclick="answer(this,false)">Deux sons fusionnent en un seul</button>
+              <button class="option" onclick="answer(this,false)">Un son disparaît complètement</button>
+              <button class="option" onclick="answer(this,false)">Un nouveau son est ajouté</button>
             </div>
             <div class="q-feedback">L'assimilation est le processus par lequel un son prend une ou plusieurs caractéristiques d'un son voisin. Exemple : dans « impossible », le /n/ de « in- » devient /m/ (bilabial) au contact du /p/ (bilabial).</div>
           </div>
@@ -221,10 +221,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Le français est une langue à rythme :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Syllabique</div>
-              <div class="option" onclick="answer(this,false)">Accentuel</div>
-              <div class="option" onclick="answer(this,false)">Tonal</div>
-              <div class="option" onclick="answer(this,false)">Morique</div>
+              <button class="option" onclick="answer(this,true)">Syllabique</button>
+              <button class="option" onclick="answer(this,false)">Accentuel</button>
+              <button class="option" onclick="answer(this,false)">Tonal</button>
+              <button class="option" onclick="answer(this,false)">Morique</button>
             </div>
             <div class="q-feedback">Le français est une langue à rythme syllabique : chaque syllabe a une durée similaire. L'anglais, en revanche, est une langue à rythme accentuel : les syllabes accentuées sont espacées régulièrement, ce qui compresse les syllabes non accentuées.</div>
           </div>
@@ -232,10 +232,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Combien de voyelles phonémiques le système espagnol possède-t-il ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">5</div>
-              <div class="option" onclick="answer(this,false)">12</div>
-              <div class="option" onclick="answer(this,false)">16</div>
-              <div class="option" onclick="answer(this,false)">8</div>
+              <button class="option" onclick="answer(this,true)">5</button>
+              <button class="option" onclick="answer(this,false)">12</button>
+              <button class="option" onclick="answer(this,false)">16</button>
+              <button class="option" onclick="answer(this,false)">8</button>
             </div>
             <div class="q-feedback">L'espagnol n'a que 5 voyelles : /a/, /e/, /i/, /o/, /u/. C'est un système très simple et régulier. Le français en a 16 (incluant les nasales) et l'anglais environ 20 (avec les diphtongues).</div>
           </div>
@@ -322,8 +322,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

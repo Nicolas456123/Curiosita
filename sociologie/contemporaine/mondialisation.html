@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Flux économiques, culturels et migratoires à l'échelle planétaire — une analyse sociologique de l'interconnexion des sociétés.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Mondialisation — Sociologie contemporaine — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a0f5a0;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🌐 Sociologie contemporaine</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -125,10 +125,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Qui a développé le concept de « ville globale » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Ulrich Beck</div>
-              <div class="option" onclick="answer(this,true)">Saskia Sassen</div>
-              <div class="option" onclick="answer(this,false)">Immanuel Wallerstein</div>
-              <div class="option" onclick="answer(this,false)">Arjun Appadurai</div>
+              <button class="option" onclick="answer(this,false)">Ulrich Beck</button>
+              <button class="option" onclick="answer(this,true)">Saskia Sassen</button>
+              <button class="option" onclick="answer(this,false)">Immanuel Wallerstein</button>
+              <button class="option" onclick="answer(this,false)">Arjun Appadurai</button>
             </div>
             <div class="q-feedback">Saskia Sassen a développé le concept de « ville globale » pour décrire les métropoles qui concentrent les fonctions de commandement de l'économie mondiale.</div>
           </div>
@@ -136,10 +136,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Que désigne le terme « glocalisation » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La domination culturelle mondiale</div>
-              <div class="option" onclick="answer(this,false)">Le repli sur les cultures locales</div>
-              <div class="option" onclick="answer(this,true)">L'articulation entre dynamiques globales et locales</div>
-              <div class="option" onclick="answer(this,false)">La disparition des cultures traditionnelles</div>
+              <button class="option" onclick="answer(this,false)">La domination culturelle mondiale</button>
+              <button class="option" onclick="answer(this,false)">Le repli sur les cultures locales</button>
+              <button class="option" onclick="answer(this,true)">L'articulation entre dynamiques globales et locales</button>
+              <button class="option" onclick="answer(this,false)">La disparition des cultures traditionnelles</button>
             </div>
             <div class="q-feedback">La « glocalisation » (Roland Robertson) désigne l'interpénétration du global et du local : les phénomènes mondiaux sont toujours réinterprétés localement.</div>
           </div>
@@ -147,10 +147,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Dans la théorie du système-monde de Wallerstein, quel concept décrit les pays dominés ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le centre</div>
-              <div class="option" onclick="answer(this,false)">La semi-périphérie</div>
-              <div class="option" onclick="answer(this,true)">La périphérie</div>
-              <div class="option" onclick="answer(this,false)">La marge</div>
+              <button class="option" onclick="answer(this,false)">Le centre</button>
+              <button class="option" onclick="answer(this,false)">La semi-périphérie</button>
+              <button class="option" onclick="answer(this,true)">La périphérie</button>
+              <button class="option" onclick="answer(this,false)">La marge</button>
             </div>
             <div class="q-feedback">Wallerstein distingue le centre (pays dominants), la semi-périphérie (position intermédiaire) et la périphérie (pays dominés, exportateurs de matières premières).</div>
           </div>
@@ -158,10 +158,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quel sociologue a théorisé la « société du risque » mondiale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Ulrich Beck</div>
-              <div class="option" onclick="answer(this,false)">Anthony Giddens</div>
-              <div class="option" onclick="answer(this,false)">Manuel Castells</div>
-              <div class="option" onclick="answer(this,false)">Zygmunt Bauman</div>
+              <button class="option" onclick="answer(this,true)">Ulrich Beck</button>
+              <button class="option" onclick="answer(this,false)">Anthony Giddens</button>
+              <button class="option" onclick="answer(this,false)">Manuel Castells</button>
+              <button class="option" onclick="answer(this,false)">Zygmunt Bauman</button>
             </div>
             <div class="q-feedback">Ulrich Beck a théorisé la « société du risque » (Risikogesellschaft, 1986), montrant que les risques modernes (écologiques, financiers) sont mondialisés et dépassent les cadres nationaux.</div>
           </div>
@@ -169,10 +169,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Que révèle la « courbe de l'éléphant » de Milanovic ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Que tout le monde a profité également de la mondialisation</div>
-              <div class="option" onclick="answer(this,false)">Que seuls les pays pauvres ont bénéficié de la mondialisation</div>
-              <div class="option" onclick="answer(this,true)">Que les classes moyennes occidentales ont peu profité de la mondialisation</div>
-              <div class="option" onclick="answer(this,false)">Que les inégalités mondiales ont disparu</div>
+              <button class="option" onclick="answer(this,false)">Que tout le monde a profité également de la mondialisation</button>
+              <button class="option" onclick="answer(this,false)">Que seuls les pays pauvres ont bénéficié de la mondialisation</button>
+              <button class="option" onclick="answer(this,true)">Que les classes moyennes occidentales ont peu profité de la mondialisation</button>
+              <button class="option" onclick="answer(this,false)">Que les inégalités mondiales ont disparu</button>
             </div>
             <div class="q-feedback">La courbe de l'éléphant montre que les grands gagnants de la mondialisation (1988-2008) sont les classes moyennes asiatiques et les très riches mondiaux, tandis que les classes moyennes et populaires occidentales ont vu leurs revenus stagner.</div>
           </div>
@@ -236,8 +236,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

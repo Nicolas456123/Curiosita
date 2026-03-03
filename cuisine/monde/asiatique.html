@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Japon, Chine, Thaïlande, Inde — les grandes traditions culinaires d'Asie, leurs philosophies et leurs saveurs uniques.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Cuisine asiatique — Cuisine du monde — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🇯🇵 Cuisine du monde</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -152,10 +152,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la cinquième saveur, découverte au Japon ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Piquant</div>
-              <div class="option" onclick="answer(this,true)">Umami</div>
-              <div class="option" onclick="answer(this,false)">Astringent</div>
-              <div class="option" onclick="answer(this,false)">Doux</div>
+              <button class="option" onclick="answer(this,false)">Piquant</button>
+              <button class="option" onclick="answer(this,true)">Umami</button>
+              <button class="option" onclick="answer(this,false)">Astringent</button>
+              <button class="option" onclick="answer(this,false)">Doux</button>
             </div>
             <div class="q-feedback">L'umami (« saveur délicieuse » en japonais) est la cinquième saveur, découverte en 1908 par Kikunae Ikeda. On la trouve dans le parmesan, la tomate mûre, la sauce soja et le dashi.</div>
           </div>
@@ -163,10 +163,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Combien de grandes cuisines régionales la Chine compte-t-elle traditionnellement ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">4</div>
-              <div class="option" onclick="answer(this,true)">8</div>
-              <div class="option" onclick="answer(this,false)">12</div>
-              <div class="option" onclick="answer(this,false)">20</div>
+              <button class="option" onclick="answer(this,false)">4</button>
+              <button class="option" onclick="answer(this,true)">8</button>
+              <button class="option" onclick="answer(this,false)">12</button>
+              <button class="option" onclick="answer(this,false)">20</button>
             </div>
             <div class="q-feedback">La Chine compte huit grandes cuisines régionales traditionnelles : cantonaise, sichuanaise, shanghaïenne, pékinoise, fujianaise, anhui, hunan et zhejiang.</div>
           </div>
@@ -174,10 +174,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quels sont les quatre piliers de saveur de la cuisine thaïlandaise ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Sucré, salé, acide, piquant</div>
-              <div class="option" onclick="answer(this,false)">Sucré, amer, salé, umami</div>
-              <div class="option" onclick="answer(this,false)">Acide, amer, piquant, fumé</div>
-              <div class="option" onclick="answer(this,false)">Salé, doux, piquant, fermenté</div>
+              <button class="option" onclick="answer(this,true)">Sucré, salé, acide, piquant</button>
+              <button class="option" onclick="answer(this,false)">Sucré, amer, salé, umami</button>
+              <button class="option" onclick="answer(this,false)">Acide, amer, piquant, fumé</button>
+              <button class="option" onclick="answer(this,false)">Salé, doux, piquant, fermenté</button>
             </div>
             <div class="q-feedback">La cuisine thaï repose sur l'équilibre de quatre saveurs fondamentales : sucré, salé, acide et piquant. Chaque plat cherche l'harmonie entre ces éléments.</div>
           </div>
@@ -185,10 +185,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel est le bouillon de base de la cuisine japonaise ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Tonkotsu</div>
-              <div class="option" onclick="answer(this,true)">Dashi</div>
-              <div class="option" onclick="answer(this,false)">Miso</div>
-              <div class="option" onclick="answer(this,false)">Shoyu</div>
+              <button class="option" onclick="answer(this,false)">Tonkotsu</button>
+              <button class="option" onclick="answer(this,true)">Dashi</button>
+              <button class="option" onclick="answer(this,false)">Miso</button>
+              <button class="option" onclick="answer(this,false)">Shoyu</button>
             </div>
             <div class="q-feedback">Le dashi est le bouillon fondamental de la cuisine japonaise, préparé avec du kombu (algue) et du katsuobushi (bonite séchée). C'est la base des soupes, sauces et assaisonnements japonais.</div>
           </div>
@@ -196,10 +196,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce que le tandoor en cuisine indienne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un mélange d'épices</div>
-              <div class="option" onclick="answer(this,false)">Un type de pain</div>
-              <div class="option" onclick="answer(this,true)">Un four en argile</div>
-              <div class="option" onclick="answer(this,false)">Un plat de lentilles</div>
+              <button class="option" onclick="answer(this,false)">Un mélange d'épices</button>
+              <button class="option" onclick="answer(this,false)">Un type de pain</button>
+              <button class="option" onclick="answer(this,true)">Un four en argile</button>
+              <button class="option" onclick="answer(this,false)">Un plat de lentilles</button>
             </div>
             <div class="q-feedback">Le tandoor est un four cylindrique en argile chauffé au charbon, atteignant des températures très élevées (480 °C). Il sert à cuire le naan, le poulet tandoori et d'autres spécialités du Nord de l'Inde.</div>
           </div>
@@ -207,10 +207,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que désigne réellement le mot « sushi » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le poisson cru</div>
-              <div class="option" onclick="answer(this,true)">Le riz vinaigré</div>
-              <div class="option" onclick="answer(this,false)">L'algue nori</div>
-              <div class="option" onclick="answer(this,false)">Le wasabi</div>
+              <button class="option" onclick="answer(this,false)">Le poisson cru</button>
+              <button class="option" onclick="answer(this,true)">Le riz vinaigré</button>
+              <button class="option" onclick="answer(this,false)">L'algue nori</button>
+              <button class="option" onclick="answer(this,false)">Le wasabi</button>
             </div>
             <div class="q-feedback">Le mot sushi fait référence au riz assaisonné de vinaigre de riz, de sucre et de sel. Le poisson cru seul s'appelle sashimi. Un sushi peut d'ailleurs être garni de légumes ou d'omelette.</div>
           </div>
@@ -277,8 +277,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

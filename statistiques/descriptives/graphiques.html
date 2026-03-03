@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Histogrammes, diagrammes en barres, boites a moustaches, nuages de points — visualiser les donnees pour mieux les comprendre.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Representations graphiques — Statistiques descriptives — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08);  --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../statistiques-page.html">Statistiques</a> › <a href="../descriptives.html">Descriptives</a> › <span>Graphiques</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📊 Statistiques descriptives</span>
     <span class="tag-level">Debutant</span>
@@ -93,10 +93,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quel graphique est adapte pour des donnees quantitatives continues ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">L'histogramme</div>
-              <div class="option" onclick="answer(this,false)">Le diagramme en barres</div>
-              <div class="option" onclick="answer(this,false)">Le diagramme circulaire</div>
-              <div class="option" onclick="answer(this,false)">Le diagramme en secteurs</div>
+              <button class="option" onclick="answer(this,true)">L'histogramme</button>
+              <button class="option" onclick="answer(this,false)">Le diagramme en barres</button>
+              <button class="option" onclick="answer(this,false)">Le diagramme circulaire</button>
+              <button class="option" onclick="answer(this,false)">Le diagramme en secteurs</button>
             </div>
             <div class="q-feedback">L'histogramme regroupe les donnees continues en classes. Le diagramme en barres est pour les donnees qualitatives ou discretes.</div>
           </div>
@@ -104,10 +104,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Dans une boite a moustaches, la boite represente :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les 25 % centraux</div>
-              <div class="option" onclick="answer(this,true)">Les 50 % centraux (Q₁ a Q₃)</div>
-              <div class="option" onclick="answer(this,false)">Les 75 % centraux</div>
-              <div class="option" onclick="answer(this,false)">Toutes les donnees</div>
+              <button class="option" onclick="answer(this,false)">Les 25 % centraux</button>
+              <button class="option" onclick="answer(this,true)">Les 50 % centraux (Q₁ a Q₃)</button>
+              <button class="option" onclick="answer(this,false)">Les 75 % centraux</button>
+              <button class="option" onclick="answer(this,false)">Toutes les donnees</button>
             </div>
             <div class="q-feedback">La boite s'etend de Q₁ (25e percentile) a Q₃ (75e percentile), contenant les 50 % centraux.</div>
           </div>
@@ -115,10 +115,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Quel graphique est ideal pour visualiser la relation entre deux variables ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'histogramme</div>
-              <div class="option" onclick="answer(this,false)">Le diagramme circulaire</div>
-              <div class="option" onclick="answer(this,true)">Le nuage de points</div>
-              <div class="option" onclick="answer(this,false)">La boite a moustaches</div>
+              <button class="option" onclick="answer(this,false)">L'histogramme</button>
+              <button class="option" onclick="answer(this,false)">Le diagramme circulaire</button>
+              <button class="option" onclick="answer(this,true)">Le nuage de points</button>
+              <button class="option" onclick="answer(this,false)">La boite a moustaches</button>
             </div>
             <div class="q-feedback">Le nuage de points (scatter plot) place chaque observation selon ses deux coordonnees, revelant la nature de la relation.</div>
           </div>
@@ -126,10 +126,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Le quartet d'Anscombe demontre que :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Des statistiques identiques peuvent masquer des distributions tres differentes</div>
-              <div class="option" onclick="answer(this,false)">Les graphiques sont toujours superieurs aux statistiques</div>
-              <div class="option" onclick="answer(this,false)">Quatre groupes ont toujours les memes proprietes</div>
-              <div class="option" onclick="answer(this,false)">La moyenne est toujours fiable</div>
+              <button class="option" onclick="answer(this,true)">Des statistiques identiques peuvent masquer des distributions tres differentes</button>
+              <button class="option" onclick="answer(this,false)">Les graphiques sont toujours superieurs aux statistiques</button>
+              <button class="option" onclick="answer(this,false)">Quatre groupes ont toujours les memes proprietes</button>
+              <button class="option" onclick="answer(this,false)">La moyenne est toujours fiable</button>
             </div>
             <div class="q-feedback">Les 4 jeux du quartet d'Anscombe ont les memes moyenne, variance et correlation, mais des formes completement differentes visibles uniquement sur les graphiques.</div>
           </div>
@@ -137,10 +137,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Les barres d'un histogramme sont :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Adjacentes (pas d'espace)</div>
-              <div class="option" onclick="answer(this,false)">Separees par des espaces</div>
-              <div class="option" onclick="answer(this,false)">De largeurs differentes obligatoirement</div>
-              <div class="option" onclick="answer(this,false)">Toujours de meme hauteur</div>
+              <button class="option" onclick="answer(this,true)">Adjacentes (pas d'espace)</button>
+              <button class="option" onclick="answer(this,false)">Separees par des espaces</button>
+              <button class="option" onclick="answer(this,false)">De largeurs differentes obligatoirement</button>
+              <button class="option" onclick="answer(this,false)">Toujours de meme hauteur</button>
             </div>
             <div class="q-feedback">Les barres sont adjacentes car les donnees sont continues et les classes sont contigues. Les espaces sont reserves aux diagrammes en barres (donnees discretes ou qualitatives).</div>
           </div>
@@ -169,8 +169,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

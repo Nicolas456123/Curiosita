@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Découper le code en blocs réutilisables avec def, paramètres, return, *args, **kwargs et lambda.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Fonctions — Structures de données — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #4fc3f7;
   --accent2: #81d4fa;
   --accent-dim: rgba(79,195,247,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">⚙️ Structures de données</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -285,10 +285,10 @@ parler = crier
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que retourne une fonction qui n'a pas de <code>return</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">0</div>
-              <div class="option" onclick="answer(this,false)">""</div>
-              <div class="option" onclick="answer(this,true)">None</div>
-              <div class="option" onclick="answer(this,false)">Erreur</div>
+              <button class="option" onclick="answer(this,false)">0</button>
+              <button class="option" onclick="answer(this,false)">""</button>
+              <button class="option" onclick="answer(this,true)">None</button>
+              <button class="option" onclick="answer(this,false)">Erreur</button>
             </div>
             <div class="q-feedback">Sans <code>return</code>, une fonction retourne implicitement <code>None</code>. C'est le « rien » de Python.</div>
           </div>
@@ -296,10 +296,10 @@ parler = crier
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que fait <code>*args</code> dans une définition de fonction ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Collecte tous les arguments positionnels en un tuple</div>
-              <div class="option" onclick="answer(this,false)">Collecte tous les arguments en une liste</div>
-              <div class="option" onclick="answer(this,false)">Multiplie les arguments entre eux</div>
-              <div class="option" onclick="answer(this,false)">Rend tous les arguments obligatoires</div>
+              <button class="option" onclick="answer(this,true)">Collecte tous les arguments positionnels en un tuple</button>
+              <button class="option" onclick="answer(this,false)">Collecte tous les arguments en une liste</button>
+              <button class="option" onclick="answer(this,false)">Multiplie les arguments entre eux</button>
+              <button class="option" onclick="answer(this,false)">Rend tous les arguments obligatoires</button>
             </div>
             <div class="q-feedback"><code>*args</code> collecte tous les arguments positionnels supplémentaires dans un <strong>tuple</strong>. <code>**kwargs</code> fait pareil pour les arguments nommés, dans un dictionnaire.</div>
           </div>
@@ -307,10 +307,10 @@ parler = crier
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle est la syntaxe correcte pour une fonction lambda qui calcule le cube ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">lambda: x ** 3</div>
-              <div class="option" onclick="answer(this,true)">lambda x: x ** 3</div>
-              <div class="option" onclick="answer(this,false)">lambda x: return x ** 3</div>
-              <div class="option" onclick="answer(this,false)">def lambda(x): x ** 3</div>
+              <button class="option" onclick="answer(this,false)">lambda: x ** 3</button>
+              <button class="option" onclick="answer(this,true)">lambda x: x ** 3</button>
+              <button class="option" onclick="answer(this,false)">lambda x: return x ** 3</button>
+              <button class="option" onclick="answer(this,false)">def lambda(x): x ** 3</button>
             </div>
             <div class="q-feedback">La syntaxe lambda est <code>lambda paramètres: expression</code>. Pas de <code>return</code>, pas de <code>def</code>, pas de nom obligatoire.</div>
           </div>
@@ -318,10 +318,10 @@ parler = crier
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel est le danger d'utiliser une liste comme valeur par défaut d'un paramètre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Python lève une erreur</div>
-              <div class="option" onclick="answer(this,true)">La même liste est partagée entre tous les appels</div>
-              <div class="option" onclick="answer(this,false)">La liste est copiée à chaque appel</div>
-              <div class="option" onclick="answer(this,false)">Aucun danger, c'est une bonne pratique</div>
+              <button class="option" onclick="answer(this,false)">Python lève une erreur</button>
+              <button class="option" onclick="answer(this,true)">La même liste est partagée entre tous les appels</button>
+              <button class="option" onclick="answer(this,false)">La liste est copiée à chaque appel</button>
+              <button class="option" onclick="answer(this,false)">Aucun danger, c'est une bonne pratique</button>
             </div>
             <div class="q-feedback">Les objets mutables (listes, dicts) utilisés comme valeurs par défaut sont créés une seule fois et partagés entre tous les appels. Utilisez <code>None</code> puis créez l'objet dans le corps de la fonction.</div>
           </div>
@@ -329,10 +329,10 @@ parler = crier
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que retourne <code>def f(): return 1, 2, 3</code> quand on appelle <code>f()</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1</div>
-              <div class="option" onclick="answer(this,false)">[1, 2, 3]</div>
-              <div class="option" onclick="answer(this,true)">(1, 2, 3)</div>
-              <div class="option" onclick="answer(this,false)">Erreur</div>
+              <button class="option" onclick="answer(this,false)">1</button>
+              <button class="option" onclick="answer(this,false)">[1, 2, 3]</button>
+              <button class="option" onclick="answer(this,true)">(1, 2, 3)</button>
+              <button class="option" onclick="answer(this,false)">Erreur</button>
             </div>
             <div class="q-feedback"><code>return 1, 2, 3</code> retourne un tuple <code>(1, 2, 3)</code>. On peut récupérer les valeurs par unpacking : <code>a, b, c = f()</code>.</div>
           </div>
@@ -340,10 +340,10 @@ parler = crier
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Peut-on accéder à une variable locale en dehors de la fonction ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Oui, toujours</div>
-              <div class="option" onclick="answer(this,true)">Non, elle n'existe que dans la fonction</div>
-              <div class="option" onclick="answer(this,false)">Oui, si on utilise le mot-clé local</div>
-              <div class="option" onclick="answer(this,false)">Oui, si la fonction a été appelée</div>
+              <button class="option" onclick="answer(this,false)">Oui, toujours</button>
+              <button class="option" onclick="answer(this,true)">Non, elle n'existe que dans la fonction</button>
+              <button class="option" onclick="answer(this,false)">Oui, si on utilise le mot-clé local</button>
+              <button class="option" onclick="answer(this,false)">Oui, si la fonction a été appelée</button>
             </div>
             <div class="q-feedback">Les variables locales sont détruites à la fin de l'exécution de la fonction. Pour utiliser un résultat en dehors, il faut le retourner avec <code>return</code>.</div>
           </div>
@@ -467,8 +467,14 @@ while True:
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

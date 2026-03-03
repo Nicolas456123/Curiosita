@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CPI, CEDH, justice internationale — les institutions qui protègent les droits humains à l'échelle mondiale.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Justice et droit international — Droits et libertés — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a9b;
   --accent2: #f09ab5;
   --accent-dim: rgba(232,122,155,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,155,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,155,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🌐 Droits et libertés</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -129,10 +129,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Où siège la Cour pénale internationale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Genève</div>
-              <div class="option" onclick="answer(this,true)">La Haye</div>
-              <div class="option" onclick="answer(this,false)">Strasbourg</div>
-              <div class="option" onclick="answer(this,false)">New York</div>
+              <button class="option" onclick="answer(this,false)">Genève</button>
+              <button class="option" onclick="answer(this,true)">La Haye</button>
+              <button class="option" onclick="answer(this,false)">Strasbourg</button>
+              <button class="option" onclick="answer(this,false)">New York</button>
             </div>
             <div class="q-feedback">La CPI siège à La Haye (Pays-Bas), tout comme la Cour internationale de Justice. Strasbourg accueille la CEDH et Genève le Conseil des droits de l'homme de l'ONU.</div>
           </div>
@@ -140,10 +140,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel traité a créé la CPI ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le traité de Versailles</div>
-              <div class="option" onclick="answer(this,false)">La Charte des Nations unies</div>
-              <div class="option" onclick="answer(this,true)">Le Statut de Rome</div>
-              <div class="option" onclick="answer(this,false)">Le traité de Lisbonne</div>
+              <button class="option" onclick="answer(this,false)">Le traité de Versailles</button>
+              <button class="option" onclick="answer(this,false)">La Charte des Nations unies</button>
+              <button class="option" onclick="answer(this,true)">Le Statut de Rome</button>
+              <button class="option" onclick="answer(this,false)">Le traité de Lisbonne</button>
             </div>
             <div class="q-feedback">Le Statut de Rome, adopté en 1998 et entré en vigueur le 1er juillet 2002, est le traité fondateur de la Cour pénale internationale.</div>
           </div>
@@ -151,10 +151,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">La CPI juge-t-elle les États ou les individus ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Les individus</div>
-              <div class="option" onclick="answer(this,false)">Les États</div>
-              <div class="option" onclick="answer(this,false)">Les deux</div>
-              <div class="option" onclick="answer(this,false)">Les organisations internationales</div>
+              <button class="option" onclick="answer(this,true)">Les individus</button>
+              <button class="option" onclick="answer(this,false)">Les États</button>
+              <button class="option" onclick="answer(this,false)">Les deux</button>
+              <button class="option" onclick="answer(this,false)">Les organisations internationales</button>
             </div>
             <div class="q-feedback">La CPI juge des individus (chefs d'État, militaires, miliciens...) pour génocide, crimes contre l'humanité, crimes de guerre et crime d'agression. La CIJ, elle, tranche les différends entre États.</div>
           </div>
@@ -162,10 +162,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Les Conventions de Genève protègent :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les droits commerciaux</div>
-              <div class="option" onclick="answer(this,true)">Les victimes de conflits armés (civils, blessés, prisonniers)</div>
-              <div class="option" onclick="answer(this,false)">Les droits d'auteur</div>
-              <div class="option" onclick="answer(this,false)">Les droits des travailleurs</div>
+              <button class="option" onclick="answer(this,false)">Les droits commerciaux</button>
+              <button class="option" onclick="answer(this,true)">Les victimes de conflits armés (civils, blessés, prisonniers)</button>
+              <button class="option" onclick="answer(this,false)">Les droits d'auteur</button>
+              <button class="option" onclick="answer(this,false)">Les droits des travailleurs</button>
             </div>
             <div class="q-feedback">Les quatre Conventions de Genève de 1949 protègent les blessés et malades, les prisonniers de guerre et les civils en temps de conflit armé. Elles forment le noyau du droit international humanitaire.</div>
           </div>
@@ -173,10 +173,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce que le principe de complémentarité de la CPI ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La CPI remplace les juridictions nationales</div>
-              <div class="option" onclick="answer(this,true)">La CPI n'intervient que si les juridictions nationales ne peuvent ou ne veulent pas agir</div>
-              <div class="option" onclick="answer(this,false)">La CPI et les juridictions nationales jugent en même temps</div>
-              <div class="option" onclick="answer(this,false)">La CPI complète les décisions nationales</div>
+              <button class="option" onclick="answer(this,false)">La CPI remplace les juridictions nationales</button>
+              <button class="option" onclick="answer(this,true)">La CPI n'intervient que si les juridictions nationales ne peuvent ou ne veulent pas agir</button>
+              <button class="option" onclick="answer(this,false)">La CPI et les juridictions nationales jugent en même temps</button>
+              <button class="option" onclick="answer(this,false)">La CPI complète les décisions nationales</button>
             </div>
             <div class="q-feedback">Le principe de complémentarité signifie que la CPI est un tribunal de dernier recours : elle n'intervient que lorsque l'État compétent n'a pas la volonté ou la capacité de poursuivre les auteurs des crimes internationaux.</div>
           </div>
@@ -184,10 +184,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel organe de l'ONU examine la situation des droits humains dans tous les pays ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le Conseil de sécurité</div>
-              <div class="option" onclick="answer(this,true)">Le Conseil des droits de l'homme</div>
-              <div class="option" onclick="answer(this,false)">L'Assemblée générale</div>
-              <div class="option" onclick="answer(this,false)">Le Secrétariat général</div>
+              <button class="option" onclick="answer(this,false)">Le Conseil de sécurité</button>
+              <button class="option" onclick="answer(this,true)">Le Conseil des droits de l'homme</button>
+              <button class="option" onclick="answer(this,false)">L'Assemblée générale</button>
+              <button class="option" onclick="answer(this,false)">Le Secrétariat général</button>
             </div>
             <div class="q-feedback">Le Conseil des droits de l'homme (47 membres, Genève) procède à l'Examen périodique universel (EPU) de la situation des droits humains dans chaque État membre de l'ONU, tous les 4-5 ans.</div>
           </div>
@@ -254,8 +254,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

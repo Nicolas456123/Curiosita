@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Joie, tristesse, colère, peur : reconnaître, comprendre et réguler ses émotions pour mieux vivre avec soi-même et les autres.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Comprendre ses émotions — Santé mentale — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧠 Santé mentale</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -137,10 +137,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Combien d'émotions de base Paul Ekman a-t-il identifiées ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">4</div>
-              <div class="option" onclick="answer(this,true)">6</div>
-              <div class="option" onclick="answer(this,false)">8</div>
-              <div class="option" onclick="answer(this,false)">12</div>
+              <button class="option" onclick="answer(this,false)">4</button>
+              <button class="option" onclick="answer(this,true)">6</button>
+              <button class="option" onclick="answer(this,false)">8</button>
+              <button class="option" onclick="answer(this,false)">12</button>
             </div>
             <div class="q-feedback">Ekman a identifié 6 émotions universelles : joie, tristesse, colère, peur, dégoût et surprise. Elles sont reconnues dans toutes les cultures humaines.</div>
           </div>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle est la fonction principale de la peur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Nous empêcher de prendre des risques</div>
-              <div class="option" onclick="answer(this,true)">Nous protéger en nous préparant à réagir face au danger</div>
-              <div class="option" onclick="answer(this,false)">Nous rendre plus agressifs</div>
-              <div class="option" onclick="answer(this,false)">Nous isoler des autres</div>
+              <button class="option" onclick="answer(this,false)">Nous empêcher de prendre des risques</button>
+              <button class="option" onclick="answer(this,true)">Nous protéger en nous préparant à réagir face au danger</button>
+              <button class="option" onclick="answer(this,false)">Nous rendre plus agressifs</button>
+              <button class="option" onclick="answer(this,false)">Nous isoler des autres</button>
             </div>
             <div class="q-feedback">La peur est un signal d'alerte qui prépare l'organisme à réagir face au danger (réaction fight-or-flight) : accélération cardiaque, tension musculaire, vigilance accrue.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle structure cérébrale joue un rôle central dans la détection des menaces et le déclenchement des émotions ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le cortex préfrontal</div>
-              <div class="option" onclick="answer(this,true)">L'amygdale</div>
-              <div class="option" onclick="answer(this,false)">L'hippocampe</div>
-              <div class="option" onclick="answer(this,false)">Le cervelet</div>
+              <button class="option" onclick="answer(this,false)">Le cortex préfrontal</button>
+              <button class="option" onclick="answer(this,true)">L'amygdale</button>
+              <button class="option" onclick="answer(this,false)">L'hippocampe</button>
+              <button class="option" onclick="answer(this,false)">Le cervelet</button>
             </div>
             <div class="q-feedback">L'amygdale est une petite structure du système limbique qui détecte les menaces et déclenche la réponse émotionnelle, souvent avant que la pensée consciente ne puisse analyser la situation.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Que signifie « réguler ses émotions » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Supprimer toutes les émotions négatives</div>
-              <div class="option" onclick="answer(this,false)">Ne jamais montrer ses émotions aux autres</div>
-              <div class="option" onclick="answer(this,true)">Moduler ses émotions pour qu'elles restent adaptées à la situation</div>
-              <div class="option" onclick="answer(this,false)">Remplacer les émotions par la logique</div>
+              <button class="option" onclick="answer(this,false)">Supprimer toutes les émotions négatives</button>
+              <button class="option" onclick="answer(this,false)">Ne jamais montrer ses émotions aux autres</button>
+              <button class="option" onclick="answer(this,true)">Moduler ses émotions pour qu'elles restent adaptées à la situation</button>
+              <button class="option" onclick="answer(this,false)">Remplacer les émotions par la logique</button>
             </div>
             <div class="q-feedback">Réguler ne signifie pas supprimer. Il s'agit de moduler l'intensité et la durée de ses émotions pour qu'elles soient adaptées, en utilisant des stratégies comme la réévaluation cognitive ou la respiration.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Pourquoi nommer ses émotions aide-t-il à les réguler ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Cela active le cortex préfrontal et réduit l'activation de l'amygdale</div>
-              <div class="option" onclick="answer(this,false)">Cela supprime immédiatement l'émotion</div>
-              <div class="option" onclick="answer(this,false)">Cela permet aux autres de nous aider</div>
-              <div class="option" onclick="answer(this,false)">Cela n'a aucun effet prouvé scientifiquement</div>
+              <button class="option" onclick="answer(this,true)">Cela active le cortex préfrontal et réduit l'activation de l'amygdale</button>
+              <button class="option" onclick="answer(this,false)">Cela supprime immédiatement l'émotion</button>
+              <button class="option" onclick="answer(this,false)">Cela permet aux autres de nous aider</button>
+              <button class="option" onclick="answer(this,false)">Cela n'a aucun effet prouvé scientifiquement</button>
             </div>
             <div class="q-feedback">Le « affect labeling » (nommer ses émotions) active le cortex préfrontal, zone du raisonnement, ce qui réduit l'activité de l'amygdale et diminue l'intensité émotionnelle ressentie.</div>
           </div>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Laquelle de ces composantes ne fait PAS partie du modèle d'intelligence émotionnelle de Goleman ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Empathie</div>
-              <div class="option" onclick="answer(this,false)">Maîtrise de soi</div>
-              <div class="option" onclick="answer(this,true)">Quotient intellectuel élevé</div>
-              <div class="option" onclick="answer(this,false)">Compétences sociales</div>
+              <button class="option" onclick="answer(this,false)">Empathie</button>
+              <button class="option" onclick="answer(this,false)">Maîtrise de soi</button>
+              <button class="option" onclick="answer(this,true)">Quotient intellectuel élevé</button>
+              <button class="option" onclick="answer(this,false)">Compétences sociales</button>
             </div>
             <div class="q-feedback">Le modèle de Goleman comprend : conscience de soi, maîtrise de soi, motivation, empathie et compétences sociales. Le QI est une mesure cognitive distincte de l'intelligence émotionnelle.</div>
           </div>
@@ -259,8 +259,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

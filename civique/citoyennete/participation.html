@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Vote, référendum, pétition, associations — les multiples formes de l'engagement démocratique.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Participation citoyenne — Citoyenneté — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a9b;
   --accent2: #f09ab5;
   --accent-dim: rgba(232,122,155,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,155,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,155,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🗳️ Citoyenneté</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -134,10 +134,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">À quel âge peut-on voter en France ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">16 ans</div>
-              <div class="option" onclick="answer(this,true)">18 ans</div>
-              <div class="option" onclick="answer(this,false)">21 ans</div>
-              <div class="option" onclick="answer(this,false)">25 ans</div>
+              <button class="option" onclick="answer(this,false)">16 ans</button>
+              <button class="option" onclick="answer(this,true)">18 ans</button>
+              <button class="option" onclick="answer(this,false)">21 ans</button>
+              <button class="option" onclick="answer(this,false)">25 ans</button>
             </div>
             <div class="q-feedback">Le droit de vote est acquis à 18 ans, âge de la majorité civile en France depuis 1974 (abaissé de 21 à 18 ans).</div>
           </div>
@@ -145,10 +145,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel référendum les Français ont-ils rejeté en 2005 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le traité de Maastricht</div>
-              <div class="option" onclick="answer(this,true)">La Constitution européenne</div>
-              <div class="option" onclick="answer(this,false)">Le quinquennat</div>
-              <div class="option" onclick="answer(this,false)">La réforme du Sénat</div>
+              <button class="option" onclick="answer(this,false)">Le traité de Maastricht</button>
+              <button class="option" onclick="answer(this,true)">La Constitution européenne</button>
+              <button class="option" onclick="answer(this,false)">Le quinquennat</button>
+              <button class="option" onclick="answer(this,false)">La réforme du Sénat</button>
             </div>
             <div class="q-feedback">Le 29 mai 2005, les Français ont voté « non » à 54,67 % au traité établissant une Constitution pour l'Europe.</div>
           </div>
@@ -156,10 +156,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qu'est-ce qu'un budget participatif ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le budget voté par le Parlement</div>
-              <div class="option" onclick="answer(this,false)">Un budget géré par les entreprises</div>
-              <div class="option" onclick="answer(this,true)">Une part du budget municipal allouée par vote citoyen</div>
-              <div class="option" onclick="answer(this,false)">Un financement participatif en ligne</div>
+              <button class="option" onclick="answer(this,false)">Le budget voté par le Parlement</button>
+              <button class="option" onclick="answer(this,false)">Un budget géré par les entreprises</button>
+              <button class="option" onclick="answer(this,true)">Une part du budget municipal allouée par vote citoyen</button>
+              <button class="option" onclick="answer(this,false)">Un financement participatif en ligne</button>
             </div>
             <div class="q-feedback">Le budget participatif permet aux habitants de proposer et voter des projets financés par une partie du budget de leur commune.</div>
           </div>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Combien de signatures faut-il pour saisir le CESE par pétition ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">100 000</div>
-              <div class="option" onclick="answer(this,true)">500 000</div>
-              <div class="option" onclick="answer(this,false)">1 million</div>
-              <div class="option" onclick="answer(this,false)">50 000</div>
+              <button class="option" onclick="answer(this,false)">100 000</button>
+              <button class="option" onclick="answer(this,true)">500 000</button>
+              <button class="option" onclick="answer(this,false)">1 million</button>
+              <button class="option" onclick="answer(this,false)">50 000</button>
             </div>
             <div class="q-feedback">Depuis la révision constitutionnelle de 2008, 500 000 signatures de citoyens sont nécessaires pour saisir le Conseil économique, social et environnemental.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Les conseils de quartier sont obligatoires dans les villes de plus de :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">20 000 habitants</div>
-              <div class="option" onclick="answer(this,false)">50 000 habitants</div>
-              <div class="option" onclick="answer(this,true)">80 000 habitants</div>
-              <div class="option" onclick="answer(this,false)">100 000 habitants</div>
+              <button class="option" onclick="answer(this,false)">20 000 habitants</button>
+              <button class="option" onclick="answer(this,false)">50 000 habitants</button>
+              <button class="option" onclick="answer(this,true)">80 000 habitants</button>
+              <button class="option" onclick="answer(this,false)">100 000 habitants</button>
             </div>
             <div class="q-feedback">La loi Vaillant de 2002 relative à la démocratie de proximité rend obligatoire la création de conseils de quartier dans les communes de 80 000 habitants et plus.</div>
           </div>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle loi garantit la liberté d'association en France ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La loi de 1881</div>
-              <div class="option" onclick="answer(this,true)">La loi de 1901</div>
-              <div class="option" onclick="answer(this,false)">La loi de 1905</div>
-              <div class="option" onclick="answer(this,false)">La loi de 1936</div>
+              <button class="option" onclick="answer(this,false)">La loi de 1881</button>
+              <button class="option" onclick="answer(this,true)">La loi de 1901</button>
+              <button class="option" onclick="answer(this,false)">La loi de 1905</button>
+              <button class="option" onclick="answer(this,false)">La loi de 1936</button>
             </div>
             <div class="q-feedback">La loi du 1er juillet 1901 relative au contrat d'association garantit la liberté de créer une association sans autorisation préalable.</div>
           </div>
@@ -259,8 +259,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

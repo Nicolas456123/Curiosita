@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mesures, temps, figures rythmiques et syncopes — le rythme est le squelette temporel de toute musique.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Rythme et métrique — Théorie musicale — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e8b07a;
   --accent2: #ffcc80;
   --accent-dim: rgba(232,176,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,176,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,176,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🥁 Théorie musicale</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -153,10 +153,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Combien de noires contient une mesure en 4/4 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">3 noires</div>
-              <div class="option" onclick="answer(this,true)">4 noires</div>
-              <div class="option" onclick="answer(this,false)">6 noires</div>
-              <div class="option" onclick="answer(this,false)">2 noires</div>
+              <button class="option" onclick="answer(this,false)">3 noires</button>
+              <button class="option" onclick="answer(this,true)">4 noires</button>
+              <button class="option" onclick="answer(this,false)">6 noires</button>
+              <button class="option" onclick="answer(this,false)">2 noires</button>
             </div>
             <div class="q-feedback">En 4/4, le chiffre du haut (4) indique 4 temps par mesure, et le chiffre du bas (4) indique que chaque temps vaut une noire. Donc 4 noires par mesure.</div>
           </div>
@@ -164,10 +164,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que signifie le terme « Allegro » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Très lent</div>
-              <div class="option" onclick="answer(this,false)">Modéré</div>
-              <div class="option" onclick="answer(this,true)">Rapide et vif</div>
-              <div class="option" onclick="answer(this,false)">Très rapide</div>
+              <button class="option" onclick="answer(this,false)">Très lent</button>
+              <button class="option" onclick="answer(this,false)">Modéré</button>
+              <button class="option" onclick="answer(this,true)">Rapide et vif</button>
+              <button class="option" onclick="answer(this,false)">Très rapide</button>
             </div>
             <div class="q-feedback">Allegro signifie « rapide et vif » en italien, correspondant à un tempo d'environ 120-156 BPM. C'est l'un des tempos les plus courants dans la musique classique.</div>
           </div>
@@ -175,10 +175,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qu'est-ce qu'une syncope ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un silence prolongé</div>
-              <div class="option" onclick="answer(this,false)">Un ralentissement du tempo</div>
-              <div class="option" onclick="answer(this,true)">Un déplacement de l'accent sur un temps faible</div>
-              <div class="option" onclick="answer(this,false)">Une répétition d'un motif rythmique</div>
+              <button class="option" onclick="answer(this,false)">Un silence prolongé</button>
+              <button class="option" onclick="answer(this,false)">Un ralentissement du tempo</button>
+              <button class="option" onclick="answer(this,true)">Un déplacement de l'accent sur un temps faible</button>
+              <button class="option" onclick="answer(this,false)">Une répétition d'un motif rythmique</button>
             </div>
             <div class="q-feedback">La syncope déplace l'accent rythmique d'un temps fort vers un temps faible ou une partie faible du temps, créant une tension qui dynamise le rythme.</div>
           </div>
@@ -186,10 +186,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel chiffrage de mesure est associé à la valse ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">4/4</div>
-              <div class="option" onclick="answer(this,true)">3/4</div>
-              <div class="option" onclick="answer(this,false)">6/8</div>
-              <div class="option" onclick="answer(this,false)">2/4</div>
+              <button class="option" onclick="answer(this,false)">4/4</button>
+              <button class="option" onclick="answer(this,true)">3/4</button>
+              <button class="option" onclick="answer(this,false)">6/8</button>
+              <button class="option" onclick="answer(this,false)">2/4</button>
             </div>
             <div class="q-feedback">La valse se danse en 3/4, avec un temps fort suivi de deux temps faibles (UN-deux-trois, UN-deux-trois), créant son balancement caractéristique en trois temps.</div>
           </div>
@@ -197,10 +197,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce que la polyrythmie « 3 contre 2 » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Jouer 3 mesures puis 2 mesures</div>
-              <div class="option" onclick="answer(this,true)">Superposer 3 notes régulières contre 2 notes régulières simultanément</div>
-              <div class="option" onclick="answer(this,false)">Alterner entre un tempo à 3 BPM et 2 BPM</div>
-              <div class="option" onclick="answer(this,false)">Jouer 3 instruments contre 2 instruments</div>
+              <button class="option" onclick="answer(this,false)">Jouer 3 mesures puis 2 mesures</button>
+              <button class="option" onclick="answer(this,true)">Superposer 3 notes régulières contre 2 notes régulières simultanément</button>
+              <button class="option" onclick="answer(this,false)">Alterner entre un tempo à 3 BPM et 2 BPM</button>
+              <button class="option" onclick="answer(this,false)">Jouer 3 instruments contre 2 instruments</button>
             </div>
             <div class="q-feedback">Le 3 contre 2 superpose trois pulsations régulières dans le même espace de temps que deux pulsations régulières. C'est la polyrythmie la plus fondamentale, omniprésente dans les musiques africaines.</div>
           </div>
@@ -208,10 +208,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle est la différence entre une mesure simple et une mesure composée ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La mesure simple a moins de temps</div>
-              <div class="option" onclick="answer(this,false)">La mesure composée est toujours plus rapide</div>
-              <div class="option" onclick="answer(this,true)">La mesure simple subdivise les temps en 2, la composée en 3</div>
-              <div class="option" onclick="answer(this,false)">La mesure composée utilise plus d'instruments</div>
+              <button class="option" onclick="answer(this,false)">La mesure simple a moins de temps</button>
+              <button class="option" onclick="answer(this,false)">La mesure composée est toujours plus rapide</button>
+              <button class="option" onclick="answer(this,true)">La mesure simple subdivise les temps en 2, la composée en 3</button>
+              <button class="option" onclick="answer(this,false)">La mesure composée utilise plus d'instruments</button>
             </div>
             <div class="q-feedback">En mesure simple (2/4, 3/4, 4/4), chaque temps se divise naturellement en deux (binaire). En mesure composée (6/8, 9/8, 12/8), chaque temps se divise en trois (ternaire).</div>
           </div>
@@ -270,8 +270,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

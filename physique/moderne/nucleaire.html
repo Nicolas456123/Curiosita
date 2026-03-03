@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Noyau atomique, énergie de liaison, fission, fusion et centrales nucléaires — comprendre la physique au cœur de l'atome et ses applications énergétiques.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Physique nucléaire — Physique moderne — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8e44ad;
   --accent2: #9b59b6;
   --accent-dim: rgba(142,68,173,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">⚛️ Physique moderne</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -173,10 +173,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel noyau possède l'énergie de liaison par nucléon la plus élevée (sommet de la courbe d'Aston) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'uranium 238</div>
-              <div class="option" onclick="answer(this,false)">L'hélium 4</div>
-              <div class="option" onclick="answer(this,true)">Le fer 56</div>
-              <div class="option" onclick="answer(this,false)">Le carbone 12</div>
+              <button class="option" onclick="answer(this,false)">L'uranium 238</button>
+              <button class="option" onclick="answer(this,false)">L'hélium 4</button>
+              <button class="option" onclick="answer(this,true)">Le fer 56</button>
+              <button class="option" onclick="answer(this,false)">Le carbone 12</button>
             </div>
             <div class="q-feedback">Le fer 56 (⁵⁶Fe) possède l'énergie de liaison par nucléon la plus élevée (~8,8 MeV/nucléon), ce qui en fait l'un des noyaux les plus stables. C'est pourquoi les étoiles massives finissent par produire un cœur de fer avant de s'effondrer en supernova.</div>
           </div>
@@ -184,10 +184,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle force assure la cohésion du noyau atomique malgré la répulsion entre protons ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La force gravitationnelle</div>
-              <div class="option" onclick="answer(this,true)">L'interaction forte (force nucléaire)</div>
-              <div class="option" onclick="answer(this,false)">La force électromagnétique</div>
-              <div class="option" onclick="answer(this,false)">L'interaction faible</div>
+              <button class="option" onclick="answer(this,false)">La force gravitationnelle</button>
+              <button class="option" onclick="answer(this,true)">L'interaction forte (force nucléaire)</button>
+              <button class="option" onclick="answer(this,false)">La force électromagnétique</button>
+              <button class="option" onclick="answer(this,false)">L'interaction faible</button>
             </div>
             <div class="q-feedback">L'interaction forte, environ 100 fois plus intense que la force électromagnétique à courte portée (~1-2 fm), maintient les nucléons ensemble malgré la répulsion coulombienne entre protons.</div>
           </div>
@@ -195,10 +195,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que vaut le facteur de multiplication k dans un réacteur nucléaire en fonctionnement normal ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">k = 0</div>
-              <div class="option" onclick="answer(this,true)">k = 1</div>
-              <div class="option" onclick="answer(this,false)">k = 2</div>
-              <div class="option" onclick="answer(this,false)">k > 1</div>
+              <button class="option" onclick="answer(this,false)">k = 0</button>
+              <button class="option" onclick="answer(this,true)">k = 1</button>
+              <button class="option" onclick="answer(this,false)">k = 2</button>
+              <button class="option" onclick="answer(this,false)">k > 1</button>
             </div>
             <div class="q-feedback">En fonctionnement normal, un réacteur est critique (k = 1) : chaque fission produit en moyenne exactement une nouvelle fission, maintenant la réaction en chaîne à puissance constante. Les barres de contrôle ajustent k.</div>
           </div>
@@ -206,10 +206,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle réaction de fusion est la plus étudiée pour la production d'énergie sur Terre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Hydrogène + hydrogène → deutérium</div>
-              <div class="option" onclick="answer(this,true)">Deutérium + tritium → hélium 4 + neutron</div>
-              <div class="option" onclick="answer(this,false)">Carbone + hydrogène → azote</div>
-              <div class="option" onclick="answer(this,false)">Hélium 3 + hélium 3 → hélium 4</div>
+              <button class="option" onclick="answer(this,false)">Hydrogène + hydrogène → deutérium</button>
+              <button class="option" onclick="answer(this,true)">Deutérium + tritium → hélium 4 + neutron</button>
+              <button class="option" onclick="answer(this,false)">Carbone + hydrogène → azote</button>
+              <button class="option" onclick="answer(this,false)">Hélium 3 + hélium 3 → hélium 4</button>
             </div>
             <div class="q-feedback">La réaction D-T (deutérium + tritium → ⁴He + neutron + 17,6 MeV) est la plus accessible car elle nécessite la température la plus basse (~100 millions de degrés) et possède la section efficace la plus élevée.</div>
           </div>
@@ -217,10 +217,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel est le rôle du modérateur dans un réacteur nucléaire à eau pressurisée ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Absorber les neutrons en excès</div>
-              <div class="option" onclick="answer(this,false)">Refroidir le combustible</div>
-              <div class="option" onclick="answer(this,true)">Ralentir les neutrons rapides en neutrons thermiques</div>
-              <div class="option" onclick="answer(this,false)">Protéger contre les radiations</div>
+              <button class="option" onclick="answer(this,false)">Absorber les neutrons en excès</button>
+              <button class="option" onclick="answer(this,false)">Refroidir le combustible</button>
+              <button class="option" onclick="answer(this,true)">Ralentir les neutrons rapides en neutrons thermiques</button>
+              <button class="option" onclick="answer(this,false)">Protéger contre les radiations</button>
             </div>
             <div class="q-feedback">Le modérateur (eau ordinaire dans un REP) ralentit les neutrons rapides par collisions élastiques. Les neutrons thermiques (lents) ont une probabilité de fission de l'U-235 beaucoup plus élevée que les neutrons rapides.</div>
           </div>
@@ -228,10 +228,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quels sont les « nombres magiques » en physique nucléaire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les nombres premiers jusqu'à 100</div>
-              <div class="option" onclick="answer(this,false)">Les nombres de nucléons des éléments radioactifs</div>
-              <div class="option" onclick="answer(this,true)">Les nombres de protons ou neutrons correspondant à des noyaux exceptionnellement stables (2, 8, 20, 28, 50, 82, 126)</div>
-              <div class="option" onclick="answer(this,false)">Les nombres de masse des isotopes fissiles</div>
+              <button class="option" onclick="answer(this,false)">Les nombres premiers jusqu'à 100</button>
+              <button class="option" onclick="answer(this,false)">Les nombres de nucléons des éléments radioactifs</button>
+              <button class="option" onclick="answer(this,true)">Les nombres de protons ou neutrons correspondant à des noyaux exceptionnellement stables (2, 8, 20, 28, 50, 82, 126)</button>
+              <button class="option" onclick="answer(this,false)">Les nombres de masse des isotopes fissiles</button>
             </div>
             <div class="q-feedback">Les nombres magiques (2, 8, 20, 28, 50, 82, 126) correspondent à des couches nucléaires complètes, analogues aux couches électroniques des gaz nobles. Les noyaux doublement magiques (comme ²⁰⁸Pb) sont particulièrement stables.</div>
           </div>
@@ -339,8 +339,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

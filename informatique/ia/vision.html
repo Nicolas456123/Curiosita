@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Détection d'objets, segmentation, reconnaissance faciale, augmentation de données — apprendre aux machines à voir et comprendre les images.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Vision par ordinateur — Intelligence artificielle — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #2980b9;
   --accent2: #3498db;
   --accent-dim: rgba(41,128,185,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(41,128,185,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(41,128,185,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🤖 Intelligence artificielle</span>
     <span class="tag-level">Avancé</span>
@@ -229,10 +229,10 @@ preprocess_test = transforms.Compose([
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la différence entre la classification d'images et la détection d'objets ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La classification est plus précise</div>
-              <div class="option" onclick="answer(this,true)">La détection localise aussi les objets avec des boîtes englobantes</div>
-              <div class="option" onclick="answer(this,false)">La détection ne fonctionne que sur les vidéos</div>
-              <div class="option" onclick="answer(this,false)">La classification utilise des CNN, pas la détection</div>
+              <button class="option" onclick="answer(this,false)">La classification est plus précise</button>
+              <button class="option" onclick="answer(this,true)">La détection localise aussi les objets avec des boîtes englobantes</button>
+              <button class="option" onclick="answer(this,false)">La détection ne fonctionne que sur les vidéos</button>
+              <button class="option" onclick="answer(this,false)">La classification utilise des CNN, pas la détection</button>
             </div>
             <div class="q-feedback">La classification attribue une seule catégorie à toute l'image. La détection identifie plusieurs objets dans l'image et donne la position de chacun sous forme de boîte englobante (bounding box).</div>
           </div>
@@ -240,10 +240,10 @@ preprocess_test = transforms.Compose([
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Pourquoi YOLO est-il populaire pour la détection en temps réel ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il est plus précis que tous les autres détecteurs</div>
-              <div class="option" onclick="answer(this,true)">Il prédit les boîtes et les classes en un seul passage, ce qui le rend très rapide</div>
-              <div class="option" onclick="answer(this,false)">Il ne nécessite pas de GPU</div>
-              <div class="option" onclick="answer(this,false)">Il fonctionne uniquement sur les caméras de surveillance</div>
+              <button class="option" onclick="answer(this,false)">Il est plus précis que tous les autres détecteurs</button>
+              <button class="option" onclick="answer(this,true)">Il prédit les boîtes et les classes en un seul passage, ce qui le rend très rapide</button>
+              <button class="option" onclick="answer(this,false)">Il ne nécessite pas de GPU</button>
+              <button class="option" onclick="answer(this,false)">Il fonctionne uniquement sur les caméras de surveillance</button>
             </div>
             <div class="q-feedback">YOLO (You Only Look Once) est un détecteur one-stage : il traite l'image en un seul passage réseau, contrairement aux détecteurs two-stage qui nécessitent une étape de proposition de régions puis de classification.</div>
           </div>
@@ -251,10 +251,10 @@ preprocess_test = transforms.Compose([
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qu'est-ce que la segmentation sémantique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Détecter des objets avec des boîtes rectangulaires</div>
-              <div class="option" onclick="answer(this,false)">Classifier une image entière</div>
-              <div class="option" onclick="answer(this,true)">Attribuer une classe à chaque pixel de l'image</div>
-              <div class="option" onclick="answer(this,false)">Identifier les couleurs dominantes</div>
+              <button class="option" onclick="answer(this,false)">Détecter des objets avec des boîtes rectangulaires</button>
+              <button class="option" onclick="answer(this,false)">Classifier une image entière</button>
+              <button class="option" onclick="answer(this,true)">Attribuer une classe à chaque pixel de l'image</button>
+              <button class="option" onclick="answer(this,false)">Identifier les couleurs dominantes</button>
             </div>
             <div class="q-feedback">La segmentation sémantique classe chaque pixel de l'image (route, ciel, piéton, voiture...), donnant une carte dense qui délimite précisément la forme de chaque région.</div>
           </div>
@@ -262,10 +262,10 @@ preprocess_test = transforms.Compose([
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Comment fonctionne la reconnaissance faciale moderne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Elle compare les pixels directement</div>
-              <div class="option" onclick="answer(this,false)">Elle mesure les distances entre les yeux et le nez</div>
-              <div class="option" onclick="answer(this,true)">Elle transforme chaque visage en un vecteur (embedding) et compare les distances</div>
-              <div class="option" onclick="answer(this,false)">Elle utilise uniquement la couleur de la peau</div>
+              <button class="option" onclick="answer(this,false)">Elle compare les pixels directement</button>
+              <button class="option" onclick="answer(this,false)">Elle mesure les distances entre les yeux et le nez</button>
+              <button class="option" onclick="answer(this,true)">Elle transforme chaque visage en un vecteur (embedding) et compare les distances</button>
+              <button class="option" onclick="answer(this,false)">Elle utilise uniquement la couleur de la peau</button>
             </div>
             <div class="q-feedback">Les modèles comme FaceNet extraient un embedding (vecteur dense de 128-512 dimensions) pour chaque visage. Deux visages de la même personne ont des embeddings proches dans l'espace vectoriel.</div>
           </div>
@@ -273,10 +273,10 @@ preprocess_test = transforms.Compose([
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel est le but de l'augmentation de données ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Augmenter la résolution des images</div>
-              <div class="option" onclick="answer(this,true)">Créer artificiellement de la diversité pour améliorer la généralisation</div>
-              <div class="option" onclick="answer(this,false)">Compresser les images pour économiser de l'espace</div>
-              <div class="option" onclick="answer(this,false)">Supprimer les images de mauvaise qualité</div>
+              <button class="option" onclick="answer(this,false)">Augmenter la résolution des images</button>
+              <button class="option" onclick="answer(this,true)">Créer artificiellement de la diversité pour améliorer la généralisation</button>
+              <button class="option" onclick="answer(this,false)">Compresser les images pour économiser de l'espace</button>
+              <button class="option" onclick="answer(this,false)">Supprimer les images de mauvaise qualité</button>
             </div>
             <div class="q-feedback">L'augmentation applique des transformations aléatoires (rotation, recadrage, variation de couleur) aux images d'entraînement, créant de la diversité artificielle qui aide le modèle à mieux généraliser.</div>
           </div>
@@ -284,10 +284,10 @@ preprocess_test = transforms.Compose([
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle technique réduit la taille d'un modèle pour le déploiement sur appareils mobiles ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'augmentation de données</div>
-              <div class="option" onclick="answer(this,false)">Le transfer learning</div>
-              <div class="option" onclick="answer(this,false)">La batch normalization</div>
-              <div class="option" onclick="answer(this,true)">La quantification et le pruning</div>
+              <button class="option" onclick="answer(this,false)">L'augmentation de données</button>
+              <button class="option" onclick="answer(this,false)">Le transfer learning</button>
+              <button class="option" onclick="answer(this,false)">La batch normalization</button>
+              <button class="option" onclick="answer(this,true)">La quantification et le pruning</button>
             </div>
             <div class="q-feedback">La quantification réduit la précision des poids (32 bits → 8 bits), et le pruning supprime les connexions peu importantes. Ces deux techniques combinées peuvent réduire la taille d'un modèle de 4x à 10x.</div>
           </div>
@@ -533,8 +533,14 @@ plt.show()</code></pre></div>
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

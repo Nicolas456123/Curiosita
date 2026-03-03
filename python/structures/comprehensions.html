@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="List, dict et set comprehensions — la syntaxe concise et pythonique pour créer des collections en une ligne.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Compréhensions — Structures de données — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08);  --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../python-page.html">Python</a> › <a href="../structures.html">Structures</a> › <span>Compréhensions</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">✨ Structures de données</span><span class="tag-level">Intermédiaire</span><span class="tag-time">⏱ ~35 min</span></div>
   <h1><em>Compréhensions</em></h1>
   <p class="hero-desc">List, dict et set comprehensions — la syntaxe concise et pythonique pour créer des collections en une ligne.</p>
@@ -186,10 +186,10 @@ result = []
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que produit <code>[x*2 for x in [1,2,3]]</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">[2, 4, 6]</div>
-              <div class="option" onclick="answer(this,false)">[1, 2, 3, 1, 2, 3]</div>
-              <div class="option" onclick="answer(this,false)">[1, 4, 9]</div>
-              <div class="option" onclick="answer(this,false)">6</div>
+              <button class="option" onclick="answer(this,true)">[2, 4, 6]</button>
+              <button class="option" onclick="answer(this,false)">[1, 2, 3, 1, 2, 3]</button>
+              <button class="option" onclick="answer(this,false)">[1, 4, 9]</button>
+              <button class="option" onclick="answer(this,false)">6</button>
             </div>
             <div class="q-feedback">Chaque élément est multiplié par 2 : 1*2=2, 2*2=4, 3*2=6. Résultat : [2, 4, 6].</div>
           </div>
@@ -197,10 +197,10 @@ result = []
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle syntaxe crée un dict comprehension ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">[k: v for k, v in items]</div>
-              <div class="option" onclick="answer(this,true)">{k: v for k, v in items}</div>
-              <div class="option" onclick="answer(this,false)">dict(k: v for k, v in items)</div>
-              <div class="option" onclick="answer(this,false)">(k: v for k, v in items)</div>
+              <button class="option" onclick="answer(this,false)">[k: v for k, v in items]</button>
+              <button class="option" onclick="answer(this,true)">{k: v for k, v in items}</button>
+              <button class="option" onclick="answer(this,false)">dict(k: v for k, v in items)</button>
+              <button class="option" onclick="answer(this,false)">(k: v for k, v in items)</button>
             </div>
             <div class="q-feedback">Les dict comprehensions utilisent des accolades <code>{}</code> avec la syntaxe <code>clé: valeur</code>. Les crochets <code>[]</code> créent des listes.</div>
           </div>
@@ -208,10 +208,10 @@ result = []
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que retourne <code>[x for x in range(10) if x % 3 == 0]</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">[1, 2, 4, 5, 7, 8]</div>
-              <div class="option" onclick="answer(this,true)">[0, 3, 6, 9]</div>
-              <div class="option" onclick="answer(this,false)">[3, 6, 9]</div>
-              <div class="option" onclick="answer(this,false)">[0, 3, 6]</div>
+              <button class="option" onclick="answer(this,false)">[1, 2, 4, 5, 7, 8]</button>
+              <button class="option" onclick="answer(this,true)">[0, 3, 6, 9]</button>
+              <button class="option" onclick="answer(this,false)">[3, 6, 9]</button>
+              <button class="option" onclick="answer(this,false)">[0, 3, 6]</button>
             </div>
             <div class="q-feedback">La condition <code>x % 3 == 0</code> filtre les multiples de 3 dans range(10) : 0, 3, 6, 9. Le 0 est inclus car 0 % 3 == 0.</div>
           </div>
@@ -219,10 +219,10 @@ result = []
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle est la différence entre <code>[x for x in ...]</code> et <code>(x for x in ...)</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Aucune, les deux créent une liste</div>
-              <div class="option" onclick="answer(this,false)">Les parenthèses créent un tuple</div>
-              <div class="option" onclick="answer(this,true)">Les parenthèses créent un générateur (évaluation paresseuse)</div>
-              <div class="option" onclick="answer(this,false)">Les parenthèses sont une erreur de syntaxe</div>
+              <button class="option" onclick="answer(this,false)">Aucune, les deux créent une liste</button>
+              <button class="option" onclick="answer(this,false)">Les parenthèses créent un tuple</button>
+              <button class="option" onclick="answer(this,true)">Les parenthèses créent un générateur (évaluation paresseuse)</button>
+              <button class="option" onclick="answer(this,false)">Les parenthèses sont une erreur de syntaxe</button>
             </div>
             <div class="q-feedback">Les parenthèses créent une expression génératrice qui produit les éléments à la demande, sans stocker toute la séquence en mémoire. C'est plus efficace pour les grandes séquences.</div>
           </div>
@@ -230,10 +230,10 @@ result = []
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que produit <code>[x if x > 3 else 0 for x in range(6)]</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">[4, 5]</div>
-              <div class="option" onclick="answer(this,true)">[0, 0, 0, 0, 4, 5]</div>
-              <div class="option" onclick="answer(this,false)">[0, 1, 2, 3, 4, 5]</div>
-              <div class="option" onclick="answer(this,false)">Erreur de syntaxe</div>
+              <button class="option" onclick="answer(this,false)">[4, 5]</button>
+              <button class="option" onclick="answer(this,true)">[0, 0, 0, 0, 4, 5]</button>
+              <button class="option" onclick="answer(this,false)">[0, 1, 2, 3, 4, 5]</button>
+              <button class="option" onclick="answer(this,false)">Erreur de syntaxe</button>
             </div>
             <div class="q-feedback">L'expression ternaire <code>x if x > 3 else 0</code> remplace par 0 les valeurs de 0 à 3, et garde 4 et 5 tels quels. Tous les éléments sont inclus.</div>
           </div>
@@ -241,10 +241,10 @@ result = []
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que retourne <code>any(x > 10 for x in [1, 5, 15, 3])</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">True</div>
-              <div class="option" onclick="answer(this,false)">False</div>
-              <div class="option" onclick="answer(this,false)">15</div>
-              <div class="option" onclick="answer(this,false)">[15]</div>
+              <button class="option" onclick="answer(this,true)">True</button>
+              <button class="option" onclick="answer(this,false)">False</button>
+              <button class="option" onclick="answer(this,false)">15</button>
+              <button class="option" onclick="answer(this,false)">[15]</button>
             </div>
             <div class="q-feedback"><code>any()</code> retourne <code>True</code> si au moins un élément du générateur est vrai. Ici, 15 > 10 est vrai, donc <code>any()</code> retourne <code>True</code>.</div>
           </div>
@@ -353,8 +353,14 @@ print(f"Toutes les phrases commencent par une majuscule : {toutes_maj}")</code><
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Construire des accords, comprendre les progressions harmoniques et maîtriser les cadences qui structurent la musique tonale.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Accords et harmonie — Théorie musicale — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e8b07a;
   --accent2: #ffcc80;
   --accent-dim: rgba(232,176,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,176,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,176,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎶 Théorie musicale</span>
     <span class="tag-level">Intermédiaire</span>
@@ -174,10 +174,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">De quels intervalles se compose une triade majeure ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Tierce mineure + tierce majeure</div>
-              <div class="option" onclick="answer(this,true)">Tierce majeure + tierce mineure</div>
-              <div class="option" onclick="answer(this,false)">Tierce majeure + tierce majeure</div>
-              <div class="option" onclick="answer(this,false)">Tierce mineure + tierce mineure</div>
+              <button class="option" onclick="answer(this,false)">Tierce mineure + tierce majeure</button>
+              <button class="option" onclick="answer(this,true)">Tierce majeure + tierce mineure</button>
+              <button class="option" onclick="answer(this,false)">Tierce majeure + tierce majeure</button>
+              <button class="option" onclick="answer(this,false)">Tierce mineure + tierce mineure</button>
             </div>
             <div class="q-feedback">La triade majeure est composée d'une tierce majeure (4 demi-tons) puis d'une tierce mineure (3 demi-tons). Ex : Do-Mi (4) + Mi-Sol (3).</div>
           </div>
@@ -185,10 +185,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle cadence produit l'enchaînement V → I ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Cadence plagale</div>
-              <div class="option" onclick="answer(this,true)">Cadence parfaite</div>
-              <div class="option" onclick="answer(this,false)">Demi-cadence</div>
-              <div class="option" onclick="answer(this,false)">Cadence rompue</div>
+              <button class="option" onclick="answer(this,false)">Cadence plagale</button>
+              <button class="option" onclick="answer(this,true)">Cadence parfaite</button>
+              <button class="option" onclick="answer(this,false)">Demi-cadence</button>
+              <button class="option" onclick="answer(this,false)">Cadence rompue</button>
             </div>
             <div class="q-feedback">La cadence parfaite (V → I) est la conclusion la plus ferme du système tonal. La tension de la dominante (V) se résout sur la tonique (I).</div>
           </div>
@@ -196,10 +196,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle est la progression harmonique la plus courante en musique pop ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">ii-V-I</div>
-              <div class="option" onclick="answer(this,false)">I-IV-V-I</div>
-              <div class="option" onclick="answer(this,true)">I-V-vi-IV</div>
-              <div class="option" onclick="answer(this,false)">I-vi-ii-V</div>
+              <button class="option" onclick="answer(this,false)">ii-V-I</button>
+              <button class="option" onclick="answer(this,false)">I-IV-V-I</button>
+              <button class="option" onclick="answer(this,true)">I-V-vi-IV</button>
+              <button class="option" onclick="answer(this,false)">I-vi-ii-V</button>
             </div>
             <div class="q-feedback">La progression I-V-vi-IV est omniprésente dans la pop moderne. La progression ii-V-I est plus caractéristique du jazz.</div>
           </div>
@@ -207,10 +207,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce qu'un renversement d'accord ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Jouer l'accord à l'envers (de l'aigu au grave)</div>
-              <div class="option" onclick="answer(this,true)">Placer une note autre que la fondamentale à la basse</div>
-              <div class="option" onclick="answer(this,false)">Changer le mode de l'accord (majeur en mineur)</div>
-              <div class="option" onclick="answer(this,false)">Transposer l'accord dans une autre tonalité</div>
+              <button class="option" onclick="answer(this,false)">Jouer l'accord à l'envers (de l'aigu au grave)</button>
+              <button class="option" onclick="answer(this,true)">Placer une note autre que la fondamentale à la basse</button>
+              <button class="option" onclick="answer(this,false)">Changer le mode de l'accord (majeur en mineur)</button>
+              <button class="option" onclick="answer(this,false)">Transposer l'accord dans une autre tonalité</button>
             </div>
             <div class="q-feedback">Un renversement place une note autre que la fondamentale à la basse. Le 1er renversement met la tierce à la basse, le 2e met la quinte. Cela crée des sonorités différentes avec les mêmes notes.</div>
           </div>
@@ -218,10 +218,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle cadence produit un effet de surprise en terminant sur le vi au lieu du I ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Cadence plagale</div>
-              <div class="option" onclick="answer(this,false)">Demi-cadence</div>
-              <div class="option" onclick="answer(this,false)">Cadence parfaite</div>
-              <div class="option" onclick="answer(this,true)">Cadence rompue</div>
+              <button class="option" onclick="answer(this,false)">Cadence plagale</button>
+              <button class="option" onclick="answer(this,false)">Demi-cadence</button>
+              <button class="option" onclick="answer(this,false)">Cadence parfaite</button>
+              <button class="option" onclick="answer(this,true)">Cadence rompue</button>
             </div>
             <div class="q-feedback">La cadence rompue (V → vi) trompe l'attente de l'auditeur qui s'attend à une résolution sur le I. Le vi partage deux notes avec le I, créant une demi-satisfaction qui invite à continuer.</div>
           </div>
@@ -229,10 +229,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle est la progression harmonique fondamentale du jazz ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">I-V-vi-IV</div>
-              <div class="option" onclick="answer(this,true)">ii-V-I</div>
-              <div class="option" onclick="answer(this,false)">I-IV-V-I</div>
-              <div class="option" onclick="answer(this,false)">vi-IV-I-V</div>
+              <button class="option" onclick="answer(this,false)">I-V-vi-IV</button>
+              <button class="option" onclick="answer(this,true)">ii-V-I</button>
+              <button class="option" onclick="answer(this,false)">I-IV-V-I</button>
+              <button class="option" onclick="answer(this,false)">vi-IV-I-V</button>
             </div>
             <div class="q-feedback">La progression ii-V-I est le fondement de l'harmonie jazz. Elle crée un mouvement de tension (ii vers V) puis de résolution (V vers I) particulièrement satisfaisant, souvent enrichi d'extensions et d'altérations.</div>
           </div>
@@ -291,8 +291,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

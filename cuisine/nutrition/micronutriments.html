@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Les micronutriments essentiels — leurs fonctions vitales, les meilleures sources alimentaires et les risques de carences.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Vitamines et minéraux — Nutrition — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🍊 Nutrition</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -139,10 +139,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle vitamine est principalement synthétisée par la peau sous l'effet du soleil ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Vitamine A</div>
-              <div class="option" onclick="answer(this,true)">Vitamine D</div>
-              <div class="option" onclick="answer(this,false)">Vitamine C</div>
-              <div class="option" onclick="answer(this,false)">Vitamine E</div>
+              <button class="option" onclick="answer(this,false)">Vitamine A</button>
+              <button class="option" onclick="answer(this,true)">Vitamine D</button>
+              <button class="option" onclick="answer(this,false)">Vitamine C</button>
+              <button class="option" onclick="answer(this,false)">Vitamine E</button>
             </div>
             <div class="q-feedback">La vitamine D est synthétisée par la peau sous l'action des rayons UVB du soleil. C'est pourquoi une supplémentation est souvent recommandée en hiver, lorsque l'ensoleillement est insuffisant.</div>
           </div>
@@ -150,10 +150,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle vitamine est totalement absente du règne végétal ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Vitamine C</div>
-              <div class="option" onclick="answer(this,false)">Vitamine B9</div>
-              <div class="option" onclick="answer(this,true)">Vitamine B12</div>
-              <div class="option" onclick="answer(this,false)">Vitamine K</div>
+              <button class="option" onclick="answer(this,false)">Vitamine C</button>
+              <button class="option" onclick="answer(this,false)">Vitamine B9</button>
+              <button class="option" onclick="answer(this,true)">Vitamine B12</button>
+              <button class="option" onclick="answer(this,false)">Vitamine K</button>
             </div>
             <div class="q-feedback">La vitamine B12 (cobalamine) est exclusivement présente dans les produits animaux. Les personnes végétaliennes doivent impérativement se supplémenter.</div>
           </div>
@@ -161,10 +161,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel minéral est le plus abondant dans le corps humain ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Calcium</div>
-              <div class="option" onclick="answer(this,false)">Fer</div>
-              <div class="option" onclick="answer(this,false)">Magnésium</div>
-              <div class="option" onclick="answer(this,false)">Zinc</div>
+              <button class="option" onclick="answer(this,true)">Calcium</button>
+              <button class="option" onclick="answer(this,false)">Fer</button>
+              <button class="option" onclick="answer(this,false)">Magnésium</button>
+              <button class="option" onclick="answer(this,false)">Zinc</button>
             </div>
             <div class="q-feedback">Le calcium est le minéral le plus abondant du corps humain : 99 % se trouve dans les os et les dents, soit environ 1 kg chez un adulte.</div>
           </div>
@@ -172,10 +172,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle vitamine facilite l'absorption du fer non héminique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Vitamine D</div>
-              <div class="option" onclick="answer(this,true)">Vitamine C</div>
-              <div class="option" onclick="answer(this,false)">Vitamine A</div>
-              <div class="option" onclick="answer(this,false)">Vitamine E</div>
+              <button class="option" onclick="answer(this,false)">Vitamine D</button>
+              <button class="option" onclick="answer(this,true)">Vitamine C</button>
+              <button class="option" onclick="answer(this,false)">Vitamine A</button>
+              <button class="option" onclick="answer(this,false)">Vitamine E</button>
             </div>
             <div class="q-feedback">La vitamine C améliore considérablement l'absorption du fer non héminique (végétal). Conseil : ajoutez du jus de citron sur vos lentilles ou mangez un kiwi en fin de repas.</div>
           </div>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel aliment suffit à couvrir le besoin journalier en sélénium ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Une seule noix du Brésil</div>
-              <div class="option" onclick="answer(this,false)">Un verre de lait</div>
-              <div class="option" onclick="answer(this,false)">Une banane</div>
-              <div class="option" onclick="answer(this,false)">Un yaourt</div>
+              <button class="option" onclick="answer(this,true)">Une seule noix du Brésil</button>
+              <button class="option" onclick="answer(this,false)">Un verre de lait</button>
+              <button class="option" onclick="answer(this,false)">Une banane</button>
+              <button class="option" onclick="answer(this,false)">Un yaourt</button>
             </div>
             <div class="q-feedback">Une seule noix du Brésil contient environ 70 à 90 µg de sélénium, ce qui couvre le besoin journalier (70 µg). C'est l'aliment le plus concentré en sélénium.</div>
           </div>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Pourquoi les vitamines hydrosolubles doivent-elles être apportées quotidiennement ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Elles ne sont pas stockées et sont éliminées dans les urines</div>
-              <div class="option" onclick="answer(this,false)">Elles sont détruites par la digestion</div>
-              <div class="option" onclick="answer(this,false)">Le corps les consomme en une heure</div>
-              <div class="option" onclick="answer(this,false)">Elles deviennent toxiques si stockées</div>
+              <button class="option" onclick="answer(this,true)">Elles ne sont pas stockées et sont éliminées dans les urines</button>
+              <button class="option" onclick="answer(this,false)">Elles sont détruites par la digestion</button>
+              <button class="option" onclick="answer(this,false)">Le corps les consomme en une heure</button>
+              <button class="option" onclick="answer(this,false)">Elles deviennent toxiques si stockées</button>
             </div>
             <div class="q-feedback">Les vitamines hydrosolubles (C et groupe B) se dissolvent dans l'eau et ne sont pas stockées par l'organisme (sauf la B12 dans le foie). L'excès est éliminé par les reins dans les urines.</div>
           </div>
@@ -264,8 +264,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

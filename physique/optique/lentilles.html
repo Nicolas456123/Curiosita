@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Lentilles convergentes et divergentes, formule de conjugaison, construction d'images, microscope et télescope — l'optique au service de la vision.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Lentilles et instruments — Optique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8e44ad;
   --accent2: #9b59b6;
   --accent-dim: rgba(142,68,173,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔭 Optique</span>
     <span class="tag-level">Intermédiaire</span>
@@ -198,10 +198,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la formule de conjugaison d'une lentille mince ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1/OA' + 1/OA = 1/f'</div>
-              <div class="option" onclick="answer(this,true)">1/OA' − 1/OA = 1/f'</div>
-              <div class="option" onclick="answer(this,false)">OA' − OA = f'</div>
-              <div class="option" onclick="answer(this,false)">OA' × OA = f'²</div>
+              <button class="option" onclick="answer(this,false)">1/OA' + 1/OA = 1/f'</button>
+              <button class="option" onclick="answer(this,true)">1/OA' − 1/OA = 1/f'</button>
+              <button class="option" onclick="answer(this,false)">OA' − OA = f'</button>
+              <button class="option" onclick="answer(this,false)">OA' × OA = f'²</button>
             </div>
             <div class="q-feedback">La formule de conjugaison des lentilles minces est 1/OA' − 1/OA = 1/f'. Avec les conventions algébriques, OA est négatif pour un objet réel situé avant la lentille.</div>
           </div>
@@ -209,10 +209,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle lentille corrige la myopie ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Convergente</div>
-              <div class="option" onclick="answer(this,true)">Divergente</div>
-              <div class="option" onclick="answer(this,false)">Cylindrique</div>
-              <div class="option" onclick="answer(this,false)">Plan-convexe</div>
+              <button class="option" onclick="answer(this,false)">Convergente</button>
+              <button class="option" onclick="answer(this,true)">Divergente</button>
+              <button class="option" onclick="answer(this,false)">Cylindrique</button>
+              <button class="option" onclick="answer(this,false)">Plan-convexe</button>
             </div>
             <div class="q-feedback">L'oeil myope est trop convergent : l'image se forme avant la rétine. Une lentille divergente (vergence négative) compense l'excès de convergence en éloignant le foyer image sur la rétine.</div>
           </div>
@@ -220,10 +220,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Où doit-on placer un objet devant une lentille convergente pour obtenir une image virtuelle agrandie ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Au-delà de 2f'</div>
-              <div class="option" onclick="answer(this,false)">Au foyer F</div>
-              <div class="option" onclick="answer(this,true)">Entre O et F (en deçà du foyer)</div>
-              <div class="option" onclick="answer(this,false)">Entre f' et 2f'</div>
+              <button class="option" onclick="answer(this,false)">Au-delà de 2f'</button>
+              <button class="option" onclick="answer(this,false)">Au foyer F</button>
+              <button class="option" onclick="answer(this,true)">Entre O et F (en deçà du foyer)</button>
+              <button class="option" onclick="answer(this,false)">Entre f' et 2f'</button>
             </div>
             <div class="q-feedback">Lorsque l'objet est entre le centre optique O et le foyer objet F, la lentille convergente agit comme une loupe : l'image est virtuelle, droite et agrandie. C'est le principe de la loupe.</div>
           </div>
@@ -231,10 +231,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel est le grossissement angulaire d'une lunette astronomique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">G = f'₁ × f'₂</div>
-              <div class="option" onclick="answer(this,true)">G = f'₁ / f'₂</div>
-              <div class="option" onclick="answer(this,false)">G = f'₂ / f'₁</div>
-              <div class="option" onclick="answer(this,false)">G = f'₁ + f'₂</div>
+              <button class="option" onclick="answer(this,false)">G = f'₁ × f'₂</button>
+              <button class="option" onclick="answer(this,true)">G = f'₁ / f'₂</button>
+              <button class="option" onclick="answer(this,false)">G = f'₂ / f'₁</button>
+              <button class="option" onclick="answer(this,false)">G = f'₁ + f'₂</button>
             </div>
             <div class="q-feedback">Le grossissement angulaire d'une lunette astronomique est G = f'₁/f'₂, où f'₁ est la focale de l'objectif et f'₂ celle de l'oculaire. Pour grossir davantage, on augmente f'₁ ou on diminue f'₂.</div>
           </div>
@@ -242,10 +242,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle est la vergence d'une lentille convergente de distance focale 10 cm ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">+1 δ</div>
-              <div class="option" onclick="answer(this,false)">+5 δ</div>
-              <div class="option" onclick="answer(this,true)">+10 δ</div>
-              <div class="option" onclick="answer(this,false)">+100 δ</div>
+              <button class="option" onclick="answer(this,false)">+1 δ</button>
+              <button class="option" onclick="answer(this,false)">+5 δ</button>
+              <button class="option" onclick="answer(this,true)">+10 δ</button>
+              <button class="option" onclick="answer(this,false)">+100 δ</button>
             </div>
             <div class="q-feedback">V = 1/f' = 1/0,10 = +10 δ (dioptries). La vergence est positive pour une lentille convergente. Il faut convertir f' en mètres avant de calculer.</div>
           </div>
@@ -253,10 +253,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel avantage principal le télescope (réflecteur) a-t-il sur la lunette (réfracteur) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il est moins cher à fabriquer</div>
-              <div class="option" onclick="answer(this,false)">Il a un champ de vision plus large</div>
-              <div class="option" onclick="answer(this,true)">Pas d'aberration chromatique et grands diamètres possibles</div>
-              <div class="option" onclick="answer(this,false)">Il ne nécessite pas d'oculaire</div>
+              <button class="option" onclick="answer(this,false)">Il est moins cher à fabriquer</button>
+              <button class="option" onclick="answer(this,false)">Il a un champ de vision plus large</button>
+              <button class="option" onclick="answer(this,true)">Pas d'aberration chromatique et grands diamètres possibles</button>
+              <button class="option" onclick="answer(this,false)">Il ne nécessite pas d'oculaire</button>
             </div>
             <div class="q-feedback">Un miroir réfléchit toutes les longueurs d'onde de la même manière (pas d'aberration chromatique, contrairement aux lentilles qui réfractent différemment selon λ). De plus, un miroir n'a besoin d'être soutenu que par l'arrière, permettant des diamètres de plusieurs mètres.</div>
           </div>
@@ -358,8 +358,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

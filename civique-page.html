@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Droits et devoirs du citoyen, fonctionnement de la démocratie, valeurs républicaines et engagement civique. Comprendre la République pour mieux y...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Éducation civique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #e87a9b;
   --accent2: #f090b0;
   --accent-dim: rgba(232,122,155,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(232,122,155,0.07) 0%, transparent 70%); }
+ --accent-hero: rgba(232,122,155,0.07); }
 .hero-deco { color: rgba(232,122,155,0.04); }
 </style>
 </head>
@@ -26,7 +27,7 @@
   <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
 </nav>
 
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">🗳️</div>
   <div class="hero-meta">
     <span class="tag-domain">⚖️ Droit, Politique & Société</span>
@@ -148,134 +149,131 @@
       <div class="quiz-container">
         <div class="quiz-header">
           <span class="quiz-title-text">🗳️ Testez vos connaissances citoyennes</span>
-          <span class="quiz-score">Score : <span id="quizScore">0</span>/10</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span>/10</span>
         </div>
-        <div class="quiz-body">
+        <div class="quiz-body" id="quizBody">
           <div class="question-block active" id="q0">
             <div class="q-num">Question 1 / 10</div>
             <div class="q-text">Quelle est la devise de la République française ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(0,0)">Unité, Travail, Progrès</div>
-              <div class="option" onclick="selectOption(0,1)">Liberté, Égalité, Fraternité</div>
-              <div class="option" onclick="selectOption(0,2)">Ordre et Progrès</div>
-              <div class="option" onclick="selectOption(0,3)">Paix, Justice, Liberté</div>
+              <button class="option" onclick="answer(this,false)">Unité, Travail, Progrès</button>
+              <button class="option" onclick="answer(this,true)">Liberté, Égalité, Fraternité</button>
+              <button class="option" onclick="answer(this,false)">Ordre et Progrès</button>
+              <button class="option" onclick="answer(this,false)">Paix, Justice, Liberté</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">'Liberté, Égalité, Fraternité' est la devise de la République française. Elle apparaît pour la première fois pendant la Révolution française et est inscrite dans la Constitution depuis 1958.</div>
           </div>
           <div class="question-block" id="q1">
             <div class="q-num">Question 2 / 10</div>
             <div class="q-text">En France, à quel âge obtient-on le droit de vote ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(1,0)">16 ans</div>
-              <div class="option" onclick="selectOption(1,1)">18 ans</div>
-              <div class="option" onclick="selectOption(1,2)">21 ans</div>
-              <div class="option" onclick="selectOption(1,3)">25 ans</div>
+              <button class="option" onclick="answer(this,false)">16 ans</button>
+              <button class="option" onclick="answer(this,true)">18 ans</button>
+              <button class="option" onclick="answer(this,false)">21 ans</button>
+              <button class="option" onclick="answer(this,false)">25 ans</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">En France, la majorité civile et le droit de vote sont fixés à 18 ans depuis 1974 (abaissé de 21 à 18 ans par Valéry Giscard d'Estaing). Certains pays européens envisagent de l'abaisser à 16 ans.</div>
           </div>
           <div class="question-block" id="q2">
             <div class="q-num">Question 3 / 10</div>
             <div class="q-text">La Déclaration des droits de l'homme et du citoyen date de :</div>
             <div class="options">
-              <div class="option" onclick="selectOption(2,0)">1776</div>
-              <div class="option" onclick="selectOption(2,1)">1789</div>
-              <div class="option" onclick="selectOption(2,2)">1848</div>
-              <div class="option" onclick="selectOption(2,3)">1948</div>
+              <button class="option" onclick="answer(this,false)">1776</button>
+              <button class="option" onclick="answer(this,true)">1789</button>
+              <button class="option" onclick="answer(this,false)">1848</button>
+              <button class="option" onclick="answer(this,false)">1948</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">La Déclaration des droits de l'homme et du citoyen a été adoptée le 26 août 1789 par l'Assemblée constituante. Elle proclame les droits naturels et imprescriptibles : liberté, propriété, sûreté, résistance à l'oppression.</div>
           </div>
           <div class="question-block" id="q3">
             <div class="q-num">Question 4 / 10</div>
             <div class="q-text">La loi de séparation des Églises et de l'État (laïcité) a été votée en :</div>
             <div class="options">
-              <div class="option" onclick="selectOption(3,0)">1789</div>
-              <div class="option" onclick="selectOption(3,1)">1882</div>
-              <div class="option" onclick="selectOption(3,2)">1905</div>
-              <div class="option" onclick="selectOption(3,3)">1946</div>
+              <button class="option" onclick="answer(this,false)">1789</button>
+              <button class="option" onclick="answer(this,false)">1882</button>
+              <button class="option" onclick="answer(this,true)">1905</button>
+              <button class="option" onclick="answer(this,false)">1946</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">La loi du 9 décembre 1905 de séparation des Églises et de l'État établit la laïcité en France. L'État ne reconnaît, ne salarie ni ne subventionne aucun culte, mais garantit la liberté de conscience et le libre exercice des cultes.</div>
           </div>
           <div class="question-block" id="q4">
             <div class="q-num">Question 5 / 10</div>
             <div class="q-text">En France, qui promulgue les lois ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(4,0)">Le Premier ministre</div>
-              <div class="option" onclick="selectOption(4,1)">Le président de la République</div>
-              <div class="option" onclick="selectOption(4,2)">Le président de l'Assemblée nationale</div>
-              <div class="option" onclick="selectOption(4,3)">Le Conseil constitutionnel</div>
+              <button class="option" onclick="answer(this,false)">Le Premier ministre</button>
+              <button class="option" onclick="answer(this,true)">Le président de la République</button>
+              <button class="option" onclick="answer(this,false)">Le président de l'Assemblée nationale</button>
+              <button class="option" onclick="answer(this,false)">Le Conseil constitutionnel</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Selon l'article 10 de la Constitution, le président de la République promulgue les lois dans les 15 jours suivant leur adoption définitive par le Parlement. Il peut aussi demander une nouvelle délibération.</div>
           </div>
           <div class="question-block" id="q5">
             <div class="q-num">Question 6 / 10</div>
             <div class="q-text">Quand les femmes françaises ont-elles obtenu le droit de vote ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(5,0)">1918</div>
-              <div class="option" onclick="selectOption(5,1)">1936</div>
-              <div class="option" onclick="selectOption(5,2)">1944</div>
-              <div class="option" onclick="selectOption(5,3)">1958</div>
+              <button class="option" onclick="answer(this,false)">1918</button>
+              <button class="option" onclick="answer(this,false)">1936</button>
+              <button class="option" onclick="answer(this,true)">1944</button>
+              <button class="option" onclick="answer(this,false)">1958</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">L'ordonnance du 21 avril 1944 du Comité français de libération nationale accorde le droit de vote aux femmes. Elles votent pour la première fois aux élections municipales du 29 avril 1945.</div>
           </div>
           <div class="question-block" id="q6">
             <div class="q-num">Question 7 / 10</div>
             <div class="q-text">Quel article de la Constitution affirme que « la France est une République indivisible, laïque, démocratique et sociale » ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(6,0)">Article 1er</div>
-              <div class="option" onclick="selectOption(6,1)">Article 5</div>
-              <div class="option" onclick="selectOption(6,2)">Article 16</div>
-              <div class="option" onclick="selectOption(6,3)">Article 49</div>
+              <button class="option" onclick="answer(this,true)">Article 1er</button>
+              <button class="option" onclick="answer(this,false)">Article 5</button>
+              <button class="option" onclick="answer(this,false)">Article 16</button>
+              <button class="option" onclick="answer(this,false)">Article 49</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">L'article 1er de la Constitution de 1958 définit la France comme une 'République indivisible, laïque, démocratique et sociale'. Ces quatre adjectifs résument les valeurs fondamentales de la République.</div>
           </div>
           <div class="question-block" id="q7">
             <div class="q-num">Question 8 / 10</div>
             <div class="q-text">Qu'est-ce que le Conseil constitutionnel ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(7,0)">Le gouvernement réuni au complet</div>
-              <div class="option" onclick="selectOption(7,1)">L'organe qui vérifie la conformité des lois à la Constitution</div>
-              <div class="option" onclick="selectOption(7,2)">Le tribunal suprême des affaires pénales</div>
-              <div class="option" onclick="selectOption(7,3)">L'assemblée des maires de France</div>
+              <button class="option" onclick="answer(this,false)">Le gouvernement réuni au complet</button>
+              <button class="option" onclick="answer(this,true)">L'organe qui vérifie la conformité des lois à la Constitution</button>
+              <button class="option" onclick="answer(this,false)">Le tribunal suprême des affaires pénales</button>
+              <button class="option" onclick="answer(this,false)">L'assemblée des maires de France</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le Conseil constitutionnel, créé en 1958, vérifie que les lois sont conformes à la Constitution. Depuis 2010, tout citoyen peut saisir le Conseil via la Question prioritaire de constitutionnalité (QPC).</div>
           </div>
           <div class="question-block" id="q8">
             <div class="q-num">Question 9 / 10</div>
             <div class="q-text">Lequel de ces éléments n'est PAS un symbole de la République française ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(8,0)">Marianne</div>
-              <div class="option" onclick="selectOption(8,1)">Le coq gaulois</div>
-              <div class="option" onclick="selectOption(8,2)">L'aigle impérial</div>
-              <div class="option" onclick="selectOption(8,3)">La Marseillaise</div>
+              <button class="option" onclick="answer(this,false)">Marianne</button>
+              <button class="option" onclick="answer(this,false)">Le coq gaulois</button>
+              <button class="option" onclick="answer(this,true)">L'aigle impérial</button>
+              <button class="option" onclick="answer(this,false)">La Marseillaise</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">L'aigle impérial est le symbole de l'Empire napoléonien, pas de la République. Les symboles républicains sont : Marianne, le drapeau tricolore, la Marseillaise, le coq gaulois, le faisceau de licteur et la devise.</div>
           </div>
           <div class="question-block" id="q9">
             <div class="q-num">Question 10 / 10</div>
             <div class="q-text">Qu'est-ce qu'un référendum ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(9,0)">Un vote du Parlement à la majorité absolue</div>
-              <div class="option" onclick="selectOption(9,1)">Une consultation directe des citoyens sur une question précise</div>
-              <div class="option" onclick="selectOption(9,2)">Une décision du Conseil d'État</div>
-              <div class="option" onclick="selectOption(9,3)">Un débat télévisé entre candidats</div>
+              <button class="option" onclick="answer(this,false)">Un vote du Parlement à la majorité absolue</button>
+              <button class="option" onclick="answer(this,true)">Une consultation directe des citoyens sur une question précise</button>
+              <button class="option" onclick="answer(this,false)">Une décision du Conseil d'État</button>
+              <button class="option" onclick="answer(this,false)">Un débat télévisé entre candidats</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le référendum est un mécanisme de démocratie directe permettant aux citoyens de se prononcer par oui ou non sur une question. En France, il peut être déclenché par le président (art. 11) ou pour réviser la Constitution (art. 89).</div>
           </div>
         </div>
         <div class="quiz-nav">
-          <div class="q-dots">
-            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-          </div>
+          <div class="q-dots" id="qDots"></div>
           <div style="display:flex;gap:.8rem">
-            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
-            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQ()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQ()" disabled>Suivant →</button>
           </div>
         </div>
-        <div class="quiz-result">
-          <div class="result-score-big" id="finalScore"></div>
-          <div class="result-msg" id="finalMsg"></div>
-          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore"></div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
         </div>
       </div>
     </section>
@@ -381,77 +379,15 @@
   </main>
 </div>
 
-<script>
-const questions = [
-  { q:"Quelle est la devise de la République française ?", opts:["Unité, Travail, Progrès","Liberté, Égalité, Fraternité","Ordre et Progrès","Paix, Justice, Liberté"], ans:1, expl:"'Liberté, Égalité, Fraternité' est la devise de la République française. Elle apparaît pour la première fois pendant la Révolution française et est inscrite dans la Constitution depuis 1958." },
-  { q:"À quel âge obtient-on le droit de vote en France ?", opts:["16 ans","18 ans","21 ans","25 ans"], ans:1, expl:"En France, la majorité civile et le droit de vote sont fixés à 18 ans depuis 1974 (abaissé de 21 à 18 ans par Valéry Giscard d'Estaing). Certains pays européens envisagent de l'abaisser à 16 ans." },
-  { q:"La DDHC date de :", opts:["1776","1789","1848","1948"], ans:1, expl:"La Déclaration des droits de l'homme et du citoyen a été adoptée le 26 août 1789 par l'Assemblée constituante. Elle proclame les droits naturels et imprescriptibles : liberté, propriété, sûreté, résistance à l'oppression." },
-  { q:"La loi de laïcité a été votée en :", opts:["1789","1882","1905","1946"], ans:2, expl:"La loi du 9 décembre 1905 de séparation des Églises et de l'État établit la laïcité en France. L'État ne reconnaît, ne salarie ni ne subventionne aucun culte, mais garantit la liberté de conscience et le libre exercice des cultes." },
-  { q:"En France, qui promulgue les lois ?", opts:["Le Premier ministre","Le président de la République","Le président de l'Assemblée nationale","Le Conseil constitutionnel"], ans:1, expl:"Selon l'article 10 de la Constitution, le président de la République promulgue les lois dans les 15 jours suivant leur adoption définitive par le Parlement. Il peut aussi demander une nouvelle délibération." },
-  { q:"Les femmes françaises ont obtenu le droit de vote en :", opts:["1918","1936","1944","1958"], ans:2, expl:"L'ordonnance du 21 avril 1944 du Comité français de libération nationale accorde le droit de vote aux femmes. Elles votent pour la première fois aux élections municipales du 29 avril 1945." },
-  { q:"L'article 1er de la Constitution affirme que la France est :", opts:["Une République indivisible, laïque, démocratique et sociale","Une démocratie parlementaire","Un État fédéral","Une monarchie constitutionnelle"], ans:0, expl:"L'article 1er de la Constitution de 1958 définit la France comme une 'République indivisible, laïque, démocratique et sociale'. Ces quatre adjectifs résument les valeurs fondamentales de la République." },
-  { q:"Le Conseil constitutionnel :", opts:["Gouverne le pays","Vérifie la conformité des lois à la Constitution","Juge les affaires pénales","Réunit les maires"], ans:1, expl:"Le Conseil constitutionnel, créé en 1958, vérifie que les lois sont conformes à la Constitution. Depuis 2010, tout citoyen peut saisir le Conseil via la Question prioritaire de constitutionnalité (QPC)." },
-  { q:"Lequel n'est PAS un symbole de la République ?", opts:["Marianne","Le coq gaulois","L'aigle impérial","La Marseillaise"], ans:2, expl:"L'aigle impérial est le symbole de l'Empire napoléonien, pas de la République. Les symboles républicains sont : Marianne, le drapeau tricolore, la Marseillaise, le coq gaulois, le faisceau de licteur et la devise." },
-  { q:"Un référendum est :", opts:["Un vote du Parlement","Une consultation directe des citoyens","Une décision du Conseil d'État","Un débat télévisé"], ans:1, expl:"Le référendum est un mécanisme de démocratie directe permettant aux citoyens de se prononcer par oui ou non sur une question. En France, il peut être déclenché par le président (art. 11) ou pour réviser la Constitution (art. 89)." }
-];
-
-let current=0,score=0,answered=new Array(10).fill(null);
-
-function renderQuestion(){
-  document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));
-  document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});
-  document.getElementById('btnPrev').disabled=current===0;
-  document.getElementById('btnNext').textContent=current===9?'Voir résultats':'Suivant →';
-}
-function selectOption(qi,oi){
-  if(answered[qi]!==null)return;answered[qi]=oi;
-  const block=document.querySelectorAll('.question-block')[qi];
-  block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});
-  const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');
-  if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');
-}
-function nextQuestion(){if(current<9){current++;renderQuestion();}else showResult();}
-function prevQuestion(){if(current>0){current--;renderQuestion();}}
-function showResult(){
-  document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';
-  const r=document.querySelector('.quiz-result');r.style.display='block';
-  document.getElementById('finalScore').textContent=score+'/10';
-  document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Bien !','Très bien !','Excellent, citoyen modèle !'][score<=2?0:score<=4?1:score<=6?2:score<=8?3:4];
-}
-function restartQuiz(){
-  current=0;score=0;answered.fill(null);
-  document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';
-  document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');
-  document.getElementById('quizScore').textContent=0;renderQuestion();
-}
-function goTo(id,el){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
-  document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');
-}
-// Scroll spy
-(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
-const sections=['resume','cours','concepts','quiz','ressources','memo'];
-window.addEventListener('scroll',()=>{
-  let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});
-  document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';
-});
-function downloadMemo(){
-  const w=window.open('','_blank','width=900,height=700');
-  w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Éducation civique</title>
-  <style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#c4506e;border-bottom:3px solid #c4506e;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#c4506e;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #f0c6d4;padding:1rem;border-radius:4px;background:#fef5f8}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style>
-  </head><body><h1>🗳️ Fiche mémo — Éducation civique</h1>
-  <div class="grid">
-    <div class="box"><h2>Valeurs républicaines</h2><ul><li>Liberté — droits individuels garantis</li><li>Égalité — mêmes droits pour tous</li><li>Fraternité — solidarité nationale</li><li>Laïcité — séparation État/religions (1905)</li><li>Indivisibilité — République une et indivisible</li></ul></div>
-    <div class="box"><h2>Textes fondateurs</h2><ul><li>1789 — Déclaration des droits de l'homme</li><li>1905 — Loi de laïcité</li><li>1944 — Droit de vote des femmes</li><li>1946 — Droits sociaux (préambule)</li><li>1948 — Déclaration universelle (ONU)</li><li>1958 — Constitution Ve République</li></ul></div>
-    <div class="box"><h2>Institutions</h2><ul><li>Président — chef de l'État, élu 5 ans</li><li>Assemblée nationale — 577 députés</li><li>Sénat — 348 sénateurs</li><li>Conseil constitutionnel — gardien de la Constitution</li><li>Conseil d'État — juge administratif suprême</li></ul></div>
-    <div class="box"><h2>Symboles</h2><ul><li>Drapeau tricolore (bleu, blanc, rouge)</li><li>La Marseillaise (hymne)</li><li>Marianne (allégorie)</li><li>Le coq gaulois</li><li>Devise : Liberté, Égalité, Fraternité</li></ul></div>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
   </div>
-  <div class="footer">Curiosita — Fiche mémo Éducation civique — ${new Date().toLocaleDateString('fr-FR')}</div>
-  <button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#c4506e;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">Imprimer / PDF</button>
-</body></html>`);w.document.close();
-}
-renderQuestion();
-</script>
-    <script src="mobile.js?v=2"></script>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

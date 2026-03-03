@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Liberté, égalité, fraternité, laïcité — les principes fondateurs qui cimentent le pacte républicain.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Valeurs de la République — Citoyenneté — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a9b;
   --accent2: #f09ab5;
   --accent-dim: rgba(232,122,155,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,155,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,155,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🏛️ Citoyenneté</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -146,10 +146,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la devise de la République française ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Liberté, Égalité, Fraternité</div>
-              <div class="option" onclick="answer(this,false)">Liberté, Justice, Solidarité</div>
-              <div class="option" onclick="answer(this,false)">Unité, Force, Progrès</div>
-              <div class="option" onclick="answer(this,false)">Droits, Devoirs, Patrie</div>
+              <button class="option" onclick="answer(this,true)">Liberté, Égalité, Fraternité</button>
+              <button class="option" onclick="answer(this,false)">Liberté, Justice, Solidarité</button>
+              <button class="option" onclick="answer(this,false)">Unité, Force, Progrès</button>
+              <button class="option" onclick="answer(this,false)">Droits, Devoirs, Patrie</button>
             </div>
             <div class="q-feedback">La devise « Liberté, Égalité, Fraternité » est inscrite dans la Constitution (art. 2) et orne les frontons des bâtiments publics depuis la IIIe République.</div>
           </div>
@@ -157,10 +157,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle loi fonde le principe de laïcité en France ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La loi de 1881 sur la presse</div>
-              <div class="option" onclick="answer(this,false)">La loi de 1901 sur les associations</div>
-              <div class="option" onclick="answer(this,true)">La loi de 1905 de séparation des Églises et de l'État</div>
-              <div class="option" onclick="answer(this,false)">La loi de 1882 sur l'école</div>
+              <button class="option" onclick="answer(this,false)">La loi de 1881 sur la presse</button>
+              <button class="option" onclick="answer(this,false)">La loi de 1901 sur les associations</button>
+              <button class="option" onclick="answer(this,true)">La loi de 1905 de séparation des Églises et de l'État</button>
+              <button class="option" onclick="answer(this,false)">La loi de 1882 sur l'école</button>
             </div>
             <div class="q-feedback">La loi du 9 décembre 1905 établit la séparation des Églises et de l'État et pose les bases de la laïcité française : liberté de conscience, neutralité de l'État, libre exercice des cultes.</div>
           </div>
@@ -168,10 +168,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que signifie « la République est sociale » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Que la France est un réseau social</div>
-              <div class="option" onclick="answer(this,true)">Que l'État met en oeuvre des politiques de solidarité et de réduction des inégalités</div>
-              <div class="option" onclick="answer(this,false)">Que les citoyens doivent être sociables</div>
-              <div class="option" onclick="answer(this,false)">Que le socialisme est la doctrine officielle</div>
+              <button class="option" onclick="answer(this,false)">Que la France est un réseau social</button>
+              <button class="option" onclick="answer(this,true)">Que l'État met en oeuvre des politiques de solidarité et de réduction des inégalités</button>
+              <button class="option" onclick="answer(this,false)">Que les citoyens doivent être sociables</button>
+              <button class="option" onclick="answer(this,false)">Que le socialisme est la doctrine officielle</button>
             </div>
             <div class="q-feedback">Le caractère « social » de la République (art. 1er Constitution) signifie que l'État a le devoir de lutter contre les inégalités par des politiques de redistribution, de protection sociale et d'accès aux services publics.</div>
           </div>
@@ -179,10 +179,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">En quelle année la Sécurité sociale a-t-elle été créée ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1936</div>
-              <div class="option" onclick="answer(this,true)">1945</div>
-              <div class="option" onclick="answer(this,false)">1958</div>
-              <div class="option" onclick="answer(this,false)">1968</div>
+              <button class="option" onclick="answer(this,false)">1936</button>
+              <button class="option" onclick="answer(this,true)">1945</button>
+              <button class="option" onclick="answer(this,false)">1958</button>
+              <button class="option" onclick="answer(this,false)">1968</button>
             </div>
             <div class="q-feedback">La Sécurité sociale est créée par les ordonnances des 4 et 19 octobre 1945, sous le gouvernement provisoire du général de Gaulle, à l'initiative de Pierre Laroque et Ambroise Croizat.</div>
           </div>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que représente Marianne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une reine de France</div>
-              <div class="option" onclick="answer(this,true)">L'allégorie de la République</div>
-              <div class="option" onclick="answer(this,false)">Une sainte catholique</div>
-              <div class="option" onclick="answer(this,false)">La première citoyenne française</div>
+              <button class="option" onclick="answer(this,false)">Une reine de France</button>
+              <button class="option" onclick="answer(this,true)">L'allégorie de la République</button>
+              <button class="option" onclick="answer(this,false)">Une sainte catholique</button>
+              <button class="option" onclick="answer(this,false)">La première citoyenne française</button>
             </div>
             <div class="q-feedback">Marianne est la figure allégorique de la République française, symbolisant la liberté et la raison. Son buste est présent dans toutes les mairies de France.</div>
           </div>
@@ -201,10 +201,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Les trois couleurs du drapeau français représentent :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'armée, la marine, l'aviation</div>
-              <div class="option" onclick="answer(this,false)">Les trois ordres de l'Ancien Régime</div>
-              <div class="option" onclick="answer(this,true)">Les couleurs de Paris (bleu, rouge) et la monarchie (blanc)</div>
-              <div class="option" onclick="answer(this,false)">La mer, la neige, le sang</div>
+              <button class="option" onclick="answer(this,false)">L'armée, la marine, l'aviation</button>
+              <button class="option" onclick="answer(this,false)">Les trois ordres de l'Ancien Régime</button>
+              <button class="option" onclick="answer(this,true)">Les couleurs de Paris (bleu, rouge) et la monarchie (blanc)</button>
+              <button class="option" onclick="answer(this,false)">La mer, la neige, le sang</button>
             </div>
             <div class="q-feedback">Le bleu et le rouge sont les couleurs de la ville de Paris, le blanc est la couleur traditionnelle de la monarchie. Leur union symbolise la réconciliation entre le roi et le peuple au début de la Révolution.</div>
           </div>
@@ -271,8 +271,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

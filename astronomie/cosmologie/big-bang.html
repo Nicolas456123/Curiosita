@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La naissance de l'univers — singularité initiale, inflation cosmique, nucléosynthèse primordiale et fond diffus cosmologique.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Le Big Bang — Cosmologie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #80cbc4;
   --accent-dim: rgba(122,232,216,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔭 Cosmologie</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -144,10 +144,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est l'âge estimé de l'univers selon le modèle du Big Bang ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">4,6 milliards d'années</div>
-              <div class="option" onclick="answer(this,true)">13,8 milliards d'années</div>
-              <div class="option" onclick="answer(this,false)">10 milliards d'années</div>
-              <div class="option" onclick="answer(this,false)">20 milliards d'années</div>
+              <button class="option" onclick="answer(this,false)">4,6 milliards d'années</button>
+              <button class="option" onclick="answer(this,true)">13,8 milliards d'années</button>
+              <button class="option" onclick="answer(this,false)">10 milliards d'années</button>
+              <button class="option" onclick="answer(this,false)">20 milliards d'années</button>
             </div>
             <div class="q-feedback">L'âge de l'univers est estimé à 13,8 milliards d'années grâce aux mesures du fond diffus cosmologique par le satellite Planck. 4,6 milliards d'années correspond à l'âge du système solaire.</div>
           </div>
@@ -155,10 +155,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'est-ce que l'inflation cosmique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'expansion actuelle de l'univers</div>
-              <div class="option" onclick="answer(this,false)">La formation des premières étoiles</div>
-              <div class="option" onclick="answer(this,true)">Une expansion exponentielle extrêmement rapide dans les premiers instants</div>
-              <div class="option" onclick="answer(this,false)">Le refroidissement progressif de l'univers</div>
+              <button class="option" onclick="answer(this,false)">L'expansion actuelle de l'univers</button>
+              <button class="option" onclick="answer(this,false)">La formation des premières étoiles</button>
+              <button class="option" onclick="answer(this,true)">Une expansion exponentielle extrêmement rapide dans les premiers instants</button>
+              <button class="option" onclick="answer(this,false)">Le refroidissement progressif de l'univers</button>
             </div>
             <div class="q-feedback">L'inflation cosmique est une phase d'expansion exponentielle entre t ≈ 10⁻³⁶ s et t ≈ 10⁻³² s, durant laquelle l'univers a augmenté sa taille d'un facteur d'au moins 10²⁶.</div>
           </div>
@@ -166,10 +166,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quels éléments sont principalement produits lors de la nucléosynthèse primordiale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Carbone et oxygène</div>
-              <div class="option" onclick="answer(this,true)">Hydrogène et hélium</div>
-              <div class="option" onclick="answer(this,false)">Fer et nickel</div>
-              <div class="option" onclick="answer(this,false)">Tous les éléments du tableau périodique</div>
+              <button class="option" onclick="answer(this,false)">Carbone et oxygène</button>
+              <button class="option" onclick="answer(this,true)">Hydrogène et hélium</button>
+              <button class="option" onclick="answer(this,false)">Fer et nickel</button>
+              <button class="option" onclick="answer(this,false)">Tous les éléments du tableau périodique</button>
             </div>
             <div class="q-feedback">La nucléosynthèse primordiale produit environ 75 % d'hydrogène et 25 % d'hélium-4, avec des traces de deutérium et de lithium. Les éléments plus lourds sont fabriqués dans les étoiles.</div>
           </div>
@@ -177,10 +177,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce que le fond diffus cosmologique (CMB) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La lumière des premières étoiles</div>
-              <div class="option" onclick="answer(this,false)">Le rayonnement émis par les trous noirs</div>
-              <div class="option" onclick="answer(this,true)">Le rayonnement fossile émis 380 000 ans après le Big Bang</div>
-              <div class="option" onclick="answer(this,false)">Les ondes radio émises par les galaxies</div>
+              <button class="option" onclick="answer(this,false)">La lumière des premières étoiles</button>
+              <button class="option" onclick="answer(this,false)">Le rayonnement émis par les trous noirs</button>
+              <button class="option" onclick="answer(this,true)">Le rayonnement fossile émis 380 000 ans après le Big Bang</button>
+              <button class="option" onclick="answer(this,false)">Les ondes radio émises par les galaxies</button>
             </div>
             <div class="q-feedback">Le CMB est le rayonnement fossile émis lors de la recombinaison, 380 000 ans après le Big Bang, quand l'univers est devenu transparent. Sa température actuelle est de 2,725 K.</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qui a détecté le fond diffus cosmologique pour la première fois ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Edwin Hubble en 1929</div>
-              <div class="option" onclick="answer(this,true)">Penzias et Wilson en 1965</div>
-              <div class="option" onclick="answer(this,false)">Albert Einstein en 1915</div>
-              <div class="option" onclick="answer(this,false)">Le satellite Planck en 2013</div>
+              <button class="option" onclick="answer(this,false)">Edwin Hubble en 1929</button>
+              <button class="option" onclick="answer(this,true)">Penzias et Wilson en 1965</button>
+              <button class="option" onclick="answer(this,false)">Albert Einstein en 1915</button>
+              <button class="option" onclick="answer(this,false)">Le satellite Planck en 2013</button>
             </div>
             <div class="q-feedback">Arno Penzias et Robert Wilson ont détecté accidentellement le CMB en 1965 avec une antenne radio des Bell Labs. Ils ont reçu le prix Nobel de physique en 1978 pour cette découverte.</div>
           </div>
@@ -199,10 +199,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel problème l'inflation cosmique résout-elle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'existence de la matière noire</div>
-              <div class="option" onclick="answer(this,false)">La formation des trous noirs</div>
-              <div class="option" onclick="answer(this,true)">L'homogénéité de l'univers à grande échelle (problème de l'horizon)</div>
-              <div class="option" onclick="answer(this,false)">L'origine de la vie sur Terre</div>
+              <button class="option" onclick="answer(this,false)">L'existence de la matière noire</button>
+              <button class="option" onclick="answer(this,false)">La formation des trous noirs</button>
+              <button class="option" onclick="answer(this,true)">L'homogénéité de l'univers à grande échelle (problème de l'horizon)</button>
+              <button class="option" onclick="answer(this,false)">L'origine de la vie sur Terre</button>
             </div>
             <div class="q-feedback">L'inflation résout le problème de l'horizon : sans elle, des régions opposées du ciel n'auraient jamais pu être en contact causal, et pourtant le CMB y est presque identique. L'inflation les a mises en contact avant de les séparer.</div>
           </div>
@@ -272,8 +272,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

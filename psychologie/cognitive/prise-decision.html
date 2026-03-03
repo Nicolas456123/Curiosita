@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Heuristiques, biais cognitifs et irrationalités systématiques — pourquoi nous ne sommes pas les agents rationnels que nous croyons être.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Prise de décision — Psychologie Cognitive — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #b07fe8;
   --accent2: #c9a0f0;
   --accent-dim: rgba(176,127,232,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(176,127,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(176,127,232,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧠 Cognitive</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -157,10 +157,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">L'aversion à la perte signifie que :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">On évite toujours le risque</div>
-              <div class="option" onclick="answer(this,true)">Perdre 100 euros est environ 2 fois plus douloureux que gagner 100 euros n'est agréable</div>
-              <div class="option" onclick="answer(this,false)">On préfère toujours le gain certain</div>
-              <div class="option" onclick="answer(this,false)">Les pertes et les gains ont le même impact psychologique</div>
+              <button class="option" onclick="answer(this,false)">On évite toujours le risque</button>
+              <button class="option" onclick="answer(this,true)">Perdre 100 euros est environ 2 fois plus douloureux que gagner 100 euros n'est agréable</button>
+              <button class="option" onclick="answer(this,false)">On préfère toujours le gain certain</button>
+              <button class="option" onclick="answer(this,false)">Les pertes et les gains ont le même impact psychologique</button>
             </div>
             <div class="q-feedback">L'aversion à la perte (Kahneman & Tversky, 1979) montre que l'impact négatif d'une perte est environ 2 à 2,5 fois plus intense que l'impact positif d'un gain équivalent. Ce biais explique de nombreux comportements « irrationnels » en économie.</div>
           </div>
@@ -168,10 +168,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">L'heuristique de disponibilité nous amène à :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Toujours chercher plus d'information avant de décider</div>
-              <div class="option" onclick="answer(this,false)">Suivre l'avis de la majorité</div>
-              <div class="option" onclick="answer(this,true)">Estimer la fréquence d'un événement selon la facilité à en trouver des exemples</div>
-              <div class="option" onclick="answer(this,false)">Préférer les options les plus récentes</div>
+              <button class="option" onclick="answer(this,false)">Toujours chercher plus d'information avant de décider</button>
+              <button class="option" onclick="answer(this,false)">Suivre l'avis de la majorité</button>
+              <button class="option" onclick="answer(this,true)">Estimer la fréquence d'un événement selon la facilité à en trouver des exemples</button>
+              <button class="option" onclick="answer(this,false)">Préférer les options les plus récentes</button>
             </div>
             <div class="q-feedback">L'heuristique de disponibilité : si des exemples nous viennent facilement à l'esprit, on juge l'événement comme fréquent. Les événements médiatisés (attentats, crashes) sont surestimés, les causes de mort statistiquement plus fréquentes (diabète, AVC) sont sous-estimées.</div>
           </div>
@@ -179,10 +179,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qu'est-ce qu'un « nudge » en économie comportementale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une interdiction légale pour protéger les consommateurs</div>
-              <div class="option" onclick="answer(this,false)">Une taxe sur les comportements nocifs</div>
-              <div class="option" onclick="answer(this,true)">Une modification de l'architecture du choix pour orienter les décisions sans contraindre</div>
-              <div class="option" onclick="answer(this,false)">Une campagne de publicité agressive</div>
+              <button class="option" onclick="answer(this,false)">Une interdiction légale pour protéger les consommateurs</button>
+              <button class="option" onclick="answer(this,false)">Une taxe sur les comportements nocifs</button>
+              <button class="option" onclick="answer(this,true)">Une modification de l'architecture du choix pour orienter les décisions sans contraindre</button>
+              <button class="option" onclick="answer(this,false)">Une campagne de publicité agressive</button>
             </div>
             <div class="q-feedback">Le nudge (Thaler & Sunstein) consiste à modifier l'environnement de choix pour favoriser les meilleures décisions sans restreindre la liberté. Exemple : l'inscription automatique à l'épargne retraite (opt-out) augmente massivement les taux de participation.</div>
           </div>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">L'hypothèse des marqueurs somatiques de Damasio propose que :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les émotions empêchent toujours la prise de décision rationnelle</div>
-              <div class="option" onclick="answer(this,true)">Les émotions associées aux expériences passées guident les décisions futures</div>
-              <div class="option" onclick="answer(this,false)">Les décisions optimales sont prises sans aucune émotion</div>
-              <div class="option" onclick="answer(this,false)">Le corps n'a aucun rôle dans la prise de décision cognitive</div>
+              <button class="option" onclick="answer(this,false)">Les émotions empêchent toujours la prise de décision rationnelle</button>
+              <button class="option" onclick="answer(this,true)">Les émotions associées aux expériences passées guident les décisions futures</button>
+              <button class="option" onclick="answer(this,false)">Les décisions optimales sont prises sans aucune émotion</button>
+              <button class="option" onclick="answer(this,false)">Le corps n'a aucun rôle dans la prise de décision cognitive</button>
             </div>
             <div class="q-feedback">Damasio a montré que les émotions (« marqueurs somatiques ») sont essentielles pour décider efficacement. Les patients avec des lésions préfrontales ventromédianes, incapables de ressentir des émotions liées aux conséquences, prennent des décisions catastrophiques malgré une intelligence intacte.</div>
           </div>
@@ -201,10 +201,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">L'effet Dunning-Kruger décrit le fait que :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les experts surestiment toujours leurs compétences</div>
-              <div class="option" onclick="answer(this,false)">Tout le monde évalue correctement ses compétences</div>
-              <div class="option" onclick="answer(this,true)">Les personnes les moins compétentes surestiment le plus leurs capacités</div>
-              <div class="option" onclick="answer(this,false)">L'intelligence est le seul facteur de la prise de décision</div>
+              <button class="option" onclick="answer(this,false)">Les experts surestiment toujours leurs compétences</button>
+              <button class="option" onclick="answer(this,false)">Tout le monde évalue correctement ses compétences</button>
+              <button class="option" onclick="answer(this,true)">Les personnes les moins compétentes surestiment le plus leurs capacités</button>
+              <button class="option" onclick="answer(this,false)">L'intelligence est le seul facteur de la prise de décision</button>
             </div>
             <div class="q-feedback">Dunning et Kruger (1999) ont montré que les personnes les moins performantes dans un domaine manquent aussi des compétences métacognitives nécessaires pour reconnaître leur incompétence. Les experts, paradoxalement, tendent à sous-estimer leurs compétences en supposant que les autres sont aussi compétents qu'eux.</div>
           </div>
@@ -212,10 +212,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Le biais de confirmation nous pousse à :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Confirmer les choix des autres par conformisme social</div>
-              <div class="option" onclick="answer(this,true)">Chercher et interpréter les informations qui confirment nos croyances préexistantes</div>
-              <div class="option" onclick="answer(this,false)">Toujours vérifier les informations avant de décider</div>
-              <div class="option" onclick="answer(this,false)">Changer d'avis facilement face à de nouvelles preuves</div>
+              <button class="option" onclick="answer(this,false)">Confirmer les choix des autres par conformisme social</button>
+              <button class="option" onclick="answer(this,true)">Chercher et interpréter les informations qui confirment nos croyances préexistantes</button>
+              <button class="option" onclick="answer(this,false)">Toujours vérifier les informations avant de décider</button>
+              <button class="option" onclick="answer(this,false)">Changer d'avis facilement face à de nouvelles preuves</button>
             </div>
             <div class="q-feedback">Le biais de confirmation est l'un des biais les plus puissants et les plus omniprésents. Wason (1960) a montré que les gens cherchent systématiquement les preuves qui confirment leur hypothèse plutôt que celles qui pourraient la réfuter — violant ainsi la logique scientifique de la falsification.</div>
           </div>
@@ -273,8 +273,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

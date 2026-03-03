@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Règles de calcul des puissances, racines carrées et cubiques, notation scientifique.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Puissances et racines — Arithmétique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #c0392b; --accent2: #e74c3c; --accent-dim: rgba(192,57,43,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #c0392b; --accent2: #e74c3c; --accent-dim: rgba(192,57,43,0.08);  --accent-hero: rgba(192,57,43,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../maths-page.html">Mathématiques</a> › <a href="../arithmetique.html">Arithmétique</a> › <span>Puissances</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">⚡ Arithmétique</span><span class="tag-level">Débutant → Intermédiaire</span><span class="tag-time">⏱ ~35 min</span></div>
   <h1><em>Puissances et racines</em></h1>
   <p class="hero-desc">Règles de calcul des puissances, racines carrées et cubiques, notation scientifique.</p>
@@ -140,10 +140,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que vaut 2⁸ ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">128</div>
-              <div class="option" onclick="answer(this,true)">256</div>
-              <div class="option" onclick="answer(this,false)">512</div>
-              <div class="option" onclick="answer(this,false)">64</div>
+              <button class="option" onclick="answer(this,false)">128</button>
+              <button class="option" onclick="answer(this,true)">256</button>
+              <button class="option" onclick="answer(this,false)">512</button>
+              <button class="option" onclick="answer(this,false)">64</button>
             </div>
             <div class="q-feedback">2⁸ = 256. On peut calculer : 2⁴ = 16, donc 2⁸ = 16² = 256.</div>
           </div>
@@ -151,10 +151,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Simplifier √50 :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">5√2</div>
-              <div class="option" onclick="answer(this,false)">√50</div>
-              <div class="option" onclick="answer(this,false)">10√5</div>
-              <div class="option" onclick="answer(this,false)">25√2</div>
+              <button class="option" onclick="answer(this,true)">5√2</button>
+              <button class="option" onclick="answer(this,false)">√50</button>
+              <button class="option" onclick="answer(this,false)">10√5</button>
+              <button class="option" onclick="answer(this,false)">25√2</button>
             </div>
             <div class="q-feedback">√50 = √(25 × 2) = √25 × √2 = 5√2 ≈ 7,07.</div>
           </div>
@@ -162,10 +162,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que vaut 10⁻³ ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">0,001</div>
-              <div class="option" onclick="answer(this,false)">-1000</div>
-              <div class="option" onclick="answer(this,false)">-30</div>
-              <div class="option" onclick="answer(this,false)">0,01</div>
+              <button class="option" onclick="answer(this,true)">0,001</button>
+              <button class="option" onclick="answer(this,false)">-1000</button>
+              <button class="option" onclick="answer(this,false)">-30</button>
+              <button class="option" onclick="answer(this,false)">0,01</button>
             </div>
             <div class="q-feedback">10⁻³ = 1/10³ = 1/1000 = 0,001. L'exposant négatif signifie « inverse », pas « nombre négatif ».</div>
           </div>
@@ -173,10 +173,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Que vaut (-3)⁴ ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">81</div>
-              <div class="option" onclick="answer(this,false)">-81</div>
-              <div class="option" onclick="answer(this,false)">-12</div>
-              <div class="option" onclick="answer(this,false)">12</div>
+              <button class="option" onclick="answer(this,true)">81</button>
+              <button class="option" onclick="answer(this,false)">-81</button>
+              <button class="option" onclick="answer(this,false)">-12</button>
+              <button class="option" onclick="answer(this,false)">12</button>
             </div>
             <div class="q-feedback">(-3)⁴ = (-3)×(-3)×(-3)×(-3) = 9 × 9 = 81. Un exposant pair donne toujours un résultat positif. Attention : -3⁴ = -(3⁴) = -81, ce qui est différent.</div>
           </div>
@@ -184,10 +184,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que vaut 27^(2/3) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">9</div>
-              <div class="option" onclick="answer(this,false)">18</div>
-              <div class="option" onclick="answer(this,false)">3</div>
-              <div class="option" onclick="answer(this,false)">81</div>
+              <button class="option" onclick="answer(this,true)">9</button>
+              <button class="option" onclick="answer(this,false)">18</button>
+              <button class="option" onclick="answer(this,false)">3</button>
+              <button class="option" onclick="answer(this,false)">81</button>
             </div>
             <div class="q-feedback">27^(2/3) = (³√27)² = 3² = 9. Ou bien : 27^(2/3) = (27²)^(1/3) = 729^(1/3) = 9 (car 9³ = 729).</div>
           </div>
@@ -195,10 +195,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Écrire 0,00042 en notation scientifique :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">4,2 × 10⁻⁴</div>
-              <div class="option" onclick="answer(this,false)">42 × 10⁻⁵</div>
-              <div class="option" onclick="answer(this,false)">4,2 × 10⁴</div>
-              <div class="option" onclick="answer(this,false)">0,42 × 10⁻³</div>
+              <button class="option" onclick="answer(this,true)">4,2 × 10⁻⁴</button>
+              <button class="option" onclick="answer(this,false)">42 × 10⁻⁵</button>
+              <button class="option" onclick="answer(this,false)">4,2 × 10⁴</button>
+              <button class="option" onclick="answer(this,false)">0,42 × 10⁻³</button>
             </div>
             <div class="q-feedback">0,00042 = 4,2 × 10⁻⁴. En notation scientifique, le coefficient doit être entre 1 (inclus) et 10 (exclu). 42 × 10⁻⁵ et 0,42 × 10⁻³ sont des écritures correctes mais pas en notation scientifique.</div>
           </div>
@@ -254,8 +254,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

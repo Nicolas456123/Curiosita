@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Classes parentes et enfants, super(), héritage multiple et Method Resolution Order — réutiliser et spécialiser le code grâce à la hiérarchie de classes.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Héritage — POO Python — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #27ae60;
   --accent2: #2ecc71;
   --accent-dim: rgba(39,174,96,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(39,174,96,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(39,174,96,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🐍 POO Python</span>
     <span class="tag-level">Intermédiaire</span>
@@ -285,10 +285,10 @@ print(v.demarrer())  # Peugeot : Moteur 130ch démarré</code></pre>
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Comment une classe enfant hérite-t-elle d'une classe parente en Python ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">class Enfant extends Parent:</div>
-              <div class="option" onclick="answer(this,true)">class Enfant(Parent):</div>
-              <div class="option" onclick="answer(this,false)">class Enfant inherits Parent:</div>
-              <div class="option" onclick="answer(this,false)">class Enfant &lt;- Parent:</div>
+              <button class="option" onclick="answer(this,false)">class Enfant extends Parent:</button>
+              <button class="option" onclick="answer(this,true)">class Enfant(Parent):</button>
+              <button class="option" onclick="answer(this,false)">class Enfant inherits Parent:</button>
+              <button class="option" onclick="answer(this,false)">class Enfant &lt;- Parent:</button>
             </div>
             <div class="q-feedback">En Python, on indique l'héritage en plaçant la classe parente entre parenthèses : class Enfant(Parent). Le mot-clé extends est utilisé en Java, pas en Python.</div>
           </div>
@@ -296,10 +296,10 @@ print(v.demarrer())  # Peugeot : Moteur 130ch démarré</code></pre>
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">À quoi sert la fonction <code>super()</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">À créer une nouvelle instance de la classe parente</div>
-              <div class="option" onclick="answer(this,false)">À supprimer les méthodes héritées</div>
-              <div class="option" onclick="answer(this,true)">À appeler une méthode de la classe parente depuis la classe enfant</div>
-              <div class="option" onclick="answer(this,false)">À vérifier si une classe est parente d'une autre</div>
+              <button class="option" onclick="answer(this,false)">À créer une nouvelle instance de la classe parente</button>
+              <button class="option" onclick="answer(this,false)">À supprimer les méthodes héritées</button>
+              <button class="option" onclick="answer(this,true)">À appeler une méthode de la classe parente depuis la classe enfant</button>
+              <button class="option" onclick="answer(this,false)">À vérifier si une classe est parente d'une autre</button>
             </div>
             <div class="q-feedback">super() retourne un objet proxy qui permet d'appeler les méthodes de la classe parente. C'est indispensable pour réutiliser l'initialisation du parent dans __init__ de l'enfant.</div>
           </div>
@@ -307,10 +307,10 @@ print(v.demarrer())  # Peugeot : Moteur 130ch démarré</code></pre>
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que signifie MRO en Python ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Multiple Return Objects</div>
-              <div class="option" onclick="answer(this,true)">Method Resolution Order</div>
-              <div class="option" onclick="answer(this,false)">Module Resource Optimization</div>
-              <div class="option" onclick="answer(this,false)">Main Runtime Operation</div>
+              <button class="option" onclick="answer(this,false)">Multiple Return Objects</button>
+              <button class="option" onclick="answer(this,true)">Method Resolution Order</button>
+              <button class="option" onclick="answer(this,false)">Module Resource Optimization</button>
+              <button class="option" onclick="answer(this,false)">Main Runtime Operation</button>
             </div>
             <div class="q-feedback">Le MRO (Method Resolution Order) détermine l'ordre dans lequel Python cherche une méthode dans la hiérarchie de classes, surtout en cas d'héritage multiple. Il utilise l'algorithme C3 Linearization.</div>
           </div>
@@ -318,10 +318,10 @@ print(v.demarrer())  # Peugeot : Moteur 130ch démarré</code></pre>
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Si <code>class D(B, C)</code> et que B et C définissent toutes deux une méthode <code>action()</code>, laquelle sera appelée par <code>D().action()</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Celle de B (premier parent listé)</div>
-              <div class="option" onclick="answer(this,false)">Celle de C (dernier parent listé)</div>
-              <div class="option" onclick="answer(this,false)">Une erreur est levée</div>
-              <div class="option" onclick="answer(this,false)">Les deux sont appelées simultanément</div>
+              <button class="option" onclick="answer(this,true)">Celle de B (premier parent listé)</button>
+              <button class="option" onclick="answer(this,false)">Celle de C (dernier parent listé)</button>
+              <button class="option" onclick="answer(this,false)">Une erreur est levée</button>
+              <button class="option" onclick="answer(this,false)">Les deux sont appelées simultanément</button>
             </div>
             <div class="q-feedback">Le MRO suit l'ordre de déclaration des parents : D → B → C. Python trouve action() dans B en premier et l'utilise. C'est pourquoi l'ordre des parents dans la déclaration est important.</div>
           </div>
@@ -329,10 +329,10 @@ print(v.demarrer())  # Peugeot : Moteur 130ch démarré</code></pre>
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle fonction permet de vérifier si un objet est une instance d'une classe ou de ses classes parentes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">type(obj) == Classe</div>
-              <div class="option" onclick="answer(this,true)">isinstance(obj, Classe)</div>
-              <div class="option" onclick="answer(this,false)">issubclass(obj, Classe)</div>
-              <div class="option" onclick="answer(this,false)">obj.is_instance(Classe)</div>
+              <button class="option" onclick="answer(this,false)">type(obj) == Classe</button>
+              <button class="option" onclick="answer(this,true)">isinstance(obj, Classe)</button>
+              <button class="option" onclick="answer(this,false)">issubclass(obj, Classe)</button>
+              <button class="option" onclick="answer(this,false)">obj.is_instance(Classe)</button>
             </div>
             <div class="q-feedback">isinstance(obj, Classe) retourne True si obj est une instance de Classe ou d'une de ses sous-classes. issubclass() vérifie la relation entre classes, pas entre un objet et une classe.</div>
           </div>
@@ -340,10 +340,10 @@ print(v.demarrer())  # Peugeot : Moteur 130ch démarré</code></pre>
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quand devrait-on préférer la composition à l'héritage ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Quand on veut réutiliser du code</div>
-              <div class="option" onclick="answer(this,false)">Quand la relation est de type « est-un »</div>
-              <div class="option" onclick="answer(this,true)">Quand la relation est de type « a-un » ou « utilise-un »</div>
-              <div class="option" onclick="answer(this,false)">Jamais, l'héritage est toujours préférable</div>
+              <button class="option" onclick="answer(this,false)">Quand on veut réutiliser du code</button>
+              <button class="option" onclick="answer(this,false)">Quand la relation est de type « est-un »</button>
+              <button class="option" onclick="answer(this,true)">Quand la relation est de type « a-un » ou « utilise-un »</button>
+              <button class="option" onclick="answer(this,false)">Jamais, l'héritage est toujours préférable</button>
             </div>
             <div class="q-feedback">La composition modélise les relations « a-un » (une voiture a un moteur). L'héritage modélise les relations « est-un » (un chien est un animal). Utiliser l'héritage pour une relation « a-un » est un anti-pattern courant.</div>
           </div>
@@ -572,8 +572,14 @@ print("MRO de E:", [cls.__name__ for cls in E.__mro__])
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

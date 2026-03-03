@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DAW, MIDI, synthèse sonore, sampling et plugins — créer de la musique à l'aide de l'ordinateur, de l'idée au morceau finalisé.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>MAO — Production musicale — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e74c3c;
   --accent2: #c0392b;
   --accent-dim: rgba(231,76,60,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(231,76,60,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(231,76,60,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎛️ Production musicale</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -126,10 +126,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que signifie l'acronyme DAW ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Digital Audio Wave</div>
-              <div class="option" onclick="answer(this,true)">Digital Audio Workstation</div>
-              <div class="option" onclick="answer(this,false)">Dynamic Audio Workshop</div>
-              <div class="option" onclick="answer(this,false)">Digital Analog Workspace</div>
+              <button class="option" onclick="answer(this,false)">Digital Audio Wave</button>
+              <button class="option" onclick="answer(this,true)">Digital Audio Workstation</button>
+              <button class="option" onclick="answer(this,false)">Dynamic Audio Workshop</button>
+              <button class="option" onclick="answer(this,false)">Digital Analog Workspace</button>
             </div>
             <div class="q-feedback">DAW signifie Digital Audio Workstation (station de travail audio numérique). C'est le logiciel central de la MAO qui remplace l'ensemble d'un studio d'enregistrement traditionnel.</div>
           </div>
@@ -137,10 +137,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que transporte le protocole MIDI ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Du son numérique</div>
-              <div class="option" onclick="answer(this,true)">Des instructions musicales (notes, vélocité, durée)</div>
-              <div class="option" onclick="answer(this,false)">Des fichiers audio compressés</div>
-              <div class="option" onclick="answer(this,false)">Des fréquences sonores</div>
+              <button class="option" onclick="answer(this,false)">Du son numérique</button>
+              <button class="option" onclick="answer(this,true)">Des instructions musicales (notes, vélocité, durée)</button>
+              <button class="option" onclick="answer(this,false)">Des fichiers audio compressés</button>
+              <button class="option" onclick="answer(this,false)">Des fréquences sonores</button>
             </div>
             <div class="q-feedback">Le MIDI ne transporte pas du son mais des instructions : quelle note jouer, à quelle vélocité, pendant combien de temps. Ces instructions sont ensuite interprétées par un instrument virtuel ou matériel pour produire du son.</div>
           </div>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel type de synthèse utilise un filtre pour retirer des harmoniques d'une forme d'onde riche ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">La synthèse soustractive</div>
-              <div class="option" onclick="answer(this,false)">La synthèse additive</div>
-              <div class="option" onclick="answer(this,false)">La synthèse FM</div>
-              <div class="option" onclick="answer(this,false)">La synthèse granulaire</div>
+              <button class="option" onclick="answer(this,true)">La synthèse soustractive</button>
+              <button class="option" onclick="answer(this,false)">La synthèse additive</button>
+              <button class="option" onclick="answer(this,false)">La synthèse FM</button>
+              <button class="option" onclick="answer(this,false)">La synthèse granulaire</button>
             </div>
             <div class="q-feedback">La synthèse soustractive part d'une forme d'onde riche en harmoniques (dent de scie, carré) et utilise des filtres pour « soustraire » certaines fréquences. C'est le principe des synthétiseurs analogiques classiques comme le Minimoog.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel format de plugin est universel (compatible Windows et Mac, tous DAW) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">AU (Audio Units)</div>
-              <div class="option" onclick="answer(this,true)">VST (Virtual Studio Technology)</div>
-              <div class="option" onclick="answer(this,false)">AAX</div>
-              <div class="option" onclick="answer(this,false)">RTAS</div>
+              <button class="option" onclick="answer(this,false)">AU (Audio Units)</button>
+              <button class="option" onclick="answer(this,true)">VST (Virtual Studio Technology)</button>
+              <button class="option" onclick="answer(this,false)">AAX</button>
+              <button class="option" onclick="answer(this,false)">RTAS</button>
             </div>
             <div class="q-feedback">Le VST (Virtual Studio Technology, créé par Steinberg) est le format de plugin le plus universel, compatible avec Windows et Mac et supporté par la quasi-totalité des DAW. AU est limité à Mac, AAX à Pro Tools.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle est la particularité de la « vue Session » d'Ableton Live ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Elle affiche uniquement les effets</div>
-              <div class="option" onclick="answer(this,false)">Elle montre la forme d'onde du signal</div>
-              <div class="option" onclick="answer(this,true)">Elle permet de lancer des clips en temps réel pour l'improvisation</div>
-              <div class="option" onclick="answer(this,false)">Elle gère uniquement le MIDI</div>
+              <button class="option" onclick="answer(this,false)">Elle affiche uniquement les effets</button>
+              <button class="option" onclick="answer(this,false)">Elle montre la forme d'onde du signal</button>
+              <button class="option" onclick="answer(this,true)">Elle permet de lancer des clips en temps réel pour l'improvisation</button>
+              <button class="option" onclick="answer(this,false)">Elle gère uniquement le MIDI</button>
             </div>
             <div class="q-feedback">La vue Session d'Ableton Live organise les clips (boucles audio ou MIDI) dans une grille verticale, permettant de les lancer, combiner et improviser en temps réel. C'est ce qui distingue Ableton des autres DAW et le rend populaire pour le live et la production électronique.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">La vélocité MIDI contrôle principalement :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le tempo du morceau</div>
-              <div class="option" onclick="answer(this,false)">La hauteur de la note</div>
-              <div class="option" onclick="answer(this,true)">L'intensité (et souvent le timbre) de la note</div>
-              <div class="option" onclick="answer(this,false)">La durée de la note</div>
+              <button class="option" onclick="answer(this,false)">Le tempo du morceau</button>
+              <button class="option" onclick="answer(this,false)">La hauteur de la note</button>
+              <button class="option" onclick="answer(this,true)">L'intensité (et souvent le timbre) de la note</button>
+              <button class="option" onclick="answer(this,false)">La durée de la note</button>
             </div>
             <div class="q-feedback">La vélocité MIDI (0-127) contrôle l'intensité de la note. Sur un instrument virtuel de qualité, elle affecte aussi le timbre : un piano à vélocité élevée sonne brillant et percussif, à faible vélocité il sonne doux et feutré.</div>
           </div>
@@ -244,8 +244,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

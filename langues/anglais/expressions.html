@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Phrasal verbs, idiomes et tournures courantes : parlez comme un natif, au-delà de la simple grammaire.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Expressions idiomatiques — Anglais — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e8c97a;
   --accent2: #f5dfa0;
   --accent-dim: rgba(232,201,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,201,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,201,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">💬 Anglais</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que signifie « to give up » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Donner</div>
-              <div class="option" onclick="answer(this,false)">Monter</div>
-              <div class="option" onclick="answer(this,true)">Abandonner</div>
-              <div class="option" onclick="answer(this,false)">Offrir</div>
+              <button class="option" onclick="answer(this,false)">Donner</button>
+              <button class="option" onclick="answer(this,false)">Monter</button>
+              <button class="option" onclick="answer(this,true)">Abandonner</button>
+              <button class="option" onclick="answer(this,false)">Offrir</button>
             </div>
             <div class="q-feedback">« To give up » signifie abandonner, renoncer. C'est un phrasal verb dont le sens est complètement différent de « give » (donner) pris isolément.</div>
           </div>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel idiome signifie « c'est très facile » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">It's raining cats and dogs</div>
-              <div class="option" onclick="answer(this,true)">A piece of cake</div>
-              <div class="option" onclick="answer(this,false)">Once in a blue moon</div>
-              <div class="option" onclick="answer(this,false)">To cost an arm and a leg</div>
+              <button class="option" onclick="answer(this,false)">It's raining cats and dogs</button>
+              <button class="option" onclick="answer(this,true)">A piece of cake</button>
+              <button class="option" onclick="answer(this,false)">Once in a blue moon</button>
+              <button class="option" onclick="answer(this,false)">To cost an arm and a leg</button>
             </div>
             <div class="q-feedback">« A piece of cake » signifie « un jeu d'enfant », quelque chose de très facile. L'équivalent français serait « c'est du gâteau ».</div>
           </div>
@@ -205,10 +205,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Complétez : « I'm looking forward ___ seeing you. »</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">at</div>
-              <div class="option" onclick="answer(this,true)">to</div>
-              <div class="option" onclick="answer(this,false)">for</div>
-              <div class="option" onclick="answer(this,false)">of</div>
+              <button class="option" onclick="answer(this,false)">at</button>
+              <button class="option" onclick="answer(this,true)">to</button>
+              <button class="option" onclick="answer(this,false)">for</button>
+              <button class="option" onclick="answer(this,false)">of</button>
             </div>
             <div class="q-feedback">L'expression est « to look forward to + V-ing ». Attention : malgré le « to », le verbe qui suit est au gérondif (-ing), pas à l'infinitif. On dit « looking forward to seeing », pas « looking forward to see ».</div>
           </div>
@@ -216,10 +216,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Que signifie « to think outside the box » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Penser à l'extérieur</div>
-              <div class="option" onclick="answer(this,true)">Penser de manière créative</div>
-              <div class="option" onclick="answer(this,false)">Sortir des cartons</div>
-              <div class="option" onclick="answer(this,false)">Être distrait</div>
+              <button class="option" onclick="answer(this,false)">Penser à l'extérieur</button>
+              <button class="option" onclick="answer(this,true)">Penser de manière créative</button>
+              <button class="option" onclick="answer(this,false)">Sortir des cartons</button>
+              <button class="option" onclick="answer(this,false)">Être distrait</button>
             </div>
             <div class="q-feedback">« To think outside the box » signifie penser de manière créative, sortir des sentiers battus. C'est une expression très utilisée dans le monde professionnel anglophone.</div>
           </div>
@@ -227,10 +227,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle phrase est correcte ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Turn off it, please.</div>
-              <div class="option" onclick="answer(this,true)">Turn it off, please.</div>
-              <div class="option" onclick="answer(this,false)">Off turn it, please.</div>
-              <div class="option" onclick="answer(this,false)">It turn off, please.</div>
+              <button class="option" onclick="answer(this,false)">Turn off it, please.</button>
+              <button class="option" onclick="answer(this,true)">Turn it off, please.</button>
+              <button class="option" onclick="answer(this,false)">Off turn it, please.</button>
+              <button class="option" onclick="answer(this,false)">It turn off, please.</button>
             </div>
             <div class="q-feedback">Avec un pronom, les phrasal verbs séparables sont obligatoirement séparés : « Turn it off » (jamais « Turn off it »). Avec un nom, les deux sont possibles : « Turn the light off » ou « Turn off the light ».</div>
           </div>
@@ -238,10 +238,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que signifie « to get rid of something » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Monter sur quelque chose</div>
-              <div class="option" onclick="answer(this,false)">Chercher quelque chose</div>
-              <div class="option" onclick="answer(this,false)">Réparer quelque chose</div>
-              <div class="option" onclick="answer(this,true)">Se débarrasser de quelque chose</div>
+              <button class="option" onclick="answer(this,false)">Monter sur quelque chose</button>
+              <button class="option" onclick="answer(this,false)">Chercher quelque chose</button>
+              <button class="option" onclick="answer(this,false)">Réparer quelque chose</button>
+              <button class="option" onclick="answer(this,true)">Se débarrasser de quelque chose</button>
             </div>
             <div class="q-feedback">« To get rid of » signifie « se débarrasser de ». Exemple : « I need to get rid of these old clothes. » (Je dois me débarrasser de ces vieux vêtements.)</div>
           </div>
@@ -331,8 +331,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

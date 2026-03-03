@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Du Pop Art au street art — les courants qui redéfinissent l'art depuis les années 1960.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>L'Art contemporain — Peinture — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎨 Peinture</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -141,10 +141,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel artiste du Pop Art est célèbre pour ses sérigraphies de boîtes de soupe Campbell's ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Roy Lichtenstein</div>
-              <div class="option" onclick="answer(this,true)">Andy Warhol</div>
-              <div class="option" onclick="answer(this,false)">Jasper Johns</div>
-              <div class="option" onclick="answer(this,false)">Jean-Michel Basquiat</div>
+              <button class="option" onclick="answer(this,false)">Roy Lichtenstein</button>
+              <button class="option" onclick="answer(this,true)">Andy Warhol</button>
+              <button class="option" onclick="answer(this,false)">Jasper Johns</button>
+              <button class="option" onclick="answer(this,false)">Jean-Michel Basquiat</button>
             </div>
             <div class="q-feedback">Andy Warhol a créé ses 32 Campbell's Soup Cans en 1962, transformant un produit de consommation courante en icône artistique et questionnant la frontière entre art et commerce.</div>
           </div>
@@ -152,10 +152,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel principe fondamental caractérise l'art conceptuel ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La beauté de l'objet prime</div>
-              <div class="option" onclick="answer(this,false)">La technique artisanale est essentielle</div>
-              <div class="option" onclick="answer(this,true)">L'idée prime sur l'objet</div>
-              <div class="option" onclick="answer(this,false)">La couleur est le sujet principal</div>
+              <button class="option" onclick="answer(this,false)">La beauté de l'objet prime</button>
+              <button class="option" onclick="answer(this,false)">La technique artisanale est essentielle</button>
+              <button class="option" onclick="answer(this,true)">L'idée prime sur l'objet</button>
+              <button class="option" onclick="answer(this,false)">La couleur est le sujet principal</button>
             </div>
             <div class="q-feedback">L'art conceptuel affirme que l'idée ou le concept est l'aspect le plus important de l'oeuvre. L'objet matériel est secondaire, voire dispensable.</div>
           </div>
@@ -163,10 +163,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel artiste du street art a commencé sous le pseudonyme SAMO avant d'intégrer les galeries ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Banksy</div>
-              <div class="option" onclick="answer(this,false)">Keith Haring</div>
-              <div class="option" onclick="answer(this,true)">Jean-Michel Basquiat</div>
-              <div class="option" onclick="answer(this,false)">Shepard Fairey</div>
+              <button class="option" onclick="answer(this,false)">Banksy</button>
+              <button class="option" onclick="answer(this,false)">Keith Haring</button>
+              <button class="option" onclick="answer(this,true)">Jean-Michel Basquiat</button>
+              <button class="option" onclick="answer(this,false)">Shepard Fairey</button>
             </div>
             <div class="q-feedback">Basquiat a commencé par taguer des phrases énigmatiques dans les rues de New York sous le pseudonyme SAMO (« Same Old shit ») avant de devenir l'un des peintres les plus cotés de son époque.</div>
           </div>
@@ -174,10 +174,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel artiste minimaliste a proclamé « Ce que vous voyez est ce que vous voyez » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Donald Judd</div>
-              <div class="option" onclick="answer(this,true)">Frank Stella</div>
-              <div class="option" onclick="answer(this,false)">Dan Flavin</div>
-              <div class="option" onclick="answer(this,false)">Sol LeWitt</div>
+              <button class="option" onclick="answer(this,false)">Donald Judd</button>
+              <button class="option" onclick="answer(this,true)">Frank Stella</button>
+              <button class="option" onclick="answer(this,false)">Dan Flavin</button>
+              <button class="option" onclick="answer(this,false)">Sol LeWitt</button>
             </div>
             <div class="q-feedback">Frank Stella a proclamé cette phrase devenue le credo du minimalisme : l'oeuvre n'a pas de signification cachée, elle est simplement ce qu'elle est — une surface, une forme, un matériau.</div>
           </div>
@@ -185,10 +185,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel événement a impliqué une oeuvre de Banksy qui s'auto-détruit lors d'une vente aux enchères ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La vente de Guernica en 2015</div>
-              <div class="option" onclick="answer(this,true)">La vente de Girl with Balloon chez Sotheby's en 2018</div>
-              <div class="option" onclick="answer(this,false)">L'exposition à la Tate Modern en 2020</div>
-              <div class="option" onclick="answer(this,false)">La vente de Devolved Parliament en 2019</div>
+              <button class="option" onclick="answer(this,false)">La vente de Guernica en 2015</button>
+              <button class="option" onclick="answer(this,true)">La vente de Girl with Balloon chez Sotheby's en 2018</button>
+              <button class="option" onclick="answer(this,false)">L'exposition à la Tate Modern en 2020</button>
+              <button class="option" onclick="answer(this,false)">La vente de Devolved Parliament en 2019</button>
             </div>
             <div class="q-feedback">En 2018, Girl with Balloon s'est partiellement auto-détruite en passant dans un broyeur caché dans le cadre, devenant Love is in the Bin — un geste de subversion du marché de l'art qui en a paradoxalement multiplié la valeur.</div>
           </div>
@@ -196,10 +196,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle technique Roy Lichtenstein emprunte-t-il à la bande dessinée dans ses oeuvres ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le collage</div>
-              <div class="option" onclick="answer(this,false)">Le pochoir</div>
-              <div class="option" onclick="answer(this,true)">Les trames de points (Ben-Day dots)</div>
-              <div class="option" onclick="answer(this,false)">La sérigraphie</div>
+              <button class="option" onclick="answer(this,false)">Le collage</button>
+              <button class="option" onclick="answer(this,false)">Le pochoir</button>
+              <button class="option" onclick="answer(this,true)">Les trames de points (Ben-Day dots)</button>
+              <button class="option" onclick="answer(this,false)">La sérigraphie</button>
             </div>
             <div class="q-feedback">Lichtenstein reproduit à grande échelle les trames de points (Ben-Day dots) caractéristiques de l'impression industrielle de bandes dessinées, transformant un procédé mécanique en geste artistique.</div>
           </div>
@@ -251,8 +251,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

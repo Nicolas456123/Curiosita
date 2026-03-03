@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="H0/H1, p-value, Student, Chi-deux, risques alpha et beta — la logique des tests statistiques.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Tests d'hypothèses — Inférence — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #16a085;
   --accent2: #1abc9c;
   --accent-dim: rgba(22,160,133,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(22,160,133,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(22,160,133,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📊 Inférence</span>
     <span class="tag-level">Intermédiaire</span>
@@ -162,10 +162,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que représente la p-value ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La probabilité que H₀ soit vraie</div>
-              <div class="option" onclick="answer(this,true)">La probabilité d'observer un résultat aussi extrême si H₀ est vraie</div>
-              <div class="option" onclick="answer(this,false)">La probabilité que H₁ soit vraie</div>
-              <div class="option" onclick="answer(this,false)">Le seuil de significativité</div>
+              <button class="option" onclick="answer(this,false)">La probabilité que H₀ soit vraie</button>
+              <button class="option" onclick="answer(this,true)">La probabilité d'observer un résultat aussi extrême si H₀ est vraie</button>
+              <button class="option" onclick="answer(this,false)">La probabilité que H₁ soit vraie</button>
+              <button class="option" onclick="answer(this,false)">Le seuil de significativité</button>
             </div>
             <div class="q-feedback">La p-value est P(résultat ≥ observé | H₀). C'est une probabilité sur les données, pas sur les hypothèses.</div>
           </div>
@@ -173,10 +173,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quand rejette-t-on H₀ au seuil α = 0,05 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Quand p-value > 0,05</div>
-              <div class="option" onclick="answer(this,true)">Quand p-value ≤ 0,05</div>
-              <div class="option" onclick="answer(this,false)">Quand la statistique de test est négative</div>
-              <div class="option" onclick="answer(this,false)">Quand l'échantillon est grand</div>
+              <button class="option" onclick="answer(this,false)">Quand p-value > 0,05</button>
+              <button class="option" onclick="answer(this,true)">Quand p-value ≤ 0,05</button>
+              <button class="option" onclick="answer(this,false)">Quand la statistique de test est négative</button>
+              <button class="option" onclick="answer(this,false)">Quand l'échantillon est grand</button>
             </div>
             <div class="q-feedback">On rejette H₀ quand la p-value est inférieure ou égale au seuil α. Cela signifie que les données sont suffisamment improbables sous H₀.</div>
           </div>
@@ -184,10 +184,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel test utilise-t-on pour vérifier l'indépendance de deux variables catégorielles ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le test de Student</div>
-              <div class="option" onclick="answer(this,false)">Le test de Mann-Whitney</div>
-              <div class="option" onclick="answer(this,true)">Le test du Chi-deux d'indépendance</div>
-              <div class="option" onclick="answer(this,false)">Le test de Kolmogorov-Smirnov</div>
+              <button class="option" onclick="answer(this,false)">Le test de Student</button>
+              <button class="option" onclick="answer(this,false)">Le test de Mann-Whitney</button>
+              <button class="option" onclick="answer(this,true)">Le test du Chi-deux d'indépendance</button>
+              <button class="option" onclick="answer(this,false)">Le test de Kolmogorov-Smirnov</button>
             </div>
             <div class="q-feedback">Le test du Chi-deux d'indépendance s'applique aux tableaux de contingence et vérifie si deux variables catégorielles sont liées.</div>
           </div>
@@ -195,10 +195,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Le test de Welch est une variante du test t qui ne suppose pas :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La normalité des données</div>
-              <div class="option" onclick="answer(this,true)">L'égalité des variances entre les groupes</div>
-              <div class="option" onclick="answer(this,false)">L'indépendance des observations</div>
-              <div class="option" onclick="answer(this,false)">La continuité de la variable</div>
+              <button class="option" onclick="answer(this,false)">La normalité des données</button>
+              <button class="option" onclick="answer(this,true)">L'égalité des variances entre les groupes</button>
+              <button class="option" onclick="answer(this,false)">L'indépendance des observations</button>
+              <button class="option" onclick="answer(this,false)">La continuité de la variable</button>
             </div>
             <div class="q-feedback">Le test de Welch ajuste les degrés de liberté pour tenir compte de variances potentiellement différentes entre les deux groupes.</div>
           </div>
@@ -206,10 +206,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Pourquoi doit-on corriger pour les tests multiples ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pour augmenter la puissance des tests</div>
-              <div class="option" onclick="answer(this,false)">Pour réduire la taille de l'échantillon</div>
-              <div class="option" onclick="answer(this,true)">Pour contrôler le risque global de faux positifs</div>
-              <div class="option" onclick="answer(this,false)">Pour simplifier les calculs</div>
+              <button class="option" onclick="answer(this,false)">Pour augmenter la puissance des tests</button>
+              <button class="option" onclick="answer(this,false)">Pour réduire la taille de l'échantillon</button>
+              <button class="option" onclick="answer(this,true)">Pour contrôler le risque global de faux positifs</button>
+              <button class="option" onclick="answer(this,false)">Pour simplifier les calculs</button>
             </div>
             <div class="q-feedback">Sans correction, le risque de trouver au moins un faux positif augmente rapidement avec le nombre de tests. La correction de Bonferroni ou le contrôle du FDR limitent ce risque.</div>
           </div>
@@ -217,10 +217,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que signifie « ne pas rejeter H₀ » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">H₀ est prouvée vraie</div>
-              <div class="option" onclick="answer(this,false)">H₁ est prouvée fausse</div>
-              <div class="option" onclick="answer(this,true)">Les données ne fournissent pas assez de preuves contre H₀</div>
-              <div class="option" onclick="answer(this,false)">L'échantillon est trop grand</div>
+              <button class="option" onclick="answer(this,false)">H₀ est prouvée vraie</button>
+              <button class="option" onclick="answer(this,false)">H₁ est prouvée fausse</button>
+              <button class="option" onclick="answer(this,true)">Les données ne fournissent pas assez de preuves contre H₀</button>
+              <button class="option" onclick="answer(this,false)">L'échantillon est trop grand</button>
             </div>
             <div class="q-feedback">Ne pas rejeter H₀ signifie que les données sont compatibles avec H₀, mais cela ne prouve pas que H₀ est vraie. L'absence de preuve n'est pas la preuve de l'absence.</div>
           </div>
@@ -317,8 +317,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

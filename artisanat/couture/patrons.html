@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Lire un patron, prendre les mesures, reporter et couper le tissu avec précision.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Patrons et coupe — Couture — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📐 Couture</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -151,10 +151,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qu'indique la flèche de droit-fil sur un patron ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le sens de la couture</div>
-              <div class="option" onclick="answer(this,true)">La direction parallèle à la lisière du tissu</div>
-              <div class="option" onclick="answer(this,false)">Le sens du repassage</div>
-              <div class="option" onclick="answer(this,false)">La direction de la coupe</div>
+              <button class="option" onclick="answer(this,false)">Le sens de la couture</button>
+              <button class="option" onclick="answer(this,true)">La direction parallèle à la lisière du tissu</button>
+              <button class="option" onclick="answer(this,false)">Le sens du repassage</button>
+              <button class="option" onclick="answer(this,false)">La direction de la coupe</button>
             </div>
             <div class="q-feedback">La flèche de droit-fil doit être placée parallèlement à la lisière du tissu, c'est-à-dire dans le sens des fils de chaîne. Cela garantit que le vêtement tombera correctement.</div>
           </div>
@@ -162,10 +162,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Où se mesure le tour de taille ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Au niveau du nombril</div>
-              <div class="option" onclick="answer(this,true)">Au creux naturel de la taille, au plus étroit</div>
-              <div class="option" onclick="answer(this,false)">Juste sous la poitrine</div>
-              <div class="option" onclick="answer(this,false)">Au niveau des hanches</div>
+              <button class="option" onclick="answer(this,false)">Au niveau du nombril</button>
+              <button class="option" onclick="answer(this,true)">Au creux naturel de la taille, au plus étroit</button>
+              <button class="option" onclick="answer(this,false)">Juste sous la poitrine</button>
+              <button class="option" onclick="answer(this,false)">Au niveau des hanches</button>
             </div>
             <div class="q-feedback">Le tour de taille se mesure au creux naturel, là où le buste est le plus étroit. Ce n'est pas forcément au niveau du nombril, qui est souvent plus bas.</div>
           </div>
@@ -173,10 +173,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">À quoi servent les crans sur un patron ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">À décorer le vêtement</div>
-              <div class="option" onclick="answer(this,false)">À indiquer le droit-fil</div>
-              <div class="option" onclick="answer(this,true)">À servir de repères d'assemblage</div>
-              <div class="option" onclick="answer(this,false)">À marquer les marges de couture</div>
+              <button class="option" onclick="answer(this,false)">À décorer le vêtement</button>
+              <button class="option" onclick="answer(this,false)">À indiquer le droit-fil</button>
+              <button class="option" onclick="answer(this,true)">À servir de repères d'assemblage</button>
+              <button class="option" onclick="answer(this,false)">À marquer les marges de couture</button>
             </div>
             <div class="q-feedback">Les crans sont des encoches qui permettent d'aligner correctement les pièces lors de l'assemblage. Cran simple = devant, double cran = dos.</div>
           </div>
@@ -184,10 +184,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce que le biais d'un tissu ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le bord fini du tissu</div>
-              <div class="option" onclick="answer(this,true)">La diagonale à 45° par rapport au droit-fil</div>
-              <div class="option" onclick="answer(this,false)">Le sens perpendiculaire à la lisière</div>
-              <div class="option" onclick="answer(this,false)">L'envers du tissu</div>
+              <button class="option" onclick="answer(this,false)">Le bord fini du tissu</button>
+              <button class="option" onclick="answer(this,true)">La diagonale à 45° par rapport au droit-fil</button>
+              <button class="option" onclick="answer(this,false)">Le sens perpendiculaire à la lisière</button>
+              <button class="option" onclick="answer(this,false)">L'envers du tissu</button>
             </div>
             <div class="q-feedback">Le biais est la diagonale à 45° entre chaîne et trame. C'est la direction où le tissu est le plus extensible, ce qui le rend utile pour les finitions courbes et les bandes de biais.</div>
           </div>
@@ -195,10 +195,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Pourquoi ne faut-il jamais utiliser ses ciseaux de couture pour couper du papier ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Le papier émousse les lames plus vite que le tissu</div>
-              <div class="option" onclick="answer(this,false)">Le papier rouille les lames</div>
-              <div class="option" onclick="answer(this,false)">Le papier est trop épais</div>
-              <div class="option" onclick="answer(this,false)">C'est une superstition de couturier</div>
+              <button class="option" onclick="answer(this,true)">Le papier émousse les lames plus vite que le tissu</button>
+              <button class="option" onclick="answer(this,false)">Le papier rouille les lames</button>
+              <button class="option" onclick="answer(this,false)">Le papier est trop épais</button>
+              <button class="option" onclick="answer(this,false)">C'est une superstition de couturier</button>
             </div>
             <div class="q-feedback">Le papier contient des fibres minérales (kaolin, carbonate de calcium) qui émoussent rapidement le fil des lames. Des ciseaux émoussés mordent mal le tissu et provoquent des coupes irrégulières.</div>
           </div>
@@ -206,10 +206,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Comment adapter un patron si l'on mesure une taille 40 en poitrine et 42 en hanches ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Prendre la taille 42 partout</div>
-              <div class="option" onclick="answer(this,false)">Prendre la taille 40 partout</div>
-              <div class="option" onclick="answer(this,true)">Tracer la taille 40 en haut et rejoindre progressivement la 42 aux hanches</div>
-              <div class="option" onclick="answer(this,false)">Couper deux patrons différents et les coller</div>
+              <button class="option" onclick="answer(this,false)">Prendre la taille 42 partout</button>
+              <button class="option" onclick="answer(this,false)">Prendre la taille 40 partout</button>
+              <button class="option" onclick="answer(this,true)">Tracer la taille 40 en haut et rejoindre progressivement la 42 aux hanches</button>
+              <button class="option" onclick="answer(this,false)">Couper deux patrons différents et les coller</button>
             </div>
             <div class="q-feedback">C'est la technique du grading : on trace entre deux tailles en reliant les lignes de manière progressive. On obtient ainsi un patron personnalisé qui suit les proportions réelles du corps.</div>
           </div>
@@ -282,8 +282,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

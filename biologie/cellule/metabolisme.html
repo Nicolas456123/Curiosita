@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Respiration cellulaire, fermentation et photosynthèse — les voies énergétiques qui alimentent la vie.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Métabolisme cellulaire — La cellule — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #80cbc4;
   --accent-dim: rgba(122,232,216,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧬 La cellule</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est le bilan net en ATP de la glycolyse pour une molécule de glucose ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">2 ATP</div>
-              <div class="option" onclick="answer(this,false)">4 ATP</div>
-              <div class="option" onclick="answer(this,false)">36 ATP</div>
-              <div class="option" onclick="answer(this,false)">0 ATP</div>
+              <button class="option" onclick="answer(this,true)">2 ATP</button>
+              <button class="option" onclick="answer(this,false)">4 ATP</button>
+              <button class="option" onclick="answer(this,false)">36 ATP</button>
+              <button class="option" onclick="answer(this,false)">0 ATP</button>
             </div>
             <div class="q-feedback">La glycolyse produit 4 ATP mais en consomme 2 dans la phase d'investissement, donnant un bilan net de 2 ATP par glucose.</div>
           </div>
@@ -201,10 +201,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel est l'accepteur final des électrons dans la chaîne respiratoire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le NAD⁺</div>
-              <div class="option" onclick="answer(this,false)">Le CO₂</div>
-              <div class="option" onclick="answer(this,true)">L'O₂ (oxygène moléculaire)</div>
-              <div class="option" onclick="answer(this,false)">Le cytochrome c</div>
+              <button class="option" onclick="answer(this,false)">Le NAD⁺</button>
+              <button class="option" onclick="answer(this,false)">Le CO₂</button>
+              <button class="option" onclick="answer(this,true)">L'O₂ (oxygène moléculaire)</button>
+              <button class="option" onclick="answer(this,false)">Le cytochrome c</button>
             </div>
             <div class="q-feedback">L'oxygène moléculaire (O₂) est l'accepteur final des électrons au complexe IV. Il est réduit en eau (H₂O). C'est pourquoi la respiration est dite « aérobie ».</div>
           </div>
@@ -212,10 +212,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Dans quelle phase de la photosynthèse le CO₂ est-il fixé ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La phase lumineuse</div>
-              <div class="option" onclick="answer(this,true)">Le cycle de Calvin (phase sombre)</div>
-              <div class="option" onclick="answer(this,false)">La photolyse de l'eau</div>
-              <div class="option" onclick="answer(this,false)">La photophosphorylation</div>
+              <button class="option" onclick="answer(this,false)">La phase lumineuse</button>
+              <button class="option" onclick="answer(this,true)">Le cycle de Calvin (phase sombre)</button>
+              <button class="option" onclick="answer(this,false)">La photolyse de l'eau</button>
+              <button class="option" onclick="answer(this,false)">La photophosphorylation</button>
             </div>
             <div class="q-feedback">Le CO₂ est fixé dans le cycle de Calvin (stroma du chloroplaste) par l'enzyme RuBisCO. La phase lumineuse produit l'ATP et le NADPH nécessaires au cycle de Calvin.</div>
           </div>
@@ -223,10 +223,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel processus métabolique les cellules cancéreuses privilégient-elles même en présence d'oxygène (effet Warburg) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La phosphorylation oxydative</div>
-              <div class="option" onclick="answer(this,true)">La glycolyse aérobie</div>
-              <div class="option" onclick="answer(this,false)">La beta-oxydation</div>
-              <div class="option" onclick="answer(this,false)">Le cycle de Krebs</div>
+              <button class="option" onclick="answer(this,false)">La phosphorylation oxydative</button>
+              <button class="option" onclick="answer(this,true)">La glycolyse aérobie</button>
+              <button class="option" onclick="answer(this,false)">La beta-oxydation</button>
+              <button class="option" onclick="answer(this,false)">Le cycle de Krebs</button>
             </div>
             <div class="q-feedback">L'effet Warburg désigne la préférence des cellules cancéreuses pour la glycolyse même en présence d'O₂, produisant du lactate au lieu de diriger le pyruvate vers le cycle de Krebs. Ce phénomène est exploité en TEP-scan au ¹⁸F-FDG pour détecter les tumeurs.</div>
           </div>
@@ -234,10 +234,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle enzyme est le capteur énergétique cellulaire activé par un ratio AMP/ATP élevé ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La pyruvate kinase</div>
-              <div class="option" onclick="answer(this,false)">L'hexokinase</div>
-              <div class="option" onclick="answer(this,true)">L'AMPK</div>
-              <div class="option" onclick="answer(this,false)">La phosphofructokinase</div>
+              <button class="option" onclick="answer(this,false)">La pyruvate kinase</button>
+              <button class="option" onclick="answer(this,false)">L'hexokinase</button>
+              <button class="option" onclick="answer(this,true)">L'AMPK</button>
+              <button class="option" onclick="answer(this,false)">La phosphofructokinase</button>
             </div>
             <div class="q-feedback">L'AMPK (AMP-activated protein kinase) est le principal capteur énergétique cellulaire. Activée par un ratio AMP/ATP élevé, elle stimule les voies cataboliques (production d'ATP) et inhibe les voies anaboliques (consommation d'ATP).</div>
           </div>
@@ -245,10 +245,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel substrat énergétique alternatif le cerveau peut-il utiliser lors d'un jeûne prolongé ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les acides gras</div>
-              <div class="option" onclick="answer(this,true)">Les corps cétoniques</div>
-              <div class="option" onclick="answer(this,false)">Les acides aminés</div>
-              <div class="option" onclick="answer(this,false)">Le glycérol</div>
+              <button class="option" onclick="answer(this,false)">Les acides gras</button>
+              <button class="option" onclick="answer(this,true)">Les corps cétoniques</button>
+              <button class="option" onclick="answer(this,false)">Les acides aminés</button>
+              <button class="option" onclick="answer(this,false)">Le glycérol</button>
             </div>
             <div class="q-feedback">Les corps cétoniques (acétoacétate, beta-hydroxybutyrate) sont produits par le foie à partir des acides gras lors du jeûne. Ils traversent la barrière hémato-encéphalique et constituent un carburant alternatif crucial pour le cerveau quand le glucose se raréfie.</div>
           </div>
@@ -321,8 +321,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

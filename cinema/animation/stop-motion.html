@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Le stop motion (animation en volume) est la technique qui anime des objets reels — marionnettes, pate a...">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Stop motion — Animation — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #e87a7a; --accent2: #f09090; --accent-dim: rgba(232,122,122,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #e87a7a; --accent2: #f09090; --accent-dim: rgba(232,122,122,0.08);  --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -19,7 +19,7 @@
     <a href="../../cinema-page.html">Cinema</a> &rsaquo; <a href="../animation.html">Animation</a> &rsaquo; <span>Stop motion</span>
   </div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">&#127916; Cinema</span>
     <span class="tag-level">Debutant &rarr; Intermediaire</span>
@@ -89,10 +89,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quel studio est celebre pour Wallace et Gromit ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Laika</div>
-              <div class="option" onclick="answer(this,true)">Aardman</div>
-              <div class="option" onclick="answer(this,false)">Studio Ghibli</div>
-              <div class="option" onclick="answer(this,false)">Pixar</div>
+              <button class="option" onclick="answer(this,false)">Laika</button>
+              <button class="option" onclick="answer(this,true)">Aardman</button>
+              <button class="option" onclick="answer(this,false)">Studio Ghibli</button>
+              <button class="option" onclick="answer(this,false)">Pixar</button>
             </div>
             <div class="q-feedback">Aardman Animations (Bristol, UK) est le studio derriere Wallace et Gromit, Chicken Run et Shaun le Mouton.</div>
           </div>
@@ -100,10 +100,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Quel film de Tim Burton est en stop motion ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Batman</div>
-              <div class="option" onclick="answer(this,false)">Edward aux mains d'argent</div>
-              <div class="option" onclick="answer(this,true)">L'Etrange Noel de Monsieur Jack</div>
-              <div class="option" onclick="answer(this,false)">Charlie et la Chocolaterie</div>
+              <button class="option" onclick="answer(this,false)">Batman</button>
+              <button class="option" onclick="answer(this,false)">Edward aux mains d'argent</button>
+              <button class="option" onclick="answer(this,true)">L'Etrange Noel de Monsieur Jack</button>
+              <button class="option" onclick="answer(this,false)">Charlie et la Chocolaterie</button>
             </div>
             <div class="q-feedback">L'Etrange Noel de Monsieur Jack (1993), produit par Tim Burton et realise par Henry Selick, est un classique du stop motion.</div>
           </div>
@@ -111,10 +111,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Combien de photos faut-il pour une seconde de stop motion cinema ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">8</div>
-              <div class="option" onclick="answer(this,true)">12 a 24</div>
-              <div class="option" onclick="answer(this,false)">30</div>
-              <div class="option" onclick="answer(this,false)">60</div>
+              <button class="option" onclick="answer(this,false)">8</button>
+              <button class="option" onclick="answer(this,true)">12 a 24</button>
+              <button class="option" onclick="answer(this,false)">30</button>
+              <button class="option" onclick="answer(this,false)">60</button>
             </div>
             <div class="q-feedback">Une seconde de stop motion necessite 12 a 24 photos (une par image), selon que l'animation est 'on twos' ou 'on ones'.</div>
           </div>
@@ -122,10 +122,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quel studio utilise l'impression 3D pour les visages ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Aardman</div>
-              <div class="option" onclick="answer(this,false)">Pixar</div>
-              <div class="option" onclick="answer(this,true)">Laika</div>
-              <div class="option" onclick="answer(this,false)">DreamWorks</div>
+              <button class="option" onclick="answer(this,false)">Aardman</button>
+              <button class="option" onclick="answer(this,false)">Pixar</button>
+              <button class="option" onclick="answer(this,true)">Laika</button>
+              <button class="option" onclick="answer(this,false)">DreamWorks</button>
             </div>
             <div class="q-feedback">Laika utilise l'impression 3D pour creer des milliers de visages interchangeables, permettant des expressions faciales d'une finesse inedite.</div>
           </div>
@@ -133,10 +133,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quel realisateur a relance le stop motion au cinema avec Fantastic Mr. Fox ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Henry Selick</div>
-              <div class="option" onclick="answer(this,false)">Tim Burton</div>
-              <div class="option" onclick="answer(this,true)">Wes Anderson</div>
-              <div class="option" onclick="answer(this,false)">Nick Park</div>
+              <button class="option" onclick="answer(this,false)">Henry Selick</button>
+              <button class="option" onclick="answer(this,false)">Tim Burton</button>
+              <button class="option" onclick="answer(this,true)">Wes Anderson</button>
+              <button class="option" onclick="answer(this,false)">Nick Park</button>
             </div>
             <div class="q-feedback">Wes Anderson a relance le stop motion avec Fantastic Mr. Fox (2009), puis L'Île aux chiens (2018).</div>
           </div>
@@ -185,8 +185,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

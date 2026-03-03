@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Husserl, Heidegger, intentionnalité, être-au-monde et Dasein : retour aux choses mêmes.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Phénoménologie — Philosophie moderne — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8e44ad;
   --accent2: #9b59b6;
   --accent-dim: rgba(142,68,173,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">💭 Philosophie moderne</span>
     <span class="tag-level">Avancé</span>
@@ -131,10 +131,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que signifie l'intentionnalité de la conscience chez Husserl ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La conscience a toujours une intention morale</div>
-              <div class="option" onclick="answer(this,true)">Toute conscience est conscience de quelque chose</div>
-              <div class="option" onclick="answer(this,false)">La conscience crée le monde extérieur</div>
-              <div class="option" onclick="answer(this,false)">La conscience est intentionnellement trompeuse</div>
+              <button class="option" onclick="answer(this,false)">La conscience a toujours une intention morale</button>
+              <button class="option" onclick="answer(this,true)">Toute conscience est conscience de quelque chose</button>
+              <button class="option" onclick="answer(this,false)">La conscience crée le monde extérieur</button>
+              <button class="option" onclick="answer(this,false)">La conscience est intentionnellement trompeuse</button>
             </div>
             <div class="q-feedback">L'intentionnalité signifie que la conscience est toujours dirigée vers un objet : percevoir, imaginer, désirer, craindre sont autant de manières d'être tourné vers quelque chose. Il n'y a pas de conscience vide.</div>
           </div>
@@ -142,10 +142,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'est-ce que l'épochè (réduction phénoménologique) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Douter de l'existence du monde extérieur</div>
-              <div class="option" onclick="answer(this,false)">Réduire le monde à des formules mathématiques</div>
-              <div class="option" onclick="answer(this,true)">Suspendre nos croyances naturelles pour décrire les phénomènes tels qu'ils apparaissent</div>
-              <div class="option" onclick="answer(this,false)">Simplifier les théories philosophiques</div>
+              <button class="option" onclick="answer(this,false)">Douter de l'existence du monde extérieur</button>
+              <button class="option" onclick="answer(this,false)">Réduire le monde à des formules mathématiques</button>
+              <button class="option" onclick="answer(this,true)">Suspendre nos croyances naturelles pour décrire les phénomènes tels qu'ils apparaissent</button>
+              <button class="option" onclick="answer(this,false)">Simplifier les théories philosophiques</button>
             </div>
             <div class="q-feedback">L'épochè consiste à mettre entre parenthèses la croyance naïve en l'existence du monde pour se concentrer sur la manière dont les phénomènes se donnent à la conscience. Ce n'est pas un doute mais une suspension méthodologique.</div>
           </div>
@@ -153,10 +153,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qu'est-ce que le Dasein chez Heidegger ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le sujet pensant cartésien</div>
-              <div class="option" onclick="answer(this,true)">L'être humain en tant qu'il est toujours-déjà au monde</div>
-              <div class="option" onclick="answer(this,false)">L'âme immortelle</div>
-              <div class="option" onclick="answer(this,false)">La raison universelle</div>
+              <button class="option" onclick="answer(this,false)">Le sujet pensant cartésien</button>
+              <button class="option" onclick="answer(this,true)">L'être humain en tant qu'il est toujours-déjà au monde</button>
+              <button class="option" onclick="answer(this,false)">L'âme immortelle</button>
+              <button class="option" onclick="answer(this,false)">La raison universelle</button>
             </div>
             <div class="q-feedback">Le Dasein (« être-là ») désigne l'être humain en tant qu'il est toujours-déjà plongé dans un monde de significations. Il n'est pas un sujet isolé qui découvrirait ensuite un monde : il est fondamentalement être-au-monde.</div>
           </div>
@@ -164,10 +164,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle est la différence entre Zuhandenheit et Vorhandenheit ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">L'être-à-portée-de-la-main (usage pratique) vs l'être-sous-les-yeux (contemplation théorique)</div>
-              <div class="option" onclick="answer(this,false)">L'existence authentique vs l'existence inauthentique</div>
-              <div class="option" onclick="answer(this,false)">La conscience intentionnelle vs la conscience vide</div>
-              <div class="option" onclick="answer(this,false)">Le monde vécu vs le monde scientifique</div>
+              <button class="option" onclick="answer(this,true)">L'être-à-portée-de-la-main (usage pratique) vs l'être-sous-les-yeux (contemplation théorique)</button>
+              <button class="option" onclick="answer(this,false)">L'existence authentique vs l'existence inauthentique</button>
+              <button class="option" onclick="answer(this,false)">La conscience intentionnelle vs la conscience vide</button>
+              <button class="option" onclick="answer(this,false)">Le monde vécu vs le monde scientifique</button>
             </div>
             <div class="q-feedback">La Zuhandenheit est le rapport pratique aux choses (un outil qu'on utilise sans y penser). La Vorhandenheit est le rapport théorique (un objet qu'on observe et analyse). Pour Heidegger, le rapport pratique est premier et plus fondamental.</div>
           </div>
@@ -175,10 +175,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce que le Lebenswelt (monde vécu) chez Husserl ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le monde tel que la science le décrit</div>
-              <div class="option" onclick="answer(this,false)">Le monde intérieur de la pensée</div>
-              <div class="option" onclick="answer(this,true)">Le monde tel que nous le vivons avant toute théorisation scientifique</div>
-              <div class="option" onclick="answer(this,false)">Le monde des idées platoniciennes</div>
+              <button class="option" onclick="answer(this,false)">Le monde tel que la science le décrit</button>
+              <button class="option" onclick="answer(this,false)">Le monde intérieur de la pensée</button>
+              <button class="option" onclick="answer(this,true)">Le monde tel que nous le vivons avant toute théorisation scientifique</button>
+              <button class="option" onclick="answer(this,false)">Le monde des idées platoniciennes</button>
             </div>
             <div class="q-feedback">Le Lebenswelt est le monde de l'expérience quotidienne, des couleurs, des émotions, des relations, avant que la science ne le recouvre de ses abstractions mathématiques. C'est le sol originaire de toute connaissance.</div>
           </div>
@@ -186,10 +186,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle est la thèse centrale de Merleau-Ponty ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'esprit est séparé du corps</div>
-              <div class="option" onclick="answer(this,false)">Le corps est une machine déterminée</div>
-              <div class="option" onclick="answer(this,true)">Le corps vécu est le sujet de la perception et du rapport au monde</div>
-              <div class="option" onclick="answer(this,false)">Seule la pensée abstraite accède à la vérité</div>
+              <button class="option" onclick="answer(this,false)">L'esprit est séparé du corps</button>
+              <button class="option" onclick="answer(this,false)">Le corps est une machine déterminée</button>
+              <button class="option" onclick="answer(this,true)">Le corps vécu est le sujet de la perception et du rapport au monde</button>
+              <button class="option" onclick="answer(this,false)">Seule la pensée abstraite accède à la vérité</button>
             </div>
             <div class="q-feedback">Merleau-Ponty montre que notre rapport au monde passe par le corps propre (corps vécu), qui n'est ni un objet mécanique ni un simple instrument de l'esprit, mais le sujet même de la perception et de l'action.</div>
           </div>
@@ -269,8 +269,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

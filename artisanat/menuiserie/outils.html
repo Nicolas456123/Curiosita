@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Scies, rabots, ciseaux, établi et choix des essences de bois.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Outils et matériaux — Menuiserie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔧 Menuiserie</span>
     <span class="tag-level">Débutant</span>
@@ -150,10 +150,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel taux d'humidité doit avoir le bois pour une utilisation en intérieur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">20-25 %</div>
-              <div class="option" onclick="answer(this,true)">8-12 %</div>
-              <div class="option" onclick="answer(this,false)">2-5 %</div>
-              <div class="option" onclick="answer(this,false)">15-18 %</div>
+              <button class="option" onclick="answer(this,false)">20-25 %</button>
+              <button class="option" onclick="answer(this,true)">8-12 %</button>
+              <button class="option" onclick="answer(this,false)">2-5 %</button>
+              <button class="option" onclick="answer(this,false)">15-18 %</button>
             </div>
             <div class="q-feedback">Le bois d'œuvre pour l'intérieur doit être séché entre 8 et 12 % d'humidité. Au-delà, il risque de se déformer en séchant dans l'environnement chauffé de la maison.</div>
           </div>
@@ -161,10 +161,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel est l'avantage du débit sur quartier ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il est plus économique</div>
-              <div class="option" onclick="answer(this,true)">Il est plus stable et se déforme moins</div>
-              <div class="option" onclick="answer(this,false)">Il produit des planches plus larges</div>
-              <div class="option" onclick="answer(this,false)">Il est plus rapide à sécher</div>
+              <button class="option" onclick="answer(this,false)">Il est plus économique</button>
+              <button class="option" onclick="answer(this,true)">Il est plus stable et se déforme moins</button>
+              <button class="option" onclick="answer(this,false)">Il produit des planches plus larges</button>
+              <button class="option" onclick="answer(this,false)">Il est plus rapide à sécher</button>
             </div>
             <div class="q-feedback">Le débit sur quartier (cernes perpendiculaires à la face) produit des planches qui se rétractent et se dilatent de manière uniforme, donc beaucoup plus stables dimensionnellement.</div>
           </div>
@@ -172,10 +172,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">À quoi sert un trusquin ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">À mesurer des angles</div>
-              <div class="option" onclick="answer(this,false)">À vérifier la planéité</div>
-              <div class="option" onclick="answer(this,true)">À tracer une ligne parallèle à un bord</div>
-              <div class="option" onclick="answer(this,false)">À affûter les ciseaux</div>
+              <button class="option" onclick="answer(this,false)">À mesurer des angles</button>
+              <button class="option" onclick="answer(this,false)">À vérifier la planéité</button>
+              <button class="option" onclick="answer(this,true)">À tracer une ligne parallèle à un bord</button>
+              <button class="option" onclick="answer(this,false)">À affûter les ciseaux</button>
             </div>
             <div class="q-feedback">Le trusquin trace une ligne à distance constante d'un bord de référence. Il est indispensable pour le traçage des tenons, mortaises et feuillures.</div>
           </div>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Pourquoi un outil bien affûté est-il plus sûr qu'un outil émoussé ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Il coupe sans forcer, donc il dérape moins</div>
-              <div class="option" onclick="answer(this,false)">Il est plus léger</div>
-              <div class="option" onclick="answer(this,false)">Il fait moins de bruit</div>
-              <div class="option" onclick="answer(this,false)">Il est plus brillant donc plus visible</div>
+              <button class="option" onclick="answer(this,true)">Il coupe sans forcer, donc il dérape moins</button>
+              <button class="option" onclick="answer(this,false)">Il est plus léger</button>
+              <button class="option" onclick="answer(this,false)">Il fait moins de bruit</button>
+              <button class="option" onclick="answer(this,false)">Il est plus brillant donc plus visible</button>
             </div>
             <div class="q-feedback">Un outil tranchant entre dans le bois sans effort et reste sous contrôle. Un outil émoussé exige plus de force et peut glisser brusquement — c'est la principale cause de blessures.</div>
           </div>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle essence est réputée pour bien se cintrer à la vapeur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le chêne</div>
-              <div class="option" onclick="answer(this,true)">Le hêtre</div>
-              <div class="option" onclick="answer(this,false)">Le pin</div>
-              <div class="option" onclick="answer(this,false)">Le noyer</div>
+              <button class="option" onclick="answer(this,false)">Le chêne</button>
+              <button class="option" onclick="answer(this,true)">Le hêtre</button>
+              <button class="option" onclick="answer(this,false)">Le pin</button>
+              <button class="option" onclick="answer(this,false)">Le noyer</button>
             </div>
             <div class="q-feedback">Le hêtre est l'essence de prédilection pour le cintrage à la vapeur grâce à sa structure homogène et sa souplesse. C'est pour cela que les chaises Thonet sont en hêtre cintré.</div>
           </div>
@@ -205,10 +205,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle scie utilise-t-on pour les coupes de précision en menuiserie ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La scie égoïne</div>
-              <div class="option" onclick="answer(this,true)">La scie à tenon (scie à dos)</div>
-              <div class="option" onclick="answer(this,false)">La scie sauteuse</div>
-              <div class="option" onclick="answer(this,false)">La scie circulaire</div>
+              <button class="option" onclick="answer(this,false)">La scie égoïne</button>
+              <button class="option" onclick="answer(this,true)">La scie à tenon (scie à dos)</button>
+              <button class="option" onclick="answer(this,false)">La scie sauteuse</button>
+              <button class="option" onclick="answer(this,false)">La scie circulaire</button>
             </div>
             <div class="q-feedback">La scie à tenon (ou scie à dos) a un dos rigide en acier qui maintient la lame droite, et une denture fine qui donne des coupes précises et nettes, idéales pour les assemblages.</div>
           </div>
@@ -278,8 +278,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

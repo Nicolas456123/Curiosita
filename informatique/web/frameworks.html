@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="React, Vue, Angular — comprendre l'architecture par composants, les Single Page Applications, la gestion d'état et le rendu déclaratif.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Frameworks front-end — Web — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #2980b9;
   --accent2: #3498db;
   --accent-dim: rgba(41,128,185,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(41,128,185,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(41,128,185,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🌐 Web</span>
     <span class="tag-level">Avancé</span>
@@ -210,10 +210,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qu'est-ce qu'un composant dans un framework front-end ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un fichier CSS</div>
-              <div class="option" onclick="answer(this,true)">Une unité réutilisable d'interface avec sa propre logique et son rendu</div>
-              <div class="option" onclick="answer(this,false)">Un plugin du navigateur</div>
-              <div class="option" onclick="answer(this,false)">Une requête HTTP</div>
+              <button class="option" onclick="answer(this,false)">Un fichier CSS</button>
+              <button class="option" onclick="answer(this,true)">Une unité réutilisable d'interface avec sa propre logique et son rendu</button>
+              <button class="option" onclick="answer(this,false)">Un plugin du navigateur</button>
+              <button class="option" onclick="answer(this,false)">Une requête HTTP</button>
             </div>
             <div class="q-feedback">Un composant encapsule une partie de l'interface (HTML, CSS, logique JavaScript). Il est réutilisable, testable et composable avec d'autres composants pour former l'application.</div>
           </div>
@@ -221,10 +221,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'est-ce que le Virtual DOM utilisé par React ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un DOM stocké sur un serveur distant</div>
-              <div class="option" onclick="answer(this,true)">Une représentation en mémoire du DOM qui permet de calculer les différences avant de mettre à jour le vrai DOM</div>
-              <div class="option" onclick="answer(this,false)">Un DOM crypté pour la sécurité</div>
-              <div class="option" onclick="answer(this,false)">Un DOM simulé pour les tests</div>
+              <button class="option" onclick="answer(this,false)">Un DOM stocké sur un serveur distant</button>
+              <button class="option" onclick="answer(this,true)">Une représentation en mémoire du DOM qui permet de calculer les différences avant de mettre à jour le vrai DOM</button>
+              <button class="option" onclick="answer(this,false)">Un DOM crypté pour la sécurité</button>
+              <button class="option" onclick="answer(this,false)">Un DOM simulé pour les tests</button>
             </div>
             <div class="q-feedback">Le Virtual DOM est une copie légère du DOM en mémoire. React compare l'ancien et le nouveau Virtual DOM (diffing), puis applique uniquement les changements nécessaires au vrai DOM (reconciliation).</div>
           </div>
@@ -232,10 +232,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel hook React permet de gérer l'état local d'un composant ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">useEffect</div>
-              <div class="option" onclick="answer(this,true)">useState</div>
-              <div class="option" onclick="answer(this,false)">useRef</div>
-              <div class="option" onclick="answer(this,false)">useContext</div>
+              <button class="option" onclick="answer(this,false)">useEffect</button>
+              <button class="option" onclick="answer(this,true)">useState</button>
+              <button class="option" onclick="answer(this,false)">useRef</button>
+              <button class="option" onclick="answer(this,false)">useContext</button>
             </div>
             <div class="q-feedback"><code>useState</code> retourne une paire [valeur, setter]. Quand le setter est appelé, React re-rend le composant avec la nouvelle valeur. <code>useEffect</code> gère les effets de bord, <code>useRef</code> stocke une référence mutable.</div>
           </div>
@@ -243,10 +243,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce qu'une SPA (Single Page Application) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un site avec une seule page HTML et aucun JavaScript</div>
-              <div class="option" onclick="answer(this,false)">Une application qui ne fonctionne que sur mobile</div>
-              <div class="option" onclick="answer(this,true)">Une application web qui met à jour la page dynamiquement sans rechargement complet</div>
-              <div class="option" onclick="answer(this,false)">Un site web statique sans interactivité</div>
+              <button class="option" onclick="answer(this,false)">Un site avec une seule page HTML et aucun JavaScript</button>
+              <button class="option" onclick="answer(this,false)">Une application qui ne fonctionne que sur mobile</button>
+              <button class="option" onclick="answer(this,true)">Une application web qui met à jour la page dynamiquement sans rechargement complet</button>
+              <button class="option" onclick="answer(this,false)">Un site web statique sans interactivité</button>
             </div>
             <div class="q-feedback">Une SPA charge une seule page HTML puis met à jour le contenu dynamiquement via JavaScript. La navigation entre les « pages » se fait sans rechargement, offrant une expérience fluide.</div>
           </div>
@@ -254,10 +254,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel framework front-end est écrit nativement en TypeScript ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">React</div>
-              <div class="option" onclick="answer(this,false)">Vue.js</div>
-              <div class="option" onclick="answer(this,true)">Angular</div>
-              <div class="option" onclick="answer(this,false)">jQuery</div>
+              <button class="option" onclick="answer(this,false)">React</button>
+              <button class="option" onclick="answer(this,false)">Vue.js</button>
+              <button class="option" onclick="answer(this,true)">Angular</button>
+              <button class="option" onclick="answer(this,false)">jQuery</button>
             </div>
             <div class="q-feedback">Angular est construit en TypeScript et l'utilise par défaut dans tous les projets. React et Vue supportent TypeScript mais ne l'imposent pas.</div>
           </div>
@@ -265,10 +265,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que sont les « props » dans un framework front-end ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Des données passées d'un composant parent à un composant enfant</div>
-              <div class="option" onclick="answer(this,false)">Des propriétés CSS du composant</div>
-              <div class="option" onclick="answer(this,false)">Des méthodes de validation de formulaire</div>
-              <div class="option" onclick="answer(this,false)">Des variables d'environnement du serveur</div>
+              <button class="option" onclick="answer(this,true)">Des données passées d'un composant parent à un composant enfant</button>
+              <button class="option" onclick="answer(this,false)">Des propriétés CSS du composant</button>
+              <button class="option" onclick="answer(this,false)">Des méthodes de validation de formulaire</button>
+              <button class="option" onclick="answer(this,false)">Des variables d'environnement du serveur</button>
             </div>
             <div class="q-feedback">Les props (propriétés) sont le mécanisme de passage de données du parent vers l'enfant. Elles sont en lecture seule dans l'enfant, ce qui garantit un flux de données unidirectionnel et prévisible.</div>
           </div>
@@ -464,8 +464,14 @@ function App() {
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De Michel-Ange au néoclassicisme — la quête de la perfection à travers le marbre et le bronze.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>La sculpture classique — Sculpture — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎨 Sculpture</span>
     <span class="tag-level">Intermédiaire</span>
@@ -135,10 +135,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">À quel âge Michel-Ange a-t-il réalisé la Pietà de Saint-Pierre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">18 ans</div>
-              <div class="option" onclick="answer(this,true)">24 ans</div>
-              <div class="option" onclick="answer(this,false)">30 ans</div>
-              <div class="option" onclick="answer(this,false)">40 ans</div>
+              <button class="option" onclick="answer(this,false)">18 ans</button>
+              <button class="option" onclick="answer(this,true)">24 ans</button>
+              <button class="option" onclick="answer(this,false)">30 ans</button>
+              <button class="option" onclick="answer(this,false)">40 ans</button>
             </div>
             <div class="q-feedback">Michel-Ange a réalisé la Pietà entre 1498 et 1499, alors qu'il n'avait que 24 ans. C'est la seule oeuvre qu'il ait jamais signée.</div>
           </div>
@@ -146,10 +146,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel sculpteur baroque est célèbre pour l'Extase de sainte Thérèse ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Le Bernin</div>
-              <div class="option" onclick="answer(this,false)">Canova</div>
-              <div class="option" onclick="answer(this,false)">Donatello</div>
-              <div class="option" onclick="answer(this,false)">Cellini</div>
+              <button class="option" onclick="answer(this,true)">Le Bernin</button>
+              <button class="option" onclick="answer(this,false)">Canova</button>
+              <button class="option" onclick="answer(this,false)">Donatello</button>
+              <button class="option" onclick="answer(this,false)">Cellini</button>
             </div>
             <div class="q-feedback">Gian Lorenzo Bernini (Le Bernin) a réalisé l'Extase de sainte Thérèse entre 1647 et 1652, chef-d'oeuvre du baroque qui mêle sensualité et mysticisme.</div>
           </div>
@@ -157,10 +157,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel événement archéologique a directement inspiré le néoclassicisme ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La découverte du tombeau de Toutânkhamon</div>
-              <div class="option" onclick="answer(this,true)">Les fouilles de Pompéi et Herculanum</div>
-              <div class="option" onclick="answer(this,false)">La découverte de la grotte de Lascaux</div>
-              <div class="option" onclick="answer(this,false)">La mise au jour de l'Acropole d'Athènes</div>
+              <button class="option" onclick="answer(this,false)">La découverte du tombeau de Toutânkhamon</button>
+              <button class="option" onclick="answer(this,true)">Les fouilles de Pompéi et Herculanum</button>
+              <button class="option" onclick="answer(this,false)">La découverte de la grotte de Lascaux</button>
+              <button class="option" onclick="answer(this,false)">La mise au jour de l'Acropole d'Athènes</button>
             </div>
             <div class="q-feedback">Les fouilles de Pompéi et Herculanum, commencées en 1748, ont révélé des oeuvres antiques remarquablement conservées, inspirant le retour à l'idéal classique.</div>
           </div>
@@ -168,10 +168,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Comment appelle-t-on le concept de sculptures volontairement laissées inachevées par Michel-Ange ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le bozzetto</div>
-              <div class="option" onclick="answer(this,true)">Le non finito</div>
-              <div class="option" onclick="answer(this,false)">Le contrapposto</div>
-              <div class="option" onclick="answer(this,false)">Le sfumato</div>
+              <button class="option" onclick="answer(this,false)">Le bozzetto</button>
+              <button class="option" onclick="answer(this,true)">Le non finito</button>
+              <button class="option" onclick="answer(this,false)">Le contrapposto</button>
+              <button class="option" onclick="answer(this,false)">Le sfumato</button>
             </div>
             <div class="q-feedback">Le non finito (« non fini ») est un concept esthétique où Michel-Ange laisse des parties de la sculpture brutes, comme si les figures luttaient pour émerger de la pierre.</div>
           </div>
@@ -179,10 +179,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel sculpteur florentin a réalisé le premier David en bronze de la Renaissance, première sculpture en ronde-bosse autonome depuis l'Antiquité ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Donatello</div>
-              <div class="option" onclick="answer(this,false)">Verrocchio</div>
-              <div class="option" onclick="answer(this,false)">Ghiberti</div>
-              <div class="option" onclick="answer(this,false)">Cellini</div>
+              <button class="option" onclick="answer(this,true)">Donatello</button>
+              <button class="option" onclick="answer(this,false)">Verrocchio</button>
+              <button class="option" onclick="answer(this,false)">Ghiberti</button>
+              <button class="option" onclick="answer(this,false)">Cellini</button>
             </div>
             <div class="q-feedback">Le David en bronze de Donatello (v. 1440) est la première sculpture en ronde-bosse autonome (indépendante d'un support architectural) depuis l'Antiquité, marquant un tournant dans l'histoire de la sculpture.</div>
           </div>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel matériau a dû ajouter Cellini dans le creuset lors de la fonte périlleuse de son Persée ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Du plomb</div>
-              <div class="option" onclick="answer(this,true)">De l'étain (sa vaisselle)</div>
-              <div class="option" onclick="answer(this,false)">De l'or</div>
-              <div class="option" onclick="answer(this,false)">Du cuivre</div>
+              <button class="option" onclick="answer(this,false)">Du plomb</button>
+              <button class="option" onclick="answer(this,true)">De l'étain (sa vaisselle)</button>
+              <button class="option" onclick="answer(this,false)">De l'or</button>
+              <button class="option" onclick="answer(this,false)">Du cuivre</button>
             </div>
             <div class="q-feedback">Selon son autobiographie, Cellini dut jeter sa vaisselle d'étain dans le creuset pour obtenir suffisamment de métal et sauver la fonte du Persée, dans un épisode dramatique resté célèbre.</div>
           </div>
@@ -248,8 +248,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

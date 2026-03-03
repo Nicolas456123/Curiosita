@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Construction de l'identité, appartenances multiples, stigmate et reconnaissance — comment la société nous définit et comment nous nous définissons.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Identité sociale — Culture et identité — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a0f5a0;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🪞 Culture et identité</span>
     <span class="tag-level">Intermédiaire</span>
@@ -118,10 +118,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quel sociologue compare la vie sociale à une représentation théâtrale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pierre Bourdieu</div>
-              <div class="option" onclick="answer(this,true)">Erving Goffman</div>
-              <div class="option" onclick="answer(this,false)">George Herbert Mead</div>
-              <div class="option" onclick="answer(this,false)">Claude Dubar</div>
+              <button class="option" onclick="answer(this,false)">Pierre Bourdieu</button>
+              <button class="option" onclick="answer(this,true)">Erving Goffman</button>
+              <button class="option" onclick="answer(this,false)">George Herbert Mead</button>
+              <button class="option" onclick="answer(this,false)">Claude Dubar</button>
             </div>
             <div class="q-feedback">Goffman, dans La Mise en scène de la vie quotidienne (1959), utilise la métaphore théâtrale pour analyser les interactions sociales : chacun joue des rôles et gère sa « façade ».</div>
           </div>
@@ -129,10 +129,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Que désigne le concept de « stigmate » chez Goffman ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une blessure physique</div>
-              <div class="option" onclick="answer(this,true)">Un attribut qui discrédite profondément un individu aux yeux des autres</div>
-              <div class="option" onclick="answer(this,false)">Un titre honorifique</div>
-              <div class="option" onclick="answer(this,false)">Un rôle social prestigieux</div>
+              <button class="option" onclick="answer(this,false)">Une blessure physique</button>
+              <button class="option" onclick="answer(this,true)">Un attribut qui discrédite profondément un individu aux yeux des autres</button>
+              <button class="option" onclick="answer(this,false)">Un titre honorifique</button>
+              <button class="option" onclick="answer(this,false)">Un rôle social prestigieux</button>
             </div>
             <div class="q-feedback">Le stigmate est un attribut (handicap, origine, maladie...) qui discrédite profondément une personne, la réduisant à cette seule caractéristique dans le regard d'autrui.</div>
           </div>
@@ -140,10 +140,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Qui a développé le concept d'intersectionnalité ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Erving Goffman</div>
-              <div class="option" onclick="answer(this,false)">Claude Dubar</div>
-              <div class="option" onclick="answer(this,true)">Kimberlé Crenshaw</div>
-              <div class="option" onclick="answer(this,false)">Axel Honneth</div>
+              <button class="option" onclick="answer(this,false)">Erving Goffman</button>
+              <button class="option" onclick="answer(this,false)">Claude Dubar</button>
+              <button class="option" onclick="answer(this,true)">Kimberlé Crenshaw</button>
+              <button class="option" onclick="answer(this,false)">Axel Honneth</button>
             </div>
             <div class="q-feedback">Kimberlé Crenshaw a introduit le concept d'intersectionnalité en 1989 pour montrer que les discriminations (race, genre, classe) s'entrecroisent et produisent des expériences spécifiques.</div>
           </div>
@@ -151,10 +151,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quelles sont les trois sphères de reconnaissance selon Honneth ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Amour, droit, estime sociale</div>
-              <div class="option" onclick="answer(this,false)">Famille, école, travail</div>
-              <div class="option" onclick="answer(this,false)">Économique, culturel, symbolique</div>
-              <div class="option" onclick="answer(this,false)">Individuel, collectif, universel</div>
+              <button class="option" onclick="answer(this,true)">Amour, droit, estime sociale</button>
+              <button class="option" onclick="answer(this,false)">Famille, école, travail</button>
+              <button class="option" onclick="answer(this,false)">Économique, culturel, symbolique</button>
+              <button class="option" onclick="answer(this,false)">Individuel, collectif, universel</button>
             </div>
             <div class="q-feedback">Honneth distingue trois sphères : l'amour (confiance en soi), le droit (respect de soi) et l'estime sociale (estime de soi). Le déni de reconnaissance dans chaque sphère produit une forme spécifique de mépris.</div>
           </div>
@@ -162,10 +162,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Selon Dubar, que se passe-t-il quand l'identité pour soi et l'identité pour autrui divergent ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'individu change automatiquement d'identité</div>
-              <div class="option" onclick="answer(this,true)">L'individu vit une crise identitaire</div>
-              <div class="option" onclick="answer(this,false)">La société impose toujours son point de vue</div>
-              <div class="option" onclick="answer(this,false)">L'identité pour soi disparaît</div>
+              <button class="option" onclick="answer(this,false)">L'individu change automatiquement d'identité</button>
+              <button class="option" onclick="answer(this,true)">L'individu vit une crise identitaire</button>
+              <button class="option" onclick="answer(this,false)">La société impose toujours son point de vue</button>
+              <button class="option" onclick="answer(this,false)">L'identité pour soi disparaît</button>
             </div>
             <div class="q-feedback">Quand l'identité que les autres m'attribuent ne correspond pas à celle que je revendique, il y a tension et potentiellement crise identitaire. C'est ce décalage qui motive souvent les luttes pour la reconnaissance.</div>
           </div>
@@ -232,8 +232,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Le trouble dépressif majeur — comprendre la triade cognitive de Beck, les facteurs biologiques et les traitements fondés sur les preuves.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Dépression — Psychologie Clinique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #b07fe8; --accent2: #c9a0f0; --accent-dim: rgba(176,127,232,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(176,127,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #b07fe8; --accent2: #c9a0f0; --accent-dim: rgba(176,127,232,0.08);  --accent-hero: rgba(176,127,232,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../psychologie-page.html">Psychologie</a> › <a href="../clinique.html">Clinique</a> › <span>Dépression</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">🧠 Clinique</span><span class="tag-level">Intermédiaire</span><span class="tag-time">⏱ ~55 min</span></div>
   <h1><em>Dépression</em></h1>
   <p class="hero-desc">Le trouble dépressif majeur — comprendre la triade cognitive de Beck, les facteurs biologiques et les traitements fondés sur les preuves.</p>
@@ -118,10 +118,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">La « triade cognitive » de Beck comprend une vision négative de :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Passé, présent, futur</div>
-              <div class="option" onclick="answer(this,true)">Soi-même, du monde, de l'avenir</div>
-              <div class="option" onclick="answer(this,false)">Corps, esprit, relations</div>
-              <div class="option" onclick="answer(this,false)">Famille, travail, santé</div>
+              <button class="option" onclick="answer(this,false)">Passé, présent, futur</button>
+              <button class="option" onclick="answer(this,true)">Soi-même, du monde, de l'avenir</button>
+              <button class="option" onclick="answer(this,false)">Corps, esprit, relations</button>
+              <button class="option" onclick="answer(this,false)">Famille, travail, santé</button>
             </div>
             <div class="q-feedback">La triade cognitive de Beck (1967) : le dépressif a une vision négative de lui-même (« je suis nul »), du monde (« tout est hostile ») et de l'avenir (« rien ne changera »). Ces cognitions automatiques maintiennent le trouble dépressif.</div>
           </div>
@@ -129,10 +129,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Combien de symptômes le DSM-5 requiert-il au minimum pour diagnostiquer un trouble dépressif majeur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">3 sur 9</div>
-              <div class="option" onclick="answer(this,true)">5 sur 9</div>
-              <div class="option" onclick="answer(this,false)">7 sur 9</div>
-              <div class="option" onclick="answer(this,false)">Tous les 9</div>
+              <button class="option" onclick="answer(this,false)">3 sur 9</button>
+              <button class="option" onclick="answer(this,true)">5 sur 9</button>
+              <button class="option" onclick="answer(this,false)">7 sur 9</button>
+              <button class="option" onclick="answer(this,false)">Tous les 9</button>
             </div>
             <div class="q-feedback">Le DSM-5 requiert au moins 5 symptômes sur 9 pendant au moins 2 semaines, dont obligatoirement l'humeur dépressive ou l'anhédonie (perte de plaisir). Les symptômes doivent causer une détresse significative ou une altération du fonctionnement.</div>
           </div>
@@ -140,10 +140,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel neurotransmetteur est principalement ciblé par les ISRS dans le traitement de la dépression ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Dopamine</div>
-              <div class="option" onclick="answer(this,true)">Sérotonine</div>
-              <div class="option" onclick="answer(this,false)">GABA</div>
-              <div class="option" onclick="answer(this,false)">Glutamate</div>
+              <button class="option" onclick="answer(this,false)">Dopamine</button>
+              <button class="option" onclick="answer(this,true)">Sérotonine</button>
+              <button class="option" onclick="answer(this,false)">GABA</button>
+              <button class="option" onclick="answer(this,false)">Glutamate</button>
             </div>
             <div class="q-feedback">Les ISRS (Inhibiteurs Sélectifs de la Recapture de la Sérotonine) bloquent la recapture de la sérotonine dans la fente synaptique, augmentant ainsi sa disponibilité. Exemples : fluoxétine (Prozac), sertraline (Zoloft).</div>
           </div>
@@ -151,10 +151,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Le modèle de l'impuissance apprise de Seligman propose que la dépression résulte de :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un excès de sérotonine dans le cerveau</div>
-              <div class="option" onclick="answer(this,true)">L'exposition répétée à des événements négatifs incontrôlables</div>
-              <div class="option" onclick="answer(this,false)">Un conflit inconscient entre le Ça et le Surmoi</div>
-              <div class="option" onclick="answer(this,false)">Une prédisposition génétique exclusive</div>
+              <button class="option" onclick="answer(this,false)">Un excès de sérotonine dans le cerveau</button>
+              <button class="option" onclick="answer(this,true)">L'exposition répétée à des événements négatifs incontrôlables</button>
+              <button class="option" onclick="answer(this,false)">Un conflit inconscient entre le Ça et le Surmoi</button>
+              <button class="option" onclick="answer(this,false)">Une prédisposition génétique exclusive</button>
             </div>
             <div class="q-feedback">Seligman (1967) a montré que l'exposition à des événements incontrôlables produit une résignation généralisée — l'organisme « apprend » qu'il ne peut rien changer. Ce modèle a été reformulé pour inclure le style attributionnel : les attributions internes, stables et globales des échecs favorisent la dépression.</div>
           </div>
@@ -162,10 +162,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">L'activation comportementale (AC) dans le traitement de la dépression vise principalement à :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Analyser les conflits inconscients du patient</div>
-              <div class="option" onclick="answer(this,false)">Prescrire des médicaments antidépresseurs</div>
-              <div class="option" onclick="answer(this,true)">Rompre le cercle vicieux du retrait en planifiant des activités renforçantes</div>
-              <div class="option" onclick="answer(this,false)">Méditer pendant 30 minutes par jour</div>
+              <button class="option" onclick="answer(this,false)">Analyser les conflits inconscients du patient</button>
+              <button class="option" onclick="answer(this,false)">Prescrire des médicaments antidépresseurs</button>
+              <button class="option" onclick="answer(this,true)">Rompre le cercle vicieux du retrait en planifiant des activités renforçantes</button>
+              <button class="option" onclick="answer(this,false)">Méditer pendant 30 minutes par jour</button>
             </div>
             <div class="q-feedback">L'activation comportementale brise le cercle vicieux : humeur basse → inactivité → perte de renforcement → aggravation. En planifiant systématiquement des activités agréables et valorisantes, même sans motivation initiale, le patient retrouve des sources de renforcement positif qui améliorent l'humeur.</div>
           </div>
@@ -173,10 +173,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Selon l'étude STAR*D (2006), quel pourcentage de patients atteint la rémission avec un premier antidépresseur ISRS ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">10%</div>
-              <div class="option" onclick="answer(this,true)">Environ 33%</div>
-              <div class="option" onclick="answer(this,false)">70%</div>
-              <div class="option" onclick="answer(this,false)">90%</div>
+              <button class="option" onclick="answer(this,false)">10%</button>
+              <button class="option" onclick="answer(this,true)">Environ 33%</button>
+              <button class="option" onclick="answer(this,false)">70%</button>
+              <button class="option" onclick="answer(this,false)">90%</button>
             </div>
             <div class="q-feedback">L'étude STAR*D, la plus grande étude sur le traitement de la dépression, a montré que seulement 33% des patients atteignent la rémission avec le premier ISRS. Après 4 niveaux de traitement, le taux cumulatif monte à 67% — soulignant la nécessité d'adapter le traitement et de persévérer.</div>
           </div>
@@ -219,8 +219,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

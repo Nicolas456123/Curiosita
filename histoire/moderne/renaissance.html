@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'humanisme, les arts, les sciences et la Réforme — la renaissance de l'Europe entre le XVᵉ et le XVIᵉ siècle.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Renaissance — Époque moderne — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📜 Époque moderne</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quelle invention de 1450 révolutionne la diffusion du savoir ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le télescope</div>
-              <div class="option" onclick="answer(this,true)">L'imprimerie de Gutenberg</div>
-              <div class="option" onclick="answer(this,false)">La boussole</div>
-              <div class="option" onclick="answer(this,false)">Le papier</div>
+              <button class="option" onclick="answer(this,false)">Le télescope</button>
+              <button class="option" onclick="answer(this,true)">L'imprimerie de Gutenberg</button>
+              <button class="option" onclick="answer(this,false)">La boussole</button>
+              <button class="option" onclick="answer(this,false)">Le papier</button>
             </div>
             <div class="q-feedback">L'imprimerie à caractères mobiles de Gutenberg (vers 1450) permet la production massive de livres et accélère la diffusion des idées humanistes et scientifiques.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Quel savant propose le modèle héliocentrique en 1543 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Copernic</div>
-              <div class="option" onclick="answer(this,false)">Galilée</div>
-              <div class="option" onclick="answer(this,false)">Kepler</div>
-              <div class="option" onclick="answer(this,false)">Newton</div>
+              <button class="option" onclick="answer(this,true)">Copernic</button>
+              <button class="option" onclick="answer(this,false)">Galilée</button>
+              <button class="option" onclick="answer(this,false)">Kepler</button>
+              <button class="option" onclick="answer(this,false)">Newton</button>
             </div>
             <div class="q-feedback">Nicolas Copernic publie De revolutionibus en 1543, proposant que la Terre tourne autour du Soleil. Galilée confirmera cette théorie par l'observation au télescope en 1610.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">En quelle année Martin Luther affiche-t-il ses 95 thèses ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1492</div>
-              <div class="option" onclick="answer(this,true)">1517</div>
-              <div class="option" onclick="answer(this,false)">1543</div>
-              <div class="option" onclick="answer(this,false)">1572</div>
+              <button class="option" onclick="answer(this,false)">1492</button>
+              <button class="option" onclick="answer(this,true)">1517</button>
+              <button class="option" onclick="answer(this,false)">1543</button>
+              <button class="option" onclick="answer(this,false)">1572</button>
             </div>
             <div class="q-feedback">Martin Luther affiche ses 95 thèses le 31 octobre 1517 à Wittenberg, dénonçant la vente des indulgences et lançant la Réforme protestante.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quel architecte conçoit la coupole du Dôme de Florence ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Bramante</div>
-              <div class="option" onclick="answer(this,false)">Palladio</div>
-              <div class="option" onclick="answer(this,true)">Brunelleschi</div>
-              <div class="option" onclick="answer(this,false)">Michel-Ange</div>
+              <button class="option" onclick="answer(this,false)">Bramante</button>
+              <button class="option" onclick="answer(this,false)">Palladio</button>
+              <button class="option" onclick="answer(this,true)">Brunelleschi</button>
+              <button class="option" onclick="answer(this,false)">Michel-Ange</button>
             </div>
             <div class="q-feedback">Filippo Brunelleschi conçoit la coupole du Dôme de Florence (1420-1436), un exploit technique sans précédent avec un diamètre de 45 mètres, construite sans cintre.</div>
           </div>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quelle technique picturale de Léonard de Vinci estompe les contours par des couches translucides ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le clair-obscur</div>
-              <div class="option" onclick="answer(this,false)">La perspective linéaire</div>
-              <div class="option" onclick="answer(this,true)">Le sfumato</div>
-              <div class="option" onclick="answer(this,false)">La tempera</div>
+              <button class="option" onclick="answer(this,false)">Le clair-obscur</button>
+              <button class="option" onclick="answer(this,false)">La perspective linéaire</button>
+              <button class="option" onclick="answer(this,true)">Le sfumato</button>
+              <button class="option" onclick="answer(this,false)">La tempera</button>
             </div>
             <div class="q-feedback">Le sfumato est une technique perfectionnée par Léonard de Vinci, qui consiste à superposer de fines couches de peinture translucide pour créer des transitions douces entre ombre et lumière. La Joconde en est l'exemple le plus célèbre.</div>
           </div>
@@ -224,8 +224,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

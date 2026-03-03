@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sinus, cosinus, tangente — les fonctions qui relient angles et longueurs, du triangle rectangle au cercle trigonométrique.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Trigonométrie — Géométrie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #c0392b; --accent2: #e74c3c; --accent-dim: rgba(192,57,43,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #c0392b; --accent2: #e74c3c; --accent-dim: rgba(192,57,43,0.08);  --accent-hero: rgba(192,57,43,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../maths-page.html">Mathématiques</a> › <a href="../geometrie.html">Géométrie</a> › <span>Trigonométrie</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">📐 Géométrie</span><span class="tag-level">Intermédiaire → Avancé</span><span class="tag-time">⏱ ~50 min</span></div>
   <h1><em>Trigonométrie</em></h1>
   <p class="hero-desc">Sinus, cosinus, tangente — les fonctions qui relient angles et longueurs, du triangle rectangle au cercle trigonométrique.</p>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que vaut sin(30°) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">1/2</div>
-              <div class="option" onclick="answer(this,false)">√2/2</div>
-              <div class="option" onclick="answer(this,false)">√3/2</div>
-              <div class="option" onclick="answer(this,false)">1</div>
+              <button class="option" onclick="answer(this,true)">1/2</button>
+              <button class="option" onclick="answer(this,false)">√2/2</button>
+              <button class="option" onclick="answer(this,false)">√3/2</button>
+              <button class="option" onclick="answer(this,false)">1</button>
             </div>
             <div class="q-feedback">sin(30°) = 1/2. C'est une valeur remarquable à connaître. Dans un triangle rectangle avec un angle de 30°, le côté opposé vaut la moitié de l'hypoténuse.</div>
           </div>
@@ -201,10 +201,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle est l'identité fondamentale de la trigonométrie ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">sin(θ) + cos(θ) = 1</div>
-              <div class="option" onclick="answer(this,true)">cos²(θ) + sin²(θ) = 1</div>
-              <div class="option" onclick="answer(this,false)">sin(2θ) = sin²(θ)</div>
-              <div class="option" onclick="answer(this,false)">tan(θ) = cos(θ)/sin(θ)</div>
+              <button class="option" onclick="answer(this,false)">sin(θ) + cos(θ) = 1</button>
+              <button class="option" onclick="answer(this,true)">cos²(θ) + sin²(θ) = 1</button>
+              <button class="option" onclick="answer(this,false)">sin(2θ) = sin²(θ)</button>
+              <button class="option" onclick="answer(this,false)">tan(θ) = cos(θ)/sin(θ)</button>
             </div>
             <div class="q-feedback">cos²(θ) + sin²(θ) = 1 pour tout θ. Cette identité découle du théorème de Pythagore appliqué au cercle trigonométrique de rayon 1.</div>
           </div>
@@ -213,10 +213,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Combien vaut 180° en radians ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">2π</div>
-              <div class="option" onclick="answer(this,false)">π/2</div>
-              <div class="option" onclick="answer(this,true)">π</div>
-              <div class="option" onclick="answer(this,false)">3π/2</div>
+              <button class="option" onclick="answer(this,false)">2π</button>
+              <button class="option" onclick="answer(this,false)">π/2</button>
+              <button class="option" onclick="answer(this,true)">π</button>
+              <button class="option" onclick="answer(this,false)">3π/2</button>
             </div>
             <div class="q-feedback">180° = π radians. Un tour complet (360°) = 2π radians, donc un demi-tour (180°) = π radians.</div>
           </div>
@@ -225,10 +225,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Que vaut sin(2a) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">2sin(a)</div>
-              <div class="option" onclick="answer(this,true)">2sin(a)cos(a)</div>
-              <div class="option" onclick="answer(this,false)">sin²(a) + cos²(a)</div>
-              <div class="option" onclick="answer(this,false)">sin(a)cos(a)</div>
+              <button class="option" onclick="answer(this,false)">2sin(a)</button>
+              <button class="option" onclick="answer(this,true)">2sin(a)cos(a)</button>
+              <button class="option" onclick="answer(this,false)">sin²(a) + cos²(a)</button>
+              <button class="option" onclick="answer(this,false)">sin(a)cos(a)</button>
             </div>
             <div class="q-feedback">sin(2a) = 2sin(a)cos(a). C'est la formule de duplication du sinus, obtenue en posant b = a dans sin(a + b) = sin(a)cos(b) + cos(a)sin(b).</div>
           </div>
@@ -237,10 +237,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Dans un triangle quelconque, la loi des cosinus donne c² = a² + b² - 2ab·cos(C). Si C = 90°, que retrouve-t-on ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Le théorème de Pythagore : c² = a² + b²</div>
-              <div class="option" onclick="answer(this,false)">c² = a² + b² + 2ab</div>
-              <div class="option" onclick="answer(this,false)">c² = a² - b²</div>
-              <div class="option" onclick="answer(this,false)">c² = 2ab</div>
+              <button class="option" onclick="answer(this,true)">Le théorème de Pythagore : c² = a² + b²</button>
+              <button class="option" onclick="answer(this,false)">c² = a² + b² + 2ab</button>
+              <button class="option" onclick="answer(this,false)">c² = a² - b²</button>
+              <button class="option" onclick="answer(this,false)">c² = 2ab</button>
             </div>
             <div class="q-feedback">Quand C = 90°, cos(90°) = 0, donc c² = a² + b² - 0 = a² + b². On retrouve bien le théorème de Pythagore, qui est un cas particulier de la loi des cosinus.</div>
           </div>
@@ -249,10 +249,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Les solutions de cos(x) = cos(π/4) sont :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">x = π/4 + 2kπ uniquement</div>
-              <div class="option" onclick="answer(this,true)">x = π/4 + 2kπ ou x = -π/4 + 2kπ</div>
-              <div class="option" onclick="answer(this,false)">x = π/4 + kπ</div>
-              <div class="option" onclick="answer(this,false)">x = π/4</div>
+              <button class="option" onclick="answer(this,false)">x = π/4 + 2kπ uniquement</button>
+              <button class="option" onclick="answer(this,true)">x = π/4 + 2kπ ou x = -π/4 + 2kπ</button>
+              <button class="option" onclick="answer(this,false)">x = π/4 + kπ</button>
+              <button class="option" onclick="answer(this,false)">x = π/4</button>
             </div>
             <div class="q-feedback">cos(x) = cos(a) admet pour solutions x = a + 2kπ ou x = -a + 2kπ, car le cosinus est une fonction paire (cos(-θ) = cos(θ)) et de période 2π.</div>
           </div>
@@ -307,8 +307,14 @@
 
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

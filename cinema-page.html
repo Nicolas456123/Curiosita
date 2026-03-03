@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Du premier film des freres Lumiere aux blockbusters numeriques, le cinema est l'art du XXe siecle par excellence. Decouvrez son histoire, ses techniques...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Cinema & Audiovisuel — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #e87a7a;
   --accent2: #f09090;
   --accent-dim: rgba(232,122,122,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(232,122,122,0.07) 0%, transparent 70%); }
+ --accent-hero: rgba(232,122,122,0.07); }
 .hero-deco { color: rgba(232,122,122,0.04); }
 </style>
 </head>
@@ -22,7 +23,7 @@
   <div class="breadcrumb"><a href="arts-culture.html">Arts & Culture</a> &rsaquo; <span>Cinema & Audiovisuel</span></div>
   <button class="btn-memo" onclick="downloadMemo()">&#8595; Fiche memo</button>
 </nav>
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">&#127916;</div>
   <div class="hero-meta">
     <span class="tag-domain">&#127912; Arts & Culture</span>
@@ -140,134 +141,131 @@
       <div class="quiz-container">
         <div class="quiz-header">
           <span class="quiz-title-text">Quiz &mdash; Cinema & Audiovisuel</span>
-          <span class="quiz-score">Score : <span id="quizScore">0</span>/10</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span>/10</span>
         </div>
-        <div class="quiz-body">
+        <div class="quiz-body" id="quizBody">
           <div class="question-block active" id="q0">
             <div class="q-num">Question 1 / 10</div>
             <div class="q-text">Qui sont les inventeurs du Cinematographe, projete pour la premiere fois en public le 28 decembre 1895 ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(0,0)">Thomas Edison</div>
-              <div class="option" onclick="selectOption(0,1)">Les freres Lumiere</div>
-              <div class="option" onclick="selectOption(0,2)">Georges Melies</div>
-              <div class="option" onclick="selectOption(0,3)">Charles Pathe</div>
+              <button class="option" onclick="answer(this,false)">Thomas Edison</button>
+              <button class="option" onclick="answer(this,true)">Les freres Lumiere</button>
+              <button class="option" onclick="answer(this,false)">Georges Melies</button>
+              <button class="option" onclick="answer(this,false)">Charles Pathe</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Auguste et Louis Lumiere ont invente le Cinematographe et organise la premiere projection publique payante le 28 decembre 1895 au Salon indien du Grand Cafe, a Paris.</div>
           </div>
           <div class="question-block" id="q1">
             <div class="q-num">Question 2 / 10</div>
             <div class="q-text">Quel film de 1927 est considere comme le premier long-metrage parlant de l'histoire du cinema ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(1,0)">Metropolis</div>
-              <div class="option" onclick="selectOption(1,1)">Le Chanteur de jazz</div>
-              <div class="option" onclick="selectOption(1,2)">Les Temps modernes</div>
-              <div class="option" onclick="selectOption(1,3)">Nosferatu</div>
+              <button class="option" onclick="answer(this,false)">Metropolis</button>
+              <button class="option" onclick="answer(this,true)">Le Chanteur de jazz</button>
+              <button class="option" onclick="answer(this,false)">Les Temps modernes</button>
+              <button class="option" onclick="answer(this,false)">Nosferatu</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le Chanteur de jazz (The Jazz Singer) d'Alan Crosland, sorti en 1927, est le premier long-metrage avec des sequences de dialogue synchronise, marquant la fin de l'ere du cinema muet.</div>
           </div>
           <div class="question-block" id="q2">
             <div class="q-num">Question 3 / 10</div>
             <div class="q-text">Quel mouvement cinematographique est associe a Jean-Luc Godard et Francois Truffaut ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(2,0)">Le Neorealisme italien</div>
-              <div class="option" onclick="selectOption(2,1)">L'Expressionnisme allemand</div>
-              <div class="option" onclick="selectOption(2,2)">La Nouvelle Vague francaise</div>
-              <div class="option" onclick="selectOption(2,3)">Le Nouvel Hollywood</div>
+              <button class="option" onclick="answer(this,false)">Le Neorealisme italien</button>
+              <button class="option" onclick="answer(this,false)">L'Expressionnisme allemand</button>
+              <button class="option" onclick="answer(this,true)">La Nouvelle Vague francaise</button>
+              <button class="option" onclick="answer(this,false)">Le Nouvel Hollywood</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">La Nouvelle Vague francaise (1958-1968) est un mouvement cinematographique revolutionnaire mene par de jeunes critiques des Cahiers du cinema devenus realisateurs : Godard, Truffaut, Chabrol, Rohmer, Rivette.</div>
           </div>
           <div class="question-block" id="q3">
             <div class="q-num">Question 4 / 10</div>
             <div class="q-text">Qu'est-ce qu'un plan-sequence ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(3,0)">Une serie de plans courts montes rapidement</div>
-              <div class="option" onclick="selectOption(3,1)">Un plan sans coupure de montage, souvent long</div>
-              <div class="option" onclick="selectOption(3,2)">Le premier plan d'une sequence narrative</div>
-              <div class="option" onclick="selectOption(3,3)">Un gros plan sur le visage d'un acteur</div>
+              <button class="option" onclick="answer(this,false)">Une serie de plans courts montes rapidement</button>
+              <button class="option" onclick="answer(this,true)">Un plan sans coupure de montage, souvent long</button>
+              <button class="option" onclick="answer(this,false)">Le premier plan d'une sequence narrative</button>
+              <button class="option" onclick="answer(this,false)">Un gros plan sur le visage d'un acteur</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le plan-sequence est un plan cinematographique sans interruption de montage, souvent long et techniquement complexe. Il cree un sentiment de continuite temporelle et spatiale.</div>
           </div>
           <div class="question-block" id="q4">
             <div class="q-num">Question 5 / 10</div>
             <div class="q-text">Quel realisateur a theorise le concept de &laquo; MacGuffin &raquo; ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(4,0)">Stanley Kubrick</div>
-              <div class="option" onclick="selectOption(4,1)">Orson Welles</div>
-              <div class="option" onclick="selectOption(4,2)">Alfred Hitchcock</div>
-              <div class="option" onclick="selectOption(4,3)">Billy Wilder</div>
+              <button class="option" onclick="answer(this,false)">Stanley Kubrick</button>
+              <button class="option" onclick="answer(this,false)">Orson Welles</button>
+              <button class="option" onclick="answer(this,true)">Alfred Hitchcock</button>
+              <button class="option" onclick="answer(this,false)">Billy Wilder</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Alfred Hitchcock a theorise le MacGuffin comme un element de l'intrigue qui motive les personnages mais n'a aucune importance reelle pour le spectateur. C'est un pretexte narratif.</div>
           </div>
           <div class="question-block" id="q5">
             <div class="q-num">Question 6 / 10</div>
             <div class="q-text">Quel film de 1941, realise par Orson Welles, est souvent cite comme le plus grand film de l'histoire ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(5,0)">Casablanca</div>
-              <div class="option" onclick="selectOption(5,1)">Citizen Kane</div>
-              <div class="option" onclick="selectOption(5,2)">Le Magicien d'Oz</div>
-              <div class="option" onclick="selectOption(5,3)">Autant en emporte le vent</div>
+              <button class="option" onclick="answer(this,false)">Casablanca</button>
+              <button class="option" onclick="answer(this,true)">Citizen Kane</button>
+              <button class="option" onclick="answer(this,false)">Le Magicien d'Oz</button>
+              <button class="option" onclick="answer(this,false)">Autant en emporte le vent</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Citizen Kane d'Orson Welles revolutionne le cinema par sa structure narrative non lineaire, sa profondeur de champ, son utilisation de la contre-plongee et du plafond visible dans les decors.</div>
           </div>
           <div class="question-block" id="q6">
             <div class="q-num">Question 7 / 10</div>
             <div class="q-text">Quel est le role de l'etalonnage en post-production ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(6,0)">Ajouter des effets speciaux numeriques</div>
-              <div class="option" onclick="selectOption(6,1)">Corriger et harmoniser les couleurs du film</div>
-              <div class="option" onclick="selectOption(6,2)">Enregistrer les dialogues en studio</div>
-              <div class="option" onclick="selectOption(6,3)">Creer la bande originale musicale</div>
+              <button class="option" onclick="answer(this,false)">Ajouter des effets speciaux numeriques</button>
+              <button class="option" onclick="answer(this,true)">Corriger et harmoniser les couleurs du film</button>
+              <button class="option" onclick="answer(this,false)">Enregistrer les dialogues en studio</button>
+              <button class="option" onclick="answer(this,false)">Creer la bande originale musicale</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">L'etalonnage (color grading) est l'etape de post-production qui consiste a corriger, harmoniser et styliser les couleurs du film pour creer une atmosphere visuelle coherente.</div>
           </div>
           <div class="question-block" id="q7">
             <div class="q-num">Question 8 / 10</div>
             <div class="q-text">Quel studio d'animation japonais, fonde par Hayao Miyazaki, a produit Le Voyage de Chihiro ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(7,0)">Toei Animation</div>
-              <div class="option" onclick="selectOption(7,1)">Studio Ghibli</div>
-              <div class="option" onclick="selectOption(7,2)">Madhouse</div>
-              <div class="option" onclick="selectOption(7,3)">Sunrise</div>
+              <button class="option" onclick="answer(this,false)">Toei Animation</button>
+              <button class="option" onclick="answer(this,true)">Studio Ghibli</button>
+              <button class="option" onclick="answer(this,false)">Madhouse</button>
+              <button class="option" onclick="answer(this,false)">Sunrise</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le Studio Ghibli, cofonde par Hayao Miyazaki et Isao Takahata en 1985, a produit Le Voyage de Chihiro (2001), premier film d'animation a remporter l'Ours d'or a Berlin et l'Oscar du meilleur film d'animation.</div>
           </div>
           <div class="question-block" id="q8">
             <div class="q-num">Question 9 / 10</div>
             <div class="q-text">Quel film de Bong Joon-ho a remporte a la fois la Palme d'or et l'Oscar du meilleur film ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(8,0)">Snowpiercer</div>
-              <div class="option" onclick="selectOption(8,1)">Memories of Murder</div>
-              <div class="option" onclick="selectOption(8,2)">Parasite</div>
-              <div class="option" onclick="selectOption(8,3)">Okja</div>
+              <button class="option" onclick="answer(this,false)">Snowpiercer</button>
+              <button class="option" onclick="answer(this,false)">Memories of Murder</button>
+              <button class="option" onclick="answer(this,true)">Parasite</button>
+              <button class="option" onclick="answer(this,false)">Okja</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Parasite (2019) de Bong Joon-ho est le premier film non anglophone a remporter l'Oscar du meilleur film, apres avoir obtenu la Palme d'or a Cannes la meme annee.</div>
           </div>
           <div class="question-block" id="q9">
             <div class="q-num">Question 10 / 10</div>
             <div class="q-text">Quel est le premier long-metrage entierement realise en images de synthese 3D ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(9,0)">Shrek (2001)</div>
-              <div class="option" onclick="selectOption(9,1)">Toy Story (1995)</div>
-              <div class="option" onclick="selectOption(9,2)">Le Monde de Nemo (2003)</div>
-              <div class="option" onclick="selectOption(9,3)">Monstres et Cie (2001)</div>
+              <button class="option" onclick="answer(this,false)">Shrek (2001)</button>
+              <button class="option" onclick="answer(this,true)">Toy Story (1995)</button>
+              <button class="option" onclick="answer(this,false)">Le Monde de Nemo (2003)</button>
+              <button class="option" onclick="answer(this,false)">Monstres et Cie (2001)</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Toy Story (1995) de John Lasseter, produit par Pixar, est le premier long-metrage entierement realise en images de synthese 3D. Il a revolutionne l'industrie de l'animation.</div>
           </div>
         </div>
         <div class="quiz-nav">
-          <div class="q-dots">
-            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-          </div>
+          <div class="q-dots" id="qDots"></div>
           <div style="display:flex;gap:.8rem">
-            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>&larr; Prec</button>
-            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant &rarr;</button>
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQ()" disabled>&larr; Prec</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQ()" disabled>Suivant &rarr;</button>
           </div>
         </div>
-        <div class="quiz-result">
-          <div class="result-score-big" id="finalScore"></div>
-          <div class="result-msg" id="finalMsg"></div>
-          <button class="btn-retry" onclick="restartQuiz()">&#8634; Recommencer</button>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore"></div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">&#8634; Recommencer</button>
         </div>
       </div>
     </section>
@@ -376,33 +374,16 @@
     </section>
   </main>
 </div>
-<script>
-const questions=[
-  {q:"Qui sont les inventeurs du Cinematographe ?",opts:["Thomas Edison","Les freres Lumiere","Georges Melies","Charles Pathe"],ans:1,expl:"Auguste et Louis Lumiere ont invente le Cinematographe et organise la premiere projection publique payante le 28 decembre 1895 au Salon indien du Grand Cafe, a Paris."},
-  {q:"Quel film est considere comme le premier long-metrage parlant ?",opts:["Metropolis","Le Chanteur de jazz","Les Temps modernes","Nosferatu"],ans:1,expl:"Le Chanteur de jazz (The Jazz Singer) d'Alan Crosland, sorti en 1927, est le premier long-metrage avec des sequences de dialogue synchronise, marquant la fin de l'ere du cinema muet."},
-  {q:"Quel mouvement est associe a Godard et Truffaut ?",opts:["Le Neorealisme","L'Expressionnisme","La Nouvelle Vague","Le Nouvel Hollywood"],ans:2,expl:"La Nouvelle Vague francaise (1958-1968) est un mouvement cinematographique revolutionnaire mene par de jeunes critiques des Cahiers du cinema devenus realisateurs : Godard, Truffaut, Chabrol, Rohmer, Rivette."},
-  {q:"Qu'est-ce qu'un plan-sequence ?",opts:["Des plans courts montes rapidement","Un plan sans coupure de montage","Le premier plan d'une sequence","Un gros plan sur un visage"],ans:1,expl:"Le plan-sequence est un plan cinematographique sans interruption de montage, souvent long et techniquement complexe. Il cree un sentiment de continuite temporelle et spatiale."},
-  {q:"Qui a theorise le MacGuffin ?",opts:["Stanley Kubrick","Orson Welles","Alfred Hitchcock","Billy Wilder"],ans:2,expl:"Alfred Hitchcock a theorise le MacGuffin comme un element de l'intrigue qui motive les personnages mais n'a aucune importance reelle pour le spectateur. C'est un pretexte narratif."},
-  {q:"Quel film de 1941 est souvent cite comme le plus grand film ?",opts:["Casablanca","Citizen Kane","Le Magicien d'Oz","Autant en emporte le vent"],ans:1,expl:"Citizen Kane d'Orson Welles revolutionne le cinema par sa structure narrative non lineaire, sa profondeur de champ, son utilisation de la contre-plongee et du plafond visible dans les decors."},
-  {q:"Quel est le role de l'etalonnage ?",opts:["Ajouter des effets speciaux","Corriger et harmoniser les couleurs","Enregistrer les dialogues","Creer la bande originale"],ans:1,expl:"L'etalonnage (color grading) est l'etape de post-production qui consiste a corriger, harmoniser et styliser les couleurs du film pour creer une atmosphere visuelle coherente."},
-  {q:"Quel studio a produit Le Voyage de Chihiro ?",opts:["Toei Animation","Studio Ghibli","Madhouse","Sunrise"],ans:1,expl:"Le Studio Ghibli, cofonde par Hayao Miyazaki et Isao Takahata en 1985, a produit Le Voyage de Chihiro (2001), premier film d'animation a remporter l'Ours d'or a Berlin et l'Oscar du meilleur film d'animation."},
-  {q:"Quel film de Bong Joon-ho a remporte Palme d'or et Oscar ?",opts:["Snowpiercer","Memories of Murder","Parasite","Okja"],ans:2,expl:"Parasite (2019) de Bong Joon-ho est le premier film non anglophone a remporter l'Oscar du meilleur film, apres avoir obtenu la Palme d'or a Cannes la meme annee."},
-  {q:"Quel est le premier long-metrage entierement en 3D ?",opts:["Shrek","Toy Story","Le Monde de Nemo","Monstres et Cie"],ans:1,expl:"Toy Story (1995) de John Lasseter, produit par Pixar, est le premier long-metrage entierement realise en images de synthese 3D. Il a revolutionne l'industrie de l'animation."}
-];
-let current=0,score=0,answered=new Array(10).fill(null);
-function renderQuestion(){document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});document.getElementById('btnPrev').disabled=current===0;document.getElementById('btnNext').textContent=current===9?'Voir resultats':'Suivant \u2192';}
-function selectOption(qi,oi){if(answered[qi]!==null)return;answered[qi]=oi;const block=document.querySelectorAll('.question-block')[qi];block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');}
-function nextQuestion(){if(current<9){current++;renderQuestion();}else showResult();}
-function prevQuestion(){if(current>0){current--;renderQuestion();}}
-function showResult(){document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';const r=document.querySelector('.quiz-result');r.style.display='block';document.getElementById('finalScore').textContent=score+'/10';document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Bien !','Tres bien !','Excellent !'][score<=2?0:score<=4?1:score<=6?2:score<=8?3:4];}
-function restartQuiz(){current=0;score=0;answered.fill(null);document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');document.getElementById('quizScore').textContent=0;renderQuestion();}
-function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
-(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
-const sections=['resume','mouvements','concepts','quiz','ressources','memo'];
-window.addEventListener('scroll',()=>{let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';});
-function downloadMemo(){const w=window.open('','_blank','width=900,height=700');w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche memo — Cinema</title><style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#e87a7a;border-bottom:3px solid #e87a7a;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#e87a7a;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #f5c6c6;padding:1rem;border-radius:4px;background:#fff9f9}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style></head><body><h1>&#127916; Fiche memo — Cinema & Audiovisuel</h1><div class="grid"><div class="box"><h2>Mouvements</h2><ul><li><strong>Expressionnisme</strong> — 1919-1933</li><li><strong>Neorealisme</strong> — 1943-1955</li><li><strong>Nouvelle Vague</strong> — 1958-1968</li><li><strong>Nouvel Hollywood</strong> — 1967-1980</li></ul></div><div class="box"><h2>Realisateurs</h2><ul><li>Hitchcock — Suspense</li><li>Kubrick — Perfectionnisme</li><li>Kurosawa — Cinema japonais</li><li>Godard — Nouvelle Vague</li></ul></div><div class="box"><h2>Techniques</h2><ul><li>Plan-sequence</li><li>Champ/contre-champ</li><li>Montage parallele</li><li>Profondeur de champ</li></ul></div><div class="box"><h2>Films fondateurs</h2><ul><li>Citizen Kane (1941)</li><li>Les 400 coups (1959)</li><li>2001 (1968)</li><li>Le Parrain (1972)</li></ul></div></div><div class="footer">Curiosita — Cinema & Audiovisuel — ${new Date().toLocaleDateString('fr-FR')}</div><button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#e87a7a;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">Imprimer / PDF</button></body></html>`);w.document.close();}
-renderQuestion();
-</script>
-    <script src="mobile.js?v=2"></script>
+
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

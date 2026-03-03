@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SQL et NoSQL, modélisation relationnelle, requêtes, jointures, indexation et intégration avec les applications web.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Bases de données — Web — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #2980b9;
   --accent2: #3498db;
   --accent-dim: rgba(41,128,185,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(41,128,185,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(41,128,185,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🌐 Web</span>
     <span class="tag-level">Intermédiaire</span>
@@ -257,10 +257,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qu'est-ce qu'une clé primaire dans une base relationnelle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un mot de passe pour accéder à la base</div>
-              <div class="option" onclick="answer(this,true)">Un identifiant unique pour chaque enregistrement d'une table</div>
-              <div class="option" onclick="answer(this,false)">Le nom de la première colonne</div>
-              <div class="option" onclick="answer(this,false)">Une référence vers une autre table</div>
+              <button class="option" onclick="answer(this,false)">Un mot de passe pour accéder à la base</button>
+              <button class="option" onclick="answer(this,true)">Un identifiant unique pour chaque enregistrement d'une table</button>
+              <button class="option" onclick="answer(this,false)">Le nom de la première colonne</button>
+              <button class="option" onclick="answer(this,false)">Une référence vers une autre table</button>
             </div>
             <div class="q-feedback">La clé primaire (PRIMARY KEY) identifie de manière unique chaque ligne d'une table. Elle ne peut pas être nulle ni dupliquée. Souvent un entier auto-incrémenté (SERIAL) ou un UUID.</div>
           </div>
@@ -268,10 +268,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle clause SQL permet de filtrer les résultats d'un SELECT ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">FILTER</div>
-              <div class="option" onclick="answer(this,false)">SEARCH</div>
-              <div class="option" onclick="answer(this,true)">WHERE</div>
-              <div class="option" onclick="answer(this,false)">FIND</div>
+              <button class="option" onclick="answer(this,false)">FILTER</button>
+              <button class="option" onclick="answer(this,false)">SEARCH</button>
+              <button class="option" onclick="answer(this,true)">WHERE</button>
+              <button class="option" onclick="answer(this,false)">FIND</button>
             </div>
             <div class="q-feedback"><code>WHERE</code> filtre les lignes selon une condition. <code>HAVING</code> sert à filtrer après un <code>GROUP BY</code> (sur les résultats agrégés).</div>
           </div>
@@ -279,10 +279,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle jointure retourne toutes les lignes de la table de gauche, même sans correspondance ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">INNER JOIN</div>
-              <div class="option" onclick="answer(this,true)">LEFT JOIN</div>
-              <div class="option" onclick="answer(this,false)">CROSS JOIN</div>
-              <div class="option" onclick="answer(this,false)">SELF JOIN</div>
+              <button class="option" onclick="answer(this,false)">INNER JOIN</button>
+              <button class="option" onclick="answer(this,true)">LEFT JOIN</button>
+              <button class="option" onclick="answer(this,false)">CROSS JOIN</button>
+              <button class="option" onclick="answer(this,false)">SELF JOIN</button>
             </div>
             <div class="q-feedback"><code>LEFT JOIN</code> retourne toutes les lignes de la table de gauche. Si aucune correspondance n'est trouvée dans la table de droite, les colonnes de droite contiennent NULL. <code>INNER JOIN</code> ne retourne que les correspondances.</div>
           </div>
@@ -290,10 +290,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">À quoi sert un index dans une base de données ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">À chiffrer les données sensibles</div>
-              <div class="option" onclick="answer(this,false)">À compresser la base pour économiser de l'espace</div>
-              <div class="option" onclick="answer(this,true)">À accélérer la recherche de données dans une table</div>
-              <div class="option" onclick="answer(this,false)">À créer une copie de sauvegarde</div>
+              <button class="option" onclick="answer(this,false)">À chiffrer les données sensibles</button>
+              <button class="option" onclick="answer(this,false)">À compresser la base pour économiser de l'espace</button>
+              <button class="option" onclick="answer(this,true)">À accélérer la recherche de données dans une table</button>
+              <button class="option" onclick="answer(this,false)">À créer une copie de sauvegarde</button>
             </div>
             <div class="q-feedback">Un index crée une structure de recherche (B-tree en général) qui permet de trouver rapidement les lignes correspondant à une condition, sans parcourir toute la table. C'est un compromis : lectures plus rapides, écritures légèrement plus lentes.</div>
           </div>
@@ -301,10 +301,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle est la principale caractéristique de MongoDB ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Elle stocke les données dans des tables relationnelles</div>
-              <div class="option" onclick="answer(this,true)">Elle stocke des documents JSON/BSON dans des collections</div>
-              <div class="option" onclick="answer(this,false)">Elle utilise exclusivement le langage SQL</div>
-              <div class="option" onclick="answer(this,false)">Elle ne peut stocker que des paires clé-valeur</div>
+              <button class="option" onclick="answer(this,false)">Elle stocke les données dans des tables relationnelles</button>
+              <button class="option" onclick="answer(this,true)">Elle stocke des documents JSON/BSON dans des collections</button>
+              <button class="option" onclick="answer(this,false)">Elle utilise exclusivement le langage SQL</button>
+              <button class="option" onclick="answer(this,false)">Elle ne peut stocker que des paires clé-valeur</button>
             </div>
             <div class="q-feedback">MongoDB est une base de données orientée documents. Les données sont stockées au format BSON (Binary JSON) dans des collections. Le schéma est flexible : chaque document peut avoir une structure différente.</div>
           </div>
@@ -312,10 +312,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que signifie ACID dans le contexte des bases de données ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Atomicité, Cohérence, Isolation, Durabilité</div>
-              <div class="option" onclick="answer(this,false)">Access, Create, Insert, Delete</div>
-              <div class="option" onclick="answer(this,false)">Automatic, Consistent, Indexed, Distributed</div>
-              <div class="option" onclick="answer(this,false)">Aggregation, Caching, Integration, Deployment</div>
+              <button class="option" onclick="answer(this,true)">Atomicité, Cohérence, Isolation, Durabilité</button>
+              <button class="option" onclick="answer(this,false)">Access, Create, Insert, Delete</button>
+              <button class="option" onclick="answer(this,false)">Automatic, Consistent, Indexed, Distributed</button>
+              <button class="option" onclick="answer(this,false)">Aggregation, Caching, Integration, Deployment</button>
             </div>
             <div class="q-feedback">ACID garantit la fiabilité des transactions : <strong>Atomicité</strong> (tout ou rien), <strong>Cohérence</strong> (les contraintes sont respectées), <strong>Isolation</strong> (les transactions concurrentes n'interfèrent pas), <strong>Durabilité</strong> (les données commitées survivent aux pannes).</div>
           </div>
@@ -538,8 +538,14 @@ async function prixMoyenParCategorie() {
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

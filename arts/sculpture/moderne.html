@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De Rodin à Duchamp — la rupture avec la tradition et l'invention de formes radicalement nouvelles.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>La sculpture moderne — Sculpture — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎨 Sculpture</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -146,10 +146,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel concept Marcel Duchamp a-t-il introduit avec sa Fontaine (1917) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le mobile</div>
-              <div class="option" onclick="answer(this,true)">Le ready-made</div>
-              <div class="option" onclick="answer(this,false)">L'assemblage</div>
-              <div class="option" onclick="answer(this,false)">Le modelage</div>
+              <button class="option" onclick="answer(this,false)">Le mobile</button>
+              <button class="option" onclick="answer(this,true)">Le ready-made</button>
+              <button class="option" onclick="answer(this,false)">L'assemblage</button>
+              <button class="option" onclick="answer(this,false)">Le modelage</button>
             </div>
             <div class="q-feedback">Le ready-made est un objet manufacturé ordinaire choisi par l'artiste et présenté comme oeuvre d'art, remettant en question la définition même de l'art.</div>
           </div>
@@ -157,10 +157,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel sculpteur est connu pour ses figures humaines filiformes et étirées ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Constantin Brancusi</div>
-              <div class="option" onclick="answer(this,false)">Henry Moore</div>
-              <div class="option" onclick="answer(this,true)">Alberto Giacometti</div>
-              <div class="option" onclick="answer(this,false)">Auguste Rodin</div>
+              <button class="option" onclick="answer(this,false)">Constantin Brancusi</button>
+              <button class="option" onclick="answer(this,false)">Henry Moore</button>
+              <button class="option" onclick="answer(this,true)">Alberto Giacometti</button>
+              <button class="option" onclick="answer(this,false)">Auguste Rodin</button>
             </div>
             <div class="q-feedback">Giacometti a créé ses figures filiformes caractéristiques après 1945, exprimant la solitude existentielle de l'être humain dans l'espace.</div>
           </div>
@@ -168,10 +168,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle oeuvre monumentale de Rodin a généré Le Penseur et Le Baiser ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les Bourgeois de Calais</div>
-              <div class="option" onclick="answer(this,true)">La Porte de l'Enfer</div>
-              <div class="option" onclick="answer(this,false)">Le Monument à Balzac</div>
-              <div class="option" onclick="answer(this,false)">L'Âge d'airain</div>
+              <button class="option" onclick="answer(this,false)">Les Bourgeois de Calais</button>
+              <button class="option" onclick="answer(this,true)">La Porte de l'Enfer</button>
+              <button class="option" onclick="answer(this,false)">Le Monument à Balzac</button>
+              <button class="option" onclick="answer(this,false)">L'Âge d'airain</button>
             </div>
             <div class="q-feedback">La Porte de l'Enfer, inspirée de la Divine Comédie de Dante, est un projet monumental commencé en 1880 qui a engendré nombre des sculptures les plus célèbres de Rodin.</div>
           </div>
@@ -179,10 +179,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Pourquoi Brancusi insistait-il pour tailler lui-même ses sculptures ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pour économiser de l'argent</div>
-              <div class="option" onclick="answer(this,true)">Pour rester fidèle à la vérité du matériau</div>
-              <div class="option" onclick="answer(this,false)">Parce qu'il n'avait pas d'assistants</div>
-              <div class="option" onclick="answer(this,false)">Par tradition roumaine</div>
+              <button class="option" onclick="answer(this,false)">Pour économiser de l'argent</button>
+              <button class="option" onclick="answer(this,true)">Pour rester fidèle à la vérité du matériau</button>
+              <button class="option" onclick="answer(this,false)">Parce qu'il n'avait pas d'assistants</button>
+              <button class="option" onclick="answer(this,false)">Par tradition roumaine</button>
             </div>
             <div class="q-feedback">Brancusi refusait la technique de la mise aux points et la délégation à des praticiens, cherchant une vérité du matériau que seul le contact direct de l'artiste avec la pierre ou le bois pouvait révéler.</div>
           </div>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle sculptrice, collaboratrice puis rivale de Rodin, a créé L'Âge mûr et La Valse ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Louise Bourgeois</div>
-              <div class="option" onclick="answer(this,true)">Camille Claudel</div>
-              <div class="option" onclick="answer(this,false)">Barbara Hepworth</div>
-              <div class="option" onclick="answer(this,false)">Niki de Saint Phalle</div>
+              <button class="option" onclick="answer(this,false)">Louise Bourgeois</button>
+              <button class="option" onclick="answer(this,true)">Camille Claudel</button>
+              <button class="option" onclick="answer(this,false)">Barbara Hepworth</button>
+              <button class="option" onclick="answer(this,false)">Niki de Saint Phalle</button>
             </div>
             <div class="q-feedback">Camille Claudel (1864-1943) a été l'élève, la collaboratrice et la compagne de Rodin. Ses oeuvres comme L'Âge mûr et La Valse témoignent d'une puissance expressive exceptionnelle.</div>
           </div>
@@ -201,10 +201,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel geste innovant Rodin a-t-il proposé pour ses Bourgeois de Calais (1889) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les peindre en couleurs vives</div>
-              <div class="option" onclick="answer(this,false)">Les placer dans un musée</div>
-              <div class="option" onclick="answer(this,true)">Les poser directement au sol, sans socle surélevé</div>
-              <div class="option" onclick="answer(this,false)">Les tourner dos au public</div>
+              <button class="option" onclick="answer(this,false)">Les peindre en couleurs vives</button>
+              <button class="option" onclick="answer(this,false)">Les placer dans un musée</button>
+              <button class="option" onclick="answer(this,true)">Les poser directement au sol, sans socle surélevé</button>
+              <button class="option" onclick="answer(this,false)">Les tourner dos au public</button>
             </div>
             <div class="q-feedback">Rodin souhaitait que les six Bourgeois soient posés au sol, au même niveau que les passants, abolissant la distance entre l'oeuvre et le spectateur. Ce geste révolutionnaire supprime le socle traditionnel.</div>
           </div>
@@ -259,8 +259,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

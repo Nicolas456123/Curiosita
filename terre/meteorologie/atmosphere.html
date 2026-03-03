@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Composition, couches atmospheriques, pression, temperature et circulation generale de l'atmosphere.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Atmosphere terrestre — Meteorologie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #7ae8d8; --accent2: #80cbc4; --accent-dim: rgba(122,232,216,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #7ae8d8; --accent2: #80cbc4; --accent-dim: rgba(122,232,216,0.08);  --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../terre-page.html">Sciences de la Terre</a> &rsaquo; <a href="../meteorologie.html">Meteorologie</a> &rsaquo; <span>Atmosphere terrestre</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">&#127752; Meteorologie</span><span class="tag-level">Debutant &rarr; Intermediaire</span><span class="tag-time">&#9201; ~45 min</span></div>
   <h1><em>Atmosphere terrestre</em></h1>
   <p class="hero-desc">Composition, couches atmospheriques, pression, temperature et circulation generale de l'atmosphere.</p>
@@ -90,11 +90,11 @@
       <div class="quiz-container">
         <div class="quiz-header"><span class="quiz-title-text">&#127752; Atmosphere terrestre — Quiz</span><span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">5</span></span></div>
         <div class="quiz-body" id="quizBody">
-          <div class="question-block active" data-q="0"><p class="q-num">Question 1 / 5</p><p class="q-text">Quel gaz est le plus abondant dans l'atmosphere ?</p><div class="options"><div class="option" onclick="answer(this,false)">L'oxygene</div><div class="option" onclick="answer(this,true)">L'azote</div><div class="option" onclick="answer(this,false)">Le dioxyde de carbone</div><div class="option" onclick="answer(this,false)">L'argon</div></div><div class="q-feedback">L'azote (N2) represente 78 % de l'atmosphere. L'oxygene vient en deuxieme position avec 21 %. Le CO2 ne represente que 0,04 % mais joue un role climatique majeur.</div></div>
-          <div class="question-block" data-q="1"><p class="q-num">Question 2 / 5</p><p class="q-text">Dans quelle couche atmospherique se produisent les phenomenes meteorologiques ?</p><div class="options"><div class="option" onclick="answer(this,true)">La troposphere</div><div class="option" onclick="answer(this,false)">La stratosphere</div><div class="option" onclick="answer(this,false)">La mesosphere</div><div class="option" onclick="answer(this,false)">La thermosphere</div></div><div class="q-feedback">La troposphere (0-12 km) contient 80 % de la masse de l'air et la quasi-totalite de la vapeur d'eau. C'est la couche instable ou se forment nuages, precipitations, orages et tous les phenomenes meteorologiques.</div></div>
-          <div class="question-block" data-q="2"><p class="q-num">Question 3 / 5</p><p class="q-text">Quelle est la pression atmospherique moyenne au niveau de la mer ?</p><div class="options"><div class="option" onclick="answer(this,false)">760 hPa</div><div class="option" onclick="answer(this,true)">1 013 hPa</div><div class="option" onclick="answer(this,false)">500 hPa</div><div class="option" onclick="answer(this,false)">1 500 hPa</div></div><div class="q-feedback">La pression atmospherique standard au niveau de la mer est de 1 013,25 hPa (ou 760 mmHg). Elle diminue de moitie environ tous les 5 500 m d'altitude.</div></div>
-          <div class="question-block" data-q="3"><p class="q-num">Question 4 / 5</p><p class="q-text">Comment s'appellent les vents reguliers qui soufflent des subtropiques vers l'equateur ?</p><div class="options"><div class="option" onclick="answer(this,false)">Les moussons</div><div class="option" onclick="answer(this,false)">Les westerlies</div><div class="option" onclick="answer(this,true)">Les alizes</div><div class="option" onclick="answer(this,false)">Les courants-jets</div></div><div class="q-feedback">Les alizes sont les vents reguliers qui soufflent des anticyclones subtropicaux (~30 degres) vers la Zone de Convergence Intertropicale (equateur). Ils sont devies par la force de Coriolis : du nord-est dans l'hemisphere nord, du sud-est dans l'hemisphere sud.</div></div>
-          <div class="question-block" data-q="4"><p class="q-num">Question 5 / 5</p><p class="q-text">Quelle serait la temperature moyenne de la Terre sans effet de serre ?</p><div class="options"><div class="option" onclick="answer(this,true)">-18 degres C</div><div class="option" onclick="answer(this,false)">0 degres C</div><div class="option" onclick="answer(this,false)">+15 degres C</div><div class="option" onclick="answer(this,false)">-50 degres C</div></div><div class="q-feedback">Sans effet de serre naturel, la temperature moyenne de la Terre serait d'environ -18 degres C au lieu de +15 degres C. L'effet de serre naturel apporte donc un rechauffement de 33 degres C, indispensable a la vie.</div></div>
+          <div class="question-block active" data-q="0"><p class="q-num">Question 1 / 5</p><p class="q-text">Quel gaz est le plus abondant dans l'atmosphere ?</p><div class="options"><button class="option" onclick="answer(this,false)">L'oxygene</button><button class="option" onclick="answer(this,true)">L'azote</button><button class="option" onclick="answer(this,false)">Le dioxyde de carbone</button><button class="option" onclick="answer(this,false)">L'argon</button></div><div class="q-feedback">L'azote (N2) represente 78 % de l'atmosphere. L'oxygene vient en deuxieme position avec 21 %. Le CO2 ne represente que 0,04 % mais joue un role climatique majeur.</div></div>
+          <div class="question-block" data-q="1"><p class="q-num">Question 2 / 5</p><p class="q-text">Dans quelle couche atmospherique se produisent les phenomenes meteorologiques ?</p><div class="options"><button class="option" onclick="answer(this,true)">La troposphere</button><button class="option" onclick="answer(this,false)">La stratosphere</button><button class="option" onclick="answer(this,false)">La mesosphere</button><button class="option" onclick="answer(this,false)">La thermosphere</button></div><div class="q-feedback">La troposphere (0-12 km) contient 80 % de la masse de l'air et la quasi-totalite de la vapeur d'eau. C'est la couche instable ou se forment nuages, precipitations, orages et tous les phenomenes meteorologiques.</div></div>
+          <div class="question-block" data-q="2"><p class="q-num">Question 3 / 5</p><p class="q-text">Quelle est la pression atmospherique moyenne au niveau de la mer ?</p><div class="options"><button class="option" onclick="answer(this,false)">760 hPa</button><button class="option" onclick="answer(this,true)">1 013 hPa</button><button class="option" onclick="answer(this,false)">500 hPa</button><button class="option" onclick="answer(this,false)">1 500 hPa</button></div><div class="q-feedback">La pression atmospherique standard au niveau de la mer est de 1 013,25 hPa (ou 760 mmHg). Elle diminue de moitie environ tous les 5 500 m d'altitude.</div></div>
+          <div class="question-block" data-q="3"><p class="q-num">Question 4 / 5</p><p class="q-text">Comment s'appellent les vents reguliers qui soufflent des subtropiques vers l'equateur ?</p><div class="options"><button class="option" onclick="answer(this,false)">Les moussons</button><button class="option" onclick="answer(this,false)">Les westerlies</button><button class="option" onclick="answer(this,true)">Les alizes</button><button class="option" onclick="answer(this,false)">Les courants-jets</button></div><div class="q-feedback">Les alizes sont les vents reguliers qui soufflent des anticyclones subtropicaux (~30 degres) vers la Zone de Convergence Intertropicale (equateur). Ils sont devies par la force de Coriolis : du nord-est dans l'hemisphere nord, du sud-est dans l'hemisphere sud.</div></div>
+          <div class="question-block" data-q="4"><p class="q-num">Question 5 / 5</p><p class="q-text">Quelle serait la temperature moyenne de la Terre sans effet de serre ?</p><div class="options"><button class="option" onclick="answer(this,true)">-18 degres C</button><button class="option" onclick="answer(this,false)">0 degres C</button><button class="option" onclick="answer(this,false)">+15 degres C</button><button class="option" onclick="answer(this,false)">-50 degres C</button></div><div class="q-feedback">Sans effet de serre naturel, la temperature moyenne de la Terre serait d'environ -18 degres C au lieu de +15 degres C. L'effet de serre naturel apporte donc un rechauffement de 33 degres C, indispensable a la vie.</div></div>
         </div>
         <div class="quiz-result" id="quizResult"><div class="result-score-big" id="resultScore">0/5</div><div class="result-msg" id="resultMsg"></div><button class="btn-retry" onclick="resetQuiz()">&#8634; Recommencer</button></div>
         <div class="quiz-nav"><button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>&larr; Precedent</button><div class="q-dots" id="qDots"></div><button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant &rarr;</button></div>
@@ -117,8 +117,14 @@
     <div class="course-nav"><div></div><a href="phenomenes.html" class="next"><span class="course-nav-label">Cours suivant</span><span class="course-nav-title">Phenomenes meteo &rarr;</span></a></div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Du mod le plan taire de Bohr au mod le quantique : comprendre comment les lectrons s'organisent autour du noyau et d terminent les propri t s chimiques...">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Structure de l'atome — Chimie generale — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08);  --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../chimie-page.html">Chimie</a> &rsaquo; <a href="../generale.html">Chimie g&eacute;n&eacute;rale</a> &rsaquo; <span>Structure de l'atome</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">&#9883; Chimie g&eacute;n&eacute;rale</span>
     <span class="tag-level">D&eacute;butant</span>
@@ -121,10 +121,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quelle particule d&eacute;termine l'identit&eacute; d'un &eacute;l&eacute;ment chimique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Le proton</div>
-              <div class="option" onclick="answer(this,false)">Le neutron</div>
-              <div class="option" onclick="answer(this,false)">L'&eacute;lectron</div>
-              <div class="option" onclick="answer(this,false)">Le photon</div>
+              <button class="option" onclick="answer(this,true)">Le proton</button>
+              <button class="option" onclick="answer(this,false)">Le neutron</button>
+              <button class="option" onclick="answer(this,false)">L'&eacute;lectron</button>
+              <button class="option" onclick="answer(this,false)">Le photon</button>
             </div>
             <div class="q-feedback">Le nombre de protons Z (num&eacute;ro atomique) d&eacute;finit l'&eacute;l&eacute;ment. Z = 1 = hydrog&egrave;ne, Z = 6 = carbone, Z = 26 = fer, etc.</div>
           </div>
@@ -132,10 +132,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Quelle est la configuration &eacute;lectronique de l'azote (Z = 7) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1s&sup2; 2s&sup2; 2p&sup2;</div>
-              <div class="option" onclick="answer(this,true)">1s&sup2; 2s&sup2; 2p&sup3;</div>
-              <div class="option" onclick="answer(this,false)">1s&sup2; 2s&sup2; 2p&sup4;</div>
-              <div class="option" onclick="answer(this,false)">1s&sup2; 2s&sup2; 2p&sup5;</div>
+              <button class="option" onclick="answer(this,false)">1s&sup2; 2s&sup2; 2p&sup2;</button>
+              <button class="option" onclick="answer(this,true)">1s&sup2; 2s&sup2; 2p&sup3;</button>
+              <button class="option" onclick="answer(this,false)">1s&sup2; 2s&sup2; 2p&sup4;</button>
+              <button class="option" onclick="answer(this,false)">1s&sup2; 2s&sup2; 2p&sup5;</button>
             </div>
             <div class="q-feedback">L'azote a 7 &eacute;lectrons : 2 dans 1s, 2 dans 2s, 3 dans 2p. Les 3 &eacute;lectrons 2p occupent chacun une orbitale p diff&eacute;rente (r&egrave;gle de Hund).</div>
           </div>
@@ -143,10 +143,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Quel principe stipule que deux &eacute;lectrons d'une m&ecirc;me orbitale ont des spins oppos&eacute;s ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Principe d'Aufbau</div>
-              <div class="option" onclick="answer(this,true)">Principe d'exclusion de Pauli</div>
-              <div class="option" onclick="answer(this,false)">R&egrave;gle de Hund</div>
-              <div class="option" onclick="answer(this,false)">R&egrave;gle de l'octet</div>
+              <button class="option" onclick="answer(this,false)">Principe d'Aufbau</button>
+              <button class="option" onclick="answer(this,true)">Principe d'exclusion de Pauli</button>
+              <button class="option" onclick="answer(this,false)">R&egrave;gle de Hund</button>
+              <button class="option" onclick="answer(this,false)">R&egrave;gle de l'octet</button>
             </div>
             <div class="q-feedback">Le principe d'exclusion de Pauli interdit &agrave; deux &eacute;lectrons d'un m&ecirc;me atome d'avoir les m&ecirc;mes quatre nombres quantiques. Dans une orbitale, les spins doivent &ecirc;tre antiparall&egrave;les.</div>
           </div>
@@ -154,10 +154,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Que sont des isotopes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Des atomes avec le m&ecirc;me nombre de neutrons</div>
-              <div class="option" onclick="answer(this,true)">Des atomes du m&ecirc;me &eacute;l&eacute;ment avec un nombre de neutrons diff&eacute;rent</div>
-              <div class="option" onclick="answer(this,false)">Des atomes avec le m&ecirc;me nombre d'&eacute;lectrons</div>
-              <div class="option" onclick="answer(this,false)">Des mol&eacute;cules de m&ecirc;me formule</div>
+              <button class="option" onclick="answer(this,false)">Des atomes avec le m&ecirc;me nombre de neutrons</button>
+              <button class="option" onclick="answer(this,true)">Des atomes du m&ecirc;me &eacute;l&eacute;ment avec un nombre de neutrons diff&eacute;rent</button>
+              <button class="option" onclick="answer(this,false)">Des atomes avec le m&ecirc;me nombre d'&eacute;lectrons</button>
+              <button class="option" onclick="answer(this,false)">Des mol&eacute;cules de m&ecirc;me formule</button>
             </div>
             <div class="q-feedback">Les isotopes partagent le m&ecirc;me nombre de protons Z mais diff&egrave;rent par leur nombre de neutrons N. Ex : C-12 (6n) et C-14 (8n) sont tous deux du carbone.</div>
           </div>
@@ -165,10 +165,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Combien d'&eacute;lectrons de valence poss&egrave;de le carbone (Z = 6) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">2</div>
-              <div class="option" onclick="answer(this,true)">4</div>
-              <div class="option" onclick="answer(this,false)">6</div>
-              <div class="option" onclick="answer(this,false)">8</div>
+              <button class="option" onclick="answer(this,false)">2</button>
+              <button class="option" onclick="answer(this,true)">4</button>
+              <button class="option" onclick="answer(this,false)">6</button>
+              <button class="option" onclick="answer(this,false)">8</button>
             </div>
             <div class="q-feedback">Le carbone (1s&sup2; 2s&sup2; 2p&sup2;) a 4 &eacute;lectrons sur sa couche de valence (n = 2). C'est pourquoi il forme 4 liaisons covalentes, ce qui explique la richesse de la chimie organique.</div>
           </div>
@@ -220,8 +220,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

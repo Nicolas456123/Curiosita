@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Acides amin s, structures tridimensionnelles, enzymes et d naturation : d couvrir les macromol cules les plus polyvalentes du vivant.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Prot&eacute;ines &mdash; Biochimie &mdash; Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #d35400; --accent2: #e67e22; --accent-dim: rgba(211,84,0,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(211,84,0,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #d35400; --accent2: #e67e22; --accent-dim: rgba(211,84,0,0.08);  --accent-hero: rgba(211,84,0,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../sciences-exactes.html">Sciences exactes</a> &rsaquo; <a href="../biochimie.html">Biochimie</a> &rsaquo; <span>Prot&eacute;ines</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">&#129516; Biochimie</span>
     <span class="tag-level">Interm&eacute;diaire</span>
@@ -146,10 +146,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Combien d'acides amin&eacute;s standards existent dans les prot&eacute;ines ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">20</div>
-              <div class="option" onclick="answer(this,false)">22</div>
-              <div class="option" onclick="answer(this,false)">16</div>
-              <div class="option" onclick="answer(this,false)">64</div>
+              <button class="option" onclick="answer(this,true)">20</button>
+              <button class="option" onclick="answer(this,false)">22</button>
+              <button class="option" onclick="answer(this,false)">16</button>
+              <button class="option" onclick="answer(this,false)">64</button>
             </div>
             <div class="q-feedback">Il existe 20 acides amin&eacute;s proteinogen&egrave;nes standards, cod&eacute;s par le code g&eacute;n&eacute;tique. Deux acides amin&eacute;s rares (s&eacute;l&eacute;nocyst&eacute;ine et pyrrolysine) portent le total &agrave; 22 dans certains organismes.</div>
           </div>
@@ -157,10 +157,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle structure prot&eacute;ique est stabilis&eacute;e par des ponts disulfure ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Primaire</div>
-              <div class="option" onclick="answer(this,false)">Secondaire</div>
-              <div class="option" onclick="answer(this,true)">Tertiaire</div>
-              <div class="option" onclick="answer(this,false)">Aucune</div>
+              <button class="option" onclick="answer(this,false)">Primaire</button>
+              <button class="option" onclick="answer(this,false)">Secondaire</button>
+              <button class="option" onclick="answer(this,true)">Tertiaire</button>
+              <button class="option" onclick="answer(this,false)">Aucune</button>
             </div>
             <div class="q-feedback">Les ponts disulfure (entre deux cyst&eacute;ines) contribuent &agrave; stabiliser la structure tertiaire (repliement global). La structure secondaire est stabilis&eacute;e par les liaisons H du squelette.</div>
           </div>
@@ -168,10 +168,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que repr&eacute;sente K<sub>M</sub> dans la cin&eacute;tique de Michaelis-Menten ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La vitesse maximale</div>
-              <div class="option" onclick="answer(this,true)">La concentration en substrat pour laquelle v = V<sub>max</sub>/2</div>
-              <div class="option" onclick="answer(this,false)">Le nombre de substrats par enzyme</div>
-              <div class="option" onclick="answer(this,false)">Le nombre de sites actifs</div>
+              <button class="option" onclick="answer(this,false)">La vitesse maximale</button>
+              <button class="option" onclick="answer(this,true)">La concentration en substrat pour laquelle v = V<sub>max</sub>/2</button>
+              <button class="option" onclick="answer(this,false)">Le nombre de substrats par enzyme</button>
+              <button class="option" onclick="answer(this,false)">Le nombre de sites actifs</button>
             </div>
             <div class="q-feedback">K<sub>M</sub> est la concentration en substrat &agrave; laquelle la vitesse vaut la moiti&eacute; de V<sub>max</sub>. Un K<sub>M</sub> faible indique une forte affinit&eacute; de l'enzyme pour son substrat.</div>
           </div>
@@ -179,10 +179,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle est la structure secondaire en forme de spirale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">H&eacute;lice &alpha;</div>
-              <div class="option" onclick="answer(this,false)">Feuillet &beta;</div>
-              <div class="option" onclick="answer(this,false)">Coude &beta;</div>
-              <div class="option" onclick="answer(this,false)">Pelote statistique</div>
+              <button class="option" onclick="answer(this,true)">H&eacute;lice &alpha;</button>
+              <button class="option" onclick="answer(this,false)">Feuillet &beta;</button>
+              <button class="option" onclick="answer(this,false)">Coude &beta;</button>
+              <button class="option" onclick="answer(this,false)">Pelote statistique</button>
             </div>
             <div class="q-feedback">L'h&eacute;lice &alpha; est une spirale droite stabilis&eacute;e par des liaisons H entre C=O du r&eacute;sidu i et N-H du r&eacute;sidu i+4. Elle compte 3,6 r&eacute;sidus par tour.</div>
           </div>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce qu'un zymog&egrave;ne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un cofacteur enzymatique</div>
-              <div class="option" onclick="answer(this,false)">Un inhibiteur allost&eacute;rique</div>
-              <div class="option" onclick="answer(this,true)">Un pr&eacute;curseur enzymatique inactif</div>
-              <div class="option" onclick="answer(this,false)">Un produit de la r&eacute;action</div>
+              <button class="option" onclick="answer(this,false)">Un cofacteur enzymatique</button>
+              <button class="option" onclick="answer(this,false)">Un inhibiteur allost&eacute;rique</button>
+              <button class="option" onclick="answer(this,true)">Un pr&eacute;curseur enzymatique inactif</button>
+              <button class="option" onclick="answer(this,false)">Un produit de la r&eacute;action</button>
             </div>
             <div class="q-feedback">Un zymog&egrave;ne (ou proenzyme) est une forme inactive d'enzyme, activ&eacute;e par clivage prot&eacute;olytique. Exemple : le pepsinog&egrave;ne est activ&eacute; en pepsine dans l'estomac.</div>
           </div>
@@ -201,10 +201,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel agent ne d&eacute;nature pas les prot&eacute;ines ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La chaleur (&gt; 60 &deg;C)</div>
-              <div class="option" onclick="answer(this,false)">L'ur&eacute;e 8 M</div>
-              <div class="option" onclick="answer(this,true)">Le NaCl &agrave; faible concentration</div>
-              <div class="option" onclick="answer(this,false)">Le SDS</div>
+              <button class="option" onclick="answer(this,false)">La chaleur (&gt; 60 &deg;C)</button>
+              <button class="option" onclick="answer(this,false)">L'ur&eacute;e 8 M</button>
+              <button class="option" onclick="answer(this,true)">Le NaCl &agrave; faible concentration</button>
+              <button class="option" onclick="answer(this,false)">Le SDS</button>
             </div>
             <div class="q-feedback">Le NaCl &agrave; faible concentration ne d&eacute;nature pas les prot&eacute;ines. Au contraire, il peut stabiliser les interactions &eacute;lectrostatiques (effet de force ionique). En revanche, la chaleur, l'ur&eacute;e et le SDS sont des agents d&eacute;naturants classiques.</div>
           </div>
@@ -266,8 +266,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

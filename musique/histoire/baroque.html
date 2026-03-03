@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'âge de l'ornementation et du contrepoint — de Monteverdi à Bach, la musique baroque (1600-1750) invente l'opéra, le concerto et la fugue.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>La musique baroque — Histoire — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e8b07a;
   --accent2: #ffcc80;
   --accent-dim: rgba(232,176,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,176,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,176,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🏛️ Histoire de la musique</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -150,10 +150,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel compositeur est considéré comme le père de l'opéra ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Jean-Sébastien Bach</div>
-              <div class="option" onclick="answer(this,true)">Claudio Monteverdi</div>
-              <div class="option" onclick="answer(this,false)">Antonio Vivaldi</div>
-              <div class="option" onclick="answer(this,false)">Georg Friedrich Haendel</div>
+              <button class="option" onclick="answer(this,false)">Jean-Sébastien Bach</button>
+              <button class="option" onclick="answer(this,true)">Claudio Monteverdi</button>
+              <button class="option" onclick="answer(this,false)">Antonio Vivaldi</button>
+              <button class="option" onclick="answer(this,false)">Georg Friedrich Haendel</button>
             </div>
             <div class="q-feedback">Monteverdi est le père de l'opéra. Son Orfeo (1607) est considéré comme le premier opéra de l'histoire, marquant la naissance d'un genre qui révolutionnera la musique.</div>
           </div>
@@ -161,10 +161,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'est-ce que la basse continue ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un instrument à vent grave</div>
-              <div class="option" onclick="answer(this,false)">Un tempo très lent</div>
-              <div class="option" onclick="answer(this,true)">Une ligne de basse accompagnée d'accords chiffrés</div>
-              <div class="option" onclick="answer(this,false)">Une technique de chant</div>
+              <button class="option" onclick="answer(this,false)">Un instrument à vent grave</button>
+              <button class="option" onclick="answer(this,false)">Un tempo très lent</button>
+              <button class="option" onclick="answer(this,true)">Une ligne de basse accompagnée d'accords chiffrés</button>
+              <button class="option" onclick="answer(this,false)">Une technique de chant</button>
             </div>
             <div class="q-feedback">La basse continue est un accompagnement formé d'une ligne de basse sur laquelle des chiffres indiquent les accords à réaliser. Elle est jouée typiquement par le clavecin et le violoncelle.</div>
           </div>
@@ -172,10 +172,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle oeuvre de Bach est considérée comme le sommet du contrepoint ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les Quatre Saisons</div>
-              <div class="option" onclick="answer(this,false)">Le Messie</div>
-              <div class="option" onclick="answer(this,true)">L'Art de la fugue</div>
-              <div class="option" onclick="answer(this,false)">Orfeo</div>
+              <button class="option" onclick="answer(this,false)">Les Quatre Saisons</button>
+              <button class="option" onclick="answer(this,false)">Le Messie</button>
+              <button class="option" onclick="answer(this,true)">L'Art de la fugue</button>
+              <button class="option" onclick="answer(this,false)">Orfeo</button>
             </div>
             <div class="q-feedback">L'Art de la fugue de Bach explore toutes les possibilités du contrepoint à partir d'un seul thème. C'est un sommet de la pensée musicale occidentale, inachevé à la mort du compositeur.</div>
           </div>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel compositeur a créé la tragédie lyrique française à la cour de Louis XIV ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Rameau</div>
-              <div class="option" onclick="answer(this,true)">Lully</div>
-              <div class="option" onclick="answer(this,false)">Couperin</div>
-              <div class="option" onclick="answer(this,false)">Charpentier</div>
+              <button class="option" onclick="answer(this,false)">Rameau</button>
+              <button class="option" onclick="answer(this,true)">Lully</button>
+              <button class="option" onclick="answer(this,false)">Couperin</button>
+              <button class="option" onclick="answer(this,false)">Charpentier</button>
             </div>
             <div class="q-feedback">Jean-Baptiste Lully, d'origine italienne, a créé la tragédie lyrique française et dominé la vie musicale de la cour de Versailles pendant le règne de Louis XIV.</div>
           </div>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle forme baroque consiste en une succession de danses stylisées ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le concerto grosso</div>
-              <div class="option" onclick="answer(this,false)">La fugue</div>
-              <div class="option" onclick="answer(this,true)">La suite</div>
-              <div class="option" onclick="answer(this,false)">L'oratorio</div>
+              <button class="option" onclick="answer(this,false)">Le concerto grosso</button>
+              <button class="option" onclick="answer(this,false)">La fugue</button>
+              <button class="option" onclick="answer(this,true)">La suite</button>
+              <button class="option" onclick="answer(this,false)">L'oratorio</button>
             </div>
             <div class="q-feedback">La suite baroque est une succession de danses stylisées (allemande, courante, sarabande, gigue) précédées souvent d'un prélude, toutes dans la même tonalité.</div>
           </div>
@@ -205,10 +205,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel célèbre luthier de Crémone a porté le violon à sa perfection ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Cristofori</div>
-              <div class="option" onclick="answer(this,true)">Stradivarius</div>
-              <div class="option" onclick="answer(this,false)">Torres</div>
-              <div class="option" onclick="answer(this,false)">Silbermann</div>
+              <button class="option" onclick="answer(this,false)">Cristofori</button>
+              <button class="option" onclick="answer(this,true)">Stradivarius</button>
+              <button class="option" onclick="answer(this,false)">Torres</button>
+              <button class="option" onclick="answer(this,false)">Silbermann</button>
             </div>
             <div class="q-feedback">Antonio Stradivari (Stradivarius) a fabriqué à Crémone environ 1100 instruments entre 1666 et 1737. Ses violons restent les plus recherchés et les plus chers au monde, leur sonorité n'ayant jamais été égalée.</div>
           </div>
@@ -264,8 +264,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

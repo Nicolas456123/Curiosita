@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Créer, indexer, découper et manipuler des listes — la structure de données la plus utilisée en Python.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Listes — Structures de données — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08);  --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../python-page.html">Python</a> › <a href="../structures.html">Structures</a> › <span>Listes</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">📋 Structures de données</span><span class="tag-level">Débutant → Intermédiaire</span><span class="tag-time">⏱ ~45 min</span></div>
   <h1><em>Listes</em></h1>
   <p class="hero-desc">Créer, indexer, découper et manipuler des listes — la structure de données la plus utilisée en Python.</p>
@@ -192,10 +192,10 @@ resultat = <span class="fn">sorted</span>(nombres)  <span class="cm"># ✓ retou
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que retourne <code>[1,2,3,4,5][1:4]</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">[1, 2, 3, 4]</div>
-              <div class="option" onclick="answer(this,true)">[2, 3, 4]</div>
-              <div class="option" onclick="answer(this,false)">[1, 2, 3]</div>
-              <div class="option" onclick="answer(this,false)">[2, 3, 4, 5]</div>
+              <button class="option" onclick="answer(this,false)">[1, 2, 3, 4]</button>
+              <button class="option" onclick="answer(this,true)">[2, 3, 4]</button>
+              <button class="option" onclick="answer(this,false)">[1, 2, 3]</button>
+              <button class="option" onclick="answer(this,false)">[2, 3, 4, 5]</button>
             </div>
             <div class="q-feedback">Le slicing <code>[1:4]</code> prend les éléments aux indices 1, 2 et 3 (4 est exclu). Résultat : [2, 3, 4].</div>
           </div>
@@ -203,10 +203,10 @@ resultat = <span class="fn">sorted</span>(nombres)  <span class="cm"># ✓ retou
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle méthode ajoute un élément à la fin d'une liste ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">.add()</div>
-              <div class="option" onclick="answer(this,true)">.append()</div>
-              <div class="option" onclick="answer(this,false)">.insert()</div>
-              <div class="option" onclick="answer(this,false)">.push()</div>
+              <button class="option" onclick="answer(this,false)">.add()</button>
+              <button class="option" onclick="answer(this,true)">.append()</button>
+              <button class="option" onclick="answer(this,false)">.insert()</button>
+              <button class="option" onclick="answer(this,false)">.push()</button>
             </div>
             <div class="q-feedback"><code>.append(x)</code> ajoute x à la fin de la liste. <code>.insert(i, x)</code> insère à une position précise. <code>.add()</code> est pour les ensembles (set).</div>
           </div>
@@ -214,10 +214,10 @@ resultat = <span class="fn">sorted</span>(nombres)  <span class="cm"># ✓ retou
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que retourne <code>["a","b","c"][-1]</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">"a"</div>
-              <div class="option" onclick="answer(this,false)">"b"</div>
-              <div class="option" onclick="answer(this,true)">"c"</div>
-              <div class="option" onclick="answer(this,false)">Erreur</div>
+              <button class="option" onclick="answer(this,false)">"a"</button>
+              <button class="option" onclick="answer(this,false)">"b"</button>
+              <button class="option" onclick="answer(this,true)">"c"</button>
+              <button class="option" onclick="answer(this,false)">Erreur</button>
             </div>
             <div class="q-feedback">L'index <code>-1</code> accède au dernier élément de la liste. <code>-2</code> donne l'avant-dernier, etc.</div>
           </div>
@@ -225,10 +225,10 @@ resultat = <span class="fn">sorted</span>(nombres)  <span class="cm"># ✓ retou
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Après <code>a = [1,2]; b = a; b.append(3)</code>, que vaut <code>a</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">[1, 2]</div>
-              <div class="option" onclick="answer(this,true)">[1, 2, 3]</div>
-              <div class="option" onclick="answer(this,false)">Erreur</div>
-              <div class="option" onclick="answer(this,false)">[1, 2, [3]]</div>
+              <button class="option" onclick="answer(this,false)">[1, 2]</button>
+              <button class="option" onclick="answer(this,true)">[1, 2, 3]</button>
+              <button class="option" onclick="answer(this,false)">Erreur</button>
+              <button class="option" onclick="answer(this,false)">[1, 2, [3]]</button>
             </div>
             <div class="q-feedback"><code>b = a</code> ne crée pas une copie : <code>b</code> et <code>a</code> pointent vers le même objet. Modifier <code>b</code> modifie aussi <code>a</code>. Pour copier, utilisez <code>a.copy()</code>.</div>
           </div>
@@ -236,10 +236,10 @@ resultat = <span class="fn">sorted</span>(nombres)  <span class="cm"># ✓ retou
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que retourne <code>[1,2,3][::-1]</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">[3, 2, 1]</div>
-              <div class="option" onclick="answer(this,false)">[1, 2, 3]</div>
-              <div class="option" onclick="answer(this,false)">[]</div>
-              <div class="option" onclick="answer(this,false)">Erreur</div>
+              <button class="option" onclick="answer(this,true)">[3, 2, 1]</button>
+              <button class="option" onclick="answer(this,false)">[1, 2, 3]</button>
+              <button class="option" onclick="answer(this,false)">[]</button>
+              <button class="option" onclick="answer(this,false)">Erreur</button>
             </div>
             <div class="q-feedback">Le slicing <code>[::-1]</code> parcourt la liste à l'envers avec un pas de -1, créant ainsi une copie inversée de la liste.</div>
           </div>
@@ -247,10 +247,10 @@ resultat = <span class="fn">sorted</span>(nombres)  <span class="cm"># ✓ retou
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que retourne <code>[1,2,3].sort()</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">[1, 2, 3]</div>
-              <div class="option" onclick="answer(this,false)">[3, 2, 1]</div>
-              <div class="option" onclick="answer(this,true)">None</div>
-              <div class="option" onclick="answer(this,false)">Erreur</div>
+              <button class="option" onclick="answer(this,false)">[1, 2, 3]</button>
+              <button class="option" onclick="answer(this,false)">[3, 2, 1]</button>
+              <button class="option" onclick="answer(this,true)">None</button>
+              <button class="option" onclick="answer(this,false)">Erreur</button>
             </div>
             <div class="q-feedback"><code>.sort()</code> trie la liste en place et retourne <code>None</code>. Pour obtenir une nouvelle liste triée, utilisez <code>sorted(liste)</code>.</div>
           </div>
@@ -365,8 +365,14 @@ for ligne in t:
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

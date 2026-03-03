@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Stratégies concurrentielles, théorie des jeux et intervention de l'État pour préserver une concurrence saine.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Concurrence et régulation — Microéconomie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #c97ae8;
   --accent2: #ce93d8;
   --accent-dim: rgba(201,122,232,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(201,122,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(201,122,232,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">⚔️ Microéconomie</span>
     <span class="tag-level">Intermédiaire</span>
@@ -168,10 +168,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Dans le dilemme du prisonnier appliqué à deux entreprises, l'équilibre de Nash est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les deux coopèrent (prix élevés)</div>
-              <div class="option" onclick="answer(this,true)">Les deux trahissent (guerre des prix)</div>
-              <div class="option" onclick="answer(this,false)">Une coopère, l'autre trahit</div>
-              <div class="option" onclick="answer(this,false)">Il n'y a pas d'équilibre</div>
+              <button class="option" onclick="answer(this,false)">Les deux coopèrent (prix élevés)</button>
+              <button class="option" onclick="answer(this,true)">Les deux trahissent (guerre des prix)</button>
+              <button class="option" onclick="answer(this,false)">Une coopère, l'autre trahit</button>
+              <button class="option" onclick="answer(this,false)">Il n'y a pas d'équilibre</button>
             </div>
             <div class="q-feedback">L'équilibre de Nash est la trahison mutuelle : chaque entreprise a individuellement intérêt à baisser ses prix, quel que soit le choix de l'autre. Le résultat est sous-optimal mais aucune ne peut faire mieux unilatéralement.</div>
           </div>
@@ -179,10 +179,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Un programme de clémence en droit de la concurrence vise à :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Aider les entreprises en difficulté financière</div>
-              <div class="option" onclick="answer(this,true)">Inciter les membres d'un cartel à le dénoncer</div>
-              <div class="option" onclick="answer(this,false)">Réduire les impôts sur les petites entreprises</div>
-              <div class="option" onclick="answer(this,false)">Encourager la fusion des entreprises</div>
+              <button class="option" onclick="answer(this,false)">Aider les entreprises en difficulté financière</button>
+              <button class="option" onclick="answer(this,true)">Inciter les membres d'un cartel à le dénoncer</button>
+              <button class="option" onclick="answer(this,false)">Réduire les impôts sur les petites entreprises</button>
+              <button class="option" onclick="answer(this,false)">Encourager la fusion des entreprises</button>
             </div>
             <div class="q-feedback">Les programmes de clémence offrent une réduction ou une immunité d'amende à la première entreprise qui dénonce un cartel et fournit des preuves. C'est l'outil le plus efficace pour détecter les ententes secrètes.</div>
           </div>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Selon la théorie des marchés contestables, un marché peut être concurrentiel même avec peu d'entreprises si :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les entreprises sont de grande taille</div>
-              <div class="option" onclick="answer(this,false)">L'État fixe les prix</div>
-              <div class="option" onclick="answer(this,true)">L'entrée et la sortie du marché sont libres</div>
-              <div class="option" onclick="answer(this,false)">Les produits sont parfaitement homogènes</div>
+              <button class="option" onclick="answer(this,false)">Les entreprises sont de grande taille</button>
+              <button class="option" onclick="answer(this,false)">L'État fixe les prix</button>
+              <button class="option" onclick="answer(this,true)">L'entrée et la sortie du marché sont libres</button>
+              <button class="option" onclick="answer(this,false)">Les produits sont parfaitement homogènes</button>
             </div>
             <div class="q-feedback">La contestabilité repose sur la liberté d'entrée et de sortie. Si un nouvel entrant peut facilement entrer (et sortir sans coûts irrécupérables), la simple menace concurrentielle discipline les entreprises en place.</div>
           </div>
@@ -201,10 +201,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">L'indice HHI d'un marché où quatre entreprises ont chacune 25 % de part de marché est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1 000</div>
-              <div class="option" onclick="answer(this,true)">2 500</div>
-              <div class="option" onclick="answer(this,false)">5 000</div>
-              <div class="option" onclick="answer(this,false)">625</div>
+              <button class="option" onclick="answer(this,false)">1 000</button>
+              <button class="option" onclick="answer(this,true)">2 500</button>
+              <button class="option" onclick="answer(this,false)">5 000</button>
+              <button class="option" onclick="answer(this,false)">625</button>
             </div>
             <div class="q-feedback">HHI = 25² + 25² + 25² + 25² = 625 + 625 + 625 + 625 = 2 500. Ce marché est à la frontière de la forte concentration (seuil : 2 500). Un monopole pur aurait un HHI de 10 000 (100²).</div>
           </div>
@@ -212,10 +212,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Dans un jeu répété, la stratégie « tit-for-tat » consiste à :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Toujours trahir</div>
-              <div class="option" onclick="answer(this,false)">Toujours coopérer</div>
-              <div class="option" onclick="answer(this,true)">Coopérer d'abord, puis imiter l'action précédente de l'adversaire</div>
-              <div class="option" onclick="answer(this,false)">Alterner entre coopération et trahison</div>
+              <button class="option" onclick="answer(this,false)">Toujours trahir</button>
+              <button class="option" onclick="answer(this,false)">Toujours coopérer</button>
+              <button class="option" onclick="answer(this,true)">Coopérer d'abord, puis imiter l'action précédente de l'adversaire</button>
+              <button class="option" onclick="answer(this,false)">Alterner entre coopération et trahison</button>
             </div>
             <div class="q-feedback">La stratégie tit-for-tat (Robert Axelrod) commence par coopérer, puis copie le dernier coup de l'adversaire. Elle est simple, réactive et pardonne (elle revient à la coopération si l'adversaire coopère). Elle favorise l'émergence de la coopération dans les jeux répétés.</div>
           </div>
@@ -223,10 +223,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Le Digital Markets Act (DMA) européen impose aux « gatekeepers » numériques :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">De baisser leurs prix de 50 %</div>
-              <div class="option" onclick="answer(this,false)">De partager leurs algorithmes avec les concurrents</div>
-              <div class="option" onclick="answer(this,true)">Des obligations préventives comme l'interopérabilité et l'interdiction de l'auto-préférence</div>
-              <div class="option" onclick="answer(this,false)">De se scinder en entreprises plus petites</div>
+              <button class="option" onclick="answer(this,false)">De baisser leurs prix de 50 %</button>
+              <button class="option" onclick="answer(this,false)">De partager leurs algorithmes avec les concurrents</button>
+              <button class="option" onclick="answer(this,true)">Des obligations préventives comme l'interopérabilité et l'interdiction de l'auto-préférence</button>
+              <button class="option" onclick="answer(this,false)">De se scinder en entreprises plus petites</button>
             </div>
             <div class="q-feedback">Le DMA (2022) est une régulation ex ante : il impose des obligations avant tout abus constaté. Les gatekeepers doivent notamment permettre l'interopérabilité des messageries, ne pas favoriser leurs propres services dans les résultats de recherche, et laisser les utilisateurs libres de choisir leur navigateur ou leur moteur de recherche.</div>
           </div>
@@ -293,8 +293,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

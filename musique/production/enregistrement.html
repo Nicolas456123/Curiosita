@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Microphones, prise de son, acoustique et préamplis — les fondamentaux pour capturer un son de qualité professionnelle.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Enregistrement — Production musicale — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e74c3c;
   --accent2: #c0392b;
   --accent-dim: rgba(231,76,60,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(231,76,60,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(231,76,60,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎛️ Production musicale</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -126,10 +126,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel type de microphone nécessite une alimentation fantôme 48V ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Dynamique</div>
-              <div class="option" onclick="answer(this,true)">À condensateur</div>
-              <div class="option" onclick="answer(this,false)">À ruban</div>
-              <div class="option" onclick="answer(this,false)">Piézoélectrique</div>
+              <button class="option" onclick="answer(this,false)">Dynamique</button>
+              <button class="option" onclick="answer(this,true)">À condensateur</button>
+              <button class="option" onclick="answer(this,false)">À ruban</button>
+              <button class="option" onclick="answer(this,false)">Piézoélectrique</button>
             </div>
             <div class="q-feedback">Les microphones à condensateur nécessitent une alimentation fantôme (phantom power) de 48V pour polariser leur capsule. Attention : certains microphones à ruban peuvent être endommagés par l'alimentation fantôme.</div>
           </div>
@@ -137,10 +137,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle directivité capte le son de manière égale dans toutes les directions ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Cardioïde</div>
-              <div class="option" onclick="answer(this,true)">Omnidirectionnelle</div>
-              <div class="option" onclick="answer(this,false)">Figure de huit</div>
-              <div class="option" onclick="answer(this,false)">Supercardioïde</div>
+              <button class="option" onclick="answer(this,false)">Cardioïde</button>
+              <button class="option" onclick="answer(this,true)">Omnidirectionnelle</button>
+              <button class="option" onclick="answer(this,false)">Figure de huit</button>
+              <button class="option" onclick="answer(this,false)">Supercardioïde</button>
             </div>
             <div class="q-feedback">La directivité omnidirectionnelle capte le son de manière égale dans toutes les directions (360°). Elle offre la réponse en fréquence la plus régulière mais capte aussi davantage l'acoustique de la pièce.</div>
           </div>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qu'est-ce que l'effet de proximité ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Une amplification des basses à très courte distance</div>
-              <div class="option" onclick="answer(this,false)">Une distorsion due à un niveau trop élevé</div>
-              <div class="option" onclick="answer(this,false)">Un écho dans une petite pièce</div>
-              <div class="option" onclick="answer(this,false)">Une perte de signal sur les câbles longs</div>
+              <button class="option" onclick="answer(this,true)">Une amplification des basses à très courte distance</button>
+              <button class="option" onclick="answer(this,false)">Une distorsion due à un niveau trop élevé</button>
+              <button class="option" onclick="answer(this,false)">Un écho dans une petite pièce</button>
+              <button class="option" onclick="answer(this,false)">Une perte de signal sur les câbles longs</button>
             </div>
             <div class="q-feedback">L'effet de proximité est propre aux microphones directionnels : à moins de 15 cm de la source, les basses fréquences sont artificiellement amplifiées, rendant le son plus grave et plus épais.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel est le rôle des bass traps dans un studio ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Amplifier les basses fréquences</div>
-              <div class="option" onclick="answer(this,false)">Isoler le studio des bruits extérieurs</div>
-              <div class="option" onclick="answer(this,true)">Atténuer les résonances dans les basses fréquences</div>
-              <div class="option" onclick="answer(this,false)">Filtrer les fréquences indésirables du signal</div>
+              <button class="option" onclick="answer(this,false)">Amplifier les basses fréquences</button>
+              <button class="option" onclick="answer(this,false)">Isoler le studio des bruits extérieurs</button>
+              <button class="option" onclick="answer(this,true)">Atténuer les résonances dans les basses fréquences</button>
+              <button class="option" onclick="answer(this,false)">Filtrer les fréquences indésirables du signal</button>
             </div>
             <div class="q-feedback">Les bass traps, placés dans les coins de la pièce, absorbent les basses fréquences et atténuent les ondes stationnaires (résonances entre murs parallèles) qui créent des zones d'amplification ou d'annulation des graves.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel type de préampli ajoute chaleur et densité grâce à un transformateur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Préampli transparent</div>
-              <div class="option" onclick="answer(this,true)">Préampli coloré à transformateur (type Neve)</div>
-              <div class="option" onclick="answer(this,false)">Préampli numérique</div>
-              <div class="option" onclick="answer(this,false)">Préampli d'interface audio basique</div>
+              <button class="option" onclick="answer(this,false)">Préampli transparent</button>
+              <button class="option" onclick="answer(this,true)">Préampli coloré à transformateur (type Neve)</button>
+              <button class="option" onclick="answer(this,false)">Préampli numérique</button>
+              <button class="option" onclick="answer(this,false)">Préampli d'interface audio basique</button>
             </div>
             <div class="q-feedback">Les préamplis à transformateur (comme le Neve 1073 ou l'API 512) ajoutent une coloration caractéristique : chaleur, densité dans les médiums et une légère compression naturelle due à la saturation du transformateur.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle est la résolution standard minimale pour un enregistrement professionnel ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">16 bits / 44.1 kHz</div>
-              <div class="option" onclick="answer(this,true)">24 bits / 48 kHz</div>
-              <div class="option" onclick="answer(this,false)">32 bits / 192 kHz</div>
-              <div class="option" onclick="answer(this,false)">8 bits / 22 kHz</div>
+              <button class="option" onclick="answer(this,false)">16 bits / 44.1 kHz</button>
+              <button class="option" onclick="answer(this,true)">24 bits / 48 kHz</button>
+              <button class="option" onclick="answer(this,false)">32 bits / 192 kHz</button>
+              <button class="option" onclick="answer(this,false)">8 bits / 22 kHz</button>
             </div>
             <div class="q-feedback">Le standard professionnel est 24 bits / 48 kHz minimum. Le 24 bits offre 144 dB de plage dynamique (contre 96 dB en 16 bits), permettant d'enregistrer avec une marge confortable sans perte de qualité.</div>
           </div>
@@ -244,8 +244,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Écoconstruction, performance énergétique, bioclimatisme et architecture verte pour un bâti responsable.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Architecture durable — Architecture — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🌱 Architecture</span>
     <span class="tag-level">Intermédiaire</span>
@@ -145,10 +145,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle part de la consommation énergétique mondiale le bâtiment représente-t-il environ ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">15 %</div>
-              <div class="option" onclick="answer(this,false)">25 %</div>
-              <div class="option" onclick="answer(this,true)">40 %</div>
-              <div class="option" onclick="answer(this,false)">60 %</div>
+              <button class="option" onclick="answer(this,false)">15 %</button>
+              <button class="option" onclick="answer(this,false)">25 %</button>
+              <button class="option" onclick="answer(this,true)">40 %</button>
+              <button class="option" onclick="answer(this,false)">60 %</button>
             </div>
             <div class="q-feedback">Le secteur du bâtiment représente environ 40 % de la consommation énergétique mondiale et 36 % des émissions de CO₂, ce qui en fait un levier majeur de la transition écologique.</div>
           </div>
@@ -156,10 +156,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel est le seuil de chauffage maximal imposé par le label Passivhaus ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">15 kWh/m²/an</div>
-              <div class="option" onclick="answer(this,false)">50 kWh/m²/an</div>
-              <div class="option" onclick="answer(this,false)">100 kWh/m²/an</div>
-              <div class="option" onclick="answer(this,false)">0 kWh/m²/an</div>
+              <button class="option" onclick="answer(this,true)">15 kWh/m²/an</button>
+              <button class="option" onclick="answer(this,false)">50 kWh/m²/an</button>
+              <button class="option" onclick="answer(this,false)">100 kWh/m²/an</button>
+              <button class="option" onclick="answer(this,false)">0 kWh/m²/an</button>
             </div>
             <div class="q-feedback">Le label Passivhaus limite le besoin de chauffage à 15 kWh/m²/an, soit environ 10 fois moins qu'un bâtiment ancien, grâce à une isolation renforcée et une ventilation double flux.</div>
           </div>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qu'est-ce que le « carbone gris » d'un bâtiment ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le CO₂ émis par le chauffage</div>
-              <div class="option" onclick="answer(this,true)">Les émissions liées à la fabrication et au transport des matériaux</div>
-              <div class="option" onclick="answer(this,false)">La pollution de l'air intérieur</div>
-              <div class="option" onclick="answer(this,false)">L'énergie consommée par les occupants</div>
+              <button class="option" onclick="answer(this,false)">Le CO₂ émis par le chauffage</button>
+              <button class="option" onclick="answer(this,true)">Les émissions liées à la fabrication et au transport des matériaux</button>
+              <button class="option" onclick="answer(this,false)">La pollution de l'air intérieur</button>
+              <button class="option" onclick="answer(this,false)">L'énergie consommée par les occupants</button>
             </div>
             <div class="q-feedback">Le carbone gris (ou carbone incorporé) représente les émissions de CO₂ liées à l'extraction, la fabrication, le transport et la mise en oeuvre des matériaux de construction. Il peut atteindre 50 % de l'empreinte totale d'un bâtiment performant.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel principe bioclimatique exploite la chaleur du sol pour le chauffage ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'inertie thermique</div>
-              <div class="option" onclick="answer(this,false)">La ventilation naturelle</div>
-              <div class="option" onclick="answer(this,true)">La géothermie</div>
-              <div class="option" onclick="answer(this,false)">La protection solaire</div>
+              <button class="option" onclick="answer(this,false)">L'inertie thermique</button>
+              <button class="option" onclick="answer(this,false)">La ventilation naturelle</button>
+              <button class="option" onclick="answer(this,true)">La géothermie</button>
+              <button class="option" onclick="answer(this,false)">La protection solaire</button>
             </div>
             <div class="q-feedback">La géothermie exploite la température stable du sous-sol (12-15°C en France) pour chauffer en hiver et rafraîchir en été via des pompes à chaleur géothermiques.</div>
           </div>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel matériau biosourcé offre la meilleure inertie thermique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La paille</div>
-              <div class="option" onclick="answer(this,false)">La ouate de cellulose</div>
-              <div class="option" onclick="answer(this,true)">La terre crue</div>
-              <div class="option" onclick="answer(this,false)">Le chanvre</div>
+              <button class="option" onclick="answer(this,false)">La paille</button>
+              <button class="option" onclick="answer(this,false)">La ouate de cellulose</button>
+              <button class="option" onclick="answer(this,true)">La terre crue</button>
+              <button class="option" onclick="answer(this,false)">Le chanvre</button>
             </div>
             <div class="q-feedback">La terre crue (pisé, adobe, bauge) offre une excellente inertie thermique grâce à sa masse. Elle stocke la chaleur le jour et la restitue la nuit, régulant naturellement la température intérieure.</div>
           </div>
@@ -200,10 +200,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Qu'est-ce qu'un bâtiment à énergie positive (BEPOS) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un bâtiment qui ne consomme aucune énergie</div>
-              <div class="option" onclick="answer(this,true)">Un bâtiment qui produit plus d'énergie qu'il n'en consomme</div>
-              <div class="option" onclick="answer(this,false)">Un bâtiment chauffé uniquement au solaire</div>
-              <div class="option" onclick="answer(this,false)">Un bâtiment avec un bilan carbone nul</div>
+              <button class="option" onclick="answer(this,false)">Un bâtiment qui ne consomme aucune énergie</button>
+              <button class="option" onclick="answer(this,true)">Un bâtiment qui produit plus d'énergie qu'il n'en consomme</button>
+              <button class="option" onclick="answer(this,false)">Un bâtiment chauffé uniquement au solaire</button>
+              <button class="option" onclick="answer(this,false)">Un bâtiment avec un bilan carbone nul</button>
             </div>
             <div class="q-feedback">Un BEPOS produit plus d'énergie (photovoltaïque, éolien, etc.) qu'il n'en consomme sur une année. C'est l'objectif ultime de la performance énergétique du bâtiment.</div>
           </div>
@@ -270,8 +270,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

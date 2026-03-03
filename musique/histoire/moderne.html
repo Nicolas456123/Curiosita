@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La rupture avec la tonalité — Debussy, Stravinsky et Schoenberg réinventent le langage musical au tournant du XXe siècle (1890-1950).">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>La musique moderne — Histoire — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e8b07a;
   --accent2: #ffcc80;
   --accent-dim: rgba(232,176,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,176,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,176,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔮 Histoire de la musique</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -142,10 +142,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quel compositeur est considéré comme le fondateur de l'impressionnisme musical ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Ravel</div>
-              <div class="option" onclick="answer(this,true)">Debussy</div>
-              <div class="option" onclick="answer(this,false)">Stravinsky</div>
-              <div class="option" onclick="answer(this,false)">Schoenberg</div>
+              <button class="option" onclick="answer(this,false)">Ravel</button>
+              <button class="option" onclick="answer(this,true)">Debussy</button>
+              <button class="option" onclick="answer(this,false)">Stravinsky</button>
+              <button class="option" onclick="answer(this,false)">Schoenberg</button>
             </div>
             <div class="q-feedback">Claude Debussy est le fondateur de l'impressionnisme musical. Son Prélude à l'après-midi d'un faune (1894) est souvent considéré comme le point de départ de la musique moderne.</div>
           </div>
@@ -153,10 +153,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Qu'est-ce que le dodécaphonisme ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une musique à 12 instruments</div>
-              <div class="option" onclick="answer(this,true)">Une méthode de composition utilisant les 12 notes chromatiques en série ordonnée</div>
-              <div class="option" onclick="answer(this,false)">Un style de musique populaire hongroise</div>
-              <div class="option" onclick="answer(this,false)">Une forme de notation musicale ancienne</div>
+              <button class="option" onclick="answer(this,false)">Une musique à 12 instruments</button>
+              <button class="option" onclick="answer(this,true)">Une méthode de composition utilisant les 12 notes chromatiques en série ordonnée</button>
+              <button class="option" onclick="answer(this,false)">Un style de musique populaire hongroise</button>
+              <button class="option" onclick="answer(this,false)">Une forme de notation musicale ancienne</button>
             </div>
             <div class="q-feedback">Le dodécaphonisme, inventé par Schoenberg en 1921, organise les 12 notes de la gamme chromatique en une série ordonnée, traitée de manière à éviter toute hiérarchie tonale.</div>
           </div>
@@ -164,10 +164,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Quelle oeuvre de Stravinsky a provoqué un scandale à sa création en 1913 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'Oiseau de feu</div>
-              <div class="option" onclick="answer(this,false)">Petrouchka</div>
-              <div class="option" onclick="answer(this,true)">Le Sacre du printemps</div>
-              <div class="option" onclick="answer(this,false)">Les Noces</div>
+              <button class="option" onclick="answer(this,false)">L'Oiseau de feu</button>
+              <button class="option" onclick="answer(this,false)">Petrouchka</button>
+              <button class="option" onclick="answer(this,true)">Le Sacre du printemps</button>
+              <button class="option" onclick="answer(this,false)">Les Noces</button>
             </div>
             <div class="q-feedback">Le Sacre du printemps a provoqué une émeute lors de sa première à Paris en 1913. Ses rythmes violents, ses dissonances et sa chorégraphie révolutionnaire ont choqué le public.</div>
           </div>
@@ -175,10 +175,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quel compositeur hongrois a collecté des milliers de chants populaires au phonographe pour les intégrer dans sa musique savante ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Kodály</div>
-              <div class="option" onclick="answer(this,true)">Bartók</div>
-              <div class="option" onclick="answer(this,false)">Ligeti</div>
-              <div class="option" onclick="answer(this,false)">Janáček</div>
+              <button class="option" onclick="answer(this,false)">Kodály</button>
+              <button class="option" onclick="answer(this,true)">Bartók</button>
+              <button class="option" onclick="answer(this,false)">Ligeti</button>
+              <button class="option" onclick="answer(this,false)">Janáček</button>
             </div>
             <div class="q-feedback">Béla Bartók (1881-1945) a parcouru la Hongrie, la Roumanie et la Turquie pour collecter des milliers de chants populaires au phonographe. Il a intégré ces mélodies modales et rythmes asymétriques dans un langage savant d'une grande puissance expressive.</div>
           </div>
@@ -186,10 +186,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quel mouvement musical prône un retour aux formes baroques et classiques avec un langage harmonique moderne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'expressionnisme</div>
-              <div class="option" onclick="answer(this,false)">Le primitivisme</div>
-              <div class="option" onclick="answer(this,true)">Le néoclassicisme</div>
-              <div class="option" onclick="answer(this,false)">L'impressionnisme</div>
+              <button class="option" onclick="answer(this,false)">L'expressionnisme</button>
+              <button class="option" onclick="answer(this,false)">Le primitivisme</button>
+              <button class="option" onclick="answer(this,true)">Le néoclassicisme</button>
+              <button class="option" onclick="answer(this,false)">L'impressionnisme</button>
             </div>
             <div class="q-feedback">Le néoclassicisme (1920-1950), porté notamment par Stravinsky et Prokofiev, revient aux formes, textures et techniques des périodes baroque et classique tout en les investissant d'un langage harmonique moderne, souvent ironique ou décalé.</div>
           </div>
@@ -221,8 +221,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

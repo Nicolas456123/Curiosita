@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Définition de classes, constructeur __init__, attributs d'instance et de classe, méthodes et le mot-clé self — les fondations de la programmation orientée...">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Classes et objets — POO Python — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #27ae60;
   --accent2: #2ecc71;
   --accent-dim: rgba(39,174,96,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(39,174,96,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(39,174,96,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🐍 POO Python</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -283,10 +283,10 @@ print(compte.historique)   # ['+500€', '-200€', 'Intérêts: +26.00€']</co
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle méthode spéciale est appelée automatiquement lors de la création d'une instance ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">__new__</div>
-              <div class="option" onclick="answer(this,true)">__init__</div>
-              <div class="option" onclick="answer(this,false)">__create__</div>
-              <div class="option" onclick="answer(this,false)">__start__</div>
+              <button class="option" onclick="answer(this,false)">__new__</button>
+              <button class="option" onclick="answer(this,true)">__init__</button>
+              <button class="option" onclick="answer(this,false)">__create__</button>
+              <button class="option" onclick="answer(this,false)">__start__</button>
             </div>
             <div class="q-feedback">__init__ est le constructeur en Python. Il est appelé automatiquement après la création de l'objet (par __new__) pour initialiser ses attributs.</div>
           </div>
@@ -294,10 +294,10 @@ print(compte.historique)   # ['+500€', '-200€', 'Intérêts: +26.00€']</co
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que représente le paramètre <code>self</code> dans une méthode d'instance ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La classe elle-même</div>
-              <div class="option" onclick="answer(this,false)">Le module courant</div>
-              <div class="option" onclick="answer(this,true)">L'instance courante de l'objet</div>
-              <div class="option" onclick="answer(this,false)">Un mot-clé réservé de Python</div>
+              <button class="option" onclick="answer(this,false)">La classe elle-même</button>
+              <button class="option" onclick="answer(this,false)">Le module courant</button>
+              <button class="option" onclick="answer(this,true)">L'instance courante de l'objet</button>
+              <button class="option" onclick="answer(this,false)">Un mot-clé réservé de Python</button>
             </div>
             <div class="q-feedback">self est une référence vers l'instance courante. Il permet d'accéder aux attributs et méthodes de l'objet. Ce n'est pas un mot réservé, mais une convention universelle.</div>
           </div>
@@ -305,10 +305,10 @@ print(compte.historique)   # ['+500€', '-200€', 'Intérêts: +26.00€']</co
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle est la différence entre un attribut de classe et un attribut d'instance ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il n'y a aucune différence</div>
-              <div class="option" onclick="answer(this,false)">Un attribut de classe ne peut pas être modifié</div>
-              <div class="option" onclick="answer(this,true)">Un attribut de classe est partagé par toutes les instances, un attribut d'instance est propre à chaque objet</div>
-              <div class="option" onclick="answer(this,false)">Un attribut d'instance est défini hors de la classe</div>
+              <button class="option" onclick="answer(this,false)">Il n'y a aucune différence</button>
+              <button class="option" onclick="answer(this,false)">Un attribut de classe ne peut pas être modifié</button>
+              <button class="option" onclick="answer(this,true)">Un attribut de classe est partagé par toutes les instances, un attribut d'instance est propre à chaque objet</button>
+              <button class="option" onclick="answer(this,false)">Un attribut d'instance est défini hors de la classe</button>
             </div>
             <div class="q-feedback">Les attributs de classe sont définis dans le corps de la classe et partagés par toutes les instances. Les attributs d'instance sont définis via self dans __init__ et appartiennent à chaque objet individuellement.</div>
           </div>
@@ -316,10 +316,10 @@ print(compte.historique)   # ['+500€', '-200€', 'Intérêts: +26.00€']</co
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel décorateur permet de créer un constructeur alternatif qui reçoit la classe en premier paramètre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">@staticmethod</div>
-              <div class="option" onclick="answer(this,true)">@classmethod</div>
-              <div class="option" onclick="answer(this,false)">@property</div>
-              <div class="option" onclick="answer(this,false)">@constructor</div>
+              <button class="option" onclick="answer(this,false)">@staticmethod</button>
+              <button class="option" onclick="answer(this,true)">@classmethod</button>
+              <button class="option" onclick="answer(this,false)">@property</button>
+              <button class="option" onclick="answer(this,false)">@constructor</button>
             </div>
             <div class="q-feedback">@classmethod reçoit la classe (cls) en premier paramètre et peut l'utiliser pour créer de nouvelles instances. C'est le pattern standard pour les constructeurs alternatifs en Python.</div>
           </div>
@@ -327,10 +327,10 @@ print(compte.historique)   # ['+500€', '-200€', 'Intérêts: +26.00€']</co
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que retourne <code>type(mon_objet)</code> si <code>mon_objet = MaClasse()</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">"MaClasse"</div>
-              <div class="option" onclick="answer(this,false)">True</div>
-              <div class="option" onclick="answer(this,false)">L'adresse mémoire de l'objet</div>
-              <div class="option" onclick="answer(this,true)">&lt;class '__main__.MaClasse'&gt;</div>
+              <button class="option" onclick="answer(this,false)">"MaClasse"</button>
+              <button class="option" onclick="answer(this,false)">True</button>
+              <button class="option" onclick="answer(this,false)">L'adresse mémoire de l'objet</button>
+              <button class="option" onclick="answer(this,true)">&lt;class '__main__.MaClasse'&gt;</button>
             </div>
             <div class="q-feedback">type() retourne la classe de l'objet. Pour une instance de MaClasse définie dans le module principal, cela donne &lt;class '__main__.MaClasse'&gt;.</div>
           </div>
@@ -338,10 +338,10 @@ print(compte.historique)   # ['+500€', '-200€', 'Intérêts: +26.00€']</co
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle convention de nommage utilise-t-on pour les noms de classes en Python ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">snake_case (ma_classe)</div>
-              <div class="option" onclick="answer(this,false)">camelCase (maClasse)</div>
-              <div class="option" onclick="answer(this,true)">PascalCase (MaClasse)</div>
-              <div class="option" onclick="answer(this,false)">SCREAMING_SNAKE (MA_CLASSE)</div>
+              <button class="option" onclick="answer(this,false)">snake_case (ma_classe)</button>
+              <button class="option" onclick="answer(this,false)">camelCase (maClasse)</button>
+              <button class="option" onclick="answer(this,true)">PascalCase (MaClasse)</button>
+              <button class="option" onclick="answer(this,false)">SCREAMING_SNAKE (MA_CLASSE)</button>
             </div>
             <div class="q-feedback">La PEP 8 recommande le PascalCase pour les noms de classes : chaque mot commence par une majuscule, sans underscore. Les variables et fonctions utilisent le snake_case.</div>
           </div>
@@ -534,8 +534,14 @@ print(Chronometre.formater(125))           # 2m 5s</code></pre>
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

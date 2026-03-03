@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Addition, multiplication, simplification — maîtriser les fractions pour calculer avec précision.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Fractions et opérations — Arithmétique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #c0392b; --accent2: #e74c3c; --accent-dim: rgba(192,57,43,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #c0392b; --accent2: #e74c3c; --accent-dim: rgba(192,57,43,0.08);  --accent-hero: rgba(192,57,43,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../maths-page.html">Mathématiques</a> › <a href="../arithmetique.html">Arithmétique</a> › <span>Fractions</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">📊 Arithmétique</span><span class="tag-level">Débutant</span><span class="tag-time">⏱ ~35 min</span></div>
   <h1><em>Fractions et opérations</em></h1>
   <p class="hero-desc">Addition, multiplication, simplification — maîtriser les fractions pour calculer avec précision.</p>
@@ -125,10 +125,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que vaut 2/5 + 1/3 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">11/15</div>
-              <div class="option" onclick="answer(this,false)">3/8</div>
-              <div class="option" onclick="answer(this,false)">3/15</div>
-              <div class="option" onclick="answer(this,false)">7/15</div>
+              <button class="option" onclick="answer(this,true)">11/15</button>
+              <button class="option" onclick="answer(this,false)">3/8</button>
+              <button class="option" onclick="answer(this,false)">3/15</button>
+              <button class="option" onclick="answer(this,false)">7/15</button>
             </div>
             <div class="q-feedback">PPCM(5,3) = 15. 2/5 = 6/15 et 1/3 = 5/15. Donc 6/15 + 5/15 = 11/15.</div>
           </div>
@@ -136,10 +136,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle est la forme irréductible de 36/48 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">3/4</div>
-              <div class="option" onclick="answer(this,false)">9/12</div>
-              <div class="option" onclick="answer(this,false)">6/8</div>
-              <div class="option" onclick="answer(this,false)">18/24</div>
+              <button class="option" onclick="answer(this,true)">3/4</button>
+              <button class="option" onclick="answer(this,false)">9/12</button>
+              <button class="option" onclick="answer(this,false)">6/8</button>
+              <button class="option" onclick="answer(this,false)">18/24</button>
             </div>
             <div class="q-feedback">PGCD(36, 48) = 12. Donc 36/48 = 3/4. Les autres réponses ne sont pas irréductibles.</div>
           </div>
@@ -147,10 +147,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que vaut (3/4) ÷ (6/5) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">5/8</div>
-              <div class="option" onclick="answer(this,false)">18/20</div>
-              <div class="option" onclick="answer(this,false)">9/10</div>
-              <div class="option" onclick="answer(this,false)">15/24</div>
+              <button class="option" onclick="answer(this,true)">5/8</button>
+              <button class="option" onclick="answer(this,false)">18/20</button>
+              <button class="option" onclick="answer(this,false)">9/10</button>
+              <button class="option" onclick="answer(this,false)">15/24</button>
             </div>
             <div class="q-feedback">(3/4) ÷ (6/5) = (3/4) × (5/6) = 15/24 = 5/8 après simplification par 3.</div>
           </div>
@@ -158,10 +158,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Convertir 5/8 en pourcentage :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">62,5%</div>
-              <div class="option" onclick="answer(this,false)">58%</div>
-              <div class="option" onclick="answer(this,false)">80%</div>
-              <div class="option" onclick="answer(this,false)">56%</div>
+              <button class="option" onclick="answer(this,true)">62,5%</button>
+              <button class="option" onclick="answer(this,false)">58%</button>
+              <button class="option" onclick="answer(this,false)">80%</button>
+              <button class="option" onclick="answer(this,false)">56%</button>
             </div>
             <div class="q-feedback">5/8 × 100 = 500/8 = 62,5%. Autre méthode : 5 ÷ 8 = 0,625 = 62,5%.</div>
           </div>
@@ -169,10 +169,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle fraction irréductible représente 0,333... (0,3 périodique) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">1/3</div>
-              <div class="option" onclick="answer(this,false)">3/10</div>
-              <div class="option" onclick="answer(this,false)">33/100</div>
-              <div class="option" onclick="answer(this,false)">1/4</div>
+              <button class="option" onclick="answer(this,true)">1/3</button>
+              <button class="option" onclick="answer(this,false)">3/10</button>
+              <button class="option" onclick="answer(this,false)">33/100</button>
+              <button class="option" onclick="answer(this,false)">1/4</button>
             </div>
             <div class="q-feedback">Soit x = 0,333..., alors 10x = 3,333..., donc 9x = 3, d'où x = 3/9 = 1/3. La fraction 1/3 ne peut pas s'écrire comme décimal fini.</div>
           </div>
@@ -180,10 +180,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Comparer 5/7 et 7/10 :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">5/7 < 7/10</div>
-              <div class="option" onclick="answer(this,true)">5/7 > 7/10</div>
-              <div class="option" onclick="answer(this,false)">5/7 = 7/10</div>
-              <div class="option" onclick="answer(this,false)">On ne peut pas les comparer</div>
+              <button class="option" onclick="answer(this,false)">5/7 < 7/10</button>
+              <button class="option" onclick="answer(this,true)">5/7 > 7/10</button>
+              <button class="option" onclick="answer(this,false)">5/7 = 7/10</button>
+              <button class="option" onclick="answer(this,false)">On ne peut pas les comparer</button>
             </div>
             <div class="q-feedback">Produit en croix : 5 × 10 = 50 et 7 × 7 = 49. Comme 50 > 49, on a 5/7 > 7/10. En décimal : 5/7 ≈ 0,714 et 7/10 = 0,700.</div>
           </div>
@@ -239,8 +239,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

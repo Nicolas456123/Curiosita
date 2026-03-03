@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Empires coloniaux, traite atlantique, domination européenne et résistances des peuples colonisés.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Colonisation — Époque moderne — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📜 Époque moderne</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -145,10 +145,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quel traité de 1494 partage le Nouveau Monde entre l'Espagne et le Portugal ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Le traité de Tordesillas</div>
-              <div class="option" onclick="answer(this,false)">Le traité de Westphalie</div>
-              <div class="option" onclick="answer(this,false)">Le traité de Verdun</div>
-              <div class="option" onclick="answer(this,false)">Le traité de Paris</div>
+              <button class="option" onclick="answer(this,true)">Le traité de Tordesillas</button>
+              <button class="option" onclick="answer(this,false)">Le traité de Westphalie</button>
+              <button class="option" onclick="answer(this,false)">Le traité de Verdun</button>
+              <button class="option" onclick="answer(this,false)">Le traité de Paris</button>
             </div>
             <div class="q-feedback">Le traité de Tordesillas (1494) trace une ligne de démarcation dans l'Atlantique : à l'ouest revient à l'Espagne, à l'est au Portugal (d'où le Brésil portugais).</div>
           </div>
@@ -156,10 +156,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Combien d'Africains estime-t-on avoir été déportés par la traite atlantique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1 à 2 millions</div>
-              <div class="option" onclick="answer(this,false)">5 à 8 millions</div>
-              <div class="option" onclick="answer(this,true)">12 à 15 millions</div>
-              <div class="option" onclick="answer(this,false)">20 à 25 millions</div>
+              <button class="option" onclick="answer(this,false)">1 à 2 millions</button>
+              <button class="option" onclick="answer(this,false)">5 à 8 millions</button>
+              <button class="option" onclick="answer(this,true)">12 à 15 millions</button>
+              <button class="option" onclick="answer(this,false)">20 à 25 millions</button>
             </div>
             <div class="q-feedback">On estime que 12 à 15 millions d'Africains ont été déportés vers les Amériques entre le XVIᵉ et le XIXᵉ siècle dans le cadre de la traite atlantique.</div>
           </div>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Quelle conférence de 1884-1885 organise le partage de l'Afrique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La conférence de Vienne</div>
-              <div class="option" onclick="answer(this,false)">La conférence de Paris</div>
-              <div class="option" onclick="answer(this,true)">La conférence de Berlin</div>
-              <div class="option" onclick="answer(this,false)">La conférence de Londres</div>
+              <button class="option" onclick="answer(this,false)">La conférence de Vienne</button>
+              <button class="option" onclick="answer(this,false)">La conférence de Paris</button>
+              <button class="option" onclick="answer(this,true)">La conférence de Berlin</button>
+              <button class="option" onclick="answer(this,false)">La conférence de Londres</button>
             </div>
             <div class="q-feedback">La conférence de Berlin (1884-1885) organise le partage de l'Afrique entre les puissances européennes, sans consultation des peuples africains.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quel empire colonial est le plus vaste de l'histoire à son apogée ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'Empire espagnol</div>
-              <div class="option" onclick="answer(this,true)">L'Empire britannique</div>
-              <div class="option" onclick="answer(this,false)">L'Empire français</div>
-              <div class="option" onclick="answer(this,false)">L'Empire portugais</div>
+              <button class="option" onclick="answer(this,false)">L'Empire espagnol</button>
+              <button class="option" onclick="answer(this,true)">L'Empire britannique</button>
+              <button class="option" onclick="answer(this,false)">L'Empire français</button>
+              <button class="option" onclick="answer(this,false)">L'Empire portugais</button>
             </div>
             <div class="q-feedback">L'Empire britannique est le plus vaste de l'histoire : à son apogée vers 1920, il couvre un quart des terres émergées et regroupe 450 millions de personnes, incluant l'Inde, le Canada, l'Australie et une grande partie de l'Afrique.</div>
           </div>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">En quelle année l'Algérie obtient-elle son indépendance ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1947</div>
-              <div class="option" onclick="answer(this,false)">1954</div>
-              <div class="option" onclick="answer(this,false)">1960</div>
-              <div class="option" onclick="answer(this,true)">1962</div>
+              <button class="option" onclick="answer(this,false)">1947</button>
+              <button class="option" onclick="answer(this,false)">1954</button>
+              <button class="option" onclick="answer(this,false)">1960</button>
+              <button class="option" onclick="answer(this,true)">1962</button>
             </div>
             <div class="q-feedback">L'Algérie obtient son indépendance le 5 juillet 1962, après huit ans de guerre (1954-1962) entre le Front de libération nationale (FLN) et l'armée française.</div>
           </div>
@@ -221,8 +221,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

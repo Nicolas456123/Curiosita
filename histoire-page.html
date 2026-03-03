@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'histoire n'est pas une suite de dates à mémoriser : c'est la compréhension des forces qui façonnent nos sociétés. Civilisations, révolutions, guerres et...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Histoire — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a0f0ad;
   --accent-dim: rgba(122,232,138,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(122,232,138,0.07) 0%, transparent 70%); }
+ --accent-hero: rgba(122,232,138,0.07); }
 .hero-deco { color: rgba(122,232,138,0.04); }
 </style>
 </head>
@@ -26,7 +27,7 @@
   <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
 </nav>
 
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">∞</div>
   <div class="hero-meta">
     <span class="tag-domain">🌍 Sciences humaines & sociales</span>
@@ -190,90 +191,87 @@
       <div class="quiz-container">
         <div class="quiz-header">
           <span class="quiz-title-text">Quiz — Histoire</span>
-          <span class="quiz-score">Score : <span id="quizScore">0</span>/6</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span>/6</span>
         </div>
-        <div class="quiz-body">
+        <div class="quiz-body" id="quizBody">
           <div class="question-block active" id="q0">
             <div class="q-num">Question 1 / 6</div>
             <div class="q-text">En quelle année la Révolution française a-t-elle débuté avec la prise de la Bastille ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(0,0)">1776</div>
-              <div class="option" onclick="selectOption(0,1)">1789</div>
-              <div class="option" onclick="selectOption(0,2)">1793</div>
-              <div class="option" onclick="selectOption(0,3)">1804</div>
+              <button class="option" onclick="answer(this,false)">1776</button>
+              <button class="option" onclick="answer(this,true)">1789</button>
+              <button class="option" onclick="answer(this,false)">1793</button>
+              <button class="option" onclick="answer(this,false)">1804</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le 14 juillet 1789, la prise de la Bastille marque le début de la Révolution française. L'Assemblée nationale avait déjà été proclamée le 17 juin et la Déclaration des droits de l'homme sera adoptée le 26 août 1789.</div>
           </div>
           <div class="question-block" id="q1">
             <div class="q-num">Question 2 / 6</div>
             <div class="q-text">Quel traité a mis fin à la Première Guerre mondiale en 1919 ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(1,0)">Traité de Paris</div>
-              <div class="option" onclick="selectOption(1,1)">Traité de Vienne</div>
-              <div class="option" onclick="selectOption(1,2)">Traité de Versailles</div>
-              <div class="option" onclick="selectOption(1,3)">Traité de Genève</div>
+              <button class="option" onclick="answer(this,false)">Traité de Paris</button>
+              <button class="option" onclick="answer(this,false)">Traité de Vienne</button>
+              <button class="option" onclick="answer(this,true)">Traité de Versailles</button>
+              <button class="option" onclick="answer(this,false)">Traité de Genève</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Signé le 28 juin 1919 au château de Versailles, ce traité imposait à l'Allemagne des conditions très dures (article 231 : clause de culpabilité de guerre), qui alimenteront le ressentiment menant à la Seconde Guerre mondiale.</div>
           </div>
           <div class="question-block" id="q2">
             <div class="q-num">Question 3 / 6</div>
             <div class="q-text">Qui dirigeait l'URSS pendant la Seconde Guerre mondiale ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(2,0)">Lénine</div>
-              <div class="option" onclick="selectOption(2,1)">Khrouchtchev</div>
-              <div class="option" onclick="selectOption(2,2)">Trotski</div>
-              <div class="option" onclick="selectOption(2,3)">Staline</div>
+              <button class="option" onclick="answer(this,false)">Lénine</button>
+              <button class="option" onclick="answer(this,false)">Khrouchtchev</button>
+              <button class="option" onclick="answer(this,false)">Trotski</button>
+              <button class="option" onclick="answer(this,true)">Staline</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Joseph Staline dirigea l'URSS de 1924 à 1953. Il mena le pays à la victoire sur le Troisième Reich avec un coût humain colossal : environ 27 millions de morts soviétiques, soit 13% de la population.</div>
           </div>
           <div class="question-block" id="q3">
             <div class="q-num">Question 4 / 6</div>
             <div class="q-text">La Renaissance italienne (Quattrocento) est née dans quelle ville ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(3,0)">Rome</div>
-              <div class="option" onclick="selectOption(3,1)">Venise</div>
-              <div class="option" onclick="selectOption(3,2)">Florence</div>
-              <div class="option" onclick="selectOption(3,3)">Milan</div>
+              <button class="option" onclick="answer(this,false)">Rome</button>
+              <button class="option" onclick="answer(this,false)">Venise</button>
+              <button class="option" onclick="answer(this,true)">Florence</button>
+              <button class="option" onclick="answer(this,false)">Milan</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Florence (Quattrocento = XVe siècle) est le berceau de la Renaissance, sous la protection des Médicis. Léonard de Vinci, Botticelli, Michel-Ange y travaillèrent. Le terme 'Renaissance' fut popularisé par l'historien Jules Michelet au XIXe s.</div>
           </div>
           <div class="question-block" id="q4">
             <div class="q-num">Question 5 / 6</div>
             <div class="q-text">Quel événement marque officiellement la fin de la Guerre froide ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(4,0)">La chute du mur de Berlin (1989)</div>
-              <div class="option" onclick="selectOption(4,1)">La dissolution de l'URSS (1991)</div>
-              <div class="option" onclick="selectOption(4,2)">Le retrait américain du Vietnam (1975)</div>
-              <div class="option" onclick="selectOption(4,3)">L'accord SALT II (1979)</div>
+              <button class="option" onclick="answer(this,false)">La chute du mur de Berlin (1989)</button>
+              <button class="option" onclick="answer(this,true)">La dissolution de l'URSS (1991)</button>
+              <button class="option" onclick="answer(this,false)">Le retrait américain du Vietnam (1975)</button>
+              <button class="option" onclick="answer(this,false)">L'accord SALT II (1979)</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Si la chute du mur (novembre 1989) est le symbole le plus fort, c'est la dissolution officielle de l'Union soviétique le 25 décembre 1991 qui clôt juridiquement la Guerre froide. Les 15 républiques deviennent des États indépendants.</div>
           </div>
           <div class="question-block" id="q5">
             <div class="q-num">Question 6 / 6</div>
             <div class="q-text">Lequel de ces empires a été le plus étendu en superficie de toute l'histoire ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(5,0)">Empire romain</div>
-              <div class="option" onclick="selectOption(5,1)">Empire britannique</div>
-              <div class="option" onclick="selectOption(5,2)">Empire mongol</div>
-              <div class="option" onclick="selectOption(5,3)">Empire ottoman</div>
+              <button class="option" onclick="answer(this,false)">Empire romain</button>
+              <button class="option" onclick="answer(this,false)">Empire britannique</button>
+              <button class="option" onclick="answer(this,true)">Empire mongol</button>
+              <button class="option" onclick="answer(this,false)">Empire ottoman</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">L'Empire mongol de Gengis Khan et ses successeurs (XIIIe-XIVe s.) couvrait ~24 millions de km², soit 22% des terres émergées. C'est le plus grand empire contigu de l'histoire. L'Empire britannique était plus vaste mais non contigu (~35 millions km²).</div>
           </div>
         </div>
         <div class="quiz-nav">
-          <div class="q-dots">
-            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-          </div>
+          <div class="q-dots" id="qDots"></div>
           <div style="display:flex;gap:.8rem">
-            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
-            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQ()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQ()" disabled>Suivant →</button>
           </div>
         </div>
-        <div class="quiz-result">
-          <div class="result-score-big" id="finalScore"></div>
-          <div class="result-msg" id="finalMsg"></div>
-          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore"></div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
         </div>
       </div>
     </section>
@@ -393,74 +391,15 @@
   </main>
 </div>
 
-<script>
-const questions = [
-  { q:"En quelle année la Révolution française a-t-elle débuté ?", opts:["1776","1789","1793","1804"], ans:1, expl:"Le 14 juillet 1789, la prise de la Bastille marque le début de la Révolution française. L'Assemblée nationale avait déjà été proclamée le 17 juin et la Déclaration des droits de l'homme sera adoptée le 26 août 1789." },
-  { q:"Quel traité a mis fin à la Première Guerre mondiale ?", opts:["Traité de Paris","Traité de Vienne","Traité de Versailles","Traité de Genève"], ans:2, expl:"Signé le 28 juin 1919 au château de Versailles, ce traité imposait à l'Allemagne des conditions très dures (article 231 : clause de culpabilité de guerre), qui alimenteront le ressentiment menant à la Seconde Guerre mondiale." },
-  { q:"Qui dirigeait l'URSS pendant la Seconde Guerre mondiale ?", opts:["Lénine","Khrouchtchev","Trotski","Staline"], ans:3, expl:"Joseph Staline dirigea l'URSS de 1924 à 1953. Il mena le pays à la victoire sur le Troisième Reich avec un coût humain colossal : environ 27 millions de morts soviétiques, soit 13% de la population." },
-  { q:"La Renaissance italienne est née dans quelle ville ?", opts:["Rome","Venise","Florence","Milan"], ans:2, expl:"Florence (Quattrocento = XVe siècle) est le berceau de la Renaissance, sous la protection des Médicis. Léonard de Vinci, Botticelli, Michel-Ange y travaillèrent. Le terme 'Renaissance' fut popularisé par l'historien Jules Michelet au XIXe s." },
-  { q:"Quel événement marque officiellement la fin de la Guerre froide ?", opts:["La chute du mur de Berlin (1989)","La dissolution de l'URSS (1991)","Le retrait américain du Vietnam (1975)","L'accord SALT II (1979)"], ans:1, expl:"Si la chute du mur (novembre 1989) est le symbole le plus fort, c'est la dissolution officielle de l'Union soviétique le 25 décembre 1991 qui clôt juridiquement la Guerre froide. Les 15 républiques deviennent des États indépendants." },
-  { q:"Lequel de ces empires a été le plus étendu en superficie ?", opts:["Empire romain","Empire britannique","Empire mongol","Empire ottoman"], ans:2, expl:"L'Empire mongol de Gengis Khan et ses successeurs (XIIIe-XIVe s.) couvrait ~24 millions de km², soit 22% des terres émergées. C'est le plus grand empire contigu de l'histoire. L'Empire britannique était plus vaste mais non contigu (~35 millions km²)." }
-];
-
-let current=0,score=0,answered=new Array(6).fill(null);
-
-function renderQuestion(){
-  document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));
-  document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});
-  document.getElementById('btnPrev').disabled=current===0;
-  document.getElementById('btnNext').textContent=current===5?'Voir résultats':'Suivant →';
-}
-function selectOption(qi,oi){
-  if(answered[qi]!==null)return;answered[qi]=oi;
-  const block=document.querySelectorAll('.question-block')[qi];
-  block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});
-  const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');
-  if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');
-}
-function nextQuestion(){if(current<5){current++;renderQuestion();}else showResult();}
-function prevQuestion(){if(current>0){current--;renderQuestion();}}
-function showResult(){
-  document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';
-  const r=document.querySelector('.quiz-result');r.style.display='block';
-  document.getElementById('finalScore').textContent=score+'/6';
-  document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Très bien !','Excellent !'][score<=2?0:score<=4?1:score<=5?2:3];
-}
-function restartQuiz(){
-  current=0;score=0;answered.fill(null);
-  document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';
-  document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');
-  document.getElementById('quizScore').textContent=0;renderQuestion();
-}
-function goTo(id,el){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
-  document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');
-}
-// Scroll spy
-(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
-const sections=['resume','periodes','concepts','quiz','ressources','memo'];
-window.addEventListener('scroll',()=>{
-  let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});
-  document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';
-});
-function downloadMemo(){
-  const w=window.open('','_blank','width=900,height=700');
-  w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Histoire</title>
-  <style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#3d9e4a;border-bottom:3px solid #3d9e4a;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#3d9e4a;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #c8e6ca;padding:1rem;border-radius:4px;background:#f9fef9}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style>
-  </head><body><h1>🌍 Fiche mémo — Histoire & Géographie</h1>
-  <div class="grid">
-    <div class="box"><h2>Grandes périodes</h2><ul><li>Préhistoire — jusqu'à −3000 av. J.-C.</li><li>Antiquité — −3000 à 476</li><li>Moyen Âge — 476 à 1492</li><li>Époque moderne — 1492 à 1789</li><li>Époque contemporaine — 1789 à aujourd'hui</li></ul></div>
-    <div class="box"><h2>Dates incontournables</h2><ul><li>−753 — Fondation de Rome</li><li>1215 — Magna Carta</li><li>1492 — Découverte de l'Amérique</li><li>1789 — Révolution française</li><li>1914-1918 — 1ère Guerre mondiale</li><li>1939-1945 — 2ème Guerre mondiale</li><li>1989 — Chute du mur de Berlin</li></ul></div>
-    <div class="box"><h2>Grands empires</h2><ul><li>Empire perse (550-330 av. J.-C.)</li><li>Empire romain (27 av. J.-C.-476)</li><li>Empire mongol (1206-1368) — le + vaste</li><li>Empire ottoman (1299-1922)</li><li>Empire britannique (XIXe-XXe s.)</li></ul></div>
-    <div class="box"><h2>Révolutions majeures</h2><ul><li>Néolithique — agriculture ~10 000 av. J.-C.</li><li>Française — 1789</li><li>Industrielle — XVIIIe-XIXe s.</li><li>Américaine — 1776</li><li>Russe — 1917</li><li>Numérique — XXe-XXIe s.</li></ul></div>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
   </div>
-  <div class="footer">Curiosita — Fiche mémo Histoire — ${new Date().toLocaleDateString('fr-FR')}</div>
-  <button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#3d9e4a;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">🖨️ Imprimer / PDF</button>
-  
-</body></html>`);w.document.close();
-}
-renderQuestion();
-</script>
-    <script src="mobile.js?v=2"></script>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

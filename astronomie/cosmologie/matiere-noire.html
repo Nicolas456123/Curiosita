@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'invisible qui structure l'univers — courbes de rotation, lentilles gravitationnelles, candidats particules et détection.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Matière noire — Cosmologie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #80cbc4;
   --accent-dim: rgba(122,232,216,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔭 Cosmologie</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -135,10 +135,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qui a le premier postulé l'existence de matière noire dans les amas de galaxies ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Edwin Hubble</div>
-              <div class="option" onclick="answer(this,true)">Fritz Zwicky</div>
-              <div class="option" onclick="answer(this,false)">Vera Rubin</div>
-              <div class="option" onclick="answer(this,false)">Albert Einstein</div>
+              <button class="option" onclick="answer(this,false)">Edwin Hubble</button>
+              <button class="option" onclick="answer(this,true)">Fritz Zwicky</button>
+              <button class="option" onclick="answer(this,false)">Vera Rubin</button>
+              <button class="option" onclick="answer(this,false)">Albert Einstein</button>
             </div>
             <div class="q-feedback">Fritz Zwicky a postulé l'existence d'une « masse manquante » en 1933 en étudiant l'amas de Coma. Vera Rubin a confirmé l'idée dans les années 1970 avec les courbes de rotation des galaxies.</div>
           </div>
@@ -146,10 +146,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que montrent les courbes de rotation des galaxies spirales ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La vitesse orbitale décroît avec la distance au centre</div>
-              <div class="option" onclick="answer(this,true)">La vitesse orbitale reste constante loin du centre</div>
-              <div class="option" onclick="answer(this,false)">La vitesse orbitale augmente indéfiniment</div>
-              <div class="option" onclick="answer(this,false)">Toutes les étoiles ont la même vitesse</div>
+              <button class="option" onclick="answer(this,false)">La vitesse orbitale décroît avec la distance au centre</button>
+              <button class="option" onclick="answer(this,true)">La vitesse orbitale reste constante loin du centre</button>
+              <button class="option" onclick="answer(this,false)">La vitesse orbitale augmente indéfiniment</button>
+              <button class="option" onclick="answer(this,false)">Toutes les étoiles ont la même vitesse</button>
             </div>
             <div class="q-feedback">Les courbes de rotation restent « plates » bien au-delà du disque lumineux. Sans matière noire, la vitesse devrait décroître comme 1/√r, comme dans le système solaire.</div>
           </div>
@@ -157,10 +157,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle proportion de l'univers la matière noire représente-t-elle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">5 %</div>
-              <div class="option" onclick="answer(this,true)">27 %</div>
-              <div class="option" onclick="answer(this,false)">68 %</div>
-              <div class="option" onclick="answer(this,false)">50 %</div>
+              <button class="option" onclick="answer(this,false)">5 %</button>
+              <button class="option" onclick="answer(this,true)">27 %</button>
+              <button class="option" onclick="answer(this,false)">68 %</button>
+              <button class="option" onclick="answer(this,false)">50 %</button>
             </div>
             <div class="q-feedback">La matière noire représente environ 27 % du contenu énergétique de l'univers. La matière ordinaire ne représente que 5 % et l'énergie sombre 68 %.</div>
           </div>
@@ -168,10 +168,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle observation de l'amas du Boulet a été décisive ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le gaz et la masse gravitationnelle coïncident parfaitement</div>
-              <div class="option" onclick="answer(this,true)">La masse gravitationnelle est séparée du gaz chaud après la collision</div>
-              <div class="option" onclick="answer(this,false)">L'amas ne contient aucune matière noire</div>
-              <div class="option" onclick="answer(this,false)">Les galaxies de l'amas ne bougent pas</div>
+              <button class="option" onclick="answer(this,false)">Le gaz et la masse gravitationnelle coïncident parfaitement</button>
+              <button class="option" onclick="answer(this,true)">La masse gravitationnelle est séparée du gaz chaud après la collision</button>
+              <button class="option" onclick="answer(this,false)">L'amas ne contient aucune matière noire</button>
+              <button class="option" onclick="answer(this,false)">Les galaxies de l'amas ne bougent pas</button>
             </div>
             <div class="q-feedback">Lors de la collision, le gaz chaud (matière ordinaire) a été freiné, mais la masse gravitationnelle (matière noire) a continué sa trajectoire, prouvant que la matière noire est distincte de la matière ordinaire.</div>
           </div>
@@ -179,10 +179,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que sont les WIMPs ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Des étoiles invisibles</div>
-              <div class="option" onclick="answer(this,false)">Des trous noirs microscopiques</div>
-              <div class="option" onclick="answer(this,true)">Des particules massives interagissant faiblement</div>
-              <div class="option" onclick="answer(this,false)">Des photons de haute énergie</div>
+              <button class="option" onclick="answer(this,false)">Des étoiles invisibles</button>
+              <button class="option" onclick="answer(this,false)">Des trous noirs microscopiques</button>
+              <button class="option" onclick="answer(this,true)">Des particules massives interagissant faiblement</button>
+              <button class="option" onclick="answer(this,false)">Des photons de haute énergie</button>
             </div>
             <div class="q-feedback">WIMP signifie Weakly Interacting Massive Particle. Ce sont des particules hypothétiques de masse 10 à 1 000 GeV qui n'interagissent que par la gravitation et la force faible.</div>
           </div>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que propose la théorie MOND comme alternative à la matière noire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Que la matière noire est en fait de l'énergie sombre</div>
-              <div class="option" onclick="answer(this,false)">Que les galaxies contiennent beaucoup de gaz invisible</div>
-              <div class="option" onclick="answer(this,true)">Une modification de la loi de gravitation aux faibles accélérations</div>
-              <div class="option" onclick="answer(this,false)">Que la relativité générale est complètement fausse</div>
+              <button class="option" onclick="answer(this,false)">Que la matière noire est en fait de l'énergie sombre</button>
+              <button class="option" onclick="answer(this,false)">Que les galaxies contiennent beaucoup de gaz invisible</button>
+              <button class="option" onclick="answer(this,true)">Une modification de la loi de gravitation aux faibles accélérations</button>
+              <button class="option" onclick="answer(this,false)">Que la relativité générale est complètement fausse</button>
             </div>
             <div class="q-feedback">MOND (Modified Newtonian Dynamics) propose de modifier la loi de Newton aux très faibles accélérations (a < a₀ ≈ 10⁻¹⁰ m/s²). Elle reproduit bien les courbes de rotation mais peine à expliquer les amas et le CMB.</div>
           </div>
@@ -266,8 +266,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

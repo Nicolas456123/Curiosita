@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'etalonnage (color grading) est l'etape de post-production qui consiste a ajuster, corriger et stylise...">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Etalonnage — Montage et post-production — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #e87a7a; --accent2: #f09090; --accent-dim: rgba(232,122,122,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #e87a7a; --accent2: #f09090; --accent-dim: rgba(232,122,122,0.08);  --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -19,7 +19,7 @@
     <a href="../../cinema-page.html">Cinema</a> &rsaquo; <a href="../montage.html">Montage et post-production</a> &rsaquo; <span>Etalonnage</span>
   </div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">&#127916; Cinema</span>
     <span class="tag-level">Debutant &rarr; Intermediaire</span>
@@ -89,10 +89,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Qu'est-ce que l'etalonnage cinematographique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le reglage des cameras</div>
-              <div class="option" onclick="answer(this,true)">L'ajustement des couleurs du film</div>
-              <div class="option" onclick="answer(this,false)">Le calibrage du son</div>
-              <div class="option" onclick="answer(this,false)">La synchronisation des pistes</div>
+              <button class="option" onclick="answer(this,false)">Le reglage des cameras</button>
+              <button class="option" onclick="answer(this,true)">L'ajustement des couleurs du film</button>
+              <button class="option" onclick="answer(this,false)">Le calibrage du son</button>
+              <button class="option" onclick="answer(this,false)">La synchronisation des pistes</button>
             </div>
             <div class="q-feedback">L'etalonnage est l'etape de post-production ou l'on ajuste, corrige et stylise les couleurs de chaque plan du film.</div>
           </div>
@@ -100,10 +100,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Quel logiciel est la reference en etalonnage ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Adobe Premiere</div>
-              <div class="option" onclick="answer(this,false)">Final Cut Pro</div>
-              <div class="option" onclick="answer(this,true)">DaVinci Resolve</div>
-              <div class="option" onclick="answer(this,false)">Avid Media Composer</div>
+              <button class="option" onclick="answer(this,false)">Adobe Premiere</button>
+              <button class="option" onclick="answer(this,false)">Final Cut Pro</button>
+              <button class="option" onclick="answer(this,true)">DaVinci Resolve</button>
+              <button class="option" onclick="answer(this,false)">Avid Media Composer</button>
             </div>
             <div class="q-feedback">DaVinci Resolve de Blackmagic Design est le logiciel de reference pour l'etalonnage professionnel.</div>
           </div>
@@ -111,10 +111,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Qu'est-ce que le look 'teal and orange' ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un filtre Instagram</div>
-              <div class="option" onclick="answer(this,true)">Le contraste bleu-vert et orange</div>
-              <div class="option" onclick="answer(this,false)">Un type de pellicule</div>
-              <div class="option" onclick="answer(this,false)">Un eclairage de studio</div>
+              <button class="option" onclick="answer(this,false)">Un filtre Instagram</button>
+              <button class="option" onclick="answer(this,true)">Le contraste bleu-vert et orange</button>
+              <button class="option" onclick="answer(this,false)">Un type de pellicule</button>
+              <button class="option" onclick="answer(this,false)">Un eclairage de studio</button>
             </div>
             <div class="q-feedback">Le teal and orange est un look qui oppose les tons chauds des peaux (orange) aux fonds froids (bleu-vert), tres repandu a Hollywood.</div>
           </div>
@@ -122,10 +122,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quel film utilise un filtre vert pour ses scenes dans la Matrice ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Blade Runner</div>
-              <div class="option" onclick="answer(this,false)">Tron</div>
-              <div class="option" onclick="answer(this,true)">The Matrix</div>
-              <div class="option" onclick="answer(this,false)">Avatar</div>
+              <button class="option" onclick="answer(this,false)">Blade Runner</button>
+              <button class="option" onclick="answer(this,false)">Tron</button>
+              <button class="option" onclick="answer(this,true)">The Matrix</button>
+              <button class="option" onclick="answer(this,false)">Avatar</button>
             </div>
             <div class="q-feedback">The Matrix (1999) utilise un filtre vert pour les scenes a l'interieur de la Matrice et un filtre bleu pour le monde reel.</div>
           </div>
@@ -133,10 +133,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Qu'est-ce que la correction colorimetrique primaire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un choix artistique de couleur</div>
-              <div class="option" onclick="answer(this,true)">L'uniformisation technique entre les plans</div>
-              <div class="option" onclick="answer(this,false)">L'ajout de filtres creatifs</div>
-              <div class="option" onclick="answer(this,false)">Le passage en noir et blanc</div>
+              <button class="option" onclick="answer(this,false)">Un choix artistique de couleur</button>
+              <button class="option" onclick="answer(this,true)">L'uniformisation technique entre les plans</button>
+              <button class="option" onclick="answer(this,false)">L'ajout de filtres creatifs</button>
+              <button class="option" onclick="answer(this,false)">Le passage en noir et blanc</button>
             </div>
             <div class="q-feedback">La correction colorimetrique primaire uniformise l'exposition, la balance des blancs et le contraste entre les plans pour assurer la coherence visuelle.</div>
           </div>
@@ -185,8 +185,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

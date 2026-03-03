@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De la bouche au côlon — digestion mécanique et chimique, absorption des nutriments et rôle du microbiote.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Système digestif — Corps humain — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #7ae8d8; --accent2: #80cbc4; --accent-dim: rgba(122,232,216,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #7ae8d8; --accent2: #80cbc4; --accent-dim: rgba(122,232,216,0.08);  --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -21,7 +21,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧬 Corps humain</span>
     <span class="tag-level">Intermédiaire</span>
@@ -176,10 +176,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle enzyme salivaire commence la digestion de l'amidon ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La pepsine</div>
-              <div class="option" onclick="answer(this,true)">L'amylase salivaire</div>
-              <div class="option" onclick="answer(this,false)">La lipase pancréatique</div>
-              <div class="option" onclick="answer(this,false)">La trypsine</div>
+              <button class="option" onclick="answer(this,false)">La pepsine</button>
+              <button class="option" onclick="answer(this,true)">L'amylase salivaire</button>
+              <button class="option" onclick="answer(this,false)">La lipase pancréatique</button>
+              <button class="option" onclick="answer(this,false)">La trypsine</button>
             </div>
             <div class="q-feedback">L'amylase salivaire (ou ptyaline) hydrolyse l'amidon en maltose dès la cavité buccale. Elle est inactivée par l'acidité gastrique.</div>
           </div>
@@ -187,10 +187,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel est le rôle principal de la bile dans la digestion ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Digérer les protéines</div>
-              <div class="option" onclick="answer(this,false)">Neutraliser l'acidité gastrique</div>
-              <div class="option" onclick="answer(this,true)">Émulsifier les graisses</div>
-              <div class="option" onclick="answer(this,false)">Absorber les vitamines</div>
+              <button class="option" onclick="answer(this,false)">Digérer les protéines</button>
+              <button class="option" onclick="answer(this,false)">Neutraliser l'acidité gastrique</button>
+              <button class="option" onclick="answer(this,true)">Émulsifier les graisses</button>
+              <button class="option" onclick="answer(this,false)">Absorber les vitamines</button>
             </div>
             <div class="q-feedback">Les sels biliaires émulsifient les graisses, les fragmentant en microgouttelettes. Cela augmente considérablement la surface d'action de la lipase pancréatique.</div>
           </div>
@@ -198,10 +198,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Où se produit la majeure partie de l'absorption des nutriments ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Dans l'estomac</div>
-              <div class="option" onclick="answer(this,true)">Dans l'intestin grêle</div>
-              <div class="option" onclick="answer(this,false)">Dans le gros intestin</div>
-              <div class="option" onclick="answer(this,false)">Dans l'œsophage</div>
+              <button class="option" onclick="answer(this,false)">Dans l'estomac</button>
+              <button class="option" onclick="answer(this,true)">Dans l'intestin grêle</button>
+              <button class="option" onclick="answer(this,false)">Dans le gros intestin</button>
+              <button class="option" onclick="answer(this,false)">Dans l'œsophage</button>
             </div>
             <div class="q-feedback">L'intestin grêle (jéjunum et iléon) est le site principal d'absorption grâce à son immense surface (~250 m²) créée par les villosités et microvillosités.</div>
           </div>
@@ -209,10 +209,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle bactérie est la cause principale de l'ulcère gastroduodénal ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Escherichia coli</div>
-              <div class="option" onclick="answer(this,true)">Helicobacter pylori</div>
-              <div class="option" onclick="answer(this,false)">Staphylococcus aureus</div>
-              <div class="option" onclick="answer(this,false)">Clostridioides difficile</div>
+              <button class="option" onclick="answer(this,false)">Escherichia coli</button>
+              <button class="option" onclick="answer(this,true)">Helicobacter pylori</button>
+              <button class="option" onclick="answer(this,false)">Staphylococcus aureus</button>
+              <button class="option" onclick="answer(this,false)">Clostridioides difficile</button>
             </div>
             <div class="q-feedback">Helicobacter pylori colonise la muqueuse gastrique et provoque une inflammation chronique pouvant évoluer en ulcère. Sa découverte par Marshall et Warren (prix Nobel 2005) a révolutionné le traitement des ulcères par antibiothérapie.</div>
           </div>
@@ -220,10 +220,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel organe est traversé par tout le sang provenant de l'intestin avant qu'il ne rejoigne la circulation générale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le pancréas</div>
-              <div class="option" onclick="answer(this,true)">Le foie (via la veine porte)</div>
-              <div class="option" onclick="answer(this,false)">La rate</div>
-              <div class="option" onclick="answer(this,false)">Les reins</div>
+              <button class="option" onclick="answer(this,false)">Le pancréas</button>
+              <button class="option" onclick="answer(this,true)">Le foie (via la veine porte)</button>
+              <button class="option" onclick="answer(this,false)">La rate</button>
+              <button class="option" onclick="answer(this,false)">Les reins</button>
             </div>
             <div class="q-feedback">Le foie reçoit le sang intestinal via la veine porte hépatique. Il filtre et métabolise les nutriments, médicaments et toxines absorbés avant leur passage dans la circulation systémique — c'est l'effet de premier passage hépatique.</div>
           </div>
@@ -231,10 +231,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle hormone gastro-intestinale est surnommée « l'hormone de la faim » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La leptine</div>
-              <div class="option" onclick="answer(this,false)">La cholécystokinine</div>
-              <div class="option" onclick="answer(this,true)">La ghréline</div>
-              <div class="option" onclick="answer(this,false)">La sécrétine</div>
+              <button class="option" onclick="answer(this,false)">La leptine</button>
+              <button class="option" onclick="answer(this,false)">La cholécystokinine</button>
+              <button class="option" onclick="answer(this,true)">La ghréline</button>
+              <button class="option" onclick="answer(this,false)">La sécrétine</button>
             </div>
             <div class="q-feedback">La ghréline est sécrétée par l'estomac lorsqu'il est vide. Elle agit sur l'hypothalamus pour stimuler l'appétit. Son taux augmente avant les repas et diminue après, tandis que la leptine (sécrétée par le tissu adipeux) signale la satiété.</div>
           </div>
@@ -312,8 +312,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

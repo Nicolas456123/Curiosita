@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Planification des villes, espaces publics, mobilité et enjeux de la ville durable au XXIe siècle.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Urbanisme — Architecture — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🏙️ Architecture</span>
     <span class="tag-level">Intermédiaire</span>
@@ -137,10 +137,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel urbaniste a transformé Paris au XIXe siècle en perçant de grands boulevards ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le Corbusier</div>
-              <div class="option" onclick="answer(this,true)">Le baron Haussmann</div>
-              <div class="option" onclick="answer(this,false)">Jane Jacobs</div>
-              <div class="option" onclick="answer(this,false)">Hippodamos de Milet</div>
+              <button class="option" onclick="answer(this,false)">Le Corbusier</button>
+              <button class="option" onclick="answer(this,true)">Le baron Haussmann</button>
+              <button class="option" onclick="answer(this,false)">Jane Jacobs</button>
+              <button class="option" onclick="answer(this,false)">Hippodamos de Milet</button>
             </div>
             <div class="q-feedback">Le baron Haussmann a transformé Paris entre 1853 et 1870, créant les grands boulevards, les parcs et le réseau d'égouts qui définissent encore aujourd'hui la physionomie de la capitale.</div>
           </div>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que propose le concept de « ville du quart d'heure » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Construire des quartiers en 15 minutes</div>
-              <div class="option" onclick="answer(this,true)">Accéder à tous les services essentiels en 15 min à pied ou vélo</div>
-              <div class="option" onclick="answer(this,false)">Limiter les trajets en voiture à 15 minutes</div>
-              <div class="option" onclick="answer(this,false)">Réduire le temps de construction des immeubles</div>
+              <button class="option" onclick="answer(this,false)">Construire des quartiers en 15 minutes</button>
+              <button class="option" onclick="answer(this,true)">Accéder à tous les services essentiels en 15 min à pied ou vélo</button>
+              <button class="option" onclick="answer(this,false)">Limiter les trajets en voiture à 15 minutes</button>
+              <button class="option" onclick="answer(this,false)">Réduire le temps de construction des immeubles</button>
             </div>
             <div class="q-feedback">La ville du quart d'heure vise à ce que chaque habitant puisse accéder à tous les services essentiels (travail, commerces, école, santé, loisirs) en 15 minutes à pied ou à vélo depuis son domicile.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelles sont les quatre conditions d'une rue vivante selon Jane Jacobs ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Usages mixtes, îlots courts, bâtiments d'âges variés, densité suffisante</div>
-              <div class="option" onclick="answer(this,false)">Larges trottoirs, éclairage, commerces, parkings</div>
-              <div class="option" onclick="answer(this,false)">Habiter, travailler, se récréer, circuler</div>
-              <div class="option" onclick="answer(this,false)">Verdure, calme, sécurité, propreté</div>
+              <button class="option" onclick="answer(this,true)">Usages mixtes, îlots courts, bâtiments d'âges variés, densité suffisante</button>
+              <button class="option" onclick="answer(this,false)">Larges trottoirs, éclairage, commerces, parkings</button>
+              <button class="option" onclick="answer(this,false)">Habiter, travailler, se récréer, circuler</button>
+              <button class="option" onclick="answer(this,false)">Verdure, calme, sécurité, propreté</button>
             </div>
             <div class="q-feedback">Jane Jacobs a démontré que la vitalité urbaine naît de la diversité : des usages mélangés, des îlots courts favorisant les parcours piétons, des bâtiments d'époques différentes offrant des loyers variés, et une densité humaine suffisante.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel document définit la Charte d'Athènes et ses principes fonctionnalistes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le PLU</div>
-              <div class="option" onclick="answer(this,false)">Le SCoT</div>
-              <div class="option" onclick="answer(this,true)">La Charte d'Athènes (1933, Le Corbusier)</div>
-              <div class="option" onclick="answer(this,false)">Le plan Haussmann</div>
+              <button class="option" onclick="answer(this,false)">Le PLU</button>
+              <button class="option" onclick="answer(this,false)">Le SCoT</button>
+              <button class="option" onclick="answer(this,true)">La Charte d'Athènes (1933, Le Corbusier)</button>
+              <button class="option" onclick="answer(this,false)">Le plan Haussmann</button>
             </div>
             <div class="q-feedback">La Charte d'Athènes (1933), portée par Le Corbusier, prône la séparation des fonctions urbaines (habiter, travailler, se récréer, circuler). Ce modèle a inspiré les grands ensembles d'après-guerre.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel est l'inconvénient principal de la ville étalée (urban sprawl) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Trop de densité</div>
-              <div class="option" onclick="answer(this,false)">Manque d'espaces verts</div>
-              <div class="option" onclick="answer(this,true)">Forte consommation d'espace et dépendance à l'automobile</div>
-              <div class="option" onclick="answer(this,false)">Coût trop élevé des transports en commun</div>
+              <button class="option" onclick="answer(this,false)">Trop de densité</button>
+              <button class="option" onclick="answer(this,false)">Manque d'espaces verts</button>
+              <button class="option" onclick="answer(this,true)">Forte consommation d'espace et dépendance à l'automobile</button>
+              <button class="option" onclick="answer(this,false)">Coût trop élevé des transports en commun</button>
             </div>
             <div class="q-feedback">L'étalement urbain consomme des terres agricoles, augmente les distances de déplacement et rend les habitants dépendants de la voiture individuelle, avec un impact majeur sur les émissions de CO₂.</div>
           </div>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel outil lutte contre les îlots de chaleur urbains ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'élargissement des routes</div>
-              <div class="option" onclick="answer(this,true)">La végétalisation (parcs, toitures végétalisées)</div>
-              <div class="option" onclick="answer(this,false)">La construction de parkings souterrains</div>
-              <div class="option" onclick="answer(this,false)">L'augmentation de la densité bâtie</div>
+              <button class="option" onclick="answer(this,false)">L'élargissement des routes</button>
+              <button class="option" onclick="answer(this,true)">La végétalisation (parcs, toitures végétalisées)</button>
+              <button class="option" onclick="answer(this,false)">La construction de parkings souterrains</button>
+              <button class="option" onclick="answer(this,false)">L'augmentation de la densité bâtie</button>
             </div>
             <div class="q-feedback">La végétalisation (arbres, parcs, toitures et façades végétalisées) rafraîchit l'air par évapotranspiration et réduit l'absorption de chaleur par les surfaces minérales, luttant efficacement contre les îlots de chaleur urbains.</div>
           </div>
@@ -262,8 +262,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

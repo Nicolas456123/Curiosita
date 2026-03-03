@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'expansion de l'Islam, les califats et l'âge d'or scientifique de la civilisation arabo-musulmane.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Islam médiéval — Moyen Âge — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📜 Moyen Âge</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -140,10 +140,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qu'est-ce que l'Hégire (622) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La première révélation du Coran</div>
-              <div class="option" onclick="answer(this,true)">L'émigration de Mahomet de La Mecque à Médine</div>
-              <div class="option" onclick="answer(this,false)">La conquête de La Mecque</div>
-              <div class="option" onclick="answer(this,false)">La mort de Mahomet</div>
+              <button class="option" onclick="answer(this,false)">La première révélation du Coran</button>
+              <button class="option" onclick="answer(this,true)">L'émigration de Mahomet de La Mecque à Médine</button>
+              <button class="option" onclick="answer(this,false)">La conquête de La Mecque</button>
+              <button class="option" onclick="answer(this,false)">La mort de Mahomet</button>
             </div>
             <div class="q-feedback">L'Hégire est l'émigration de Mahomet et de ses compagnons de La Mecque vers Médine en 622. Elle marque le début du calendrier islamique.</div>
           </div>
@@ -151,10 +151,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel savant est considéré comme le père de l'algèbre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Ibn Sina (Avicenne)</div>
-              <div class="option" onclick="answer(this,true)">Al-Khwarizmi</div>
-              <div class="option" onclick="answer(this,false)">Ibn Rushd (Averroès)</div>
-              <div class="option" onclick="answer(this,false)">Ibn al-Haytham</div>
+              <button class="option" onclick="answer(this,false)">Ibn Sina (Avicenne)</button>
+              <button class="option" onclick="answer(this,true)">Al-Khwarizmi</button>
+              <button class="option" onclick="answer(this,false)">Ibn Rushd (Averroès)</button>
+              <button class="option" onclick="answer(this,false)">Ibn al-Haytham</button>
             </div>
             <div class="q-feedback">Al-Khwarizmi (IXᵉ siècle) rédige le premier traité systématique d'algèbre. Son nom a donné le mot « algorithme ».</div>
           </div>
@@ -162,10 +162,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel événement de 1258 met fin au califat abbasside ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La prise de Jérusalem par les croisés</div>
-              <div class="option" onclick="answer(this,false)">La chute de Cordoue</div>
-              <div class="option" onclick="answer(this,true)">Le sac de Bagdad par les Mongols</div>
-              <div class="option" onclick="answer(this,false)">La chute de Constantinople</div>
+              <button class="option" onclick="answer(this,false)">La prise de Jérusalem par les croisés</button>
+              <button class="option" onclick="answer(this,false)">La chute de Cordoue</button>
+              <button class="option" onclick="answer(this,true)">Le sac de Bagdad par les Mongols</button>
+              <button class="option" onclick="answer(this,false)">La chute de Constantinople</button>
             </div>
             <div class="q-feedback">En 1258, les Mongols de Houlagou Khan saccagent Bagdad, détruisent la Maison de la Sagesse et tuent le dernier calife abbasside.</div>
           </div>
@@ -173,10 +173,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel savant est considéré comme un pionnier de la méthode expérimentale grâce à ses travaux en optique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Al-Khwarizmi</div>
-              <div class="option" onclick="answer(this,false)">Omar Khayyam</div>
-              <div class="option" onclick="answer(this,true)">Ibn al-Haytham (Alhazen)</div>
-              <div class="option" onclick="answer(this,false)">Al-Biruni</div>
+              <button class="option" onclick="answer(this,false)">Al-Khwarizmi</button>
+              <button class="option" onclick="answer(this,false)">Omar Khayyam</button>
+              <button class="option" onclick="answer(this,true)">Ibn al-Haytham (Alhazen)</button>
+              <button class="option" onclick="answer(this,false)">Al-Biruni</button>
             </div>
             <div class="q-feedback">Ibn al-Haytham (965-1040) révolutionne l'optique en démontrant expérimentalement que la lumière voyage en ligne droite et frappe l'oeil. Son approche empirique en fait un pionnier de la méthode scientifique.</div>
           </div>
@@ -184,10 +184,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Combien de manuscrits la bibliothèque califale de Cordoue possédait-elle au Xᵉ siècle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">10 000</div>
-              <div class="option" onclick="answer(this,false)">50 000</div>
-              <div class="option" onclick="answer(this,false)">100 000</div>
-              <div class="option" onclick="answer(this,true)">Plus de 400 000</div>
+              <button class="option" onclick="answer(this,false)">10 000</button>
+              <button class="option" onclick="answer(this,false)">50 000</button>
+              <button class="option" onclick="answer(this,false)">100 000</button>
+              <button class="option" onclick="answer(this,true)">Plus de 400 000</button>
             </div>
             <div class="q-feedback">La bibliothèque califale de Cordoue comptait plus de 400 000 manuscrits au Xᵉ siècle — davantage que toutes les bibliothèques d'Europe occidentale réunies.</div>
           </div>
@@ -195,10 +195,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">En quelle année la Reconquista chrétienne s'achève-t-elle avec la chute de Grenade ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1258</div>
-              <div class="option" onclick="answer(this,false)">1453</div>
-              <div class="option" onclick="answer(this,true)">1492</div>
-              <div class="option" onclick="answer(this,false)">1521</div>
+              <button class="option" onclick="answer(this,false)">1258</button>
+              <button class="option" onclick="answer(this,false)">1453</button>
+              <button class="option" onclick="answer(this,true)">1492</button>
+              <button class="option" onclick="answer(this,false)">1521</button>
             </div>
             <div class="q-feedback">La Reconquista s'achève en 1492 avec la chute du royaume de Grenade, dernier bastion musulman en péninsule ibérique — la même année que le voyage de Christophe Colomb.</div>
           </div>
@@ -259,8 +259,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

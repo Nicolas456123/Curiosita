@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Voltaire, Rousseau, Montesquieu — le siècle de la raison contre l'absolutisme et l'obscurantisme.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Les Lumières — Époque moderne — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📜 Époque moderne</span>
     <span class="tag-level">Intermédiaire</span>
@@ -146,10 +146,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quel philosophe théorise la séparation des pouvoirs ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Voltaire</div>
-              <div class="option" onclick="answer(this,true)">Montesquieu</div>
-              <div class="option" onclick="answer(this,false)">Rousseau</div>
-              <div class="option" onclick="answer(this,false)">Diderot</div>
+              <button class="option" onclick="answer(this,false)">Voltaire</button>
+              <button class="option" onclick="answer(this,true)">Montesquieu</button>
+              <button class="option" onclick="answer(this,false)">Rousseau</button>
+              <button class="option" onclick="answer(this,false)">Diderot</button>
             </div>
             <div class="q-feedback">Montesquieu théorise la séparation des pouvoirs (législatif, exécutif, judiciaire) dans De l'Esprit des lois (1748).</div>
           </div>
@@ -157,10 +157,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Qui dirige l'Encyclopédie avec d'Alembert ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Voltaire</div>
-              <div class="option" onclick="answer(this,false)">Rousseau</div>
-              <div class="option" onclick="answer(this,true)">Diderot</div>
-              <div class="option" onclick="answer(this,false)">Montesquieu</div>
+              <button class="option" onclick="answer(this,false)">Voltaire</button>
+              <button class="option" onclick="answer(this,false)">Rousseau</button>
+              <button class="option" onclick="answer(this,true)">Diderot</button>
+              <button class="option" onclick="answer(this,false)">Montesquieu</button>
             </div>
             <div class="q-feedback">Denis Diderot dirige l'Encyclopédie (1751-1772) avec d'Alembert : 28 volumes, 71 818 articles et 2 885 planches illustrées.</div>
           </div>
@@ -168,10 +168,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Quel concept Rousseau défend-il dans Du Contrat social ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La monarchie constitutionnelle</div>
-              <div class="option" onclick="answer(this,false)">Le despotisme éclairé</div>
-              <div class="option" onclick="answer(this,true)">La souveraineté populaire</div>
-              <div class="option" onclick="answer(this,false)">Le libéralisme économique</div>
+              <button class="option" onclick="answer(this,false)">La monarchie constitutionnelle</button>
+              <button class="option" onclick="answer(this,false)">Le despotisme éclairé</button>
+              <button class="option" onclick="answer(this,true)">La souveraineté populaire</button>
+              <button class="option" onclick="answer(this,false)">Le libéralisme économique</button>
             </div>
             <div class="q-feedback">Rousseau défend la souveraineté populaire : le pouvoir légitime vient du peuple à travers la « volonté générale », pas du droit divin des rois.</div>
           </div>
@@ -179,10 +179,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quel despote éclairé prussien était ami et correspondant de Voltaire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Frédéric II de Prusse</div>
-              <div class="option" onclick="answer(this,false)">Catherine II de Russie</div>
-              <div class="option" onclick="answer(this,false)">Joseph II d'Autriche</div>
-              <div class="option" onclick="answer(this,false)">Gustave III de Suède</div>
+              <button class="option" onclick="answer(this,true)">Frédéric II de Prusse</button>
+              <button class="option" onclick="answer(this,false)">Catherine II de Russie</button>
+              <button class="option" onclick="answer(this,false)">Joseph II d'Autriche</button>
+              <button class="option" onclick="answer(this,false)">Gustave III de Suède</button>
             </div>
             <div class="q-feedback">Frédéric II de Prusse (1740-1786) entretenait une correspondance suivie avec Voltaire et l'accueillit même à sa cour. Il abolit la torture et instaura la tolérance religieuse dans son royaume.</div>
           </div>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quelle affaire judiciaire illustre le combat de Voltaire pour la tolérance ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'affaire Dreyfus</div>
-              <div class="option" onclick="answer(this,true)">L'affaire Calas</div>
-              <div class="option" onclick="answer(this,false)">L'affaire du Collier</div>
-              <div class="option" onclick="answer(this,false)">L'affaire La Barre</div>
+              <button class="option" onclick="answer(this,false)">L'affaire Dreyfus</button>
+              <button class="option" onclick="answer(this,true)">L'affaire Calas</button>
+              <button class="option" onclick="answer(this,false)">L'affaire du Collier</button>
+              <button class="option" onclick="answer(this,false)">L'affaire La Barre</button>
             </div>
             <div class="q-feedback">L'affaire Calas (1762) : Jean Calas, protestant toulousain accusé à tort du meurtre de son fils, est roué vif. Voltaire mène une campagne de trois ans pour sa réhabilitation, obtenue en 1765, symbole de la lutte contre l'intolérance.</div>
           </div>
@@ -225,8 +225,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

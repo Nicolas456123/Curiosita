@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Analyse de variance, facteurs, F-test, comparaisons multiples — comparer les moyennes de plusieurs groupes.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>ANOVA — Régression — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #16a085; --accent2: #1abc9c; --accent-dim: rgba(22,160,133,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(22,160,133,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #16a085; --accent2: #1abc9c; --accent-dim: rgba(22,160,133,0.08);  --accent-hero: rgba(22,160,133,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../statistiques-page.html">Statistiques</a> › <a href="../regression.html">Régression</a> › <span>ANOVA</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">📈 Régression</span><span class="tag-level">Intermédiaire</span><span class="tag-time">⏱ ~50 min</span></div>
   <h1><em>ANOVA</em></h1>
   <p class="hero-desc">Analyse de variance, facteurs, F-test, comparaisons multiples — comparer les moyennes de plusieurs groupes.</p>
@@ -102,60 +102,60 @@
           <div class="question-block active" data-q="0">
             <p class="q-num">Question 1 / 6</p><p class="q-text">Que teste l'ANOVA à un facteur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'égalité de deux moyennes</div>
-              <div class="option" onclick="answer(this,true)">L'égalité de k moyennes simultanément</div>
-              <div class="option" onclick="answer(this,false)">L'indépendance de deux variables</div>
-              <div class="option" onclick="answer(this,false)">La normalité des données</div>
+              <button class="option" onclick="answer(this,false)">L'égalité de deux moyennes</button>
+              <button class="option" onclick="answer(this,true)">L'égalité de k moyennes simultanément</button>
+              <button class="option" onclick="answer(this,false)">L'indépendance de deux variables</button>
+              <button class="option" onclick="answer(this,false)">La normalité des données</button>
             </div>
             <div class="q-feedback">L'ANOVA teste H₀ : μ₁ = μ₂ = ... = μₖ. Elle répond à la question : au moins un groupe diffère-t-il des autres ?</div>
           </div>
           <div class="question-block" data-q="1">
             <p class="q-num">Question 2 / 6</p><p class="q-text">Que compare la statistique F ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Deux moyennes</div>
-              <div class="option" onclick="answer(this,true)">La variance inter-groupes à la variance intra-groupes</div>
-              <div class="option" onclick="answer(this,false)">Deux variances indépendantes</div>
-              <div class="option" onclick="answer(this,false)">Les médianes de chaque groupe</div>
+              <button class="option" onclick="answer(this,false)">Deux moyennes</button>
+              <button class="option" onclick="answer(this,true)">La variance inter-groupes à la variance intra-groupes</button>
+              <button class="option" onclick="answer(this,false)">Deux variances indépendantes</button>
+              <button class="option" onclick="answer(this,false)">Les médianes de chaque groupe</button>
             </div>
             <div class="q-feedback">F = MCE/MCR. Si les moyennes des groupes diffèrent beaucoup, MCE est grand par rapport à MCR, et F est élevé.</div>
           </div>
           <div class="question-block" data-q="2">
             <p class="q-num">Question 3 / 6</p><p class="q-text">Quel test post-hoc est le plus couramment utilisé ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Tukey HSD</div>
-              <div class="option" onclick="answer(this,false)">Bonferroni</div>
-              <div class="option" onclick="answer(this,false)">Scheffé</div>
-              <div class="option" onclick="answer(this,false)">Fisher LSD</div>
+              <button class="option" onclick="answer(this,true)">Tukey HSD</button>
+              <button class="option" onclick="answer(this,false)">Bonferroni</button>
+              <button class="option" onclick="answer(this,false)">Scheffé</button>
+              <button class="option" onclick="answer(this,false)">Fisher LSD</button>
             </div>
             <div class="q-feedback">Tukey HSD (Honestly Significant Difference) est le test post-hoc le plus utilisé. Il compare toutes les paires de moyennes en contrôlant le taux d'erreur familial.</div>
           </div>
           <div class="question-block" data-q="3">
             <p class="q-num">Question 4 / 6</p><p class="q-text">Que signifie une interaction significative en ANOVA à deux facteurs ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les deux facteurs sont corrélés</div>
-              <div class="option" onclick="answer(this,true)">L'effet d'un facteur dépend du niveau de l'autre</div>
-              <div class="option" onclick="answer(this,false)">Les deux facteurs n'ont aucun effet</div>
-              <div class="option" onclick="answer(this,false)">L'échantillon est trop petit</div>
+              <button class="option" onclick="answer(this,false)">Les deux facteurs sont corrélés</button>
+              <button class="option" onclick="answer(this,true)">L'effet d'un facteur dépend du niveau de l'autre</button>
+              <button class="option" onclick="answer(this,false)">Les deux facteurs n'ont aucun effet</button>
+              <button class="option" onclick="answer(this,false)">L'échantillon est trop petit</button>
             </div>
             <div class="q-feedback">L'interaction signifie que l'effet d'un facteur n'est pas le même selon le niveau de l'autre facteur. On ne peut pas interpréter les effets principaux séparément.</div>
           </div>
           <div class="question-block" data-q="4">
             <p class="q-num">Question 5 / 6</p><p class="q-text">Quelle est l'alternative non paramétrique de l'ANOVA à un facteur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Mann-Whitney</div>
-              <div class="option" onclick="answer(this,true)">Kruskal-Wallis</div>
-              <div class="option" onclick="answer(this,false)">Wilcoxon signé</div>
-              <div class="option" onclick="answer(this,false)">Friedman</div>
+              <button class="option" onclick="answer(this,false)">Mann-Whitney</button>
+              <button class="option" onclick="answer(this,true)">Kruskal-Wallis</button>
+              <button class="option" onclick="answer(this,false)">Wilcoxon signé</button>
+              <button class="option" onclick="answer(this,false)">Friedman</button>
             </div>
             <div class="q-feedback">Le test de Kruskal-Wallis est l'extension du test de Mann-Whitney à plus de deux groupes. Il est basé sur les rangs et ne suppose pas la normalité.</div>
           </div>
           <div class="question-block" data-q="5">
             <p class="q-num">Question 6 / 6</p><p class="q-text">Quelle hypothèse spécifique à l'ANOVA à mesures répétées doit être vérifiée ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'homoscédasticité</div>
-              <div class="option" onclick="answer(this,true)">La sphéricité</div>
-              <div class="option" onclick="answer(this,false)">La multicolinéarité</div>
-              <div class="option" onclick="answer(this,false)">L'exhaustivité</div>
+              <button class="option" onclick="answer(this,false)">L'homoscédasticité</button>
+              <button class="option" onclick="answer(this,true)">La sphéricité</button>
+              <button class="option" onclick="answer(this,false)">La multicolinéarité</button>
+              <button class="option" onclick="answer(this,false)">L'exhaustivité</button>
             </div>
             <div class="q-feedback">La sphéricité (testée par le test de Mauchly) exige que les variances des différences entre toutes les paires de conditions soient égales. En cas de violation, on applique les corrections de Greenhouse-Geisser.</div>
           </div>
@@ -206,8 +206,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

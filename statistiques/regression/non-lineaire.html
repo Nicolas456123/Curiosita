@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Polynomiale, logistique, exponentielle, ajustement — modéliser les relations courbes et les variables binaires.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Régression non linéaire — Régression — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #16a085; --accent2: #1abc9c; --accent-dim: rgba(22,160,133,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(22,160,133,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #16a085; --accent2: #1abc9c; --accent-dim: rgba(22,160,133,0.08);  --accent-hero: rgba(22,160,133,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../statistiques-page.html">Statistiques</a> › <a href="../regression.html">Régression</a> › <span>Régression non linéaire</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">📈 Régression</span><span class="tag-level">Intermédiaire → Avancé</span><span class="tag-time">⏱ ~45 min</span></div>
   <h1><em>Régression non linéaire</em></h1>
   <p class="hero-desc">Polynomiale, logistique, exponentielle, ajustement — modéliser les relations courbes et les variables binaires.</p>
@@ -108,60 +108,60 @@
           <div class="question-block active" data-q="0">
             <p class="q-num">Question 1 / 6</p><p class="q-text">Le modèle Y = β₀ + β₁X + β₂X² est-il linéaire en paramètres ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Oui, car Y est une combinaison linéaire des βᵢ</div>
-              <div class="option" onclick="answer(this,false)">Non, car X est au carré</div>
-              <div class="option" onclick="answer(this,false)">Seulement si β₂ = 0</div>
-              <div class="option" onclick="answer(this,false)">Cela dépend des données</div>
+              <button class="option" onclick="answer(this,true)">Oui, car Y est une combinaison linéaire des βᵢ</button>
+              <button class="option" onclick="answer(this,false)">Non, car X est au carré</button>
+              <button class="option" onclick="answer(this,false)">Seulement si β₂ = 0</button>
+              <button class="option" onclick="answer(this,false)">Cela dépend des données</button>
             </div>
             <div class="q-feedback">La linéarité se rapporte aux paramètres, pas aux variables. Y est bien une somme de β₀, β₁ × X et β₂ × X², donc linéaire en β₀, β₁, β₂. On peut l'estimer par MCO.</div>
           </div>
           <div class="question-block" data-q="1">
             <p class="q-num">Question 2 / 6</p><p class="q-text">Quelle transformation linéarise Y = aX^b ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Prendre la racine carrée</div>
-              <div class="option" onclick="answer(this,true)">Prendre le logarithme des deux côtés</div>
-              <div class="option" onclick="answer(this,false)">Inverser Y</div>
-              <div class="option" onclick="answer(this,false)">Prendre l'exponentielle</div>
+              <button class="option" onclick="answer(this,false)">Prendre la racine carrée</button>
+              <button class="option" onclick="answer(this,true)">Prendre le logarithme des deux côtés</button>
+              <button class="option" onclick="answer(this,false)">Inverser Y</button>
+              <button class="option" onclick="answer(this,false)">Prendre l'exponentielle</button>
             </div>
             <div class="q-feedback">ln(Y) = ln(a) + b × ln(X). En posant Y' = ln(Y), X' = ln(X), a' = ln(a), on obtient Y' = a' + bX', qui est linéaire.</div>
           </div>
           <div class="question-block" data-q="2">
             <p class="q-num">Question 3 / 6</p><p class="q-text">Que modélise la régression logistique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une variable continue</div>
-              <div class="option" onclick="answer(this,true)">La probabilité d'un événement binaire</div>
-              <div class="option" onclick="answer(this,false)">Le logarithme de Y</div>
-              <div class="option" onclick="answer(this,false)">La variance des résidus</div>
+              <button class="option" onclick="answer(this,false)">Une variable continue</button>
+              <button class="option" onclick="answer(this,true)">La probabilité d'un événement binaire</button>
+              <button class="option" onclick="answer(this,false)">Le logarithme de Y</button>
+              <button class="option" onclick="answer(this,false)">La variance des résidus</button>
             </div>
             <div class="q-feedback">La régression logistique modélise P(Y=1|X) via la fonction sigmoïde. Elle est utilisée quand la variable réponse est binaire (succès/échec, oui/non).</div>
           </div>
           <div class="question-block" data-q="3">
             <p class="q-num">Question 4 / 6</p><p class="q-text">Que représente e^β₁ en régression logistique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La pente de la droite</div>
-              <div class="option" onclick="answer(this,true)">L'odds ratio pour une unité de X</div>
-              <div class="option" onclick="answer(this,false)">La probabilité prédite</div>
-              <div class="option" onclick="answer(this,false)">Le coefficient de détermination</div>
+              <button class="option" onclick="answer(this,false)">La pente de la droite</button>
+              <button class="option" onclick="answer(this,true)">L'odds ratio pour une unité de X</button>
+              <button class="option" onclick="answer(this,false)">La probabilité prédite</button>
+              <button class="option" onclick="answer(this,false)">Le coefficient de détermination</button>
             </div>
             <div class="q-feedback">En régression logistique, e^β₁ est le rapport de cotes (odds ratio) : le facteur par lequel les odds de Y=1 sont multipliés quand X augmente d'une unité.</div>
           </div>
           <div class="question-block" data-q="4">
             <p class="q-num">Question 5 / 6</p><p class="q-text">Quel modèle inclut un plateau (capacité maximale K) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le modèle exponentiel</div>
-              <div class="option" onclick="answer(this,true)">Le modèle logistique de croissance</div>
-              <div class="option" onclick="answer(this,false)">Le modèle polynomial</div>
-              <div class="option" onclick="answer(this,false)">Le modèle puissance</div>
+              <button class="option" onclick="answer(this,false)">Le modèle exponentiel</button>
+              <button class="option" onclick="answer(this,true)">Le modèle logistique de croissance</button>
+              <button class="option" onclick="answer(this,false)">Le modèle polynomial</button>
+              <button class="option" onclick="answer(this,false)">Le modèle puissance</button>
             </div>
             <div class="q-feedback">Le modèle logistique de croissance Y(t) = K/(1 + ae^(−rt)) tend vers K quand t → ∞. Il modélise les croissances limitées par des ressources finies.</div>
           </div>
           <div class="question-block" data-q="5">
             <p class="q-num">Question 6 / 6</p><p class="q-text">Quel algorithme est le plus robuste pour l'estimation non linéaire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les moindres carrés ordinaires</div>
-              <div class="option" onclick="answer(this,false)">Gauss-Newton seul</div>
-              <div class="option" onclick="answer(this,true)">Levenberg-Marquardt</div>
-              <div class="option" onclick="answer(this,false)">La méthode des moments</div>
+              <button class="option" onclick="answer(this,false)">Les moindres carrés ordinaires</button>
+              <button class="option" onclick="answer(this,false)">Gauss-Newton seul</button>
+              <button class="option" onclick="answer(this,true)">Levenberg-Marquardt</button>
+              <button class="option" onclick="answer(this,false)">La méthode des moments</button>
             </div>
             <div class="q-feedback">Levenberg-Marquardt combine Gauss-Newton (rapide près de la solution) et la descente de gradient (robuste loin de la solution). C'est l'algorithme standard pour les moindres carrés non linéaires.</div>
           </div>
@@ -215,8 +215,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

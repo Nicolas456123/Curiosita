@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Du périmètre du cercle au volume de la sphère — maîtriser les formules de mesure des figures planes et des solides.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Cercles, aires et volumes — Géométrie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #c0392b; --accent2: #e74c3c; --accent-dim: rgba(192,57,43,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #c0392b; --accent2: #e74c3c; --accent-dim: rgba(192,57,43,0.08);  --accent-hero: rgba(192,57,43,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../maths-page.html">Mathématiques</a> › <a href="../geometrie.html">Géométrie</a> › <span>Cercles, aires et volumes</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">📐 Géométrie</span><span class="tag-level">Débutant → Intermédiaire</span><span class="tag-time">⏱ ~45 min</span></div>
   <h1><em>Cercles, aires et volumes</em></h1>
   <p class="hero-desc">Du périmètre du cercle au volume de la sphère — maîtriser les formules de mesure des figures planes et des solides.</p>
@@ -166,10 +166,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est l'aire d'un disque de rayon 7 cm ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">49π ≈ 153,94 cm²</div>
-              <div class="option" onclick="answer(this,false)">14π ≈ 43,98 cm²</div>
-              <div class="option" onclick="answer(this,false)">196π ≈ 615,75 cm²</div>
-              <div class="option" onclick="answer(this,false)">7π ≈ 21,99 cm²</div>
+              <button class="option" onclick="answer(this,true)">49π ≈ 153,94 cm²</button>
+              <button class="option" onclick="answer(this,false)">14π ≈ 43,98 cm²</button>
+              <button class="option" onclick="answer(this,false)">196π ≈ 615,75 cm²</button>
+              <button class="option" onclick="answer(this,false)">7π ≈ 21,99 cm²</button>
             </div>
             <div class="q-feedback">A = πr² = π × 7² = 49π ≈ 153,94 cm². Le périmètre serait 2πr = 14π ≈ 43,98 cm. Ne pas confondre aire et périmètre.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel est le volume d'une sphère de rayon 3 cm ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">36π ≈ 113,10 cm³</div>
-              <div class="option" onclick="answer(this,false)">27π ≈ 84,82 cm³</div>
-              <div class="option" onclick="answer(this,false)">108π ≈ 339,29 cm³</div>
-              <div class="option" onclick="answer(this,false)">12π ≈ 37,70 cm³</div>
+              <button class="option" onclick="answer(this,true)">36π ≈ 113,10 cm³</button>
+              <button class="option" onclick="answer(this,false)">27π ≈ 84,82 cm³</button>
+              <button class="option" onclick="answer(this,false)">108π ≈ 339,29 cm³</button>
+              <button class="option" onclick="answer(this,false)">12π ≈ 37,70 cm³</button>
             </div>
             <div class="q-feedback">V = 4πr³/3 = 4π × 27/3 = 108π/3 = 36π ≈ 113,10 cm³. L'aire de cette sphère serait 4πr² = 36π ≈ 113,10 cm² (même valeur numérique par coïncidence).</div>
           </div>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Le volume d'un cône est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">πr²h</div>
-              <div class="option" onclick="answer(this,true)">πr²h/3</div>
-              <div class="option" onclick="answer(this,false)">πr²h/2</div>
-              <div class="option" onclick="answer(this,false)">2πr²h/3</div>
+              <button class="option" onclick="answer(this,false)">πr²h</button>
+              <button class="option" onclick="answer(this,true)">πr²h/3</button>
+              <button class="option" onclick="answer(this,false)">πr²h/2</button>
+              <button class="option" onclick="answer(this,false)">2πr²h/3</button>
             </div>
             <div class="q-feedback">Le volume du cône est πr²h/3, soit un tiers du cylindre de mêmes base et hauteur. Le facteur 1/3 s'applique à tous les solides « pointus » (pyramides et cônes).</div>
           </div>
@@ -202,10 +202,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">L'aire de la surface d'une sphère de rayon r est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">2πr²</div>
-              <div class="option" onclick="answer(this,false)">πr²</div>
-              <div class="option" onclick="answer(this,true)">4πr²</div>
-              <div class="option" onclick="answer(this,false)">4πr³/3</div>
+              <button class="option" onclick="answer(this,false)">2πr²</button>
+              <button class="option" onclick="answer(this,false)">πr²</button>
+              <button class="option" onclick="answer(this,true)">4πr²</button>
+              <button class="option" onclick="answer(this,false)">4πr³/3</button>
             </div>
             <div class="q-feedback">L'aire de la sphère est 4πr², soit 4 fois l'aire du grand cercle. La dernière option (4πr³/3) est le volume, pas l'aire.</div>
           </div>
@@ -214,10 +214,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle est l'aire d'un trapèze de bases 8 cm et 12 cm et de hauteur 5 cm ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">50 cm²</div>
-              <div class="option" onclick="answer(this,false)">96 cm²</div>
-              <div class="option" onclick="answer(this,false)">100 cm²</div>
-              <div class="option" onclick="answer(this,false)">40 cm²</div>
+              <button class="option" onclick="answer(this,true)">50 cm²</button>
+              <button class="option" onclick="answer(this,false)">96 cm²</button>
+              <button class="option" onclick="answer(this,false)">100 cm²</button>
+              <button class="option" onclick="answer(this,false)">40 cm²</button>
             </div>
             <div class="q-feedback">A = (B + b) × h / 2 = (12 + 8) × 5 / 2 = 20 × 5 / 2 = 50 cm². La formule du trapèze est la moyenne des deux bases multipliée par la hauteur.</div>
           </div>
@@ -226,10 +226,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Un angle inscrit dans un demi-cercle mesure toujours :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">60°</div>
-              <div class="option" onclick="answer(this,true)">90°</div>
-              <div class="option" onclick="answer(this,false)">180°</div>
-              <div class="option" onclick="answer(this,false)">45°</div>
+              <button class="option" onclick="answer(this,false)">60°</button>
+              <button class="option" onclick="answer(this,true)">90°</button>
+              <button class="option" onclick="answer(this,false)">180°</button>
+              <button class="option" onclick="answer(this,false)">45°</button>
             </div>
             <div class="q-feedback">Tout angle inscrit dans un demi-cercle est un angle droit (90°). C'est une conséquence du théorème de l'angle inscrit : l'angle au centre correspondant est 180° (diamètre), et l'angle inscrit vaut la moitié, soit 90°.</div>
           </div>
@@ -284,8 +284,14 @@
 
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

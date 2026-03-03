@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Écoute active, feedback constructif, communication non violente et prise de parole en public.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Communication interpersonnelle — Développement personnel — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">💬 Développement personnel</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -149,10 +149,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelles sont les quatre étapes de la Communication Non Violente (CNV) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Écouter, réfléchir, répondre, conclure</div>
-              <div class="option" onclick="answer(this,true)">Observation, sentiment, besoin, demande</div>
-              <div class="option" onclick="answer(this,false)">Saluer, questionner, reformuler, résumer</div>
-              <div class="option" onclick="answer(this,false)">Analyser, juger, conseiller, décider</div>
+              <button class="option" onclick="answer(this,false)">Écouter, réfléchir, répondre, conclure</button>
+              <button class="option" onclick="answer(this,true)">Observation, sentiment, besoin, demande</button>
+              <button class="option" onclick="answer(this,false)">Saluer, questionner, reformuler, résumer</button>
+              <button class="option" onclick="answer(this,false)">Analyser, juger, conseiller, décider</button>
             </div>
             <div class="q-feedback">La CNV de Marshall Rosenberg suit quatre étapes : observer sans juger, exprimer son sentiment, identifier le besoin sous-jacent, puis formuler une demande concrète.</div>
           </div>
@@ -160,10 +160,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Selon Mehrabian, quel pourcentage du message émotionnel passe par le langage corporel ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">7 %</div>
-              <div class="option" onclick="answer(this,false)">38 %</div>
-              <div class="option" onclick="answer(this,true)">55 %</div>
-              <div class="option" onclick="answer(this,false)">80 %</div>
+              <button class="option" onclick="answer(this,false)">7 %</button>
+              <button class="option" onclick="answer(this,false)">38 %</button>
+              <button class="option" onclick="answer(this,true)">55 %</button>
+              <button class="option" onclick="answer(this,false)">80 %</button>
             </div>
             <div class="q-feedback">Selon Mehrabian, dans un message émotionnel, 55 % passe par le langage corporel, 38 % par le ton de la voix et 7 % par les mots. Ces chiffres s'appliquent spécifiquement aux messages à contenu émotionnel.</div>
           </div>
@@ -171,10 +171,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que signifie la méthode SBI pour le feedback ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Situation, Comportement (Behavior), Impact</div>
-              <div class="option" onclick="answer(this,false)">Sujet, Bilan, Idée</div>
-              <div class="option" onclick="answer(this,false)">Synthèse, Base, Interprétation</div>
-              <div class="option" onclick="answer(this,false)">Stratégie, Bénéfice, Intention</div>
+              <button class="option" onclick="answer(this,true)">Situation, Comportement (Behavior), Impact</button>
+              <button class="option" onclick="answer(this,false)">Sujet, Bilan, Idée</button>
+              <button class="option" onclick="answer(this,false)">Synthèse, Base, Interprétation</button>
+              <button class="option" onclick="answer(this,false)">Stratégie, Bénéfice, Intention</button>
             </div>
             <div class="q-feedback">SBI signifie Situation-Behavior-Impact : décrire la situation, le comportement observé, puis son impact. Cette structure rend le feedback factuel et constructif.</div>
           </div>
@@ -182,10 +182,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel pilier de l'écoute active consiste à vérifier sa compréhension ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">La reformulation</div>
-              <div class="option" onclick="answer(this,false)">Le questionnement</div>
-              <div class="option" onclick="answer(this,false)">Le silence</div>
-              <div class="option" onclick="answer(this,false)">La synchronisation non verbale</div>
+              <button class="option" onclick="answer(this,true)">La reformulation</button>
+              <button class="option" onclick="answer(this,false)">Le questionnement</button>
+              <button class="option" onclick="answer(this,false)">Le silence</button>
+              <button class="option" onclick="answer(this,false)">La synchronisation non verbale</button>
             </div>
             <div class="q-feedback">La reformulation (« Si je comprends bien... ») permet de vérifier qu'on a bien compris le message de l'autre et montre qu'on l'a véritablement écouté.</div>
           </div>
@@ -193,10 +193,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que signifie BLUF dans la communication écrite ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Brief, Light, Useful, Formal</div>
-              <div class="option" onclick="answer(this,true)">Bottom Line Up Front (l'essentiel en premier)</div>
-              <div class="option" onclick="answer(this,false)">Be Logical, Use Facts</div>
-              <div class="option" onclick="answer(this,false)">Brief Letter Using Formatting</div>
+              <button class="option" onclick="answer(this,false)">Brief, Light, Useful, Formal</button>
+              <button class="option" onclick="answer(this,true)">Bottom Line Up Front (l'essentiel en premier)</button>
+              <button class="option" onclick="answer(this,false)">Be Logical, Use Facts</button>
+              <button class="option" onclick="answer(this,false)">Brief Letter Using Formatting</button>
             </div>
             <div class="q-feedback">BLUF signifie « Bottom Line Up Front » : commencer par la conclusion ou l'information essentielle, puis développer les détails. C'est la clé d'un email efficace.</div>
           </div>
@@ -204,10 +204,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">En CNV, quelle est la différence entre une observation et une évaluation ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il n'y a pas de différence</div>
-              <div class="option" onclick="answer(this,false)">L'observation est plus importante que l'évaluation</div>
-              <div class="option" onclick="answer(this,true)">L'observation décrit des faits, l'évaluation porte un jugement</div>
-              <div class="option" onclick="answer(this,false)">L'évaluation est plus objective que l'observation</div>
+              <button class="option" onclick="answer(this,false)">Il n'y a pas de différence</button>
+              <button class="option" onclick="answer(this,false)">L'observation est plus importante que l'évaluation</button>
+              <button class="option" onclick="answer(this,true)">L'observation décrit des faits, l'évaluation porte un jugement</button>
+              <button class="option" onclick="answer(this,false)">L'évaluation est plus objective que l'observation</button>
             </div>
             <div class="q-feedback">L'observation décrit des faits objectifs (« Tu es arrivé à 9h20 ») tandis que l'évaluation porte un jugement (« Tu es toujours en retard »). La CNV recommande de s'appuyer sur les observations pour éviter les réactions défensives.</div>
           </div>
@@ -280,8 +280,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

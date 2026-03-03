@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Calcul de puissance, taille d'échantillon, design expérimental — concevoir des études bien calibrées.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Puissance statistique — Inférence — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #16a085;
   --accent2: #1abc9c;
   --accent-dim: rgba(22,160,133,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(22,160,133,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(22,160,133,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📊 Inférence</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -158,10 +158,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est le niveau de puissance conventionnel le plus courant ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">60 %</div>
-              <div class="option" onclick="answer(this,true)">80 %</div>
-              <div class="option" onclick="answer(this,false)">95 %</div>
-              <div class="option" onclick="answer(this,false)">99 %</div>
+              <button class="option" onclick="answer(this,false)">60 %</button>
+              <button class="option" onclick="answer(this,true)">80 %</button>
+              <button class="option" onclick="answer(this,false)">95 %</button>
+              <button class="option" onclick="answer(this,false)">99 %</button>
             </div>
             <div class="q-feedback">La convention est de viser une puissance de 80 % (β = 0,20). Certaines études visent 90 %, mais 80 % est le minimum généralement accepté.</div>
           </div>
@@ -169,10 +169,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Combien de participants par groupe faut-il pour détecter un effet moyen (d = 0,5) à α = 0,05 et puissance 80 % ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Environ 13</div>
-              <div class="option" onclick="answer(this,true)">Environ 32</div>
-              <div class="option" onclick="answer(this,false)">Environ 100</div>
-              <div class="option" onclick="answer(this,false)">Environ 200</div>
+              <button class="option" onclick="answer(this,false)">Environ 13</button>
+              <button class="option" onclick="answer(this,true)">Environ 32</button>
+              <button class="option" onclick="answer(this,false)">Environ 100</button>
+              <button class="option" onclick="answer(this,false)">Environ 200</button>
             </div>
             <div class="q-feedback">Pour un test t bilatéral avec d = 0,5, α = 0,05 et puissance 80 %, il faut environ 32 participants par groupe, soit 64 au total.</div>
           </div>
@@ -180,10 +180,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Comment évolue n quand la taille d'effet δ est divisée par 2 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">n est multiplié par 2</div>
-              <div class="option" onclick="answer(this,true)">n est multiplié par 4</div>
-              <div class="option" onclick="answer(this,false)">n est divisé par 2</div>
-              <div class="option" onclick="answer(this,false)">n reste identique</div>
+              <button class="option" onclick="answer(this,false)">n est multiplié par 2</button>
+              <button class="option" onclick="answer(this,true)">n est multiplié par 4</button>
+              <button class="option" onclick="answer(this,false)">n est divisé par 2</button>
+              <button class="option" onclick="answer(this,false)">n reste identique</button>
             </div>
             <div class="q-feedback">n est inversement proportionnel au carré de la taille d'effet : n ∝ 1/δ². Si δ est divisé par 2, n est multiplié par 4.</div>
           </div>
@@ -191,10 +191,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Pourquoi l'analyse de puissance a posteriori est-elle déconseillée ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Elle est trop difficile à calculer</div>
-              <div class="option" onclick="answer(this,false)">Elle nécessite de connaître σ</div>
-              <div class="option" onclick="answer(this,true)">Elle est une transformation de la p-value et n'apporte rien de nouveau</div>
-              <div class="option" onclick="answer(this,false)">Elle surestime toujours la puissance</div>
+              <button class="option" onclick="answer(this,false)">Elle est trop difficile à calculer</button>
+              <button class="option" onclick="answer(this,false)">Elle nécessite de connaître σ</button>
+              <button class="option" onclick="answer(this,true)">Elle est une transformation de la p-value et n'apporte rien de nouveau</button>
+              <button class="option" onclick="answer(this,false)">Elle surestime toujours la puissance</button>
             </div>
             <div class="q-feedback">La puissance a posteriori est une fonction monotone de la p-value : un résultat non significatif donne toujours une faible puissance a posteriori, ce qui est un raisonnement circulaire.</div>
           </div>
@@ -202,10 +202,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel design expérimental augmente la puissance sans augmenter n ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Le design apparié (mesures répétées)</div>
-              <div class="option" onclick="answer(this,false)">Le test bilatéral</div>
-              <div class="option" onclick="answer(this,false)">La diminution de α</div>
-              <div class="option" onclick="answer(this,false)">L'augmentation du nombre de groupes</div>
+              <button class="option" onclick="answer(this,true)">Le design apparié (mesures répétées)</button>
+              <button class="option" onclick="answer(this,false)">Le test bilatéral</button>
+              <button class="option" onclick="answer(this,false)">La diminution de α</button>
+              <button class="option" onclick="answer(this,false)">L'augmentation du nombre de groupes</button>
             </div>
             <div class="q-feedback">Le design apparié réduit la variabilité en éliminant les différences inter-individuelles. Chaque sujet sert de son propre contrôle, ce qui augmente la puissance.</div>
           </div>
@@ -213,10 +213,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que détermine une analyse de sensibilité ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La p-value exacte du test</div>
-              <div class="option" onclick="answer(this,false)">Le seuil α optimal</div>
-              <div class="option" onclick="answer(this,true)">Le plus petit effet détectable pour un n et une puissance donnés</div>
-              <div class="option" onclick="answer(this,false)">Le nombre de tests à effectuer</div>
+              <button class="option" onclick="answer(this,false)">La p-value exacte du test</button>
+              <button class="option" onclick="answer(this,false)">Le seuil α optimal</button>
+              <button class="option" onclick="answer(this,true)">Le plus petit effet détectable pour un n et une puissance donnés</button>
+              <button class="option" onclick="answer(this,false)">Le nombre de tests à effectuer</button>
             </div>
             <div class="q-feedback">L'analyse de sensibilité détermine le plus petit effet que l'étude peut détecter avec la puissance souhaitée. C'est utile quand n est fixé par des contraintes pratiques.</div>
           </div>
@@ -306,8 +306,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

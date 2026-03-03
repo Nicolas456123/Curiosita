@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Apprentissage supervisé, non supervisé, régression, classification, validation croisée — les fondements de l'apprentissage automatique.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Machine Learning — Intelligence artificielle — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #2980b9;
   --accent2: #3498db;
   --accent-dim: rgba(41,128,185,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(41,128,185,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(41,128,185,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🤖 Intelligence artificielle</span>
     <span class="tag-level">Intermédiaire</span>
@@ -189,10 +189,10 @@ scores = cross_val_score(modele, X, y, cv=<span class="num">5</span>, scoring=<s
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la différence principale entre classification et régression ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La classification utilise plus de données</div>
-              <div class="option" onclick="answer(this,true)">La classification prédit une catégorie, la régression une valeur continue</div>
-              <div class="option" onclick="answer(this,false)">La régression est toujours plus précise</div>
-              <div class="option" onclick="answer(this,false)">La classification ne nécessite pas d'entraînement</div>
+              <button class="option" onclick="answer(this,false)">La classification utilise plus de données</button>
+              <button class="option" onclick="answer(this,true)">La classification prédit une catégorie, la régression une valeur continue</button>
+              <button class="option" onclick="answer(this,false)">La régression est toujours plus précise</button>
+              <button class="option" onclick="answer(this,false)">La classification ne nécessite pas d'entraînement</button>
             </div>
             <div class="q-feedback">La classification prédit une classe discrète (spam/non-spam, chat/chien), tandis que la régression prédit une valeur numérique continue (prix, température).</div>
           </div>
@@ -200,10 +200,10 @@ scores = cross_val_score(modele, X, y, cv=<span class="num">5</span>, scoring=<s
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'est-ce que le surapprentissage (overfitting) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le modèle est trop lent à entraîner</div>
-              <div class="option" onclick="answer(this,false)">Le modèle ne parvient pas à apprendre</div>
-              <div class="option" onclick="answer(this,true)">Le modèle mémorise les données d'entraînement sans généraliser</div>
-              <div class="option" onclick="answer(this,false)">Le modèle utilise trop de mémoire</div>
+              <button class="option" onclick="answer(this,false)">Le modèle est trop lent à entraîner</button>
+              <button class="option" onclick="answer(this,false)">Le modèle ne parvient pas à apprendre</button>
+              <button class="option" onclick="answer(this,true)">Le modèle mémorise les données d'entraînement sans généraliser</button>
+              <button class="option" onclick="answer(this,false)">Le modèle utilise trop de mémoire</button>
             </div>
             <div class="q-feedback">Le surapprentissage signifie que le modèle a appris par coeur les données d'entraînement, y compris le bruit, et ne parvient pas à généraliser à de nouvelles données.</div>
           </div>
@@ -211,10 +211,10 @@ scores = cross_val_score(modele, X, y, cv=<span class="num">5</span>, scoring=<s
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Dans la validation croisée K-Fold, que fait-on ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">On entraîne K modèles différents</div>
-              <div class="option" onclick="answer(this,false)">On utilise K features différentes</div>
-              <div class="option" onclick="answer(this,true)">On divise les données en K parties et on entraîne K fois en alternant le jeu de test</div>
-              <div class="option" onclick="answer(this,false)">On multiplie le jeu de données par K</div>
+              <button class="option" onclick="answer(this,false)">On entraîne K modèles différents</button>
+              <button class="option" onclick="answer(this,false)">On utilise K features différentes</button>
+              <button class="option" onclick="answer(this,true)">On divise les données en K parties et on entraîne K fois en alternant le jeu de test</button>
+              <button class="option" onclick="answer(this,false)">On multiplie le jeu de données par K</button>
             </div>
             <div class="q-feedback">En K-Fold CV, les données sont divisées en K parties. Chaque partie sert de test une fois, tandis que les K-1 autres servent d'entraînement, ce qui donne K évaluations indépendantes.</div>
           </div>
@@ -222,10 +222,10 @@ scores = cross_val_score(modele, X, y, cv=<span class="num">5</span>, scoring=<s
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel algorithme est utilisé pour le clustering ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Régression linéaire</div>
-              <div class="option" onclick="answer(this,true)">K-Means</div>
-              <div class="option" onclick="answer(this,false)">Régression logistique</div>
-              <div class="option" onclick="answer(this,false)">Gradient Boosting</div>
+              <button class="option" onclick="answer(this,false)">Régression linéaire</button>
+              <button class="option" onclick="answer(this,true)">K-Means</button>
+              <button class="option" onclick="answer(this,false)">Régression logistique</button>
+              <button class="option" onclick="answer(this,false)">Gradient Boosting</button>
             </div>
             <div class="q-feedback">K-Means est un algorithme de clustering non supervisé qui partitionne les données en K groupes en minimisant la distance intra-cluster.</div>
           </div>
@@ -233,10 +233,10 @@ scores = cross_val_score(modele, X, y, cv=<span class="num">5</span>, scoring=<s
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Pourquoi les forêts aléatoires sont-elles plus robustes qu'un seul arbre de décision ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Elles utilisent moins de mémoire</div>
-              <div class="option" onclick="answer(this,false)">Elles sont plus rapides à entraîner</div>
-              <div class="option" onclick="answer(this,true)">Elles combinent les votes de nombreux arbres, réduisant le surapprentissage</div>
-              <div class="option" onclick="answer(this,false)">Elles n'ont pas besoin de données d'entraînement</div>
+              <button class="option" onclick="answer(this,false)">Elles utilisent moins de mémoire</button>
+              <button class="option" onclick="answer(this,false)">Elles sont plus rapides à entraîner</button>
+              <button class="option" onclick="answer(this,true)">Elles combinent les votes de nombreux arbres, réduisant le surapprentissage</button>
+              <button class="option" onclick="answer(this,false)">Elles n'ont pas besoin de données d'entraînement</button>
             </div>
             <div class="q-feedback">Les forêts aléatoires agrègent les prédictions de centaines d'arbres entraînés sur des sous-échantillons différents. Cette diversité réduit la variance et le surapprentissage.</div>
           </div>
@@ -244,10 +244,10 @@ scores = cross_val_score(modele, X, y, cv=<span class="num">5</span>, scoring=<s
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle métrique est la plus adaptée pour un problème de classification avec des classes très déséquilibrées ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'exactitude (accuracy)</div>
-              <div class="option" onclick="answer(this,false)">L'erreur quadratique moyenne (MSE)</div>
-              <div class="option" onclick="answer(this,true)">Le F1-score</div>
-              <div class="option" onclick="answer(this,false)">Le coefficient R²</div>
+              <button class="option" onclick="answer(this,false)">L'exactitude (accuracy)</button>
+              <button class="option" onclick="answer(this,false)">L'erreur quadratique moyenne (MSE)</button>
+              <button class="option" onclick="answer(this,true)">Le F1-score</button>
+              <button class="option" onclick="answer(this,false)">Le coefficient R²</button>
             </div>
             <div class="q-feedback">Avec des classes déséquilibrées, l'accuracy peut être trompeuse (99% si 99% des données sont d'une classe). Le F1-score, moyenne harmonique de la précision et du rappel, est plus informatif.</div>
           </div>
@@ -402,8 +402,14 @@ print(f"Précision : {scores.mean():.1%} ± {scores.std():.1%}")
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

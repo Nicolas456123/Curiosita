@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Systèmes de filiation, tabou de l'inceste, mariage, échange de femmes et structures élémentaires de la parenté.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Parenté et alliance — Anthropologie culturelle — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">👪 Anthropologie culturelle</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -161,10 +161,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Dans un système de filiation matrilinéaire, de qui un homme hérite-t-il principalement ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">De son père</div>
-              <div class="option" onclick="answer(this,true)">De son oncle maternel</div>
-              <div class="option" onclick="answer(this,false)">De sa mère directement</div>
-              <div class="option" onclick="answer(this,false)">De son grand-père paternel</div>
+              <button class="option" onclick="answer(this,false)">De son père</button>
+              <button class="option" onclick="answer(this,true)">De son oncle maternel</button>
+              <button class="option" onclick="answer(this,false)">De sa mère directement</button>
+              <button class="option" onclick="answer(this,false)">De son grand-père paternel</button>
             </div>
             <div class="q-feedback">Dans un système matrilinéaire, les biens et le statut se transmettent par la lignée maternelle. Un homme hérite de son oncle maternel (le frère de sa mère), pas de son père qui appartient à un autre lignage.</div>
           </div>
@@ -172,10 +172,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Selon Lévi-Strauss, quelle est la fonction principale de la prohibition de l'inceste ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Éviter les maladies génétiques</div>
-              <div class="option" onclick="answer(this,false)">Protéger les enfants</div>
-              <div class="option" onclick="answer(this,true)">Obliger l'échange entre groupes (exogamie)</div>
-              <div class="option" onclick="answer(this,false)">Limiter la croissance démographique</div>
+              <button class="option" onclick="answer(this,false)">Éviter les maladies génétiques</button>
+              <button class="option" onclick="answer(this,false)">Protéger les enfants</button>
+              <button class="option" onclick="answer(this,true)">Obliger l'échange entre groupes (exogamie)</button>
+              <button class="option" onclick="answer(this,false)">Limiter la croissance démographique</button>
             </div>
             <div class="q-feedback">Pour Lévi-Strauss, la prohibition de l'inceste est la règle fondamentale qui oblige les groupes à échanger des conjoints, créant ainsi des alliances et du lien social. C'est le passage de la nature à la culture.</div>
           </div>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qu'est-ce que le lévirat ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le mariage avec la cousine croisée</div>
-              <div class="option" onclick="answer(this,true)">Le mariage d'un homme avec la veuve de son frère</div>
-              <div class="option" onclick="answer(this,false)">Le versement d'une dot par la famille du marié</div>
-              <div class="option" onclick="answer(this,false)">L'interdiction de mariage entre clans voisins</div>
+              <button class="option" onclick="answer(this,false)">Le mariage avec la cousine croisée</button>
+              <button class="option" onclick="answer(this,true)">Le mariage d'un homme avec la veuve de son frère</button>
+              <button class="option" onclick="answer(this,false)">Le versement d'une dot par la famille du marié</button>
+              <button class="option" onclick="answer(this,false)">L'interdiction de mariage entre clans voisins</button>
             </div>
             <div class="q-feedback">Le lévirat est la pratique par laquelle un homme épouse la veuve de son frère décédé. Le sororat est la pratique symétrique : un homme épouse la sœur de son épouse décédée.</div>
           </div>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Dans l'échange généralisé selon Lévi-Strauss, comment circulent les femmes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Entre deux groupes de manière réciproque</div>
-              <div class="option" onclick="answer(this,true)">Dans un seul sens, formant un cycle entre plusieurs groupes</div>
-              <div class="option" onclick="answer(this,false)">De manière aléatoire sans règle fixe</div>
-              <div class="option" onclick="answer(this,false)">Uniquement au sein du même clan</div>
+              <button class="option" onclick="answer(this,false)">Entre deux groupes de manière réciproque</button>
+              <button class="option" onclick="answer(this,true)">Dans un seul sens, formant un cycle entre plusieurs groupes</button>
+              <button class="option" onclick="answer(this,false)">De manière aléatoire sans règle fixe</button>
+              <button class="option" onclick="answer(this,false)">Uniquement au sein du même clan</button>
             </div>
             <div class="q-feedback">L'échange généralisé implique une circulation à sens unique entre plusieurs groupes formant un cycle : A donne à B, B donne à C, C donne à A. L'échange restreint est la forme réciproque entre deux groupes.</div>
           </div>
@@ -205,10 +205,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel système terminologique de parenté utilisons-nous en français ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Hawaïen</div>
-              <div class="option" onclick="answer(this,false)">Iroquois</div>
-              <div class="option" onclick="answer(this,true)">Eskimo</div>
-              <div class="option" onclick="answer(this,false)">Crow-Omaha</div>
+              <button class="option" onclick="answer(this,false)">Hawaïen</button>
+              <button class="option" onclick="answer(this,false)">Iroquois</button>
+              <button class="option" onclick="answer(this,true)">Eskimo</button>
+              <button class="option" onclick="answer(this,false)">Crow-Omaha</button>
             </div>
             <div class="q-feedback">Le français utilise le système eskimo : il distingue les parents directs (père, mère) des collatéraux (oncle, tante) et ne différencie pas les cousins croisés des cousins parallèles — tous sont simplement des « cousins ».</div>
           </div>
@@ -216,10 +216,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quels sont les quatre termes de « l'atome de parenté » selon Lévi-Strauss ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Père, mère, fils, fille</div>
-              <div class="option" onclick="answer(this,true)">Frère, sœur, mari de la sœur, fils de la sœur</div>
-              <div class="option" onclick="answer(this,false)">Grand-père, père, fils, petit-fils</div>
-              <div class="option" onclick="answer(this,false)">Oncle, tante, neveu, nièce</div>
+              <button class="option" onclick="answer(this,false)">Père, mère, fils, fille</button>
+              <button class="option" onclick="answer(this,true)">Frère, sœur, mari de la sœur, fils de la sœur</button>
+              <button class="option" onclick="answer(this,false)">Grand-père, père, fils, petit-fils</button>
+              <button class="option" onclick="answer(this,false)">Oncle, tante, neveu, nièce</button>
             </div>
             <div class="q-feedback">L'atome de parenté comprend un homme, sa sœur, le mari de sa sœur (beau-frère) et le fils de ce couple (neveu). Il intègre ainsi les trois relations fondamentales : consanguinité, alliance et filiation, plus la relation avunculaire.</div>
           </div>
@@ -289,8 +289,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

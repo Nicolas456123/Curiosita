@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Concentration, dilution, solubilit et pr cipitation : ma triser les notions fondamentales sur les solutions aqueuses, indispensables en chimie et en...">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Solutions et solubilit&eacute; &mdash; Chimie inorganique &mdash; Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #d35400; --accent2: #e67e22; --accent-dim: rgba(211,84,0,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(211,84,0,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #d35400; --accent2: #e67e22; --accent-dim: rgba(211,84,0,0.08);  --accent-hero: rgba(211,84,0,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../sciences-exactes.html">Sciences exactes</a> &rsaquo; <a href="../inorganique.html">Chimie inorganique</a> &rsaquo; <span>Solutions et solubilit&eacute;</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">&#9883;&#65039; Chimie inorganique</span>
     <span class="tag-level">D&eacute;butant</span>
@@ -142,10 +142,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est l'unit&eacute; de la concentration molaire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">g/L</div>
-              <div class="option" onclick="answer(this,true)">mol/L</div>
-              <div class="option" onclick="answer(this,false)">mol/kg</div>
-              <div class="option" onclick="answer(this,false)">% m/m</div>
+              <button class="option" onclick="answer(this,false)">g/L</button>
+              <button class="option" onclick="answer(this,true)">mol/L</button>
+              <button class="option" onclick="answer(this,false)">mol/kg</button>
+              <button class="option" onclick="answer(this,false)">% m/m</button>
             </div>
             <div class="q-feedback">La concentration molaire C s'exprime en moles par litre (mol/L ou M). C'est le mode d'expression le plus utilis&eacute; en chimie des solutions.</div>
           </div>
@@ -153,10 +153,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">On dilue 50 mL d'une solution &agrave; 0,2 mol/L pour obtenir 200 mL. Quelle est la nouvelle concentration ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">0,05 mol/L</div>
-              <div class="option" onclick="answer(this,false)">0,1 mol/L</div>
-              <div class="option" onclick="answer(this,false)">0,8 mol/L</div>
-              <div class="option" onclick="answer(this,false)">0,4 mol/L</div>
+              <button class="option" onclick="answer(this,true)">0,05 mol/L</button>
+              <button class="option" onclick="answer(this,false)">0,1 mol/L</button>
+              <button class="option" onclick="answer(this,false)">0,8 mol/L</button>
+              <button class="option" onclick="answer(this,false)">0,4 mol/L</button>
             </div>
             <div class="q-feedback">C&#8321;V&#8321; = C&#8322;V&#8322; &rarr; 0,2 &times; 50 = C&#8322; &times; 200 &rarr; C&#8322; = 10/200 = 0,05 mol/L. La concentration a &eacute;t&eacute; divis&eacute;e par 4 (facteur de dilution).</div>
           </div>
@@ -164,10 +164,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que se passe-t-il quand Q &gt; K<sub>sp</sub> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La solution est non satur&eacute;e</div>
-              <div class="option" onclick="answer(this,false)">Le solut&eacute; continue de se dissoudre</div>
-              <div class="option" onclick="answer(this,true)">Un pr&eacute;cipit&eacute; se forme</div>
-              <div class="option" onclick="answer(this,false)">La temp&eacute;rature augmente</div>
+              <button class="option" onclick="answer(this,false)">La solution est non satur&eacute;e</button>
+              <button class="option" onclick="answer(this,false)">Le solut&eacute; continue de se dissoudre</button>
+              <button class="option" onclick="answer(this,true)">Un pr&eacute;cipit&eacute; se forme</button>
+              <button class="option" onclick="answer(this,false)">La temp&eacute;rature augmente</button>
             </div>
             <div class="q-feedback">Quand Q &gt; K<sub>sp</sub>, la solution est sursatur&eacute;e et un pr&eacute;cipit&eacute; se forme jusqu'&agrave; ce que Q redescende &agrave; K<sub>sp</sub> (&eacute;quilibre de dissolution).</div>
           </div>
@@ -175,10 +175,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel facteur augmente g&eacute;n&eacute;ralement la solubilit&eacute; d'un solide dans l'eau ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">L'augmentation de la temp&eacute;rature</div>
-              <div class="option" onclick="answer(this,false)">L'augmentation de la pression</div>
-              <div class="option" onclick="answer(this,false)">L'ajout d'un ion commun</div>
-              <div class="option" onclick="answer(this,false)">La diminution du volume</div>
+              <button class="option" onclick="answer(this,true)">L'augmentation de la temp&eacute;rature</button>
+              <button class="option" onclick="answer(this,false)">L'augmentation de la pression</button>
+              <button class="option" onclick="answer(this,false)">L'ajout d'un ion commun</button>
+              <button class="option" onclick="answer(this,false)">La diminution du volume</button>
             </div>
             <div class="q-feedback">Pour la plupart des solides, la solubilit&eacute; augmente avec la temp&eacute;rature. La pression n'a pratiquement pas d'effet sur les solides (mais elle influence les gaz via la loi de Henry).</div>
           </div>
@@ -186,10 +186,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Pourquoi sale-t-on les routes en hiver ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pour augmenter la pression de vapeur</div>
-              <div class="option" onclick="answer(this,true)">Pour abaisser le point de cong&eacute;lation de l'eau</div>
-              <div class="option" onclick="answer(this,false)">Pour dissoudre la glace par r&eacute;action chimique</div>
-              <div class="option" onclick="answer(this,false)">Pour augmenter l'adh&eacute;rence des pneus</div>
+              <button class="option" onclick="answer(this,false)">Pour augmenter la pression de vapeur</button>
+              <button class="option" onclick="answer(this,true)">Pour abaisser le point de cong&eacute;lation de l'eau</button>
+              <button class="option" onclick="answer(this,false)">Pour dissoudre la glace par r&eacute;action chimique</button>
+              <button class="option" onclick="answer(this,false)">Pour augmenter l'adh&eacute;rence des pneus</button>
             </div>
             <div class="q-feedback">Le sel (NaCl) abaisse le point de cong&eacute;lation de l'eau (cryoscopie). L'eau sal&eacute;e g&egrave;le &agrave; une temp&eacute;rature inf&eacute;rieure &agrave; 0 &deg;C, emp&ecirc;chant la formation de verglas.</div>
           </div>
@@ -197,10 +197,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle loi relie la solubilit&eacute; d'un gaz &agrave; la pression ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Loi de Raoult</div>
-              <div class="option" onclick="answer(this,true)">Loi de Henry</div>
-              <div class="option" onclick="answer(this,false)">Loi de Van't Hoff</div>
-              <div class="option" onclick="answer(this,false)">Loi de Le Chatelier</div>
+              <button class="option" onclick="answer(this,false)">Loi de Raoult</button>
+              <button class="option" onclick="answer(this,true)">Loi de Henry</button>
+              <button class="option" onclick="answer(this,false)">Loi de Van't Hoff</button>
+              <button class="option" onclick="answer(this,false)">Loi de Le Chatelier</button>
             </div>
             <div class="q-feedback">La loi de Henry (s = k<sub>H</sub> &times; P) indique que la solubilit&eacute; d'un gaz est proportionnelle &agrave; sa pression partielle. C'est pourquoi les boissons gazeuses perdent leur CO&#8322; &agrave; l'ouverture.</div>
           </div>
@@ -265,8 +265,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Le langage du web — manipulation du DOM, gestion des événements, fonctions, programmation asynchrone et les apports majeurs d'ES6+.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>JavaScript — Web — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #2980b9;
   --accent2: #3498db;
   --accent-dim: rgba(41,128,185,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(41,128,185,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(41,128,185,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🌐 Web</span>
     <span class="tag-level">Intermédiaire</span>
@@ -257,10 +257,10 @@ document.<span class="fn">addEventListener</span>(<span class="str">'keydown'</s
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la différence principale entre <code>let</code> et <code>const</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">let est plus rapide que const</div>
-              <div class="option" onclick="answer(this,true)">const ne peut pas être réassigné, let peut l'être</div>
-              <div class="option" onclick="answer(this,false)">const a une portée fonction, let une portée bloc</div>
-              <div class="option" onclick="answer(this,false)">Il n'y a aucune différence</div>
+              <button class="option" onclick="answer(this,false)">let est plus rapide que const</button>
+              <button class="option" onclick="answer(this,true)">const ne peut pas être réassigné, let peut l'être</button>
+              <button class="option" onclick="answer(this,false)">const a une portée fonction, let une portée bloc</button>
+              <button class="option" onclick="answer(this,false)">Il n'y a aucune différence</button>
             </div>
             <div class="q-feedback"><code>const</code> empêche la réassignation de la variable (mais pas la mutation de l'objet référencé). <code>let</code> permet la réassignation. Les deux ont une portée bloc.</div>
           </div>
@@ -268,10 +268,10 @@ document.<span class="fn">addEventListener</span>(<span class="str">'keydown'</s
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que retourne <code>typeof []</code> en JavaScript ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">"array"</div>
-              <div class="option" onclick="answer(this,true)">"object"</div>
-              <div class="option" onclick="answer(this,false)">"list"</div>
-              <div class="option" onclick="answer(this,false)">"undefined"</div>
+              <button class="option" onclick="answer(this,false)">"array"</button>
+              <button class="option" onclick="answer(this,true)">"object"</button>
+              <button class="option" onclick="answer(this,false)">"list"</button>
+              <button class="option" onclick="answer(this,false)">"undefined"</button>
             </div>
             <div class="q-feedback">En JavaScript, les tableaux sont des objets. <code>typeof</code> retourne donc <code>"object"</code>. Pour vérifier si une valeur est un tableau, on utilise <code>Array.isArray()</code>.</div>
           </div>
@@ -279,10 +279,10 @@ document.<span class="fn">addEventListener</span>(<span class="str">'keydown'</s
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle méthode permet de sélectionner un élément par sélecteur CSS dans le DOM ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">document.getElement()</div>
-              <div class="option" onclick="answer(this,false)">document.find()</div>
-              <div class="option" onclick="answer(this,true)">document.querySelector()</div>
-              <div class="option" onclick="answer(this,false)">document.select()</div>
+              <button class="option" onclick="answer(this,false)">document.getElement()</button>
+              <button class="option" onclick="answer(this,false)">document.find()</button>
+              <button class="option" onclick="answer(this,true)">document.querySelector()</button>
+              <button class="option" onclick="answer(this,false)">document.select()</button>
             </div>
             <div class="q-feedback"><code>querySelector()</code> accepte n'importe quel sélecteur CSS et retourne le premier élément correspondant. <code>querySelectorAll()</code> retourne tous les éléments correspondants sous forme de NodeList.</div>
           </div>
@@ -290,10 +290,10 @@ document.<span class="fn">addEventListener</span>(<span class="str">'keydown'</s
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Que fait le mot-clé <code>await</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il arrête complètement le programme</div>
-              <div class="option" onclick="answer(this,false)">Il crée un nouveau thread</div>
-              <div class="option" onclick="answer(this,true)">Il suspend l'exécution de la fonction async jusqu'à la résolution de la Promise</div>
-              <div class="option" onclick="answer(this,false)">Il lance une erreur si la Promise échoue</div>
+              <button class="option" onclick="answer(this,false)">Il arrête complètement le programme</button>
+              <button class="option" onclick="answer(this,false)">Il crée un nouveau thread</button>
+              <button class="option" onclick="answer(this,true)">Il suspend l'exécution de la fonction async jusqu'à la résolution de la Promise</button>
+              <button class="option" onclick="answer(this,false)">Il lance une erreur si la Promise échoue</button>
             </div>
             <div class="q-feedback"><code>await</code> suspend l'exécution de la fonction <code>async</code> en attendant que la Promise soit résolue ou rejetée. Le reste du programme continue de s'exécuter (la boucle d'événements n'est pas bloquée).</div>
           </div>
@@ -301,10 +301,10 @@ document.<span class="fn">addEventListener</span>(<span class="str">'keydown'</s
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle syntaxe représente une fonction fléchée ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">function => (x) { return x; }</div>
-              <div class="option" onclick="answer(this,true)">(x) => x * 2</div>
-              <div class="option" onclick="answer(this,false)">arrow(x) { return x; }</div>
-              <div class="option" onclick="answer(this,false)">lambda x: x * 2</div>
+              <button class="option" onclick="answer(this,false)">function => (x) { return x; }</button>
+              <button class="option" onclick="answer(this,true)">(x) => x * 2</button>
+              <button class="option" onclick="answer(this,false)">arrow(x) { return x; }</button>
+              <button class="option" onclick="answer(this,false)">lambda x: x * 2</button>
             </div>
             <div class="q-feedback">La syntaxe <code>(x) => x * 2</code> est une fonction fléchée. Avec un seul paramètre, les parenthèses sont optionnelles : <code>x => x * 2</code>. Avec un corps sur plusieurs lignes, on utilise des accolades et <code>return</code>.</div>
           </div>
@@ -312,10 +312,10 @@ document.<span class="fn">addEventListener</span>(<span class="str">'keydown'</s
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Comment importer une exportation nommée depuis un module ES6 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">require('module')</div>
-              <div class="option" onclick="answer(this,false)">import module</div>
-              <div class="option" onclick="answer(this,true)">import { nom } from './module.js'</div>
-              <div class="option" onclick="answer(this,false)">include './module.js'</div>
+              <button class="option" onclick="answer(this,false)">require('module')</button>
+              <button class="option" onclick="answer(this,false)">import module</button>
+              <button class="option" onclick="answer(this,true)">import { nom } from './module.js'</button>
+              <button class="option" onclick="answer(this,false)">include './module.js'</button>
             </div>
             <div class="q-feedback">Les exportations nommées s'importent avec des accolades : <code>import { nom } from './module.js'</code>. L'exportation par défaut s'importe sans accolades : <code>import nom from './module.js'</code>.</div>
           </div>
@@ -478,7 +478,14 @@ console.log(contenu()); // [{ id: 1, nom: 'Clavier', ... }]</code></pre></div>
   </main>
 </div>
 
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

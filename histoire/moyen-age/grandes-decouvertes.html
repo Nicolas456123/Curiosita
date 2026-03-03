@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De Marco Polo à Magellan — les explorations qui ont connecté les continents et changé le monde.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Grandes découvertes — Moyen Âge — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📜 Moyen Âge</span>
     <span class="tag-level">Intermédiaire</span>
@@ -147,10 +147,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quel navigateur portugais atteint l'Inde par la mer en 1498 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Bartolomeu Dias</div>
-              <div class="option" onclick="answer(this,true)">Vasco de Gama</div>
-              <div class="option" onclick="answer(this,false)">Christophe Colomb</div>
-              <div class="option" onclick="answer(this,false)">Magellan</div>
+              <button class="option" onclick="answer(this,false)">Bartolomeu Dias</button>
+              <button class="option" onclick="answer(this,true)">Vasco de Gama</button>
+              <button class="option" onclick="answer(this,false)">Christophe Colomb</button>
+              <button class="option" onclick="answer(this,false)">Magellan</button>
             </div>
             <div class="q-feedback">Vasco de Gama atteint Calicut (Inde) en 1498 en contournant l'Afrique, ouvrant la route maritime des épices.</div>
           </div>
@@ -158,10 +158,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">En quelle année Christophe Colomb atteint-il l'Amérique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1488</div>
-              <div class="option" onclick="answer(this,true)">1492</div>
-              <div class="option" onclick="answer(this,false)">1498</div>
-              <div class="option" onclick="answer(this,false)">1500</div>
+              <button class="option" onclick="answer(this,false)">1488</button>
+              <button class="option" onclick="answer(this,true)">1492</button>
+              <button class="option" onclick="answer(this,false)">1498</button>
+              <button class="option" onclick="answer(this,false)">1500</button>
             </div>
             <div class="q-feedback">Le 12 octobre 1492, Colomb atteint les Bahamas, croyant être arrivé en Asie. Il réalise quatre voyages au total sans jamais savoir qu'il a atteint un nouveau continent.</div>
           </div>
@@ -169,10 +169,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Combien de survivants ramène le navire Victoria après le premier tour du monde ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">18</div>
-              <div class="option" onclick="answer(this,false)">50</div>
-              <div class="option" onclick="answer(this,false)">100</div>
-              <div class="option" onclick="answer(this,false)">5</div>
+              <button class="option" onclick="answer(this,true)">18</button>
+              <button class="option" onclick="answer(this,false)">50</button>
+              <button class="option" onclick="answer(this,false)">100</button>
+              <button class="option" onclick="answer(this,false)">5</button>
             </div>
             <div class="q-feedback">Sur les 237 hommes partis en 1519, seuls 18 survivants reviennent en Espagne en 1522 à bord du Victoria, commandé par Elcano après la mort de Magellan.</div>
           </div>
@@ -180,10 +180,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quel type de navire, mis au point par les Portugais, permet l'exploration des côtes africaines ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le galion</div>
-              <div class="option" onclick="answer(this,true)">La caravelle</div>
-              <div class="option" onclick="answer(this,false)">La caraque</div>
-              <div class="option" onclick="answer(this,false)">La galère</div>
+              <button class="option" onclick="answer(this,false)">Le galion</button>
+              <button class="option" onclick="answer(this,true)">La caravelle</button>
+              <button class="option" onclick="answer(this,false)">La caraque</button>
+              <button class="option" onclick="answer(this,false)">La galère</button>
             </div>
             <div class="q-feedback">La caravelle, mise au point par les Portugais au XVᵉ siècle, est un navire léger, rapide et maniable doté de voiles latines qui permettent de naviguer au plus près du vent, idéal pour l'exploration côtière.</div>
           </div>
@@ -191,10 +191,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quel dominicain dénonce les atrocités commises contre les Amérindiens ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Hernán Cortés</div>
-              <div class="option" onclick="answer(this,false)">Amerigo Vespucci</div>
-              <div class="option" onclick="answer(this,true)">Bartolomé de Las Casas</div>
-              <div class="option" onclick="answer(this,false)">Francisco Pizarro</div>
+              <button class="option" onclick="answer(this,false)">Hernán Cortés</button>
+              <button class="option" onclick="answer(this,false)">Amerigo Vespucci</button>
+              <button class="option" onclick="answer(this,true)">Bartolomé de Las Casas</button>
+              <button class="option" onclick="answer(this,false)">Francisco Pizarro</button>
             </div>
             <div class="q-feedback">Bartolomé de Las Casas (1484-1566), dominicain espagnol, dénonce les atrocités commises contre les Amérindiens et plaide pour leurs droits lors du célèbre débat de Valladolid (1550-1551).</div>
           </div>
@@ -223,8 +223,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

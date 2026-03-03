@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ville, banlieue, gentrification, ségrégation et espaces publics — comment la ville façonne et reflète les rapports sociaux.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Sociologie urbaine — Sociologie contemporaine — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a0f5a0;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🏙️ Sociologie contemporaine</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -119,10 +119,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quelle école sociologique est considérée comme fondatrice de la sociologie urbaine ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">L'École de Chicago</div>
-              <div class="option" onclick="answer(this,false)">L'École de Francfort</div>
-              <div class="option" onclick="answer(this,false)">L'École durkheimienne</div>
-              <div class="option" onclick="answer(this,false)">L'École de Manchester</div>
+              <button class="option" onclick="answer(this,true)">L'École de Chicago</button>
+              <button class="option" onclick="answer(this,false)">L'École de Francfort</button>
+              <button class="option" onclick="answer(this,false)">L'École durkheimienne</button>
+              <button class="option" onclick="answer(this,false)">L'École de Manchester</button>
             </div>
             <div class="q-feedback">L'École de Chicago (années 1920-1940) est la pionnière de la sociologie urbaine, avec des auteurs comme Park, Burgess et Wirth.</div>
           </div>
@@ -130,10 +130,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Que désigne la gentrification ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La construction de grands ensembles en banlieue</div>
-              <div class="option" onclick="answer(this,true)">L'investissement de quartiers populaires par des catégories plus aisées</div>
-              <div class="option" onclick="answer(this,false)">La fuite des habitants vers les zones rurales</div>
-              <div class="option" onclick="answer(this,false)">La séparation ethnique des quartiers</div>
+              <button class="option" onclick="answer(this,false)">La construction de grands ensembles en banlieue</button>
+              <button class="option" onclick="answer(this,true)">L'investissement de quartiers populaires par des catégories plus aisées</button>
+              <button class="option" onclick="answer(this,false)">La fuite des habitants vers les zones rurales</button>
+              <button class="option" onclick="answer(this,false)">La séparation ethnique des quartiers</button>
             </div>
             <div class="q-feedback">La gentrification (terme de Ruth Glass, 1964) désigne le processus par lequel des quartiers populaires sont investis par des catégories sociales plus favorisées, entraînant hausse des prix et déplacement des populations modestes.</div>
           </div>
@@ -141,10 +141,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Qui a développé le concept de « droit à la ville » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pierre Bourdieu</div>
-              <div class="option" onclick="answer(this,false)">Robert Park</div>
-              <div class="option" onclick="answer(this,true)">Henri Lefebvre</div>
-              <div class="option" onclick="answer(this,false)">Manuel Castells</div>
+              <button class="option" onclick="answer(this,false)">Pierre Bourdieu</button>
+              <button class="option" onclick="answer(this,false)">Robert Park</button>
+              <button class="option" onclick="answer(this,true)">Henri Lefebvre</button>
+              <button class="option" onclick="answer(this,false)">Manuel Castells</button>
             </div>
             <div class="q-feedback">Henri Lefebvre a développé le concept de « droit à la ville » en 1968, revendiquant le droit des citadins à participer à la production de leur espace urbain.</div>
           </div>
@@ -152,10 +152,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quels sont les trois critères de l'urbanité selon Louis Wirth ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Richesse, diversité, innovation</div>
-              <div class="option" onclick="answer(this,true)">Taille, densité, hétérogénéité</div>
-              <div class="option" onclick="answer(this,false)">Mobilité, anonymat, individualisme</div>
-              <div class="option" onclick="answer(this,false)">Centre, périphérie, banlieue</div>
+              <button class="option" onclick="answer(this,false)">Richesse, diversité, innovation</button>
+              <button class="option" onclick="answer(this,true)">Taille, densité, hétérogénéité</button>
+              <button class="option" onclick="answer(this,false)">Mobilité, anonymat, individualisme</button>
+              <button class="option" onclick="answer(this,false)">Centre, périphérie, banlieue</button>
             </div>
             <div class="q-feedback">Louis Wirth définit l'urbanité par trois critères objectifs : la taille de la population, la densité et l'hétérogénéité sociale. Ces critères produisent un mode de vie spécifiquement urbain.</div>
           </div>
@@ -163,10 +163,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Que désignent les « effets de quartier » en sociologie ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les conséquences de la gentrification</div>
-              <div class="option" onclick="answer(this,false)">Les règles d'urbanisme imposées aux quartiers</div>
-              <div class="option" onclick="answer(this,true)">L'impact autonome du lieu de résidence sur les trajectoires sociales</div>
-              <div class="option" onclick="answer(this,false)">Les interactions entre voisins</div>
+              <button class="option" onclick="answer(this,false)">Les conséquences de la gentrification</button>
+              <button class="option" onclick="answer(this,false)">Les règles d'urbanisme imposées aux quartiers</button>
+              <button class="option" onclick="answer(this,true)">L'impact autonome du lieu de résidence sur les trajectoires sociales</button>
+              <button class="option" onclick="answer(this,false)">Les interactions entre voisins</button>
             </div>
             <div class="q-feedback">Les « effets de quartier » désignent l'influence propre du lieu de résidence sur les parcours individuels (emploi, éducation, santé), au-delà des caractéristiques personnelles des habitants.</div>
           </div>
@@ -233,8 +233,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Résoudre plusieurs équations simultanément — substitution, combinaison linéaire et pivot de Gauss.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Systèmes d'équations — Algèbre — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #c0392b;
   --accent2: #e74c3c;
   --accent-dim: rgba(192,57,43,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(192,57,43,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">⚖️ Algèbre</span>
     <span class="tag-level">Intermédiaire</span>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la solution du système : x + y = 5 et x - y = 1 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">(3, 2)</div>
-              <div class="option" onclick="answer(this,false)">(2, 3)</div>
-              <div class="option" onclick="answer(this,false)">(4, 1)</div>
-              <div class="option" onclick="answer(this,false)">(1, 4)</div>
+              <button class="option" onclick="answer(this,true)">(3, 2)</button>
+              <button class="option" onclick="answer(this,false)">(2, 3)</button>
+              <button class="option" onclick="answer(this,false)">(4, 1)</button>
+              <button class="option" onclick="answer(this,false)">(1, 4)</button>
             </div>
             <div class="q-feedback">En additionnant : 2x = 6, donc x = 3. Puis y = 5 - 3 = 2. Vérification : 3 + 2 = 5 et 3 - 2 = 1.</div>
           </div>
@@ -201,10 +201,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Le système 2x + 4y = 6 et x + 2y = 5 est...</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Déterminé (une solution)</div>
-              <div class="option" onclick="answer(this,true)">Incompatible (aucune solution)</div>
-              <div class="option" onclick="answer(this,false)">Indéterminé (infinité de solutions)</div>
-              <div class="option" onclick="answer(this,false)">Impossible à déterminer</div>
+              <button class="option" onclick="answer(this,false)">Déterminé (une solution)</button>
+              <button class="option" onclick="answer(this,true)">Incompatible (aucune solution)</button>
+              <button class="option" onclick="answer(this,false)">Indéterminé (infinité de solutions)</button>
+              <button class="option" onclick="answer(this,false)">Impossible à déterminer</button>
             </div>
             <div class="q-feedback">La 1re équation donne x + 2y = 3 (en divisant par 2), mais la 2e dit x + 2y = 5. On obtient 3 = 5, contradiction. Le système est incompatible.</div>
           </div>
@@ -212,10 +212,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle opération élémentaire n'est PAS utilisée dans le pivot de Gauss ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Ajouter un multiple d'une ligne à une autre</div>
-              <div class="option" onclick="answer(this,false)">Échanger deux lignes</div>
-              <div class="option" onclick="answer(this,true)">Élever une ligne au carré</div>
-              <div class="option" onclick="answer(this,false)">Multiplier une ligne par un scalaire non nul</div>
+              <button class="option" onclick="answer(this,false)">Ajouter un multiple d'une ligne à une autre</button>
+              <button class="option" onclick="answer(this,false)">Échanger deux lignes</button>
+              <button class="option" onclick="answer(this,true)">Élever une ligne au carré</button>
+              <button class="option" onclick="answer(this,false)">Multiplier une ligne par un scalaire non nul</button>
             </div>
             <div class="q-feedback">Les opérations élémentaires sont : addition d'un multiple, échange de lignes, et multiplication par un scalaire non nul. Élever au carré n'est pas une opération élémentaire car elle ne préserve pas l'équivalence du système.</div>
           </div>
@@ -223,10 +223,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Par la méthode de Cramer, résoudre : 3x + 2y = 8 et x - y = 1. Que vaut x ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">2</div>
-              <div class="option" onclick="answer(this,false)">3</div>
-              <div class="option" onclick="answer(this,false)">1</div>
-              <div class="option" onclick="answer(this,false)">4</div>
+              <button class="option" onclick="answer(this,true)">2</button>
+              <button class="option" onclick="answer(this,false)">3</button>
+              <button class="option" onclick="answer(this,false)">1</button>
+              <button class="option" onclick="answer(this,false)">4</button>
             </div>
             <div class="q-feedback">D = 3×(-1) - 2×1 = -5. Dx = 8×(-1) - 2×1 = -10. x = Dx/D = -10/-5 = 2. Vérification : 3(2) + 2(1) = 8 et 2 - 1 = 1.</div>
           </div>
@@ -234,10 +234,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Le système x + y = 3 et 2x + 2y = 6 est...</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Déterminé (une solution unique)</div>
-              <div class="option" onclick="answer(this,false)">Incompatible</div>
-              <div class="option" onclick="answer(this,true)">Indéterminé (infinité de solutions)</div>
-              <div class="option" onclick="answer(this,false)">Impossible à résoudre</div>
+              <button class="option" onclick="answer(this,false)">Déterminé (une solution unique)</button>
+              <button class="option" onclick="answer(this,false)">Incompatible</button>
+              <button class="option" onclick="answer(this,true)">Indéterminé (infinité de solutions)</button>
+              <button class="option" onclick="answer(this,false)">Impossible à résoudre</button>
             </div>
             <div class="q-feedback">La 2e équation est le double de la 1re (2x + 2y = 2(x+y) = 6). Les deux équations disent la même chose : y = 3 - x. Il y a une infinité de solutions paramétrées par x.</div>
           </div>
@@ -245,10 +245,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">On mélange du café à 6 euros/kg et du café à 10 euros/kg pour obtenir 5 kg à 7,20 euros/kg. Quelle quantité de café à 6 euros ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">2 kg</div>
-              <div class="option" onclick="answer(this,true)">3,5 kg</div>
-              <div class="option" onclick="answer(this,false)">2,5 kg</div>
-              <div class="option" onclick="answer(this,false)">4 kg</div>
+              <button class="option" onclick="answer(this,false)">2 kg</button>
+              <button class="option" onclick="answer(this,true)">3,5 kg</button>
+              <button class="option" onclick="answer(this,false)">2,5 kg</button>
+              <button class="option" onclick="answer(this,false)">4 kg</button>
             </div>
             <div class="q-feedback">Soit x le café à 6 euros et y à 10 euros. x + y = 5 et 6x + 10y = 36. De la 1re : y = 5 - x. Substitution : 6x + 10(5-x) = 36, soit -4x = -14, x = 3,5 kg.</div>
           </div>
@@ -321,8 +321,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

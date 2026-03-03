@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Démocratie, philosophie, théâtre et conquêtes — la Grèce qui a inventé l'Occident.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Grèce antique — Antiquité — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📜 Antiquité</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -150,10 +150,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qui instaure la démocratie à Athènes en 508 av. J.-C. ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Périclès</div>
-              <div class="option" onclick="answer(this,false)">Solon</div>
-              <div class="option" onclick="answer(this,true)">Clisthène</div>
-              <div class="option" onclick="answer(this,false)">Thémistocle</div>
+              <button class="option" onclick="answer(this,false)">Périclès</button>
+              <button class="option" onclick="answer(this,false)">Solon</button>
+              <button class="option" onclick="answer(this,true)">Clisthène</button>
+              <button class="option" onclick="answer(this,false)">Thémistocle</button>
             </div>
             <div class="q-feedback">Clisthène réforme les institutions athéniennes en 508 av. J.-C., créant la première démocratie de l'histoire où les citoyens participent directement aux décisions.</div>
           </div>
@@ -161,10 +161,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle bataille navale de 480 av. J.-C. est décisive contre les Perses ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Marathon</div>
-              <div class="option" onclick="answer(this,false)">Thermopyles</div>
-              <div class="option" onclick="answer(this,true)">Salamine</div>
-              <div class="option" onclick="answer(this,false)">Platées</div>
+              <button class="option" onclick="answer(this,false)">Marathon</button>
+              <button class="option" onclick="answer(this,false)">Thermopyles</button>
+              <button class="option" onclick="answer(this,true)">Salamine</button>
+              <button class="option" onclick="answer(this,false)">Platées</button>
             </div>
             <div class="q-feedback">La bataille de Salamine (480 av. J.-C.) voit la flotte athénienne, commandée par Thémistocle, écraser la marine perse de Xerxès dans un détroit étroit.</div>
           </div>
@@ -172,10 +172,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">À quel âge Alexandre le Grand meurt-il à Babylone ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">25 ans</div>
-              <div class="option" onclick="answer(this,true)">32 ans</div>
-              <div class="option" onclick="answer(this,false)">40 ans</div>
-              <div class="option" onclick="answer(this,false)">28 ans</div>
+              <button class="option" onclick="answer(this,false)">25 ans</button>
+              <button class="option" onclick="answer(this,true)">32 ans</button>
+              <button class="option" onclick="answer(this,false)">40 ans</button>
+              <button class="option" onclick="answer(this,false)">28 ans</button>
             </div>
             <div class="q-feedback">Alexandre meurt à Babylone en 323 av. J.-C. à l'âge de 32 ans, après avoir conquis un empire allant de la Grèce à l'Inde.</div>
           </div>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel conflit de 27 ans oppose Athènes à Sparte ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les guerres médiques</div>
-              <div class="option" onclick="answer(this,true)">La guerre du Péloponnèse</div>
-              <div class="option" onclick="answer(this,false)">La guerre de Troie</div>
-              <div class="option" onclick="answer(this,false)">La guerre lamiaque</div>
+              <button class="option" onclick="answer(this,false)">Les guerres médiques</button>
+              <button class="option" onclick="answer(this,true)">La guerre du Péloponnèse</button>
+              <button class="option" onclick="answer(this,false)">La guerre de Troie</button>
+              <button class="option" onclick="answer(this,false)">La guerre lamiaque</button>
             </div>
             <div class="q-feedback">La guerre du Péloponnèse (431-404 av. J.-C.) oppose Athènes et ses alliés à Sparte pendant 27 ans. Athènes est finalement vaincue.</div>
           </div>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel historien grec est considéré comme le « père de l'histoire » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Hérodote</div>
-              <div class="option" onclick="answer(this,false)">Thucydide</div>
-              <div class="option" onclick="answer(this,false)">Xénophon</div>
-              <div class="option" onclick="answer(this,false)">Plutarque</div>
+              <button class="option" onclick="answer(this,true)">Hérodote</button>
+              <button class="option" onclick="answer(this,false)">Thucydide</button>
+              <button class="option" onclick="answer(this,false)">Xénophon</button>
+              <button class="option" onclick="answer(this,false)">Plutarque</button>
             </div>
             <div class="q-feedback">Hérodote (~484-425 av. J.-C.) est surnommé le « père de l'histoire » pour ses Enquêtes (Histoires) sur les guerres médiques et les civilisations du monde antique.</div>
           </div>
@@ -205,10 +205,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">En quelle année les premiers Jeux olympiques sont-ils traditionnellement datés ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1000 av. J.-C.</div>
-              <div class="option" onclick="answer(this,true)">776 av. J.-C.</div>
-              <div class="option" onclick="answer(this,false)">508 av. J.-C.</div>
-              <div class="option" onclick="answer(this,false)">490 av. J.-C.</div>
+              <button class="option" onclick="answer(this,false)">1000 av. J.-C.</button>
+              <button class="option" onclick="answer(this,true)">776 av. J.-C.</button>
+              <button class="option" onclick="answer(this,false)">508 av. J.-C.</button>
+              <button class="option" onclick="answer(this,false)">490 av. J.-C.</button>
             </div>
             <div class="q-feedback">Les premiers Jeux olympiques sont traditionnellement datés de 776 av. J.-C. à Olympie. Ils ont lieu tous les quatre ans en l'honneur de Zeus.</div>
           </div>
@@ -271,8 +271,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

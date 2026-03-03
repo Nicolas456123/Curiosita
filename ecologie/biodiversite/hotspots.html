@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Les 36 points chauds de la planete — regions ou la richesse biologique exceptionnelle est la plus gravement menacee par les activites humaines.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Hotspots de biodiversite — Biodiversite — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #80cbc4;
   --accent-dim: rgba(122,232,216,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🗺️ Biodiversite</span>
     <span class="tag-level">Intermediaire</span>
@@ -145,10 +145,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qui a introduit le concept de hotspot de biodiversite ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Charles Darwin</div>
-              <div class="option" onclick="answer(this,true)">Norman Myers</div>
-              <div class="option" onclick="answer(this,false)">Edward O. Wilson</div>
-              <div class="option" onclick="answer(this,false)">Jane Goodall</div>
+              <button class="option" onclick="answer(this,false)">Charles Darwin</button>
+              <button class="option" onclick="answer(this,true)">Norman Myers</button>
+              <button class="option" onclick="answer(this,false)">Edward O. Wilson</button>
+              <button class="option" onclick="answer(this,false)">Jane Goodall</button>
             </div>
             <div class="q-feedback">Norman Myers a publie le concept en 1988, identifiant initialement 10 hotspots. Le nombre a ete etendu a 36 par la suite.</div>
           </div>
@@ -156,10 +156,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel pourcentage de la surface terrestre couvrent les 36 hotspots ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">2,5 %</div>
-              <div class="option" onclick="answer(this,false)">10 %</div>
-              <div class="option" onclick="answer(this,false)">25 %</div>
-              <div class="option" onclick="answer(this,false)">50 %</div>
+              <button class="option" onclick="answer(this,true)">2,5 %</button>
+              <button class="option" onclick="answer(this,false)">10 %</button>
+              <button class="option" onclick="answer(this,false)">25 %</button>
+              <button class="option" onclick="answer(this,false)">50 %</button>
             </div>
             <div class="q-feedback">Les hotspots ne couvrent que 2,5 % de la surface terrestre mais concentrent plus de 50 % des plantes endemiques mondiales.</div>
           </div>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel critere de perte de vegetation est requis pour qualifier un hotspot ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Au moins 30 %</div>
-              <div class="option" onclick="answer(this,false)">Au moins 50 %</div>
-              <div class="option" onclick="answer(this,true)">Au moins 70 %</div>
-              <div class="option" onclick="answer(this,false)">Au moins 90 %</div>
+              <button class="option" onclick="answer(this,false)">Au moins 30 %</button>
+              <button class="option" onclick="answer(this,false)">Au moins 50 %</button>
+              <button class="option" onclick="answer(this,true)">Au moins 70 %</button>
+              <button class="option" onclick="answer(this,false)">Au moins 90 %</button>
             </div>
             <div class="q-feedback">Un hotspot doit avoir perdu au moins 70 % de sa vegetation primaire d'origine, ce qui traduit un niveau de menace eleve.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel hotspot est le plus riche au monde en especes de plantes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Andes tropicales</div>
-              <div class="option" onclick="answer(this,false)">Bassin mediterraneen</div>
-              <div class="option" onclick="answer(this,false)">Madagascar</div>
-              <div class="option" onclick="answer(this,false)">Sundaland</div>
+              <button class="option" onclick="answer(this,true)">Andes tropicales</button>
+              <button class="option" onclick="answer(this,false)">Bassin mediterraneen</button>
+              <button class="option" onclick="answer(this,false)">Madagascar</button>
+              <button class="option" onclick="answer(this,false)">Sundaland</button>
             </div>
             <div class="q-feedback">Les Andes tropicales abritent plus de 30 000 especes de plantes, dont environ la moitie sont endemiques, ce qui en fait le hotspot le plus riche.</div>
           </div>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel pourcentage des especes de Madagascar sont endemiques ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">50 %</div>
-              <div class="option" onclick="answer(this,false)">70 %</div>
-              <div class="option" onclick="answer(this,true)">90 %</div>
-              <div class="option" onclick="answer(this,false)">100 %</div>
+              <button class="option" onclick="answer(this,false)">50 %</button>
+              <button class="option" onclick="answer(this,false)">70 %</button>
+              <button class="option" onclick="answer(this,true)">90 %</button>
+              <button class="option" onclick="answer(this,false)">100 %</button>
             </div>
             <div class="q-feedback">Environ 90 % des especes de Madagascar ne se trouvent nulle part ailleurs, en raison de l'isolement de l'ile depuis 88 millions d'annees.</div>
           </div>
@@ -200,10 +200,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel facteur principal explique la richesse en especes des regions tropicales ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La surface totale</div>
-              <div class="option" onclick="answer(this,true)">La stabilite climatique au cours des temps geologiques</div>
-              <div class="option" onclick="answer(this,false)">La pollution reduite</div>
-              <div class="option" onclick="answer(this,false)">La presence humaine ancienne</div>
+              <button class="option" onclick="answer(this,false)">La surface totale</button>
+              <button class="option" onclick="answer(this,true)">La stabilite climatique au cours des temps geologiques</button>
+              <button class="option" onclick="answer(this,false)">La pollution reduite</button>
+              <button class="option" onclick="answer(this,false)">La presence humaine ancienne</button>
             </div>
             <div class="q-feedback">Les tropiques n'ont pas connu de glaciations majeures, offrant des millions d'annees de stabilite climatique favorisant la speciation et l'accumulation d'especes.</div>
           </div>
@@ -270,8 +270,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Communiquer avec l'utilisateur grâce à print(), input() et le formatage de chaînes avec f-strings.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Entrées et sorties — Les bases — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #4fc3f7;
   --accent2: #81d4fa;
   --accent-dim: rgba(79,195,247,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">⌨️ Les bases</span>
     <span class="tag-level">Débutant</span>
@@ -269,10 +269,10 @@ nom = <span class="fn">input</span>(<span class="str">"Nom : "</span>).strip()  
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel type retourne <code>input()</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">int</div>
-              <div class="option" onclick="answer(this,true)">str</div>
-              <div class="option" onclick="answer(this,false)">Le type de la valeur saisie</div>
-              <div class="option" onclick="answer(this,false)">None</div>
+              <button class="option" onclick="answer(this,false)">int</button>
+              <button class="option" onclick="answer(this,true)">str</button>
+              <button class="option" onclick="answer(this,false)">Le type de la valeur saisie</button>
+              <button class="option" onclick="answer(this,false)">None</button>
             </div>
             <div class="q-feedback"><code>input()</code> retourne toujours une chaîne de caractères (str), même si l'utilisateur tape un nombre. Il faut convertir explicitement avec <code>int()</code> ou <code>float()</code>.</div>
           </div>
@@ -280,10 +280,10 @@ nom = <span class="fn">input</span>(<span class="str">"Nom : "</span>).strip()  
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que produit <code>print("A", "B", "C", sep="-")</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">A B C</div>
-              <div class="option" onclick="answer(this,true)">A-B-C</div>
-              <div class="option" onclick="answer(this,false)">ABC</div>
-              <div class="option" onclick="answer(this,false)">A, B, C</div>
+              <button class="option" onclick="answer(this,false)">A B C</button>
+              <button class="option" onclick="answer(this,true)">A-B-C</button>
+              <button class="option" onclick="answer(this,false)">ABC</button>
+              <button class="option" onclick="answer(this,false)">A, B, C</button>
             </div>
             <div class="q-feedback">Le paramètre <code>sep</code> définit le séparateur entre les arguments de <code>print()</code>. Ici, "-" remplace l'espace par défaut.</div>
           </div>
@@ -291,10 +291,10 @@ nom = <span class="fn">input</span>(<span class="str">"Nom : "</span>).strip()  
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que retourne <code>f"{3.14159:.2f}"</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">"3.14159"</div>
-              <div class="option" onclick="answer(this,true)">"3.14"</div>
-              <div class="option" onclick="answer(this,false)">"3.1"</div>
-              <div class="option" onclick="answer(this,false)">"3"</div>
+              <button class="option" onclick="answer(this,false)">"3.14159"</button>
+              <button class="option" onclick="answer(this,true)">"3.14"</button>
+              <button class="option" onclick="answer(this,false)">"3.1"</button>
+              <button class="option" onclick="answer(this,false)">"3"</button>
             </div>
             <div class="q-feedback">Le format <code>:.2f</code> arrondit le nombre à 2 décimales. <code>f</code> signifie « fixed-point » (nombre à virgule fixe). Résultat : "3.14".</div>
           </div>
@@ -302,10 +302,10 @@ nom = <span class="fn">input</span>(<span class="str">"Nom : "</span>).strip()  
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Que produit <code>f"{255:x}"</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">"255"</div>
-              <div class="option" onclick="answer(this,false)">"11111111"</div>
-              <div class="option" onclick="answer(this,true)">"ff"</div>
-              <div class="option" onclick="answer(this,false)">"0xff"</div>
+              <button class="option" onclick="answer(this,false)">"255"</button>
+              <button class="option" onclick="answer(this,false)">"11111111"</button>
+              <button class="option" onclick="answer(this,true)">"ff"</button>
+              <button class="option" onclick="answer(this,false)">"0xff"</button>
             </div>
             <div class="q-feedback">Le format <code>:x</code> convertit un nombre en notation hexadécimale (en minuscules). 255 en hexadécimal est <code>ff</code>. Utilisez <code>:X</code> pour des majuscules.</div>
           </div>
@@ -313,10 +313,10 @@ nom = <span class="fn">input</span>(<span class="str">"Nom : "</span>).strip()  
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle méthode de chaîne supprime les espaces en début et fin ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">.clean()</div>
-              <div class="option" onclick="answer(this,false)">.trim()</div>
-              <div class="option" onclick="answer(this,true)">.strip()</div>
-              <div class="option" onclick="answer(this,false)">.remove()</div>
+              <button class="option" onclick="answer(this,false)">.clean()</button>
+              <button class="option" onclick="answer(this,false)">.trim()</button>
+              <button class="option" onclick="answer(this,true)">.strip()</button>
+              <button class="option" onclick="answer(this,false)">.remove()</button>
             </div>
             <div class="q-feedback"><code>.strip()</code> enlève les espaces (et retours à la ligne) en début et fin de chaîne. <code>.lstrip()</code> n'enlève qu'à gauche, <code>.rstrip()</code> qu'à droite.</div>
           </div>
@@ -324,10 +324,10 @@ nom = <span class="fn">input</span>(<span class="str">"Nom : "</span>).strip()  
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que produit <code>f"{'Python':*^15}"</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">"Python*********"</div>
-              <div class="option" onclick="answer(this,false)">"*********Python"</div>
-              <div class="option" onclick="answer(this,true)">"****Python*****"</div>
-              <div class="option" onclick="answer(this,false)">"***Python***"</div>
+              <button class="option" onclick="answer(this,false)">"Python*********"</button>
+              <button class="option" onclick="answer(this,false)">"*********Python"</button>
+              <button class="option" onclick="answer(this,true)">"****Python*****"</button>
+              <button class="option" onclick="answer(this,false)">"***Python***"</button>
             </div>
             <div class="q-feedback">Le format <code>:*^15</code> centre le texte dans 15 caractères et remplit avec <code>*</code>. « Python » fait 6 caractères, il reste 9 : 4 à gauche et 5 à droite.</div>
           </div>
@@ -458,8 +458,14 @@ print(f"{'TOTAL':>25} {total_general:>7.2f}e")</code></pre></div>
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

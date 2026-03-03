@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'animation traditionnelle (ou animation cel) est la technique originelle du dessin anime : chaque imag...">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Animation traditionnelle — Animation — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #e87a7a; --accent2: #f09090; --accent-dim: rgba(232,122,122,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #e87a7a; --accent2: #f09090; --accent-dim: rgba(232,122,122,0.08);  --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -19,7 +19,7 @@
     <a href="../../cinema-page.html">Cinema</a> &rsaquo; <a href="../animation.html">Animation</a> &rsaquo; <span>Animation traditionnelle</span>
   </div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">&#127916; Cinema</span>
     <span class="tag-level">Debutant &rarr; Intermediaire</span>
@@ -89,10 +89,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quel est le premier long-metrage d'animation de l'histoire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pinocchio</div>
-              <div class="option" onclick="answer(this,false)">Fantasia</div>
-              <div class="option" onclick="answer(this,true)">Blanche-Neige et les Sept Nains</div>
-              <div class="option" onclick="answer(this,false)">Bambi</div>
+              <button class="option" onclick="answer(this,false)">Pinocchio</button>
+              <button class="option" onclick="answer(this,false)">Fantasia</button>
+              <button class="option" onclick="answer(this,true)">Blanche-Neige et les Sept Nains</button>
+              <button class="option" onclick="answer(this,false)">Bambi</button>
             </div>
             <div class="q-feedback">Blanche-Neige et les Sept Nains (1937) de Walt Disney est le premier long-metrage d'animation de l'histoire du cinema.</div>
           </div>
@@ -100,10 +100,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Combien d'images par seconde compte l'animation cinema ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">12</div>
-              <div class="option" onclick="answer(this,true)">24</div>
-              <div class="option" onclick="answer(this,false)">30</div>
-              <div class="option" onclick="answer(this,false)">60</div>
+              <button class="option" onclick="answer(this,false)">12</button>
+              <button class="option" onclick="answer(this,true)">24</button>
+              <button class="option" onclick="answer(this,false)">30</button>
+              <button class="option" onclick="answer(this,false)">60</button>
             </div>
             <div class="q-feedback">Le cinema d'animation standard utilise 24 images par seconde, bien que l'animation 'on twos' (une image dessinee pour deux photogrammes) soit courante.</div>
           </div>
@@ -111,10 +111,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Qui a defini les 12 principes de l'animation ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Walt Disney</div>
-              <div class="option" onclick="answer(this,false)">Hayao Miyazaki</div>
-              <div class="option" onclick="answer(this,true)">Frank Thomas et Ollie Johnston</div>
-              <div class="option" onclick="answer(this,false)">Chuck Jones</div>
+              <button class="option" onclick="answer(this,false)">Walt Disney</button>
+              <button class="option" onclick="answer(this,false)">Hayao Miyazaki</button>
+              <button class="option" onclick="answer(this,true)">Frank Thomas et Ollie Johnston</button>
+              <button class="option" onclick="answer(this,false)">Chuck Jones</button>
             </div>
             <div class="q-feedback">Frank Thomas et Ollie Johnston, animateurs legendaires de Disney, ont defini les 12 principes dans The Illusion of Life (1981).</div>
           </div>
@@ -122,10 +122,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Qui a realise le premier dessin anime sur pellicule ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Walt Disney</div>
-              <div class="option" onclick="answer(this,true)">Emile Cohl</div>
-              <div class="option" onclick="answer(this,false)">Winsor McCay</div>
-              <div class="option" onclick="answer(this,false)">Max Fleischer</div>
+              <button class="option" onclick="answer(this,false)">Walt Disney</button>
+              <button class="option" onclick="answer(this,true)">Emile Cohl</button>
+              <button class="option" onclick="answer(this,false)">Winsor McCay</button>
+              <button class="option" onclick="answer(this,false)">Max Fleischer</button>
             </div>
             <div class="q-feedback">Emile Cohl a realise Fantasmagorie en 1908, considere comme le premier dessin anime sur pellicule.</div>
           </div>
@@ -133,10 +133,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quel film marque le debut de la Renaissance Disney ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le Roi Lion</div>
-              <div class="option" onclick="answer(this,false)">Aladdin</div>
-              <div class="option" onclick="answer(this,true)">La Petite Sirene</div>
-              <div class="option" onclick="answer(this,false)">La Belle et la Bete</div>
+              <button class="option" onclick="answer(this,false)">Le Roi Lion</button>
+              <button class="option" onclick="answer(this,false)">Aladdin</button>
+              <button class="option" onclick="answer(this,true)">La Petite Sirene</button>
+              <button class="option" onclick="answer(this,false)">La Belle et la Bete</button>
             </div>
             <div class="q-feedback">La Petite Sirene (1989) marque le debut de la Renaissance Disney, relancant l'animation traditionnelle au sommet.</div>
           </div>
@@ -182,8 +182,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

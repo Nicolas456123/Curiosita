@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Articles, genre, prépositions et la fameuse distinction ser/estar : les fondations de l'espagnol.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Grammaire essentielle — Espagnol — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e8c97a;
   --accent2: #f5dfa0;
   --accent-dim: rgba(232,201,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,201,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,201,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📝 Espagnol</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -191,10 +191,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Complétez : « Yo ___ francés. » (Je suis français.)</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">soy</div>
-              <div class="option" onclick="answer(this,false)">estoy</div>
-              <div class="option" onclick="answer(this,false)">tengo</div>
-              <div class="option" onclick="answer(this,false)">hay</div>
+              <button class="option" onclick="answer(this,true)">soy</button>
+              <button class="option" onclick="answer(this,false)">estoy</button>
+              <button class="option" onclick="answer(this,false)">tengo</button>
+              <button class="option" onclick="answer(this,false)">hay</button>
             </div>
             <div class="q-feedback">La nationalité est une caractéristique permanente → on utilise SER. « Soy francés » (je suis français). On n'utilise jamais ESTAR pour la nationalité.</div>
           </div>
@@ -202,10 +202,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel article accompagne « casa » (maison) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">el</div>
-              <div class="option" onclick="answer(this,true)">la</div>
-              <div class="option" onclick="answer(this,false)">los</div>
-              <div class="option" onclick="answer(this,false)">un</div>
+              <button class="option" onclick="answer(this,false)">el</button>
+              <button class="option" onclick="answer(this,true)">la</button>
+              <button class="option" onclick="answer(this,false)">los</button>
+              <button class="option" onclick="answer(this,false)">un</button>
             </div>
             <div class="q-feedback">« Casa » est un nom féminin singulier → on utilise l'article « la ». La casa = la maison. Comme en français, « maison » est féminin.</div>
           </div>
@@ -213,10 +213,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">« Estar listo » signifie :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Être intelligent</div>
-              <div class="option" onclick="answer(this,true)">Être prêt</div>
-              <div class="option" onclick="answer(this,false)">Être libre</div>
-              <div class="option" onclick="answer(this,false)">Être heureux</div>
+              <button class="option" onclick="answer(this,false)">Être intelligent</button>
+              <button class="option" onclick="answer(this,true)">Être prêt</button>
+              <button class="option" onclick="answer(this,false)">Être libre</button>
+              <button class="option" onclick="answer(this,false)">Être heureux</button>
             </div>
             <div class="q-feedback">« Estar listo » = être prêt (état temporaire). « Ser listo » = être intelligent (caractéristique permanente). Un même adjectif change de sens selon qu'il est utilisé avec ser ou estar.</div>
           </div>
@@ -224,10 +224,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Complétez : « Gracias ___ tu ayuda. »</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">por</div>
-              <div class="option" onclick="answer(this,false)">para</div>
-              <div class="option" onclick="answer(this,false)">de</div>
-              <div class="option" onclick="answer(this,false)">a</div>
+              <button class="option" onclick="answer(this,true)">por</button>
+              <button class="option" onclick="answer(this,false)">para</button>
+              <button class="option" onclick="answer(this,false)">de</button>
+              <button class="option" onclick="answer(this,false)">a</button>
             </div>
             <div class="q-feedback">On utilise « por » pour exprimer la cause ou la raison : « Gracias por tu ayuda » (Merci pour ton aide). « Para » exprimerait un but, pas une cause.</div>
           </div>
@@ -235,10 +235,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel est le genre du mot « problema » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Masculin (el problema)</div>
-              <div class="option" onclick="answer(this,false)">Féminin (la problema)</div>
-              <div class="option" onclick="answer(this,false)">Les deux sont possibles</div>
-              <div class="option" onclick="answer(this,false)">Neutre</div>
+              <button class="option" onclick="answer(this,true)">Masculin (el problema)</button>
+              <button class="option" onclick="answer(this,false)">Féminin (la problema)</button>
+              <button class="option" onclick="answer(this,false)">Les deux sont possibles</button>
+              <button class="option" onclick="answer(this,false)">Neutre</button>
             </div>
             <div class="q-feedback">Malgré sa terminaison en -a, « problema » est masculin : « el problema ». C'est un mot d'origine grecque. D'autres mots similaires : el tema, el sistema, el programa, el mapa.</div>
           </div>
@@ -246,10 +246,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Complétez : « Veo ___ María en el parque. »</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">a</div>
-              <div class="option" onclick="answer(this,false)">de</div>
-              <div class="option" onclick="answer(this,false)">Rien (∅)</div>
-              <div class="option" onclick="answer(this,false)">en</div>
+              <button class="option" onclick="answer(this,true)">a</button>
+              <button class="option" onclick="answer(this,false)">de</button>
+              <button class="option" onclick="answer(this,false)">Rien (∅)</button>
+              <button class="option" onclick="answer(this,false)">en</button>
             </div>
             <div class="q-feedback">Le « a » personnel est obligatoire devant un COD humain en espagnol : « Veo a María ». On ne l'utilise pas devant les objets : « Veo el parque » (sans « a »). Cette règle n'existe pas en français.</div>
           </div>
@@ -339,8 +339,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

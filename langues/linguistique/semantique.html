@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Le sens des mots et des phrases : synonymie, polysémie, métaphore et relations lexicales.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Sémantique — Linguistique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e8c97a;
   --accent2: #f5dfa0;
   --accent-dim: rgba(232,201,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,201,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,201,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">💡 Linguistique</span>
     <span class="tag-level">Intermédiaire</span>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 1 / 3</p>
             <p class="q-text">Quelle relation existe entre « rose » et « fleur » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Synonymie</div>
-              <div class="option" onclick="answer(this,true)">Hyponymie</div>
-              <div class="option" onclick="answer(this,false)">Antonymie</div>
-              <div class="option" onclick="answer(this,false)">Homonymie</div>
+              <button class="option" onclick="answer(this,false)">Synonymie</button>
+              <button class="option" onclick="answer(this,true)">Hyponymie</button>
+              <button class="option" onclick="answer(this,false)">Antonymie</button>
+              <button class="option" onclick="answer(this,false)">Homonymie</button>
             </div>
             <div class="q-feedback">« Rose » est un hyponyme de « fleur » : c'est un cas particulier inclus dans une catégorie plus générale. L'hyponymie est une relation d'inclusion sémantique (tout X est un Y, mais tout Y n'est pas un X).</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 2 / 3</p>
             <p class="q-text">Le mot « feuille » (d'arbre, de papier, de calcul) est un exemple de :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Homonymie</div>
-              <div class="option" onclick="answer(this,true)">Polysémie</div>
-              <div class="option" onclick="answer(this,false)">Synonymie</div>
-              <div class="option" onclick="answer(this,false)">Antonymie</div>
+              <button class="option" onclick="answer(this,false)">Homonymie</button>
+              <button class="option" onclick="answer(this,true)">Polysémie</button>
+              <button class="option" onclick="answer(this,false)">Synonymie</button>
+              <button class="option" onclick="answer(this,false)">Antonymie</button>
             </div>
             <div class="q-feedback">C'est de la polysémie : un même mot avec plusieurs sens liés par extension métaphorique. La feuille de papier ressemble à la feuille d'arbre par sa forme plate et fine. Contrairement à l'homonymie, les sens sont historiquement et conceptuellement liés.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 3 / 3</p>
             <p class="q-text">L'expression « gagner du temps » repose sur quelle métaphore conceptuelle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">LE TEMPS EST DE L'ARGENT</div>
-              <div class="option" onclick="answer(this,false)">LA VIE EST UN VOYAGE</div>
-              <div class="option" onclick="answer(this,false)">LES IDEES SONT DES OBJETS</div>
-              <div class="option" onclick="answer(this,false)">LE TEMPS EST UN LIQUIDE</div>
+              <button class="option" onclick="answer(this,true)">LE TEMPS EST DE L'ARGENT</button>
+              <button class="option" onclick="answer(this,false)">LA VIE EST UN VOYAGE</button>
+              <button class="option" onclick="answer(this,false)">LES IDEES SONT DES OBJETS</button>
+              <button class="option" onclick="answer(this,false)">LE TEMPS EST UN LIQUIDE</button>
             </div>
             <div class="q-feedback">« Gagner du temps » s'inscrit dans la métaphore conceptuelle LE TEMPS EST DE L'ARGENT, qui structure notre rapport au temps comme une ressource économique. On « perd », « gagne », « investit » ou « dépense » du temps, comme de l'argent.</div>
           </div>
@@ -205,8 +205,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Comprendre pourquoi les prix augmentent, comment on mesure l'inflation et pourquoi les banques centrales la combattent.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Inflation — Macroéconomie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #c97ae8;
   --accent2: #ce93d8;
   --accent-dim: rgba(201,122,232,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(201,122,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(201,122,232,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📈 Macroéconomie</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -162,10 +162,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">L'inflation par les coûts se produit quand :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les consommateurs dépensent trop</div>
-              <div class="option" onclick="answer(this,true)">Les coûts de production augmentent et sont répercutés sur les prix</div>
-              <div class="option" onclick="answer(this,false)">La banque centrale baisse ses taux</div>
-              <div class="option" onclick="answer(this,false)">Le PIB augmente trop vite</div>
+              <button class="option" onclick="answer(this,false)">Les consommateurs dépensent trop</button>
+              <button class="option" onclick="answer(this,true)">Les coûts de production augmentent et sont répercutés sur les prix</button>
+              <button class="option" onclick="answer(this,false)">La banque centrale baisse ses taux</button>
+              <button class="option" onclick="answer(this,false)">Le PIB augmente trop vite</button>
             </div>
             <div class="q-feedback">L'inflation par les coûts (cost-push) provient d'une hausse des coûts de production : matières premières, salaires, énergie. Les entreprises répercutent ces coûts sur les prix de vente. Les chocs pétroliers en sont l'exemple classique.</div>
           </div>
@@ -173,10 +173,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qui est généralement avantagé par l'inflation ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les épargnants</div>
-              <div class="option" onclick="answer(this,true)">Les emprunteurs</div>
-              <div class="option" onclick="answer(this,false)">Les créanciers</div>
-              <div class="option" onclick="answer(this,false)">Les retraités à revenu fixe</div>
+              <button class="option" onclick="answer(this,false)">Les épargnants</button>
+              <button class="option" onclick="answer(this,true)">Les emprunteurs</button>
+              <button class="option" onclick="answer(this,false)">Les créanciers</button>
+              <button class="option" onclick="answer(this,false)">Les retraités à revenu fixe</button>
             </div>
             <div class="q-feedback">Les emprunteurs sont avantagés car ils remboursent leur dette en monnaie dévaluée. Si vous empruntez 100 000 euros et que l'inflation est de 5 %, la valeur réelle de votre dette diminue chaque année. C'est aussi pourquoi les États fortement endettés peuvent « préférer » l'inflation.</div>
           </div>
@@ -184,10 +184,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">La cible d'inflation de la BCE est d'environ :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">0 %</div>
-              <div class="option" onclick="answer(this,true)">2 %</div>
-              <div class="option" onclick="answer(this,false)">5 %</div>
-              <div class="option" onclick="answer(this,false)">10 %</div>
+              <button class="option" onclick="answer(this,false)">0 %</button>
+              <button class="option" onclick="answer(this,true)">2 %</button>
+              <button class="option" onclick="answer(this,false)">5 %</button>
+              <button class="option" onclick="answer(this,false)">10 %</button>
             </div>
             <div class="q-feedback">La BCE vise une inflation de 2 % à moyen terme. Ce niveau est considéré comme optimal : assez bas pour ne pas déstabiliser l'économie, mais assez élevé pour éviter la déflation et laisser une marge de manœuvre à la politique monétaire.</div>
           </div>
@@ -195,10 +195,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Selon l'équation de Fisher (M x V = P x Y), si la masse monétaire double et la production reste constante :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Les prix doublent (si V est constante)</div>
-              <div class="option" onclick="answer(this,false)">La production double</div>
-              <div class="option" onclick="answer(this,false)">La vitesse de circulation double</div>
-              <div class="option" onclick="answer(this,false)">Rien ne change</div>
+              <button class="option" onclick="answer(this,true)">Les prix doublent (si V est constante)</button>
+              <button class="option" onclick="answer(this,false)">La production double</button>
+              <button class="option" onclick="answer(this,false)">La vitesse de circulation double</button>
+              <button class="option" onclick="answer(this,false)">Rien ne change</button>
             </div>
             <div class="q-feedback">Si M double et V et Y restent constants, alors P doit doubler pour maintenir l'égalité M x V = P x Y. C'est le fondement de la théorie quantitative de la monnaie : une croissance excessive de la masse monétaire finit par se traduire en inflation.</div>
           </div>
@@ -206,10 +206,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">La « shrinkflation » désigne :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une baisse générale des prix</div>
-              <div class="option" onclick="answer(this,false)">Une hausse des salaires indexée sur l'inflation</div>
-              <div class="option" onclick="answer(this,true)">La réduction de la quantité d'un produit pour le même prix</div>
-              <div class="option" onclick="answer(this,false)">L'inflation dans le secteur immobilier uniquement</div>
+              <button class="option" onclick="answer(this,false)">Une baisse générale des prix</button>
+              <button class="option" onclick="answer(this,false)">Une hausse des salaires indexée sur l'inflation</button>
+              <button class="option" onclick="answer(this,true)">La réduction de la quantité d'un produit pour le même prix</button>
+              <button class="option" onclick="answer(this,false)">L'inflation dans le secteur immobilier uniquement</button>
             </div>
             <div class="q-feedback">La shrinkflation est une stratégie des entreprises pour augmenter implicitement les prix sans que cela soit visible : le paquet de biscuits passe de 200 g à 175 g au même prix. C'est une hausse de prix déguisée que l'INSEE intègre dans le calcul de l'IPC.</div>
           </div>
@@ -217,10 +217,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">La stagflation combine :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Forte croissance et forte inflation</div>
-              <div class="option" onclick="answer(this,true)">Stagnation économique et inflation</div>
-              <div class="option" onclick="answer(this,false)">Déflation et chômage</div>
-              <div class="option" onclick="answer(this,false)">Croissance et déflation</div>
+              <button class="option" onclick="answer(this,false)">Forte croissance et forte inflation</button>
+              <button class="option" onclick="answer(this,true)">Stagnation économique et inflation</button>
+              <button class="option" onclick="answer(this,false)">Déflation et chômage</button>
+              <button class="option" onclick="answer(this,false)">Croissance et déflation</button>
             </div>
             <div class="q-feedback">La stagflation (stagnation + inflation) est la situation la plus redoutée car les remèdes sont contradictoires : lutter contre l'inflation (politique restrictive) aggrave la stagnation, et relancer l'économie (politique expansionniste) aggrave l'inflation. Les chocs pétroliers des années 1970 ont provoqué la première grande stagflation.</div>
           </div>
@@ -287,8 +287,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

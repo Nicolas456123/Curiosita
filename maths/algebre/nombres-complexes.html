@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Forme algébrique, trigonométrique, exponentielle — le plan complexe et ses applications.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Nombres complexes — Algèbre — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #c0392b;
   --accent2: #e74c3c;
   --accent-dim: rgba(192,57,43,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(192,57,43,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔄 Algèbre</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est le module de z = 3 + 4i ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">5</div>
-              <div class="option" onclick="answer(this,false)">7</div>
-              <div class="option" onclick="answer(this,false)">√7</div>
-              <div class="option" onclick="answer(this,false)">25</div>
+              <button class="option" onclick="answer(this,true)">5</button>
+              <button class="option" onclick="answer(this,false)">7</button>
+              <button class="option" onclick="answer(this,false)">√7</button>
+              <button class="option" onclick="answer(this,false)">25</button>
             </div>
             <div class="q-feedback">|z| = √(3² + 4²) = √(9 + 16) = √25 = 5. C'est le triplet pythagoricien (3, 4, 5).</div>
           </div>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que vaut i⁴ ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">1</div>
-              <div class="option" onclick="answer(this,false)">-1</div>
-              <div class="option" onclick="answer(this,false)">i</div>
-              <div class="option" onclick="answer(this,false)">-i</div>
+              <button class="option" onclick="answer(this,true)">1</button>
+              <button class="option" onclick="answer(this,false)">-1</button>
+              <button class="option" onclick="answer(this,false)">i</button>
+              <button class="option" onclick="answer(this,false)">-i</button>
             </div>
             <div class="q-feedback">i¹ = i, i² = -1, i³ = -i, i⁴ = 1. Les puissances de i sont cycliques de période 4.</div>
           </div>
@@ -205,10 +205,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">La formule d'Euler e^(iπ) est égale à...</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">-1</div>
-              <div class="option" onclick="answer(this,false)">1</div>
-              <div class="option" onclick="answer(this,false)">i</div>
-              <div class="option" onclick="answer(this,false)">0</div>
+              <button class="option" onclick="answer(this,true)">-1</button>
+              <button class="option" onclick="answer(this,false)">1</button>
+              <button class="option" onclick="answer(this,false)">i</button>
+              <button class="option" onclick="answer(this,false)">0</button>
             </div>
             <div class="q-feedback">e^(iπ) = cos(π) + i·sin(π) = -1 + 0·i = -1. D'où la célèbre identité d'Euler : e^(iπ) + 1 = 0.</div>
           </div>
@@ -216,10 +216,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel est le conjugué de z = 2 - 3i ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">-2 + 3i</div>
-              <div class="option" onclick="answer(this,true)">2 + 3i</div>
-              <div class="option" onclick="answer(this,false)">-2 - 3i</div>
-              <div class="option" onclick="answer(this,false)">3 - 2i</div>
+              <button class="option" onclick="answer(this,false)">-2 + 3i</button>
+              <button class="option" onclick="answer(this,true)">2 + 3i</button>
+              <button class="option" onclick="answer(this,false)">-2 - 3i</button>
+              <button class="option" onclick="answer(this,false)">3 - 2i</button>
             </div>
             <div class="q-feedback">Le conjugué s'obtient en changeant le signe de la partie imaginaire uniquement : z̄ = 2 + 3i. La partie réelle reste inchangée.</div>
           </div>
@@ -227,10 +227,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que vaut (1 + i)² ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">2i</div>
-              <div class="option" onclick="answer(this,false)">2</div>
-              <div class="option" onclick="answer(this,false)">1 + 2i</div>
-              <div class="option" onclick="answer(this,false)">2 + 2i</div>
+              <button class="option" onclick="answer(this,true)">2i</button>
+              <button class="option" onclick="answer(this,false)">2</button>
+              <button class="option" onclick="answer(this,false)">1 + 2i</button>
+              <button class="option" onclick="answer(this,false)">2 + 2i</button>
             </div>
             <div class="q-feedback">(1 + i)² = 1 + 2i + i² = 1 + 2i - 1 = 2i. On peut aussi voir que |1+i| = √2, arg(1+i) = π/4, donc (1+i)² a pour module 2 et argument π/2, c'est-à-dire 2i.</div>
           </div>
@@ -238,10 +238,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Combien de racines cubiques de l'unité existe-t-il ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1</div>
-              <div class="option" onclick="answer(this,false)">2</div>
-              <div class="option" onclick="answer(this,true)">3</div>
-              <div class="option" onclick="answer(this,false)">6</div>
+              <button class="option" onclick="answer(this,false)">1</button>
+              <button class="option" onclick="answer(this,false)">2</button>
+              <button class="option" onclick="answer(this,true)">3</button>
+              <button class="option" onclick="answer(this,false)">6</button>
             </div>
             <div class="q-feedback">L'équation z³ = 1 a exactement 3 solutions : z₀ = 1, z₁ = e^(2iπ/3) = -1/2 + i√3/2, z₂ = e^(4iπ/3) = -1/2 - i√3/2. Elles forment un triangle équilatéral inscrit dans le cercle unité.</div>
           </div>
@@ -311,8 +311,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tri par insertion, sélection, fusion et rapide — comprendre, implémenter et comparer les algorithmes classiques de tri.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Algorithmes de tri — Algorithmes — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #4fc3f7;
   --accent2: #81d4fa;
   --accent-dim: rgba(79,195,247,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">💻 Informatique</span>
     <span class="tag-level">Intermédiaire</span>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quel tri est le plus efficace pour une liste presque triée ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Tri par insertion</div>
-              <div class="option" onclick="answer(this,false)">Tri par sélection</div>
-              <div class="option" onclick="answer(this,false)">Tri rapide</div>
-              <div class="option" onclick="answer(this,false)">Tri fusion</div>
+              <button class="option" onclick="answer(this,true)">Tri par insertion</button>
+              <button class="option" onclick="answer(this,false)">Tri par sélection</button>
+              <button class="option" onclick="answer(this,false)">Tri rapide</button>
+              <button class="option" onclick="answer(this,false)">Tri fusion</button>
             </div>
             <div class="q-feedback">Le tri par insertion est en O(n) sur une liste presque triée car il ne déplace que quelques éléments. Les autres restent en O(n log n) ou O(n²).</div>
           </div>
@@ -199,10 +199,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Quelle est la complexité du tri fusion dans le pire cas ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">O(n²)</div>
-              <div class="option" onclick="answer(this,true)">O(n log n)</div>
-              <div class="option" onclick="answer(this,false)">O(n)</div>
-              <div class="option" onclick="answer(this,false)">O(log n)</div>
+              <button class="option" onclick="answer(this,false)">O(n²)</button>
+              <button class="option" onclick="answer(this,true)">O(n log n)</button>
+              <button class="option" onclick="answer(this,false)">O(n)</button>
+              <button class="option" onclick="answer(this,false)">O(log n)</button>
             </div>
             <div class="q-feedback">Le tri fusion garantit O(n log n) dans tous les cas (meilleur, moyen et pire). C'est sa grande force par rapport au tri rapide.</div>
           </div>
@@ -210,10 +210,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Qu'est-ce qu'un tri « stable » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un tri qui ne plante jamais</div>
-              <div class="option" onclick="answer(this,true)">Un tri qui préserve l'ordre des éléments égaux</div>
-              <div class="option" onclick="answer(this,false)">Un tri en place</div>
-              <div class="option" onclick="answer(this,false)">Un tri en O(n log n)</div>
+              <button class="option" onclick="answer(this,false)">Un tri qui ne plante jamais</button>
+              <button class="option" onclick="answer(this,true)">Un tri qui préserve l'ordre des éléments égaux</button>
+              <button class="option" onclick="answer(this,false)">Un tri en place</button>
+              <button class="option" onclick="answer(this,false)">Un tri en O(n log n)</button>
             </div>
             <div class="q-feedback">Un tri stable conserve l'ordre relatif des éléments ayant la même clé de tri. Par exemple, si deux étudiants ont la même note, leur ordre initial est préservé.</div>
           </div>
@@ -221,10 +221,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Le tri rapide a un pire cas en O(n²). Quand cela se produit-il ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Quand la liste est aléatoire</div>
-              <div class="option" onclick="answer(this,true)">Quand le pivot choisi est toujours le minimum ou le maximum</div>
-              <div class="option" onclick="answer(this,false)">Quand la liste contient des doublons</div>
-              <div class="option" onclick="answer(this,false)">Quand la liste est de taille impaire</div>
+              <button class="option" onclick="answer(this,false)">Quand la liste est aléatoire</button>
+              <button class="option" onclick="answer(this,true)">Quand le pivot choisi est toujours le minimum ou le maximum</button>
+              <button class="option" onclick="answer(this,false)">Quand la liste contient des doublons</button>
+              <button class="option" onclick="answer(this,false)">Quand la liste est de taille impaire</button>
             </div>
             <div class="q-feedback">Si le pivot est toujours le plus petit ou le plus grand élément, la partition est maximalement déséquilibrée : un sous-tableau de taille 0 et un de taille n-1, donnant O(n²).</div>
           </div>
@@ -232,10 +232,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quel tri utilise la stratégie « diviser pour régner » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Tri par insertion</div>
-              <div class="option" onclick="answer(this,false)">Tri par sélection</div>
-              <div class="option" onclick="answer(this,true)">Tri fusion</div>
-              <div class="option" onclick="answer(this,false)">Tri à bulles</div>
+              <button class="option" onclick="answer(this,false)">Tri par insertion</button>
+              <button class="option" onclick="answer(this,false)">Tri par sélection</button>
+              <button class="option" onclick="answer(this,true)">Tri fusion</button>
+              <button class="option" onclick="answer(this,false)">Tri à bulles</button>
             </div>
             <div class="q-feedback">Le tri fusion et le tri rapide utilisent tous deux la stratégie « diviser pour régner ». Le tri fusion divise en deux moitiés puis fusionne ; le tri rapide partitionne autour d'un pivot.</div>
           </div>
@@ -331,8 +331,14 @@ resultat = sorted(etudiants, key=lambda e: (-e["note"], e["nom"]))
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

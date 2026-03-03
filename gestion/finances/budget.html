@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Établir un budget, suivre ses dépenses et maîtriser ses finances au quotidien avec des méthodes concrètes.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Budget et gestion — Finances personnelles — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">💰 Finances personnelles</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Dans la règle 50/30/20, à quoi correspond le 20 % ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les besoins essentiels</div>
-              <div class="option" onclick="answer(this,false)">Les loisirs et envies</div>
-              <div class="option" onclick="answer(this,true)">L'épargne et le remboursement de dettes</div>
-              <div class="option" onclick="answer(this,false)">Les charges fixes</div>
+              <button class="option" onclick="answer(this,false)">Les besoins essentiels</button>
+              <button class="option" onclick="answer(this,false)">Les loisirs et envies</button>
+              <button class="option" onclick="answer(this,true)">L'épargne et le remboursement de dettes</button>
+              <button class="option" onclick="answer(this,false)">Les charges fixes</button>
             </div>
             <div class="q-feedback">Dans la règle 50/30/20 : 50 % pour les besoins, 30 % pour les envies, et 20 % pour l'épargne et le remboursement de dettes.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Combien coûte un café à 3 € par jour sur une année ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">360 €</div>
-              <div class="option" onclick="answer(this,false)">720 €</div>
-              <div class="option" onclick="answer(this,true)">Environ 1 080 €</div>
-              <div class="option" onclick="answer(this,false)">1 500 €</div>
+              <button class="option" onclick="answer(this,false)">360 €</button>
+              <button class="option" onclick="answer(this,false)">720 €</button>
+              <button class="option" onclick="answer(this,true)">Environ 1 080 €</button>
+              <button class="option" onclick="answer(this,false)">1 500 €</button>
             </div>
             <div class="q-feedback">3 € × 30 jours = 90 €/mois × 12 mois = 1 080 €/an. C'est le « latte factor » : les petites dépenses quotidiennes ont un impact considérable sur l'année.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel est le principe du système des enveloppes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Répartir son budget par catégories et s'arrêter quand une enveloppe est vide</div>
-              <div class="option" onclick="answer(this,false)">Garder tout son argent en liquide</div>
-              <div class="option" onclick="answer(this,false)">Épargner un montant fixe dans une enveloppe chaque mois</div>
-              <div class="option" onclick="answer(this,false)">Utiliser des enveloppes pour envoyer de l'argent</div>
+              <button class="option" onclick="answer(this,true)">Répartir son budget par catégories et s'arrêter quand une enveloppe est vide</button>
+              <button class="option" onclick="answer(this,false)">Garder tout son argent en liquide</button>
+              <button class="option" onclick="answer(this,false)">Épargner un montant fixe dans une enveloppe chaque mois</button>
+              <button class="option" onclick="answer(this,false)">Utiliser des enveloppes pour envoyer de l'argent</button>
             </div>
             <div class="q-feedback">Le système des enveloppes répartit le budget par catégories. Quand une enveloppe est vide, on cesse de dépenser dans cette catégorie. C'est un garde-fou simple et visuel.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle loi permet de résilier son assurance à tout moment après un an ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">La loi Hamon</div>
-              <div class="option" onclick="answer(this,false)">La loi Chatel</div>
-              <div class="option" onclick="answer(this,false)">La loi Lagarde</div>
-              <div class="option" onclick="answer(this,false)">La loi Scrivener</div>
+              <button class="option" onclick="answer(this,true)">La loi Hamon</button>
+              <button class="option" onclick="answer(this,false)">La loi Chatel</button>
+              <button class="option" onclick="answer(this,false)">La loi Lagarde</button>
+              <button class="option" onclick="answer(this,false)">La loi Scrivener</button>
             </div>
             <div class="q-feedback">La loi Hamon (2015) permet de résilier ses contrats d'assurance auto, habitation et emprunteur à tout moment après la première année, sans frais ni pénalité.</div>
           </div>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce que la règle des 48h pour les achats ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Retourner tout achat dans les 48h</div>
-              <div class="option" onclick="answer(this,true)">Attendre 48h avant tout achat impulsif supérieur à 50 €</div>
-              <div class="option" onclick="answer(this,false)">Ne faire ses courses que tous les 2 jours</div>
-              <div class="option" onclick="answer(this,false)">Comparer les prix pendant 48h</div>
+              <button class="option" onclick="answer(this,false)">Retourner tout achat dans les 48h</button>
+              <button class="option" onclick="answer(this,true)">Attendre 48h avant tout achat impulsif supérieur à 50 €</button>
+              <button class="option" onclick="answer(this,false)">Ne faire ses courses que tous les 2 jours</button>
+              <button class="option" onclick="answer(this,false)">Comparer les prix pendant 48h</button>
             </div>
             <div class="q-feedback">La règle des 48h consiste à attendre 48 heures avant de finaliser un achat non prévu. Ce délai permet de distinguer un besoin réel d'une envie passagère, réduisant significativement les achats impulsifs.</div>
           </div>
@@ -203,10 +203,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel est le levier le plus efficace pour réduire ses dépenses ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Les charges fixes (car l'économie se répète chaque mois)</div>
-              <div class="option" onclick="answer(this,false)">Les loisirs (car ce sont des dépenses inutiles)</div>
-              <div class="option" onclick="answer(this,false)">L'alimentation (car c'est le poste le plus élevé)</div>
-              <div class="option" onclick="answer(this,false)">Les vêtements (car on en achète trop)</div>
+              <button class="option" onclick="answer(this,true)">Les charges fixes (car l'économie se répète chaque mois)</button>
+              <button class="option" onclick="answer(this,false)">Les loisirs (car ce sont des dépenses inutiles)</button>
+              <button class="option" onclick="answer(this,false)">L'alimentation (car c'est le poste le plus élevé)</button>
+              <button class="option" onclick="answer(this,false)">Les vêtements (car on en achète trop)</button>
             </div>
             <div class="q-feedback">Les charges fixes sont le levier le plus efficace car chaque euro économisé se répète automatiquement chaque mois. Résilier un abonnement de 15 €/mois = 180 € économisés par an sans effort continu.</div>
           </div>
@@ -276,8 +276,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

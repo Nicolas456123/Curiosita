@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mémoïsation, tabulation et sous-problèmes optimaux — la technique reine pour résoudre les problèmes d'optimisation.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Programmation dynamique — Algorithmes — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08);  --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../informatique-page.html">Informatique</a> › <a href="../algorithmes.html">Algorithmes</a> › <span>Programmation dynamique</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">💻 Informatique</span><span class="tag-level">Avancé</span><span class="tag-time">⏱ ~45 min</span></div>
   <h1><em>Programmation dynamique</em></h1>
   <p class="hero-desc">Mémoïsation, tabulation et sous-problèmes optimaux — la technique reine pour résoudre les problèmes d'optimisation.</p>
@@ -142,10 +142,10 @@ valeurs = [<span class="num">1</span>, <span class="num">4</span>, <span class="
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quelle est la complexité de Fibonacci naïf récursif ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">O(n)</div>
-              <div class="option" onclick="answer(this,false)">O(n²)</div>
-              <div class="option" onclick="answer(this,true)">O(2ⁿ)</div>
-              <div class="option" onclick="answer(this,false)">O(n log n)</div>
+              <button class="option" onclick="answer(this,false)">O(n)</button>
+              <button class="option" onclick="answer(this,false)">O(n²)</button>
+              <button class="option" onclick="answer(this,true)">O(2ⁿ)</button>
+              <button class="option" onclick="answer(this,false)">O(n log n)</button>
             </div>
             <div class="q-feedback">Sans mémoïsation, chaque appel se divise en deux, créant un arbre d'appels de taille exponentielle O(2ⁿ). Avec la PD, on passe à O(n).</div>
           </div>
@@ -153,10 +153,10 @@ valeurs = [<span class="num">1</span>, <span class="num">4</span>, <span class="
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Quelle est la différence entre mémoïsation et tabulation ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Mémoïsation est top-down, tabulation est bottom-up</div>
-              <div class="option" onclick="answer(this,false)">Mémoïsation est plus rapide</div>
-              <div class="option" onclick="answer(this,false)">Tabulation ne fonctionne que pour Fibonacci</div>
-              <div class="option" onclick="answer(this,false)">Il n'y a aucune différence</div>
+              <button class="option" onclick="answer(this,true)">Mémoïsation est top-down, tabulation est bottom-up</button>
+              <button class="option" onclick="answer(this,false)">Mémoïsation est plus rapide</button>
+              <button class="option" onclick="answer(this,false)">Tabulation ne fonctionne que pour Fibonacci</button>
+              <button class="option" onclick="answer(this,false)">Il n'y a aucune différence</button>
             </div>
             <div class="q-feedback">La mémoïsation part du problème complet et descend récursivement (top-down) en cachant les résultats. La tabulation remplit un tableau depuis les cas de base (bottom-up).</div>
           </div>
@@ -164,10 +164,10 @@ valeurs = [<span class="num">1</span>, <span class="num">4</span>, <span class="
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Quelle propriété est nécessaire pour appliquer la programmation dynamique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le problème doit être de tri</div>
-              <div class="option" onclick="answer(this,true)">Sous-problèmes chevauchants et sous-structure optimale</div>
-              <div class="option" onclick="answer(this,false)">Le problème doit être sur un graphe</div>
-              <div class="option" onclick="answer(this,false)">Les données doivent être triées</div>
+              <button class="option" onclick="answer(this,false)">Le problème doit être de tri</button>
+              <button class="option" onclick="answer(this,true)">Sous-problèmes chevauchants et sous-structure optimale</button>
+              <button class="option" onclick="answer(this,false)">Le problème doit être sur un graphe</button>
+              <button class="option" onclick="answer(this,false)">Les données doivent être triées</button>
             </div>
             <div class="q-feedback">La PD nécessite que les mêmes sous-problèmes soient résolus plusieurs fois (chevauchement) et que la solution optimale contienne les solutions optimales des sous-problèmes (sous-structure optimale).</div>
           </div>
@@ -175,10 +175,10 @@ valeurs = [<span class="num">1</span>, <span class="num">4</span>, <span class="
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quelle est la complexité du sac à dos 0/1 avec n objets et capacité W ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">O(n²)</div>
-              <div class="option" onclick="answer(this,true)">O(n × W)</div>
-              <div class="option" onclick="answer(this,false)">O(2ⁿ)</div>
-              <div class="option" onclick="answer(this,false)">O(n log n)</div>
+              <button class="option" onclick="answer(this,false)">O(n²)</button>
+              <button class="option" onclick="answer(this,true)">O(n × W)</button>
+              <button class="option" onclick="answer(this,false)">O(2ⁿ)</button>
+              <button class="option" onclick="answer(this,false)">O(n log n)</button>
             </div>
             <div class="q-feedback">Le tableau DP a n lignes et W colonnes, chaque case étant calculée en O(1). La complexité totale est donc O(n × W), ce qu'on appelle pseudo-polynomial.</div>
           </div>
@@ -186,10 +186,10 @@ valeurs = [<span class="num">1</span>, <span class="num">4</span>, <span class="
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quelle technique la PD remplace-t-elle avantageusement ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le tri par insertion</div>
-              <div class="option" onclick="answer(this,false)">La recherche dichotomique</div>
-              <div class="option" onclick="answer(this,true)">La force brute / récursion naïve</div>
-              <div class="option" onclick="answer(this,false)">Le parcours BFS</div>
+              <button class="option" onclick="answer(this,false)">Le tri par insertion</button>
+              <button class="option" onclick="answer(this,false)">La recherche dichotomique</button>
+              <button class="option" onclick="answer(this,true)">La force brute / récursion naïve</button>
+              <button class="option" onclick="answer(this,false)">Le parcours BFS</button>
             </div>
             <div class="q-feedback">La PD élimine les recalculs redondants de la récursion naïve en mémorisant les résultats des sous-problèmes, transformant souvent un algorithme exponentiel en polynomial.</div>
           </div>
@@ -253,8 +253,14 @@ print(lis([10, 9, 2, 5, 3, 7, 101, 18]))  # 4 → [2, 5, 7, 101]</code></pre></d
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

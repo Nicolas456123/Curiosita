@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Destruction des habitats, surexploitation, especes invasives — les cinq grandes extinctions passees et la sixieme en cours provoquee par l'humanite.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Menaces et extinctions — Biodiversite — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #80cbc4;
   --accent-dim: rgba(122,232,216,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">⚠️ Biodiversite</span>
     <span class="tag-level">Intermediaire</span>
@@ -141,10 +141,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle extinction de masse a ete la plus devastatrice ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Cretace-Paleogene (-66 Ma)</div>
-              <div class="option" onclick="answer(this,true)">Permien-Trias (-252 Ma)</div>
-              <div class="option" onclick="answer(this,false)">Ordovicien-Silurien (-445 Ma)</div>
-              <div class="option" onclick="answer(this,false)">Devonien superieur (-375 Ma)</div>
+              <button class="option" onclick="answer(this,false)">Cretace-Paleogene (-66 Ma)</button>
+              <button class="option" onclick="answer(this,true)">Permien-Trias (-252 Ma)</button>
+              <button class="option" onclick="answer(this,false)">Ordovicien-Silurien (-445 Ma)</button>
+              <button class="option" onclick="answer(this,false)">Devonien superieur (-375 Ma)</button>
             </div>
             <div class="q-feedback">L'extinction Permien-Trias, surnommee la « Grande Mort », a elimine 96 % des especes marines et 70 % des vertebres terrestres.</div>
           </div>
@@ -152,10 +152,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle est la premiere cause actuelle de perte de biodiversite ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le changement climatique</div>
-              <div class="option" onclick="answer(this,false)">La pollution</div>
-              <div class="option" onclick="answer(this,true)">La destruction des habitats</div>
-              <div class="option" onclick="answer(this,false)">Les especes invasives</div>
+              <button class="option" onclick="answer(this,false)">Le changement climatique</button>
+              <button class="option" onclick="answer(this,false)">La pollution</button>
+              <button class="option" onclick="answer(this,true)">La destruction des habitats</button>
+              <button class="option" onclick="answer(this,false)">Les especes invasives</button>
             </div>
             <div class="q-feedback">La destruction et la fragmentation des habitats, principalement pour l'agriculture, est la premiere cause de declin de la biodiversite a l'echelle mondiale.</div>
           </div>
@@ -163,10 +163,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que signifie l'acronyme HIPPO dans le contexte de la biodiversite ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Habitat, Invasives, Pollution, Population, Over-exploitation</div>
-              <div class="option" onclick="answer(this,false)">Humain, Industrie, Pesticides, Plastique, Oceans</div>
-              <div class="option" onclick="answer(this,false)">Habitat, Incendies, Predation, Pollution, Oxygene</div>
-              <div class="option" onclick="answer(this,false)">C'est le nom d'un animal menace</div>
+              <button class="option" onclick="answer(this,true)">Habitat, Invasives, Pollution, Population, Over-exploitation</button>
+              <button class="option" onclick="answer(this,false)">Humain, Industrie, Pesticides, Plastique, Oceans</button>
+              <button class="option" onclick="answer(this,false)">Habitat, Incendies, Predation, Pollution, Oxygene</button>
+              <button class="option" onclick="answer(this,false)">C'est le nom d'un animal menace</button>
             </div>
             <div class="q-feedback">HIPPO resume les cinq grandes menaces : perte d'Habitat, especes Invasives, Pollution, croissance de la Population humaine et Over-exploitation (surexploitation).</div>
           </div>
@@ -174,10 +174,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Combien d'especes le rapport IPBES de 2019 estime-t-il menacees d'extinction ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">100 000</div>
-              <div class="option" onclick="answer(this,false)">500 000</div>
-              <div class="option" onclick="answer(this,true)">1 million</div>
-              <div class="option" onclick="answer(this,false)">10 millions</div>
+              <button class="option" onclick="answer(this,false)">100 000</button>
+              <button class="option" onclick="answer(this,false)">500 000</button>
+              <button class="option" onclick="answer(this,true)">1 million</button>
+              <button class="option" onclick="answer(this,false)">10 millions</button>
             </div>
             <div class="q-feedback">Le rapport mondial de l'IPBES estime qu'environ un million d'especes animales et vegetales sont menacees d'extinction dans les prochaines decennies.</div>
           </div>
@@ -185,10 +185,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel animal domestique est responsable de l'extinction de dizaines d'especes insulaires ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le chien</div>
-              <div class="option" onclick="answer(this,true)">Le chat</div>
-              <div class="option" onclick="answer(this,false)">Le rat</div>
-              <div class="option" onclick="answer(this,false)">La chevre</div>
+              <button class="option" onclick="answer(this,false)">Le chien</button>
+              <button class="option" onclick="answer(this,true)">Le chat</button>
+              <button class="option" onclick="answer(this,false)">Le rat</button>
+              <button class="option" onclick="answer(this,false)">La chevre</button>
             </div>
             <div class="q-feedback">Le chat domestique est responsable de l'extinction de 63 especes d'oiseaux, mammiferes et reptiles, principalement sur les iles ou les especes n'avaient pas de predateurs terrestres.</div>
           </div>
@@ -196,10 +196,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Le taux d'extinction actuel est combien de fois superieur au taux naturel ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">10 fois</div>
-              <div class="option" onclick="answer(this,true)">100 a 1 000 fois</div>
-              <div class="option" onclick="answer(this,false)">2 a 5 fois</div>
-              <div class="option" onclick="answer(this,false)">10 000 fois</div>
+              <button class="option" onclick="answer(this,false)">10 fois</button>
+              <button class="option" onclick="answer(this,true)">100 a 1 000 fois</button>
+              <button class="option" onclick="answer(this,false)">2 a 5 fois</button>
+              <button class="option" onclick="answer(this,false)">10 000 fois</button>
             </div>
             <div class="q-feedback">Le taux d'extinction actuel est estime a 100 a 1 000 fois le taux naturel de fond, ce qui justifie le terme de « sixieme extinction de masse ».</div>
           </div>
@@ -266,8 +266,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

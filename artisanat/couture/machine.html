@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Choisir, enfiler, régler et entretenir sa machine. Points droits, zigzag et points décoratifs.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>La machine à coudre — Couture — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧵 Couture</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -161,10 +161,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Pourquoi faut-il relever le pied presseur avant d'enfiler la machine ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pour protéger l'aiguille</div>
-              <div class="option" onclick="answer(this,true)">Pour ouvrir les disques de tension</div>
-              <div class="option" onclick="answer(this,false)">Pour accéder au guide-fil</div>
-              <div class="option" onclick="answer(this,false)">Par habitude, ce n'est pas obligatoire</div>
+              <button class="option" onclick="answer(this,false)">Pour protéger l'aiguille</button>
+              <button class="option" onclick="answer(this,true)">Pour ouvrir les disques de tension</button>
+              <button class="option" onclick="answer(this,false)">Pour accéder au guide-fil</button>
+              <button class="option" onclick="answer(this,false)">Par habitude, ce n'est pas obligatoire</button>
             </div>
             <div class="q-feedback">Quand le pied presseur est relevé, les disques de tension s'ouvrent, permettant au fil de s'insérer correctement. Pied baissé, les disques sont fermés et le fil glisse sans être pris en charge.</div>
           </div>
@@ -172,10 +172,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle longueur de point est standard pour une couture d'assemblage ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1 mm</div>
-              <div class="option" onclick="answer(this,true)">2,5 mm</div>
-              <div class="option" onclick="answer(this,false)">4 mm</div>
-              <div class="option" onclick="answer(this,false)">5 mm</div>
+              <button class="option" onclick="answer(this,false)">1 mm</button>
+              <button class="option" onclick="answer(this,true)">2,5 mm</button>
+              <button class="option" onclick="answer(this,false)">4 mm</button>
+              <button class="option" onclick="answer(this,false)">5 mm</button>
             </div>
             <div class="q-feedback">2,5 mm est la longueur standard pour les coutures d'assemblage sur la plupart des tissus. 4-5 mm est utilisé pour le bâti, 1-1,5 mm pour les renforts.</div>
           </div>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle aiguille utiliser pour coudre du jersey ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Aiguille universelle</div>
-              <div class="option" onclick="answer(this,true)">Aiguille jersey/stretch à pointe arrondie</div>
-              <div class="option" onclick="answer(this,false)">Aiguille cuir</div>
-              <div class="option" onclick="answer(this,false)">Aiguille fine taille 60</div>
+              <button class="option" onclick="answer(this,false)">Aiguille universelle</button>
+              <button class="option" onclick="answer(this,true)">Aiguille jersey/stretch à pointe arrondie</button>
+              <button class="option" onclick="answer(this,false)">Aiguille cuir</button>
+              <button class="option" onclick="answer(this,false)">Aiguille fine taille 60</button>
             </div>
             <div class="q-feedback">L'aiguille jersey a une pointe arrondie (ballpoint) qui écarte les mailles au lieu de les transpercer. Une aiguille universelle percerait les mailles et créerait des trous visibles.</div>
           </div>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Le fil de canette apparaît sur l'endroit du tissu. Que faire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Augmenter la tension</div>
-              <div class="option" onclick="answer(this,true)">Diminuer la tension du fil supérieur</div>
-              <div class="option" onclick="answer(this,false)">Changer de canette</div>
-              <div class="option" onclick="answer(this,false)">Coudre plus vite</div>
+              <button class="option" onclick="answer(this,false)">Augmenter la tension</button>
+              <button class="option" onclick="answer(this,true)">Diminuer la tension du fil supérieur</button>
+              <button class="option" onclick="answer(this,false)">Changer de canette</button>
+              <button class="option" onclick="answer(this,false)">Coudre plus vite</button>
             </div>
             <div class="q-feedback">Si le fil de canette remonte sur l'endroit, c'est que le fil supérieur tire trop fort. Il faut diminuer la tension du fil supérieur pour rééquilibrer le point.</div>
           </div>
@@ -205,10 +205,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">À quoi sert le point zigzag ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Uniquement à décorer</div>
-              <div class="option" onclick="answer(this,false)">Uniquement à assembler</div>
-              <div class="option" onclick="answer(this,true)">À surfiler, coudre les tissus extensibles et fixer des appliqués</div>
-              <div class="option" onclick="answer(this,false)">À couper le tissu</div>
+              <button class="option" onclick="answer(this,false)">Uniquement à décorer</button>
+              <button class="option" onclick="answer(this,false)">Uniquement à assembler</button>
+              <button class="option" onclick="answer(this,true)">À surfiler, coudre les tissus extensibles et fixer des appliqués</button>
+              <button class="option" onclick="answer(this,false)">À couper le tissu</button>
             </div>
             <div class="q-feedback">Le zigzag est polyvalent : il surfile les bords contre l'effilochage, il coud les tissus extensibles (car il s'étire), et il fixe les appliqués et broderies.</div>
           </div>
@@ -216,10 +216,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">À quelle fréquence faut-il changer l'aiguille de sa machine ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une fois par an</div>
-              <div class="option" onclick="answer(this,false)">Quand elle casse</div>
-              <div class="option" onclick="answer(this,true)">Toutes les 8-10 heures de couture ou à chaque nouveau projet</div>
-              <div class="option" onclick="answer(this,false)">Jamais si elle est de bonne qualité</div>
+              <button class="option" onclick="answer(this,false)">Une fois par an</button>
+              <button class="option" onclick="answer(this,false)">Quand elle casse</button>
+              <button class="option" onclick="answer(this,true)">Toutes les 8-10 heures de couture ou à chaque nouveau projet</button>
+              <button class="option" onclick="answer(this,false)">Jamais si elle est de bonne qualité</button>
             </div>
             <div class="q-feedback">Une aiguille émoussée provoque des points sautés, du bruit et peut abîmer le tissu. Il est recommandé de la changer toutes les 8-10 heures de couture ou au début de chaque projet important.</div>
           </div>
@@ -292,8 +292,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

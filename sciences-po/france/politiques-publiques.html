@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Protection sociale, éducation, sécurité, environnement : les grands chantiers de l'action publique en France.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Politiques publiques — Politique française — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a9b;
   --accent2: #f09ab5;
   --accent-dim: rgba(232,122,155,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,155,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,155,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📋 Politique française</span>
     <span class="tag-level">Intermédiaire</span>
@@ -135,10 +135,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la première étape du cycle des politiques publiques ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La formulation</div>
-              <div class="option" onclick="answer(this,true)">La mise à l'agenda</div>
-              <div class="option" onclick="answer(this,false)">La décision</div>
-              <div class="option" onclick="answer(this,false)">L'évaluation</div>
+              <button class="option" onclick="answer(this,false)">La formulation</button>
+              <button class="option" onclick="answer(this,true)">La mise à l'agenda</button>
+              <button class="option" onclick="answer(this,false)">La décision</button>
+              <button class="option" onclick="answer(this,false)">L'évaluation</button>
             </div>
             <div class="q-feedback">La mise à l'agenda est le processus par lequel un problème social est identifié et reconnu comme nécessitant une intervention publique. Elle précède la formulation des solutions, la décision, la mise en oeuvre et l'évaluation.</div>
           </div>
@@ -146,10 +146,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">En quelle année la Sécurité sociale française a-t-elle été fondée ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1936</div>
-              <div class="option" onclick="answer(this,true)">1945</div>
-              <div class="option" onclick="answer(this,false)">1958</div>
-              <div class="option" onclick="answer(this,false)">1968</div>
+              <button class="option" onclick="answer(this,false)">1936</button>
+              <button class="option" onclick="answer(this,true)">1945</button>
+              <button class="option" onclick="answer(this,false)">1958</button>
+              <button class="option" onclick="answer(this,false)">1968</button>
             </div>
             <div class="q-feedback">La Sécurité sociale a été créée par les ordonnances des 4 et 19 octobre 1945, dans le cadre du programme du Conseil national de la Résistance. Pierre Laroque en est considéré comme le père fondateur.</div>
           </div>
@@ -157,10 +157,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel est approximativement le ratio des dépenses publiques par rapport au PIB en France ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">35 %</div>
-              <div class="option" onclick="answer(this,false)">45 %</div>
-              <div class="option" onclick="answer(this,true)">57 %</div>
-              <div class="option" onclick="answer(this,false)">70 %</div>
+              <button class="option" onclick="answer(this,false)">35 %</button>
+              <button class="option" onclick="answer(this,false)">45 %</button>
+              <button class="option" onclick="answer(this,true)">57 %</button>
+              <button class="option" onclick="answer(this,false)">70 %</button>
             </div>
             <div class="q-feedback">La France consacre environ 57 % de son PIB aux dépenses publiques (État, collectivités, Sécurité sociale), l'un des taux les plus élevés des pays de l'OCDE, reflétant un modèle social développé.</div>
           </div>
@@ -168,10 +168,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel est le premier budget de l'État français ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La défense</div>
-              <div class="option" onclick="answer(this,true)">L'éducation nationale</div>
-              <div class="option" onclick="answer(this,false)">La santé</div>
-              <div class="option" onclick="answer(this,false)">La justice</div>
+              <button class="option" onclick="answer(this,false)">La défense</button>
+              <button class="option" onclick="answer(this,true)">L'éducation nationale</button>
+              <button class="option" onclick="answer(this,false)">La santé</button>
+              <button class="option" onclick="answer(this,false)">La justice</button>
             </div>
             <div class="q-feedback">L'Éducation nationale est le premier poste budgétaire de l'État (hors Sécurité sociale), avec plus de 60 milliards d'euros, représentant environ un quart du budget général. La santé est financée principalement par la Sécurité sociale.</div>
           </div>
@@ -179,10 +179,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce que la Convention citoyenne pour le climat ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un sommet international sur le climat</div>
-              <div class="option" onclick="answer(this,true)">Une assemblée de 150 citoyens tirés au sort pour proposer des mesures climatiques</div>
-              <div class="option" onclick="answer(this,false)">Un comité de scientifiques conseillant le gouvernement</div>
-              <div class="option" onclick="answer(this,false)">Une commission parlementaire permanente</div>
+              <button class="option" onclick="answer(this,false)">Un sommet international sur le climat</button>
+              <button class="option" onclick="answer(this,true)">Une assemblée de 150 citoyens tirés au sort pour proposer des mesures climatiques</button>
+              <button class="option" onclick="answer(this,false)">Un comité de scientifiques conseillant le gouvernement</button>
+              <button class="option" onclick="answer(this,false)">Une commission parlementaire permanente</button>
             </div>
             <div class="q-feedback">La Convention citoyenne pour le climat (2019-2020) a réuni 150 citoyens tirés au sort pour proposer des mesures de réduction des émissions de gaz à effet de serre. C'est une expérience inédite de démocratie participative en France, dont les propositions ont été partiellement reprises dans la loi Climat et Résilience de 2021.</div>
           </div>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que signifie la politique de l'offre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Augmenter les aides sociales pour relancer la consommation</div>
-              <div class="option" onclick="answer(this,true)">Alléger les charges des entreprises pour stimuler la compétitivité et l'emploi</div>
-              <div class="option" onclick="answer(this,false)">Nationaliser les grandes entreprises</div>
-              <div class="option" onclick="answer(this,false)">Augmenter les impôts sur les hauts revenus</div>
+              <button class="option" onclick="answer(this,false)">Augmenter les aides sociales pour relancer la consommation</button>
+              <button class="option" onclick="answer(this,true)">Alléger les charges des entreprises pour stimuler la compétitivité et l'emploi</button>
+              <button class="option" onclick="answer(this,false)">Nationaliser les grandes entreprises</button>
+              <button class="option" onclick="answer(this,false)">Augmenter les impôts sur les hauts revenus</button>
             </div>
             <div class="q-feedback">La politique de l'offre vise à améliorer les conditions de production (baisses de charges, flexibilité du travail, compétitivité) pour stimuler la croissance et l'emploi. Elle s'oppose à la politique de la demande, qui privilégie le soutien au pouvoir d'achat et à la consommation.</div>
           </div>
@@ -266,8 +266,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

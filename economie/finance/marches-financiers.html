@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bourse, actions, obligations, indices boursiers et régulation — comprendre le fonctionnement des marchés où se financent les entreprises et les États.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Marchés financiers — Finance — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #f39c12;
   --accent2: #f1c40f;
   --accent-dim: rgba(243,156,18,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(243,156,18,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(243,156,18,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">💰 Finance</span>
     <span class="tag-level">Intermédiaire</span>
@@ -154,10 +154,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la différence entre une action et une obligation ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">L'action est un titre de propriété, l'obligation est un titre de dette</div>
-              <div class="option" onclick="answer(this,false)">L'action est un titre de dette, l'obligation est un titre de propriété</div>
-              <div class="option" onclick="answer(this,false)">Les deux sont des titres de propriété</div>
-              <div class="option" onclick="answer(this,false)">Les deux sont des titres de dette</div>
+              <button class="option" onclick="answer(this,true)">L'action est un titre de propriété, l'obligation est un titre de dette</button>
+              <button class="option" onclick="answer(this,false)">L'action est un titre de dette, l'obligation est un titre de propriété</button>
+              <button class="option" onclick="answer(this,false)">Les deux sont des titres de propriété</button>
+              <button class="option" onclick="answer(this,false)">Les deux sont des titres de dette</button>
             </div>
             <div class="q-feedback">L'action est un titre de propriété : l'actionnaire possède une part de l'entreprise. L'obligation est un titre de dette : le détenteur prête de l'argent à l'émetteur en échange d'intérêts et du remboursement à l'échéance.</div>
           </div>
@@ -165,10 +165,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que mesure le CAC 40 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le taux d'inflation en France</div>
-              <div class="option" onclick="answer(this,true)">La performance des 40 plus grandes entreprises cotées en France</div>
-              <div class="option" onclick="answer(this,false)">Le taux de chômage en zone euro</div>
-              <div class="option" onclick="answer(this,false)">Le volume des échanges sur Euronext</div>
+              <button class="option" onclick="answer(this,false)">Le taux d'inflation en France</button>
+              <button class="option" onclick="answer(this,true)">La performance des 40 plus grandes entreprises cotées en France</button>
+              <button class="option" onclick="answer(this,false)">Le taux de chômage en zone euro</button>
+              <button class="option" onclick="answer(this,false)">Le volume des échanges sur Euronext</button>
             </div>
             <div class="q-feedback">Le CAC 40 (Cotation Assistée en Continu) est l'indice de référence de la Bourse de Paris. Il mesure la performance boursière des 40 plus grandes entreprises françaises cotées sur Euronext Paris (LVMH, TotalEnergies, L'Oréal, etc.).</div>
           </div>
@@ -176,10 +176,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Sur quel marché les titres sont-ils émis pour la première fois ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Le marché primaire</div>
-              <div class="option" onclick="answer(this,false)">Le marché secondaire</div>
-              <div class="option" onclick="answer(this,false)">Le marché des dérivés</div>
-              <div class="option" onclick="answer(this,false)">Le marché interbancaire</div>
+              <button class="option" onclick="answer(this,true)">Le marché primaire</button>
+              <button class="option" onclick="answer(this,false)">Le marché secondaire</button>
+              <button class="option" onclick="answer(this,false)">Le marché des dérivés</button>
+              <button class="option" onclick="answer(this,false)">Le marché interbancaire</button>
             </div>
             <div class="q-feedback">Le marché primaire est celui de l'émission des nouveaux titres (introduction en Bourse, émission d'obligations). Le marché secondaire est celui où les titres déjà émis sont revendus entre investisseurs.</div>
           </div>
@@ -187,10 +187,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle crise financière est déclenchée par les prêts immobiliers à risque aux États-Unis ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le krach de 1929</div>
-              <div class="option" onclick="answer(this,false)">La bulle internet de 2000</div>
-              <div class="option" onclick="answer(this,true)">La crise des subprimes de 2008</div>
-              <div class="option" onclick="answer(this,false)">La crise de la dette européenne de 2010</div>
+              <button class="option" onclick="answer(this,false)">Le krach de 1929</button>
+              <button class="option" onclick="answer(this,false)">La bulle internet de 2000</button>
+              <button class="option" onclick="answer(this,true)">La crise des subprimes de 2008</button>
+              <button class="option" onclick="answer(this,false)">La crise de la dette européenne de 2010</button>
             </div>
             <div class="q-feedback">La crise des subprimes (2008) est déclenchée par l'octroi massif de prêts immobiliers à des ménages insolvables aux États-Unis. La titrisation de ces créances douteuses propage le risque dans le système financier mondial, entraînant la faillite de Lehman Brothers et une récession mondiale.</div>
           </div>
@@ -198,10 +198,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel est le rôle de l'AMF en France ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Fixer les taux d'intérêt</div>
-              <div class="option" onclick="answer(this,true)">Réguler les marchés financiers et protéger les épargnants</div>
-              <div class="option" onclick="answer(this,false)">Émettre la monnaie</div>
-              <div class="option" onclick="answer(this,false)">Gérer la dette publique</div>
+              <button class="option" onclick="answer(this,false)">Fixer les taux d'intérêt</button>
+              <button class="option" onclick="answer(this,true)">Réguler les marchés financiers et protéger les épargnants</button>
+              <button class="option" onclick="answer(this,false)">Émettre la monnaie</button>
+              <button class="option" onclick="answer(this,false)">Gérer la dette publique</button>
             </div>
             <div class="q-feedback">L'AMF (Autorité des marchés financiers) est le régulateur français des marchés. Elle veille à la protection de l'épargne, à la transparence de l'information financière et au bon fonctionnement des marchés. Elle sanctionne les délits d'initié et les manipulations de cours.</div>
           </div>
@@ -209,10 +209,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel est le plus grand marché financier du monde en volume d'échanges ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le marché actions (NYSE)</div>
-              <div class="option" onclick="answer(this,true)">Le marché des changes (Forex)</div>
-              <div class="option" onclick="answer(this,false)">Le marché obligataire</div>
-              <div class="option" onclick="answer(this,false)">Le marché des matières premières</div>
+              <button class="option" onclick="answer(this,false)">Le marché actions (NYSE)</button>
+              <button class="option" onclick="answer(this,true)">Le marché des changes (Forex)</button>
+              <button class="option" onclick="answer(this,false)">Le marché obligataire</button>
+              <button class="option" onclick="answer(this,false)">Le marché des matières premières</button>
             </div>
             <div class="q-feedback">Le marché des changes (Forex) est le plus grand marché financier du monde avec environ 6 600 milliards de dollars échangés chaque jour. Il fonctionne 24h/24, 5j/7, sans lieu physique centralisé.</div>
           </div>
@@ -305,8 +305,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

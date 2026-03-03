@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Des techniques fondamentales aux cuisines du monde, maîtrisez l'art culinaire. Comprendre les bases, les cuissons, la pâtisserie et la nutrition pour...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Cuisine & Gastronomie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #8ae87a;
   --accent2: #b0f5a0;
   --accent-dim: rgba(138,232,122,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(138,232,122,0.07) 0%, transparent 70%); }
+ --accent-hero: rgba(138,232,122,0.07); }
 .hero-deco { color: rgba(138,232,122,0.04); }
 </style>
 </head>
@@ -26,7 +27,7 @@
   <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
 </nav>
 
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">👨‍🍳</div>
   <div class="hero-meta">
     <span class="tag-domain">🔧 Savoir-faire & Vie pratique</span>
@@ -156,10 +157,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">La réaction de Maillard se produit à partir de quelle température ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">80°C</div>
-              <div class="option" onclick="answer(this,true)">140°C</div>
-              <div class="option" onclick="answer(this,false)">100°C</div>
-              <div class="option" onclick="answer(this,false)">200°C</div>
+              <button class="option" onclick="answer(this,false)">80°C</button>
+              <button class="option" onclick="answer(this,true)">140°C</button>
+              <button class="option" onclick="answer(this,false)">100°C</button>
+              <button class="option" onclick="answer(this,false)">200°C</button>
             </div>
             <div class="q-feedback">La réaction de Maillard débute vers 140°C. C'est la réaction entre les acides aminés et les sucres réducteurs qui produit les arômes et la couleur dorée-brune des aliments cuits à haute température.</div>
           </div>
@@ -168,10 +169,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Combien de sauces mères Escoffier a-t-il codifiées ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">3</div>
-              <div class="option" onclick="answer(this,true)">5</div>
-              <div class="option" onclick="answer(this,false)">7</div>
-              <div class="option" onclick="answer(this,false)">10</div>
+              <button class="option" onclick="answer(this,false)">3</button>
+              <button class="option" onclick="answer(this,true)">5</button>
+              <button class="option" onclick="answer(this,false)">7</button>
+              <button class="option" onclick="answer(this,false)">10</button>
             </div>
             <div class="q-feedback">Auguste Escoffier a codifié 5 sauces mères dans son Guide culinaire (1903) : béchamel, velouté, espagnole, hollandaise et tomate. Toutes les sauces classiques en dérivent.</div>
           </div>
@@ -180,10 +181,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Quel macronutriment apporte le plus de calories par gramme ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les glucides (4 kcal/g)</div>
-              <div class="option" onclick="answer(this,false)">Les protéines (4 kcal/g)</div>
-              <div class="option" onclick="answer(this,true)">Les lipides (9 kcal/g)</div>
-              <div class="option" onclick="answer(this,false)">Les fibres (2 kcal/g)</div>
+              <button class="option" onclick="answer(this,false)">Les glucides (4 kcal/g)</button>
+              <button class="option" onclick="answer(this,false)">Les protéines (4 kcal/g)</button>
+              <button class="option" onclick="answer(this,true)">Les lipides (9 kcal/g)</button>
+              <button class="option" onclick="answer(this,false)">Les fibres (2 kcal/g)</button>
             </div>
             <div class="q-feedback">Les lipides (graisses) apportent 9 kcal par gramme, soit plus du double des glucides et protéines (4 kcal/g chacun). C'est pourquoi les aliments gras sont très caloriques.</div>
           </div>
@@ -192,10 +193,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">La mayonnaise est un exemple de :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Suspension</div>
-              <div class="option" onclick="answer(this,true)">Émulsion</div>
-              <div class="option" onclick="answer(this,false)">Fermentation</div>
-              <div class="option" onclick="answer(this,false)">Cristallisation</div>
+              <button class="option" onclick="answer(this,false)">Suspension</button>
+              <button class="option" onclick="answer(this,true)">Émulsion</button>
+              <button class="option" onclick="answer(this,false)">Fermentation</button>
+              <button class="option" onclick="answer(this,false)">Cristallisation</button>
             </div>
             <div class="q-feedback">La mayonnaise est une émulsion froide : l'huile est dispersée dans le jaune d'oeuf grâce à la lécithine qui joue le rôle d'émulsifiant. Le fouet crée des gouttelettes microscopiques d'huile.</div>
           </div>
@@ -204,10 +205,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Que signifie « déglacer » en cuisine ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Enlever le glaçage d'un gâteau</div>
-              <div class="option" onclick="answer(this,true)">Ajouter un liquide pour dissoudre les sucs de cuisson</div>
-              <div class="option" onclick="answer(this,false)">Refroidir brutalement un aliment</div>
-              <div class="option" onclick="answer(this,false)">Retirer la graisse d'un bouillon</div>
+              <button class="option" onclick="answer(this,false)">Enlever le glaçage d'un gâteau</button>
+              <button class="option" onclick="answer(this,true)">Ajouter un liquide pour dissoudre les sucs de cuisson</button>
+              <button class="option" onclick="answer(this,false)">Refroidir brutalement un aliment</button>
+              <button class="option" onclick="answer(this,false)">Retirer la graisse d'un bouillon</button>
             </div>
             <div class="q-feedback">Déglacer consiste à verser un liquide (vin, fond, vinaigre) dans une poêle chaude pour dissoudre les sucs caramélisés. C'est la base de toute sauce poêlée, riche en saveurs.</div>
           </div>
@@ -326,8 +327,15 @@
   </main>
 </div>
 
-<script src="utils.js"></script>
-<script src="quiz.js"></script>
-<script src="mobile.js?v=2"></script>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

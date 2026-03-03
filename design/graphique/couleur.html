@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cercle chromatique, harmonies, contrastes et psychologie des couleurs pour des designs percutants.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Théorie de la couleur — Design graphique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎨 Design graphique</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -149,10 +149,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelles sont les trois couleurs primaires en synthèse additive (lumière) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Rouge, jaune, bleu</div>
-              <div class="option" onclick="answer(this,true)">Rouge, vert, bleu (RVB)</div>
-              <div class="option" onclick="answer(this,false)">Cyan, magenta, jaune</div>
-              <div class="option" onclick="answer(this,false)">Rouge, orange, violet</div>
+              <button class="option" onclick="answer(this,false)">Rouge, jaune, bleu</button>
+              <button class="option" onclick="answer(this,true)">Rouge, vert, bleu (RVB)</button>
+              <button class="option" onclick="answer(this,false)">Cyan, magenta, jaune</button>
+              <button class="option" onclick="answer(this,false)">Rouge, orange, violet</button>
             </div>
             <div class="q-feedback">En synthèse additive (écrans), les primaires sont rouge, vert, bleu (RVB). Leur mélange donne du blanc. En peinture (synthèse soustractive), les primaires sont rouge, jaune, bleu (ou cyan, magenta, jaune en imprimerie).</div>
           </div>
@@ -160,10 +160,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle harmonie utilise deux couleurs opposées sur le cercle chromatique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Analogue</div>
-              <div class="option" onclick="answer(this,true)">Complémentaire</div>
-              <div class="option" onclick="answer(this,false)">Triadique</div>
-              <div class="option" onclick="answer(this,false)">Monochromatique</div>
+              <button class="option" onclick="answer(this,false)">Analogue</button>
+              <button class="option" onclick="answer(this,true)">Complémentaire</button>
+              <button class="option" onclick="answer(this,false)">Triadique</button>
+              <button class="option" onclick="answer(this,false)">Monochromatique</button>
             </div>
             <div class="q-feedback">L'harmonie complémentaire oppose deux couleurs diamétralement opposées sur le cercle (rouge/vert, bleu/orange). Elle crée un contraste maximal, très dynamique et accrocheur.</div>
           </div>
@@ -171,10 +171,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle est la répartition recommandée par la règle 60-30-10 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">60 % dominante, 30 % secondaire, 10 % accent</div>
-              <div class="option" onclick="answer(this,false)">60 % blanc, 30 % noir, 10 % couleur</div>
-              <div class="option" onclick="answer(this,false)">60 % texte, 30 % images, 10 % espace</div>
-              <div class="option" onclick="answer(this,false)">60 % primaire, 30 % secondaire, 10 % tertiaire</div>
+              <button class="option" onclick="answer(this,true)">60 % dominante, 30 % secondaire, 10 % accent</button>
+              <button class="option" onclick="answer(this,false)">60 % blanc, 30 % noir, 10 % couleur</button>
+              <button class="option" onclick="answer(this,false)">60 % texte, 30 % images, 10 % espace</button>
+              <button class="option" onclick="answer(this,false)">60 % primaire, 30 % secondaire, 10 % tertiaire</button>
             </div>
             <div class="q-feedback">La règle 60-30-10 distribue les couleurs : 60 % pour la dominante (fond, grandes surfaces), 30 % pour la secondaire (sections, cartes), 10 % pour l'accent (boutons, liens, alertes).</div>
           </div>
@@ -182,10 +182,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel modèle colorimétrique est utilisé pour l'impression ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">RVB (RGB)</div>
-              <div class="option" onclick="answer(this,true)">CMJN (CMYK)</div>
-              <div class="option" onclick="answer(this,false)">TSL (HSL)</div>
-              <div class="option" onclick="answer(this,false)">Hexadécimal</div>
+              <button class="option" onclick="answer(this,false)">RVB (RGB)</button>
+              <button class="option" onclick="answer(this,true)">CMJN (CMYK)</button>
+              <button class="option" onclick="answer(this,false)">TSL (HSL)</button>
+              <button class="option" onclick="answer(this,false)">Hexadécimal</button>
             </div>
             <div class="q-feedback">Le CMJN (Cyan, Magenta, Jaune, Noir) est le modèle de l'impression. C'est une synthèse soustractive : les encres absorbent la lumière. Le RVB est réservé aux écrans (synthèse additive).</div>
           </div>
@@ -193,10 +193,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel ratio de contraste minimum les normes WCAG imposent-elles pour le texte standard ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">2:1</div>
-              <div class="option" onclick="answer(this,false)">3:1</div>
-              <div class="option" onclick="answer(this,true)">4.5:1</div>
-              <div class="option" onclick="answer(this,false)">7:1</div>
+              <button class="option" onclick="answer(this,false)">2:1</button>
+              <button class="option" onclick="answer(this,false)">3:1</button>
+              <button class="option" onclick="answer(this,true)">4.5:1</button>
+              <button class="option" onclick="answer(this,false)">7:1</button>
             </div>
             <div class="q-feedback">Les WCAG imposent un ratio minimum de 4.5:1 pour le texte standard et 3:1 pour le texte agrandi (18px+ ou 14px bold+). Le niveau AAA exige 7:1 pour le texte standard.</div>
           </div>
@@ -204,10 +204,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que représente la « saturation » d'une couleur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Sa clarté ou obscurité</div>
-              <div class="option" onclick="answer(this,true)">Son intensité (couleur pure vs gris)</div>
-              <div class="option" onclick="answer(this,false)">Sa position sur le cercle chromatique</div>
-              <div class="option" onclick="answer(this,false)">Sa température (chaud/froid)</div>
+              <button class="option" onclick="answer(this,false)">Sa clarté ou obscurité</button>
+              <button class="option" onclick="answer(this,true)">Son intensité (couleur pure vs gris)</button>
+              <button class="option" onclick="answer(this,false)">Sa position sur le cercle chromatique</button>
+              <button class="option" onclick="answer(this,false)">Sa température (chaud/froid)</button>
             </div>
             <div class="q-feedback">La saturation mesure l'intensité de la couleur : à 100 %, c'est une couleur pure et vive ; à 0 %, c'est un gris neutre. Désaturer une palette crée une atmosphère plus douce et sophistiquée.</div>
           </div>
@@ -274,8 +274,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Constantinople, Justinien, le schisme et mille ans d'Empire romain d'Orient.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Empire byzantin — Moyen Âge — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📜 Moyen Âge</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -136,10 +136,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel empereur fait construire la basilique Sainte-Sophie ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Constantin</div>
-              <div class="option" onclick="answer(this,true)">Justinien</div>
-              <div class="option" onclick="answer(this,false)">Théodose</div>
-              <div class="option" onclick="answer(this,false)">Héraclius</div>
+              <button class="option" onclick="answer(this,false)">Constantin</button>
+              <button class="option" onclick="answer(this,true)">Justinien</button>
+              <button class="option" onclick="answer(this,false)">Théodose</button>
+              <button class="option" onclick="answer(this,false)">Héraclius</button>
             </div>
             <div class="q-feedback">Justinien Iᵉʳ fait construire Sainte-Sophie entre 532 et 537. Elle reste la plus grande cathédrale du monde pendant près de mille ans.</div>
           </div>
@@ -147,10 +147,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">En quelle année se produit le Grand Schisme entre catholiques et orthodoxes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">800</div>
-              <div class="option" onclick="answer(this,false)">1096</div>
-              <div class="option" onclick="answer(this,true)">1054</div>
-              <div class="option" onclick="answer(this,false)">1204</div>
+              <button class="option" onclick="answer(this,false)">800</button>
+              <button class="option" onclick="answer(this,false)">1096</button>
+              <button class="option" onclick="answer(this,true)">1054</button>
+              <button class="option" onclick="answer(this,false)">1204</button>
             </div>
             <div class="q-feedback">Le Grand Schisme de 1054 divise définitivement le christianisme en catholicisme (Rome) et orthodoxie (Constantinople).</div>
           </div>
@@ -158,10 +158,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qui conquiert Constantinople en 1453 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Saladin</div>
-              <div class="option" onclick="answer(this,false)">Tamerlan</div>
-              <div class="option" onclick="answer(this,true)">Mehmed II</div>
-              <div class="option" onclick="answer(this,false)">Soliman le Magnifique</div>
+              <button class="option" onclick="answer(this,false)">Saladin</button>
+              <button class="option" onclick="answer(this,false)">Tamerlan</button>
+              <button class="option" onclick="answer(this,true)">Mehmed II</button>
+              <button class="option" onclick="answer(this,false)">Soliman le Magnifique</button>
             </div>
             <div class="q-feedback">Le sultan ottoman Mehmed II, surnommé « le Conquérant », prend Constantinople le 29 mai 1453, mettant fin à l'Empire byzantin.</div>
           </div>
@@ -169,10 +169,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle arme secrète byzantine brûle même sur l'eau ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le naphte</div>
-              <div class="option" onclick="answer(this,true)">Le feu grégeois</div>
-              <div class="option" onclick="answer(this,false)">La poix grecque</div>
-              <div class="option" onclick="answer(this,false)">L'huile bouillante</div>
+              <button class="option" onclick="answer(this,false)">Le naphte</button>
+              <button class="option" onclick="answer(this,true)">Le feu grégeois</button>
+              <button class="option" onclick="answer(this,false)">La poix grecque</button>
+              <button class="option" onclick="answer(this,false)">L'huile bouillante</button>
             </div>
             <div class="q-feedback">Le feu grégeois est une arme incendiaire secrète des Byzantins, capable de brûler sur l'eau. Il sauve Constantinople lors du siège arabe de 717-718.</div>
           </div>
@@ -180,10 +180,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel code juridique de Justinien est la base du droit civil moderne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le Code Théodosien</div>
-              <div class="option" onclick="answer(this,true)">Le Corpus Juris Civilis</div>
-              <div class="option" onclick="answer(this,false)">Les Novellae</div>
-              <div class="option" onclick="answer(this,false)">Le Digeste seul</div>
+              <button class="option" onclick="answer(this,false)">Le Code Théodosien</button>
+              <button class="option" onclick="answer(this,true)">Le Corpus Juris Civilis</button>
+              <button class="option" onclick="answer(this,false)">Les Novellae</button>
+              <button class="option" onclick="answer(this,false)">Le Digeste seul</button>
             </div>
             <div class="q-feedback">Le Corpus Juris Civilis, codifié sous Justinien, rassemble le droit romain et constitue la base du droit civil dans la majorité des pays européens.</div>
           </div>
@@ -191,10 +191,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle défaite de 1071 fait perdre l'Anatolie à Byzance ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Bataille de Plévna</div>
-              <div class="option" onclick="answer(this,true)">Bataille de Mantzikert</div>
-              <div class="option" onclick="answer(this,false)">Bataille de Nicopolis</div>
-              <div class="option" onclick="answer(this,false)">Bataille d'Andrinople</div>
+              <button class="option" onclick="answer(this,false)">Bataille de Plévna</button>
+              <button class="option" onclick="answer(this,true)">Bataille de Mantzikert</button>
+              <button class="option" onclick="answer(this,false)">Bataille de Nicopolis</button>
+              <button class="option" onclick="answer(this,false)">Bataille d'Andrinople</button>
             </div>
             <div class="q-feedback">La défaite de Mantzikert (1071) face aux Turcs seldjoukides fait perdre à Byzance l'Anatolie, source essentielle de soldats et de blé.</div>
           </div>
@@ -249,8 +249,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Moindres carrés, R², résidus, droite de régression — modéliser la relation entre deux variables quantitatives.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Régression linéaire simple — Régression — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #16a085;
   --accent2: #1abc9c;
   --accent-dim: rgba(22,160,133,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(22,160,133,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(22,160,133,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📈 Régression</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -156,10 +156,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que minimise la méthode des moindres carrés ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La somme des résidus</div>
-              <div class="option" onclick="answer(this,true)">La somme des carrés des résidus</div>
-              <div class="option" onclick="answer(this,false)">La somme des valeurs absolues des résidus</div>
-              <div class="option" onclick="answer(this,false)">Le maximum des résidus</div>
+              <button class="option" onclick="answer(this,false)">La somme des résidus</button>
+              <button class="option" onclick="answer(this,true)">La somme des carrés des résidus</button>
+              <button class="option" onclick="answer(this,false)">La somme des valeurs absolues des résidus</button>
+              <button class="option" onclick="answer(this,false)">Le maximum des résidus</button>
             </div>
             <div class="q-feedback">Les MCO minimisent Σ(yᵢ − ŷᵢ)², la somme des carrés des écarts entre valeurs observées et prédites.</div>
           </div>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Si R² = 0,64, quelle proportion de la variabilité de Y est expliquée par X ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">36 %</div>
-              <div class="option" onclick="answer(this,true)">64 %</div>
-              <div class="option" onclick="answer(this,false)">80 %</div>
-              <div class="option" onclick="answer(this,false)">8 %</div>
+              <button class="option" onclick="answer(this,false)">36 %</button>
+              <button class="option" onclick="answer(this,true)">64 %</button>
+              <button class="option" onclick="answer(this,false)">80 %</button>
+              <button class="option" onclick="answer(this,false)">8 %</button>
             </div>
             <div class="q-feedback">R² = 0,64 signifie que 64 % de la variabilité de Y est expliquée par la relation linéaire avec X. Les 36 % restants sont la variabilité résiduelle.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Par quel point la droite de régression MCO passe-t-elle toujours ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'origine (0, 0)</div>
-              <div class="option" onclick="answer(this,true)">Le point moyen (X̄, Ȳ)</div>
-              <div class="option" onclick="answer(this,false)">Le point médian</div>
-              <div class="option" onclick="answer(this,false)">Le point (1, β₁)</div>
+              <button class="option" onclick="answer(this,false)">L'origine (0, 0)</button>
+              <button class="option" onclick="answer(this,true)">Le point moyen (X̄, Ȳ)</button>
+              <button class="option" onclick="answer(this,false)">Le point médian</button>
+              <button class="option" onclick="answer(this,false)">Le point (1, β₁)</button>
             </div>
             <div class="q-feedback">Puisque β̂₀ = Ȳ − β̂₁X̄, on vérifie que Ŷ(X̄) = β̂₀ + β̂₁X̄ = Ȳ. La droite passe toujours par le barycentre des données.</div>
           </div>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Que révèle un patron en entonnoir dans le graphique des résidus ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une non-linéarité</div>
-              <div class="option" onclick="answer(this,true)">Une hétéroscédasticité</div>
-              <div class="option" onclick="answer(this,false)">Une autocorrélation</div>
-              <div class="option" onclick="answer(this,false)">Des valeurs aberrantes</div>
+              <button class="option" onclick="answer(this,false)">Une non-linéarité</button>
+              <button class="option" onclick="answer(this,true)">Une hétéroscédasticité</button>
+              <button class="option" onclick="answer(this,false)">Une autocorrélation</button>
+              <button class="option" onclick="answer(this,false)">Des valeurs aberrantes</button>
             </div>
             <div class="q-feedback">Un patron en entonnoir (variance des résidus qui augmente avec les valeurs prédites) indique une hétéroscédasticité : la variance des erreurs n'est pas constante.</div>
           </div>
@@ -200,10 +200,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que mesure la distance de Cook ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La normalité des résidus</div>
-              <div class="option" onclick="answer(this,false)">La corrélation entre X et Y</div>
-              <div class="option" onclick="answer(this,true)">L'influence d'une observation sur les coefficients estimés</div>
-              <div class="option" onclick="answer(this,false)">L'homoscédasticité</div>
+              <button class="option" onclick="answer(this,false)">La normalité des résidus</button>
+              <button class="option" onclick="answer(this,false)">La corrélation entre X et Y</button>
+              <button class="option" onclick="answer(this,true)">L'influence d'une observation sur les coefficients estimés</button>
+              <button class="option" onclick="answer(this,false)">L'homoscédasticité</button>
             </div>
             <div class="q-feedback">La distance de Cook mesure combien les estimations des coefficients changent quand on retire une observation. Une grande distance de Cook signale un point influent.</div>
           </div>
@@ -211,10 +211,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel théorème garantit que les estimateurs MCO sont les meilleurs estimateurs linéaires sans biais ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le théorème central limite</div>
-              <div class="option" onclick="answer(this,true)">Le théorème de Gauss-Markov</div>
-              <div class="option" onclick="answer(this,false)">Le théorème de Bayes</div>
-              <div class="option" onclick="answer(this,false)">La borne de Cramér-Rao</div>
+              <button class="option" onclick="answer(this,false)">Le théorème central limite</button>
+              <button class="option" onclick="answer(this,true)">Le théorème de Gauss-Markov</button>
+              <button class="option" onclick="answer(this,false)">Le théorème de Bayes</button>
+              <button class="option" onclick="answer(this,false)">La borne de Cramér-Rao</button>
             </div>
             <div class="q-feedback">Le théorème de Gauss-Markov établit que, sous les hypothèses classiques, les estimateurs MCO ont la plus petite variance parmi tous les estimateurs linéaires sans biais (BLUE).</div>
           </div>
@@ -304,8 +304,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

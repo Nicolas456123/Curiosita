@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Couscous, tajine, mezé — épices envoûtantes, hospitalité légendaire et traditions culinaires millénaires du monde arabo-méditerranéen.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Cuisine du Maghreb — Cuisine du monde — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🇲🇦 Cuisine du monde</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">En quelle année le couscous a-t-il été inscrit au patrimoine de l'UNESCO ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">2010</div>
-              <div class="option" onclick="answer(this,false)">2015</div>
-              <div class="option" onclick="answer(this,true)">2020</div>
-              <div class="option" onclick="answer(this,false)">2018</div>
+              <button class="option" onclick="answer(this,false)">2010</button>
+              <button class="option" onclick="answer(this,false)">2015</button>
+              <button class="option" onclick="answer(this,true)">2020</button>
+              <button class="option" onclick="answer(this,false)">2018</button>
             </div>
             <div class="q-feedback">Le couscous a été inscrit au patrimoine immatériel de l'UNESCO en 2020, grâce à une candidature conjointe du Maroc, de l'Algérie, de la Tunisie et de la Mauritanie.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que signifie littéralement « ras el-hanout » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Tête de la boutique</div>
-              <div class="option" onclick="answer(this,false)">Mélange du chef</div>
-              <div class="option" onclick="answer(this,false)">Épice royale</div>
-              <div class="option" onclick="answer(this,false)">Poudre sacrée</div>
+              <button class="option" onclick="answer(this,true)">Tête de la boutique</button>
+              <button class="option" onclick="answer(this,false)">Mélange du chef</button>
+              <button class="option" onclick="answer(this,false)">Épice royale</button>
+              <button class="option" onclick="answer(this,false)">Poudre sacrée</button>
             </div>
             <div class="q-feedback">Ras el-hanout signifie littéralement « tête de la boutique », désignant le meilleur mélange d'épices que l'épicier peut offrir.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel est l'ingrédient principal du vrai taboulé libanais ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le boulgour</div>
-              <div class="option" onclick="answer(this,false)">La semoule</div>
-              <div class="option" onclick="answer(this,true)">Le persil</div>
-              <div class="option" onclick="answer(this,false)">La tomate</div>
+              <button class="option" onclick="answer(this,false)">Le boulgour</button>
+              <button class="option" onclick="answer(this,false)">La semoule</button>
+              <button class="option" onclick="answer(this,true)">Le persil</button>
+              <button class="option" onclick="answer(this,false)">La tomate</button>
             </div>
             <div class="q-feedback">Dans le vrai taboulé libanais, le persil plat finement haché est l'ingrédient principal (environ 65 % du volume). Le boulgour n'est présent qu'en petite quantité.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Comment fonctionne la cuisson dans un tajine ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Cuisson sous pression à haute température</div>
-              <div class="option" onclick="answer(this,true)">La vapeur remonte, se condense sur le couvercle conique et retombe</div>
-              <div class="option" onclick="answer(this,false)">Cuisson au four à très haute température</div>
-              <div class="option" onclick="answer(this,false)">Cuisson par immersion dans un bouillon</div>
+              <button class="option" onclick="answer(this,false)">Cuisson sous pression à haute température</button>
+              <button class="option" onclick="answer(this,true)">La vapeur remonte, se condense sur le couvercle conique et retombe</button>
+              <button class="option" onclick="answer(this,false)">Cuisson au four à très haute température</button>
+              <button class="option" onclick="answer(this,false)">Cuisson par immersion dans un bouillon</button>
             </div>
             <div class="q-feedback">Le couvercle conique du tajine crée un cycle de condensation : la vapeur remonte, se condense au sommet du cône et redescend le long des parois, arrosant en continu les aliments. C'est une cuisson douce et auto-arrosante.</div>
           </div>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">De quel pays la harissa est-elle originaire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Maroc</div>
-              <div class="option" onclick="answer(this,true)">Tunisie</div>
-              <div class="option" onclick="answer(this,false)">Algérie</div>
-              <div class="option" onclick="answer(this,false)">Liban</div>
+              <button class="option" onclick="answer(this,false)">Maroc</button>
+              <button class="option" onclick="answer(this,true)">Tunisie</button>
+              <button class="option" onclick="answer(this,false)">Algérie</button>
+              <button class="option" onclick="answer(this,false)">Liban</button>
             </div>
             <div class="q-feedback">La harissa est un condiment d'origine tunisienne, à base de piments rouges séchés, d'ail, de carvi et de coriandre. Elle est devenue un incontournable de toute la cuisine nord-africaine.</div>
           </div>
@@ -203,10 +203,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Qu'est-ce qu'un mezé ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un plat principal à base de viande</div>
-              <div class="option" onclick="answer(this,false)">Un dessert au miel</div>
-              <div class="option" onclick="answer(this,true)">Un ensemble de petits plats variés servis pour le partage</div>
-              <div class="option" onclick="answer(this,false)">Une boisson à base de thé</div>
+              <button class="option" onclick="answer(this,false)">Un plat principal à base de viande</button>
+              <button class="option" onclick="answer(this,false)">Un dessert au miel</button>
+              <button class="option" onclick="answer(this,true)">Un ensemble de petits plats variés servis pour le partage</button>
+              <button class="option" onclick="answer(this,false)">Une boisson à base de thé</button>
             </div>
             <div class="q-feedback">Le mezé est une tradition libanaise et moyen-orientale consistant à servir une multitude de petits plats variés (houmous, taboulé, falafel, fattoush...) pour partager et goûter à tout.</div>
           </div>
@@ -273,8 +273,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

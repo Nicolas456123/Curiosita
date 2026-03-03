@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Repas équilibré, portions, Nutri-Score, recommandations officielles et guide pratique pour manger sainement au quotidien.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Équilibre alimentaire — Nutrition — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #8ae87a; --accent2: #a5f598; --accent-dim: rgba(138,232,122,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #8ae87a; --accent2: #a5f598; --accent-dim: rgba(138,232,122,0.08);  --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../cuisine-page.html">Cuisine</a> › <a href="../nutrition.html">Nutrition</a> › <span>Équilibre alimentaire</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">⚖️ Nutrition</span>
     <span class="tag-level">Débutant</span>
@@ -107,10 +107,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Combien de portions de fruits et légumes le PNNS recommande-t-il par jour ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">3</div>
-              <div class="option" onclick="answer(this,true)">Au moins 5</div>
-              <div class="option" onclick="answer(this,false)">7</div>
-              <div class="option" onclick="answer(this,false)">10</div>
+              <button class="option" onclick="answer(this,false)">3</button>
+              <button class="option" onclick="answer(this,true)">Au moins 5</button>
+              <button class="option" onclick="answer(this,false)">7</button>
+              <button class="option" onclick="answer(this,false)">10</button>
             </div>
             <div class="q-feedback">Le PNNS recommande au moins 5 portions de fruits et légumes par jour, variés, de saison, crus et cuits.</div>
           </div>
@@ -118,10 +118,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que représente le Nutri-Score « A » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">La meilleure qualité nutritionnelle (vert foncé)</div>
-              <div class="option" onclick="answer(this,false)">La plus faible quantité de calories</div>
-              <div class="option" onclick="answer(this,false)">Un produit bio certifié</div>
-              <div class="option" onclick="answer(this,false)">Un produit sans allergènes</div>
+              <button class="option" onclick="answer(this,true)">La meilleure qualité nutritionnelle (vert foncé)</button>
+              <button class="option" onclick="answer(this,false)">La plus faible quantité de calories</button>
+              <button class="option" onclick="answer(this,false)">Un produit bio certifié</button>
+              <button class="option" onclick="answer(this,false)">Un produit sans allergènes</button>
             </div>
             <div class="q-feedback">Le Nutri-Score A (vert foncé) indique la meilleure qualité nutritionnelle globale pour un produit donné, en tenant compte de ses nutriments positifs et négatifs.</div>
           </div>
@@ -129,10 +129,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Dans la méthode de l'assiette, quelle proportion les légumes occupent-ils ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un quart</div>
-              <div class="option" onclick="answer(this,true)">La moitié</div>
-              <div class="option" onclick="answer(this,false)">Un tiers</div>
-              <div class="option" onclick="answer(this,false)">Les trois quarts</div>
+              <button class="option" onclick="answer(this,false)">Un quart</button>
+              <button class="option" onclick="answer(this,true)">La moitié</button>
+              <button class="option" onclick="answer(this,false)">Un tiers</button>
+              <button class="option" onclick="answer(this,false)">Les trois quarts</button>
             </div>
             <div class="q-feedback">Les légumes occupent la moitié de l'assiette, les féculents un quart et les protéines un quart. Cette méthode visuelle est un outil simple pour composer un repas équilibré.</div>
           </div>
@@ -140,10 +140,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle est la limite de sel recommandée par l'OMS ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">5 g par jour</div>
-              <div class="option" onclick="answer(this,false)">10 g par jour</div>
-              <div class="option" onclick="answer(this,false)">2 g par jour</div>
-              <div class="option" onclick="answer(this,false)">15 g par jour</div>
+              <button class="option" onclick="answer(this,true)">5 g par jour</button>
+              <button class="option" onclick="answer(this,false)">10 g par jour</button>
+              <button class="option" onclick="answer(this,false)">2 g par jour</button>
+              <button class="option" onclick="answer(this,false)">15 g par jour</button>
             </div>
             <div class="q-feedback">L'OMS recommande de limiter l'apport en sel à 5 g par jour (environ 1 cuillère à café), soit 2 g de sodium. La consommation moyenne en France est d'environ 8-10 g.</div>
           </div>
@@ -151,10 +151,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que désigne le groupe 4 de la classification NOVA ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les aliments bruts</div>
-              <div class="option" onclick="answer(this,false)">Les aliments cuisinés maison</div>
-              <div class="option" onclick="answer(this,true)">Les aliments ultra-transformés</div>
-              <div class="option" onclick="answer(this,false)">Les aliments biologiques</div>
+              <button class="option" onclick="answer(this,false)">Les aliments bruts</button>
+              <button class="option" onclick="answer(this,false)">Les aliments cuisinés maison</button>
+              <button class="option" onclick="answer(this,true)">Les aliments ultra-transformés</button>
+              <button class="option" onclick="answer(this,false)">Les aliments biologiques</button>
             </div>
             <div class="q-feedback">Le groupe NOVA 4 désigne les aliments ultra-transformés : produits industriels contenant des ingrédients introuvables dans une cuisine domestique (émulsifiants, exhausteurs, colorants, etc.).</div>
           </div>
@@ -162,10 +162,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">L'équilibre alimentaire se juge sur quelle période ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un seul repas</div>
-              <div class="option" onclick="answer(this,false)">Une journée</div>
-              <div class="option" onclick="answer(this,true)">La semaine</div>
-              <div class="option" onclick="answer(this,false)">Le mois</div>
+              <button class="option" onclick="answer(this,false)">Un seul repas</button>
+              <button class="option" onclick="answer(this,false)">Une journée</button>
+              <button class="option" onclick="answer(this,true)">La semaine</button>
+              <button class="option" onclick="answer(this,false)">Le mois</button>
             </div>
             <div class="q-feedback">L'équilibre alimentaire se juge sur la semaine, pas sur un seul repas. Un excès ponctuel peut être compensé par des repas plus légers les jours suivants.</div>
           </div>
@@ -213,8 +213,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Types de rayonnements alpha, bêta et gamma, loi de décroissance, demi-vie, datation au carbone 14 et applications médicales — la physique des noyaux...">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Radioactivité — Physique moderne — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8e44ad;
   --accent2: #9b59b6;
   --accent-dim: rgba(142,68,173,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">⚛️ Physique moderne</span>
     <span class="tag-level">Intermédiaire</span>
@@ -179,10 +179,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qu'est-ce qu'une particule alpha ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un électron de haute énergie</div>
-              <div class="option" onclick="answer(this,true)">Un noyau d'hélium 4 (2 protons + 2 neutrons)</div>
-              <div class="option" onclick="answer(this,false)">Un photon de très haute énergie</div>
-              <div class="option" onclick="answer(this,false)">Un neutron isolé</div>
+              <button class="option" onclick="answer(this,false)">Un électron de haute énergie</button>
+              <button class="option" onclick="answer(this,true)">Un noyau d'hélium 4 (2 protons + 2 neutrons)</button>
+              <button class="option" onclick="answer(this,false)">Un photon de très haute énergie</button>
+              <button class="option" onclick="answer(this,false)">Un neutron isolé</button>
             </div>
             <div class="q-feedback">La particule alpha (α) est un noyau d'hélium 4 (⁴₂He), constitué de 2 protons et 2 neutrons liés par la force nucléaire. Elle est émise par les noyaux lourds instables et possède un fort pouvoir ionisant mais une faible pénétration.</div>
           </div>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle est la demi-vie du carbone 14, utilisé pour la datation ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1 620 ans</div>
-              <div class="option" onclick="answer(this,true)">5 730 ans</div>
-              <div class="option" onclick="answer(this,false)">14 000 ans</div>
-              <div class="option" onclick="answer(this,false)">50 000 ans</div>
+              <button class="option" onclick="answer(this,false)">1 620 ans</button>
+              <button class="option" onclick="answer(this,true)">5 730 ans</button>
+              <button class="option" onclick="answer(this,false)">14 000 ans</button>
+              <button class="option" onclick="answer(this,false)">50 000 ans</button>
             </div>
             <div class="q-feedback">La demi-vie du carbone 14 est de 5 730 ans. Après ce temps, la moitié des noyaux de ¹⁴C se sont transformés en azote 14 par désintégration β⁻. La méthode est fiable jusqu'à environ 50 000 ans (~9 demi-vies).</div>
           </div>
@@ -201,10 +201,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel rayonnement est le plus pénétrant ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les rayons alpha</div>
-              <div class="option" onclick="answer(this,false)">Les rayons bêta</div>
-              <div class="option" onclick="answer(this,true)">Les rayons gamma</div>
-              <div class="option" onclick="answer(this,false)">Les trois ont la même pénétration</div>
+              <button class="option" onclick="answer(this,false)">Les rayons alpha</button>
+              <button class="option" onclick="answer(this,false)">Les rayons bêta</button>
+              <button class="option" onclick="answer(this,true)">Les rayons gamma</button>
+              <button class="option" onclick="answer(this,false)">Les trois ont la même pénétration</button>
             </div>
             <div class="q-feedback">Les rayons gamma (photons de haute énergie) sont les plus pénétrants : il faut plusieurs centimètres de plomb pour les atténuer. Les bêta sont arrêtés par quelques mm d'aluminium, et les alpha par une simple feuille de papier.</div>
           </div>
@@ -212,10 +212,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Que vaut l'activité d'un échantillon après 3 demi-vies ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1/3 de l'activité initiale</div>
-              <div class="option" onclick="answer(this,false)">1/4 de l'activité initiale</div>
-              <div class="option" onclick="answer(this,true)">1/8 de l'activité initiale</div>
-              <div class="option" onclick="answer(this,false)">1/16 de l'activité initiale</div>
+              <button class="option" onclick="answer(this,false)">1/3 de l'activité initiale</button>
+              <button class="option" onclick="answer(this,false)">1/4 de l'activité initiale</button>
+              <button class="option" onclick="answer(this,true)">1/8 de l'activité initiale</button>
+              <button class="option" onclick="answer(this,false)">1/16 de l'activité initiale</button>
             </div>
             <div class="q-feedback">Après chaque demi-vie, l'activité est divisée par 2. Après 3 demi-vies : A = A₀ × (1/2)³ = A₀/8. Après n demi-vies, il reste A₀/2ⁿ de l'activité initiale.</div>
           </div>
@@ -223,10 +223,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle technique d'imagerie médicale utilise l'annihilation d'un positron avec un électron ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La radiographie classique</div>
-              <div class="option" onclick="answer(this,false)">La scintigraphie au technétium</div>
-              <div class="option" onclick="answer(this,true)">La TEP (Tomographie par Émission de Positons)</div>
-              <div class="option" onclick="answer(this,false)">L'IRM (Imagerie par Résonance Magnétique)</div>
+              <button class="option" onclick="answer(this,false)">La radiographie classique</button>
+              <button class="option" onclick="answer(this,false)">La scintigraphie au technétium</button>
+              <button class="option" onclick="answer(this,true)">La TEP (Tomographie par Émission de Positons)</button>
+              <button class="option" onclick="answer(this,false)">L'IRM (Imagerie par Résonance Magnétique)</button>
             </div>
             <div class="q-feedback">La TEP utilise un traceur émetteur β⁺ (comme le ¹⁸F-FDG). Le positron émis s'annihile avec un électron du milieu, produisant deux photons gamma de 511 keV émis à 180°. Leur détection en coïncidence permet une localisation précise en 3D.</div>
           </div>
@@ -234,10 +234,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel est le facteur de pondération du rayonnement alpha pour le calcul de la dose équivalente ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1</div>
-              <div class="option" onclick="answer(this,false)">5</div>
-              <div class="option" onclick="answer(this,false)">10</div>
-              <div class="option" onclick="answer(this,true)">20</div>
+              <button class="option" onclick="answer(this,false)">1</button>
+              <button class="option" onclick="answer(this,false)">5</button>
+              <button class="option" onclick="answer(this,false)">10</button>
+              <button class="option" onclick="answer(this,true)">20</button>
             </div>
             <div class="q-feedback">Le facteur de pondération des particules alpha est 20, contre 1 pour les photons (gamma, X) et les électrons (bêta). Cela reflète le fort pouvoir ionisant des alphas : bien que peu pénétrantes, elles déposent beaucoup d'énergie sur un court trajet, causant des dommages biologiques intenses.</div>
           </div>
@@ -352,8 +352,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

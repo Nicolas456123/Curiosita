@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cycle de Carnot, rendement, moteurs thermiques, réfrigérateurs et pompes à chaleur.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Machines thermiques — Thermodynamique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08);  --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../sciences-exactes.html">Sciences exactes</a> › <a href="../thermodynamique.html">Thermodynamique</a> › <span>Machines thermiques</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🌡️ Thermodynamique</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -102,12 +102,12 @@
       <div class="quiz-container">
         <div class="quiz-header"><span class="quiz-title-text">🌡️ Machines thermiques — Quiz</span><span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span></div>
         <div class="quiz-body" id="quizBody">
-          <div class="question-block active" data-q="0"><p class="q-num">Question 1 / 6</p><p class="q-text">Quel est le rendement de Carnot entre T_c = 500 K et T_f = 300 K ?</p><div class="options"><div class="option" onclick="answer(this,false)">20 %</div><div class="option" onclick="answer(this,true)">40 %</div><div class="option" onclick="answer(this,false)">60 %</div><div class="option" onclick="answer(this,false)">80 %</div></div><div class="q-feedback">η = 1 − T_f/T_c = 1 − 300/500 = 0,40 = 40 %. C'est le rendement maximal théorique entre ces deux sources.</div></div>
-          <div class="question-block" data-q="1"><p class="q-num">Question 2 / 6</p><p class="q-text">Le cycle de Carnot est composé de...</p><div class="options"><div class="option" onclick="answer(this,false)">Deux isobares et deux isochores</div><div class="option" onclick="answer(this,true)">Deux isothermes et deux adiabatiques</div><div class="option" onclick="answer(this,false)">Quatre isothermes</div><div class="option" onclick="answer(this,false)">Deux isobares et deux adiabatiques</div></div><div class="q-feedback">Le cycle de Carnot idéal est constitué de deux transformations isothermes et deux transformations adiabatiques, toutes réversibles.</div></div>
-          <div class="question-block" data-q="2"><p class="q-num">Question 3 / 6</p><p class="q-text">Dans un moteur Otto, la combustion est modélisée par une transformation...</p><div class="options"><div class="option" onclick="answer(this,true)">Isochore</div><div class="option" onclick="answer(this,false)">Isobare</div><div class="option" onclick="answer(this,false)">Isotherme</div><div class="option" onclick="answer(this,false)">Adiabatique</div></div><div class="q-feedback">Dans le cycle Otto (moteur essence), la combustion est modélisée comme un apport de chaleur à volume constant (isochore). Dans le cycle Diesel, c'est à pression constante.</div></div>
-          <div class="question-block" data-q="3"><p class="q-num">Question 4 / 6</p><p class="q-text">Le COP d'une pompe à chaleur peut-il être supérieur à 1 ?</p><div class="options"><div class="option" onclick="answer(this,true)">Oui, c'est toujours le cas</div><div class="option" onclick="answer(this,false)">Non, jamais</div><div class="option" onclick="answer(this,false)">Seulement en été</div><div class="option" onclick="answer(this,false)">Seulement pour un cycle de Carnot</div></div><div class="q-feedback">COP_PAC = COP_frigo + 1, donc toujours > 1. La PAC ne crée pas d'énergie : elle déplace la chaleur de l'extérieur vers l'intérieur, en consommant peu de travail.</div></div>
-          <div class="question-block" data-q="4"><p class="q-num">Question 5 / 6</p><p class="q-text">Pourquoi le rendement réel d'un moteur est-il toujours inférieur au rendement de Carnot ?</p><div class="options"><div class="option" onclick="answer(this,false)">Les sources de chaleur sont trop proches</div><div class="option" onclick="answer(this,false)">Le carburant n'est pas assez énergétique</div><div class="option" onclick="answer(this,true)">Les transformations réelles sont irréversibles</div><div class="option" onclick="answer(this,false)">Le cycle de Carnot est mal défini</div></div><div class="q-feedback">Les frottements, turbulences, pertes par conduction et autres irréversibilités font que le rendement réel est toujours inférieur au rendement de Carnot.</div></div>
-          <div class="question-block" data-q="5"><p class="q-num">Question 6 / 6</p><p class="q-text">Quel cycle est utilisé dans les centrales thermiques et nucléaires ?</p><div class="options"><div class="option" onclick="answer(this,false)">Cycle Otto</div><div class="option" onclick="answer(this,false)">Cycle Diesel</div><div class="option" onclick="answer(this,false)">Cycle de Carnot</div><div class="option" onclick="answer(this,true)">Cycle de Rankine</div></div><div class="q-feedback">Le cycle de Rankine (eau/vapeur) est le cycle de base des centrales thermiques et nucléaires, avec turbine à vapeur et condenseur.</div></div>
+          <div class="question-block active" data-q="0"><p class="q-num">Question 1 / 6</p><p class="q-text">Quel est le rendement de Carnot entre T_c = 500 K et T_f = 300 K ?</p><div class="options"><button class="option" onclick="answer(this,false)">20 %</button><button class="option" onclick="answer(this,true)">40 %</button><button class="option" onclick="answer(this,false)">60 %</button><button class="option" onclick="answer(this,false)">80 %</button></div><div class="q-feedback">η = 1 − T_f/T_c = 1 − 300/500 = 0,40 = 40 %. C'est le rendement maximal théorique entre ces deux sources.</div></div>
+          <div class="question-block" data-q="1"><p class="q-num">Question 2 / 6</p><p class="q-text">Le cycle de Carnot est composé de...</p><div class="options"><button class="option" onclick="answer(this,false)">Deux isobares et deux isochores</button><button class="option" onclick="answer(this,true)">Deux isothermes et deux adiabatiques</button><button class="option" onclick="answer(this,false)">Quatre isothermes</button><button class="option" onclick="answer(this,false)">Deux isobares et deux adiabatiques</button></div><div class="q-feedback">Le cycle de Carnot idéal est constitué de deux transformations isothermes et deux transformations adiabatiques, toutes réversibles.</div></div>
+          <div class="question-block" data-q="2"><p class="q-num">Question 3 / 6</p><p class="q-text">Dans un moteur Otto, la combustion est modélisée par une transformation...</p><div class="options"><button class="option" onclick="answer(this,true)">Isochore</button><button class="option" onclick="answer(this,false)">Isobare</button><button class="option" onclick="answer(this,false)">Isotherme</button><button class="option" onclick="answer(this,false)">Adiabatique</button></div><div class="q-feedback">Dans le cycle Otto (moteur essence), la combustion est modélisée comme un apport de chaleur à volume constant (isochore). Dans le cycle Diesel, c'est à pression constante.</div></div>
+          <div class="question-block" data-q="3"><p class="q-num">Question 4 / 6</p><p class="q-text">Le COP d'une pompe à chaleur peut-il être supérieur à 1 ?</p><div class="options"><button class="option" onclick="answer(this,true)">Oui, c'est toujours le cas</button><button class="option" onclick="answer(this,false)">Non, jamais</button><button class="option" onclick="answer(this,false)">Seulement en été</button><button class="option" onclick="answer(this,false)">Seulement pour un cycle de Carnot</button></div><div class="q-feedback">COP_PAC = COP_frigo + 1, donc toujours > 1. La PAC ne crée pas d'énergie : elle déplace la chaleur de l'extérieur vers l'intérieur, en consommant peu de travail.</div></div>
+          <div class="question-block" data-q="4"><p class="q-num">Question 5 / 6</p><p class="q-text">Pourquoi le rendement réel d'un moteur est-il toujours inférieur au rendement de Carnot ?</p><div class="options"><button class="option" onclick="answer(this,false)">Les sources de chaleur sont trop proches</button><button class="option" onclick="answer(this,false)">Le carburant n'est pas assez énergétique</button><button class="option" onclick="answer(this,true)">Les transformations réelles sont irréversibles</button><button class="option" onclick="answer(this,false)">Le cycle de Carnot est mal défini</button></div><div class="q-feedback">Les frottements, turbulences, pertes par conduction et autres irréversibilités font que le rendement réel est toujours inférieur au rendement de Carnot.</div></div>
+          <div class="question-block" data-q="5"><p class="q-num">Question 6 / 6</p><p class="q-text">Quel cycle est utilisé dans les centrales thermiques et nucléaires ?</p><div class="options"><button class="option" onclick="answer(this,false)">Cycle Otto</button><button class="option" onclick="answer(this,false)">Cycle Diesel</button><button class="option" onclick="answer(this,false)">Cycle de Carnot</button><button class="option" onclick="answer(this,true)">Cycle de Rankine</button></div><div class="q-feedback">Le cycle de Rankine (eau/vapeur) est le cycle de base des centrales thermiques et nucléaires, avec turbine à vapeur et condenseur.</div></div>
         </div>
         <div class="quiz-result" id="quizResult"><div class="result-score-big" id="resultScore">0/6</div><div class="result-msg" id="resultMsg"></div><button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button></div>
         <div class="quiz-nav"><button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button><div class="q-dots" id="qDots"></div><button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button></div>
@@ -143,8 +143,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

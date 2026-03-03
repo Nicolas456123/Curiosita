@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Fonction d'onde, principe d'incertitude, effet tunnel, superposition quantique et équation de Schrödinger — les lois étranges qui gouvernent le monde...">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Mécanique quantique — Physique moderne — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8e44ad;
   --accent2: #9b59b6;
   --accent-dim: rgba(142,68,173,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">⚛️ Physique moderne</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -155,10 +155,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qui a introduit le concept de quanta d'énergie pour résoudre le problème du corps noir ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Albert Einstein</div>
-              <div class="option" onclick="answer(this,true)">Max Planck</div>
-              <div class="option" onclick="answer(this,false)">Niels Bohr</div>
-              <div class="option" onclick="answer(this,false)">Werner Heisenberg</div>
+              <button class="option" onclick="answer(this,false)">Albert Einstein</button>
+              <button class="option" onclick="answer(this,true)">Max Planck</button>
+              <button class="option" onclick="answer(this,false)">Niels Bohr</button>
+              <button class="option" onclick="answer(this,false)">Werner Heisenberg</button>
             </div>
             <div class="q-feedback">En 1900, Max Planck résout le problème du rayonnement du corps noir en postulant que l'énergie est échangée par paquets discrets E = hν, introduisant ainsi la constante h qui porte son nom.</div>
           </div>
@@ -166,10 +166,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que représente |Ψ(x,t)|² dans l'interprétation de Born ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'énergie de la particule en position x</div>
-              <div class="option" onclick="answer(this,false)">La vitesse de la particule à l'instant t</div>
-              <div class="option" onclick="answer(this,true)">La densité de probabilité de trouver la particule en x à l'instant t</div>
-              <div class="option" onclick="answer(this,false)">La charge électrique de la particule</div>
+              <button class="option" onclick="answer(this,false)">L'énergie de la particule en position x</button>
+              <button class="option" onclick="answer(this,false)">La vitesse de la particule à l'instant t</button>
+              <button class="option" onclick="answer(this,true)">La densité de probabilité de trouver la particule en x à l'instant t</button>
+              <button class="option" onclick="answer(this,false)">La charge électrique de la particule</button>
             </div>
             <div class="q-feedback">Selon l'interprétation de Born (1926), |Ψ(x,t)|² est la densité de probabilité de présence de la particule. La probabilité de la trouver entre x et x+dx est |Ψ|²dx.</div>
           </div>
@@ -177,10 +177,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle est la relation d'incertitude de Heisenberg entre position et quantité de mouvement ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Δx · Δp = 0</div>
-              <div class="option" onclick="answer(this,true)">Δx · Δp ≥ ℏ/2</div>
-              <div class="option" onclick="answer(this,false)">Δx · Δp = ℏ</div>
-              <div class="option" onclick="answer(this,false)">Δx + Δp ≥ ℏ/2</div>
+              <button class="option" onclick="answer(this,false)">Δx · Δp = 0</button>
+              <button class="option" onclick="answer(this,true)">Δx · Δp ≥ ℏ/2</button>
+              <button class="option" onclick="answer(this,false)">Δx · Δp = ℏ</button>
+              <button class="option" onclick="answer(this,false)">Δx + Δp ≥ ℏ/2</button>
             </div>
             <div class="q-feedback">La relation d'incertitude de Heisenberg stipule que Δx · Δp ≥ ℏ/2. C'est une inégalité fondamentale qui traduit l'impossibilité de mesurer simultanément position et impulsion avec une précision arbitraire.</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel phénomène permet à une particule de traverser une barrière de potentiel classiquement infranchissable ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La diffraction quantique</div>
-              <div class="option" onclick="answer(this,false)">La superposition d'états</div>
-              <div class="option" onclick="answer(this,true)">L'effet tunnel</div>
-              <div class="option" onclick="answer(this,false)">L'intrication quantique</div>
+              <button class="option" onclick="answer(this,false)">La diffraction quantique</button>
+              <button class="option" onclick="answer(this,false)">La superposition d'états</button>
+              <button class="option" onclick="answer(this,true)">L'effet tunnel</button>
+              <button class="option" onclick="answer(this,false)">L'intrication quantique</button>
             </div>
             <div class="q-feedback">L'effet tunnel est un phénomène purement quantique : la fonction d'onde ne s'annule pas brusquement dans la barrière mais décroît exponentiellement, permettant une probabilité non nulle de traversée si la barrière est suffisamment fine.</div>
           </div>
@@ -199,10 +199,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle expérience a confirmé la violation des inégalités de Bell et la réalité de l'intrication quantique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'expérience de la double fente de Young</div>
-              <div class="option" onclick="answer(this,true)">Les expériences d'Alain Aspect (1982)</div>
-              <div class="option" onclick="answer(this,false)">L'expérience de Davisson-Germer</div>
-              <div class="option" onclick="answer(this,false)">L'expérience de Stern-Gerlach</div>
+              <button class="option" onclick="answer(this,false)">L'expérience de la double fente de Young</button>
+              <button class="option" onclick="answer(this,true)">Les expériences d'Alain Aspect (1982)</button>
+              <button class="option" onclick="answer(this,false)">L'expérience de Davisson-Germer</button>
+              <button class="option" onclick="answer(this,false)">L'expérience de Stern-Gerlach</button>
             </div>
             <div class="q-feedback">Alain Aspect (prix Nobel 2022) réalise en 1982 des expériences montrant que les corrélations entre photons intriqués violent les inégalités de Bell, réfutant les théories à variables cachées locales et confirmant l'intrication quantique.</div>
           </div>
@@ -210,10 +210,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle est la longueur d'onde de de Broglie d'une particule de quantité de mouvement p ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">λ = hp</div>
-              <div class="option" onclick="answer(this,false)">λ = p/h</div>
-              <div class="option" onclick="answer(this,true)">λ = h/p</div>
-              <div class="option" onclick="answer(this,false)">λ = h²/p</div>
+              <button class="option" onclick="answer(this,false)">λ = hp</button>
+              <button class="option" onclick="answer(this,false)">λ = p/h</button>
+              <button class="option" onclick="answer(this,true)">λ = h/p</button>
+              <button class="option" onclick="answer(this,false)">λ = h²/p</button>
             </div>
             <div class="q-feedback">La relation de de Broglie (1924) associe à toute particule de quantité de mouvement p une longueur d'onde λ = h/p. Plus la particule est lourde ou rapide, plus sa longueur d'onde est petite.</div>
           </div>
@@ -320,8 +320,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

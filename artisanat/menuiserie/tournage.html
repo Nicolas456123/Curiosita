@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Le tour à bois, les gouges, les techniques de creusage et de profilage.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Tournage sur bois — Menuiserie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #8ae87a; --accent2: #a5f598; --accent-dim: rgba(138,232,122,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #8ae87a; --accent2: #a5f598; --accent-dim: rgba(138,232,122,0.08);  --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../artisanat-page.html">Artisanat</a> › <a href="../menuiserie.html">Menuiserie</a> › <span>Tournage sur bois</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔄 Menuiserie</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -99,10 +99,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle vitesse utiliser pour une grande pièce de bois au tour ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Vitesse lente (500-800 tr/min)</div>
-              <div class="option" onclick="answer(this,false)">Vitesse rapide (3000 tr/min)</div>
-              <div class="option" onclick="answer(this,false)">Toujours la même vitesse</div>
-              <div class="option" onclick="answer(this,false)">La vitesse maximale pour plus d'efficacité</div>
+              <button class="option" onclick="answer(this,true)">Vitesse lente (500-800 tr/min)</button>
+              <button class="option" onclick="answer(this,false)">Vitesse rapide (3000 tr/min)</button>
+              <button class="option" onclick="answer(this,false)">Toujours la même vitesse</button>
+              <button class="option" onclick="answer(this,false)">La vitesse maximale pour plus d'efficacité</button>
             </div>
             <div class="q-feedback">Plus la pièce est grande (grand diamètre), plus la vitesse doit être lente pour que la vitesse périphérique reste sûre (< 15 m/s). Une grande pièce à haute vitesse est dangereuse.</div>
           </div>
@@ -110,10 +110,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel type de tournage utilise-t-on pour creuser un bol ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Tournage entre pointes</div>
-              <div class="option" onclick="answer(this,true)">Tournage en l'air (sur mandrin)</div>
-              <div class="option" onclick="answer(this,false)">Tournage à la main</div>
-              <div class="option" onclick="answer(this,false)">Tournage sur plateau libre</div>
+              <button class="option" onclick="answer(this,false)">Tournage entre pointes</button>
+              <button class="option" onclick="answer(this,true)">Tournage en l'air (sur mandrin)</button>
+              <button class="option" onclick="answer(this,false)">Tournage à la main</button>
+              <button class="option" onclick="answer(this,false)">Tournage sur plateau libre</button>
             </div>
             <div class="q-feedback">Le tournage en l'air (pièce fixée par une seule extrémité sur un mandrin) laisse une face libre pour le creusage. Le tournage entre pointes ne permet pas d'accéder à l'intérieur.</div>
           </div>
@@ -121,10 +121,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Dans quel sens faut-il couper lors du profilage au tour ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Du grand diamètre vers le petit diamètre</div>
-              <div class="option" onclick="answer(this,false)">Du petit vers le grand diamètre</div>
-              <div class="option" onclick="answer(this,false)">Toujours de gauche à droite</div>
-              <div class="option" onclick="answer(this,false)">Le sens n'a pas d'importance</div>
+              <button class="option" onclick="answer(this,true)">Du grand diamètre vers le petit diamètre</button>
+              <button class="option" onclick="answer(this,false)">Du petit vers le grand diamètre</button>
+              <button class="option" onclick="answer(this,false)">Toujours de gauche à droite</button>
+              <button class="option" onclick="answer(this,false)">Le sens n'a pas d'importance</button>
             </div>
             <div class="q-feedback">On coupe toujours du grand diamètre vers le petit (de la « colline » vers la « vallée »). Couper dans l'autre sens soulève les fibres et donne un état de surface médiocre.</div>
           </div>
@@ -132,10 +132,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle épaisseur de paroi viser pour un bol tourné ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1-2 mm</div>
-              <div class="option" onclick="answer(this,true)">5-8 mm</div>
-              <div class="option" onclick="answer(this,false)">15-20 mm</div>
-              <div class="option" onclick="answer(this,false)">L'épaisseur n'a pas d'importance</div>
+              <button class="option" onclick="answer(this,false)">1-2 mm</button>
+              <button class="option" onclick="answer(this,true)">5-8 mm</button>
+              <button class="option" onclick="answer(this,false)">15-20 mm</button>
+              <button class="option" onclick="answer(this,false)">L'épaisseur n'a pas d'importance</button>
             </div>
             <div class="q-feedback">5-8 mm est l'épaisseur idéale : assez fin pour l'esthétique et la légèreté, assez épais pour la solidité. Trop fin risque la fissure, trop épais déforme au séchage.</div>
           </div>
@@ -143,10 +143,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Pourquoi tourner un bol en bois vert plus épais que la forme finale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pour qu'il soit plus lourd</div>
-              <div class="option" onclick="answer(this,true)">Parce que le bois se déformera en séchant et sera refinitionné ensuite</div>
-              <div class="option" onclick="answer(this,false)">Pour économiser du temps</div>
-              <div class="option" onclick="answer(this,false)">Pour pouvoir le poncer davantage</div>
+              <button class="option" onclick="answer(this,false)">Pour qu'il soit plus lourd</button>
+              <button class="option" onclick="answer(this,true)">Parce que le bois se déformera en séchant et sera refinitionné ensuite</button>
+              <button class="option" onclick="answer(this,false)">Pour économiser du temps</button>
+              <button class="option" onclick="answer(this,false)">Pour pouvoir le poncer davantage</button>
             </div>
             <div class="q-feedback">Le bois vert rétrécit et se déforme en séchant (il devient ovale). En laissant une épaisseur de surcote, on peut remonter le bol séché sur le tour et le finir à dimension, en retrouvant une forme parfaitement ronde.</div>
           </div>
@@ -154,10 +154,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel outil sert à dégrossir un carré en cylindre au tour ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">La gouge à dégrossir</div>
-              <div class="option" onclick="answer(this,false)">Le bédane</div>
-              <div class="option" onclick="answer(this,false)">Le grain d'orge</div>
-              <div class="option" onclick="answer(this,false)">Le ciseau à bois</div>
+              <button class="option" onclick="answer(this,true)">La gouge à dégrossir</button>
+              <button class="option" onclick="answer(this,false)">Le bédane</button>
+              <button class="option" onclick="answer(this,false)">Le grain d'orge</button>
+              <button class="option" onclick="answer(this,false)">Le ciseau à bois</button>
             </div>
             <div class="q-feedback">La gouge à dégrossir est large et profonde, conçue pour enlever rapidement de la matière. Elle transforme un morceau carré en cylindre en quelques passes.</div>
           </div>
@@ -210,8 +210,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

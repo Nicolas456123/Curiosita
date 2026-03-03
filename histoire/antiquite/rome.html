@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De la République à l'Empire — le droit, les légions, la Pax Romana et la chute qui change le monde.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Rome antique — Antiquité — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📜 Antiquité</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -144,10 +144,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">En quelle année Jules César est-il assassiné ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">49 av. J.-C.</div>
-              <div class="option" onclick="answer(this,true)">44 av. J.-C.</div>
-              <div class="option" onclick="answer(this,false)">31 av. J.-C.</div>
-              <div class="option" onclick="answer(this,false)">27 av. J.-C.</div>
+              <button class="option" onclick="answer(this,false)">49 av. J.-C.</button>
+              <button class="option" onclick="answer(this,true)">44 av. J.-C.</button>
+              <button class="option" onclick="answer(this,false)">31 av. J.-C.</button>
+              <button class="option" onclick="answer(this,false)">27 av. J.-C.</button>
             </div>
             <div class="q-feedback">Jules César est assassiné le 15 mars 44 av. J.-C. (les Ides de Mars) par un groupe de sénateurs, dont Brutus et Cassius.</div>
           </div>
@@ -155,10 +155,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel empereur fait du christianisme la religion officielle de l'Empire romain ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Constantin</div>
-              <div class="option" onclick="answer(this,false)">Auguste</div>
-              <div class="option" onclick="answer(this,true)">Théodose</div>
-              <div class="option" onclick="answer(this,false)">Dioclétien</div>
+              <button class="option" onclick="answer(this,false)">Constantin</button>
+              <button class="option" onclick="answer(this,false)">Auguste</button>
+              <button class="option" onclick="answer(this,true)">Théodose</button>
+              <button class="option" onclick="answer(this,false)">Dioclétien</button>
             </div>
             <div class="q-feedback">Théodose Iᵉʳ fait du christianisme la religion officielle de l'Empire romain en 380 par l'édit de Thessalonique. Constantin avait accordé la liberté de culte en 313.</div>
           </div>
@@ -166,10 +166,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle date marque conventionnellement la chute de l'Empire romain d'Occident ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">395 apr. J.-C.</div>
-              <div class="option" onclick="answer(this,false)">410 apr. J.-C.</div>
-              <div class="option" onclick="answer(this,true)">476 apr. J.-C.</div>
-              <div class="option" onclick="answer(this,false)">1453 apr. J.-C.</div>
+              <button class="option" onclick="answer(this,false)">395 apr. J.-C.</button>
+              <button class="option" onclick="answer(this,false)">410 apr. J.-C.</button>
+              <button class="option" onclick="answer(this,true)">476 apr. J.-C.</button>
+              <button class="option" onclick="answer(this,false)">1453 apr. J.-C.</button>
             </div>
             <div class="q-feedback">En 476, Odoacre dépose Romulus Augustule, dernier empereur d'Occident. 1453 marque la chute de l'Empire d'Orient (Constantinople).</div>
           </div>
@@ -177,10 +177,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel général carthaginois traverse les Alpes avec des éléphants pour attaquer Rome ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Hamilcar Barca</div>
-              <div class="option" onclick="answer(this,true)">Hannibal Barca</div>
-              <div class="option" onclick="answer(this,false)">Scipion l'Africain</div>
-              <div class="option" onclick="answer(this,false)">Hasdrubal</div>
+              <button class="option" onclick="answer(this,false)">Hamilcar Barca</button>
+              <button class="option" onclick="answer(this,true)">Hannibal Barca</button>
+              <button class="option" onclick="answer(this,false)">Scipion l'Africain</button>
+              <button class="option" onclick="answer(this,false)">Hasdrubal</button>
             </div>
             <div class="q-feedback">Hannibal Barca traverse les Alpes avec des éléphants en 218 av. J.-C. lors de la deuxième guerre punique, infligeant à Rome ses pires défaites.</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qui est le premier empereur romain ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Jules César</div>
-              <div class="option" onclick="answer(this,true)">Auguste (Octave)</div>
-              <div class="option" onclick="answer(this,false)">Tibère</div>
-              <div class="option" onclick="answer(this,false)">Néron</div>
+              <button class="option" onclick="answer(this,false)">Jules César</button>
+              <button class="option" onclick="answer(this,true)">Auguste (Octave)</button>
+              <button class="option" onclick="answer(this,false)">Tibère</button>
+              <button class="option" onclick="answer(this,false)">Néron</button>
             </div>
             <div class="q-feedback">Auguste (Octave) devient le premier empereur romain en 27 av. J.-C. après sa victoire à Actium. Il inaugure la Pax Romana.</div>
           </div>
@@ -199,10 +199,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Comment les Romains appellent-ils la Méditerranée, qu'ils dominent entièrement ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Mare Magnum</div>
-              <div class="option" onclick="answer(this,true)">Mare Nostrum</div>
-              <div class="option" onclick="answer(this,false)">Mare Internum</div>
-              <div class="option" onclick="answer(this,false)">Mare Romanum</div>
+              <button class="option" onclick="answer(this,false)">Mare Magnum</button>
+              <button class="option" onclick="answer(this,true)">Mare Nostrum</button>
+              <button class="option" onclick="answer(this,false)">Mare Internum</button>
+              <button class="option" onclick="answer(this,false)">Mare Romanum</button>
             </div>
             <div class="q-feedback">Les Romains appellent la Méditerranée « Mare Nostrum » (notre mer), car ils en contrôlent l'intégralité du pourtour après les guerres puniques.</div>
           </div>
@@ -265,8 +265,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

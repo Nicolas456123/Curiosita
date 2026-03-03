@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pasta, pizza, antipasti — la convivialité méditerranéenne, le respect du produit et la diversité régionale de l'Italie à table.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Cuisine italienne — Cuisine du monde — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🇮🇹 Cuisine du monde</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -145,10 +145,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Combien de formes de pâtes différentes existe-t-il en Italie environ ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">50</div>
-              <div class="option" onclick="answer(this,false)">150</div>
-              <div class="option" onclick="answer(this,true)">Plus de 300</div>
-              <div class="option" onclick="answer(this,false)">Plus de 1 000</div>
+              <button class="option" onclick="answer(this,false)">50</button>
+              <button class="option" onclick="answer(this,false)">150</button>
+              <button class="option" onclick="answer(this,true)">Plus de 300</button>
+              <button class="option" onclick="answer(this,false)">Plus de 1 000</button>
             </div>
             <div class="q-feedback">L'Italie compte plus de 300 formes de pâtes différentes, chacune adaptée à un type de sauce spécifique.</div>
           </div>
@@ -156,10 +156,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Avec quelles pâtes le ragù alla bolognese se sert-il traditionnellement ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Spaghetti</div>
-              <div class="option" onclick="answer(this,true)">Tagliatelle</div>
-              <div class="option" onclick="answer(this,false)">Penne</div>
-              <div class="option" onclick="answer(this,false)">Fusilli</div>
+              <button class="option" onclick="answer(this,false)">Spaghetti</button>
+              <button class="option" onclick="answer(this,true)">Tagliatelle</button>
+              <button class="option" onclick="answer(this,false)">Penne</button>
+              <button class="option" onclick="answer(this,false)">Fusilli</button>
             </div>
             <div class="q-feedback">À Bologne, le ragù se sert avec des tagliatelle fraîches aux oeufs. Les « spaghetti bolognaise » sont une invention étrangère.</div>
           </div>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">À quelle température est cuite une vraie pizza napoletana au four à bois ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">250 °C</div>
-              <div class="option" onclick="answer(this,false)">350 °C</div>
-              <div class="option" onclick="answer(this,true)">485 °C</div>
-              <div class="option" onclick="answer(this,false)">600 °C</div>
+              <button class="option" onclick="answer(this,false)">250 °C</button>
+              <button class="option" onclick="answer(this,false)">350 °C</button>
+              <button class="option" onclick="answer(this,true)">485 °C</button>
+              <button class="option" onclick="answer(this,false)">600 °C</button>
             </div>
             <div class="q-feedback">La pizza napoletana se cuit à environ 485 °C pendant 60 à 90 secondes seulement, dans un four à bois traditionnel.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce que le « primo » dans un repas italien ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'entrée froide</div>
-              <div class="option" onclick="answer(this,true)">Le plat de pâtes, risotto ou soupe</div>
-              <div class="option" onclick="answer(this,false)">Le plat de viande ou poisson</div>
-              <div class="option" onclick="answer(this,false)">Le dessert</div>
+              <button class="option" onclick="answer(this,false)">L'entrée froide</button>
+              <button class="option" onclick="answer(this,true)">Le plat de pâtes, risotto ou soupe</button>
+              <button class="option" onclick="answer(this,false)">Le plat de viande ou poisson</button>
+              <button class="option" onclick="answer(this,false)">Le dessert</button>
             </div>
             <div class="q-feedback">Le primo est le premier plat chaud du repas italien : pâtes, risotto ou soupe. Il précède le secondo (viande ou poisson).</div>
           </div>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">D'où vient le parmigiano reggiano ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Toscane</div>
-              <div class="option" onclick="answer(this,true)">Émilie-Romagne</div>
-              <div class="option" onclick="answer(this,false)">Lombardie</div>
-              <div class="option" onclick="answer(this,false)">Vénétie</div>
+              <button class="option" onclick="answer(this,false)">Toscane</button>
+              <button class="option" onclick="answer(this,true)">Émilie-Romagne</button>
+              <button class="option" onclick="answer(this,false)">Lombardie</button>
+              <button class="option" onclick="answer(this,false)">Vénétie</button>
             </div>
             <div class="q-feedback">Le Parmigiano Reggiano est produit exclusivement en Émilie-Romagne (provinces de Parme, Reggio Emilia, Modène, Bologne et Mantoue).</div>
           </div>
@@ -200,10 +200,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que signifie cuire les pâtes « al dente » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Très cuites et molles</div>
-              <div class="option" onclick="answer(this,false)">Cuites dans du bouillon</div>
-              <div class="option" onclick="answer(this,true)">Avec une légère résistance sous la dent</div>
-              <div class="option" onclick="answer(this,false)">Refroidies après cuisson</div>
+              <button class="option" onclick="answer(this,false)">Très cuites et molles</button>
+              <button class="option" onclick="answer(this,false)">Cuites dans du bouillon</button>
+              <button class="option" onclick="answer(this,true)">Avec une légère résistance sous la dent</button>
+              <button class="option" onclick="answer(this,false)">Refroidies après cuisson</button>
             </div>
             <div class="q-feedback">« Al dente » signifie littéralement « à la dent » : les pâtes doivent garder une légère fermeté au centre quand on les croque.</div>
           </div>
@@ -270,8 +270,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

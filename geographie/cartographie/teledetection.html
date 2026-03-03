@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Satellites, imagerie aérienne, capteurs multispectraux, radar SAR et suivi environnemental depuis l'espace.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Télédétection — Cartographie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🗺️ Cartographie</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -142,10 +142,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la principale différence entre un capteur passif et un capteur actif ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le capteur passif est plus précis</div>
-              <div class="option" onclick="answer(this,true)">Le capteur actif émet son propre signal</div>
-              <div class="option" onclick="answer(this,false)">Le capteur passif fonctionne la nuit</div>
-              <div class="option" onclick="answer(this,false)">Il n'y a pas de différence</div>
+              <button class="option" onclick="answer(this,false)">Le capteur passif est plus précis</button>
+              <button class="option" onclick="answer(this,true)">Le capteur actif émet son propre signal</button>
+              <button class="option" onclick="answer(this,false)">Le capteur passif fonctionne la nuit</button>
+              <button class="option" onclick="answer(this,false)">Il n'y a pas de différence</button>
             </div>
             <div class="q-feedback">Un capteur actif émet un signal (ondes radar, impulsions laser) et mesure le retour. Un capteur passif se contente d'enregistrer le rayonnement naturel (solaire réfléchi ou thermique émis).</div>
           </div>
@@ -153,10 +153,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que mesure l'indice NDVI ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La température du sol</div>
-              <div class="option" onclick="answer(this,false)">L'humidité de l'air</div>
-              <div class="option" onclick="answer(this,true)">L'activité de la végétation</div>
-              <div class="option" onclick="answer(this,false)">La profondeur de l'eau</div>
+              <button class="option" onclick="answer(this,false)">La température du sol</button>
+              <button class="option" onclick="answer(this,false)">L'humidité de l'air</button>
+              <button class="option" onclick="answer(this,true)">L'activité de la végétation</button>
+              <button class="option" onclick="answer(this,false)">La profondeur de l'eau</button>
             </div>
             <div class="q-feedback">Le NDVI (Normalized Difference Vegetation Index) mesure la vigueur de la végétation en comparant la réflectance dans le rouge (absorbé par la chlorophylle) et le proche infrarouge (fortement réfléchi par les feuilles saines).</div>
           </div>
@@ -164,10 +164,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel avantage majeur a le radar SAR par rapport aux capteurs optiques ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Meilleure résolution spatiale</div>
-              <div class="option" onclick="answer(this,false)">Images en couleurs</div>
-              <div class="option" onclick="answer(this,true)">Fonctionne à travers les nuages et la nuit</div>
-              <div class="option" onclick="answer(this,false)">Coût plus faible</div>
+              <button class="option" onclick="answer(this,false)">Meilleure résolution spatiale</button>
+              <button class="option" onclick="answer(this,false)">Images en couleurs</button>
+              <button class="option" onclick="answer(this,true)">Fonctionne à travers les nuages et la nuit</button>
+              <button class="option" onclick="answer(this,false)">Coût plus faible</button>
             </div>
             <div class="q-feedback">Le radar SAR utilise des micro-ondes qui traversent les nuages et la pluie, et il émet son propre signal, ce qui lui permet de fonctionner de jour comme de nuit. C'est un avantage décisif dans les régions tropicales souvent nuageuses.</div>
           </div>
@@ -175,10 +175,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel programme européen fournit des images satellites gratuites depuis 2014 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Landsat</div>
-              <div class="option" onclick="answer(this,true)">Copernicus (Sentinel)</div>
-              <div class="option" onclick="answer(this,false)">SPOT</div>
-              <div class="option" onclick="answer(this,false)">Pléiades</div>
+              <button class="option" onclick="answer(this,false)">Landsat</button>
+              <button class="option" onclick="answer(this,true)">Copernicus (Sentinel)</button>
+              <button class="option" onclick="answer(this,false)">SPOT</button>
+              <button class="option" onclick="answer(this,false)">Pléiades</button>
             </div>
             <div class="q-feedback">Le programme Copernicus de l'Union européenne, avec ses satellites Sentinel, fournit des images gratuites et en accès libre depuis 2014. Sentinel-2 offre des images optiques à 10 m de résolution tous les 5 jours.</div>
           </div>
@@ -186,10 +186,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle bande spectrale est la plus utile pour détecter la végétation saine ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le bleu visible</div>
-              <div class="option" onclick="answer(this,false)">L'infrarouge thermique</div>
-              <div class="option" onclick="answer(this,true)">Le proche infrarouge</div>
-              <div class="option" onclick="answer(this,false)">Les micro-ondes</div>
+              <button class="option" onclick="answer(this,false)">Le bleu visible</button>
+              <button class="option" onclick="answer(this,false)">L'infrarouge thermique</button>
+              <button class="option" onclick="answer(this,true)">Le proche infrarouge</button>
+              <button class="option" onclick="answer(this,false)">Les micro-ondes</button>
             </div>
             <div class="q-feedback">La végétation saine réfléchit très fortement le proche infrarouge (0,7–1,3 µm) grâce à la structure cellulaire des feuilles. Cette propriété est la base du NDVI et de la plupart des indices de végétation.</div>
           </div>
@@ -197,10 +197,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Qu'est-ce que la « résolution temporelle » d'un satellite ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La taille du plus petit objet détectable</div>
-              <div class="option" onclick="answer(this,false)">Le nombre de bandes spectrales</div>
-              <div class="option" onclick="answer(this,true)">La fréquence à laquelle il repasse au-dessus d'un même point</div>
-              <div class="option" onclick="answer(this,false)">La durée de vie du satellite</div>
+              <button class="option" onclick="answer(this,false)">La taille du plus petit objet détectable</button>
+              <button class="option" onclick="answer(this,false)">Le nombre de bandes spectrales</button>
+              <button class="option" onclick="answer(this,true)">La fréquence à laquelle il repasse au-dessus d'un même point</button>
+              <button class="option" onclick="answer(this,false)">La durée de vie du satellite</button>
             </div>
             <div class="q-feedback">La résolution temporelle (ou fréquence de revisite) est le temps entre deux passages du satellite au-dessus du même point. Sentinel-2 a une revisite de 5 jours, Planet de 1 jour. Plus la revisite est fréquente, mieux on peut suivre les changements rapides.</div>
           </div>
@@ -273,8 +273,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

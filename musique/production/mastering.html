@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Finalisation, loudness, LUFS et chaîne de mastering — la dernière étape avant la diffusion, où le mix devient un produit fini.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Mastering — Production musicale — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e74c3c;
   --accent2: #c0392b;
   --accent-dim: rgba(231,76,60,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(231,76,60,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(231,76,60,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎛️ Production musicale</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -129,10 +129,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle unité mesure le volume perçu (loudness) en mastering ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">dBFS</div>
-              <div class="option" onclick="answer(this,true)">LUFS</div>
-              <div class="option" onclick="answer(this,false)">dBSPL</div>
-              <div class="option" onclick="answer(this,false)">VU</div>
+              <button class="option" onclick="answer(this,false)">dBFS</button>
+              <button class="option" onclick="answer(this,true)">LUFS</button>
+              <button class="option" onclick="answer(this,false)">dBSPL</button>
+              <button class="option" onclick="answer(this,false)">VU</button>
             </div>
             <div class="q-feedback">Les LUFS (Loudness Units relative to Full Scale) mesurent le volume tel que l'oreille humaine le perçoit, en tenant compte de la sensibilité variable aux fréquences. C'est la norme utilisée par toutes les plateformes de streaming.</div>
           </div>
@@ -140,10 +140,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">À quelle valeur Spotify normalise-t-il le loudness ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">-8 LUFS</div>
-              <div class="option" onclick="answer(this,true)">-14 LUFS</div>
-              <div class="option" onclick="answer(this,false)">-23 LUFS</div>
-              <div class="option" onclick="answer(this,false)">-3 LUFS</div>
+              <button class="option" onclick="answer(this,false)">-8 LUFS</button>
+              <button class="option" onclick="answer(this,true)">-14 LUFS</button>
+              <button class="option" onclick="answer(this,false)">-23 LUFS</button>
+              <button class="option" onclick="answer(this,false)">-3 LUFS</button>
             </div>
             <div class="q-feedback">Spotify normalise à -14 LUFS integrated. Un master plus fort sera automatiquement baissé, un master plus faible sera monté. Viser -14 LUFS permet de préserver la dynamique tout en évitant les ajustements indésirables.</div>
           </div>
@@ -151,10 +151,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel est le rôle du limiteur en fin de chaîne de mastering ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Ajouter de la réverbération</div>
-              <div class="option" onclick="answer(this,false)">Corriger l'équilibre fréquentiel</div>
-              <div class="option" onclick="answer(this,true)">Fixer le plafond de volume et empêcher le clipping</div>
-              <div class="option" onclick="answer(this,false)">Élargir l'image stéréo</div>
+              <button class="option" onclick="answer(this,false)">Ajouter de la réverbération</button>
+              <button class="option" onclick="answer(this,false)">Corriger l'équilibre fréquentiel</button>
+              <button class="option" onclick="answer(this,true)">Fixer le plafond de volume et empêcher le clipping</button>
+              <button class="option" onclick="answer(this,false)">Élargir l'image stéréo</button>
             </div>
             <div class="q-feedback">Le limiteur fixe le niveau maximum du signal (ceiling) et empêche toute crête de dépasser ce seuil, évitant le clipping numérique. Il détermine le volume final perçu du master.</div>
           </div>
@@ -162,10 +162,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle est la valeur de True Peak maximum recommandée pour le streaming ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">0 dBTP</div>
-              <div class="option" onclick="answer(this,true)">-1 dBTP</div>
-              <div class="option" onclick="answer(this,false)">-3 dBTP</div>
-              <div class="option" onclick="answer(this,false)">-6 dBTP</div>
+              <button class="option" onclick="answer(this,false)">0 dBTP</button>
+              <button class="option" onclick="answer(this,true)">-1 dBTP</button>
+              <button class="option" onclick="answer(this,false)">-3 dBTP</button>
+              <button class="option" onclick="answer(this,false)">-6 dBTP</button>
             </div>
             <div class="q-feedback">Le standard recommande -1 dBTP (True Peak) pour le streaming, ce qui laisse une marge suffisante pour éviter les distorsions lors de l'encodage en formats compressés (MP3, AAC, Ogg Vorbis).</div>
           </div>
@@ -173,10 +173,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">À quoi sert le dithering ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">À augmenter le volume du master</div>
-              <div class="option" onclick="answer(this,false)">À élargir l'image stéréo</div>
-              <div class="option" onclick="answer(this,true)">À remplacer la distorsion de quantification par un bruit inaudible lors de la réduction de résolution</div>
-              <div class="option" onclick="answer(this,false)">À compresser les basses fréquences</div>
+              <button class="option" onclick="answer(this,false)">À augmenter le volume du master</button>
+              <button class="option" onclick="answer(this,false)">À élargir l'image stéréo</button>
+              <button class="option" onclick="answer(this,true)">À remplacer la distorsion de quantification par un bruit inaudible lors de la réduction de résolution</button>
+              <button class="option" onclick="answer(this,false)">À compresser les basses fréquences</button>
             </div>
             <div class="q-feedback">Le dithering ajoute un bruit de très faible niveau lors de la réduction de résolution (par exemple de 24 bits à 16 bits). Ce bruit remplace la distorsion de quantification, qui serait audible sur les passages très faibles.</div>
           </div>
@@ -184,10 +184,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Qu'est-ce que la « loudness war » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un conflit entre plateformes de streaming</div>
-              <div class="option" onclick="answer(this,true)">La course au volume perçu maximal au détriment de la dynamique</div>
-              <div class="option" onclick="answer(this,false)">Une norme de diffusion radio</div>
-              <div class="option" onclick="answer(this,false)">Un type de compression parallèle</div>
+              <button class="option" onclick="answer(this,false)">Un conflit entre plateformes de streaming</button>
+              <button class="option" onclick="answer(this,true)">La course au volume perçu maximal au détriment de la dynamique</button>
+              <button class="option" onclick="answer(this,false)">Une norme de diffusion radio</button>
+              <button class="option" onclick="answer(this,false)">Un type de compression parallèle</button>
             </div>
             <div class="q-feedback">La loudness war désigne la tendance des années 1990-2000 à rendre les masters toujours plus forts, sacrifiant la dynamique musicale. La normalisation par les plateformes de streaming a largement mis fin à cette pratique en rendant le volume excessif contre-productif.</div>
           </div>
@@ -250,8 +250,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

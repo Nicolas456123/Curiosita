@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Du gène à la protéine fonctionnelle — traduction de l'ARN messager par les ribosomes et repliement protéique.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Synthèse des protéines — La cellule — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #80cbc4;
   --accent-dim: rgba(122,232,216,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧬 La cellule</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -185,10 +185,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel codon initie la traduction et code pour quel acide aminé ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">AUG — Méthionine</div>
-              <div class="option" onclick="answer(this,false)">UAG — Méthionine</div>
-              <div class="option" onclick="answer(this,false)">AUG — Alanine</div>
-              <div class="option" onclick="answer(this,false)">GUA — Valine</div>
+              <button class="option" onclick="answer(this,true)">AUG — Méthionine</button>
+              <button class="option" onclick="answer(this,false)">UAG — Méthionine</button>
+              <button class="option" onclick="answer(this,false)">AUG — Alanine</button>
+              <button class="option" onclick="answer(this,false)">GUA — Valine</button>
             </div>
             <div class="q-feedback">Le codon AUG est le codon d'initiation universel. Il code la méthionine et est le premier codon traduit de tout ARN messager.</div>
           </div>
@@ -196,10 +196,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Dans quel site du ribosome se fixe l'ARNt chargé portant un nouvel acide aminé ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Site A (aminoacyl)</div>
-              <div class="option" onclick="answer(this,false)">Site P (peptidyl)</div>
-              <div class="option" onclick="answer(this,false)">Site E (exit)</div>
-              <div class="option" onclick="answer(this,false)">Site S (synthèse)</div>
+              <button class="option" onclick="answer(this,true)">Site A (aminoacyl)</button>
+              <button class="option" onclick="answer(this,false)">Site P (peptidyl)</button>
+              <button class="option" onclick="answer(this,false)">Site E (exit)</button>
+              <button class="option" onclick="answer(this,false)">Site S (synthèse)</button>
             </div>
             <div class="q-feedback">Le site A (aminoacyl) accueille chaque nouvel ARNt chargé. Après la formation de la liaison peptidique, la translocation déplace l'ARNt du site A vers le site P.</div>
           </div>
@@ -207,10 +207,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Comment appelle-t-on l'assemblage de plusieurs sous-unités polypeptidiques en une protéine fonctionnelle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Structure secondaire</div>
-              <div class="option" onclick="answer(this,false)">Structure tertiaire</div>
-              <div class="option" onclick="answer(this,true)">Structure quaternaire</div>
-              <div class="option" onclick="answer(this,false)">Structure primaire</div>
+              <button class="option" onclick="answer(this,false)">Structure secondaire</button>
+              <button class="option" onclick="answer(this,false)">Structure tertiaire</button>
+              <button class="option" onclick="answer(this,true)">Structure quaternaire</button>
+              <button class="option" onclick="answer(this,false)">Structure primaire</button>
             </div>
             <div class="q-feedback">La structure quaternaire correspond à l'association de plusieurs chaînes polypeptidiques (sous-unités) en un complexe fonctionnel. Exemple : l'hémoglobine est un tétramère (2 sous-unités alpha + 2 sous-unités bêta).</div>
           </div>
@@ -218,10 +218,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel système marque les protéines mal repliées pour leur dégradation ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le système lysosomal</div>
-              <div class="option" onclick="answer(this,true)">Le système ubiquitine-protéasome</div>
-              <div class="option" onclick="answer(this,false)">Le système de sécrétion</div>
-              <div class="option" onclick="answer(this,false)">Le système d'autophagie</div>
+              <button class="option" onclick="answer(this,false)">Le système lysosomal</button>
+              <button class="option" onclick="answer(this,true)">Le système ubiquitine-protéasome</button>
+              <button class="option" onclick="answer(this,false)">Le système de sécrétion</button>
+              <button class="option" onclick="answer(this,false)">Le système d'autophagie</button>
             </div>
             <div class="q-feedback">Le système ubiquitine-protéasome marque les protéines cibles avec des chaînes de polyubiquitine, puis le protéasome 26S les reconnaît, les déplie et les dégrade en peptides courts. Ce système contrôle la qualité des protéines cellulaires.</div>
           </div>
@@ -229,10 +229,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle maladie est causée par le repliement anormal d'une protéine qui convertit d'autres protéines normales en forme pathogène ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La maladie d'Alzheimer</div>
-              <div class="option" onclick="answer(this,true)">La maladie de Creutzfeldt-Jakob (maladie à prion)</div>
-              <div class="option" onclick="answer(this,false)">La maladie de Parkinson</div>
-              <div class="option" onclick="answer(this,false)">La mucoviscidose</div>
+              <button class="option" onclick="answer(this,false)">La maladie d'Alzheimer</button>
+              <button class="option" onclick="answer(this,true)">La maladie de Creutzfeldt-Jakob (maladie à prion)</button>
+              <button class="option" onclick="answer(this,false)">La maladie de Parkinson</button>
+              <button class="option" onclick="answer(this,false)">La mucoviscidose</button>
             </div>
             <div class="q-feedback">La maladie de Creutzfeldt-Jakob est une maladie à prion. La protéine prion (PrPˢᶜ) mal repliée agit comme un agent infectieux en convertissant les protéines PrP normales en forme pathogène, provoquant une neurodégénérescence fatale.</div>
           </div>
@@ -240,10 +240,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel outil d'intelligence artificielle a révolutionné la prédiction de la structure 3D des protéines ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Watson (IBM)</div>
-              <div class="option" onclick="answer(this,true)">AlphaFold (DeepMind)</div>
-              <div class="option" onclick="answer(this,false)">BLAST (NCBI)</div>
-              <div class="option" onclick="answer(this,false)">Rosetta (Baker Lab)</div>
+              <button class="option" onclick="answer(this,false)">Watson (IBM)</button>
+              <button class="option" onclick="answer(this,true)">AlphaFold (DeepMind)</button>
+              <button class="option" onclick="answer(this,false)">BLAST (NCBI)</button>
+              <button class="option" onclick="answer(this,false)">Rosetta (Baker Lab)</button>
             </div>
             <div class="q-feedback">AlphaFold, développé par DeepMind (Google), a résolu le problème du repliement des protéines en 2020, prédisant la structure 3D de presque toutes les protéines connues. Ses créateurs ont reçu le prix Nobel de chimie en 2024.</div>
           </div>
@@ -322,8 +322,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

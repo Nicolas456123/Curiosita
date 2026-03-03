@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Binaire, octal, hexadécimal — comprendre comment les nombres se représentent dans différentes bases.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Bases de numération — Arithmétique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #c0392b; --accent2: #e74c3c; --accent-dim: rgba(192,57,43,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #c0392b; --accent2: #e74c3c; --accent-dim: rgba(192,57,43,0.08);  --accent-hero: rgba(192,57,43,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../maths-page.html">Mathématiques</a> › <a href="../arithmetique.html">Arithmétique</a> › <span>Bases de numération</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">🔟 Arithmétique</span><span class="tag-level">Débutant → Intermédiaire</span><span class="tag-time">⏱ ~40 min</span></div>
   <h1><em>Bases de numération</em></h1>
   <p class="hero-desc">Binaire, octal, hexadécimal — comprendre comment les nombres se représentent dans différentes bases.</p>
@@ -141,10 +141,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Comment s'écrit 13 en binaire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">1101</div>
-              <div class="option" onclick="answer(this,false)">1011</div>
-              <div class="option" onclick="answer(this,false)">1110</div>
-              <div class="option" onclick="answer(this,false)">1001</div>
+              <button class="option" onclick="answer(this,true)">1101</button>
+              <button class="option" onclick="answer(this,false)">1011</button>
+              <button class="option" onclick="answer(this,false)">1110</button>
+              <button class="option" onclick="answer(this,false)">1001</button>
             </div>
             <div class="q-feedback">13 = 8 + 4 + 1 = 2³ + 2² + 2⁰ = 1101₂.</div>
           </div>
@@ -152,10 +152,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que vaut FF en hexadécimal converti en décimal ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">255</div>
-              <div class="option" onclick="answer(this,false)">256</div>
-              <div class="option" onclick="answer(this,false)">15</div>
-              <div class="option" onclick="answer(this,false)">225</div>
+              <button class="option" onclick="answer(this,true)">255</button>
+              <button class="option" onclick="answer(this,false)">256</button>
+              <button class="option" onclick="answer(this,false)">15</button>
+              <button class="option" onclick="answer(this,false)">225</button>
             </div>
             <div class="q-feedback">FF₁₆ = 15×16 + 15 = 240 + 15 = 255. C'est la valeur maximale sur 8 bits (11111111₂).</div>
           </div>
@@ -163,10 +163,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Combien de valeurs différentes peut-on représenter avec 1 octet (8 bits) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">256</div>
-              <div class="option" onclick="answer(this,false)">255</div>
-              <div class="option" onclick="answer(this,false)">128</div>
-              <div class="option" onclick="answer(this,false)">512</div>
+              <button class="option" onclick="answer(this,true)">256</button>
+              <button class="option" onclick="answer(this,false)">255</button>
+              <button class="option" onclick="answer(this,false)">128</button>
+              <button class="option" onclick="answer(this,false)">512</button>
             </div>
             <div class="q-feedback">Avec 8 bits, on peut représenter 2⁸ = 256 valeurs, de 0 (00000000) à 255 (11111111).</div>
           </div>
@@ -174,10 +174,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Comment s'écrit 10101010₂ en hexadécimal ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">AA</div>
-              <div class="option" onclick="answer(this,false)">A5</div>
-              <div class="option" onclick="answer(this,false)">55</div>
-              <div class="option" onclick="answer(this,false)">BB</div>
+              <button class="option" onclick="answer(this,true)">AA</button>
+              <button class="option" onclick="answer(this,false)">A5</button>
+              <button class="option" onclick="answer(this,false)">55</button>
+              <button class="option" onclick="answer(this,false)">BB</button>
             </div>
             <div class="q-feedback">On groupe par 4 bits : 1010 1010. 1010₂ = 10₁₀ = A₁₆. Donc 10101010₂ = AA₁₆ = 170₁₀.</div>
           </div>
@@ -185,10 +185,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que vaut 1011₂ + 0111₂ en binaire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">10010</div>
-              <div class="option" onclick="answer(this,false)">1110</div>
-              <div class="option" onclick="answer(this,false)">10001</div>
-              <div class="option" onclick="answer(this,false)">10100</div>
+              <button class="option" onclick="answer(this,true)">10010</button>
+              <button class="option" onclick="answer(this,false)">1110</button>
+              <button class="option" onclick="answer(this,false)">10001</button>
+              <button class="option" onclick="answer(this,false)">10100</button>
             </div>
             <div class="q-feedback">1011 + 0111 : colonne des unités 1+1 = 10 (0, retenue 1). 2e colonne : 1+1+1 = 11 (1, retenue 1). 3e : 0+1+1 = 10 (0, retenue 1). 4e : 1+0+1 = 10. Résultat : 10010₂ = 18₁₀ (11 + 7 = 18).</div>
           </div>
@@ -196,10 +196,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">En octal, que vaut 777₈ en décimal ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">511</div>
-              <div class="option" onclick="answer(this,false)">777</div>
-              <div class="option" onclick="answer(this,false)">343</div>
-              <div class="option" onclick="answer(this,false)">512</div>
+              <button class="option" onclick="answer(this,true)">511</button>
+              <button class="option" onclick="answer(this,false)">777</button>
+              <button class="option" onclick="answer(this,false)">343</button>
+              <button class="option" onclick="answer(this,false)">512</button>
             </div>
             <div class="q-feedback">777₈ = 7×8² + 7×8¹ + 7×8⁰ = 7×64 + 7×8 + 7 = 448 + 56 + 7 = 511. C'est aussi 2⁹ - 1 = 511 (9 bits tous à 1 : 111111111₂).</div>
           </div>
@@ -255,8 +255,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

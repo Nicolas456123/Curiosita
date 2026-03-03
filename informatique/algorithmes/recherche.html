@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Recherche séquentielle, dichotomique, parcours en profondeur (DFS) et en largeur (BFS) — trouver efficacement dans toute structure.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Recherche et parcours — Algorithmes — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08);  --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../informatique-page.html">Informatique</a> › <a href="../algorithmes.html">Algorithmes</a> › <span>Recherche et parcours</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">💻 Informatique</span>
     <span class="tag-level">Intermédiaire</span>
@@ -152,10 +152,10 @@ graphe = {
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quelle condition est nécessaire pour utiliser la recherche dichotomique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La liste doit être de taille paire</div>
-              <div class="option" onclick="answer(this,true)">La liste doit être triée</div>
-              <div class="option" onclick="answer(this,false)">La liste ne doit pas contenir de doublons</div>
-              <div class="option" onclick="answer(this,false)">La liste doit contenir des entiers</div>
+              <button class="option" onclick="answer(this,false)">La liste doit être de taille paire</button>
+              <button class="option" onclick="answer(this,true)">La liste doit être triée</button>
+              <button class="option" onclick="answer(this,false)">La liste ne doit pas contenir de doublons</button>
+              <button class="option" onclick="answer(this,false)">La liste doit contenir des entiers</button>
             </div>
             <div class="q-feedback">La recherche dichotomique ne fonctionne que sur une liste triée. Elle compare l'élément du milieu avec la cible pour éliminer la moitié de la liste à chaque étape.</div>
           </div>
@@ -163,10 +163,10 @@ graphe = {
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Quelle structure de données le BFS utilise-t-il ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une pile (stack)</div>
-              <div class="option" onclick="answer(this,true)">Une file (queue)</div>
-              <div class="option" onclick="answer(this,false)">Un tas (heap)</div>
-              <div class="option" onclick="answer(this,false)">Un arbre binaire</div>
+              <button class="option" onclick="answer(this,false)">Une pile (stack)</button>
+              <button class="option" onclick="answer(this,true)">Une file (queue)</button>
+              <button class="option" onclick="answer(this,false)">Un tas (heap)</button>
+              <button class="option" onclick="answer(this,false)">Un arbre binaire</button>
             </div>
             <div class="q-feedback">Le BFS utilise une file (FIFO) pour visiter les sommets dans l'ordre de leur découverte, niveau par niveau. Le DFS utilise une pile (LIFO) ou la récursion.</div>
           </div>
@@ -174,10 +174,10 @@ graphe = {
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Combien de comparaisons faut-il au maximum pour trouver un élément dans une liste triée de 1024 éléments avec la recherche dichotomique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">10</div>
-              <div class="option" onclick="answer(this,false)">512</div>
-              <div class="option" onclick="answer(this,false)">1024</div>
-              <div class="option" onclick="answer(this,false)">100</div>
+              <button class="option" onclick="answer(this,true)">10</button>
+              <button class="option" onclick="answer(this,false)">512</button>
+              <button class="option" onclick="answer(this,false)">1024</button>
+              <button class="option" onclick="answer(this,false)">100</button>
             </div>
             <div class="q-feedback">log₂(1024) = 10. La recherche dichotomique divise par 2 à chaque étape, donc il faut au maximum 10 comparaisons pour une liste de 1024 éléments.</div>
           </div>
@@ -185,10 +185,10 @@ graphe = {
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Quel parcours est le plus adapté pour trouver le plus court chemin dans un graphe non pondéré ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">DFS</div>
-              <div class="option" onclick="answer(this,true)">BFS</div>
-              <div class="option" onclick="answer(this,false)">Recherche séquentielle</div>
-              <div class="option" onclick="answer(this,false)">Recherche dichotomique</div>
+              <button class="option" onclick="answer(this,false)">DFS</button>
+              <button class="option" onclick="answer(this,true)">BFS</button>
+              <button class="option" onclick="answer(this,false)">Recherche séquentielle</button>
+              <button class="option" onclick="answer(this,false)">Recherche dichotomique</button>
             </div>
             <div class="q-feedback">Le BFS explore le graphe niveau par niveau, donc le premier chemin trouvé vers un sommet est garanti être le plus court (en nombre d'arêtes) dans un graphe non pondéré.</div>
           </div>
@@ -196,10 +196,10 @@ graphe = {
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quelle est la complexité temporelle du DFS sur un graphe de V sommets et E arêtes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">O(V)</div>
-              <div class="option" onclick="answer(this,false)">O(E)</div>
-              <div class="option" onclick="answer(this,true)">O(V + E)</div>
-              <div class="option" onclick="answer(this,false)">O(V × E)</div>
+              <button class="option" onclick="answer(this,false)">O(V)</button>
+              <button class="option" onclick="answer(this,false)">O(E)</button>
+              <button class="option" onclick="answer(this,true)">O(V + E)</button>
+              <button class="option" onclick="answer(this,false)">O(V × E)</button>
             </div>
             <div class="q-feedback">Le DFS (et le BFS) visitent chaque sommet une fois (V) et explorent chaque arête une fois (E), donnant une complexité totale de O(V + E).</div>
           </div>
@@ -279,8 +279,14 @@ def plus_court_chemin(graphe, depart, arrivee):
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

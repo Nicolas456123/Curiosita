@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La déconstruction de la forme — voir un objet sous tous ses angles simultanément, la révolution la plus radicale du XXe siècle.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Le Cubisme — Peinture — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎨 Peinture</span>
     <span class="tag-level">Intermédiaire</span>
@@ -149,10 +149,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle oeuvre de Picasso est considérée comme fondatrice du cubisme ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Guernica</div>
-              <div class="option" onclick="answer(this,true)">Les Demoiselles d'Avignon</div>
-              <div class="option" onclick="answer(this,false)">Portrait d'Ambroise Vollard</div>
-              <div class="option" onclick="answer(this,false)">Nature morte à la chaise cannée</div>
+              <button class="option" onclick="answer(this,false)">Guernica</button>
+              <button class="option" onclick="answer(this,true)">Les Demoiselles d'Avignon</button>
+              <button class="option" onclick="answer(this,false)">Portrait d'Ambroise Vollard</button>
+              <button class="option" onclick="answer(this,false)">Nature morte à la chaise cannée</button>
             </div>
             <div class="q-feedback">Les Demoiselles d'Avignon (1907) marque la rupture avec la représentation traditionnelle, avec ses formes géométriques et l'influence de l'art africain.</div>
           </div>
@@ -160,10 +160,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle est la différence principale entre cubisme analytique et synthétique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'analytique utilise la couleur, le synthétique non</div>
-              <div class="option" onclick="answer(this,true)">L'analytique décompose les formes, le synthétique les recompose</div>
-              <div class="option" onclick="answer(this,false)">L'analytique est abstrait, le synthétique est figuratif</div>
-              <div class="option" onclick="answer(this,false)">Ils utilisent des matériaux différents</div>
+              <button class="option" onclick="answer(this,false)">L'analytique utilise la couleur, le synthétique non</button>
+              <button class="option" onclick="answer(this,true)">L'analytique décompose les formes, le synthétique les recompose</button>
+              <button class="option" onclick="answer(this,false)">L'analytique est abstrait, le synthétique est figuratif</button>
+              <button class="option" onclick="answer(this,false)">Ils utilisent des matériaux différents</button>
             </div>
             <div class="q-feedback">Le cubisme analytique (1909-1912) décompose les objets en facettes, tandis que le synthétique (1912-1920) recompose à partir d'éléments simples, réintroduisant la couleur et le collage.</div>
           </div>
@@ -171,10 +171,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel artiste post-impressionniste a directement inspiré le cubisme par sa géométrisation des formes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Claude Monet</div>
-              <div class="option" onclick="answer(this,false)">Vincent van Gogh</div>
-              <div class="option" onclick="answer(this,true)">Paul Cézanne</div>
-              <div class="option" onclick="answer(this,false)">Henri Matisse</div>
+              <button class="option" onclick="answer(this,false)">Claude Monet</button>
+              <button class="option" onclick="answer(this,false)">Vincent van Gogh</button>
+              <button class="option" onclick="answer(this,true)">Paul Cézanne</button>
+              <button class="option" onclick="answer(this,false)">Henri Matisse</button>
             </div>
             <div class="q-feedback">Paul Cézanne, avec sa recommandation de traiter la nature par le cylindre, la sphère et le cône, a ouvert la voie à la simplification géométrique du cubisme.</div>
           </div>
@@ -182,10 +182,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle innovation technique majeure le cubisme synthétique introduit-il dans la peinture ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La perspective linéaire</div>
-              <div class="option" onclick="answer(this,false)">Le dripping</div>
-              <div class="option" onclick="answer(this,true)">Le collage</div>
-              <div class="option" onclick="answer(this,false)">Le pointillisme</div>
+              <button class="option" onclick="answer(this,false)">La perspective linéaire</button>
+              <button class="option" onclick="answer(this,false)">Le dripping</button>
+              <button class="option" onclick="answer(this,true)">Le collage</button>
+              <button class="option" onclick="answer(this,false)">Le pointillisme</button>
             </div>
             <div class="q-feedback">Le collage, inventé par Braque et Picasso en 1912, intègre des matériaux non picturaux (papier journal, toile cirée, sable) directement sur la toile, brouillant la frontière entre représentation et réalité.</div>
           </div>
@@ -193,10 +193,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel artiste cubiste est connu pour son cubisme « tubulaire » célébrant la modernité industrielle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Juan Gris</div>
-              <div class="option" onclick="answer(this,false)">Robert Delaunay</div>
-              <div class="option" onclick="answer(this,true)">Fernand Léger</div>
-              <div class="option" onclick="answer(this,false)">Albert Gleizes</div>
+              <button class="option" onclick="answer(this,false)">Juan Gris</button>
+              <button class="option" onclick="answer(this,false)">Robert Delaunay</button>
+              <button class="option" onclick="answer(this,true)">Fernand Léger</button>
+              <button class="option" onclick="answer(this,false)">Albert Gleizes</button>
             </div>
             <div class="q-feedback">Fernand Léger (1881-1955) a développé un cubisme aux formes cylindriques et aux couleurs vives, célébrant la modernité industrielle et la vie urbaine.</div>
           </div>
@@ -204,10 +204,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Comment Braque décrivait-il sa relation artistique avec Picasso pendant la période cubiste ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Comme des frères jumeaux</div>
-              <div class="option" onclick="answer(this,true)">Comme deux alpinistes encordés</div>
-              <div class="option" onclick="answer(this,false)">Comme maître et élève</div>
-              <div class="option" onclick="answer(this,false)">Comme des rivaux amicaux</div>
+              <button class="option" onclick="answer(this,false)">Comme des frères jumeaux</button>
+              <button class="option" onclick="answer(this,true)">Comme deux alpinistes encordés</button>
+              <button class="option" onclick="answer(this,false)">Comme maître et élève</button>
+              <button class="option" onclick="answer(this,false)">Comme des rivaux amicaux</button>
             </div>
             <div class="q-feedback">Braque comparait leur collaboration intense à celle de « deux alpinistes encordés », soulignant leur interdépendance et leur exploration commune de territoires artistiques inconnus.</div>
           </div>
@@ -262,8 +262,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

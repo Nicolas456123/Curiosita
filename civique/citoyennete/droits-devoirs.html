@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Droits civils, politiques et sociaux, devoirs envers la collectivité — les deux faces indissociables de la citoyenneté.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Droits et devoirs du citoyen — Citoyenneté — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a9b;
   --accent2: #f09ab5;
   --accent-dim: rgba(232,122,155,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,155,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,155,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🗳️ Citoyenneté</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -144,10 +144,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel texte fondateur affirme que « les hommes naissent et demeurent libres et égaux en droits » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">La DDHC de 1789</div>
-              <div class="option" onclick="answer(this,false)">La Constitution de 1958</div>
-              <div class="option" onclick="answer(this,false)">La DUDH de 1948</div>
-              <div class="option" onclick="answer(this,false)">Le Code civil de 1804</div>
+              <button class="option" onclick="answer(this,true)">La DDHC de 1789</button>
+              <button class="option" onclick="answer(this,false)">La Constitution de 1958</button>
+              <button class="option" onclick="answer(this,false)">La DUDH de 1948</button>
+              <button class="option" onclick="answer(this,false)">Le Code civil de 1804</button>
             </div>
             <div class="q-feedback">C'est l'article premier de la Déclaration des droits de l'homme et du citoyen de 1789, texte fondateur de la République française.</div>
           </div>
@@ -155,10 +155,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Depuis quelle année les femmes ont-elles le droit de vote en France ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1789</div>
-              <div class="option" onclick="answer(this,false)">1848</div>
-              <div class="option" onclick="answer(this,true)">1944</div>
-              <div class="option" onclick="answer(this,false)">1958</div>
+              <button class="option" onclick="answer(this,false)">1789</button>
+              <button class="option" onclick="answer(this,false)">1848</button>
+              <button class="option" onclick="answer(this,true)">1944</button>
+              <button class="option" onclick="answer(this,false)">1958</button>
             </div>
             <div class="q-feedback">L'ordonnance du 21 avril 1944 accorde le droit de vote et d'éligibilité aux femmes. Elles votent pour la première fois aux élections municipales du 29 avril 1945.</div>
           </div>
@@ -166,10 +166,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qu'est-ce qu'un « droit-créance » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un droit qui interdit à l'État d'agir</div>
-              <div class="option" onclick="answer(this,true)">Un droit qui exige une action positive de l'État</div>
-              <div class="option" onclick="answer(this,false)">Un droit lié au crédit bancaire</div>
-              <div class="option" onclick="answer(this,false)">Un droit réservé aux créanciers</div>
+              <button class="option" onclick="answer(this,false)">Un droit qui interdit à l'État d'agir</button>
+              <button class="option" onclick="answer(this,true)">Un droit qui exige une action positive de l'État</button>
+              <button class="option" onclick="answer(this,false)">Un droit lié au crédit bancaire</button>
+              <button class="option" onclick="answer(this,false)">Un droit réservé aux créanciers</button>
             </div>
             <div class="q-feedback">Les droits-créances (éducation, santé, logement) obligent l'État à agir pour les garantir, à la différence des droits-libertés où l'État s'abstient d'intervenir.</div>
           </div>
@@ -177,10 +177,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Le vote est-il obligatoire en France ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Oui, sous peine d'amende</div>
-              <div class="option" onclick="answer(this,true)">Non, mais c'est un devoir civique</div>
-              <div class="option" onclick="answer(this,false)">Oui, depuis 1958</div>
-              <div class="option" onclick="answer(this,false)">Oui, uniquement pour les présidentielles</div>
+              <button class="option" onclick="answer(this,false)">Oui, sous peine d'amende</button>
+              <button class="option" onclick="answer(this,true)">Non, mais c'est un devoir civique</button>
+              <button class="option" onclick="answer(this,false)">Oui, depuis 1958</button>
+              <button class="option" onclick="answer(this,false)">Oui, uniquement pour les présidentielles</button>
             </div>
             <div class="q-feedback">En France, le vote n'est pas juridiquement obligatoire (contrairement à la Belgique ou au Luxembourg), mais il est considéré comme un devoir civique fondamental.</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel article de la DDHC fonde le devoir de payer l'impôt ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Article 1</div>
-              <div class="option" onclick="answer(this,false)">Article 4</div>
-              <div class="option" onclick="answer(this,true)">Article 13</div>
-              <div class="option" onclick="answer(this,false)">Article 17</div>
+              <button class="option" onclick="answer(this,false)">Article 1</button>
+              <button class="option" onclick="answer(this,false)">Article 4</button>
+              <button class="option" onclick="answer(this,true)">Article 13</button>
+              <button class="option" onclick="answer(this,false)">Article 17</button>
             </div>
             <div class="q-feedback">L'article 13 de la DDHC dispose que la contribution commune est indispensable et doit être répartie entre les citoyens en raison de leurs facultés.</div>
           </div>
@@ -199,10 +199,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Qu'a remplacé la Journée Défense et Citoyenneté (JDC) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le service civique</div>
-              <div class="option" onclick="answer(this,true)">Le service militaire obligatoire</div>
-              <div class="option" onclick="answer(this,false)">La garde nationale</div>
-              <div class="option" onclick="answer(this,false)">Le service national universel</div>
+              <button class="option" onclick="answer(this,false)">Le service civique</button>
+              <button class="option" onclick="answer(this,true)">Le service militaire obligatoire</button>
+              <button class="option" onclick="answer(this,false)">La garde nationale</button>
+              <button class="option" onclick="answer(this,false)">Le service national universel</button>
             </div>
             <div class="q-feedback">Le service militaire obligatoire a été suspendu en 1997 par Jacques Chirac. La JDC (anciennement JAPD) est devenue la seule obligation liée à la défense pour les jeunes Français.</div>
           </div>
@@ -272,8 +272,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

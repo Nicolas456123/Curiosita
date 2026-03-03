@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Analyser et prédire des données ordonnées dans le temps — tendance, saisonnalité, stationnarité et modèles ARIMA.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Séries temporelles — Analyse de données — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #4fc3f7;
   --accent2: #81d4fa;
   --accent-dim: rgba(79,195,247,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📅 Analyse de données</span>
     <span class="tag-level">Avancé</span>
@@ -144,10 +144,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quelle condition est nécessaire pour appliquer un modèle ARMA ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">La série doit être stationnaire</div>
-              <div class="option" onclick="answer(this,false)">La série doit avoir une tendance</div>
-              <div class="option" onclick="answer(this,false)">La série doit être saisonnière</div>
-              <div class="option" onclick="answer(this,false)">La série doit avoir au moins 1000 observations</div>
+              <button class="option" onclick="answer(this,true)">La série doit être stationnaire</button>
+              <button class="option" onclick="answer(this,false)">La série doit avoir une tendance</button>
+              <button class="option" onclick="answer(this,false)">La série doit être saisonnière</button>
+              <button class="option" onclick="answer(this,false)">La série doit avoir au moins 1000 observations</button>
             </div>
             <div class="q-feedback">La stationnarité est une condition préalable : la moyenne et la variance doivent être constantes dans le temps. Si la série n'est pas stationnaire, on la différencie (modèle ARIMA).</div>
           </div>
@@ -155,10 +155,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Que représente le « d » dans ARIMA(p,d,q) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le degré du polynôme de tendance</div>
-              <div class="option" onclick="answer(this,true)">Le nombre de différenciations pour rendre la série stationnaire</div>
-              <div class="option" onclick="answer(this,false)">La dimension des données</div>
-              <div class="option" onclick="answer(this,false)">Le nombre de données</div>
+              <button class="option" onclick="answer(this,false)">Le degré du polynôme de tendance</button>
+              <button class="option" onclick="answer(this,true)">Le nombre de différenciations pour rendre la série stationnaire</button>
+              <button class="option" onclick="answer(this,false)">La dimension des données</button>
+              <button class="option" onclick="answer(this,false)">Le nombre de données</button>
             </div>
             <div class="q-feedback">Le « d » est l'ordre d'intégration : le nombre de fois qu'il faut différencier la série (yₜ - yₜ₋₁) pour la rendre stationnaire. En pratique, d = 1 ou d = 2 suffit presque toujours.</div>
           </div>
@@ -166,10 +166,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Le modèle de Holt-Winters est adapté aux séries présentant :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Uniquement une tendance</div>
-              <div class="option" onclick="answer(this,false)">Uniquement une saisonnalité</div>
-              <div class="option" onclick="answer(this,true)">Une tendance et une saisonnalité</div>
-              <div class="option" onclick="answer(this,false)">Aucune structure particulière</div>
+              <button class="option" onclick="answer(this,false)">Uniquement une tendance</button>
+              <button class="option" onclick="answer(this,false)">Uniquement une saisonnalité</button>
+              <button class="option" onclick="answer(this,true)">Une tendance et une saisonnalité</button>
+              <button class="option" onclick="answer(this,false)">Aucune structure particulière</button>
             </div>
             <div class="q-feedback">Holt-Winters étend le lissage exponentiel en ajoutant des composantes pour la tendance (Holt) et la saisonnalité (Winters), ce qui le rend adapté aux séries présentant les deux.</div>
           </div>
@@ -177,10 +177,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Si l'ACF d'une série décroît lentement, cela suggère un processus :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Autorégressif (AR)</div>
-              <div class="option" onclick="answer(this,false)">Moyenne mobile (MA)</div>
-              <div class="option" onclick="answer(this,false)">Bruit blanc</div>
-              <div class="option" onclick="answer(this,false)">Saisonnier pur</div>
+              <button class="option" onclick="answer(this,true)">Autorégressif (AR)</button>
+              <button class="option" onclick="answer(this,false)">Moyenne mobile (MA)</button>
+              <button class="option" onclick="answer(this,false)">Bruit blanc</button>
+              <button class="option" onclick="answer(this,false)">Saisonnier pur</button>
             </div>
             <div class="q-feedback">Un processus AR montre une ACF qui décroît progressivement (exponentiellement ou en sinusoïde amortie), tandis qu'un processus MA montre une ACF qui s'annule brutalement après un certain rang.</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Le modèle multiplicatif Yₜ = Tₜ × Sₜ × εₜ est préférable quand :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'amplitude saisonnière est constante</div>
-              <div class="option" onclick="answer(this,true)">L'amplitude saisonnière croît avec le niveau de la série</div>
-              <div class="option" onclick="answer(this,false)">La série n'a pas de saisonnalité</div>
-              <div class="option" onclick="answer(this,false)">La tendance est linéaire</div>
+              <button class="option" onclick="answer(this,false)">L'amplitude saisonnière est constante</button>
+              <button class="option" onclick="answer(this,true)">L'amplitude saisonnière croît avec le niveau de la série</button>
+              <button class="option" onclick="answer(this,false)">La série n'a pas de saisonnalité</button>
+              <button class="option" onclick="answer(this,false)">La tendance est linéaire</button>
             </div>
             <div class="q-feedback">Le modèle multiplicatif est adapté quand les fluctuations saisonnières sont proportionnelles au niveau de la série. Le modèle additif convient quand l'amplitude saisonnière reste constante.</div>
           </div>
@@ -252,8 +252,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

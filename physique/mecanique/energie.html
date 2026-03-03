@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Le concept unificateur de la physique : énergie cinétique, potentielle, conservation et puissance.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Énergie et travail — Mécanique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08);  --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../physique-page.html">Physique</a> › <a href="../mecanique.html">Mécanique</a> › <span>Énergie et travail</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">⚙️ Mécanique</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -145,11 +145,11 @@
       <div class="quiz-container">
         <div class="quiz-header"><span class="quiz-title-text">⚙️ Énergie et travail — Quiz</span><span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">5</span></span></div>
         <div class="quiz-body" id="quizBody">
-          <div class="question-block active" data-q="0"><p class="q-num">Question 1 / 5</p><p class="q-text">Quelle est l'expression de l'énergie cinétique ?</p><div class="options"><div class="option" onclick="answer(this,false)">Ec = mv</div><div class="option" onclick="answer(this,true)">Ec = ½mv²</div><div class="option" onclick="answer(this,false)">Ec = mgh</div><div class="option" onclick="answer(this,false)">Ec = ½kx²</div></div><div class="q-feedback">Ec = ½mv². Elle dépend de la masse et du carré de la vitesse.</div></div>
-          <div class="question-block" data-q="1"><p class="q-num">Question 2 / 5</p><p class="q-text">Le travail d'une force perpendiculaire au déplacement est...</p><div class="options"><div class="option" onclick="answer(this,false)">Maximal</div><div class="option" onclick="answer(this,true)">Nul</div><div class="option" onclick="answer(this,false)">Négatif</div><div class="option" onclick="answer(this,false)">Infini</div></div><div class="q-feedback">W = Fd·cos(90°) = 0. La force normale, perpendiculaire au déplacement, ne fournit aucun travail.</div></div>
-          <div class="question-block" data-q="2"><p class="q-num">Question 3 / 5</p><p class="q-text">Quelle est l'unité de puissance ?</p><div class="options"><div class="option" onclick="answer(this,false)">Le joule</div><div class="option" onclick="answer(this,false)">Le newton</div><div class="option" onclick="answer(this,true)">Le watt</div><div class="option" onclick="answer(this,false)">Le pascal</div></div><div class="q-feedback">Le watt (W) = 1 J/s. La puissance mesure le taux de transfert d'énergie par unité de temps.</div></div>
-          <div class="question-block" data-q="3"><p class="q-num">Question 4 / 5</p><p class="q-text">Si on double la vitesse, l'énergie cinétique est multipliée par...</p><div class="options"><div class="option" onclick="answer(this,false)">2</div><div class="option" onclick="answer(this,true)">4</div><div class="option" onclick="answer(this,false)">8</div><div class="option" onclick="answer(this,false)">√2</div></div><div class="q-feedback">Ec = ½mv². Si v × 2, alors Ec × 4. La distance de freinage quadruple quand la vitesse double.</div></div>
-          <div class="question-block" data-q="4"><p class="q-num">Question 5 / 5</p><p class="q-text">L'énergie mécanique se conserve quand...</p><div class="options"><div class="option" onclick="answer(this,false)">La masse est constante</div><div class="option" onclick="answer(this,true)">Il n'y a pas de forces non conservatives</div><div class="option" onclick="answer(this,false)">La vitesse est constante</div><div class="option" onclick="answer(this,false)">Le système est au repos</div></div><div class="q-feedback">Em = Ec + Ep se conserve uniquement en l'absence de forces non conservatives (friction, résistance de l'air).</div></div>
+          <div class="question-block active" data-q="0"><p class="q-num">Question 1 / 5</p><p class="q-text">Quelle est l'expression de l'énergie cinétique ?</p><div class="options"><button class="option" onclick="answer(this,false)">Ec = mv</button><button class="option" onclick="answer(this,true)">Ec = ½mv²</button><button class="option" onclick="answer(this,false)">Ec = mgh</button><button class="option" onclick="answer(this,false)">Ec = ½kx²</button></div><div class="q-feedback">Ec = ½mv². Elle dépend de la masse et du carré de la vitesse.</div></div>
+          <div class="question-block" data-q="1"><p class="q-num">Question 2 / 5</p><p class="q-text">Le travail d'une force perpendiculaire au déplacement est...</p><div class="options"><button class="option" onclick="answer(this,false)">Maximal</button><button class="option" onclick="answer(this,true)">Nul</button><button class="option" onclick="answer(this,false)">Négatif</button><button class="option" onclick="answer(this,false)">Infini</button></div><div class="q-feedback">W = Fd·cos(90°) = 0. La force normale, perpendiculaire au déplacement, ne fournit aucun travail.</div></div>
+          <div class="question-block" data-q="2"><p class="q-num">Question 3 / 5</p><p class="q-text">Quelle est l'unité de puissance ?</p><div class="options"><button class="option" onclick="answer(this,false)">Le joule</button><button class="option" onclick="answer(this,false)">Le newton</button><button class="option" onclick="answer(this,true)">Le watt</button><button class="option" onclick="answer(this,false)">Le pascal</button></div><div class="q-feedback">Le watt (W) = 1 J/s. La puissance mesure le taux de transfert d'énergie par unité de temps.</div></div>
+          <div class="question-block" data-q="3"><p class="q-num">Question 4 / 5</p><p class="q-text">Si on double la vitesse, l'énergie cinétique est multipliée par...</p><div class="options"><button class="option" onclick="answer(this,false)">2</button><button class="option" onclick="answer(this,true)">4</button><button class="option" onclick="answer(this,false)">8</button><button class="option" onclick="answer(this,false)">√2</button></div><div class="q-feedback">Ec = ½mv². Si v × 2, alors Ec × 4. La distance de freinage quadruple quand la vitesse double.</div></div>
+          <div class="question-block" data-q="4"><p class="q-num">Question 5 / 5</p><p class="q-text">L'énergie mécanique se conserve quand...</p><div class="options"><button class="option" onclick="answer(this,false)">La masse est constante</button><button class="option" onclick="answer(this,true)">Il n'y a pas de forces non conservatives</button><button class="option" onclick="answer(this,false)">La vitesse est constante</button><button class="option" onclick="answer(this,false)">Le système est au repos</button></div><div class="q-feedback">Em = Ec + Ep se conserve uniquement en l'absence de forces non conservatives (friction, résistance de l'air).</div></div>
         </div>
         <div class="quiz-result" id="quizResult"><div class="result-score-big" id="resultScore">0/5</div><div class="result-msg" id="resultMsg"></div><button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button></div>
         <div class="quiz-nav"><button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button><div class="q-dots" id="qDots"></div><button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button></div>
@@ -175,8 +175,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

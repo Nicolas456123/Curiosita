@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cœur, vaisseaux et circulation sanguine — le réseau de transport qui irrigue chaque cellule de l'organisme.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Système cardiovasculaire — Corps humain — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #80cbc4;
   --accent-dim: rgba(122,232,216,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧬 Corps humain</span>
     <span class="tag-level">Intermédiaire</span>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle cavité du cœur envoie le sang oxygéné dans tout le corps ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'oreillette gauche</div>
-              <div class="option" onclick="answer(this,true)">Le ventricule gauche</div>
-              <div class="option" onclick="answer(this,false)">Le ventricule droit</div>
-              <div class="option" onclick="answer(this,false)">L'oreillette droite</div>
+              <button class="option" onclick="answer(this,false)">L'oreillette gauche</button>
+              <button class="option" onclick="answer(this,true)">Le ventricule gauche</button>
+              <button class="option" onclick="answer(this,false)">Le ventricule droit</button>
+              <button class="option" onclick="answer(this,false)">L'oreillette droite</button>
             </div>
             <div class="q-feedback">Le ventricule gauche est la cavité la plus puissante du cœur. Il propulse le sang oxygéné dans l'aorte pour alimenter la circulation systémique.</div>
           </div>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Où se produisent les échanges gazeux entre le sang et les tissus ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Dans les artères</div>
-              <div class="option" onclick="answer(this,false)">Dans les veines</div>
-              <div class="option" onclick="answer(this,true)">Dans les capillaires</div>
-              <div class="option" onclick="answer(this,false)">Dans les artérioles</div>
+              <button class="option" onclick="answer(this,false)">Dans les artères</button>
+              <button class="option" onclick="answer(this,false)">Dans les veines</button>
+              <button class="option" onclick="answer(this,true)">Dans les capillaires</button>
+              <button class="option" onclick="answer(this,false)">Dans les artérioles</button>
             </div>
             <div class="q-feedback">Les capillaires ont une paroi d'une seule cellule d'épaisseur, permettant les échanges d'O₂, CO₂, nutriments et déchets entre le sang et les cellules par diffusion.</div>
           </div>
@@ -205,10 +205,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel est le pacemaker naturel du cœur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Le nœud sinusal</div>
-              <div class="option" onclick="answer(this,false)">Le faisceau de His</div>
-              <div class="option" onclick="answer(this,false)">Les fibres de Purkinje</div>
-              <div class="option" onclick="answer(this,false)">Le nœud auriculoventriculaire</div>
+              <button class="option" onclick="answer(this,true)">Le nœud sinusal</button>
+              <button class="option" onclick="answer(this,false)">Le faisceau de His</button>
+              <button class="option" onclick="answer(this,false)">Les fibres de Purkinje</button>
+              <button class="option" onclick="answer(this,false)">Le nœud auriculoventriculaire</button>
             </div>
             <div class="q-feedback">Le nœud sinusal (ou nœud sino-auriculaire), situé dans la paroi de l'oreillette droite, génère spontanément les impulsions électriques qui dictent le rythme cardiaque.</div>
           </div>
@@ -216,10 +216,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel système hormonal régule la pression artérielle en produisant un puissant vasoconstricteur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Le système rénine-angiotensine-aldostérone (SRAA)</div>
-              <div class="option" onclick="answer(this,false)">Le système nerveux parasympathique</div>
-              <div class="option" onclick="answer(this,false)">Le système des peptides natriurétiques</div>
-              <div class="option" onclick="answer(this,false)">Le système thyroïdien</div>
+              <button class="option" onclick="answer(this,true)">Le système rénine-angiotensine-aldostérone (SRAA)</button>
+              <button class="option" onclick="answer(this,false)">Le système nerveux parasympathique</button>
+              <button class="option" onclick="answer(this,false)">Le système des peptides natriurétiques</button>
+              <button class="option" onclick="answer(this,false)">Le système thyroïdien</button>
             </div>
             <div class="q-feedback">Le SRAA produit l'angiotensine II, un puissant vasoconstricteur qui augmente la pression artérielle. Il stimule aussi la sécrétion d'aldostérone, favorisant la réabsorption de Na⁺ et d'eau par les reins. Les inhibiteurs de l'ECA sont des antihypertenseurs courants.</div>
           </div>
@@ -227,10 +227,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce que l'athérosclérose ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une inflammation du péricarde</div>
-              <div class="option" onclick="answer(this,true)">L'accumulation de plaques lipidiques dans la paroi des artères</div>
-              <div class="option" onclick="answer(this,false)">Un trouble du rythme cardiaque</div>
-              <div class="option" onclick="answer(this,false)">Une insuffisance des valves cardiaques</div>
+              <button class="option" onclick="answer(this,false)">Une inflammation du péricarde</button>
+              <button class="option" onclick="answer(this,true)">L'accumulation de plaques lipidiques dans la paroi des artères</button>
+              <button class="option" onclick="answer(this,false)">Un trouble du rythme cardiaque</button>
+              <button class="option" onclick="answer(this,false)">Une insuffisance des valves cardiaques</button>
             </div>
             <div class="q-feedback">L'athérosclérose est l'accumulation progressive de plaques d'athérome (cholestérol LDL oxydé, cellules spumeuses, fibrose) dans l'intima des artères, réduisant leur lumière et pouvant provoquer un infarctus ou un AVC en cas de rupture de plaque.</div>
           </div>
@@ -238,10 +238,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle protéine forme le réseau insoluble qui consolide le clou plaquettaire en caillot stable ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'albumine</div>
-              <div class="option" onclick="answer(this,false)">Le fibrinogène</div>
-              <div class="option" onclick="answer(this,true)">La fibrine</div>
-              <div class="option" onclick="answer(this,false)">Le collagène</div>
+              <button class="option" onclick="answer(this,false)">L'albumine</button>
+              <button class="option" onclick="answer(this,false)">Le fibrinogène</button>
+              <button class="option" onclick="answer(this,true)">La fibrine</button>
+              <button class="option" onclick="answer(this,false)">Le collagène</button>
             </div>
             <div class="q-feedback">La fibrine est la forme insoluble du fibrinogène, produite par l'action de la thrombine. Elle forme un réseau de filaments qui emprisonne les plaquettes et les globules rouges, consolidant le caillot. Le fibrinogène (soluble) est son précurseur plasmatique.</div>
           </div>
@@ -323,8 +323,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De la loi de l'offre et de la demande aux marchés financiers mondiaux, l'économie explique comment les sociétés produisent, échangent et distribuent les...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Économie & Finance — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #c97ae8;
   --accent2: #dda0f5;
   --accent-dim: rgba(201,122,232,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(201,122,232,0.07) 0%, transparent 70%); }
+ --accent-hero: rgba(201,122,232,0.07); }
 .hero-deco { color: rgba(201,122,232,0.04); }
 </style>
 </head>
@@ -26,7 +27,7 @@
   <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
 </nav>
 
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">$</div>
   <div class="hero-meta">
     <span class="tag-domain">🌍 Sciences humaines & sociales</span>
@@ -160,90 +161,87 @@
       <div class="quiz-container">
         <div class="quiz-header">
           <span class="quiz-title-text">Quiz — Économie</span>
-          <span class="quiz-score">Score : <span id="quizScore">0</span>/6</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span>/6</span>
         </div>
-        <div class="quiz-body">
+        <div class="quiz-body" id="quizBody">
           <div class="question-block active" id="q0">
             <div class="q-num">Question 1 / 6</div>
             <div class="q-text">Qui a théorisé la "main invisible" du marché dans "La Richesse des nations" ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(0,0)">John Maynard Keynes</div>
-              <div class="option" onclick="selectOption(0,1)">Karl Marx</div>
-              <div class="option" onclick="selectOption(0,2)">Adam Smith</div>
-              <div class="option" onclick="selectOption(0,3)">Milton Friedman</div>
+              <button class="option" onclick="answer(this,false)">John Maynard Keynes</button>
+              <button class="option" onclick="answer(this,false)">Karl Marx</button>
+              <button class="option" onclick="answer(this,true)">Adam Smith</button>
+              <button class="option" onclick="answer(this,false)">Milton Friedman</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Adam Smith (1723-1790), dans La Richesse des Nations (1776), décrit comment les intérêts individuels, guidés par une «main invisible», conduisent à l'intérêt général. C'est le fondement de l'économie de marché libérale.</div>
           </div>
           <div class="question-block" id="q1">
             <div class="q-num">Question 2 / 6</div>
             <div class="q-text">Que signifie l'acronyme PIB ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(1,0)">Prix Indicatif Brut</div>
-              <div class="option" onclick="selectOption(1,1)">Produit Intérieur Brut</div>
-              <div class="option" onclick="selectOption(1,2)">Pouvoir d'Investissement Bancaire</div>
-              <div class="option" onclick="selectOption(1,3)">Plan d'Intégration Budgétaire</div>
+              <button class="option" onclick="answer(this,false)">Prix Indicatif Brut</button>
+              <button class="option" onclick="answer(this,true)">Produit Intérieur Brut</button>
+              <button class="option" onclick="answer(this,false)">Pouvoir d'Investissement Bancaire</button>
+              <button class="option" onclick="answer(this,false)">Plan d'Intégration Budgétaire</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le Produit Intérieur Brut mesure la valeur totale des biens et services produits sur un territoire national en une année. C'est le principal indicateur de la taille d'une économie, mais critiqué car il ne mesure ni inégalités, ni bien-être, ni environnement.</div>
           </div>
           <div class="question-block" id="q2">
             <div class="q-num">Question 3 / 6</div>
             <div class="q-text">Qu'est-ce que l'inflation ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(2,0)">Une baisse du pouvoir d'achat uniquement</div>
-              <div class="option" onclick="selectOption(2,1)">Une augmentation des salaires</div>
-              <div class="option" onclick="selectOption(2,2)">Une hausse générale et durable des prix</div>
-              <div class="option" onclick="selectOption(2,3)">Une augmentation des réserves d'or</div>
+              <button class="option" onclick="answer(this,false)">Une baisse du pouvoir d'achat uniquement</button>
+              <button class="option" onclick="answer(this,false)">Une augmentation des salaires</button>
+              <button class="option" onclick="answer(this,true)">Une hausse générale et durable des prix</button>
+              <button class="option" onclick="answer(this,false)">Une augmentation des réserves d'or</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">L'inflation est la hausse générale et durable des prix, mesurée par l'Indice des Prix à la Consommation (IPC). La BCE vise un taux de 2% par an. Trop d'inflation érode le pouvoir d'achat ; trop peu (déflation) paralyse l'économie.</div>
           </div>
           <div class="question-block" id="q3">
             <div class="q-num">Question 4 / 6</div>
             <div class="q-text">La loi de l'offre et de la demande stipule que le prix d'équilibre se fixe...</div>
             <div class="options">
-              <div class="option" onclick="selectOption(3,0)">Par décision gouvernementale</div>
-              <div class="option" onclick="selectOption(3,1)">À l'intersection des courbes d'offre et de demande</div>
-              <div class="option" onclick="selectOption(3,2)">Toujours au plus bas prix possible</div>
-              <div class="option" onclick="selectOption(3,3)">En fonction du coût de production seul</div>
+              <button class="option" onclick="answer(this,false)">Par décision gouvernementale</button>
+              <button class="option" onclick="answer(this,true)">À l'intersection des courbes d'offre et de demande</button>
+              <button class="option" onclick="answer(this,false)">Toujours au plus bas prix possible</button>
+              <button class="option" onclick="answer(this,false)">En fonction du coût de production seul</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Lorsque la demande excède l'offre, le prix monte (signal pour les producteurs d'augmenter l'offre). Lorsque l'offre excède la demande, le prix baisse. Le point d'équilibre est atteint quand les deux courbes se croisent — c'est la loi fondamentale de la microéconomie.</div>
           </div>
           <div class="question-block" id="q4">
             <div class="q-num">Question 5 / 6</div>
             <div class="q-text">Qu'est-ce qu'une obligation financière ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(4,0)">Une action en bourse</div>
-              <div class="option" onclick="selectOption(4,1)">Un contrat d'assurance</div>
-              <div class="option" onclick="selectOption(4,2)">Un titre de dette émis par un État ou entreprise</div>
-              <div class="option" onclick="selectOption(4,3)">Un produit dérivé financier</div>
+              <button class="option" onclick="answer(this,false)">Une action en bourse</button>
+              <button class="option" onclick="answer(this,false)">Un contrat d'assurance</button>
+              <button class="option" onclick="answer(this,true)">Un titre de dette émis par un État ou entreprise</button>
+              <button class="option" onclick="answer(this,false)">Un produit dérivé financier</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Une obligation est un emprunt fractionné. L'émetteur (État ou entreprise) s'engage à rembourser le capital et à verser des intérêts (le «coupon»). Moins risqué qu'une action, mais généralement moins rentable à long terme.</div>
           </div>
           <div class="question-block" id="q5">
             <div class="q-num">Question 6 / 6</div>
             <div class="q-text">Qu'est-ce qu'une externalité négative ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(5,0)">Un impôt sur les sociétés étrangères</div>
-              <div class="option" onclick="selectOption(5,1)">Un coût subi par des tiers non impliqués dans une transaction</div>
-              <div class="option" onclick="selectOption(5,2)">Une perte boursière sur les marchés étrangers</div>
-              <div class="option" onclick="selectOption(5,3)">Un déficit budgétaire de l'État</div>
+              <button class="option" onclick="answer(this,false)">Un impôt sur les sociétés étrangères</button>
+              <button class="option" onclick="answer(this,true)">Un coût subi par des tiers non impliqués dans une transaction</button>
+              <button class="option" onclick="answer(this,false)">Une perte boursière sur les marchés étrangers</button>
+              <button class="option" onclick="answer(this,false)">Un déficit budgétaire de l'État</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Une externalité négative est un coût imposé à des tiers sans compensation. La pollution industrielle est l'exemple classique : la fabrique pollue la rivière, mais ce sont les riverains qui subissent le coût. Cela justifie des taxes (taxe carbone) ou des régulations.</div>
           </div>
         </div>
         <div class="quiz-nav">
-          <div class="q-dots">
-            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-          </div>
+          <div class="q-dots" id="qDots"></div>
           <div style="display:flex;gap:.8rem">
-            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
-            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQ()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQ()" disabled>Suivant →</button>
           </div>
         </div>
-        <div class="quiz-result">
-          <div class="result-score-big" id="finalScore"></div>
-          <div class="result-msg" id="finalMsg"></div>
-          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore"></div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
         </div>
       </div>
     </section>
@@ -363,73 +361,15 @@
   </main>
 </div>
 
-<script>
-const questions = [
-  { q:"Qui a théorisé la «main invisible» du marché ?", opts:["John Maynard Keynes","Karl Marx","Adam Smith","Milton Friedman"], ans:2, expl:"Adam Smith (1723-1790), dans La Richesse des Nations (1776), décrit comment les intérêts individuels, guidés par une «main invisible», conduisent à l'intérêt général. C'est le fondement de l'économie de marché libérale." },
-  { q:"Que signifie l'acronyme PIB ?", opts:["Prix Indicatif Brut","Produit Intérieur Brut","Pouvoir d'Investissement Bancaire","Plan d'Intégration Budgétaire"], ans:1, expl:"Le Produit Intérieur Brut mesure la valeur totale des biens et services produits sur un territoire national en une année. C'est le principal indicateur de la taille d'une économie, mais critiqué car il ne mesure ni inégalités, ni bien-être, ni environnement." },
-  { q:"Qu'est-ce que l'inflation ?", opts:["Une baisse du pouvoir d'achat uniquement","Une augmentation des salaires","Une hausse générale et durable des prix","Une augmentation des réserves d'or"], ans:2, expl:"L'inflation est la hausse générale et durable des prix, mesurée par l'Indice des Prix à la Consommation (IPC). La BCE vise un taux de 2% par an. Trop d'inflation érode le pouvoir d'achat ; trop peu (déflation) paralyse l'économie." },
-  { q:"La loi de l'offre et de la demande...", opts:["Prix fixé par le gouvernement","Prix à l'intersection des courbes d'offre et de demande","Prix toujours au plus bas","Prix en fonction du coût seul"], ans:1, expl:"Lorsque la demande excède l'offre, le prix monte (signal pour les producteurs d'augmenter l'offre). Lorsque l'offre excède la demande, le prix baisse. Le point d'équilibre est atteint quand les deux courbes se croisent — c'est la loi fondamentale de la microéconomie." },
-  { q:"Qu'est-ce qu'une obligation financière ?", opts:["Une action en bourse","Un contrat d'assurance","Un titre de dette émis par un État ou entreprise","Un produit dérivé financier"], ans:2, expl:"Une obligation est un emprunt fractionné. L'émetteur (État ou entreprise) s'engage à rembourser le capital et à verser des intérêts (le «coupon»). Moins risqué qu'une action, mais généralement moins rentable à long terme." },
-  { q:"Qu'est-ce qu'une externalité négative ?", opts:["Un impôt sur les sociétés étrangères","Un coût subi par des tiers non impliqués dans une transaction","Une perte boursière sur les marchés étrangers","Un déficit budgétaire de l'État"], ans:1, expl:"Une externalité négative est un coût imposé à des tiers sans compensation. La pollution industrielle est l'exemple classique : la fabrique pollue la rivière, mais ce sont les riverains qui subissent le coût. Cela justifie des taxes (taxe carbone) ou des régulations." }
-];
-
-let current=0,score=0,answered=new Array(6).fill(null);
-function renderQuestion(){
-  document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));
-  document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});
-  document.getElementById('btnPrev').disabled=current===0;
-  document.getElementById('btnNext').textContent=current===5?'Voir résultats':'Suivant →';
-}
-function selectOption(qi,oi){
-  if(answered[qi]!==null)return;answered[qi]=oi;
-  const block=document.querySelectorAll('.question-block')[qi];
-  block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});
-  const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');
-  if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');
-}
-function nextQuestion(){if(current<5){current++;renderQuestion();}else showResult();}
-function prevQuestion(){if(current>0){current--;renderQuestion();}}
-function showResult(){
-  document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';
-  const r=document.querySelector('.quiz-result');r.style.display='block';
-  document.getElementById('finalScore').textContent=score+'/6';
-  document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Très bien !','Excellent !'][score<=2?0:score<=4?1:score<=5?2:3];
-}
-function restartQuiz(){
-  current=0;score=0;answered.fill(null);
-  document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';
-  document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');
-  document.getElementById('quizScore').textContent=0;renderQuestion();
-}
-function goTo(id,el){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
-  document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');
-}
-// Scroll spy
-(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
-const sections=['resume','micro-macro','concepts','quiz','ressources','memo'];
-window.addEventListener('scroll',()=>{
-  let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});
-  document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';
-});
-function downloadMemo(){
-  const w=window.open('','_blank','width=900,height=700');
-  w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Économie</title>
-  <style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#8b3fc5;border-bottom:3px solid #8b3fc5;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#8b3fc5;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #e0d0f0;padding:1rem;border-radius:4px;background:#fcf9ff}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style>
-  </head><body><h1>💰 Fiche mémo — Économie & Finance</h1>
-  <div class="grid">
-    <div class="box"><h2>Grands économistes</h2><ul><li><strong>Adam Smith</strong> — main invisible, libre marché (1776)</li><li><strong>Karl Marx</strong> — lutte des classes, plus-value (1867)</li><li><strong>Keynes</strong> — relance par la demande publique (1936)</li><li><strong>Friedman</strong> — monétarisme, contrôle masse monétaire</li><li><strong>Piketty</strong> — inégalités et capital (2013)</li></ul></div>
-    <div class="box"><h2>Indicateurs macroéconomiques</h2><ul><li>PIB = C + I + G + (X − M)</li><li>Inflation → IPC (cible BCE : 2%)</li><li>Chômage = chômeurs / population active</li><li>Balance commerciale = exports − imports</li><li>Taux directeur → outil de la banque centrale</li></ul></div>
-    <div class="box"><h2>Marchés financiers</h2><ul><li>Action → part du capital d'une entreprise</li><li>Obligation → titre de dette avec coupon</li><li>CAC 40 → 40 + grandes capitalisations FR</li><li>S&P 500 → 500 grandes cap. américaines</li><li>ETF → fonds indiciel coté (tracker)</li><li>Taux sans risque → OAT 10 ans</li></ul></div>
-    <div class="box"><h2>Concepts fondamentaux</h2><ul><li>Offre & Demande → prix d'équilibre de marché</li><li>Élasticité → sensibilité quantité / prix</li><li>Externalité négative → pollution, coût sur tiers</li><li>Coût d'opportunité → ce à quoi on renonce</li><li>Aléa moral → comportement risqué si assuré</li><li>Asymétrie d'info → marché des "lemons" (Akerlof)</li></ul></div>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
   </div>
-  <div class="footer">Curiosita — Fiche mémo Économie & Finance — ${new Date().toLocaleDateString('fr-FR')}</div>
-  <button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#8b3fc5;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">🖨️ Imprimer / PDF</button>
-  
-</body></html>`);w.document.close();
-}
-renderQuestion();
-</script>
-    <script src="mobile.js?v=2"></script>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sérialisme, minimalisme, musique spectrale et électroacoustique — les multiples voies de la création musicale depuis 1945.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>La musique contemporaine — Histoire — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e8b07a;
   --accent2: #ffcc80;
   --accent-dim: rgba(232,176,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,176,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,176,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎧 Histoire de la musique</span>
     <span class="tag-level">Avancé</span>
@@ -138,10 +138,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">En quoi consiste l'oeuvre 4'33" de John Cage ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un morceau de piano très lent</div>
-              <div class="option" onclick="answer(this,true)">Quatre minutes et trente-trois secondes de silence</div>
-              <div class="option" onclick="answer(this,false)">Une improvisation libre de 4 minutes</div>
-              <div class="option" onclick="answer(this,false)">Un enregistrement de sons de la nature</div>
+              <button class="option" onclick="answer(this,false)">Un morceau de piano très lent</button>
+              <button class="option" onclick="answer(this,true)">Quatre minutes et trente-trois secondes de silence</button>
+              <button class="option" onclick="answer(this,false)">Une improvisation libre de 4 minutes</button>
+              <button class="option" onclick="answer(this,false)">Un enregistrement de sons de la nature</button>
             </div>
             <div class="q-feedback">4'33" de Cage consiste en 4 minutes et 33 secondes pendant lesquelles l'interprète ne joue aucune note. L'oeuvre invite à écouter les sons ambiants de l'environnement comme musique.</div>
           </div>
@@ -149,10 +149,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Quel courant musical est basé sur la répétition de motifs courts ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le sérialisme</div>
-              <div class="option" onclick="answer(this,false)">Le spectralisme</div>
-              <div class="option" onclick="answer(this,true)">Le minimalisme</div>
-              <div class="option" onclick="answer(this,false)">L'aléatoire</div>
+              <button class="option" onclick="answer(this,false)">Le sérialisme</button>
+              <button class="option" onclick="answer(this,false)">Le spectralisme</button>
+              <button class="option" onclick="answer(this,true)">Le minimalisme</button>
+              <button class="option" onclick="answer(this,false)">L'aléatoire</button>
             </div>
             <div class="q-feedback">Le minimalisme, porté par Steve Reich et Philip Glass, est fondé sur la répétition de motifs courts avec des variations graduelles (phasing, structures additives).</div>
           </div>
@@ -160,10 +160,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Qui a inventé la musique concrète ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Karlheinz Stockhausen</div>
-              <div class="option" onclick="answer(this,true)">Pierre Schaeffer</div>
-              <div class="option" onclick="answer(this,false)">Pierre Boulez</div>
-              <div class="option" onclick="answer(this,false)">John Cage</div>
+              <button class="option" onclick="answer(this,false)">Karlheinz Stockhausen</button>
+              <button class="option" onclick="answer(this,true)">Pierre Schaeffer</button>
+              <button class="option" onclick="answer(this,false)">Pierre Boulez</button>
+              <button class="option" onclick="answer(this,false)">John Cage</button>
             </div>
             <div class="q-feedback">Pierre Schaeffer a inventé la musique concrète à Paris en 1948, utilisant des sons enregistrés (bruits, voix, objets) comme matériau de composition, manipulés par des techniques de montage et de transformation.</div>
           </div>
@@ -171,10 +171,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Sur quoi se fonde la composition spectrale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Sur des séries de douze sons</div>
-              <div class="option" onclick="answer(this,false)">Sur le hasard et l'improvisation</div>
-              <div class="option" onclick="answer(this,true)">Sur l'analyse acoustique du son et ses harmoniques naturels</div>
-              <div class="option" onclick="answer(this,false)">Sur la répétition de motifs simples</div>
+              <button class="option" onclick="answer(this,false)">Sur des séries de douze sons</button>
+              <button class="option" onclick="answer(this,false)">Sur le hasard et l'improvisation</button>
+              <button class="option" onclick="answer(this,true)">Sur l'analyse acoustique du son et ses harmoniques naturels</button>
+              <button class="option" onclick="answer(this,false)">Sur la répétition de motifs simples</button>
             </div>
             <div class="q-feedback">Le spectralisme, fondé par Gérard Grisey et Tristan Murail dans les années 1970, fonde la composition sur l'analyse du spectre harmonique des sons. Plutôt que de combiner des notes abstraites, les spectralistes explorent les harmoniques naturels et les transitions entre différents spectres sonores.</div>
           </div>
@@ -182,10 +182,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quel institut fondé par Boulez à Paris en 1977 est un centre mondial de recherche musicale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le Conservatoire de Paris</div>
-              <div class="option" onclick="answer(this,false)">Le studio de Cologne</div>
-              <div class="option" onclick="answer(this,true)">L'IRCAM</div>
-              <div class="option" onclick="answer(this,false)">Le GRM</div>
+              <button class="option" onclick="answer(this,false)">Le Conservatoire de Paris</button>
+              <button class="option" onclick="answer(this,false)">Le studio de Cologne</button>
+              <button class="option" onclick="answer(this,true)">L'IRCAM</button>
+              <button class="option" onclick="answer(this,false)">Le GRM</button>
             </div>
             <div class="q-feedback">L'IRCAM (Institut de Recherche et Coordination Acoustique/Musique), fondé par Pierre Boulez en 1977 et installé sous la place Stravinsky à Paris, est l'un des plus importants centres de recherche musicale au monde, développant des outils informatiques pour la composition et le traitement du son.</div>
           </div>
@@ -214,8 +214,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

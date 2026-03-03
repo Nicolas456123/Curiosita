@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La carte de tous les l ments chimiques, organis e par Mendele ev. Comprenez la logique de la classification et les tendances p riodiques.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Tableau periodique — Chimie generale — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08);  --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../chimie-page.html">Chimie</a> &rsaquo; <a href="../generale.html">Chimie g&eacute;n&eacute;rale</a> &rsaquo; <span>Tableau p&eacute;riodique</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">&#128202; Chimie g&eacute;n&eacute;rale</span>
     <span class="tag-level">D&eacute;butant</span>
@@ -93,10 +93,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quel &eacute;l&eacute;ment a la plus forte &eacute;lectron&eacute;gativit&eacute; ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'oxyg&egrave;ne</div>
-              <div class="option" onclick="answer(this,true)">Le fluor</div>
-              <div class="option" onclick="answer(this,false)">Le chlore</div>
-              <div class="option" onclick="answer(this,false)">L'azote</div>
+              <button class="option" onclick="answer(this,false)">L'oxyg&egrave;ne</button>
+              <button class="option" onclick="answer(this,true)">Le fluor</button>
+              <button class="option" onclick="answer(this,false)">Le chlore</button>
+              <button class="option" onclick="answer(this,false)">L'azote</button>
             </div>
             <div class="q-feedback">Le fluor (F) est l'&eacute;l&eacute;ment le plus &eacute;lectron&eacute;gatif avec une valeur de 4,0 sur l'&eacute;chelle de Pauling. Il est situ&eacute; en haut &agrave; droite du tableau (hors gaz nobles).</div>
           </div>
@@ -104,10 +104,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Les &eacute;l&eacute;ments du groupe 18 sont appel&eacute;s :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Halog&egrave;nes</div>
-              <div class="option" onclick="answer(this,false)">Alcalins</div>
-              <div class="option" onclick="answer(this,true)">Gaz nobles</div>
-              <div class="option" onclick="answer(this,false)">M&eacute;taux de transition</div>
+              <button class="option" onclick="answer(this,false)">Halog&egrave;nes</button>
+              <button class="option" onclick="answer(this,false)">Alcalins</button>
+              <button class="option" onclick="answer(this,true)">Gaz nobles</button>
+              <button class="option" onclick="answer(this,false)">M&eacute;taux de transition</button>
             </div>
             <div class="q-feedback">Les gaz nobles (He, Ne, Ar, Kr, Xe, Rn) ont leur couche de valence compl&egrave;te, ce qui les rend chimiquement tr&egrave;s stables et peu r&eacute;actifs.</div>
           </div>
@@ -115,10 +115,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Comment varie le rayon atomique dans une p&eacute;riode (de gauche &agrave; droite) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Il diminue</div>
-              <div class="option" onclick="answer(this,false)">Il augmente</div>
-              <div class="option" onclick="answer(this,false)">Il reste constant</div>
-              <div class="option" onclick="answer(this,false)">Il augmente puis diminue</div>
+              <button class="option" onclick="answer(this,true)">Il diminue</button>
+              <button class="option" onclick="answer(this,false)">Il augmente</button>
+              <button class="option" onclick="answer(this,false)">Il reste constant</button>
+              <button class="option" onclick="answer(this,false)">Il augmente puis diminue</button>
             </div>
             <div class="q-feedback">Le rayon atomique diminue de gauche &agrave; droite car le nombre de protons augmente (attraction plus forte) tandis que les &eacute;lectrons s'ajoutent sur la m&ecirc;me couche.</div>
           </div>
@@ -126,10 +126,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Le silicium est class&eacute; comme :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un m&eacute;tal</div>
-              <div class="option" onclick="answer(this,false)">Un non-m&eacute;tal</div>
-              <div class="option" onclick="answer(this,true)">Un m&eacute;tallo&iuml;de (semi-conducteur)</div>
-              <div class="option" onclick="answer(this,false)">Un gaz noble</div>
+              <button class="option" onclick="answer(this,false)">Un m&eacute;tal</button>
+              <button class="option" onclick="answer(this,false)">Un non-m&eacute;tal</button>
+              <button class="option" onclick="answer(this,true)">Un m&eacute;tallo&iuml;de (semi-conducteur)</button>
+              <button class="option" onclick="answer(this,false)">Un gaz noble</button>
             </div>
             <div class="q-feedback">Le silicium est un m&eacute;tallo&iuml;de situ&eacute; sur la ligne diagonale s&eacute;parant m&eacute;taux et non-m&eacute;taux. Ses propri&eacute;t&eacute;s de semi-conducteur en font la base de toute l'industrie &eacute;lectronique.</div>
           </div>
@@ -137,10 +137,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Combien d'&eacute;lectrons de valence ont les halog&egrave;nes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1</div>
-              <div class="option" onclick="answer(this,false)">5</div>
-              <div class="option" onclick="answer(this,true)">7</div>
-              <div class="option" onclick="answer(this,false)">8</div>
+              <button class="option" onclick="answer(this,false)">1</button>
+              <button class="option" onclick="answer(this,false)">5</button>
+              <button class="option" onclick="answer(this,true)">7</button>
+              <button class="option" onclick="answer(this,false)">8</button>
             </div>
             <div class="q-feedback">Les halog&egrave;nes (groupe 17 : F, Cl, Br, I) ont 7 &eacute;lectrons de valence. Il leur manque 1 &eacute;lectron pour compl&eacute;ter l'octet, ce qui explique leur forte r&eacute;activit&eacute; et leur tendance &agrave; former des ions X&minus;.</div>
           </div>
@@ -169,8 +169,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Le langage universel de l'univers. Des nombres entiers aux espaces infinis, des formes géométriques aux probabilités — les maths expliquent tout.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Mathématiques — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #c0392b;
   --accent2: #e74c3c;
   --accent-dim: rgba(192,57,43,0.08);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(192,57,43,0.07) 0%, transparent 70%); }
+ --accent-hero: rgba(192,57,43,0.07); }
 .hero-deco { color: rgba(192,57,43,0.04); }
 </style>
 </head>
@@ -26,7 +27,7 @@
   <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
 </nav>
 
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">π</div>
   <div class="hero-meta">
     <span class="tag-domain">🔬 Sciences exactes & Informatique</span>
@@ -246,10 +247,10 @@
             <p class="q-num">Question 1 / 10</p>
             <p class="q-text">Dans un triangle rectangle, si les deux côtés de l'angle droit mesurent 3 et 4, quelle est l'hypoténuse ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">6</div>
-              <div class="option" onclick="answer(this,false)">7</div>
-              <div class="option" onclick="answer(this,true)">5</div>
-              <div class="option" onclick="answer(this,false)">√7</div>
+              <button class="option" onclick="answer(this,false)">6</button>
+              <button class="option" onclick="answer(this,false)">7</button>
+              <button class="option" onclick="answer(this,true)">5</button>
+              <button class="option" onclick="answer(this,false)">√7</button>
             </div>
             <div class="q-feedback">3² + 4² = 9 + 16 = 25 = 5². Le triplet (3,4,5) est le triplet pythagoricien le plus célèbre !</div>
           </div>
@@ -259,10 +260,10 @@
             <p class="q-text">Quel est le résultat de ce calcul ?</p>
             <div class="q-formula">2³ × (4 + 1) - 10</div>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">30</div>
-              <div class="option" onclick="answer(this,true)">30</div>
-              <div class="option" onclick="answer(this,false)">50</div>
-              <div class="option" onclick="answer(this,false)">40</div>
+              <button class="option" onclick="answer(this,false)">30</button>
+              <button class="option" onclick="answer(this,true)">30</button>
+              <button class="option" onclick="answer(this,false)">50</button>
+              <button class="option" onclick="answer(this,false)">40</button>
             </div>
             <div class="q-feedback">2³ = 8. (4+1) = 5. 8 × 5 = 40. 40 - 10 = 30. Priorité : parenthèses, puissances, multiplications, additions.</div>
           </div>
@@ -271,10 +272,10 @@
             <p class="q-num">Question 2 / 10</p>
             <p class="q-text">Quel est le plus petit nombre premier supérieur à 10 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">12</div>
-              <div class="option" onclick="answer(this,true)">11</div>
-              <div class="option" onclick="answer(this,false)">13</div>
-              <div class="option" onclick="answer(this,false)">10</div>
+              <button class="option" onclick="answer(this,false)">12</button>
+              <button class="option" onclick="answer(this,true)">11</button>
+              <button class="option" onclick="answer(this,false)">13</button>
+              <button class="option" onclick="answer(this,false)">10</button>
             </div>
             <div class="q-feedback">11 est premier car il n'est divisible que par 1 et 11. 12 = 4×3, donc pas premier. 10 n'est pas premier (divisible par 2 et 5).</div>
           </div>
@@ -283,10 +284,10 @@
             <p class="q-num">Question 3 / 10</p>
             <p class="q-text">Quelle est la valeur de π (pi) arrondie à deux décimales ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">3.12</div>
-              <div class="option" onclick="answer(this,false)">3.16</div>
-              <div class="option" onclick="answer(this,true)">3.14</div>
-              <div class="option" onclick="answer(this,false)">3.41</div>
+              <button class="option" onclick="answer(this,false)">3.12</button>
+              <button class="option" onclick="answer(this,false)">3.16</button>
+              <button class="option" onclick="answer(this,true)">3.14</button>
+              <button class="option" onclick="answer(this,false)">3.41</button>
             </div>
             <div class="q-feedback">π ≈ 3.14159265358979… C'est une constante irrationnelle et transcendante — ses décimales ne se répètent jamais et ne s'arrêtent jamais.</div>
           </div>
@@ -295,10 +296,10 @@
             <p class="q-num">Question 4 / 10</p>
             <p class="q-text">Combien y a-t-il de degrés dans la somme des angles d'un triangle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">360°</div>
-              <div class="option" onclick="answer(this,true)">180°</div>
-              <div class="option" onclick="answer(this,false)">90°</div>
-              <div class="option" onclick="answer(this,false)">270°</div>
+              <button class="option" onclick="answer(this,false)">360°</button>
+              <button class="option" onclick="answer(this,true)">180°</button>
+              <button class="option" onclick="answer(this,false)">90°</button>
+              <button class="option" onclick="answer(this,false)">270°</button>
             </div>
             <div class="q-feedback">La somme des angles intérieurs d'un triangle est toujours égale à 180°. C'est vrai en géométrie euclidienne (plan). Sur une sphère, cette somme peut dépasser 180° !</div>
           </div>
@@ -307,10 +308,10 @@
             <p class="q-num">Question 5 / 10</p>
             <p class="q-text">Que signifie le discriminant Δ < 0 pour une équation du second degré ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une solution réelle double</div>
-              <div class="option" onclick="answer(this,false)">Deux solutions réelles distinctes</div>
-              <div class="option" onclick="answer(this,true)">Pas de solution réelle (solutions complexes)</div>
-              <div class="option" onclick="answer(this,false)">Une infinité de solutions</div>
+              <button class="option" onclick="answer(this,false)">Une solution réelle double</button>
+              <button class="option" onclick="answer(this,false)">Deux solutions réelles distinctes</button>
+              <button class="option" onclick="answer(this,true)">Pas de solution réelle (solutions complexes)</button>
+              <button class="option" onclick="answer(this,false)">Une infinité de solutions</button>
             </div>
             <div class="q-feedback">Δ < 0 → pas de racine réelle. Δ = 0 → une racine double. Δ > 0 → deux racines distinctes. La racine carrée d'un nombre négatif n'existe pas dans ℝ.</div>
           </div>
@@ -319,10 +320,10 @@
             <p class="q-num">Question 6 / 10</p>
             <p class="q-text">Quel est le logarithme en base 10 de 1000 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">2</div>
-              <div class="option" onclick="answer(this,true)">3</div>
-              <div class="option" onclick="answer(this,false)">100</div>
-              <div class="option" onclick="answer(this,false)">10</div>
+              <button class="option" onclick="answer(this,false)">2</button>
+              <button class="option" onclick="answer(this,true)">3</button>
+              <button class="option" onclick="answer(this,false)">100</button>
+              <button class="option" onclick="answer(this,false)">10</button>
             </div>
             <div class="q-feedback">log₁₀(1000) = 3 car 10³ = 1000. Le logarithme répond à la question : "10 à quelle puissance donne ce nombre ?"</div>
           </div>
@@ -331,10 +332,10 @@
             <p class="q-num">Question 7 / 10</p>
             <p class="q-text">Quelle est la dérivée de f(x) = x³ ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">x²</div>
-              <div class="option" onclick="answer(this,true)">3x²</div>
-              <div class="option" onclick="answer(this,false)">3x</div>
-              <div class="option" onclick="answer(this,false)">x⁴/4</div>
+              <button class="option" onclick="answer(this,false)">x²</button>
+              <button class="option" onclick="answer(this,true)">3x²</button>
+              <button class="option" onclick="answer(this,false)">3x</button>
+              <button class="option" onclick="answer(this,false)">x⁴/4</button>
             </div>
             <div class="q-feedback">Règle de la puissance : si f(x) = xⁿ, alors f'(x) = n·xⁿ⁻¹. Pour n=3 : f'(x) = 3·x² = 3x².</div>
           </div>
@@ -343,10 +344,10 @@
             <p class="q-num">Question 8 / 10</p>
             <p class="q-text">Combien y a-t-il de combinaisons possibles pour choisir 2 éléments parmi 5 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">20</div>
-              <div class="option" onclick="answer(this,false)">15</div>
-              <div class="option" onclick="answer(this,true)">10</div>
-              <div class="option" onclick="answer(this,false)">25</div>
+              <button class="option" onclick="answer(this,false)">20</button>
+              <button class="option" onclick="answer(this,false)">15</button>
+              <button class="option" onclick="answer(this,true)">10</button>
+              <button class="option" onclick="answer(this,false)">25</button>
             </div>
             <div class="q-feedback">C(5,2) = 5! / (2! × 3!) = 120 / (2 × 6) = 10. La combinatoire compte les façons de choisir sans tenir compte de l'ordre.</div>
           </div>
@@ -355,10 +356,10 @@
             <p class="q-num">Question 9 / 10</p>
             <p class="q-text">Qu'est-ce qu'un nombre irrationnel ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un nombre négatif</div>
-              <div class="option" onclick="answer(this,false)">Un nombre complexe</div>
-              <div class="option" onclick="answer(this,true)">Un nombre qui ne peut pas s'écrire comme fraction p/q</div>
-              <div class="option" onclick="answer(this,false)">Un nombre qui n'existe pas</div>
+              <button class="option" onclick="answer(this,false)">Un nombre négatif</button>
+              <button class="option" onclick="answer(this,false)">Un nombre complexe</button>
+              <button class="option" onclick="answer(this,true)">Un nombre qui ne peut pas s'écrire comme fraction p/q</button>
+              <button class="option" onclick="answer(this,false)">Un nombre qui n'existe pas</button>
             </div>
             <div class="q-feedback">√2, π et e sont irrationnels — leurs décimales sont infinies et non périodiques. Ils ne peuvent s'exprimer comme ratio de deux entiers.</div>
           </div>
@@ -367,10 +368,10 @@
             <p class="q-num">Question 10 / 10</p>
             <p class="q-text">Quelle constante mathématique vaut environ 2.718 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">π (pi)</div>
-              <div class="option" onclick="answer(this,false)">φ (phi, nombre d'or)</div>
-              <div class="option" onclick="answer(this,true)">e (nombre d'Euler)</div>
-              <div class="option" onclick="answer(this,false)">√2</div>
+              <button class="option" onclick="answer(this,false)">π (pi)</button>
+              <button class="option" onclick="answer(this,false)">φ (phi, nombre d'or)</button>
+              <button class="option" onclick="answer(this,true)">e (nombre d'Euler)</button>
+              <button class="option" onclick="answer(this,false)">√2</button>
             </div>
             <div class="q-feedback">e ≈ 2.71828… est la base du logarithme naturel. C'est la constante de la croissance exponentielle, omniprésente en analyse, probabilités et physique.</div>
           </div>
@@ -505,8 +506,15 @@
   </main>
 </div>
 
-<script src="utils.js"></script>
-<script src="quiz.js"></script>
-    <script src="mobile.js?v=2"></script>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sécurité sociale, médecin traitant, hôpital, pharmacie : comprendre le parcours de soins en France.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Système de santé — Médecine et prévention — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🏥 Médecine et prévention</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -141,10 +141,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">En quelle année la Sécurité sociale française a-t-elle été créée ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1936</div>
-              <div class="option" onclick="answer(this,true)">1945</div>
-              <div class="option" onclick="answer(this,false)">1958</div>
-              <div class="option" onclick="answer(this,false)">1968</div>
+              <button class="option" onclick="answer(this,false)">1936</button>
+              <button class="option" onclick="answer(this,true)">1945</button>
+              <button class="option" onclick="answer(this,false)">1958</button>
+              <button class="option" onclick="answer(this,false)">1968</button>
             </div>
             <div class="q-feedback">La Sécurité sociale a été créée par les ordonnances des 4 et 19 octobre 1945, dans l'élan de la Libération, pour garantir la protection sociale à tous les citoyens.</div>
           </div>
@@ -152,10 +152,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel est le rôle principal du médecin traitant dans le parcours de soins ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Coordonner les soins et orienter vers les spécialistes</div>
-              <div class="option" onclick="answer(this,false)">Réaliser toutes les opérations chirurgicales</div>
-              <div class="option" onclick="answer(this,false)">Délivrer les médicaments</div>
-              <div class="option" onclick="answer(this,false)">Gérer les remboursements de l'Assurance maladie</div>
+              <button class="option" onclick="answer(this,true)">Coordonner les soins et orienter vers les spécialistes</button>
+              <button class="option" onclick="answer(this,false)">Réaliser toutes les opérations chirurgicales</button>
+              <button class="option" onclick="answer(this,false)">Délivrer les médicaments</button>
+              <button class="option" onclick="answer(this,false)">Gérer les remboursements de l'Assurance maladie</button>
             </div>
             <div class="q-feedback">Le médecin traitant est le pivot du parcours de soins coordonné. Il assure le suivi médical global, coordonne les soins et oriente vers les spécialistes quand c'est nécessaire.</div>
           </div>
@@ -163,10 +163,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel numéro appeler pour le SAMU en France ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">15</div>
-              <div class="option" onclick="answer(this,false)">17</div>
-              <div class="option" onclick="answer(this,false)">18</div>
-              <div class="option" onclick="answer(this,false)">112</div>
+              <button class="option" onclick="answer(this,true)">15</button>
+              <button class="option" onclick="answer(this,false)">17</button>
+              <button class="option" onclick="answer(this,false)">18</button>
+              <button class="option" onclick="answer(this,false)">112</button>
             </div>
             <div class="q-feedback">Le 15 est le numéro du SAMU (Service d'Aide Médicale Urgente). Le 17 est la police, le 18 les pompiers, et le 112 le numéro d'urgence européen qui redirige vers tous les services.</div>
           </div>
@@ -174,10 +174,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel pourcentage des dépenses de santé la Sécurité sociale couvre-t-elle en moyenne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">50%</div>
-              <div class="option" onclick="answer(this,false)">65%</div>
-              <div class="option" onclick="answer(this,true)">78%</div>
-              <div class="option" onclick="answer(this,false)">95%</div>
+              <button class="option" onclick="answer(this,false)">50%</button>
+              <button class="option" onclick="answer(this,false)">65%</button>
+              <button class="option" onclick="answer(this,true)">78%</button>
+              <button class="option" onclick="answer(this,false)">95%</button>
             </div>
             <div class="q-feedback">La Sécurité sociale couvre en moyenne 78% des dépenses de santé. Le reste est pris en charge par les complémentaires santé (mutuelles) et le reste à charge du patient.</div>
           </div>
@@ -185,10 +185,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que se passe-t-il si vous consultez un spécialiste sans passer par votre médecin traitant ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La consultation n'est pas remboursée du tout</div>
-              <div class="option" onclick="answer(this,true)">Le taux de remboursement est réduit (30% au lieu de 70%)</div>
-              <div class="option" onclick="answer(this,false)">Rien ne change, le remboursement est le même</div>
-              <div class="option" onclick="answer(this,false)">Le médecin traitant est automatiquement prévenu</div>
+              <button class="option" onclick="answer(this,false)">La consultation n'est pas remboursée du tout</button>
+              <button class="option" onclick="answer(this,true)">Le taux de remboursement est réduit (30% au lieu de 70%)</button>
+              <button class="option" onclick="answer(this,false)">Rien ne change, le remboursement est le même</button>
+              <button class="option" onclick="answer(this,false)">Le médecin traitant est automatiquement prévenu</button>
             </div>
             <div class="q-feedback">Hors parcours de soins coordonné, le taux de remboursement est réduit à 30% au lieu de 70%. Certains spécialistes font exception : gynécologue, ophtalmologue, psychiatre (16-25 ans), dentiste.</div>
           </div>
@@ -196,10 +196,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Qu'est-ce qu'une ALD (affection de longue durée) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une allergie saisonnière récurrente</div>
-              <div class="option" onclick="answer(this,false)">Un arrêt de travail de plus de 30 jours</div>
-              <div class="option" onclick="answer(this,true)">Une maladie grave ou chronique prise en charge à 100%</div>
-              <div class="option" onclick="answer(this,false)">Une consultation longue chez le médecin</div>
+              <button class="option" onclick="answer(this,false)">Une allergie saisonnière récurrente</button>
+              <button class="option" onclick="answer(this,false)">Un arrêt de travail de plus de 30 jours</button>
+              <button class="option" onclick="answer(this,true)">Une maladie grave ou chronique prise en charge à 100%</button>
+              <button class="option" onclick="answer(this,false)">Une consultation longue chez le médecin</button>
             </div>
             <div class="q-feedback">Les ALD (diabète, cancer, insuffisance cardiaque, etc.) bénéficient d'une prise en charge à 100% par l'Assurance maladie pour tous les soins liés à la pathologie. Environ 12 millions de personnes sont en ALD en France.</div>
           </div>
@@ -266,8 +266,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

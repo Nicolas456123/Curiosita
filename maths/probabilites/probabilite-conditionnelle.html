@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Comment une information partielle modifie-t-elle nos calculs de probabilité ? La formule de Bayes révolutionne le raisonnement sous incertitude.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Probabilité conditionnelle — Probabilités — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #c0392b;
   --accent2: #e74c3c;
   --accent-dim: rgba(192,57,43,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(192,57,43,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎲 Probabilités</span>
     <span class="tag-level">Intermédiaire</span>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Si P(A ∩ B) = 0,12 et P(B) = 0,4, combien vaut P(A|B) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">0,3</div>
-              <div class="option" onclick="answer(this,false)">0,48</div>
-              <div class="option" onclick="answer(this,false)">0,12</div>
-              <div class="option" onclick="answer(this,false)">3,33</div>
+              <button class="option" onclick="answer(this,true)">0,3</button>
+              <button class="option" onclick="answer(this,false)">0,48</button>
+              <button class="option" onclick="answer(this,false)">0,12</button>
+              <button class="option" onclick="answer(this,false)">3,33</button>
             </div>
             <div class="q-feedback">P(A|B) = P(A∩B)/P(B) = 0,12/0,4 = 0,3. C'est l'application directe de la définition.</div>
           </div>
@@ -199,10 +199,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Deux événements A et B sont indépendants avec P(A) = 0,5 et P(B) = 0,3. Combien vaut P(A ∩ B) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">0,8</div>
-              <div class="option" onclick="answer(this,false)">0,2</div>
-              <div class="option" onclick="answer(this,true)">0,15</div>
-              <div class="option" onclick="answer(this,false)">0</div>
+              <button class="option" onclick="answer(this,false)">0,8</button>
+              <button class="option" onclick="answer(this,false)">0,2</button>
+              <button class="option" onclick="answer(this,true)">0,15</button>
+              <button class="option" onclick="answer(this,false)">0</button>
             </div>
             <div class="q-feedback">Si A et B sont indépendants, P(A∩B) = P(A) × P(B) = 0,5 × 0,3 = 0,15. Attention : 0,8 serait P(A∪B), pas P(A∩B).</div>
           </div>
@@ -210,10 +210,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Deux événements incompatibles de probabilités non nulles sont-ils indépendants ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Oui, toujours</div>
-              <div class="option" onclick="answer(this,true)">Non, jamais</div>
-              <div class="option" onclick="answer(this,false)">Cela dépend des probabilités</div>
-              <div class="option" onclick="answer(this,false)">Seulement si P(A) = P(B)</div>
+              <button class="option" onclick="answer(this,false)">Oui, toujours</button>
+              <button class="option" onclick="answer(this,true)">Non, jamais</button>
+              <button class="option" onclick="answer(this,false)">Cela dépend des probabilités</button>
+              <button class="option" onclick="answer(this,false)">Seulement si P(A) = P(B)</button>
             </div>
             <div class="q-feedback">Si A et B sont incompatibles, P(A∩B) = 0. Or pour l'indépendance, il faudrait P(A∩B) = P(A)×P(B) > 0. Donc jamais indépendants (si P(A) > 0 et P(B) > 0).</div>
           </div>
@@ -221,10 +221,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Dans le paradoxe de Monty Hall, si on change de porte après que le présentateur a ouvert une porte vide, quelle est la probabilité de gagner ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1/3</div>
-              <div class="option" onclick="answer(this,false)">1/2</div>
-              <div class="option" onclick="answer(this,true)">2/3</div>
-              <div class="option" onclick="answer(this,false)">3/4</div>
+              <button class="option" onclick="answer(this,false)">1/3</button>
+              <button class="option" onclick="answer(this,false)">1/2</button>
+              <button class="option" onclick="answer(this,true)">2/3</button>
+              <button class="option" onclick="answer(this,false)">3/4</button>
             </div>
             <div class="q-feedback">En changeant, on gagne si le choix initial était mauvais (probabilité 2/3). En restant, on gagne seulement si le choix initial était bon (probabilité 1/3). Il faut donc toujours changer.</div>
           </div>
@@ -232,10 +232,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">La formule des probabilités totales avec une partition (B, B̄) donne :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">P(A) = P(A|B) + P(A|B̄)</div>
-              <div class="option" onclick="answer(this,true)">P(A) = P(B)×P(A|B) + P(B̄)×P(A|B̄)</div>
-              <div class="option" onclick="answer(this,false)">P(A) = P(A∩B) + P(A∩B̄) / P(B)</div>
-              <div class="option" onclick="answer(this,false)">P(A) = P(B) + P(A|B)</div>
+              <button class="option" onclick="answer(this,false)">P(A) = P(A|B) + P(A|B̄)</button>
+              <button class="option" onclick="answer(this,true)">P(A) = P(B)×P(A|B) + P(B̄)×P(A|B̄)</button>
+              <button class="option" onclick="answer(this,false)">P(A) = P(A∩B) + P(A∩B̄) / P(B)</button>
+              <button class="option" onclick="answer(this,false)">P(A) = P(B) + P(A|B)</button>
             </div>
             <div class="q-feedback">La formule des probabilités totales décompose P(A) selon la partition : P(A) = P(B)×P(A|B) + P(B̄)×P(A|B̄). C'est la somme pondérée des probabilités conditionnelles.</div>
           </div>
@@ -243,10 +243,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Une maladie touche 5% de la population. Un test a 90% de sensibilité et 80% de spécificité. Si le test est positif, quelle est approximativement P(malade|test⁺) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">90%</div>
-              <div class="option" onclick="answer(this,false)">50%</div>
-              <div class="option" onclick="answer(this,true)">≈ 19%</div>
-              <div class="option" onclick="answer(this,false)">≈ 5%</div>
+              <button class="option" onclick="answer(this,false)">90%</button>
+              <button class="option" onclick="answer(this,false)">50%</button>
+              <button class="option" onclick="answer(this,true)">≈ 19%</button>
+              <button class="option" onclick="answer(this,false)">≈ 5%</button>
             </div>
             <div class="q-feedback">P(T⁺) = 0,05×0,90 + 0,95×0,20 = 0,045 + 0,19 = 0,235. Par Bayes : P(M|T⁺) = 0,045/0,235 ≈ 0,191 ≈ 19%. Malgré un test positif, la probabilité reste faible car la maladie est rare.</div>
           </div>
@@ -319,8 +319,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

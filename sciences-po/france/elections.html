@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Présidentielle, législatives, municipales : modes de scrutin, campagnes et comportement électoral en France.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Élections et scrutins — Politique française — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a9b;
   --accent2: #f09ab5;
   --accent-dim: rgba(232,122,155,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,155,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,155,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📊 Politique française</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -135,10 +135,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Combien de parrainages un candidat doit-il réunir pour se présenter à la présidentielle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">100</div>
-              <div class="option" onclick="answer(this,true)">500</div>
-              <div class="option" onclick="answer(this,false)">1 000</div>
-              <div class="option" onclick="answer(this,false)">300</div>
+              <button class="option" onclick="answer(this,false)">100</button>
+              <button class="option" onclick="answer(this,true)">500</button>
+              <button class="option" onclick="answer(this,false)">1 000</button>
+              <button class="option" onclick="answer(this,false)">300</button>
             </div>
             <div class="q-feedback">Il faut 500 « signatures » ou parrainages d'élus (maires, conseillers régionaux, parlementaires, etc.), issus d'au moins 30 départements différents, sans que plus d'un dixième provienne du même département.</div>
           </div>
@@ -146,10 +146,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel seuil un candidat aux législatives doit-il atteindre pour se maintenir au second tour ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">10 % des suffrages exprimés</div>
-              <div class="option" onclick="answer(this,true)">12,5 % des inscrits</div>
-              <div class="option" onclick="answer(this,false)">25 % des suffrages exprimés</div>
-              <div class="option" onclick="answer(this,false)">5 % des inscrits</div>
+              <button class="option" onclick="answer(this,false)">10 % des suffrages exprimés</button>
+              <button class="option" onclick="answer(this,true)">12,5 % des inscrits</button>
+              <button class="option" onclick="answer(this,false)">25 % des suffrages exprimés</button>
+              <button class="option" onclick="answer(this,false)">5 % des inscrits</button>
             </div>
             <div class="q-feedback">Le seuil de maintien au second tour des législatives est de 12,5 % des électeurs inscrits (et non des suffrages exprimés). Ce seuil relativement élevé limite les triangulaires mais ne les empêche pas.</div>
           </div>
@@ -157,10 +157,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">En quelle année les femmes françaises ont-elles obtenu le droit de vote ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1936</div>
-              <div class="option" onclick="answer(this,true)">1944</div>
-              <div class="option" onclick="answer(this,false)">1945</div>
-              <div class="option" onclick="answer(this,false)">1958</div>
+              <button class="option" onclick="answer(this,false)">1936</button>
+              <button class="option" onclick="answer(this,true)">1944</button>
+              <button class="option" onclick="answer(this,false)">1945</button>
+              <button class="option" onclick="answer(this,false)">1958</button>
             </div>
             <div class="q-feedback">L'ordonnance du 21 avril 1944 du Gouvernement provisoire de la République française a accordé le droit de vote aux femmes. Elles ont voté pour la première fois lors des élections municipales du 29 avril 1945.</div>
           </div>
@@ -168,10 +168,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Comment les sénateurs sont-ils élus ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Au suffrage universel direct</div>
-              <div class="option" onclick="answer(this,true)">Au suffrage indirect par les grands électeurs</div>
-              <div class="option" onclick="answer(this,false)">Par cooptation entre sénateurs sortants</div>
-              <div class="option" onclick="answer(this,false)">Par nomination du président de la République</div>
+              <button class="option" onclick="answer(this,false)">Au suffrage universel direct</button>
+              <button class="option" onclick="answer(this,true)">Au suffrage indirect par les grands électeurs</button>
+              <button class="option" onclick="answer(this,false)">Par cooptation entre sénateurs sortants</button>
+              <button class="option" onclick="answer(this,false)">Par nomination du président de la République</button>
             </div>
             <div class="q-feedback">Les sénateurs sont élus au suffrage universel indirect par un collège de grands électeurs composé principalement de délégués des conseils municipaux, ainsi que de députés, conseillers régionaux et départementaux.</div>
           </div>
@@ -179,10 +179,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel est le mode de scrutin des élections européennes en France ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Scrutin majoritaire à deux tours</div>
-              <div class="option" onclick="answer(this,false)">Scrutin uninominal à un tour</div>
-              <div class="option" onclick="answer(this,true)">Scrutin proportionnel de liste</div>
-              <div class="option" onclick="answer(this,false)">Scrutin binominal paritaire</div>
+              <button class="option" onclick="answer(this,false)">Scrutin majoritaire à deux tours</button>
+              <button class="option" onclick="answer(this,false)">Scrutin uninominal à un tour</button>
+              <button class="option" onclick="answer(this,true)">Scrutin proportionnel de liste</button>
+              <button class="option" onclick="answer(this,false)">Scrutin binominal paritaire</button>
             </div>
             <div class="q-feedback">Les élections européennes se déroulent au scrutin proportionnel de liste dans une circonscription nationale unique, avec un seuil de 5 % pour obtenir des sièges. C'est le seul scrutin national utilisant la proportionnelle intégrale.</div>
           </div>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel a été le résultat du dernier référendum national en France (2005) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Adoption de la Constitution européenne à 55 %</div>
-              <div class="option" onclick="answer(this,true)">Rejet de la Constitution européenne à 54,7 %</div>
-              <div class="option" onclick="answer(this,false)">Adoption du quinquennat</div>
-              <div class="option" onclick="answer(this,false)">Rejet du traité de Maastricht</div>
+              <button class="option" onclick="answer(this,false)">Adoption de la Constitution européenne à 55 %</button>
+              <button class="option" onclick="answer(this,true)">Rejet de la Constitution européenne à 54,7 %</button>
+              <button class="option" onclick="answer(this,false)">Adoption du quinquennat</button>
+              <button class="option" onclick="answer(this,false)">Rejet du traité de Maastricht</button>
             </div>
             <div class="q-feedback">Le référendum du 29 mai 2005 sur le Traité établissant une Constitution pour l'Europe a été rejeté par 54,68 % des votants. Ce résultat a marqué un tournant dans la relation entre la France et la construction européenne. Le quinquennat a été adopté par référendum en 2000.</div>
           </div>
@@ -266,8 +266,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

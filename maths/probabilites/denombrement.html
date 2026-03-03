@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Compter sans se tromper : arrangements, combinaisons et permutations sont les outils fondamentaux pour dénombrer les possibilités.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Dénombrement — Probabilités — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #c0392b;
   --accent2: #e74c3c;
   --accent-dim: rgba(192,57,43,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(192,57,43,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎲 Probabilités</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -179,10 +179,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Combien vaut 5! (factorielle 5) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">25</div>
-              <div class="option" onclick="answer(this,true)">120</div>
-              <div class="option" onclick="answer(this,false)">60</div>
-              <div class="option" onclick="answer(this,false)">720</div>
+              <button class="option" onclick="answer(this,false)">25</button>
+              <button class="option" onclick="answer(this,true)">120</button>
+              <button class="option" onclick="answer(this,false)">60</button>
+              <button class="option" onclick="answer(this,false)">720</button>
             </div>
             <div class="q-feedback">5! = 5 × 4 × 3 × 2 × 1 = 120. Attention : 720 serait 6!.</div>
           </div>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Un code est formé de 3 lettres (parmi 26) suivies de 2 chiffres (parmi 10), avec répétitions autorisées. Combien de codes possibles ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">26 × 25 × 24 × 10 × 9</div>
-              <div class="option" onclick="answer(this,true)">26³ × 10² = 1 757 600</div>
-              <div class="option" onclick="answer(this,false)">C(26,3) × C(10,2)</div>
-              <div class="option" onclick="answer(this,false)">26 + 26 + 26 + 10 + 10</div>
+              <button class="option" onclick="answer(this,false)">26 × 25 × 24 × 10 × 9</button>
+              <button class="option" onclick="answer(this,true)">26³ × 10² = 1 757 600</button>
+              <button class="option" onclick="answer(this,false)">C(26,3) × C(10,2)</button>
+              <button class="option" onclick="answer(this,false)">26 + 26 + 26 + 10 + 10</button>
             </div>
             <div class="q-feedback">Avec répétitions autorisées, chaque position est indépendante. Par le principe multiplicatif : 26 × 26 × 26 × 10 × 10 = 26³ × 10² = 1 757 600.</div>
           </div>
@@ -201,10 +201,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Combien de podiums (1er, 2e, 3e) possibles dans une course de 8 athlètes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">C(8,3) = 56</div>
-              <div class="option" onclick="answer(this,false)">8³ = 512</div>
-              <div class="option" onclick="answer(this,true)">A₈³ = 8 × 7 × 6 = 336</div>
-              <div class="option" onclick="answer(this,false)">8! = 40 320</div>
+              <button class="option" onclick="answer(this,false)">C(8,3) = 56</button>
+              <button class="option" onclick="answer(this,false)">8³ = 512</button>
+              <button class="option" onclick="answer(this,true)">A₈³ = 8 × 7 × 6 = 336</button>
+              <button class="option" onclick="answer(this,false)">8! = 40 320</button>
             </div>
             <div class="q-feedback">L'ordre compte (1er ≠ 2e ≠ 3e) et pas de répétition. C'est un arrangement : A₈³ = 8!/(8-3)! = 8 × 7 × 6 = 336.</div>
           </div>
@@ -212,10 +212,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Combien de comités de 4 personnes peut-on former parmi 9 candidats ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">A₉⁴ = 3 024</div>
-              <div class="option" onclick="answer(this,false)">9⁴ = 6 561</div>
-              <div class="option" onclick="answer(this,true)">C(9,4) = 126</div>
-              <div class="option" onclick="answer(this,false)">4! × 9 = 216</div>
+              <button class="option" onclick="answer(this,false)">A₉⁴ = 3 024</button>
+              <button class="option" onclick="answer(this,false)">9⁴ = 6 561</button>
+              <button class="option" onclick="answer(this,true)">C(9,4) = 126</button>
+              <button class="option" onclick="answer(this,false)">4! × 9 = 216</button>
             </div>
             <div class="q-feedback">L'ordre ne compte pas (un comité est un ensemble, pas une liste ordonnée). C(9,4) = 9!/(4!×5!) = (9×8×7×6)/(4×3×2×1) = 126.</div>
           </div>
@@ -223,10 +223,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Combien d'anagrammes distinctes peut-on former avec le mot « MAMAN » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">5! = 120</div>
-              <div class="option" onclick="answer(this,true)">5!/(2!×2!) = 30</div>
-              <div class="option" onclick="answer(this,false)">5!/(3!×2!) = 10</div>
-              <div class="option" onclick="answer(this,false)">5!/3! = 20</div>
+              <button class="option" onclick="answer(this,false)">5! = 120</button>
+              <button class="option" onclick="answer(this,true)">5!/(2!×2!) = 30</button>
+              <button class="option" onclick="answer(this,false)">5!/(3!×2!) = 10</button>
+              <button class="option" onclick="answer(this,false)">5!/3! = 20</button>
             </div>
             <div class="q-feedback">MAMAN a 5 lettres : M apparait 2 fois, A apparait 2 fois, N apparait 1 fois. Nombre d'anagrammes = 5!/(2!×2!×1!) = 120/4 = 30.</div>
           </div>
@@ -234,10 +234,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle propriété relie C(n,p) et C(n, n-p) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">C(n,p) + C(n,n-p) = 2ⁿ</div>
-              <div class="option" onclick="answer(this,false)">C(n,p) × C(n,n-p) = n!</div>
-              <div class="option" onclick="answer(this,true)">C(n,p) = C(n,n-p) (symétrie)</div>
-              <div class="option" onclick="answer(this,false)">C(n,p) = 2 × C(n,n-p)</div>
+              <button class="option" onclick="answer(this,false)">C(n,p) + C(n,n-p) = 2ⁿ</button>
+              <button class="option" onclick="answer(this,false)">C(n,p) × C(n,n-p) = n!</button>
+              <button class="option" onclick="answer(this,true)">C(n,p) = C(n,n-p) (symétrie)</button>
+              <button class="option" onclick="answer(this,false)">C(n,p) = 2 × C(n,n-p)</button>
             </div>
             <div class="q-feedback">C'est la propriété de symétrie : choisir p éléments parmi n revient à exclure n-p éléments. Donc C(n,p) = C(n,n-p). Par exemple C(10,3) = C(10,7) = 120.</div>
           </div>
@@ -307,8 +307,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cancers, diabète, hypertension : comprendre pourquoi et comment se faire dépister pour agir le plus tôt possible.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Dépistage — Médecine et prévention — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🏥 Médecine et prévention</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -125,10 +125,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">À quelle fréquence les femmes de 50 à 74 ans sont-elles invitées à une mammographie de dépistage ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Tous les ans</div>
-              <div class="option" onclick="answer(this,true)">Tous les 2 ans</div>
-              <div class="option" onclick="answer(this,false)">Tous les 5 ans</div>
-              <div class="option" onclick="answer(this,false)">Une seule fois</div>
+              <button class="option" onclick="answer(this,false)">Tous les ans</button>
+              <button class="option" onclick="answer(this,true)">Tous les 2 ans</button>
+              <button class="option" onclick="answer(this,false)">Tous les 5 ans</button>
+              <button class="option" onclick="answer(this,false)">Une seule fois</button>
             </div>
             <div class="q-feedback">Le programme national de dépistage du cancer du sein invite les femmes de 50 à 74 ans à réaliser une mammographie tous les 2 ans, gratuitement.</div>
           </div>
@@ -136,10 +136,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel examen est utilisé pour le dépistage du cancer colorectal ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une prise de sang</div>
-              <div class="option" onclick="answer(this,false)">Une coloscopie systématique</div>
-              <div class="option" onclick="answer(this,true)">Un test immunologique fécal</div>
-              <div class="option" onclick="answer(this,false)">Une échographie abdominale</div>
+              <button class="option" onclick="answer(this,false)">Une prise de sang</button>
+              <button class="option" onclick="answer(this,false)">Une coloscopie systématique</button>
+              <button class="option" onclick="answer(this,true)">Un test immunologique fécal</button>
+              <button class="option" onclick="answer(this,false)">Une échographie abdominale</button>
             </div>
             <div class="q-feedback">Le test immunologique fécal recherche des traces de sang invisible dans les selles. La coloscopie n'intervient qu'en cas de test positif, pour confirmer le diagnostic.</div>
           </div>
@@ -147,10 +147,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">À partir de quelle valeur de glycémie à jeun parle-t-on de diabète ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">≥ 0,80 g/L</div>
-              <div class="option" onclick="answer(this,false)">≥ 1,10 g/L</div>
-              <div class="option" onclick="answer(this,true)">≥ 1,26 g/L</div>
-              <div class="option" onclick="answer(this,false)">≥ 2,00 g/L</div>
+              <button class="option" onclick="answer(this,false)">≥ 0,80 g/L</button>
+              <button class="option" onclick="answer(this,false)">≥ 1,10 g/L</button>
+              <button class="option" onclick="answer(this,true)">≥ 1,26 g/L</button>
+              <button class="option" onclick="answer(this,false)">≥ 2,00 g/L</button>
             </div>
             <div class="q-feedback">Le diagnostic de diabète est posé lorsque la glycémie à jeun est ≥ 1,26 g/L (7 mmol/L) à deux reprises. Entre 1,10 et 1,26 g/L, on parle d'hyperglycémie modérée à jeun.</div>
           </div>
@@ -158,10 +158,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce qu'un faux positif dans le contexte du dépistage ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Un résultat positif chez une personne qui n'a pas la maladie</div>
-              <div class="option" onclick="answer(this,false)">Un résultat négatif chez une personne malade</div>
-              <div class="option" onclick="answer(this,false)">Un test qui ne fonctionne pas</div>
-              <div class="option" onclick="answer(this,false)">Un résultat correct confirmé par un second test</div>
+              <button class="option" onclick="answer(this,true)">Un résultat positif chez une personne qui n'a pas la maladie</button>
+              <button class="option" onclick="answer(this,false)">Un résultat négatif chez une personne malade</button>
+              <button class="option" onclick="answer(this,false)">Un test qui ne fonctionne pas</button>
+              <button class="option" onclick="answer(this,false)">Un résultat correct confirmé par un second test</button>
             </div>
             <div class="q-feedback">Un faux positif est un résultat de dépistage qui indique à tort la présence d'une maladie. Il entraîne anxiété et examens complémentaires inutiles, mais sera corrigé par les investigations ultérieures.</div>
           </div>
@@ -169,10 +169,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel virus est responsable de la quasi-totalité des cancers du col de l'utérus ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le VIH</div>
-              <div class="option" onclick="answer(this,true)">Le papillomavirus humain (HPV)</div>
-              <div class="option" onclick="answer(this,false)">Le virus de l'hépatite B</div>
-              <div class="option" onclick="answer(this,false)">Le virus Epstein-Barr</div>
+              <button class="option" onclick="answer(this,false)">Le VIH</button>
+              <button class="option" onclick="answer(this,true)">Le papillomavirus humain (HPV)</button>
+              <button class="option" onclick="answer(this,false)">Le virus de l'hépatite B</button>
+              <button class="option" onclick="answer(this,false)">Le virus Epstein-Barr</button>
             </div>
             <div class="q-feedback">Le papillomavirus humain (HPV) est responsable de plus de 99% des cancers du col de l'utérus. La vaccination HPV et le dépistage par frottis/test HPV permettent de prévenir ce cancer.</div>
           </div>
@@ -180,10 +180,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">À partir de quelle valeur parle-t-on d'hypertension artérielle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">≥ 120/80 mmHg</div>
-              <div class="option" onclick="answer(this,true)">≥ 140/90 mmHg</div>
-              <div class="option" onclick="answer(this,false)">≥ 160/100 mmHg</div>
-              <div class="option" onclick="answer(this,false)">≥ 180/110 mmHg</div>
+              <button class="option" onclick="answer(this,false)">≥ 120/80 mmHg</button>
+              <button class="option" onclick="answer(this,true)">≥ 140/90 mmHg</button>
+              <button class="option" onclick="answer(this,false)">≥ 160/100 mmHg</button>
+              <button class="option" onclick="answer(this,false)">≥ 180/110 mmHg</button>
             </div>
             <div class="q-feedback">L'hypertension artérielle est définie par une pression ≥ 140/90 mmHg mesurée en consultation. Elle touche un adulte sur trois et constitue le premier facteur de risque d'AVC.</div>
           </div>
@@ -250,8 +250,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

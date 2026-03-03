@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DevSecOps, validation des entrées, authentification, CORS et sécurité des API — intégrer la sécurité à chaque étape du développement logiciel.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Sécurité des applications — Cybersécurité — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #2980b9;
   --accent2: #3498db;
   --accent-dim: rgba(41,128,185,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(41,128,185,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(41,128,185,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔒 Cybersécurité</span>
     <span class="tag-level">Avancé</span>
@@ -357,10 +357,10 @@ limiter = Limiter(app, default_limits=[<span class="str">"100/hour"</span>])
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que signifie le principe « shift left » en DevSecOps ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Déplacer les serveurs vers le cloud</div>
-              <div class="option" onclick="answer(this,true)">Intégrer la sécurité le plus tôt possible dans le cycle de développement</div>
-              <div class="option" onclick="answer(this,false)">Donner la priorité aux tests de performance</div>
-              <div class="option" onclick="answer(this,false)">Revenir à une version précédente du code en cas de faille</div>
+              <button class="option" onclick="answer(this,false)">Déplacer les serveurs vers le cloud</button>
+              <button class="option" onclick="answer(this,true)">Intégrer la sécurité le plus tôt possible dans le cycle de développement</button>
+              <button class="option" onclick="answer(this,false)">Donner la priorité aux tests de performance</button>
+              <button class="option" onclick="answer(this,false)">Revenir à une version précédente du code en cas de faille</button>
             </div>
             <div class="q-feedback">Le « shift left » consiste à déplacer la sécurité vers la gauche du cycle de développement (c'est-à-dire le plus tôt possible). Détecter une faille en phase de conception ou de code est beaucoup moins coûteux qu'en production.</div>
           </div>
@@ -368,10 +368,10 @@ limiter = Limiter(app, default_limits=[<span class="str">"100/hour"</span>])
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel outil analyse le code source sans l'exécuter pour détecter des vulnérabilités ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">SAST (Static Application Security Testing)</div>
-              <div class="option" onclick="answer(this,false)">DAST (Dynamic Application Security Testing)</div>
-              <div class="option" onclick="answer(this,false)">Un pare-feu applicatif (WAF)</div>
-              <div class="option" onclick="answer(this,false)">Un scanner de ports (Nmap)</div>
+              <button class="option" onclick="answer(this,true)">SAST (Static Application Security Testing)</button>
+              <button class="option" onclick="answer(this,false)">DAST (Dynamic Application Security Testing)</button>
+              <button class="option" onclick="answer(this,false)">Un pare-feu applicatif (WAF)</button>
+              <button class="option" onclick="answer(this,false)">Un scanner de ports (Nmap)</button>
             </div>
             <div class="q-feedback">Le SAST analyse le code source ou compilé sans l'exécuter, identifiant les vulnérabilités potentielles dès la phase de développement. Le DAST, à l'inverse, teste l'application en cours d'exécution.</div>
           </div>
@@ -379,10 +379,10 @@ limiter = Limiter(app, default_limits=[<span class="str">"100/hour"</span>])
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Pourquoi est-il dangereux de configurer CORS avec Access-Control-Allow-Origin: * ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Cela ralentit les requêtes réseau</div>
-              <div class="option" onclick="answer(this,true)">N'importe quel site web peut accéder à votre API depuis le navigateur de l'utilisateur</div>
-              <div class="option" onclick="answer(this,false)">Cela désactive le chiffrement TLS</div>
-              <div class="option" onclick="answer(this,false)">Cela empêche l'utilisation de cookies</div>
+              <button class="option" onclick="answer(this,false)">Cela ralentit les requêtes réseau</button>
+              <button class="option" onclick="answer(this,true)">N'importe quel site web peut accéder à votre API depuis le navigateur de l'utilisateur</button>
+              <button class="option" onclick="answer(this,false)">Cela désactive le chiffrement TLS</button>
+              <button class="option" onclick="answer(this,false)">Cela empêche l'utilisation de cookies</button>
             </div>
             <div class="q-feedback">Avec Allow-Origin: *, tout site malveillant peut envoyer des requêtes à votre API depuis le navigateur de la victime. Si l'utilisateur est authentifié, l'attaquant pourrait accéder à ses données via CSRF ou des requêtes cross-origin.</div>
           </div>
@@ -390,10 +390,10 @@ limiter = Limiter(app, default_limits=[<span class="str">"100/hour"</span>])
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel attribut de cookie empêche JavaScript d'accéder au cookie de session ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Secure</div>
-              <div class="option" onclick="answer(this,true)">HttpOnly</div>
-              <div class="option" onclick="answer(this,false)">SameSite</div>
-              <div class="option" onclick="answer(this,false)">Path</div>
+              <button class="option" onclick="answer(this,false)">Secure</button>
+              <button class="option" onclick="answer(this,true)">HttpOnly</button>
+              <button class="option" onclick="answer(this,false)">SameSite</button>
+              <button class="option" onclick="answer(this,false)">Path</button>
             </div>
             <div class="q-feedback">L'attribut HttpOnly empêche JavaScript d'accéder au cookie via document.cookie. Même en cas de XSS, l'attaquant ne peut pas voler le cookie de session. Secure force HTTPS, SameSite protège contre le CSRF.</div>
           </div>
@@ -401,10 +401,10 @@ limiter = Limiter(app, default_limits=[<span class="str">"100/hour"</span>])
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle est la meilleure approche pour valider les entrées utilisateur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Blacklist : bloquer les caractères dangereux connus</div>
-              <div class="option" onclick="answer(this,true)">Whitelist : n'accepter que les formats explicitement autorisés</div>
-              <div class="option" onclick="answer(this,false)">Faire confiance au front-end pour la validation</div>
-              <div class="option" onclick="answer(this,false)">Limiter la longueur des entrées uniquement</div>
+              <button class="option" onclick="answer(this,false)">Blacklist : bloquer les caractères dangereux connus</button>
+              <button class="option" onclick="answer(this,true)">Whitelist : n'accepter que les formats explicitement autorisés</button>
+              <button class="option" onclick="answer(this,false)">Faire confiance au front-end pour la validation</button>
+              <button class="option" onclick="answer(this,false)">Limiter la longueur des entrées uniquement</button>
             </div>
             <div class="q-feedback">L'approche whitelist est plus sûre car elle n'accepte que ce qui est explicitement autorisé. La blacklist peut être contournée par des encodages alternatifs ou de nouveaux vecteurs d'attaque. La validation côté front-end est facilement contournable.</div>
           </div>
@@ -412,10 +412,10 @@ limiter = Limiter(app, default_limits=[<span class="str">"100/hour"</span>])
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Où faut-il stocker les secrets (clés API, mots de passe de bases de données) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Dans le code source, en les commentant</div>
-              <div class="option" onclick="answer(this,false)">Dans un fichier de configuration versionné</div>
-              <div class="option" onclick="answer(this,true)">Dans un gestionnaire de secrets (Vault, AWS Secrets Manager)</div>
-              <div class="option" onclick="answer(this,false)">Dans la documentation du projet</div>
+              <button class="option" onclick="answer(this,false)">Dans le code source, en les commentant</button>
+              <button class="option" onclick="answer(this,false)">Dans un fichier de configuration versionné</button>
+              <button class="option" onclick="answer(this,true)">Dans un gestionnaire de secrets (Vault, AWS Secrets Manager)</button>
+              <button class="option" onclick="answer(this,false)">Dans la documentation du projet</button>
             </div>
             <div class="q-feedback">Les secrets doivent être gérés par des outils dédiés (HashiCorp Vault, AWS Secrets Manager, etc.) ou au minimum dans des variables d'environnement. Jamais dans le code source ou les fichiers versionnés — les dépôts Git conservent tout l'historique.</div>
           </div>
@@ -749,8 +749,14 @@ def supprimer(id):
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

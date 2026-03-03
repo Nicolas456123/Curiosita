@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Neurones, synapses, cerveau et moelle épinière — le centre de commande qui coordonne toutes les fonctions du corps.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Système nerveux — Corps humain — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #80cbc4;
   --accent-dim: rgba(122,232,216,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧬 Corps humain</span>
     <span class="tag-level">Intermédiaire</span>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est le potentiel de repos typique d'un neurone ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">+30 mV</div>
-              <div class="option" onclick="answer(this,true)">-70 mV</div>
-              <div class="option" onclick="answer(this,false)">-55 mV</div>
-              <div class="option" onclick="answer(this,false)">0 mV</div>
+              <button class="option" onclick="answer(this,false)">+30 mV</button>
+              <button class="option" onclick="answer(this,true)">-70 mV</button>
+              <button class="option" onclick="answer(this,false)">-55 mV</button>
+              <button class="option" onclick="answer(this,false)">0 mV</button>
             </div>
             <div class="q-feedback">Le potentiel de repos du neurone est d'environ -70 mV (intérieur négatif). Il est maintenu par la pompe Na⁺/K⁺-ATPase et les canaux de fuite potassiques.</div>
           </div>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel ion déclenche la libération des neurotransmetteurs dans la fente synaptique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Na⁺ (sodium)</div>
-              <div class="option" onclick="answer(this,false)">K⁺ (potassium)</div>
-              <div class="option" onclick="answer(this,true)">Ca²⁺ (calcium)</div>
-              <div class="option" onclick="answer(this,false)">Cl⁻ (chlore)</div>
+              <button class="option" onclick="answer(this,false)">Na⁺ (sodium)</button>
+              <button class="option" onclick="answer(this,false)">K⁺ (potassium)</button>
+              <button class="option" onclick="answer(this,true)">Ca²⁺ (calcium)</button>
+              <button class="option" onclick="answer(this,false)">Cl⁻ (chlore)</button>
             </div>
             <div class="q-feedback">L'entrée de calcium (Ca²⁺) dans le bouton synaptique déclenche la fusion des vésicules synaptiques avec la membrane, libérant les neurotransmetteurs par exocytose.</div>
           </div>
@@ -203,10 +203,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel est le principal neurotransmetteur inhibiteur du système nerveux central ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Glutamate</div>
-              <div class="option" onclick="answer(this,false)">Acétylcholine</div>
-              <div class="option" onclick="answer(this,false)">Dopamine</div>
-              <div class="option" onclick="answer(this,true)">GABA</div>
+              <button class="option" onclick="answer(this,false)">Glutamate</button>
+              <button class="option" onclick="answer(this,false)">Acétylcholine</button>
+              <button class="option" onclick="answer(this,false)">Dopamine</button>
+              <button class="option" onclick="answer(this,true)">GABA</button>
             </div>
             <div class="q-feedback">Le GABA (acide gamma-aminobutyrique) est le principal neurotransmetteur inhibiteur du SNC. Il ouvre des canaux Cl⁻, hyperpolarisant le neurone post-synaptique.</div>
           </div>
@@ -214,10 +214,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle division du système nerveux autonome accélère le rythme cardiaque en situation de stress ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Le système sympathique</div>
-              <div class="option" onclick="answer(this,false)">Le système parasympathique</div>
-              <div class="option" onclick="answer(this,false)">Le système somatique</div>
-              <div class="option" onclick="answer(this,false)">Le système entérique</div>
+              <button class="option" onclick="answer(this,true)">Le système sympathique</button>
+              <button class="option" onclick="answer(this,false)">Le système parasympathique</button>
+              <button class="option" onclick="answer(this,false)">Le système somatique</button>
+              <button class="option" onclick="answer(this,false)">Le système entérique</button>
             </div>
             <div class="q-feedback">Le système sympathique prépare le corps à l'action (« fight or flight ») en accélérant le cœur, dilatant les bronches et mobilisant l'énergie. Son neurotransmetteur principal est la noradrénaline.</div>
           </div>
@@ -225,10 +225,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle maladie neurodégénérative est caractérisée par la perte de neurones dopaminergiques de la substance noire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La maladie d'Alzheimer</div>
-              <div class="option" onclick="answer(this,true)">La maladie de Parkinson</div>
-              <div class="option" onclick="answer(this,false)">La sclérose en plaques</div>
-              <div class="option" onclick="answer(this,false)">L'épilepsie</div>
+              <button class="option" onclick="answer(this,false)">La maladie d'Alzheimer</button>
+              <button class="option" onclick="answer(this,true)">La maladie de Parkinson</button>
+              <button class="option" onclick="answer(this,false)">La sclérose en plaques</button>
+              <button class="option" onclick="answer(this,false)">L'épilepsie</button>
             </div>
             <div class="q-feedback">La maladie de Parkinson résulte de la dégénérescence des neurones dopaminergiques de la substance noire (locus niger). Le déficit en dopamine dans le striatum provoque tremblements de repos, rigidité et bradykinésie.</div>
           </div>
@@ -236,10 +236,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Comment appelle-t-on le renforcement durable d'une connexion synaptique, mécanisme cellulaire de la mémoire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La dépression à long terme (LTD)</div>
-              <div class="option" onclick="answer(this,true)">La potentialisation à long terme (LTP)</div>
-              <div class="option" onclick="answer(this,false)">L'habituation</div>
-              <div class="option" onclick="answer(this,false)">La sensibilisation</div>
+              <button class="option" onclick="answer(this,false)">La dépression à long terme (LTD)</button>
+              <button class="option" onclick="answer(this,true)">La potentialisation à long terme (LTP)</button>
+              <button class="option" onclick="answer(this,false)">L'habituation</button>
+              <button class="option" onclick="answer(this,false)">La sensibilisation</button>
             </div>
             <div class="q-feedback">La potentialisation à long terme (LTP) est le renforcement durable de l'efficacité synaptique après une stimulation répétée. Découverte dans l'hippocampe, elle est considérée comme le substrat cellulaire de l'apprentissage et de la mémoire.</div>
           </div>
@@ -316,8 +316,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

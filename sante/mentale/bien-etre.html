@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sommeil, relations, activité physique, pleine conscience : cultiver sa santé mentale jour après jour.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Bien-être au quotidien — Santé mentale — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #8ae87a; --accent2: #a5f598; --accent-dim: rgba(138,232,122,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #8ae87a; --accent2: #a5f598; --accent-dim: rgba(138,232,122,0.08);  --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../sante-page.html">Santé</a> › <a href="../mentale.html">Santé mentale</a> › <span>Bien-être au quotidien</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">🧠 Santé mentale</span><span class="tag-level">Débutant → Intermédiaire</span><span class="tag-time">⏱ ~35 min</span></div>
   <h1><em>Bien-être au quotidien</em></h1>
   <p class="hero-desc">Sommeil, relations, activité physique, pleine conscience : cultiver sa santé mentale jour après jour.</p>
@@ -96,10 +96,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Combien d'heures de sommeil un adulte doit-il viser chaque nuit ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">4-5 heures</div>
-              <div class="option" onclick="answer(this,true)">7-9 heures</div>
-              <div class="option" onclick="answer(this,false)">10-12 heures</div>
-              <div class="option" onclick="answer(this,false)">5-6 heures</div>
+              <button class="option" onclick="answer(this,false)">4-5 heures</button>
+              <button class="option" onclick="answer(this,true)">7-9 heures</button>
+              <button class="option" onclick="answer(this,false)">10-12 heures</button>
+              <button class="option" onclick="answer(this,false)">5-6 heures</button>
             </div>
             <div class="q-feedback">Les recommandations scientifiques pour les adultes sont de 7 à 9 heures par nuit. Un sommeil insuffisant altère l'humeur, la concentration et affaiblit le système immunitaire.</div>
           </div>
@@ -107,10 +107,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Selon l'étude de Harvard, quel est le facteur le plus prédictif du bonheur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La richesse financière</div>
-              <div class="option" onclick="answer(this,false)">La réussite professionnelle</div>
-              <div class="option" onclick="answer(this,true)">La qualité des relations sociales</div>
-              <div class="option" onclick="answer(this,false)">La santé physique</div>
+              <button class="option" onclick="answer(this,false)">La richesse financière</button>
+              <button class="option" onclick="answer(this,false)">La réussite professionnelle</button>
+              <button class="option" onclick="answer(this,true)">La qualité des relations sociales</button>
+              <button class="option" onclick="answer(this,false)">La santé physique</button>
             </div>
             <div class="q-feedback">L'étude de Harvard (1938 à aujourd'hui) a suivi plus de 700 personnes. La conclusion principale : ce sont la qualité et la chaleur des relations qui prédisent le mieux le bonheur et la longévité.</div>
           </div>
@@ -118,10 +118,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Pourquoi faut-il éviter les écrans avant de dormir ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">La lumière bleue bloque la production de mélatonine</div>
-              <div class="option" onclick="answer(this,false)">Les écrans chauffent la chambre</div>
-              <div class="option" onclick="answer(this,false)">L'électricité statique empêche de dormir</div>
-              <div class="option" onclick="answer(this,false)">Il n'y a aucune raison scientifique</div>
+              <button class="option" onclick="answer(this,true)">La lumière bleue bloque la production de mélatonine</button>
+              <button class="option" onclick="answer(this,false)">Les écrans chauffent la chambre</button>
+              <button class="option" onclick="answer(this,false)">L'électricité statique empêche de dormir</button>
+              <button class="option" onclick="answer(this,false)">Il n'y a aucune raison scientifique</button>
             </div>
             <div class="q-feedback">La lumière bleue émise par les écrans inhibe la production de mélatonine, l'hormone du sommeil. Cela retarde l'endormissement et dégrade la qualité du sommeil. Idéalement, stopper les écrans 1h avant le coucher.</div>
           </div>
@@ -129,10 +129,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle pratique de psychologie positive consiste à noter chaque soir 3 choses positives ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La méditation transcendantale</div>
-              <div class="option" onclick="answer(this,true)">Le journal de gratitude</div>
-              <div class="option" onclick="answer(this,false)">La visualisation créatrice</div>
-              <div class="option" onclick="answer(this,false)">L'auto-hypnose</div>
+              <button class="option" onclick="answer(this,false)">La méditation transcendantale</button>
+              <button class="option" onclick="answer(this,true)">Le journal de gratitude</button>
+              <button class="option" onclick="answer(this,false)">La visualisation créatrice</button>
+              <button class="option" onclick="answer(this,false)">L'auto-hypnose</button>
             </div>
             <div class="q-feedback">Le journal de gratitude est une pratique simple et scientifiquement validée. Noter 3 éléments positifs chaque soir recalibre l'attention vers le positif et augmente le bien-être après seulement 2 semaines.</div>
           </div>
@@ -140,10 +140,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel nutriment, présent dans les poissons gras et les noix, est essentiel au fonctionnement cérébral ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Les oméga-3</div>
-              <div class="option" onclick="answer(this,false)">Le fer</div>
-              <div class="option" onclick="answer(this,false)">Le calcium</div>
-              <div class="option" onclick="answer(this,false)">La vitamine C</div>
+              <button class="option" onclick="answer(this,true)">Les oméga-3</button>
+              <button class="option" onclick="answer(this,false)">Le fer</button>
+              <button class="option" onclick="answer(this,false)">Le calcium</button>
+              <button class="option" onclick="answer(this,false)">La vitamine C</button>
             </div>
             <div class="q-feedback">Les oméga-3 (EPA et DHA) sont des acides gras essentiels pour les membranes neuronales. Une carence en oméga-3 est associée à un risque accru de dépression. Les sources principales sont les poissons gras et les noix.</div>
           </div>
@@ -151,10 +151,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle température est idéale pour la chambre afin de favoriser un bon sommeil ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">22-24°C</div>
-              <div class="option" onclick="answer(this,true)">18-19°C</div>
-              <div class="option" onclick="answer(this,false)">15-16°C</div>
-              <div class="option" onclick="answer(this,false)">25-27°C</div>
+              <button class="option" onclick="answer(this,false)">22-24°C</button>
+              <button class="option" onclick="answer(this,true)">18-19°C</button>
+              <button class="option" onclick="answer(this,false)">15-16°C</button>
+              <button class="option" onclick="answer(this,false)">25-27°C</button>
             </div>
             <div class="q-feedback">Une température de 18-19°C favorise l'endormissement. Le corps a besoin de baisser légèrement sa température interne pour s'endormir. Une chambre trop chaude perturbe le sommeil.</div>
           </div>
@@ -186,8 +186,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

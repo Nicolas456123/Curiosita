@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bénévolat, service civique, militantisme — les formes de l'engagement citoyen au service de la collectivité.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Engagement et solidarité — Citoyenneté — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a9b;
   --accent2: #f09ab5;
   --accent-dim: rgba(232,122,155,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,155,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,155,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">✊ Citoyenneté</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -136,10 +136,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">À quelle tranche d'âge le service civique est-il ouvert ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">14-18 ans</div>
-              <div class="option" onclick="answer(this,true)">16-25 ans</div>
-              <div class="option" onclick="answer(this,false)">18-30 ans</div>
-              <div class="option" onclick="answer(this,false)">20-35 ans</div>
+              <button class="option" onclick="answer(this,false)">14-18 ans</button>
+              <button class="option" onclick="answer(this,true)">16-25 ans</button>
+              <button class="option" onclick="answer(this,false)">18-30 ans</button>
+              <button class="option" onclick="answer(this,false)">20-35 ans</button>
             </div>
             <div class="q-feedback">Le service civique est ouvert aux jeunes de 16 à 25 ans (étendu à 30 ans pour les personnes en situation de handicap).</div>
           </div>
@@ -147,10 +147,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle loi encadre la liberté d'association en France ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Loi de 1881</div>
-              <div class="option" onclick="answer(this,true)">Loi de 1901</div>
-              <div class="option" onclick="answer(this,false)">Loi de 1905</div>
-              <div class="option" onclick="answer(this,false)">Loi de 1946</div>
+              <button class="option" onclick="answer(this,false)">Loi de 1881</button>
+              <button class="option" onclick="answer(this,true)">Loi de 1901</button>
+              <button class="option" onclick="answer(this,false)">Loi de 1905</button>
+              <button class="option" onclick="answer(this,false)">Loi de 1946</button>
             </div>
             <div class="q-feedback">La loi du 1er juillet 1901 relative au contrat d'association permet à toute personne de créer une association sans autorisation préalable.</div>
           </div>
@@ -158,10 +158,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle ONG française d'aide médicale a été fondée en 1971 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Médecins sans frontières</div>
-              <div class="option" onclick="answer(this,false)">Médecins du monde</div>
-              <div class="option" onclick="answer(this,false)">Action contre la faim</div>
-              <div class="option" onclick="answer(this,false)">La Croix-Rouge française</div>
+              <button class="option" onclick="answer(this,true)">Médecins sans frontières</button>
+              <button class="option" onclick="answer(this,false)">Médecins du monde</button>
+              <button class="option" onclick="answer(this,false)">Action contre la faim</button>
+              <button class="option" onclick="answer(this,false)">La Croix-Rouge française</button>
             </div>
             <div class="q-feedback">MSF a été fondée en 1971 par Bernard Kouchner et un groupe de médecins et journalistes. L'ONG a reçu le prix Nobel de la paix en 1999.</div>
           </div>
@@ -169,10 +169,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Combien de bénévoles associatifs la France compte-t-elle environ ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">5 millions</div>
-              <div class="option" onclick="answer(this,true)">13 millions</div>
-              <div class="option" onclick="answer(this,false)">20 millions</div>
-              <div class="option" onclick="answer(this,false)">2 millions</div>
+              <button class="option" onclick="answer(this,false)">5 millions</button>
+              <button class="option" onclick="answer(this,true)">13 millions</button>
+              <button class="option" onclick="answer(this,false)">20 millions</button>
+              <button class="option" onclick="answer(this,false)">2 millions</button>
             </div>
             <div class="q-feedback">La France compte environ 13 millions de bénévoles engagés dans le secteur associatif, soit près d'un adulte sur quatre.</div>
           </div>
@@ -180,10 +180,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce que le SNU ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un syndicat national universitaire</div>
-              <div class="option" onclick="answer(this,false)">Un service numérique universel</div>
-              <div class="option" onclick="answer(this,true)">Le Service National Universel pour les 15-17 ans</div>
-              <div class="option" onclick="answer(this,false)">Un système de notation unique</div>
+              <button class="option" onclick="answer(this,false)">Un syndicat national universitaire</button>
+              <button class="option" onclick="answer(this,false)">Un service numérique universel</button>
+              <button class="option" onclick="answer(this,true)">Le Service National Universel pour les 15-17 ans</button>
+              <button class="option" onclick="answer(this,false)">Un système de notation unique</button>
             </div>
             <div class="q-feedback">Le Service National Universel (SNU), lancé en 2019, s'adresse aux jeunes de 15 à 17 ans et comprend un séjour de cohésion, une mission d'intérêt général et un engagement volontaire facultatif.</div>
           </div>
@@ -191,10 +191,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Le bénévolat de compétences consiste à :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Payer pour exercer une compétence</div>
-              <div class="option" onclick="answer(this,false)">Faire un stage non rémunéré</div>
-              <div class="option" onclick="answer(this,true)">Mettre gratuitement son expertise professionnelle au service d'une cause</div>
-              <div class="option" onclick="answer(this,false)">Obtenir un diplôme par le bénévolat</div>
+              <button class="option" onclick="answer(this,false)">Payer pour exercer une compétence</button>
+              <button class="option" onclick="answer(this,false)">Faire un stage non rémunéré</button>
+              <button class="option" onclick="answer(this,true)">Mettre gratuitement son expertise professionnelle au service d'une cause</button>
+              <button class="option" onclick="answer(this,false)">Obtenir un diplôme par le bénévolat</button>
             </div>
             <div class="q-feedback">Le bénévolat de compétences consiste à offrir gratuitement ses compétences professionnelles (comptabilité, informatique, communication...) à une association ou un projet d'intérêt général.</div>
           </div>
@@ -258,8 +258,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

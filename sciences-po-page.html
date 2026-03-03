@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'étude des systèmes politiques, des idéologies, des rapports de pouvoir et des relations internationales. Comprendre comment les sociétés s'organisent,...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Sciences politiques — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #e87a9b;
   --accent2: #f090b0;
   --accent-dim: rgba(232,122,155,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(232,122,155,0.07) 0%, transparent 70%); }
+ --accent-hero: rgba(232,122,155,0.07); }
 .hero-deco { color: rgba(232,122,155,0.04); }
 </style>
 </head>
@@ -26,7 +27,7 @@
   <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
 </nav>
 
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">🏛️</div>
   <div class="hero-meta">
     <span class="tag-domain">⚖️ Droit, Politique & Société</span>
@@ -148,134 +149,131 @@
       <div class="quiz-container">
         <div class="quiz-header">
           <span class="quiz-title-text">🏛️ Testez vos connaissances politiques</span>
-          <span class="quiz-score">Score : <span id="quizScore">0</span>/10</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span>/10</span>
         </div>
-        <div class="quiz-body">
+        <div class="quiz-body" id="quizBody">
           <div class="question-block active" id="q0">
             <div class="q-num">Question 1 / 10</div>
             <div class="q-text">Qui est considéré comme le père fondateur de la science politique dans l'Antiquité ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(0,0)">Platon</div>
-              <div class="option" onclick="selectOption(0,1)">Aristote</div>
-              <div class="option" onclick="selectOption(0,2)">Socrate</div>
-              <div class="option" onclick="selectOption(0,3)">Cicéron</div>
+              <button class="option" onclick="answer(this,false)">Platon</button>
+              <button class="option" onclick="answer(this,true)">Aristote</button>
+              <button class="option" onclick="answer(this,false)">Socrate</button>
+              <button class="option" onclick="answer(this,false)">Cicéron</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Aristote est considéré comme le fondateur de la science politique. Dans sa 'Politique', il analyse et compare les constitutions de 158 cités grecques pour en tirer une classification des régimes qui reste une référence.</div>
           </div>
           <div class="question-block" id="q1">
             <div class="q-num">Question 2 / 10</div>
             <div class="q-text">Quel penseur a théorisé la séparation des pouvoirs (législatif, exécutif, judiciaire) ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(1,0)">Jean-Jacques Rousseau</div>
-              <div class="option" onclick="selectOption(1,1)">Montesquieu</div>
-              <div class="option" onclick="selectOption(1,2)">John Locke</div>
-              <div class="option" onclick="selectOption(1,3)">Thomas Hobbes</div>
+              <button class="option" onclick="answer(this,false)">Jean-Jacques Rousseau</button>
+              <button class="option" onclick="answer(this,true)">Montesquieu</button>
+              <button class="option" onclick="answer(this,false)">John Locke</button>
+              <button class="option" onclick="answer(this,false)">Thomas Hobbes</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Montesquieu, dans 'De l'esprit des lois' (1748), théorise la séparation des pouvoirs législatif, exécutif et judiciaire. Ce principe est au fondement de toutes les démocraties modernes, notamment la Constitution américaine de 1787.</div>
           </div>
           <div class="question-block" id="q2">
             <div class="q-num">Question 3 / 10</div>
             <div class="q-text">Dans un régime parlementaire, le gouvernement est responsable devant :</div>
             <div class="options">
-              <div class="option" onclick="selectOption(2,0)">Le président</div>
-              <div class="option" onclick="selectOption(2,1)">Le parlement</div>
-              <div class="option" onclick="selectOption(2,2)">La Cour suprême</div>
-              <div class="option" onclick="selectOption(2,3)">Le peuple directement</div>
+              <button class="option" onclick="answer(this,false)">Le président</button>
+              <button class="option" onclick="answer(this,true)">Le parlement</button>
+              <button class="option" onclick="answer(this,false)">La Cour suprême</button>
+              <button class="option" onclick="answer(this,false)">Le peuple directement</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Dans un régime parlementaire (comme le Royaume-Uni), le gouvernement émane de la majorité parlementaire et peut être renversé par une motion de censure. Le chef de l'État a un rôle essentiellement symbolique.</div>
           </div>
           <div class="question-block" id="q3">
             <div class="q-num">Question 4 / 10</div>
             <div class="q-text">La Ve République française est un régime :</div>
             <div class="options">
-              <div class="option" onclick="selectOption(3,0)">Parlementaire pur</div>
-              <div class="option" onclick="selectOption(3,1)">Présidentiel pur</div>
-              <div class="option" onclick="selectOption(3,2)">Semi-présidentiel</div>
-              <div class="option" onclick="selectOption(3,3)">Monarchie constitutionnelle</div>
+              <button class="option" onclick="answer(this,false)">Parlementaire pur</button>
+              <button class="option" onclick="answer(this,false)">Présidentiel pur</button>
+              <button class="option" onclick="answer(this,true)">Semi-présidentiel</button>
+              <button class="option" onclick="answer(this,false)">Monarchie constitutionnelle</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">La Ve République (1958) est semi-présidentielle : le président élu au suffrage universel dispose de pouvoirs importants (dissolution, référendum, article 49.3 via le PM), mais le gouvernement reste responsable devant l'Assemblée nationale.</div>
           </div>
           <div class="question-block" id="q4">
             <div class="q-num">Question 5 / 10</div>
             <div class="q-text">Selon Max Weber, quelles sont les trois formes de légitimité du pouvoir ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(4,0)">Militaire, économique, religieuse</div>
-              <div class="option" onclick="selectOption(4,1)">Traditionnelle, charismatique, rationnelle-légale</div>
-              <div class="option" onclick="selectOption(4,2)">Démocratique, aristocratique, monarchique</div>
-              <div class="option" onclick="selectOption(4,3)">Populaire, élitiste, technocratique</div>
+              <button class="option" onclick="answer(this,false)">Militaire, économique, religieuse</button>
+              <button class="option" onclick="answer(this,true)">Traditionnelle, charismatique, rationnelle-légale</button>
+              <button class="option" onclick="answer(this,false)">Démocratique, aristocratique, monarchique</button>
+              <button class="option" onclick="answer(this,false)">Populaire, élitiste, technocratique</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Max Weber distingue trois types de domination légitime : traditionnelle (coutume, héritage royal), charismatique (qualités exceptionnelles d'un leader) et rationnelle-légale (lois et procédures impersonnelles — la démocratie moderne).</div>
           </div>
           <div class="question-block" id="q5">
             <div class="q-num">Question 6 / 10</div>
             <div class="q-text">Quel organe principal de l'ONU est chargé du maintien de la paix internationale ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(5,0)">L'Assemblée générale</div>
-              <div class="option" onclick="selectOption(5,1)">Le Conseil de sécurité</div>
-              <div class="option" onclick="selectOption(5,2)">La Cour internationale de justice</div>
-              <div class="option" onclick="selectOption(5,3)">Le Secrétariat général</div>
+              <button class="option" onclick="answer(this,false)">L'Assemblée générale</button>
+              <button class="option" onclick="answer(this,true)">Le Conseil de sécurité</button>
+              <button class="option" onclick="answer(this,false)">La Cour internationale de justice</button>
+              <button class="option" onclick="answer(this,false)">Le Secrétariat général</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le Conseil de sécurité de l'ONU compte 5 membres permanents dotés du droit de veto (États-Unis, Russie, Chine, France, Royaume-Uni) et 10 membres non permanents. Il peut autoriser des sanctions et des interventions militaires.</div>
           </div>
           <div class="question-block" id="q6">
             <div class="q-num">Question 7 / 10</div>
             <div class="q-text">Le concept de « contrat social » a été théorisé notamment par :</div>
             <div class="options">
-              <div class="option" onclick="selectOption(6,0)">Karl Marx</div>
-              <div class="option" onclick="selectOption(6,1)">Machiavel</div>
-              <div class="option" onclick="selectOption(6,2)">Jean-Jacques Rousseau</div>
-              <div class="option" onclick="selectOption(6,3)">Tocqueville</div>
+              <button class="option" onclick="answer(this,false)">Karl Marx</button>
+              <button class="option" onclick="answer(this,false)">Machiavel</button>
+              <button class="option" onclick="answer(this,true)">Jean-Jacques Rousseau</button>
+              <button class="option" onclick="answer(this,false)">Tocqueville</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Dans 'Du contrat social' (1762), Rousseau propose que la légitimité politique repose sur un pacte volontaire entre citoyens libres et égaux. La volonté générale, expression de l'intérêt commun, fonde la souveraineté du peuple.</div>
           </div>
           <div class="question-block" id="q7">
             <div class="q-num">Question 8 / 10</div>
             <div class="q-text">Qu'est-ce que la « cohabitation » dans le système politique français ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(7,0)">L'alliance entre deux partis pour gouverner</div>
-              <div class="option" onclick="selectOption(7,1)">Un président et un Premier ministre de bords opposés</div>
-              <div class="option" onclick="selectOption(7,2)">Le partage du pouvoir entre l'État et les régions</div>
-              <div class="option" onclick="selectOption(7,3)">La collaboration entre le Sénat et l'Assemblée nationale</div>
+              <button class="option" onclick="answer(this,false)">L'alliance entre deux partis pour gouverner</button>
+              <button class="option" onclick="answer(this,true)">Un président et un Premier ministre de bords opposés</button>
+              <button class="option" onclick="answer(this,false)">Le partage du pouvoir entre l'État et les régions</button>
+              <button class="option" onclick="answer(this,false)">La collaboration entre le Sénat et l'Assemblée nationale</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">La cohabitation survient quand le président et la majorité parlementaire sont de bords opposés. Il y en eut trois sous la Ve République : 1986-88 (Mitterrand/Chirac), 1993-95 (Mitterrand/Balladur), 1997-2002 (Chirac/Jospin).</div>
           </div>
           <div class="question-block" id="q8">
             <div class="q-num">Question 9 / 10</div>
             <div class="q-text">Le scrutin proportionnel tend à favoriser :</div>
             <div class="options">
-              <div class="option" onclick="selectOption(8,0)">Le bipartisme</div>
-              <div class="option" onclick="selectOption(8,1)">Le multipartisme</div>
-              <div class="option" onclick="selectOption(8,2)">Le parti unique</div>
-              <div class="option" onclick="selectOption(8,3)">L'abstention</div>
+              <button class="option" onclick="answer(this,false)">Le bipartisme</button>
+              <button class="option" onclick="answer(this,true)">Le multipartisme</button>
+              <button class="option" onclick="answer(this,false)">Le parti unique</button>
+              <button class="option" onclick="answer(this,false)">L'abstention</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le scrutin proportionnel attribue les sièges en proportion des voix obtenues, ce qui permet aux petits partis d'être représentés et favorise le multipartisme. Le scrutin majoritaire, lui, favorise les grands partis et le bipartisme (loi de Duverger).</div>
           </div>
           <div class="question-block" id="q9">
             <div class="q-num">Question 10 / 10</div>
             <div class="q-text">Quel penseur a écrit « Le Prince », ouvrage fondateur de la pensée politique réaliste ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(9,0)">Thomas More</div>
-              <div class="option" onclick="selectOption(9,1)">Machiavel</div>
-              <div class="option" onclick="selectOption(9,2)">Erasme</div>
-              <div class="option" onclick="selectOption(9,3)">Bodin</div>
+              <button class="option" onclick="answer(this,false)">Thomas More</button>
+              <button class="option" onclick="answer(this,true)">Machiavel</button>
+              <button class="option" onclick="answer(this,false)">Erasme</button>
+              <button class="option" onclick="answer(this,false)">Bodin</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Nicolas Machiavel publie 'Le Prince' en 1532. Il y décrit les moyens concrets par lesquels un dirigeant peut conquérir et conserver le pouvoir, séparant la politique de la morale. L'adjectif 'machiavélique' en découle — souvent à tort.</div>
           </div>
         </div>
         <div class="quiz-nav">
-          <div class="q-dots">
-            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-          </div>
+          <div class="q-dots" id="qDots"></div>
           <div style="display:flex;gap:.8rem">
-            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
-            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQ()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQ()" disabled>Suivant →</button>
           </div>
         </div>
-        <div class="quiz-result">
-          <div class="result-score-big" id="finalScore"></div>
-          <div class="result-msg" id="finalMsg"></div>
-          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore"></div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
         </div>
       </div>
     </section>
@@ -381,77 +379,15 @@
   </main>
 </div>
 
-<script>
-const questions = [
-  { q:"Qui est considéré comme le père fondateur de la science politique ?", opts:["Platon","Aristote","Socrate","Cicéron"], ans:1, expl:"Aristote est considéré comme le fondateur de la science politique. Dans sa 'Politique', il analyse et compare les constitutions de 158 cités grecques pour en tirer une classification des régimes qui reste une référence." },
-  { q:"Quel penseur a théorisé la séparation des pouvoirs ?", opts:["Rousseau","Montesquieu","Locke","Hobbes"], ans:1, expl:"Montesquieu, dans 'De l'esprit des lois' (1748), théorise la séparation des pouvoirs législatif, exécutif et judiciaire. Ce principe est au fondement de toutes les démocraties modernes, notamment la Constitution américaine de 1787." },
-  { q:"Dans un régime parlementaire, le gouvernement est responsable devant :", opts:["Le président","Le parlement","La Cour suprême","Le peuple directement"], ans:1, expl:"Dans un régime parlementaire (comme le Royaume-Uni), le gouvernement émane de la majorité parlementaire et peut être renversé par une motion de censure. Le chef de l'État a un rôle essentiellement symbolique." },
-  { q:"La Ve République française est un régime :", opts:["Parlementaire pur","Présidentiel pur","Semi-présidentiel","Monarchie constitutionnelle"], ans:2, expl:"La Ve République (1958) est semi-présidentielle : le président élu au suffrage universel dispose de pouvoirs importants (dissolution, référendum, article 49.3 via le PM), mais le gouvernement reste responsable devant l'Assemblée nationale." },
-  { q:"Les trois formes de légitimité selon Weber :", opts:["Militaire, économique, religieuse","Traditionnelle, charismatique, rationnelle-légale","Démocratique, aristocratique, monarchique","Populaire, élitiste, technocratique"], ans:1, expl:"Max Weber distingue trois types de domination légitime : traditionnelle (coutume, héritage royal), charismatique (qualités exceptionnelles d'un leader) et rationnelle-légale (lois et procédures impersonnelles — la démocratie moderne)." },
-  { q:"Quel organe de l'ONU maintient la paix internationale ?", opts:["L'Assemblée générale","Le Conseil de sécurité","La Cour internationale de justice","Le Secrétariat général"], ans:1, expl:"Le Conseil de sécurité de l'ONU compte 5 membres permanents dotés du droit de veto (États-Unis, Russie, Chine, France, Royaume-Uni) et 10 membres non permanents. Il peut autoriser des sanctions et des interventions militaires." },
-  { q:"Le concept de contrat social a été théorisé par :", opts:["Karl Marx","Machiavel","Jean-Jacques Rousseau","Tocqueville"], ans:2, expl:"Dans 'Du contrat social' (1762), Rousseau propose que la légitimité politique repose sur un pacte volontaire entre citoyens libres et égaux. La volonté générale, expression de l'intérêt commun, fonde la souveraineté du peuple." },
-  { q:"La cohabitation en France, c'est :", opts:["L'alliance entre deux partis","Un président et un PM de bords opposés","Le partage État-régions","La collaboration Sénat-Assemblée"], ans:1, expl:"La cohabitation survient quand le président et la majorité parlementaire sont de bords opposés. Il y en eut trois sous la Ve République : 1986-88 (Mitterrand/Chirac), 1993-95 (Mitterrand/Balladur), 1997-2002 (Chirac/Jospin)." },
-  { q:"Le scrutin proportionnel tend à favoriser :", opts:["Le bipartisme","Le multipartisme","Le parti unique","L'abstention"], ans:1, expl:"Le scrutin proportionnel attribue les sièges en proportion des voix obtenues, ce qui permet aux petits partis d'être représentés et favorise le multipartisme. Le scrutin majoritaire, lui, favorise les grands partis et le bipartisme (loi de Duverger)." },
-  { q:"Qui a écrit 'Le Prince', ouvrage de pensée politique réaliste ?", opts:["Thomas More","Machiavel","Erasme","Bodin"], ans:1, expl:"Nicolas Machiavel publie 'Le Prince' en 1532. Il y décrit les moyens concrets par lesquels un dirigeant peut conquérir et conserver le pouvoir, séparant la politique de la morale. L'adjectif 'machiavélique' en découle — souvent à tort." }
-];
-
-let current=0,score=0,answered=new Array(10).fill(null);
-
-function renderQuestion(){
-  document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));
-  document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});
-  document.getElementById('btnPrev').disabled=current===0;
-  document.getElementById('btnNext').textContent=current===9?'Voir résultats':'Suivant →';
-}
-function selectOption(qi,oi){
-  if(answered[qi]!==null)return;answered[qi]=oi;
-  const block=document.querySelectorAll('.question-block')[qi];
-  block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});
-  const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');
-  if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');
-}
-function nextQuestion(){if(current<9){current++;renderQuestion();}else showResult();}
-function prevQuestion(){if(current>0){current--;renderQuestion();}}
-function showResult(){
-  document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';
-  const r=document.querySelector('.quiz-result');r.style.display='block';
-  document.getElementById('finalScore').textContent=score+'/10';
-  document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Bien !','Très bien !','Excellent, futur politologue !'][score<=2?0:score<=4?1:score<=6?2:score<=8?3:4];
-}
-function restartQuiz(){
-  current=0;score=0;answered.fill(null);
-  document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';
-  document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');
-  document.getElementById('quizScore').textContent=0;renderQuestion();
-}
-function goTo(id,el){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
-  document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');
-}
-// Scroll spy
-(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
-const sections=['resume','cours','concepts','quiz','ressources','memo'];
-window.addEventListener('scroll',()=>{
-  let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});
-  document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';
-});
-function downloadMemo(){
-  const w=window.open('','_blank','width=900,height=700');
-  w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Sciences politiques</title>
-  <style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#c4506e;border-bottom:3px solid #c4506e;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#c4506e;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #f0c6d4;padding:1rem;border-radius:4px;background:#fef5f8}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style>
-  </head><body><h1>🏛️ Fiche mémo — Sciences politiques</h1>
-  <div class="grid">
-    <div class="box"><h2>Régimes politiques</h2><ul><li>Démocratie — pouvoir du peuple</li><li>Autoritarisme — pouvoir concentré</li><li>Totalitarisme — contrôle total</li><li>Monarchie constitutionnelle — roi + parlement</li><li>Semi-présidentiel — France Ve République</li></ul></div>
-    <div class="box"><h2>Penseurs fondateurs</h2><ul><li>Aristote — classification des régimes</li><li>Machiavel — réalisme politique</li><li>Montesquieu — séparation des pouvoirs</li><li>Rousseau — contrat social</li><li>Tocqueville — démocratie en Amérique</li><li>Weber — légitimité du pouvoir</li></ul></div>
-    <div class="box"><h2>Idéologies</h2><ul><li>Libéralisme — liberté individuelle</li><li>Socialisme — égalité, justice sociale</li><li>Conservatisme — tradition, stabilité</li><li>Écologisme — durabilité</li><li>Nationalisme — souveraineté nationale</li></ul></div>
-    <div class="box"><h2>Institutions internationales</h2><ul><li>ONU — paix et coopération</li><li>UE — intégration européenne</li><li>OTAN — alliance militaire</li><li>CPI — justice pénale internationale</li><li>OMC — commerce mondial</li></ul></div>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
   </div>
-  <div class="footer">Curiosita — Fiche mémo Sciences politiques — ${new Date().toLocaleDateString('fr-FR')}</div>
-  <button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#c4506e;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">Imprimer / PDF</button>
-</body></html>`);w.document.close();
-}
-renderQuestion();
-</script>
-    <script src="mobile.js?v=2"></script>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

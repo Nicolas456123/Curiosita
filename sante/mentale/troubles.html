@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dépression, anxiété, TOC, bipolarité : comprendre les principaux troubles psychiques pour mieux les reconnaître et déstigmatiser.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Troubles psychiques — Santé mentale — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #8ae87a; --accent2: #a5f598; --accent-dim: rgba(138,232,122,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #8ae87a; --accent2: #a5f598; --accent-dim: rgba(138,232,122,0.08);  --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../sante-page.html">Santé</a> › <a href="../mentale.html">Santé mentale</a> › <span>Troubles psychiques</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧠 Santé mentale</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -102,10 +102,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la durée minimale des symptômes pour diagnostiquer un épisode dépressif caractérisé ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">3 jours</div>
-              <div class="option" onclick="answer(this,true)">2 semaines</div>
-              <div class="option" onclick="answer(this,false)">1 mois</div>
-              <div class="option" onclick="answer(this,false)">6 mois</div>
+              <button class="option" onclick="answer(this,false)">3 jours</button>
+              <button class="option" onclick="answer(this,true)">2 semaines</button>
+              <button class="option" onclick="answer(this,false)">1 mois</button>
+              <button class="option" onclick="answer(this,false)">6 mois</button>
             </div>
             <div class="q-feedback">Un épisode dépressif caractérisé est diagnostiqué lorsque les symptômes (tristesse, anhédonie, fatigue, etc.) persistent pendant au moins 2 semaines et perturbent le fonctionnement quotidien.</div>
           </div>
@@ -113,10 +113,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel trouble anxieux se caractérise par des crises soudaines de peur intense avec palpitations et sensation d'étouffement ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le TAG</div>
-              <div class="option" onclick="answer(this,true)">Le trouble panique</div>
-              <div class="option" onclick="answer(this,false)">La phobie sociale</div>
-              <div class="option" onclick="answer(this,false)">Le TOC</div>
+              <button class="option" onclick="answer(this,false)">Le TAG</button>
+              <button class="option" onclick="answer(this,true)">Le trouble panique</button>
+              <button class="option" onclick="answer(this,false)">La phobie sociale</button>
+              <button class="option" onclick="answer(this,false)">Le TOC</button>
             </div>
             <div class="q-feedback">Le trouble panique se manifeste par des attaques de panique : crises soudaines d'angoisse aiguë avec palpitations, étouffement, tremblements et peur de mourir, survenant de manière imprévisible.</div>
           </div>
@@ -124,10 +124,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Dans le TOC, que sont les « compulsions » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Des pensées intrusives angoissantes</div>
-              <div class="option" onclick="answer(this,true)">Des rituels répétitifs visant à réduire l'anxiété</div>
-              <div class="option" onclick="answer(this,false)">Des hallucinations auditives</div>
-              <div class="option" onclick="answer(this,false)">Des sautes d'humeur</div>
+              <button class="option" onclick="answer(this,false)">Des pensées intrusives angoissantes</button>
+              <button class="option" onclick="answer(this,true)">Des rituels répétitifs visant à réduire l'anxiété</button>
+              <button class="option" onclick="answer(this,false)">Des hallucinations auditives</button>
+              <button class="option" onclick="answer(this,false)">Des sautes d'humeur</button>
             </div>
             <div class="q-feedback">Les compulsions sont des comportements ou actes mentaux répétitifs (laver, vérifier, compter) que la personne se sent obligée d'accomplir pour réduire l'anxiété causée par les obsessions.</div>
           </div>
@@ -135,10 +135,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Le trouble bipolaire se caractérise par l'alternance de quels types d'épisodes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Épisodes maniaques et épisodes dépressifs</div>
-              <div class="option" onclick="answer(this,false)">Épisodes de panique et d'euphorie</div>
-              <div class="option" onclick="answer(this,false)">Hallucinations et délires</div>
-              <div class="option" onclick="answer(this,false)">Obsessions et compulsions</div>
+              <button class="option" onclick="answer(this,true)">Épisodes maniaques et épisodes dépressifs</button>
+              <button class="option" onclick="answer(this,false)">Épisodes de panique et d'euphorie</button>
+              <button class="option" onclick="answer(this,false)">Hallucinations et délires</button>
+              <button class="option" onclick="answer(this,false)">Obsessions et compulsions</button>
             </div>
             <div class="q-feedback">Le trouble bipolaire alterne entre des phases maniaques (euphorie excessive, hyperactivité, réduction du sommeil) et des phases dépressives, avec des périodes de stabilité entre les épisodes.</div>
           </div>
@@ -146,10 +146,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">La schizophrénie signifie-t-elle « double personnalité » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Non, c'est une idée reçue fausse</div>
-              <div class="option" onclick="answer(this,false)">Oui, c'est la définition exacte</div>
-              <div class="option" onclick="answer(this,false)">Oui, mais seulement dans les cas graves</div>
-              <div class="option" onclick="answer(this,false)">Non, c'est une forme de dépression</div>
+              <button class="option" onclick="answer(this,true)">Non, c'est une idée reçue fausse</button>
+              <button class="option" onclick="answer(this,false)">Oui, c'est la définition exacte</button>
+              <button class="option" onclick="answer(this,false)">Oui, mais seulement dans les cas graves</button>
+              <button class="option" onclick="answer(this,false)">Non, c'est une forme de dépression</button>
             </div>
             <div class="q-feedback">C'est l'un des préjugés les plus répandus. La schizophrénie n'est pas un dédoublement de personnalité, mais un trouble caractérisé par des hallucinations, des délires, un retrait social et des troubles cognitifs.</div>
           </div>
@@ -157,10 +157,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel pourcentage de la population connaîtra un trouble psychique au cours de sa vie ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">5%</div>
-              <div class="option" onclick="answer(this,true)">20% (une personne sur cinq)</div>
-              <div class="option" onclick="answer(this,false)">50%</div>
-              <div class="option" onclick="answer(this,false)">1%</div>
+              <button class="option" onclick="answer(this,false)">5%</button>
+              <button class="option" onclick="answer(this,true)">20% (une personne sur cinq)</button>
+              <button class="option" onclick="answer(this,false)">50%</button>
+              <button class="option" onclick="answer(this,false)">1%</button>
             </div>
             <div class="q-feedback">Une personne sur cinq (20%) sera concernée par un trouble psychique au cours de sa vie. Les troubles les plus fréquents sont la dépression et les troubles anxieux.</div>
           </div>
@@ -208,8 +208,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

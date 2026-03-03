@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De la concurrence parfaite au monopole — comprendre les différentes formes d'organisation des marchés et leurs conséquences sur les prix et le bien-être.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Structures de marché — Microéconomie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #c97ae8;
   --accent2: #ce93d8;
   --accent-dim: rgba(201,122,232,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(201,122,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(201,122,232,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🏪 Microéconomie</span>
     <span class="tag-level">Intermédiaire</span>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">En concurrence pure et parfaite, à long terme, le profit économique des entreprises est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Positif et croissant</div>
-              <div class="option" onclick="answer(this,true)">Nul</div>
-              <div class="option" onclick="answer(this,false)">Négatif</div>
-              <div class="option" onclick="answer(this,false)">Dépend du secteur</div>
+              <button class="option" onclick="answer(this,false)">Positif et croissant</button>
+              <button class="option" onclick="answer(this,true)">Nul</button>
+              <button class="option" onclick="answer(this,false)">Négatif</button>
+              <button class="option" onclick="answer(this,false)">Dépend du secteur</button>
             </div>
             <div class="q-feedback">En CPP, la libre entrée fait que de nouvelles entreprises arrivent tant qu'il y a du profit, ce qui pousse le prix vers le coût moyen. À long terme, le profit économique est nul (mais les entreprises couvrent tous leurs coûts).</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle est la caractéristique principale de l'oligopole ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un seul vendeur sur le marché</div>
-              <div class="option" onclick="answer(this,false)">Des produits parfaitement homogènes</div>
-              <div class="option" onclick="answer(this,true)">L'interdépendance stratégique entre les entreprises</div>
-              <div class="option" onclick="answer(this,false)">La libre entrée sans barrières</div>
+              <button class="option" onclick="answer(this,false)">Un seul vendeur sur le marché</button>
+              <button class="option" onclick="answer(this,false)">Des produits parfaitement homogènes</button>
+              <button class="option" onclick="answer(this,true)">L'interdépendance stratégique entre les entreprises</button>
+              <button class="option" onclick="answer(this,false)">La libre entrée sans barrières</button>
             </div>
             <div class="q-feedback">En oligopole, chaque entreprise doit anticiper les réactions de ses concurrents. Cette interdépendance stratégique est modélisée par la théorie des jeux et distingue l'oligopole des autres structures.</div>
           </div>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Le marché des restaurants dans une grande ville est un exemple de :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Concurrence pure et parfaite</div>
-              <div class="option" onclick="answer(this,false)">Monopole</div>
-              <div class="option" onclick="answer(this,false)">Oligopole</div>
-              <div class="option" onclick="answer(this,true)">Concurrence monopolistique</div>
+              <button class="option" onclick="answer(this,false)">Concurrence pure et parfaite</button>
+              <button class="option" onclick="answer(this,false)">Monopole</button>
+              <button class="option" onclick="answer(this,false)">Oligopole</button>
+              <button class="option" onclick="answer(this,true)">Concurrence monopolistique</button>
             </div>
             <div class="q-feedback">Les restaurants sont nombreux (concurrence) mais chacun se différencie par sa cuisine, son ambiance, sa localisation (monopolistique). Chaque restaurant a un léger pouvoir de marché grâce à cette différenciation.</div>
           </div>
@@ -203,10 +203,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Un monopoleur maximise son profit en produisant là où :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le prix est maximal</div>
-              <div class="option" onclick="answer(this,true)">La recette marginale égale le coût marginal (Rm = Cm)</div>
-              <div class="option" onclick="answer(this,false)">Le coût moyen est minimal</div>
-              <div class="option" onclick="answer(this,false)">La quantité demandée est maximale</div>
+              <button class="option" onclick="answer(this,false)">Le prix est maximal</button>
+              <button class="option" onclick="answer(this,true)">La recette marginale égale le coût marginal (Rm = Cm)</button>
+              <button class="option" onclick="answer(this,false)">Le coût moyen est minimal</button>
+              <button class="option" onclick="answer(this,false)">La quantité demandée est maximale</button>
             </div>
             <div class="q-feedback">Comme toute entreprise, le monopoleur maximise son profit en produisant la quantité où Rm = Cm. La différence avec la CPP est que Rm < P pour le monopoleur (il doit baisser le prix pour vendre plus), ce qui conduit à une production inférieure et un prix supérieur à la concurrence parfaite.</div>
           </div>
@@ -214,10 +214,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">La discrimination par les prix du 3e degré consiste à :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Faire payer à chaque client son prix de réserve</div>
-              <div class="option" onclick="answer(this,false)">Proposer des tarifs dégressifs selon la quantité</div>
-              <div class="option" onclick="answer(this,true)">Fixer des prix différents selon les groupes identifiables de clients</div>
-              <div class="option" onclick="answer(this,false)">Vendre le même produit à un prix unique</div>
+              <button class="option" onclick="answer(this,false)">Faire payer à chaque client son prix de réserve</button>
+              <button class="option" onclick="answer(this,false)">Proposer des tarifs dégressifs selon la quantité</button>
+              <button class="option" onclick="answer(this,true)">Fixer des prix différents selon les groupes identifiables de clients</button>
+              <button class="option" onclick="answer(this,false)">Vendre le même produit à un prix unique</button>
             </div>
             <div class="q-feedback">La discrimination du 3e degré consiste à identifier des groupes de clients (étudiants, seniors, professionnels) ayant des élasticités de demande différentes et à leur appliquer des prix différents. C'est la forme la plus courante de discrimination par les prix.</div>
           </div>
@@ -225,10 +225,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Selon Schumpeter, les monopoles favorisent l'innovation car :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Ils sont régulés par l'État</div>
-              <div class="option" onclick="answer(this,false)">Ils ont des prix plus bas</div>
-              <div class="option" onclick="answer(this,true)">Ils disposent de profits importants pour financer la R&D</div>
-              <div class="option" onclick="answer(this,false)">Ils emploient plus de travailleurs</div>
+              <button class="option" onclick="answer(this,false)">Ils sont régulés par l'État</button>
+              <button class="option" onclick="answer(this,false)">Ils ont des prix plus bas</button>
+              <button class="option" onclick="answer(this,true)">Ils disposent de profits importants pour financer la R&D</button>
+              <button class="option" onclick="answer(this,false)">Ils emploient plus de travailleurs</button>
             </div>
             <div class="q-feedback">Schumpeter soutenait que les grandes entreprises en position de monopole ont les ressources financières (profits) et la motivation (protection des rentes) pour investir massivement en recherche et développement. Ce point de vue s'oppose à celui d'Arrow, pour qui la concurrence est un meilleur stimulant de l'innovation.</div>
           </div>
@@ -295,8 +295,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

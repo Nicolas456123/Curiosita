@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'art de composer le mouvement — espace, temps, énergie, notation et écriture chorégraphique.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Chorégraphie — Danse — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📐 Danse</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -137,10 +137,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quels sont les quatre éléments fondamentaux de la chorégraphie ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Corps, espace, temps, énergie</div>
-              <div class="option" onclick="answer(this,false)">Rythme, mélodie, harmonie, timbre</div>
-              <div class="option" onclick="answer(this,false)">Texte, jeu, décor, lumière</div>
-              <div class="option" onclick="answer(this,false)">Solo, duo, trio, groupe</div>
+              <button class="option" onclick="answer(this,true)">Corps, espace, temps, énergie</button>
+              <button class="option" onclick="answer(this,false)">Rythme, mélodie, harmonie, timbre</button>
+              <button class="option" onclick="answer(this,false)">Texte, jeu, décor, lumière</button>
+              <button class="option" onclick="answer(this,false)">Solo, duo, trio, groupe</button>
             </div>
             <div class="q-feedback">Les quatre éléments fondamentaux sont le corps, l'espace, le temps et l'énergie. Toute chorégraphie organise ces quatre paramètres.</div>
           </div>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qui a créé la cinétographie (notation Laban) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pierre Beauchamps</div>
-              <div class="option" onclick="answer(this,true)">Rudolf Laban</div>
-              <div class="option" onclick="answer(this,false)">Merce Cunningham</div>
-              <div class="option" onclick="answer(this,false)">Joan Benesh</div>
+              <button class="option" onclick="answer(this,false)">Pierre Beauchamps</button>
+              <button class="option" onclick="answer(this,true)">Rudolf Laban</button>
+              <button class="option" onclick="answer(this,false)">Merce Cunningham</button>
+              <button class="option" onclick="answer(this,false)">Joan Benesh</button>
             </div>
             <div class="q-feedback">Rudolf Laban a créé la cinétographie dans les années 1920. C'est le système de notation du mouvement le plus complet, utilisant des symboles géométriques sur une portée verticale.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quels sont les quatre facteurs de l'Effort selon Laban ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Haut, bas, gauche, droite</div>
-              <div class="option" onclick="answer(this,false)">Rapide, lent, fort, doux</div>
-              <div class="option" onclick="answer(this,true)">Poids, temps, espace, flux</div>
-              <div class="option" onclick="answer(this,false)">Corps, esprit, émotion, technique</div>
+              <button class="option" onclick="answer(this,false)">Haut, bas, gauche, droite</button>
+              <button class="option" onclick="answer(this,false)">Rapide, lent, fort, doux</button>
+              <button class="option" onclick="answer(this,true)">Poids, temps, espace, flux</button>
+              <button class="option" onclick="answer(this,false)">Corps, esprit, émotion, technique</button>
             </div>
             <div class="q-feedback">Les quatre facteurs de l'Effort de Laban sont : poids (fort/léger), temps (soudain/soutenu), espace (direct/flexible) et flux (contrôlé/libre).</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Que signifie étymologiquement le mot « chorégraphie » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Art du rythme</div>
-              <div class="option" onclick="answer(this,true)">Écriture de la danse</div>
-              <div class="option" onclick="answer(this,false)">Science du mouvement</div>
-              <div class="option" onclick="answer(this,false)">Musique du corps</div>
+              <button class="option" onclick="answer(this,false)">Art du rythme</button>
+              <button class="option" onclick="answer(this,true)">Écriture de la danse</button>
+              <button class="option" onclick="answer(this,false)">Science du mouvement</button>
+              <button class="option" onclick="answer(this,false)">Musique du corps</button>
             </div>
             <div class="q-feedback">Chorégraphie vient du grec khoreia (danse) et graphein (écrire), soit littéralement « écriture de la danse ».</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel processus de composition Cunningham a-t-il introduit dans la chorégraphie ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'improvisation dirigée</div>
-              <div class="option" onclick="answer(this,true)">Le hasard</div>
-              <div class="option" onclick="answer(this,false)">La composition pré-écrite</div>
-              <div class="option" onclick="answer(this,false)">La répétition systématique</div>
+              <button class="option" onclick="answer(this,false)">L'improvisation dirigée</button>
+              <button class="option" onclick="answer(this,true)">Le hasard</button>
+              <button class="option" onclick="answer(this,false)">La composition pré-écrite</button>
+              <button class="option" onclick="answer(this,false)">La répétition systématique</button>
             </div>
             <div class="q-feedback">Cunningham a introduit le hasard comme processus de composition, utilisant des lancers de dés ou le I Ching pour déterminer l'ordre des séquences chorégraphiques.</div>
           </div>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Comment la notation Benesh représente-t-elle le corps ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Par des symboles géométriques sur une portée verticale</div>
-              <div class="option" onclick="answer(this,true)">Sur cinq lignes représentant le corps vu de dos</div>
-              <div class="option" onclick="answer(this,false)">Par des dessins figuratifs de postures</div>
-              <div class="option" onclick="answer(this,false)">Par des trajectoires au sol vues du dessus</div>
+              <button class="option" onclick="answer(this,false)">Par des symboles géométriques sur une portée verticale</button>
+              <button class="option" onclick="answer(this,true)">Sur cinq lignes représentant le corps vu de dos</button>
+              <button class="option" onclick="answer(this,false)">Par des dessins figuratifs de postures</button>
+              <button class="option" onclick="answer(this,false)">Par des trajectoires au sol vues du dessus</button>
             </div>
             <div class="q-feedback">La notation Benesh utilise une portée de cinq lignes représentant le corps humain vu de dos, de la tête aux pieds, de façon analogue à la portée musicale.</div>
           </div>
@@ -262,8 +262,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

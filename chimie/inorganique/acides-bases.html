@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="pH, pKa, solutions tampons et titrages : comprendre les quilibres acido-basiques, essentiels en chimie, biologie et m decine.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Acides et bases &mdash; Chimie inorganique &mdash; Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #d35400; --accent2: #e67e22; --accent-dim: rgba(211,84,0,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(211,84,0,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #d35400; --accent2: #e67e22; --accent-dim: rgba(211,84,0,0.08);  --accent-hero: rgba(211,84,0,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../sciences-exactes.html">Sciences exactes</a> &rsaquo; <a href="../inorganique.html">Chimie inorganique</a> &rsaquo; <span>Acides et bases</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">&#9883;&#65039; Chimie inorganique</span>
     <span class="tag-level">D&eacute;butant</span>
@@ -142,10 +142,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est le pH d'une solution de HCl &agrave; 0,001 mol/L ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1</div>
-              <div class="option" onclick="answer(this,false)">2</div>
-              <div class="option" onclick="answer(this,true)">3</div>
-              <div class="option" onclick="answer(this,false)">4</div>
+              <button class="option" onclick="answer(this,false)">1</button>
+              <button class="option" onclick="answer(this,false)">2</button>
+              <button class="option" onclick="answer(this,true)">3</button>
+              <button class="option" onclick="answer(this,false)">4</button>
             </div>
             <div class="q-feedback">HCl est un acide fort : dissociation totale. [H&#8323;O&#8314;] = 0,001 = 10&#8315;&sup3; mol/L. pH = -log(10&#8315;&sup3;) = 3.</div>
           </div>
@@ -153,10 +153,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Selon Br&oslash;nsted-Lowry, qu'est-ce qu'un acide ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une esp&egrave;ce qui lib&egrave;re des ions OH&#8315;</div>
-              <div class="option" onclick="answer(this,true)">Un donneur de proton H&#8314;</div>
-              <div class="option" onclick="answer(this,false)">Un accepteur de doublet &eacute;lectronique</div>
-              <div class="option" onclick="answer(this,false)">Un donneur de doublet &eacute;lectronique</div>
+              <button class="option" onclick="answer(this,false)">Une esp&egrave;ce qui lib&egrave;re des ions OH&#8315;</button>
+              <button class="option" onclick="answer(this,true)">Un donneur de proton H&#8314;</button>
+              <button class="option" onclick="answer(this,false)">Un accepteur de doublet &eacute;lectronique</button>
+              <button class="option" onclick="answer(this,false)">Un donneur de doublet &eacute;lectronique</button>
             </div>
             <div class="q-feedback">Selon Br&oslash;nsted-Lowry, un acide est un donneur de proton (H&#8314;) et une base est un accepteur de proton. C'est la d&eacute;finition la plus utilis&eacute;e en chimie des solutions.</div>
           </div>
@@ -164,10 +164,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que vaut le pH d'une solution tampon lorsque [A&#8315;] = [HA] ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">7</div>
-              <div class="option" onclick="answer(this,true)">pK<sub>a</sub></div>
-              <div class="option" onclick="answer(this,false)">14 - pK<sub>a</sub></div>
-              <div class="option" onclick="answer(this,false)">0</div>
+              <button class="option" onclick="answer(this,false)">7</button>
+              <button class="option" onclick="answer(this,true)">pK<sub>a</sub></button>
+              <button class="option" onclick="answer(this,false)">14 - pK<sub>a</sub></button>
+              <button class="option" onclick="answer(this,false)">0</button>
             </div>
             <div class="q-feedback">Henderson-Hasselbalch : pH = pK<sub>a</sub> + log([A&#8315;]/[HA]). Si [A&#8315;] = [HA], log(1) = 0, donc pH = pK<sub>a</sub>. C'est le point de demi-&eacute;quivalence du titrage.</div>
           </div>
@@ -175,10 +175,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel indicateur convient pour un titrage acide fort / base forte (pH&eacute;q &asymp; 7) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">H&eacute;lianthine (3,1-4,4)</div>
-              <div class="option" onclick="answer(this,true)">Bleu de bromothymol (6,0-7,6)</div>
-              <div class="option" onclick="answer(this,false)">Ph&eacute;nolphtal&eacute;ine (8,2-10)</div>
-              <div class="option" onclick="answer(this,false)">Rouge de m&eacute;thyle (4,4-6,2)</div>
+              <button class="option" onclick="answer(this,false)">H&eacute;lianthine (3,1-4,4)</button>
+              <button class="option" onclick="answer(this,true)">Bleu de bromothymol (6,0-7,6)</button>
+              <button class="option" onclick="answer(this,false)">Ph&eacute;nolphtal&eacute;ine (8,2-10)</button>
+              <button class="option" onclick="answer(this,false)">Rouge de m&eacute;thyle (4,4-6,2)</button>
             </div>
             <div class="q-feedback">Pour un titrage acide fort / base forte, le saut de pH est large (environ 4 &agrave; 10). Le bleu de bromothymol (zone de virage 6,0-7,6) convient bien car le pH au point d'&eacute;quivalence est 7.</div>
           </div>
@@ -186,10 +186,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">L'acide phosphorique H&#8323;PO&#8324; est un :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Monoacide</div>
-              <div class="option" onclick="answer(this,false)">Diacide</div>
-              <div class="option" onclick="answer(this,true)">Triacide</div>
-              <div class="option" onclick="answer(this,false)">Acide fort</div>
+              <button class="option" onclick="answer(this,false)">Monoacide</button>
+              <button class="option" onclick="answer(this,false)">Diacide</button>
+              <button class="option" onclick="answer(this,true)">Triacide</button>
+              <button class="option" onclick="answer(this,false)">Acide fort</button>
             </div>
             <div class="q-feedback">H&#8323;PO&#8324; peut c&eacute;der 3 protons successivement (pK<sub>a1</sub> = 2,15, pK<sub>a2</sub> = 7,20, pK<sub>a3</sub> = 12,35). C'est un triacide faible.</div>
           </div>
@@ -197,10 +197,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel est le tampon principal du sang humain ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Ac&eacute;tate / acide ac&eacute;tique</div>
-              <div class="option" onclick="answer(this,true)">Bicarbonate / acide carbonique (HCO&#8323;&#8315;/H&#8322;CO&#8323;)</div>
-              <div class="option" onclick="answer(this,false)">Phosphate (H&#8322;PO&#8324;&#8315;/HPO&#8324;&sup2;&#8315;)</div>
-              <div class="option" onclick="answer(this,false)">Ammoniac / ammonium</div>
+              <button class="option" onclick="answer(this,false)">Ac&eacute;tate / acide ac&eacute;tique</button>
+              <button class="option" onclick="answer(this,true)">Bicarbonate / acide carbonique (HCO&#8323;&#8315;/H&#8322;CO&#8323;)</button>
+              <button class="option" onclick="answer(this,false)">Phosphate (H&#8322;PO&#8324;&#8315;/HPO&#8324;&sup2;&#8315;)</button>
+              <button class="option" onclick="answer(this,false)">Ammoniac / ammonium</button>
             </div>
             <div class="q-feedback">Le tampon bicarbonate (HCO&#8323;&#8315;/H&#8322;CO&#8323;) est le principal tampon du sang, maintenant le pH &agrave; 7,4. Le CO&#8322; dissous joue le r&ocirc;le de r&eacute;servoir d'acide, r&eacute;gul&eacute; par la respiration.</div>
           </div>
@@ -262,8 +262,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

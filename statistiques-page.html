@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La science des donnees, de la probabilite et de l'inference. Collecter, organiser, analyser et interpreter les donnees pour prendre des decisions...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Statistiques — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -199,10 +201,10 @@
             <p class="q-num">Question 1 / 10</p>
             <p class="q-text">Quelle mesure de tendance centrale est la moins sensible aux valeurs extremes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La moyenne</div>
-              <div class="option" onclick="answer(this,true)">La mediane</div>
-              <div class="option" onclick="answer(this,false)">La variance</div>
-              <div class="option" onclick="answer(this,false)">L'ecart-type</div>
+              <button class="option" onclick="answer(this,false)">La moyenne</button>
+              <button class="option" onclick="answer(this,true)">La mediane</button>
+              <button class="option" onclick="answer(this,false)">La variance</button>
+              <button class="option" onclick="answer(this,false)">L'ecart-type</button>
             </div>
             <div class="q-feedback">La mediane est la valeur qui separe les donnees en deux moities egales. Contrairement a la moyenne, elle n'est pas influencee par les valeurs extremes (outliers). C'est pourquoi on utilise souvent la mediane pour les revenus ou les prix immobiliers.</div>
           </div>
@@ -211,10 +213,10 @@
             <p class="q-num">Question 2 / 10</p>
             <p class="q-text">Quelle est la probabilite d'obtenir un 6 en lançant un de equilibre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">1/6</div>
-              <div class="option" onclick="answer(this,false)">1/3</div>
-              <div class="option" onclick="answer(this,false)">1/2</div>
-              <div class="option" onclick="answer(this,false)">1/12</div>
+              <button class="option" onclick="answer(this,true)">1/6</button>
+              <button class="option" onclick="answer(this,false)">1/3</button>
+              <button class="option" onclick="answer(this,false)">1/2</button>
+              <button class="option" onclick="answer(this,false)">1/12</button>
             </div>
             <div class="q-feedback">Un de equilibre a 6 faces equiprobables. La probabilite de chaque face est donc 1/6 ≈ 0,167 soit environ 16,7 %. C'est l'application directe de la definition classique : P = nombre de cas favorables / nombre de cas possibles.</div>
           </div>
@@ -223,10 +225,10 @@
             <p class="q-num">Question 3 / 10</p>
             <p class="q-text">Que mesure l'ecart-type ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La valeur centrale des donnees</div>
-              <div class="option" onclick="answer(this,true)">La dispersion des donnees autour de la moyenne</div>
-              <div class="option" onclick="answer(this,false)">La symetrie de la distribution</div>
-              <div class="option" onclick="answer(this,false)">Le nombre de donnees</div>
+              <button class="option" onclick="answer(this,false)">La valeur centrale des donnees</button>
+              <button class="option" onclick="answer(this,true)">La dispersion des donnees autour de la moyenne</button>
+              <button class="option" onclick="answer(this,false)">La symetrie de la distribution</button>
+              <button class="option" onclick="answer(this,false)">Le nombre de donnees</button>
             </div>
             <div class="q-feedback">L'ecart-type (σ ou s) mesure la dispersion des donnees autour de la moyenne. Plus il est grand, plus les donnees sont etalees. Il s'exprime dans la meme unite que les donnees, contrairement a la variance qui est au carre.</div>
           </div>
@@ -235,10 +237,10 @@
             <p class="q-num">Question 4 / 10</p>
             <p class="q-text">Le theoreme central limite affirme que :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Toute variable aleatoire suit une loi normale</div>
-              <div class="option" onclick="answer(this,false)">La moyenne d'un echantillon est toujours egale a la moyenne de la population</div>
-              <div class="option" onclick="answer(this,true)">La distribution des moyennes d'echantillons tend vers une loi normale quand la taille augmente</div>
-              <div class="option" onclick="answer(this,false)">Les donnees sont toujours symetriques</div>
+              <button class="option" onclick="answer(this,false)">Toute variable aleatoire suit une loi normale</button>
+              <button class="option" onclick="answer(this,false)">La moyenne d'un echantillon est toujours egale a la moyenne de la population</button>
+              <button class="option" onclick="answer(this,true)">La distribution des moyennes d'echantillons tend vers une loi normale quand la taille augmente</button>
+              <button class="option" onclick="answer(this,false)">Les donnees sont toujours symetriques</button>
             </div>
             <div class="q-feedback">Le theoreme central limite (TCL) stipule que la distribution de la moyenne echantillonnale converge vers une loi normale lorsque la taille de l'echantillon augmente, et ce quelle que soit la loi de la variable d'origine. C'est le fondement de l'inference statistique.</div>
           </div>
@@ -247,10 +249,10 @@
             <p class="q-num">Question 5 / 10</p>
             <p class="q-text">Qu'est-ce qu'une p-valeur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La probabilite que l'hypothese nulle soit vraie</div>
-              <div class="option" onclick="answer(this,true)">La probabilite d'observer les donnees (ou plus extremes) si H₀ est vraie</div>
-              <div class="option" onclick="answer(this,false)">Le seuil de significativite</div>
-              <div class="option" onclick="answer(this,false)">La probabilite de commettre une erreur de type II</div>
+              <button class="option" onclick="answer(this,false)">La probabilite que l'hypothese nulle soit vraie</button>
+              <button class="option" onclick="answer(this,true)">La probabilite d'observer les donnees (ou plus extremes) si H₀ est vraie</button>
+              <button class="option" onclick="answer(this,false)">Le seuil de significativite</button>
+              <button class="option" onclick="answer(this,false)">La probabilite de commettre une erreur de type II</button>
             </div>
             <div class="q-feedback">La p-valeur est la probabilite d'obtenir un resultat au moins aussi extreme que celui observe, en supposant que l'hypothese nulle H₀ est vraie. Si cette probabilite est tres faible (typiquement p &lt; 0,05), on rejette H₀.</div>
           </div>
@@ -259,10 +261,10 @@
             <p class="q-num">Question 6 / 10</p>
             <p class="q-text">Le coefficient de correlation de Pearson (r) est compris entre :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">0 et 1</div>
-              <div class="option" onclick="answer(this,true)">-1 et 1</div>
-              <div class="option" onclick="answer(this,false)">-∞ et +∞</div>
-              <div class="option" onclick="answer(this,false)">0 et 100</div>
+              <button class="option" onclick="answer(this,false)">0 et 1</button>
+              <button class="option" onclick="answer(this,true)">-1 et 1</button>
+              <button class="option" onclick="answer(this,false)">-∞ et +∞</button>
+              <button class="option" onclick="answer(this,false)">0 et 100</button>
             </div>
             <div class="q-feedback">Le coefficient r de Pearson varie entre -1 (correlation negative parfaite) et +1 (correlation positive parfaite). r = 0 indique l'absence de correlation lineaire. Le coefficient de determination r² indique la proportion de variance expliquee.</div>
           </div>
@@ -271,10 +273,10 @@
             <p class="q-num">Question 7 / 10</p>
             <p class="q-text">Dans un test d'hypothese, l'erreur de type I consiste a :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Rejeter H₀ alors qu'elle est vraie (faux positif)</div>
-              <div class="option" onclick="answer(this,false)">Accepter H₀ alors qu'elle est fausse (faux negatif)</div>
-              <div class="option" onclick="answer(this,false)">Choisir un mauvais echantillon</div>
-              <div class="option" onclick="answer(this,false)">Utiliser un seuil trop eleve</div>
+              <button class="option" onclick="answer(this,true)">Rejeter H₀ alors qu'elle est vraie (faux positif)</button>
+              <button class="option" onclick="answer(this,false)">Accepter H₀ alors qu'elle est fausse (faux negatif)</button>
+              <button class="option" onclick="answer(this,false)">Choisir un mauvais echantillon</button>
+              <button class="option" onclick="answer(this,false)">Utiliser un seuil trop eleve</button>
             </div>
             <div class="q-feedback">L'erreur de type I (α) est le risque de rejeter H₀ a tort — un faux positif. L'erreur de type II (β) est le risque de ne pas rejeter H₀ alors qu'elle est fausse — un faux negatif. Le seuil α (souvent 5 %) fixe la probabilite maximale d'erreur de type I.</div>
           </div>
@@ -283,10 +285,10 @@
             <p class="q-num">Question 8 / 10</p>
             <p class="q-text">Que signifie « correlation n'implique pas causalite » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Deux variables correlees sont toujours independantes</div>
-              <div class="option" onclick="answer(this,false)">La correlation est toujours due au hasard</div>
-              <div class="option" onclick="answer(this,true)">Deux variables peuvent etre correlees sans que l'une cause l'autre</div>
-              <div class="option" onclick="answer(this,false)">La correlation est un indicateur non fiable</div>
+              <button class="option" onclick="answer(this,false)">Deux variables correlees sont toujours independantes</button>
+              <button class="option" onclick="answer(this,false)">La correlation est toujours due au hasard</button>
+              <button class="option" onclick="answer(this,true)">Deux variables peuvent etre correlees sans que l'une cause l'autre</button>
+              <button class="option" onclick="answer(this,false)">La correlation est un indicateur non fiable</button>
             </div>
             <div class="q-feedback">Deux variables peuvent etre fortement correlees sans lien de cause a effet. Par exemple, la vente de glaces et les noyades sont correlees (toutes deux augmentent en ete), mais l'une ne cause pas l'autre. C'est un facteur confondant (la chaleur) qui explique les deux.</div>
           </div>
@@ -295,10 +297,10 @@
             <p class="q-num">Question 9 / 10</p>
             <p class="q-text">Qu'est-ce que le theoreme de Bayes permet de calculer ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La moyenne d'une distribution</div>
-              <div class="option" onclick="answer(this,false)">L'ecart-type d'un echantillon</div>
-              <div class="option" onclick="answer(this,true)">La probabilite d'un evenement sachant qu'un autre s'est produit</div>
-              <div class="option" onclick="answer(this,false)">Le nombre d'echantillons necessaires</div>
+              <button class="option" onclick="answer(this,false)">La moyenne d'une distribution</button>
+              <button class="option" onclick="answer(this,false)">L'ecart-type d'un echantillon</button>
+              <button class="option" onclick="answer(this,true)">La probabilite d'un evenement sachant qu'un autre s'est produit</button>
+              <button class="option" onclick="answer(this,false)">Le nombre d'echantillons necessaires</button>
             </div>
             <div class="q-feedback">Le theoreme de Bayes permet de calculer des probabilites conditionnelles « inverses » : P(A|B) = P(B|A) × P(A) / P(B). Il est fondamental en diagnostic medical, en filtrage de spam et en apprentissage automatique (inference bayesienne).</div>
           </div>
@@ -307,10 +309,10 @@
             <p class="q-num">Question 10 / 10</p>
             <p class="q-text">Dans une loi normale, quel pourcentage des donnees se trouve dans l'intervalle [μ - 2σ ; μ + 2σ] ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">68 %</div>
-              <div class="option" onclick="answer(this,true)">95,4 %</div>
-              <div class="option" onclick="answer(this,false)">99,7 %</div>
-              <div class="option" onclick="answer(this,false)">50 %</div>
+              <button class="option" onclick="answer(this,false)">68 %</button>
+              <button class="option" onclick="answer(this,true)">95,4 %</button>
+              <button class="option" onclick="answer(this,false)">99,7 %</button>
+              <button class="option" onclick="answer(this,false)">50 %</button>
             </div>
             <div class="q-feedback">C'est la regle empirique (68-95-99,7) : environ 68 % des donnees sont a ± 1σ de la moyenne, 95,4 % a ± 2σ, et 99,7 % a ± 3σ. Cette regle est fondamentale pour interpreter toute distribution normale.</div>
           </div>
@@ -457,8 +459,15 @@
   </main>
 </div>
 
-<script src="utils.js"></script>
-<script src="quiz.js"></script>
-<script src="mobile.js?v=2"></script>
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

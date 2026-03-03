@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="L'Essai sur le don de Mauss, réciprocité, kula, potlatch et systèmes d'échange non marchands.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Économie du don — Anthropologie culturelle — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎁 Anthropologie culturelle</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -152,10 +152,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelles sont les trois obligations du don selon Mauss ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Acheter, vendre, échanger</div>
-              <div class="option" onclick="answer(this,true)">Donner, recevoir, rendre</div>
-              <div class="option" onclick="answer(this,false)">Produire, distribuer, consommer</div>
-              <div class="option" onclick="answer(this,false)">Offrir, accepter, remercier</div>
+              <button class="option" onclick="answer(this,false)">Acheter, vendre, échanger</button>
+              <button class="option" onclick="answer(this,true)">Donner, recevoir, rendre</button>
+              <button class="option" onclick="answer(this,false)">Produire, distribuer, consommer</button>
+              <button class="option" onclick="answer(this,false)">Offrir, accepter, remercier</button>
             </div>
             <div class="q-feedback">Mauss identifie trois obligations : donner (ne pas donner, c'est perdre la face), recevoir (refuser, c'est rompre l'alliance) et rendre (ne pas rendre, c'est se placer en position d'infériorité). Ces trois obligations créent un cycle de réciprocité.</div>
           </div>
@@ -163,10 +163,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Dans le kula des Trobriandais, quels objets circulent ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Des pièces d'or et d'argent</div>
-              <div class="option" onclick="answer(this,false)">Des outils et des armes</div>
-              <div class="option" onclick="answer(this,true)">Des colliers rouges (soulava) et des brassards blancs (mwali)</div>
-              <div class="option" onclick="answer(this,false)">De la nourriture et des tissus</div>
+              <button class="option" onclick="answer(this,false)">Des pièces d'or et d'argent</button>
+              <button class="option" onclick="answer(this,false)">Des outils et des armes</button>
+              <button class="option" onclick="answer(this,true)">Des colliers rouges (soulava) et des brassards blancs (mwali)</button>
+              <button class="option" onclick="answer(this,false)">De la nourriture et des tissus</button>
             </div>
             <div class="q-feedback">Le kula fait circuler des colliers de coquillages rouges (soulava) dans un sens et des brassards de coquillages blancs (mwali) dans l'autre sens, entre des îles de Mélanésie. Ces objets ne sont jamais conservés longtemps et accumulent de la valeur en circulant.</div>
           </div>
@@ -174,10 +174,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qu'est-ce que Mauss entend par « fait social total » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Un phénomène qui engage toutes les dimensions de la société (économique, juridique, religieuse, politique)</div>
-              <div class="option" onclick="answer(this,false)">Un fait qui concerne l'ensemble de la population</div>
-              <div class="option" onclick="answer(this,false)">Un événement qui se produit dans toutes les sociétés</div>
-              <div class="option" onclick="answer(this,false)">Une statistique qui décrit la totalité d'une société</div>
+              <button class="option" onclick="answer(this,true)">Un phénomène qui engage toutes les dimensions de la société (économique, juridique, religieuse, politique)</button>
+              <button class="option" onclick="answer(this,false)">Un fait qui concerne l'ensemble de la population</button>
+              <button class="option" onclick="answer(this,false)">Un événement qui se produit dans toutes les sociétés</button>
+              <button class="option" onclick="answer(this,false)">Une statistique qui décrit la totalité d'une société</button>
             </div>
             <div class="q-feedback">Le « fait social total » est un phénomène qui met en jeu simultanément toutes les institutions de la société : économie, droit, religion, politique, esthétique, morale. Le don en est l'exemple paradigmatique car il engage la totalité des dimensions sociales.</div>
           </div>
@@ -185,10 +185,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Selon Sahlins, quelle forme de réciprocité caractérise les échanges entre proches parents ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Réciprocité généralisée</div>
-              <div class="option" onclick="answer(this,false)">Réciprocité équilibrée</div>
-              <div class="option" onclick="answer(this,false)">Réciprocité négative</div>
-              <div class="option" onclick="answer(this,false)">Réciprocité nulle</div>
+              <button class="option" onclick="answer(this,true)">Réciprocité généralisée</button>
+              <button class="option" onclick="answer(this,false)">Réciprocité équilibrée</button>
+              <button class="option" onclick="answer(this,false)">Réciprocité négative</button>
+              <button class="option" onclick="answer(this,false)">Réciprocité nulle</button>
             </div>
             <div class="q-feedback">La réciprocité généralisée caractérise les échanges entre proches : le don est fait librement, sans attente de retour immédiat ni équivalent. Plus la distance sociale augmente, plus on passe à la réciprocité équilibrée puis négative.</div>
           </div>
@@ -196,10 +196,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce que le « hau » dans la théorie de Mauss ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le prix de marché d'un objet</div>
-              <div class="option" onclick="answer(this,true)">L'esprit de la chose donnée qui oblige à rendre</div>
-              <div class="option" onclick="answer(this,false)">Le rituel qui accompagne l'échange</div>
-              <div class="option" onclick="answer(this,false)">Le chef qui organise le potlatch</div>
+              <button class="option" onclick="answer(this,false)">Le prix de marché d'un objet</button>
+              <button class="option" onclick="answer(this,true)">L'esprit de la chose donnée qui oblige à rendre</button>
+              <button class="option" onclick="answer(this,false)">Le rituel qui accompagne l'échange</button>
+              <button class="option" onclick="answer(this,false)">Le chef qui organise le potlatch</button>
             </div>
             <div class="q-feedback">Le hau est un concept maori désignant l'esprit, la force vitale qui réside dans la chose donnée. Selon Mauss, c'est cette force qui oblige le récipiendaire à rendre : garder l'objet, c'est retenir quelque chose de l'âme du donateur.</div>
           </div>
@@ -207,10 +207,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Selon Bourdieu, le don permet d'accumuler :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Du capital financier</div>
-              <div class="option" onclick="answer(this,true)">Du capital symbolique (prestige, reconnaissance)</div>
-              <div class="option" onclick="answer(this,false)">Du capital culturel (diplômes, savoirs)</div>
-              <div class="option" onclick="answer(this,false)">Du capital social exclusivement</div>
+              <button class="option" onclick="answer(this,false)">Du capital financier</button>
+              <button class="option" onclick="answer(this,true)">Du capital symbolique (prestige, reconnaissance)</button>
+              <button class="option" onclick="answer(this,false)">Du capital culturel (diplômes, savoirs)</button>
+              <button class="option" onclick="answer(this,false)">Du capital social exclusivement</button>
             </div>
             <div class="q-feedback">Pour Bourdieu, le don est un « échange de dons déguisé » qui permet d'accumuler du capital symbolique — prestige, honneur, reconnaissance sociale. Le donateur « généreux » convertit du capital économique en capital symbolique. L'intérêt au désintéressement est encore un intérêt.</div>
           </div>
@@ -283,8 +283,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

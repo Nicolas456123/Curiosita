@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Arbres binaires de recherche, tas, graphes pondérés, Dijkstra — les structures non linéaires au cœur de l'informatique.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Arbres et graphes — Algorithmes — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08);  --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../informatique-page.html">Informatique</a> › <a href="../algorithmes.html">Algorithmes</a> › <span>Arbres et graphes</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">💻 Informatique</span><span class="tag-level">Intermédiaire — Avancé</span><span class="tag-time">⏱ ~45 min</span></div>
   <h1><em>Arbres et graphes</em></h1>
   <p class="hero-desc">Arbres binaires de recherche, tas, graphes pondérés, Dijkstra — les structures non linéaires au cœur de l'informatique.</p>
@@ -156,10 +156,10 @@ graphe = {
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Dans un arbre binaire de recherche, où se trouve le plus petit élément ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">À la racine</div>
-              <div class="option" onclick="answer(this,true)">Au nœud le plus à gauche</div>
-              <div class="option" onclick="answer(this,false)">Au nœud le plus à droite</div>
-              <div class="option" onclick="answer(this,false)">Dans une feuille aléatoire</div>
+              <button class="option" onclick="answer(this,false)">À la racine</button>
+              <button class="option" onclick="answer(this,true)">Au nœud le plus à gauche</button>
+              <button class="option" onclick="answer(this,false)">Au nœud le plus à droite</button>
+              <button class="option" onclick="answer(this,false)">Dans une feuille aléatoire</button>
             </div>
             <div class="q-feedback">Dans un ABR, tous les éléments du sous-arbre gauche sont inférieurs au parent. Le plus petit élément est donc au nœud le plus à gauche de l'arbre.</div>
           </div>
@@ -167,10 +167,10 @@ graphe = {
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Quel parcours d'un ABR donne les éléments dans l'ordre croissant ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Préfixe (pré-ordre)</div>
-              <div class="option" onclick="answer(this,true)">Infixe (in-ordre)</div>
-              <div class="option" onclick="answer(this,false)">Postfixe (post-ordre)</div>
-              <div class="option" onclick="answer(this,false)">Par niveaux (BFS)</div>
+              <button class="option" onclick="answer(this,false)">Préfixe (pré-ordre)</button>
+              <button class="option" onclick="answer(this,true)">Infixe (in-ordre)</button>
+              <button class="option" onclick="answer(this,false)">Postfixe (post-ordre)</button>
+              <button class="option" onclick="answer(this,false)">Par niveaux (BFS)</button>
             </div>
             <div class="q-feedback">Le parcours infixe (gauche → racine → droite) d'un ABR visite les éléments dans l'ordre croissant, car il traite d'abord les plus petits (sous-arbre gauche).</div>
           </div>
@@ -178,10 +178,10 @@ graphe = {
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Quelle opération un tas-min permet-il en O(1) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Accéder au minimum</div>
-              <div class="option" onclick="answer(this,false)">Insérer un élément</div>
-              <div class="option" onclick="answer(this,false)">Supprimer un élément quelconque</div>
-              <div class="option" onclick="answer(this,false)">Rechercher un élément</div>
+              <button class="option" onclick="answer(this,true)">Accéder au minimum</button>
+              <button class="option" onclick="answer(this,false)">Insérer un élément</button>
+              <button class="option" onclick="answer(this,false)">Supprimer un élément quelconque</button>
+              <button class="option" onclick="answer(this,false)">Rechercher un élément</button>
             </div>
             <div class="q-feedback">Le minimum d'un tas-min est toujours à la racine, donc accessible en O(1). L'insertion et l'extraction du minimum sont en O(log n).</div>
           </div>
@@ -189,10 +189,10 @@ graphe = {
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">L'algorithme de Dijkstra fonctionne-t-il avec des poids négatifs ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Oui, toujours</div>
-              <div class="option" onclick="answer(this,true)">Non, il nécessite des poids positifs</div>
-              <div class="option" onclick="answer(this,false)">Oui, mais seulement pour les graphes non orientés</div>
-              <div class="option" onclick="answer(this,false)">Oui, si le graphe est acyclique</div>
+              <button class="option" onclick="answer(this,false)">Oui, toujours</button>
+              <button class="option" onclick="answer(this,true)">Non, il nécessite des poids positifs</button>
+              <button class="option" onclick="answer(this,false)">Oui, mais seulement pour les graphes non orientés</button>
+              <button class="option" onclick="answer(this,false)">Oui, si le graphe est acyclique</button>
             </div>
             <div class="q-feedback">Dijkstra suppose que tous les poids sont positifs. Avec des poids négatifs, il peut donner des résultats incorrects. L'algorithme de Bellman-Ford gère les poids négatifs.</div>
           </div>
@@ -200,10 +200,10 @@ graphe = {
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quelle est la différence entre un graphe orienté et non orienté ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un graphe orienté a des poids</div>
-              <div class="option" onclick="answer(this,true)">Les arêtes d'un graphe orienté ont une direction</div>
-              <div class="option" onclick="answer(this,false)">Un graphe non orienté ne peut pas avoir de cycles</div>
-              <div class="option" onclick="answer(this,false)">Un graphe orienté est toujours un arbre</div>
+              <button class="option" onclick="answer(this,false)">Un graphe orienté a des poids</button>
+              <button class="option" onclick="answer(this,true)">Les arêtes d'un graphe orienté ont une direction</button>
+              <button class="option" onclick="answer(this,false)">Un graphe non orienté ne peut pas avoir de cycles</button>
+              <button class="option" onclick="answer(this,false)">Un graphe orienté est toujours un arbre</button>
             </div>
             <div class="q-feedback">Dans un graphe orienté, chaque arête a une direction (A → B ne signifie pas B → A). Dans un graphe non orienté, les arêtes sont bidirectionnelles.</div>
           </div>
@@ -275,8 +275,14 @@ def reconstruire_chemin(predecesseurs, destination):
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

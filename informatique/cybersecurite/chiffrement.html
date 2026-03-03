@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Chiffrement symétrique et asymétrique, RSA, AES, fonctions de hachage et signatures numériques — les mathématiques au service de la confidentialité.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Chiffrement et cryptographie — Cybersécurité — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #2980b9;
   --accent2: #3498db;
   --accent-dim: rgba(41,128,185,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(41,128,185,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(41,128,185,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔒 Cybersécurité</span>
     <span class="tag-level">Intermédiaire</span>
@@ -245,10 +245,10 @@ hache = bcrypt.hashpw(mdp, sel)
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la différence fondamentale entre chiffrement symétrique et asymétrique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le symétrique est plus sûr que l'asymétrique</div>
-              <div class="option" onclick="answer(this,true)">Le symétrique utilise une seule clé, l'asymétrique utilise une paire de clés</div>
-              <div class="option" onclick="answer(this,false)">Le symétrique ne fonctionne qu'avec du texte, l'asymétrique avec tout type de données</div>
-              <div class="option" onclick="answer(this,false)">Le symétrique est plus lent que l'asymétrique</div>
+              <button class="option" onclick="answer(this,false)">Le symétrique est plus sûr que l'asymétrique</button>
+              <button class="option" onclick="answer(this,true)">Le symétrique utilise une seule clé, l'asymétrique utilise une paire de clés</button>
+              <button class="option" onclick="answer(this,false)">Le symétrique ne fonctionne qu'avec du texte, l'asymétrique avec tout type de données</button>
+              <button class="option" onclick="answer(this,false)">Le symétrique est plus lent que l'asymétrique</button>
             </div>
             <div class="q-feedback">Le chiffrement symétrique utilise la même clé pour chiffrer et déchiffrer, tandis que l'asymétrique utilise une clé publique pour chiffrer et une clé privée pour déchiffrer (ou inversement pour la signature).</div>
           </div>
@@ -256,10 +256,10 @@ hache = bcrypt.hashpw(mdp, sel)
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel algorithme de chiffrement symétrique est le standard actuel ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">DES</div>
-              <div class="option" onclick="answer(this,false)">RSA</div>
-              <div class="option" onclick="answer(this,true)">AES</div>
-              <div class="option" onclick="answer(this,false)">MD5</div>
+              <button class="option" onclick="answer(this,false)">DES</button>
+              <button class="option" onclick="answer(this,false)">RSA</button>
+              <button class="option" onclick="answer(this,true)">AES</button>
+              <button class="option" onclick="answer(this,false)">MD5</button>
             </div>
             <div class="q-feedback">AES (Advanced Encryption Standard) est le standard depuis 2001, remplaçant DES devenu trop faible. RSA est asymétrique et MD5 est une fonction de hachage, pas un algorithme de chiffrement.</div>
           </div>
@@ -267,10 +267,10 @@ hache = bcrypt.hashpw(mdp, sel)
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Pourquoi ne doit-on pas utiliser MD5 pour sécuriser des mots de passe ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">MD5 produit un hash trop long</div>
-              <div class="option" onclick="answer(this,false)">MD5 est un algorithme de chiffrement, pas de hachage</div>
-              <div class="option" onclick="answer(this,true)">MD5 est vulnérable aux collisions et trop rapide à calculer</div>
-              <div class="option" onclick="answer(this,false)">MD5 nécessite une clé secrète</div>
+              <button class="option" onclick="answer(this,false)">MD5 produit un hash trop long</button>
+              <button class="option" onclick="answer(this,false)">MD5 est un algorithme de chiffrement, pas de hachage</button>
+              <button class="option" onclick="answer(this,true)">MD5 est vulnérable aux collisions et trop rapide à calculer</button>
+              <button class="option" onclick="answer(this,false)">MD5 nécessite une clé secrète</button>
             </div>
             <div class="q-feedback">MD5 est vulnérable aux collisions (deux entrées différentes peuvent produire le même hash) et sa rapidité permet des attaques par force brute très efficaces. Pour les mots de passe, on utilise bcrypt, scrypt ou Argon2 qui sont volontairement lents.</div>
           </div>
@@ -278,10 +278,10 @@ hache = bcrypt.hashpw(mdp, sel)
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Dans une signature numérique, avec quelle clé l'expéditeur signe-t-il ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Sa clé privée</div>
-              <div class="option" onclick="answer(this,false)">Sa clé publique</div>
-              <div class="option" onclick="answer(this,false)">La clé publique du destinataire</div>
-              <div class="option" onclick="answer(this,false)">Une clé symétrique partagée</div>
+              <button class="option" onclick="answer(this,true)">Sa clé privée</button>
+              <button class="option" onclick="answer(this,false)">Sa clé publique</button>
+              <button class="option" onclick="answer(this,false)">La clé publique du destinataire</button>
+              <button class="option" onclick="answer(this,false)">Une clé symétrique partagée</button>
             </div>
             <div class="q-feedback">L'expéditeur signe avec sa clé privée (que lui seul possède), ce qui prouve son identité. Le destinataire vérifie avec la clé publique de l'expéditeur. C'est l'inverse du chiffrement asymétrique classique.</div>
           </div>
@@ -289,10 +289,10 @@ hache = bcrypt.hashpw(mdp, sel)
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel protocole sécurise les communications HTTPS ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">SSH</div>
-              <div class="option" onclick="answer(this,true)">TLS</div>
-              <div class="option" onclick="answer(this,false)">IPsec</div>
-              <div class="option" onclick="answer(this,false)">PGP</div>
+              <button class="option" onclick="answer(this,false)">SSH</button>
+              <button class="option" onclick="answer(this,true)">TLS</button>
+              <button class="option" onclick="answer(this,false)">IPsec</button>
+              <button class="option" onclick="answer(this,false)">PGP</button>
             </div>
             <div class="q-feedback">TLS (Transport Layer Security) est le protocole qui sécurise HTTPS. Il combine chiffrement asymétrique (pour l'échange de clés) et symétrique (pour le chiffrement des données) lors du handshake TLS.</div>
           </div>
@@ -300,10 +300,10 @@ hache = bcrypt.hashpw(mdp, sel)
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle menace l'informatique quantique fait-elle peser sur la cryptographie ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Elle rend toute forme de chiffrement obsolète</div>
-              <div class="option" onclick="answer(this,false)">Elle permet de deviner les mots de passe instantanément</div>
-              <div class="option" onclick="answer(this,true)">L'algorithme de Shor pourrait casser RSA et ECC</div>
-              <div class="option" onclick="answer(this,false)">Elle empêche l'utilisation de fonctions de hachage</div>
+              <button class="option" onclick="answer(this,false)">Elle rend toute forme de chiffrement obsolète</button>
+              <button class="option" onclick="answer(this,false)">Elle permet de deviner les mots de passe instantanément</button>
+              <button class="option" onclick="answer(this,true)">L'algorithme de Shor pourrait casser RSA et ECC</button>
+              <button class="option" onclick="answer(this,false)">Elle empêche l'utilisation de fonctions de hachage</button>
             </div>
             <div class="q-feedback">L'algorithme de Shor peut factoriser de grands nombres en temps polynomial sur un ordinateur quantique, menaçant RSA et ECC. Cependant, AES-256 et les fonctions de hachage restent résistants (algorithme de Grover ne fait que diviser la sécurité par deux).</div>
           </div>
@@ -491,8 +491,14 @@ Notes :
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

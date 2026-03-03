@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bien et mal, utilitarisme, déontologie, éthique de la vertu et dilemmes moraux.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Éthique — Concepts fondamentaux — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8e44ad;
   --accent2: #9b59b6;
   --accent-dim: rgba(142,68,173,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(142,68,173,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(142,68,173,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">💡 Concepts</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -134,10 +134,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qu'est-ce que l'eudaimonia chez Aristote ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le plaisir physique maximal</div>
-              <div class="option" onclick="answer(this,true)">L'accomplissement de la nature humaine par les vertus</div>
-              <div class="option" onclick="answer(this,false)">La richesse matérielle</div>
-              <div class="option" onclick="answer(this,false)">L'absence de souffrance</div>
+              <button class="option" onclick="answer(this,false)">Le plaisir physique maximal</button>
+              <button class="option" onclick="answer(this,true)">L'accomplissement de la nature humaine par les vertus</button>
+              <button class="option" onclick="answer(this,false)">La richesse matérielle</button>
+              <button class="option" onclick="answer(this,false)">L'absence de souffrance</button>
             </div>
             <div class="q-feedback">L'eudaimonia n'est pas le simple plaisir mais l'épanouissement, l'accomplissement de ce que l'être humain a de meilleur. Elle se réalise par l'exercice des vertus tout au long de la vie.</div>
           </div>
@@ -145,10 +145,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que dit l'impératif catégorique de Kant (formule de l'humanité) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Agis pour maximiser le bonheur de tous</div>
-              <div class="option" onclick="answer(this,false)">Suis toujours les lois de ton pays</div>
-              <div class="option" onclick="answer(this,true)">Traite l'humanité toujours comme une fin et jamais simplement comme un moyen</div>
-              <div class="option" onclick="answer(this,false)">Fais aux autres ce que tu voudrais qu'ils te fassent</div>
+              <button class="option" onclick="answer(this,false)">Agis pour maximiser le bonheur de tous</button>
+              <button class="option" onclick="answer(this,false)">Suis toujours les lois de ton pays</button>
+              <button class="option" onclick="answer(this,true)">Traite l'humanité toujours comme une fin et jamais simplement comme un moyen</button>
+              <button class="option" onclick="answer(this,false)">Fais aux autres ce que tu voudrais qu'ils te fassent</button>
             </div>
             <div class="q-feedback">L'impératif catégorique interdit d'utiliser les personnes comme de simples instruments. Chaque être humain a une dignité qui exige le respect, indépendamment des conséquences.</div>
           </div>
@@ -156,10 +156,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Sur quel critère l'utilitarisme juge-t-il une action ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'intention de l'agent</div>
-              <div class="option" onclick="answer(this,false)">Le respect de la loi morale</div>
-              <div class="option" onclick="answer(this,true)">Les conséquences : le maximum de bonheur pour le plus grand nombre</div>
-              <div class="option" onclick="answer(this,false)">La conformité aux traditions culturelles</div>
+              <button class="option" onclick="answer(this,false)">L'intention de l'agent</button>
+              <button class="option" onclick="answer(this,false)">Le respect de la loi morale</button>
+              <button class="option" onclick="answer(this,true)">Les conséquences : le maximum de bonheur pour le plus grand nombre</button>
+              <button class="option" onclick="answer(this,false)">La conformité aux traditions culturelles</button>
             </div>
             <div class="q-feedback">L'utilitarisme est une éthique conséquentialiste : seules les conséquences d'une action déterminent sa valeur morale. L'objectif est de maximiser le bonheur total (ou de minimiser la souffrance totale).</div>
           </div>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce que la phronesis chez Aristote ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le courage face au danger</div>
-              <div class="option" onclick="answer(this,true)">La sagesse pratique, la capacité de juger correctement dans chaque situation</div>
-              <div class="option" onclick="answer(this,false)">La connaissance théorique des principes moraux</div>
-              <div class="option" onclick="answer(this,false)">La justice dans la répartition des biens</div>
+              <button class="option" onclick="answer(this,false)">Le courage face au danger</button>
+              <button class="option" onclick="answer(this,true)">La sagesse pratique, la capacité de juger correctement dans chaque situation</button>
+              <button class="option" onclick="answer(this,false)">La connaissance théorique des principes moraux</button>
+              <button class="option" onclick="answer(this,false)">La justice dans la répartition des biens</button>
             </div>
             <div class="q-feedback">La phronesis est la vertu intellectuelle qui permet de délibérer correctement dans les situations concrètes. Elle ne se réduit pas à l'application de règles abstraites mais exige l'expérience et le jugement.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que critique l'éthique du care dans les théories éthiques traditionnelles ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Leur abstraction et leur oubli des relations concrètes de vulnérabilité</div>
-              <div class="option" onclick="answer(this,false)">Leur manque de rigueur logique</div>
-              <div class="option" onclick="answer(this,false)">Leur refus de la religion</div>
-              <div class="option" onclick="answer(this,false)">Leur caractère trop concret</div>
+              <button class="option" onclick="answer(this,true)">Leur abstraction et leur oubli des relations concrètes de vulnérabilité</button>
+              <button class="option" onclick="answer(this,false)">Leur manque de rigueur logique</button>
+              <button class="option" onclick="answer(this,false)">Leur refus de la religion</button>
+              <button class="option" onclick="answer(this,false)">Leur caractère trop concret</button>
             </div>
             <div class="q-feedback">L'éthique du care reproche aux théories traditionnelles de partir de principes abstraits et universels en oubliant que les êtres humains sont des êtres vulnérables, liés par des relations concrètes de dépendance et de soin.</div>
           </div>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Dans le dilemme du tramway, un kantien hésite à actionner l'aiguillage parce que :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le résultat est incertain</div>
-              <div class="option" onclick="answer(this,false)">Il manque de courage</div>
-              <div class="option" onclick="answer(this,true)">Dévier le tramway utilise la personne seule comme moyen</div>
-              <div class="option" onclick="answer(this,false)">La loi interdit de toucher aux aiguillages</div>
+              <button class="option" onclick="answer(this,false)">Le résultat est incertain</button>
+              <button class="option" onclick="answer(this,false)">Il manque de courage</button>
+              <button class="option" onclick="answer(this,true)">Dévier le tramway utilise la personne seule comme moyen</button>
+              <button class="option" onclick="answer(this,false)">La loi interdit de toucher aux aiguillages</button>
             </div>
             <div class="q-feedback">Pour un kantien, détourner le tramway instrumentalise la personne sur la voie secondaire : on l'utilise comme moyen pour sauver les cinq autres. L'impératif catégorique interdit de traiter une personne comme un simple moyen.</div>
           </div>
@@ -272,8 +272,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

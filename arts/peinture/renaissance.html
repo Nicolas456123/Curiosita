@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La révolution artistique du XVe siècle : perspective, humanisme et quête de la beauté idéale.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>La Renaissance — Peinture — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎨 Peinture</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -145,10 +145,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qui a formalisé la perspective linéaire au début du XVe siècle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Léonard de Vinci</div>
-              <div class="option" onclick="answer(this,true)">Filippo Brunelleschi</div>
-              <div class="option" onclick="answer(this,false)">Michel-Ange</div>
-              <div class="option" onclick="answer(this,false)">Raphaël</div>
+              <button class="option" onclick="answer(this,false)">Léonard de Vinci</button>
+              <button class="option" onclick="answer(this,true)">Filippo Brunelleschi</button>
+              <button class="option" onclick="answer(this,false)">Michel-Ange</button>
+              <button class="option" onclick="answer(this,false)">Raphaël</button>
             </div>
             <div class="q-feedback">Brunelleschi a démontré la perspective linéaire vers 1415 à Florence, avant qu'Alberti ne la théorise dans De Pictura (1435).</div>
           </div>
@@ -156,10 +156,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle technique Léonard de Vinci utilise-t-il pour estomper les contours dans La Joconde ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le clair-obscur</div>
-              <div class="option" onclick="answer(this,false)">La tempera</div>
-              <div class="option" onclick="answer(this,true)">Le sfumato</div>
-              <div class="option" onclick="answer(this,false)">La fresque</div>
+              <button class="option" onclick="answer(this,false)">Le clair-obscur</button>
+              <button class="option" onclick="answer(this,false)">La tempera</button>
+              <button class="option" onclick="answer(this,true)">Le sfumato</button>
+              <button class="option" onclick="answer(this,false)">La fresque</button>
             </div>
             <div class="q-feedback">Le sfumato (de l'italien « fumée ») consiste à estomper les contours par des glacis successifs, créant des transitions douces entre ombre et lumière.</div>
           </div>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel artiste a peint le plafond de la chapelle Sixtine entre 1508 et 1512 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Raphaël</div>
-              <div class="option" onclick="answer(this,false)">Botticelli</div>
-              <div class="option" onclick="answer(this,false)">Léonard de Vinci</div>
-              <div class="option" onclick="answer(this,true)">Michel-Ange</div>
+              <button class="option" onclick="answer(this,false)">Raphaël</button>
+              <button class="option" onclick="answer(this,false)">Botticelli</button>
+              <button class="option" onclick="answer(this,false)">Léonard de Vinci</button>
+              <button class="option" onclick="answer(this,true)">Michel-Ange</button>
             </div>
             <div class="q-feedback">Michel-Ange a peint les 500 m² du plafond de la chapelle Sixtine sur commande du pape Jules II, réalisant un chef-d'oeuvre de la fresque.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel est le principal apport de la peinture à l'huile par rapport à la tempera ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Elle sèche plus vite</div>
-              <div class="option" onclick="answer(this,false)">Elle est moins coûteuse</div>
-              <div class="option" onclick="answer(this,true)">Elle permet des glacis transparents et un rendu plus subtil</div>
-              <div class="option" onclick="answer(this,false)">Elle ne nécessite aucun liant</div>
+              <button class="option" onclick="answer(this,false)">Elle sèche plus vite</button>
+              <button class="option" onclick="answer(this,false)">Elle est moins coûteuse</button>
+              <button class="option" onclick="answer(this,true)">Elle permet des glacis transparents et un rendu plus subtil</button>
+              <button class="option" onclick="answer(this,false)">Elle ne nécessite aucun liant</button>
             </div>
             <div class="q-feedback">La peinture à l'huile, perfectionnée par les Flamands puis adoptée en Italie, permet des glacis transparents, un travail plus lent et un rendu des textures incomparable par rapport à la tempera.</div>
           </div>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle famille florentine fut le principal mécène de la Renaissance italienne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les Borgia</div>
-              <div class="option" onclick="answer(this,false)">Les Sforza</div>
-              <div class="option" onclick="answer(this,true)">Les Médicis</div>
-              <div class="option" onclick="answer(this,false)">Les Este</div>
+              <button class="option" onclick="answer(this,false)">Les Borgia</button>
+              <button class="option" onclick="answer(this,false)">Les Sforza</button>
+              <button class="option" onclick="answer(this,true)">Les Médicis</button>
+              <button class="option" onclick="answer(this,false)">Les Este</button>
             </div>
             <div class="q-feedback">La famille Médicis, puissante dynastie de banquiers florentins, a été le mécène le plus influent de la Renaissance, soutenant des artistes comme Botticelli, Léonard de Vinci et Michel-Ange.</div>
           </div>
@@ -200,10 +200,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel peintre vénitien est considéré comme le plus grand coloriste de la Renaissance ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Véronèse</div>
-              <div class="option" onclick="answer(this,false)">Giovanni Bellini</div>
-              <div class="option" onclick="answer(this,false)">Le Tintoret</div>
-              <div class="option" onclick="answer(this,true)">Titien</div>
+              <button class="option" onclick="answer(this,false)">Véronèse</button>
+              <button class="option" onclick="answer(this,false)">Giovanni Bellini</button>
+              <button class="option" onclick="answer(this,false)">Le Tintoret</button>
+              <button class="option" onclick="answer(this,true)">Titien</button>
             </div>
             <div class="q-feedback">Titien (v. 1488-1576) a dominé la peinture vénitienne pendant plus de soixante ans. Sa palette somptueuse et sa touche libre dans sa maturité en font le plus grand coloriste de la Renaissance.</div>
           </div>
@@ -255,8 +255,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Des nébuleuses aux protoétoiles — effondrement gravitationnel, accrétion et allumage de la fusion nucléaire.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Naissance des étoiles — Étoiles et galaxies — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #80cbc4;
   --accent-dim: rgba(122,232,216,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔭 Étoiles et galaxies</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -126,10 +126,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Dans quel type de structure les étoiles naissent-elles ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les amas globulaires</div>
-              <div class="option" onclick="answer(this,true)">Les nuages moléculaires géants</div>
-              <div class="option" onclick="answer(this,false)">Les nébuleuses planétaires</div>
-              <div class="option" onclick="answer(this,false)">Les trous noirs</div>
+              <button class="option" onclick="answer(this,false)">Les amas globulaires</button>
+              <button class="option" onclick="answer(this,true)">Les nuages moléculaires géants</button>
+              <button class="option" onclick="answer(this,false)">Les nébuleuses planétaires</button>
+              <button class="option" onclick="answer(this,false)">Les trous noirs</button>
             </div>
             <div class="q-feedback">Les étoiles naissent dans les nuages moléculaires géants, vastes nuages de gaz froid (H₂) et de poussières. Les nébuleuses planétaires sont au contraire des enveloppes éjectées par des étoiles en fin de vie.</div>
           </div>
@@ -137,10 +137,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'est-ce que la masse de Jeans ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La masse maximale d'une étoile</div>
-              <div class="option" onclick="answer(this,true)">La masse minimale pour qu'un nuage s'effondre gravitationnellement</div>
-              <div class="option" onclick="answer(this,false)">La masse du Soleil</div>
-              <div class="option" onclick="answer(this,false)">La masse d'un trou noir stellaire</div>
+              <button class="option" onclick="answer(this,false)">La masse maximale d'une étoile</button>
+              <button class="option" onclick="answer(this,true)">La masse minimale pour qu'un nuage s'effondre gravitationnellement</button>
+              <button class="option" onclick="answer(this,false)">La masse du Soleil</button>
+              <button class="option" onclick="answer(this,false)">La masse d'un trou noir stellaire</button>
             </div>
             <div class="q-feedback">La masse de Jeans est la masse critique au-delà de laquelle la gravité l'emporte sur la pression thermique et le nuage s'effondre. Elle dépend de la température et de la densité du gaz.</div>
           </div>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quelle température faut-il atteindre pour déclencher la fusion de l'hydrogène ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1 million de K</div>
-              <div class="option" onclick="answer(this,true)">10 millions de K</div>
-              <div class="option" onclick="answer(this,false)">100 millions de K</div>
-              <div class="option" onclick="answer(this,false)">1 milliard de K</div>
+              <button class="option" onclick="answer(this,false)">1 million de K</button>
+              <button class="option" onclick="answer(this,true)">10 millions de K</button>
+              <button class="option" onclick="answer(this,false)">100 millions de K</button>
+              <button class="option" onclick="answer(this,false)">1 milliard de K</button>
             </div>
             <div class="q-feedback">La fusion de l'hydrogène en hélium nécessite une température d'environ 10 millions de kelvins au cœur de l'étoile. 100 millions de K est la température nécessaire pour la fusion de l'hélium.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qu'est-ce qu'un disque protoplanétaire ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Le disque de gaz et poussières autour d'une protoétoile, berceau des planètes</div>
-              <div class="option" onclick="answer(this,false)">Un anneau comme celui de Saturne</div>
-              <div class="option" onclick="answer(this,false)">Le disque d'accrétion d'un trou noir</div>
-              <div class="option" onclick="answer(this,false)">La forme aplatie d'une galaxie spirale</div>
+              <button class="option" onclick="answer(this,true)">Le disque de gaz et poussières autour d'une protoétoile, berceau des planètes</button>
+              <button class="option" onclick="answer(this,false)">Un anneau comme celui de Saturne</button>
+              <button class="option" onclick="answer(this,false)">Le disque d'accrétion d'un trou noir</button>
+              <button class="option" onclick="answer(this,false)">La forme aplatie d'une galaxie spirale</button>
             </div>
             <div class="q-feedback">Le disque protoplanétaire est le disque de gaz et de poussières entourant une protoétoile, dans lequel les grains s'agglomèrent pour former planétésimaux et planètes.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Pourquoi les étoiles naissent-elles rarement seules ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Parce qu'elles ont besoin les unes des autres pour briller</div>
-              <div class="option" onclick="answer(this,true)">Parce que le nuage moléculaire se fragmente en de nombreux cœurs</div>
-              <div class="option" onclick="answer(this,false)">Parce que la gravité attire les étoiles entre elles</div>
-              <div class="option" onclick="answer(this,false)">Parce que le Soleil les crée par paires</div>
+              <button class="option" onclick="answer(this,false)">Parce qu'elles ont besoin les unes des autres pour briller</button>
+              <button class="option" onclick="answer(this,true)">Parce que le nuage moléculaire se fragmente en de nombreux cœurs</button>
+              <button class="option" onclick="answer(this,false)">Parce que la gravité attire les étoiles entre elles</button>
+              <button class="option" onclick="answer(this,false)">Parce que le Soleil les crée par paires</button>
             </div>
             <div class="q-feedback">Le nuage moléculaire en effondrement se fragmente en de nombreux sous-cœurs, chacun donnant naissance à une étoile. C'est pourquoi les étoiles naissent en amas ou en associations.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que sont les étoiles T Tauri ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Des étoiles en fin de vie</div>
-              <div class="option" onclick="answer(this,false)">Des étoiles à neutrons</div>
-              <div class="option" onclick="answer(this,true)">De jeunes étoiles de faible masse n'ayant pas encore atteint la séquence principale</div>
-              <div class="option" onclick="answer(this,false)">Des naines blanches refroidies</div>
+              <button class="option" onclick="answer(this,false)">Des étoiles en fin de vie</button>
+              <button class="option" onclick="answer(this,false)">Des étoiles à neutrons</button>
+              <button class="option" onclick="answer(this,true)">De jeunes étoiles de faible masse n'ayant pas encore atteint la séquence principale</button>
+              <button class="option" onclick="answer(this,false)">Des naines blanches refroidies</button>
             </div>
             <div class="q-feedback">Les étoiles T Tauri sont de jeunes étoiles de faible masse (< 2 M☉) encore en phase pré-séquence principale. Elles présentent une forte variabilité et souvent des disques protoplanétaires.</div>
           </div>
@@ -254,8 +254,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

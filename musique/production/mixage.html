@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Balance, égalisation, compression, réverbération et panoramique — l'art de combiner les pistes en un ensemble cohérent et expressif.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Mixage — Production musicale — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e74c3c;
   --accent2: #c0392b;
   --accent-dim: rgba(231,76,60,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(231,76,60,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(231,76,60,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎛️ Production musicale</span>
     <span class="tag-level">Intermédiaire</span>
@@ -133,10 +133,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Par quelle approche d'EQ faut-il commencer en mixage ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">L'EQ soustractive (retirer ce qui gêne)</div>
-              <div class="option" onclick="answer(this,false)">L'EQ additive (ajouter ce qui manque)</div>
-              <div class="option" onclick="answer(this,false)">Un boost large dans les aigus</div>
-              <div class="option" onclick="answer(this,false)">Un boost dans les basses</div>
+              <button class="option" onclick="answer(this,true)">L'EQ soustractive (retirer ce qui gêne)</button>
+              <button class="option" onclick="answer(this,false)">L'EQ additive (ajouter ce qui manque)</button>
+              <button class="option" onclick="answer(this,false)">Un boost large dans les aigus</button>
+              <button class="option" onclick="answer(this,false)">Un boost dans les basses</button>
             </div>
             <div class="q-feedback">On commence toujours par l'EQ soustractive : retirer les fréquences indésirables (résonances, bourdonnements, encombrement dans les graves) avant d'ajouter quoi que ce soit. C'est la base d'un mix propre et clair.</div>
           </div>
@@ -144,10 +144,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel paramètre du compresseur contrôle le niveau à partir duquel la compression s'active ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le ratio</div>
-              <div class="option" onclick="answer(this,true)">Le seuil (threshold)</div>
-              <div class="option" onclick="answer(this,false)">L'attaque</div>
-              <div class="option" onclick="answer(this,false)">Le relâchement (release)</div>
+              <button class="option" onclick="answer(this,false)">Le ratio</button>
+              <button class="option" onclick="answer(this,true)">Le seuil (threshold)</button>
+              <button class="option" onclick="answer(this,false)">L'attaque</button>
+              <button class="option" onclick="answer(this,false)">Le relâchement (release)</button>
             </div>
             <div class="q-feedback">Le seuil (threshold) définit le niveau en dB à partir duquel le compresseur commence à réduire le signal. Tout signal dépassant ce seuil sera compressé selon le ratio défini.</div>
           </div>
@@ -155,10 +155,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Pourquoi utilise-t-on la réverbération en envoi auxiliaire plutôt qu'en insert ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pour économiser de la puissance CPU</div>
-              <div class="option" onclick="answer(this,true)">Pour doser indépendamment la réverbe sur chaque piste tout en partageant le même espace</div>
-              <div class="option" onclick="answer(this,false)">Pour éviter la latence</div>
-              <div class="option" onclick="answer(this,false)">Pour améliorer la qualité sonore</div>
+              <button class="option" onclick="answer(this,false)">Pour économiser de la puissance CPU</button>
+              <button class="option" onclick="answer(this,true)">Pour doser indépendamment la réverbe sur chaque piste tout en partageant le même espace</button>
+              <button class="option" onclick="answer(this,false)">Pour éviter la latence</button>
+              <button class="option" onclick="answer(this,false)">Pour améliorer la qualité sonore</button>
             </div>
             <div class="q-feedback">En envoi auxiliaire, chaque piste peut envoyer une quantité différente de signal vers la même réverbe. Cela crée un espace acoustique cohérent (toutes les sources partagent la même « pièce ») tout en permettant un contrôle indépendant du dosage.</div>
           </div>
@@ -166,10 +166,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quels éléments sont généralement placés au centre du panoramique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les overheads de batterie et les choeurs</div>
-              <div class="option" onclick="answer(this,false)">Les guitares rythmiques et les pads</div>
-              <div class="option" onclick="answer(this,true)">La voix lead, la basse et le kick</div>
-              <div class="option" onclick="answer(this,false)">Les effets sonores et les percussions</div>
+              <button class="option" onclick="answer(this,false)">Les overheads de batterie et les choeurs</button>
+              <button class="option" onclick="answer(this,false)">Les guitares rythmiques et les pads</button>
+              <button class="option" onclick="answer(this,true)">La voix lead, la basse et le kick</button>
+              <button class="option" onclick="answer(this,false)">Les effets sonores et les percussions</button>
             </div>
             <div class="q-feedback">La voix lead, la basse et le kick (grosse caisse) sont les fondations du mix et sont placés au centre pour assurer une base solide et une écoute cohérente en mono comme en stéréo.</div>
           </div>
@@ -177,10 +177,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce qu'une compression « glue » sur un bus de batterie ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une compression très agressive (ratio 20:1)</div>
-              <div class="option" onclick="answer(this,true)">Une compression légère qui soude les éléments entre eux</div>
-              <div class="option" onclick="answer(this,false)">Un limiteur sur le bus master</div>
-              <div class="option" onclick="answer(this,false)">Une compression parallèle</div>
+              <button class="option" onclick="answer(this,false)">Une compression très agressive (ratio 20:1)</button>
+              <button class="option" onclick="answer(this,true)">Une compression légère qui soude les éléments entre eux</button>
+              <button class="option" onclick="answer(this,false)">Un limiteur sur le bus master</button>
+              <button class="option" onclick="answer(this,false)">Une compression parallèle</button>
             </div>
             <div class="q-feedback">La glue compression utilise un ratio modéré (2:1 à 4:1) avec seulement 1-3 dB de réduction de gain pour « coller » les éléments d'un groupe, les faisant sonner comme un ensemble cohérent plutôt que comme des pistes séparées.</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Une attaque lente sur un compresseur de batterie permet de :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Écraser les transitoires pour un son plus doux</div>
-              <div class="option" onclick="answer(this,true)">Laisser passer les transitoires pour préserver le punch</div>
-              <div class="option" onclick="answer(this,false)">Augmenter le volume global</div>
-              <div class="option" onclick="answer(this,false)">Créer un effet de pompage</div>
+              <button class="option" onclick="answer(this,false)">Écraser les transitoires pour un son plus doux</button>
+              <button class="option" onclick="answer(this,true)">Laisser passer les transitoires pour préserver le punch</button>
+              <button class="option" onclick="answer(this,false)">Augmenter le volume global</button>
+              <button class="option" onclick="answer(this,false)">Créer un effet de pompage</button>
             </div>
             <div class="q-feedback">Une attaque lente (10-30 ms) laisse passer le transitoire initial (l'attaque du coup de baguette) avant que la compression ne s'enclenche, préservant ainsi le punch et l'impact de la batterie.</div>
           </div>
@@ -254,8 +254,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

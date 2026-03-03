@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Patrimoine UNESCO, terroirs régionaux, grands classiques et art de vivre à la française — un voyage au coeur de la gastronomie la plus influente du monde.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Cuisine française — Cuisine du monde — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🇫🇷 Cuisine du monde</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">En quelle année le « repas gastronomique des Français » a-t-il été inscrit au patrimoine de l'UNESCO ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">2005</div>
-              <div class="option" onclick="answer(this,true)">2010</div>
-              <div class="option" onclick="answer(this,false)">2015</div>
-              <div class="option" onclick="answer(this,false)">2000</div>
+              <button class="option" onclick="answer(this,false)">2005</button>
+              <button class="option" onclick="answer(this,true)">2010</button>
+              <button class="option" onclick="answer(this,false)">2015</button>
+              <button class="option" onclick="answer(this,false)">2000</button>
             </div>
             <div class="q-feedback">C'est en 2010 que l'UNESCO a inscrit le repas gastronomique des Français au patrimoine culturel immatériel de l'humanité.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle ville est considérée comme la « capitale mondiale de la gastronomie » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Paris</div>
-              <div class="option" onclick="answer(this,false)">Bordeaux</div>
-              <div class="option" onclick="answer(this,true)">Lyon</div>
-              <div class="option" onclick="answer(this,false)">Marseille</div>
+              <button class="option" onclick="answer(this,false)">Paris</button>
+              <button class="option" onclick="answer(this,false)">Bordeaux</button>
+              <button class="option" onclick="answer(this,true)">Lyon</button>
+              <button class="option" onclick="answer(this,false)">Marseille</button>
             </div>
             <div class="q-feedback">Lyon est traditionnellement considérée comme la capitale mondiale de la gastronomie, grâce aux « mères lyonnaises » et à des chefs comme Paul Bocuse.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel est le plat emblématique de la Bourgogne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Cassoulet</div>
-              <div class="option" onclick="answer(this,true)">Boeuf bourguignon</div>
-              <div class="option" onclick="answer(this,false)">Bouillabaisse</div>
-              <div class="option" onclick="answer(this,false)">Choucroute</div>
+              <button class="option" onclick="answer(this,false)">Cassoulet</button>
+              <button class="option" onclick="answer(this,true)">Boeuf bourguignon</button>
+              <button class="option" onclick="answer(this,false)">Bouillabaisse</button>
+              <button class="option" onclick="answer(this,false)">Choucroute</button>
             </div>
             <div class="q-feedback">Le boeuf bourguignon est le plat emblématique de la Bourgogne : viande braisée au vin rouge de Bourgogne, avec lardons, champignons et oignons.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Qui a codifié la brigade de cuisine moderne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Paul Bocuse</div>
-              <div class="option" onclick="answer(this,false)">Marie-Antoine Carême</div>
-              <div class="option" onclick="answer(this,true)">Auguste Escoffier</div>
-              <div class="option" onclick="answer(this,false)">Alain Ducasse</div>
+              <button class="option" onclick="answer(this,false)">Paul Bocuse</button>
+              <button class="option" onclick="answer(this,false)">Marie-Antoine Carême</button>
+              <button class="option" onclick="answer(this,true)">Auguste Escoffier</button>
+              <button class="option" onclick="answer(this,false)">Alain Ducasse</button>
             </div>
             <div class="q-feedback">Auguste Escoffier a codifié la brigade de cuisine au début du XXe siècle, organisant les postes en une hiérarchie efficace encore utilisée aujourd'hui.</div>
           </div>
@@ -192,10 +192,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Dans l'ordre classique du repas français, quand sert-on le fromage ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Avant l'entrée</div>
-              <div class="option" onclick="answer(this,false)">Avec le plat principal</div>
-              <div class="option" onclick="answer(this,true)">Après le plat, avant le dessert</div>
-              <div class="option" onclick="answer(this,false)">Après le dessert</div>
+              <button class="option" onclick="answer(this,false)">Avant l'entrée</button>
+              <button class="option" onclick="answer(this,false)">Avec le plat principal</button>
+              <button class="option" onclick="answer(this,true)">Après le plat, avant le dessert</button>
+              <button class="option" onclick="answer(this,false)">Après le dessert</button>
             </div>
             <div class="q-feedback">Le fromage se sert traditionnellement après le plat principal et avant le dessert. C'est un moment à part entière du repas gastronomique français.</div>
           </div>
@@ -203,10 +203,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que désigne le terme « bistronomie » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La cuisine moléculaire</div>
-              <div class="option" onclick="answer(this,true)">Une cuisine gastronomique dans un cadre bistrot accessible</div>
-              <div class="option" onclick="answer(this,false)">La cuisine traditionnelle de bistrot</div>
-              <div class="option" onclick="answer(this,false)">La cuisine végétarienne française</div>
+              <button class="option" onclick="answer(this,false)">La cuisine moléculaire</button>
+              <button class="option" onclick="answer(this,true)">Une cuisine gastronomique dans un cadre bistrot accessible</button>
+              <button class="option" onclick="answer(this,false)">La cuisine traditionnelle de bistrot</button>
+              <button class="option" onclick="answer(this,false)">La cuisine végétarienne française</button>
             </div>
             <div class="q-feedback">La bistronomie est la contraction de « bistrot » et « gastronomie » : une cuisine créative et raffinée, servie dans un cadre décontracté à des prix accessibles.</div>
           </div>
@@ -270,8 +270,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De l'anxiété normale à la pathologie — comprendre les mécanismes, les critères diagnostiques et les traitements des troubles anxieux.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Troubles anxieux — Psychologie Clinique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #b07fe8;
   --accent2: #c9a0f0;
   --accent-dim: rgba(176,127,232,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(176,127,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(176,127,232,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧠 Clinique</span>
     <span class="tag-level">Intermédiaire</span>
@@ -155,10 +155,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la durée minimale des symptômes pour diagnostiquer un trouble anxieux généralisé (TAG) selon le DSM-5 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">2 semaines</div>
-              <div class="option" onclick="answer(this,false)">1 mois</div>
-              <div class="option" onclick="answer(this,true)">6 mois</div>
-              <div class="option" onclick="answer(this,false)">1 an</div>
+              <button class="option" onclick="answer(this,false)">2 semaines</button>
+              <button class="option" onclick="answer(this,false)">1 mois</button>
+              <button class="option" onclick="answer(this,true)">6 mois</button>
+              <button class="option" onclick="answer(this,false)">1 an</button>
             </div>
             <div class="q-feedback">Le DSM-5 exige une anxiété et une inquiétude excessives, difficiles à contrôler, survenant la majorité des jours pendant au moins 6 mois, accompagnées d'au moins 3 symptômes somatiques (tension, fatigue, etc.).</div>
           </div>
@@ -166,10 +166,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Selon le modèle de Clark, le trouble panique est maintenu par :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un déséquilibre chimique cérébral</div>
-              <div class="option" onclick="answer(this,true)">Un cercle vicieux d'interprétation catastrophique des sensations corporelles</div>
-              <div class="option" onclick="answer(this,false)">Des traumatismes de l'enfance refoulés</div>
-              <div class="option" onclick="answer(this,false)">Une hyperactivité du lobe temporal</div>
+              <button class="option" onclick="answer(this,false)">Un déséquilibre chimique cérébral</button>
+              <button class="option" onclick="answer(this,true)">Un cercle vicieux d'interprétation catastrophique des sensations corporelles</button>
+              <button class="option" onclick="answer(this,false)">Des traumatismes de l'enfance refoulés</button>
+              <button class="option" onclick="answer(this,false)">Une hyperactivité du lobe temporal</button>
             </div>
             <div class="q-feedback">Le modèle cognitif de Clark (1986) explique que les sensations physiques normales (accélération cardiaque) sont interprétées catastrophiquement (« crise cardiaque »), ce qui augmente l'anxiété et amplifie les sensations — créant un cercle vicieux auto-entretenu.</div>
           </div>
@@ -177,10 +177,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Le traitement de première ligne recommandé pour les troubles anxieux est :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les benzodiazépines à long terme</div>
-              <div class="option" onclick="answer(this,false)">L'hospitalisation psychiatrique</div>
-              <div class="option" onclick="answer(this,true)">Les TCC et/ou les ISRS</div>
-              <div class="option" onclick="answer(this,false)">La psychanalyse classique</div>
+              <button class="option" onclick="answer(this,false)">Les benzodiazépines à long terme</button>
+              <button class="option" onclick="answer(this,false)">L'hospitalisation psychiatrique</button>
+              <button class="option" onclick="answer(this,true)">Les TCC et/ou les ISRS</button>
+              <button class="option" onclick="answer(this,false)">La psychanalyse classique</button>
             </div>
             <div class="q-feedback">Les recommandations internationales préconisent les TCC (restructuration cognitive + exposition) et/ou les ISRS comme traitements de première ligne. Les benzodiazépines ne sont recommandées qu'en appoint temporaire en raison du risque de dépendance.</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Selon LeDoux, la voie rapide de traitement de la peur va du :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Cortex vers l'hippocampe</div>
-              <div class="option" onclick="answer(this,true)">Thalamus vers l'amygdale directement</div>
-              <div class="option" onclick="answer(this,false)">Hippocampe vers le cortex préfrontal</div>
-              <div class="option" onclick="answer(this,false)">Amygdale vers le thalamus</div>
+              <button class="option" onclick="answer(this,false)">Cortex vers l'hippocampe</button>
+              <button class="option" onclick="answer(this,true)">Thalamus vers l'amygdale directement</button>
+              <button class="option" onclick="answer(this,false)">Hippocampe vers le cortex préfrontal</button>
+              <button class="option" onclick="answer(this,false)">Amygdale vers le thalamus</button>
             </div>
             <div class="q-feedback">LeDoux a identifié une voie rapide (thalamus → amygdale, ~12 ms) qui déclenche une réponse de peur avant toute analyse consciente. Cette voie explique pourquoi nous sursautons face à un bâton ressemblant à un serpent avant de réaliser que ce n'est pas un serpent (voie lente via le cortex).</div>
           </div>
@@ -199,10 +199,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">L'expérience du petit Albert de Watson (1920) a démontré que :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les bébés n'ont peur de rien</div>
-              <div class="option" onclick="answer(this,true)">Les phobies peuvent être acquises par conditionnement classique</div>
-              <div class="option" onclick="answer(this,false)">La peur est toujours innée et génétique</div>
-              <div class="option" onclick="answer(this,false)">Les enfants oublient rapidement leurs peurs</div>
+              <button class="option" onclick="answer(this,false)">Les bébés n'ont peur de rien</button>
+              <button class="option" onclick="answer(this,true)">Les phobies peuvent être acquises par conditionnement classique</button>
+              <button class="option" onclick="answer(this,false)">La peur est toujours innée et génétique</button>
+              <button class="option" onclick="answer(this,false)">Les enfants oublient rapidement leurs peurs</button>
             </div>
             <div class="q-feedback">Watson a conditionné Albert à craindre un rat blanc en l'associant à un bruit effrayant. La peur s'est généralisée à d'autres stimuli similaires (fourrure, lapin). Cette expérience, bien que controversée éthiquement, a démontré le rôle du conditionnement classique dans l'acquisition des phobies.</div>
           </div>
@@ -210,10 +210,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Dans le modèle de Clark et Wells (1995) de l'anxiété sociale, l'attention auto-focalisée signifie que le patient :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Tourne son attention vers lui-même (symptômes, image de soi) plutôt que vers les indices sociaux réels</div>
-              <div class="option" onclick="answer(this,false)">Se concentre exclusivement sur les autres personnes</div>
-              <div class="option" onclick="answer(this,false)">Ne fait attention à rien du tout</div>
-              <div class="option" onclick="answer(this,false)">Est trop attentif aux détails de l'environnement</div>
+              <button class="option" onclick="answer(this,true)">Tourne son attention vers lui-même (symptômes, image de soi) plutôt que vers les indices sociaux réels</button>
+              <button class="option" onclick="answer(this,false)">Se concentre exclusivement sur les autres personnes</button>
+              <button class="option" onclick="answer(this,false)">Ne fait attention à rien du tout</button>
+              <button class="option" onclick="answer(this,false)">Est trop attentif aux détails de l'environnement</button>
             </div>
             <div class="q-feedback">L'attention auto-focalisée est un processus central dans l'anxiété sociale : le patient surveille ses propres symptômes (rougeur, tremblement), construit une image mentale négative de lui-même, et rate les indices sociaux positifs réels — ce qui maintient ses croyances négatives.</div>
           </div>
@@ -271,8 +271,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

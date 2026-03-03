@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Les trois lois de Newton, les différents types de forces et les outils pour analyser le mouvement des corps.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Forces et mouvement — Mécanique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #4fc3f7;
   --accent2: #81d4fa;
   --accent-dim: rgba(79,195,247,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(79,195,247,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(79,195,247,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">⚙️ Mécanique</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -134,10 +134,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Selon la première loi de Newton, que fait un objet sur lequel aucune force nette ne s'exerce ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il s'arrête progressivement</div>
-              <div class="option" onclick="answer(this,true)">Il reste au repos ou continue en mouvement rectiligne uniforme</div>
-              <div class="option" onclick="answer(this,false)">Il accélère indéfiniment</div>
-              <div class="option" onclick="answer(this,false)">Il suit une trajectoire circulaire</div>
+              <button class="option" onclick="answer(this,false)">Il s'arrête progressivement</button>
+              <button class="option" onclick="answer(this,true)">Il reste au repos ou continue en mouvement rectiligne uniforme</button>
+              <button class="option" onclick="answer(this,false)">Il accélère indéfiniment</button>
+              <button class="option" onclick="answer(this,false)">Il suit une trajectoire circulaire</button>
             </div>
             <div class="q-feedback">Le principe d'inertie stipule qu'un objet persévère dans son état de repos ou de mouvement rectiligne uniforme en l'absence de force extérieure nette.</div>
           </div>
@@ -145,10 +145,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Un objet de 5 kg est soumis à une force nette de 20 N. Quelle est son accélération ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">4 m/s²</div>
-              <div class="option" onclick="answer(this,false)">100 m/s²</div>
-              <div class="option" onclick="answer(this,false)">0,25 m/s²</div>
-              <div class="option" onclick="answer(this,false)">25 m/s²</div>
+              <button class="option" onclick="answer(this,true)">4 m/s²</button>
+              <button class="option" onclick="answer(this,false)">100 m/s²</button>
+              <button class="option" onclick="answer(this,false)">0,25 m/s²</button>
+              <button class="option" onclick="answer(this,false)">25 m/s²</button>
             </div>
             <div class="q-feedback">D'après F = ma, a = F/m = 20/5 = 4 m/s². L'accélération est proportionnelle à la force et inversement proportionnelle à la masse.</div>
           </div>
@@ -156,10 +156,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Quelle force s'oppose au glissement d'un objet sur une surface ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La force normale</div>
-              <div class="option" onclick="answer(this,false)">La tension</div>
-              <div class="option" onclick="answer(this,true)">La force de friction</div>
-              <div class="option" onclick="answer(this,false)">La force centripète</div>
+              <button class="option" onclick="answer(this,false)">La force normale</button>
+              <button class="option" onclick="answer(this,false)">La tension</button>
+              <button class="option" onclick="answer(this,true)">La force de friction</button>
+              <button class="option" onclick="answer(this,false)">La force centripète</button>
             </div>
             <div class="q-feedback">La friction est la force qui s'oppose au mouvement relatif entre deux surfaces en contact. Elle dépend du coefficient de friction μ et de la force normale N.</div>
           </div>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">La troisième loi de Newton stipule que les forces d'action et de réaction...</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">S'exercent sur le même objet et s'annulent</div>
-              <div class="option" onclick="answer(this,true)">S'exercent sur deux objets différents et sont égales en intensité mais opposées en direction</div>
-              <div class="option" onclick="answer(this,false)">Sont toujours de même sens</div>
-              <div class="option" onclick="answer(this,false)">N'existent que pour les forces gravitationnelles</div>
+              <button class="option" onclick="answer(this,false)">S'exercent sur le même objet et s'annulent</button>
+              <button class="option" onclick="answer(this,true)">S'exercent sur deux objets différents et sont égales en intensité mais opposées en direction</button>
+              <button class="option" onclick="answer(this,false)">Sont toujours de même sens</button>
+              <button class="option" onclick="answer(this,false)">N'existent que pour les forces gravitationnelles</button>
             </div>
             <div class="q-feedback">Les forces d'action et de réaction s'exercent toujours sur deux objets différents. Elles ont la même intensité mais des sens opposés, et ne s'annulent jamais entre elles.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quelle est l'expression de la force de rappel d'un ressort selon la loi de Hooke ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">F = mg</div>
-              <div class="option" onclick="answer(this,false)">F = μN</div>
-              <div class="option" onclick="answer(this,true)">F = −kx</div>
-              <div class="option" onclick="answer(this,false)">F = ma²</div>
+              <button class="option" onclick="answer(this,false)">F = mg</button>
+              <button class="option" onclick="answer(this,false)">F = μN</button>
+              <button class="option" onclick="answer(this,true)">F = −kx</button>
+              <button class="option" onclick="answer(this,false)">F = ma²</button>
             </div>
             <div class="q-feedback">La loi de Hooke donne F = −kx, où k est la constante de raideur du ressort et x l'élongation par rapport à la position d'équilibre. Le signe négatif indique que la force s'oppose au déplacement.</div>
           </div>
@@ -260,8 +260,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

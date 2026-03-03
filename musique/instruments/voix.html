@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Le premier et le plus expressif des instruments — comprendre la tessiture, la technique vocale et les registres de la voix humaine.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>La voix — Instruments — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e8b07a;
   --accent2: #ffcc80;
   --accent-dim: rgba(232,176,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,176,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,176,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🎤 Instruments</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -152,10 +152,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quelle est la voix masculine la plus aiguë parmi les catégories standard ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Baryton</div>
-              <div class="option" onclick="answer(this,true)">Ténor</div>
-              <div class="option" onclick="answer(this,false)">Basse</div>
-              <div class="option" onclick="answer(this,false)">Contralto</div>
+              <button class="option" onclick="answer(this,false)">Baryton</button>
+              <button class="option" onclick="answer(this,true)">Ténor</button>
+              <button class="option" onclick="answer(this,false)">Basse</button>
+              <button class="option" onclick="answer(this,false)">Contralto</button>
             </div>
             <div class="q-feedback">Le ténor est la voix masculine la plus aiguë, avec une tessiture typique de Do2 à Do4. Le contralto est une voix féminine grave.</div>
           </div>
@@ -163,10 +163,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Quel muscle est fondamental pour le soutien du souffle en chant ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les abdominaux</div>
-              <div class="option" onclick="answer(this,true)">Le diaphragme</div>
-              <div class="option" onclick="answer(this,false)">Les intercostaux</div>
-              <div class="option" onclick="answer(this,false)">Le larynx</div>
+              <button class="option" onclick="answer(this,false)">Les abdominaux</button>
+              <button class="option" onclick="answer(this,true)">Le diaphragme</button>
+              <button class="option" onclick="answer(this,false)">Les intercostaux</button>
+              <button class="option" onclick="answer(this,false)">Le larynx</button>
             </div>
             <div class="q-feedback">Le diaphragme, muscle en dôme sous les poumons, est le moteur de la respiration et du soutien vocal. La respiration diaphragmatique est la base de toute technique de chant.</div>
           </div>
@@ -174,10 +174,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Qu'appelle-t-on le « passaggio » en technique vocale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un type de vibrato</div>
-              <div class="option" onclick="answer(this,false)">Une technique de respiration</div>
-              <div class="option" onclick="answer(this,true)">La zone de transition entre les registres</div>
-              <div class="option" onclick="answer(this,false)">Un exercice d'échauffement</div>
+              <button class="option" onclick="answer(this,false)">Un type de vibrato</button>
+              <button class="option" onclick="answer(this,false)">Une technique de respiration</button>
+              <button class="option" onclick="answer(this,true)">La zone de transition entre les registres</button>
+              <button class="option" onclick="answer(this,false)">Un exercice d'échauffement</button>
             </div>
             <div class="q-feedback">Le passaggio est la zone de transition entre les registres vocaux (poitrine, mixte, tête). Travailler le passage en douceur est essentiel pour une voix homogène sur toute la tessiture.</div>
           </div>
@@ -185,10 +185,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Qu'est-ce que le chant diphonique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un chant à deux voix</div>
-              <div class="option" onclick="answer(this,true)">Une technique permettant de produire deux notes simultanément en manipulant les harmoniques</div>
-              <div class="option" onclick="answer(this,false)">Un chant accompagné d'un instrument</div>
-              <div class="option" onclick="answer(this,false)">Une technique de chant murmure</div>
+              <button class="option" onclick="answer(this,false)">Un chant à deux voix</button>
+              <button class="option" onclick="answer(this,true)">Une technique permettant de produire deux notes simultanément en manipulant les harmoniques</button>
+              <button class="option" onclick="answer(this,false)">Un chant accompagné d'un instrument</button>
+              <button class="option" onclick="answer(this,false)">Une technique de chant murmure</button>
             </div>
             <div class="q-feedback">Le chant diphonique (ou chant de gorge), pratiqué notamment en Mongolie et en Touva, permet à un seul chanteur de produire deux sons simultanés : un bourdon grave et une mélodie aiguë formée par les harmoniques, grâce à une manipulation précise des résonateurs buccaux.</div>
           </div>
@@ -196,10 +196,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quelle est la fréquence approximative du « formant du chanteur » qui permet aux chanteurs d'opéra de traverser un orchestre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">440-600 Hz</div>
-              <div class="option" onclick="answer(this,false)">1000-1500 Hz</div>
-              <div class="option" onclick="answer(this,true)">2800-3200 Hz</div>
-              <div class="option" onclick="answer(this,false)">5000-6000 Hz</div>
+              <button class="option" onclick="answer(this,false)">440-600 Hz</button>
+              <button class="option" onclick="answer(this,false)">1000-1500 Hz</button>
+              <button class="option" onclick="answer(this,true)">2800-3200 Hz</button>
+              <button class="option" onclick="answer(this,false)">5000-6000 Hz</button>
             </div>
             <div class="q-feedback">Le formant du chanteur se situe vers 2800-3200 Hz, une zone fréquentielle où l'orchestre produit peu d'énergie acoustique. Cette concentration d'harmoniques permet à la voix d'opéra de « percer » le son orchestral sans amplification.</div>
           </div>
@@ -231,8 +231,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

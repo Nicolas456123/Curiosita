@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Acides gras, membranes biologiques, st ro des et -oxydation : explorer les mol cules hydrophobes essentielles la vie, de la r serve nerg tique la...">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Lipides &mdash; Biochimie &mdash; Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #d35400; --accent2: #e67e22; --accent-dim: rgba(211,84,0,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(211,84,0,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #d35400; --accent2: #e67e22; --accent-dim: rgba(211,84,0,0.08);  --accent-hero: rgba(211,84,0,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../sciences-exactes.html">Sciences exactes</a> &rsaquo; <a href="../biochimie.html">Biochimie</a> &rsaquo; <span>Lipides</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">&#129516; Biochimie</span>
     <span class="tag-level">Interm&eacute;diaire</span>
@@ -133,10 +133,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la densit&eacute; &eacute;nerg&eacute;tique des lipides ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">4 kcal/g</div>
-              <div class="option" onclick="answer(this,true)">9 kcal/g</div>
-              <div class="option" onclick="answer(this,false)">7 kcal/g</div>
-              <div class="option" onclick="answer(this,false)">2 kcal/g</div>
+              <button class="option" onclick="answer(this,false)">4 kcal/g</button>
+              <button class="option" onclick="answer(this,true)">9 kcal/g</button>
+              <button class="option" onclick="answer(this,false)">7 kcal/g</button>
+              <button class="option" onclick="answer(this,false)">2 kcal/g</button>
             </div>
             <div class="q-feedback">Les lipides fournissent environ 9 kcal/g, soit plus du double des glucides et prot&eacute;ines (4 kcal/g chacun). C'est pourquoi ils constituent la r&eacute;serve &eacute;nerg&eacute;tique la plus efficace.</div>
           </div>
@@ -144,10 +144,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'est-ce qui rend un phospholipide amphiphile ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Deux t&ecirc;tes hydrophobes</div>
-              <div class="option" onclick="answer(this,true)">Une t&ecirc;te hydrophile et des queues hydrophobes</div>
-              <div class="option" onclick="answer(this,false)">Trois acides gras</div>
-              <div class="option" onclick="answer(this,false)">L'absence de glyc&eacute;rol</div>
+              <button class="option" onclick="answer(this,false)">Deux t&ecirc;tes hydrophobes</button>
+              <button class="option" onclick="answer(this,true)">Une t&ecirc;te hydrophile et des queues hydrophobes</button>
+              <button class="option" onclick="answer(this,false)">Trois acides gras</button>
+              <button class="option" onclick="answer(this,false)">L'absence de glyc&eacute;rol</button>
             </div>
             <div class="q-feedback">Le phospholipide est amphiphile : la t&ecirc;te (phosphate + groupe polaire) est hydrophile, et les deux queues d'acides gras sont hydrophobes. Cette dualit&eacute; permet l'auto-assemblage en bicouche.</div>
           </div>
@@ -155,10 +155,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">O&ugrave; se d&eacute;roule la &beta;-oxydation des acides gras ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Dans le cytosol</div>
-              <div class="option" onclick="answer(this,true)">Dans la matrice mitochondriale</div>
-              <div class="option" onclick="answer(this,false)">Dans le noyau</div>
-              <div class="option" onclick="answer(this,false)">Dans le r&eacute;ticulum endoplasmique</div>
+              <button class="option" onclick="answer(this,false)">Dans le cytosol</button>
+              <button class="option" onclick="answer(this,true)">Dans la matrice mitochondriale</button>
+              <button class="option" onclick="answer(this,false)">Dans le noyau</button>
+              <button class="option" onclick="answer(this,false)">Dans le r&eacute;ticulum endoplasmique</button>
             </div>
             <div class="q-feedback">La &beta;-oxydation a lieu dans la matrice mitochondriale. Les acides gras &agrave; longue cha&icirc;ne y acc&egrave;dent via la navette de la carnitine (enzyme CPT-I &agrave; la membrane externe).</div>
           </div>
@@ -166,10 +166,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel acide gras est un omega-3 essentiel ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Acide palmitique</div>
-              <div class="option" onclick="answer(this,false)">Acide ol&eacute;ique</div>
-              <div class="option" onclick="answer(this,true)">Acide &alpha;-linol&eacute;nique</div>
-              <div class="option" onclick="answer(this,false)">Acide st&eacute;arique</div>
+              <button class="option" onclick="answer(this,false)">Acide palmitique</button>
+              <button class="option" onclick="answer(this,false)">Acide ol&eacute;ique</button>
+              <button class="option" onclick="answer(this,true)">Acide &alpha;-linol&eacute;nique</button>
+              <button class="option" onclick="answer(this,false)">Acide st&eacute;arique</button>
             </div>
             <div class="q-feedback">L'acide &alpha;-linol&eacute;nique (C18:3 &omega;-3) est un acide gras essentiel. L'homme ne peut pas le synth&eacute;tiser car il ne poss&egrave;de pas les d&eacute;saturases n&eacute;cessaires. On le trouve dans les graines de lin, les noix et les poissons gras.</div>
           </div>
@@ -177,10 +177,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel r&ocirc;le joue le cholest&eacute;rol dans les membranes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il augmente toujours la fluidit&eacute;</div>
-              <div class="option" onclick="answer(this,true)">Il r&eacute;gule la fluidit&eacute; (effet tampon)</div>
-              <div class="option" onclick="answer(this,false)">Il forme des pores</div>
-              <div class="option" onclick="answer(this,false)">Il transporte les ions</div>
+              <button class="option" onclick="answer(this,false)">Il augmente toujours la fluidit&eacute;</button>
+              <button class="option" onclick="answer(this,true)">Il r&eacute;gule la fluidit&eacute; (effet tampon)</button>
+              <button class="option" onclick="answer(this,false)">Il forme des pores</button>
+              <button class="option" onclick="answer(this,false)">Il transporte les ions</button>
             </div>
             <div class="q-feedback">Le cholest&eacute;rol s'ins&egrave;re entre les phospholipides et r&eacute;gule la fluidit&eacute; : il la diminue &agrave; haute temp&eacute;rature (rigidifie) et l'augmente &agrave; basse temp&eacute;rature (emp&ecirc;che la cristallisation).</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">L'aspirine agit en inhibant quelle enzyme ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Lipase</div>
-              <div class="option" onclick="answer(this,false)">Phospholipase A&#8322;</div>
-              <div class="option" onclick="answer(this,true)">Cyclo-oxyg&eacute;nase (COX)</div>
-              <div class="option" onclick="answer(this,false)">Lipo-oxyg&eacute;nase</div>
+              <button class="option" onclick="answer(this,false)">Lipase</button>
+              <button class="option" onclick="answer(this,false)">Phospholipase A&#8322;</button>
+              <button class="option" onclick="answer(this,true)">Cyclo-oxyg&eacute;nase (COX)</button>
+              <button class="option" onclick="answer(this,false)">Lipo-oxyg&eacute;nase</button>
             </div>
             <div class="q-feedback">L'aspirine inhibe irr&eacute;versiblement la cyclo-oxyg&eacute;nase (COX-1 et COX-2) par ac&eacute;tylation, bloquant la synth&egrave;se des prostaglandines et des thromboxanes. D'o&ugrave; ses effets anti-inflammatoire, analg&eacute;sique et antiplaquettaire.</div>
           </div>
@@ -256,8 +256,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Grilles, équilibre, hiérarchie visuelle et principes de la mise en page efficace pour tout support.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Composition et mise en page — Design graphique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📐 Design graphique</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -130,10 +130,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel principe recommande de rendre très différents les éléments qui sont différents ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Le contraste</div>
-              <div class="option" onclick="answer(this,false)">La répétition</div>
-              <div class="option" onclick="answer(this,false)">L'alignement</div>
-              <div class="option" onclick="answer(this,false)">La proximité</div>
+              <button class="option" onclick="answer(this,true)">Le contraste</button>
+              <button class="option" onclick="answer(this,false)">La répétition</button>
+              <button class="option" onclick="answer(this,false)">L'alignement</button>
+              <button class="option" onclick="answer(this,false)">La proximité</button>
             </div>
             <div class="q-feedback">Le contraste impose de marquer fortement les différences : si un titre est différent du corps de texte, il doit être nettement plus gros, pas juste un peu plus. Un contraste timide ressemble à une erreur.</div>
           </div>
@@ -141,10 +141,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Combien de colonnes compte la grille web la plus courante ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">6</div>
-              <div class="option" onclick="answer(this,false)">8</div>
-              <div class="option" onclick="answer(this,true)">12</div>
-              <div class="option" onclick="answer(this,false)">16</div>
+              <button class="option" onclick="answer(this,false)">6</button>
+              <button class="option" onclick="answer(this,false)">8</button>
+              <button class="option" onclick="answer(this,true)">12</button>
+              <button class="option" onclick="answer(this,false)">16</button>
             </div>
             <div class="q-feedback">La grille à 12 colonnes est le standard du web car 12 est divisible par 2, 3, 4 et 6, offrant une grande flexibilité de mise en page (2 colonnes, 3 colonnes, 4 colonnes, etc.).</div>
           </div>
@@ -152,10 +152,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel type d'équilibre est le plus dynamique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Symétrique</div>
-              <div class="option" onclick="answer(this,true)">Asymétrique</div>
-              <div class="option" onclick="answer(this,false)">Radial</div>
-              <div class="option" onclick="answer(this,false)">Central</div>
+              <button class="option" onclick="answer(this,false)">Symétrique</button>
+              <button class="option" onclick="answer(this,true)">Asymétrique</button>
+              <button class="option" onclick="answer(this,false)">Radial</button>
+              <button class="option" onclick="answer(this,false)">Central</button>
             </div>
             <div class="q-feedback">L'équilibre asymétrique crée une tension dynamique entre des éléments de poids visuels différents. Il est plus vivant et moderne que l'équilibre symétrique, tout en restant harmonieux.</div>
           </div>
@@ -163,10 +163,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel rôle joue l'espace blanc dans une composition ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">C'est du vide à remplir</div>
-              <div class="option" onclick="answer(this,true)">C'est un élément actif qui guide le regard et donne de la respiration</div>
-              <div class="option" onclick="answer(this,false)">Il indique un manque de contenu</div>
-              <div class="option" onclick="answer(this,false)">Il ne sert qu'à l'impression</div>
+              <button class="option" onclick="answer(this,false)">C'est du vide à remplir</button>
+              <button class="option" onclick="answer(this,true)">C'est un élément actif qui guide le regard et donne de la respiration</button>
+              <button class="option" onclick="answer(this,false)">Il indique un manque de contenu</button>
+              <button class="option" onclick="answer(this,false)">Il ne sert qu'à l'impression</button>
             </div>
             <div class="q-feedback">L'espace blanc est un outil de design puissant. Il crée la respiration, sépare les groupes d'éléments, guide le regard et confère de l'élégance à la composition. Un design surchargé est un design qui manque d'espace blanc.</div>
           </div>
@@ -174,10 +174,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle valeur approche le nombre d'or ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">1,414</div>
-              <div class="option" onclick="answer(this,true)">1,618</div>
-              <div class="option" onclick="answer(this,false)">2,000</div>
-              <div class="option" onclick="answer(this,false)">3,14</div>
+              <button class="option" onclick="answer(this,false)">1,414</button>
+              <button class="option" onclick="answer(this,true)">1,618</button>
+              <button class="option" onclick="answer(this,false)">2,000</button>
+              <button class="option" onclick="answer(this,false)">3,14</button>
             </div>
             <div class="q-feedback">Le nombre d'or φ ≈ 1,618 est un rapport de proportions considéré comme naturellement harmonieux. Il est utilisé en mise en page pour définir les proportions de colonnes, de marges et de formats.</div>
           </div>
@@ -185,10 +185,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">La règle des tiers divise l'espace en combien de zones ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">4</div>
-              <div class="option" onclick="answer(this,false)">6</div>
-              <div class="option" onclick="answer(this,true)">9</div>
-              <div class="option" onclick="answer(this,false)">12</div>
+              <button class="option" onclick="answer(this,false)">4</button>
+              <button class="option" onclick="answer(this,false)">6</button>
+              <button class="option" onclick="answer(this,true)">9</button>
+              <button class="option" onclick="answer(this,false)">12</button>
             </div>
             <div class="q-feedback">La règle des tiers divise l'espace en 9 zones égales (3 × 3) par deux lignes horizontales et deux verticales. Les intersections de ces lignes sont les points forts de la composition.</div>
           </div>
@@ -255,8 +255,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

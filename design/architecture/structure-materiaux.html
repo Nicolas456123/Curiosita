@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pierre, bois, acier, béton, verre — les matériaux et systèmes structurels qui rendent possible l'art de bâtir.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Structure et matériaux — Architecture — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧱 Architecture</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -139,10 +139,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">En quel type d'effort la pierre excelle-t-elle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Compression</div>
-              <div class="option" onclick="answer(this,false)">Traction</div>
-              <div class="option" onclick="answer(this,false)">Flexion</div>
-              <div class="option" onclick="answer(this,false)">Cisaillement</div>
+              <button class="option" onclick="answer(this,true)">Compression</button>
+              <button class="option" onclick="answer(this,false)">Traction</button>
+              <button class="option" onclick="answer(this,false)">Flexion</button>
+              <button class="option" onclick="answer(this,false)">Cisaillement</button>
             </div>
             <div class="q-feedback">La pierre résiste remarquablement bien en compression, mais très mal en traction. C'est pourquoi les structures en pierre utilisent des arcs et des voûtes qui travaillent en compression.</div>
           </div>
@@ -150,10 +150,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel est le principe du béton armé ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Ajouter des fibres de verre au béton</div>
-              <div class="option" onclick="answer(this,true)">Associer béton (compression) et acier (traction)</div>
-              <div class="option" onclick="answer(this,false)">Mélanger du béton avec du bois</div>
-              <div class="option" onclick="answer(this,false)">Comprimer le béton avant utilisation</div>
+              <button class="option" onclick="answer(this,false)">Ajouter des fibres de verre au béton</button>
+              <button class="option" onclick="answer(this,true)">Associer béton (compression) et acier (traction)</button>
+              <button class="option" onclick="answer(this,false)">Mélanger du béton avec du bois</button>
+              <button class="option" onclick="answer(this,false)">Comprimer le béton avant utilisation</button>
             </div>
             <div class="q-feedback">Le béton armé combine les qualités complémentaires du béton (résistance en compression) et de l'acier (résistance en traction) pour créer un matériau performant en flexion.</div>
           </div>
@@ -161,10 +161,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel avantage écologique majeur le bois offre-t-il en construction ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il est moins cher que le béton</div>
-              <div class="option" onclick="answer(this,false)">Il résiste mieux au feu</div>
-              <div class="option" onclick="answer(this,true)">Il stocke le carbone capté pendant la croissance de l'arbre</div>
-              <div class="option" onclick="answer(this,false)">Il ne nécessite aucun entretien</div>
+              <button class="option" onclick="answer(this,false)">Il est moins cher que le béton</button>
+              <button class="option" onclick="answer(this,false)">Il résiste mieux au feu</button>
+              <button class="option" onclick="answer(this,true)">Il stocke le carbone capté pendant la croissance de l'arbre</button>
+              <button class="option" onclick="answer(this,false)">Il ne nécessite aucun entretien</button>
             </div>
             <div class="q-feedback">Le bois séquestre environ 1 tonne de CO₂ par mètre cube. Construire en bois revient à stocker du carbone dans le bâtiment, ce qui contribue à réduire les émissions de gaz à effet de serre.</div>
           </div>
@@ -172,10 +172,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Pourquoi l'acier est-il privilégié en zone sismique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il est plus léger que le béton</div>
-              <div class="option" onclick="answer(this,false)">Il est moins cher</div>
-              <div class="option" onclick="answer(this,true)">Sa ductilité lui permet de se déformer sans rompre</div>
-              <div class="option" onclick="answer(this,false)">Il ne rouille pas</div>
+              <button class="option" onclick="answer(this,false)">Il est plus léger que le béton</button>
+              <button class="option" onclick="answer(this,false)">Il est moins cher</button>
+              <button class="option" onclick="answer(this,true)">Sa ductilité lui permet de se déformer sans rompre</button>
+              <button class="option" onclick="answer(this,false)">Il ne rouille pas</button>
             </div>
             <div class="q-feedback">La ductilité de l'acier — sa capacité à se déformer plastiquement sans rompre — lui permet d'absorber l'énergie des séismes, contrairement aux matériaux fragiles comme la maçonnerie.</div>
           </div>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel système structurel libère les murs de leur rôle porteur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les murs porteurs</div>
-              <div class="option" onclick="answer(this,true)">L'ossature poteau-poutre</div>
-              <div class="option" onclick="answer(this,false)">La structure tendue</div>
-              <div class="option" onclick="answer(this,false)">La maçonnerie chaînée</div>
+              <button class="option" onclick="answer(this,false)">Les murs porteurs</button>
+              <button class="option" onclick="answer(this,true)">L'ossature poteau-poutre</button>
+              <button class="option" onclick="answer(this,false)">La structure tendue</button>
+              <button class="option" onclick="answer(this,false)">La maçonnerie chaînée</button>
             </div>
             <div class="q-feedback">L'ossature poteau-poutre forme un squelette indépendant qui porte toutes les charges, libérant les murs qui deviennent de simples cloisons ou remplissages. C'est le principe du plan libre de Le Corbusier.</div>
           </div>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle technologie du bois permet de construire des immeubles de grande hauteur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le bois massif traditionnel</div>
-              <div class="option" onclick="answer(this,false)">Le contreplaqué standard</div>
-              <div class="option" onclick="answer(this,true)">Le bois lamellé croisé (CLT)</div>
-              <div class="option" onclick="answer(this,false)">Le bois de charpente classique</div>
+              <button class="option" onclick="answer(this,false)">Le bois massif traditionnel</button>
+              <button class="option" onclick="answer(this,false)">Le contreplaqué standard</button>
+              <button class="option" onclick="answer(this,true)">Le bois lamellé croisé (CLT)</button>
+              <button class="option" onclick="answer(this,false)">Le bois de charpente classique</button>
             </div>
             <div class="q-feedback">Le CLT (Cross Laminated Timber) est un panneau massif constitué de couches de bois croisées et collées. Sa résistance multidirectionnelle permet de réaliser des structures de grande hauteur, comme le Mjøstårnet (85 m) en Norvège.</div>
           </div>
@@ -264,8 +264,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

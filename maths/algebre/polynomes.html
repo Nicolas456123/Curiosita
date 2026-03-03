@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Division euclidienne, racines, identités remarquables et théorème fondamental de l'algèbre.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Polynômes et factorisation — Algèbre — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #c0392b;
   --accent2: #e74c3c;
   --accent-dim: rgba(192,57,43,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(192,57,43,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🔢 Algèbre</span>
     <span class="tag-level">Intermédiaire</span>
@@ -176,10 +176,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est le degré du polynôme P(x) = 3x⁴ - 2x² + x - 7 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">4</div>
-              <div class="option" onclick="answer(this,false)">3</div>
-              <div class="option" onclick="answer(this,false)">2</div>
-              <div class="option" onclick="answer(this,false)">7</div>
+              <button class="option" onclick="answer(this,true)">4</button>
+              <button class="option" onclick="answer(this,false)">3</button>
+              <button class="option" onclick="answer(this,false)">2</button>
+              <button class="option" onclick="answer(this,false)">7</button>
             </div>
             <div class="q-feedback">Le degré est la plus grande puissance de x présente avec un coefficient non nul. Ici le terme dominant est 3x⁴, donc le degré est 4.</div>
           </div>
@@ -187,10 +187,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Factoriser a³ - 8 :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">(a - 2)(a² + 2a + 4)</div>
-              <div class="option" onclick="answer(this,false)">(a - 2)(a² - 2a + 4)</div>
-              <div class="option" onclick="answer(this,false)">(a + 2)(a² - 2a + 4)</div>
-              <div class="option" onclick="answer(this,false)">(a - 2)³</div>
+              <button class="option" onclick="answer(this,true)">(a - 2)(a² + 2a + 4)</button>
+              <button class="option" onclick="answer(this,false)">(a - 2)(a² - 2a + 4)</button>
+              <button class="option" onclick="answer(this,false)">(a + 2)(a² - 2a + 4)</button>
+              <button class="option" onclick="answer(this,false)">(a - 2)³</button>
             </div>
             <div class="q-feedback">On utilise l'identité a³ - b³ = (a - b)(a² + ab + b²) avec b = 2 : a³ - 8 = (a - 2)(a² + 2a + 4).</div>
           </div>
@@ -198,10 +198,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Si P(x) = x³ - 3x² - x + 3, que vaut P(1) et qu'en déduit-on ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">P(1) = 0, donc (x-1) divise P</div>
-              <div class="option" onclick="answer(this,false)">P(1) = 2, donc 1 n'est pas racine</div>
-              <div class="option" onclick="answer(this,false)">P(1) = -2, donc 1 n'est pas racine</div>
-              <div class="option" onclick="answer(this,false)">P(1) = 0, mais on ne peut rien conclure</div>
+              <button class="option" onclick="answer(this,true)">P(1) = 0, donc (x-1) divise P</button>
+              <button class="option" onclick="answer(this,false)">P(1) = 2, donc 1 n'est pas racine</button>
+              <button class="option" onclick="answer(this,false)">P(1) = -2, donc 1 n'est pas racine</button>
+              <button class="option" onclick="answer(this,false)">P(1) = 0, mais on ne peut rien conclure</button>
             </div>
             <div class="q-feedback">P(1) = 1 - 3 - 1 + 3 = 0. Comme P(1) = 0, le nombre 1 est racine et (x - 1) divise P(x). On trouve P(x) = (x - 1)(x - 3)(x + 1).</div>
           </div>
@@ -209,10 +209,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel est le degré du polynôme P × Q si deg(P) = 3 et deg(Q) = 4 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">7</div>
-              <div class="option" onclick="answer(this,false)">4</div>
-              <div class="option" onclick="answer(this,false)">12</div>
-              <div class="option" onclick="answer(this,false)">3</div>
+              <button class="option" onclick="answer(this,true)">7</button>
+              <button class="option" onclick="answer(this,false)">4</button>
+              <button class="option" onclick="answer(this,false)">12</button>
+              <button class="option" onclick="answer(this,false)">3</button>
             </div>
             <div class="q-feedback">Le degré du produit est la somme des degrés : deg(P × Q) = deg(P) + deg(Q) = 3 + 4 = 7.</div>
           </div>
@@ -220,10 +220,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel est le reste de la division de P(x) = x³ + 2x - 5 par (x - 1) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">0</div>
-              <div class="option" onclick="answer(this,true)">-2</div>
-              <div class="option" onclick="answer(this,false)">5</div>
-              <div class="option" onclick="answer(this,false)">-4</div>
+              <button class="option" onclick="answer(this,false)">0</button>
+              <button class="option" onclick="answer(this,true)">-2</button>
+              <button class="option" onclick="answer(this,false)">5</button>
+              <button class="option" onclick="answer(this,false)">-4</button>
             </div>
             <div class="q-feedback">Par le théorème du reste, le reste de la division par (x - 1) est P(1) = 1 + 2 - 5 = -2. Comme P(1) ≠ 0, (x - 1) ne divise pas P.</div>
           </div>
@@ -231,10 +231,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Combien de racines réelles a le polynôme x⁴ + x² + 1 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">0</div>
-              <div class="option" onclick="answer(this,false)">2</div>
-              <div class="option" onclick="answer(this,false)">4</div>
-              <div class="option" onclick="answer(this,false)">1</div>
+              <button class="option" onclick="answer(this,true)">0</button>
+              <button class="option" onclick="answer(this,false)">2</button>
+              <button class="option" onclick="answer(this,false)">4</button>
+              <button class="option" onclick="answer(this,false)">1</button>
             </div>
             <div class="q-feedback">Pour tout x réel, x⁴ ≥ 0, x² ≥ 0 et 1 > 0, donc x⁴ + x² + 1 ≥ 1 > 0. Le polynôme n'a aucune racine réelle. En posant X = x², on obtient X² + X + 1 = 0 avec Δ = -3 < 0.</div>
           </div>
@@ -307,8 +307,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

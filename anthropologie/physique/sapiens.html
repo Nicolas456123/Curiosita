@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Émergence en Afrique, migrations Out of Africa, art pariétal et révolution cognitive.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Homo sapiens — Anthropologie physique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧠 Anthropologie physique</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -157,10 +157,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Où ont été trouvés les plus anciens fossiles d'Homo sapiens connus ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Éthiopie (Omo Kibish)</div>
-              <div class="option" onclick="answer(this,true)">Maroc (Jebel Irhoud)</div>
-              <div class="option" onclick="answer(this,false)">Afrique du Sud (Florisbad)</div>
-              <div class="option" onclick="answer(this,false)">Kenya (Turkana)</div>
+              <button class="option" onclick="answer(this,false)">Éthiopie (Omo Kibish)</button>
+              <button class="option" onclick="answer(this,true)">Maroc (Jebel Irhoud)</button>
+              <button class="option" onclick="answer(this,false)">Afrique du Sud (Florisbad)</button>
+              <button class="option" onclick="answer(this,false)">Kenya (Turkana)</button>
             </div>
             <div class="q-feedback">Les fossiles de Jebel Irhoud (Maroc), datés d'environ 300 000 ans, sont les plus anciens Homo sapiens connus. Cela a surpris les chercheurs car on attendait une origine en Afrique de l'Est, pas au Maghreb.</div>
           </div>
@@ -168,10 +168,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quand la grande migration « Out of Africa » s'est-elle principalement produite ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il y a 200 000 ans</div>
-              <div class="option" onclick="answer(this,true)">Il y a 70 000-60 000 ans</div>
-              <div class="option" onclick="answer(this,false)">Il y a 30 000 ans</div>
-              <div class="option" onclick="answer(this,false)">Il y a 10 000 ans</div>
+              <button class="option" onclick="answer(this,false)">Il y a 200 000 ans</button>
+              <button class="option" onclick="answer(this,true)">Il y a 70 000-60 000 ans</button>
+              <button class="option" onclick="answer(this,false)">Il y a 30 000 ans</button>
+              <button class="option" onclick="answer(this,false)">Il y a 10 000 ans</button>
             </div>
             <div class="q-feedback">La sortie d'Afrique majeure s'est produite il y a 70 000-60 000 ans, probablement par le détroit de Bab-el-Mandeb. Des sorties antérieures avortées ont pu avoir lieu vers 120 000 ans, mais c'est le groupe fondateur sorti vers 70-60 ka qui a peuplé le monde.</div>
           </div>
@@ -179,10 +179,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Pourquoi les populations africaines sont-elles génétiquement les plus diverses ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">À cause d'un taux de mutation plus élevé</div>
-              <div class="option" onclick="answer(this,true)">Parce que toutes les populations non africaines descendent d'un petit groupe fondateur</div>
-              <div class="option" onclick="answer(this,false)">Parce que l'Afrique est le plus grand continent</div>
-              <div class="option" onclick="answer(this,false)">À cause d'un brassage génétique avec plus d'espèces</div>
+              <button class="option" onclick="answer(this,false)">À cause d'un taux de mutation plus élevé</button>
+              <button class="option" onclick="answer(this,true)">Parce que toutes les populations non africaines descendent d'un petit groupe fondateur</button>
+              <button class="option" onclick="answer(this,false)">Parce que l'Afrique est le plus grand continent</button>
+              <button class="option" onclick="answer(this,false)">À cause d'un brassage génétique avec plus d'espèces</button>
             </div>
             <div class="q-feedback">Le goulot d'étranglement de la sortie d'Afrique explique cette différence : un petit groupe (1 000-10 000 individus) a emporté une fraction de la diversité africaine. Plus les populations se sont éloignées de l'Afrique, plus leur diversité génétique a diminué par effet fondateur successif.</div>
           </div>
@@ -190,10 +190,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle est la plus ancienne grotte ornée connue en Europe ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Chauvet (~36 000 ans)</div>
-              <div class="option" onclick="answer(this,false)">Lascaux (~17 000 ans)</div>
-              <div class="option" onclick="answer(this,false)">Altamira (~15 000 ans)</div>
-              <div class="option" onclick="answer(this,false)">Cosquer (~27 000 ans)</div>
+              <button class="option" onclick="answer(this,true)">Chauvet (~36 000 ans)</button>
+              <button class="option" onclick="answer(this,false)">Lascaux (~17 000 ans)</button>
+              <button class="option" onclick="answer(this,false)">Altamira (~15 000 ans)</button>
+              <button class="option" onclick="answer(this,false)">Cosquer (~27 000 ans)</button>
             </div>
             <div class="q-feedback">La grotte Chauvet (Ardèche, France), découverte en 1994, contient des peintures datées d'environ 36 000 ans — les plus anciennes connues en Europe. La sophistication des œuvres (perspective, mouvement, ombrage) a surpris les spécialistes.</div>
           </div>
@@ -201,10 +201,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel continent a été colonisé par sapiens en dernier ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'Australie</div>
-              <div class="option" onclick="answer(this,false)">L'Europe</div>
-              <div class="option" onclick="answer(this,true)">Les Amériques (puis les îles du Pacifique)</div>
-              <div class="option" onclick="answer(this,false)">L'Asie</div>
+              <button class="option" onclick="answer(this,false)">L'Australie</button>
+              <button class="option" onclick="answer(this,false)">L'Europe</button>
+              <button class="option" onclick="answer(this,true)">Les Amériques (puis les îles du Pacifique)</button>
+              <button class="option" onclick="answer(this,false)">L'Asie</button>
             </div>
             <div class="q-feedback">Les Amériques ont été colonisées tardivement (~20-15 ka) via la Béringie. Les dernières terres peuplées sont les îles du Pacifique (Polynésie, Nouvelle-Zélande entre 3 500 et 800 ans). L'Australie (~65-50 ka) a été peuplée bien avant l'Europe (~45-40 ka).</div>
           </div>
@@ -212,10 +212,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel est le « paradoxe néolithique » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'agriculture est apparue indépendamment sur plusieurs continents</div>
-              <div class="option" onclick="answer(this,true)">L'agriculture a augmenté la quantité de nourriture mais dégradé la santé des premiers agriculteurs</div>
-              <div class="option" onclick="answer(this,false)">Les chasseurs-cueilleurs étaient plus nombreux que les agriculteurs</div>
-              <div class="option" onclick="answer(this,false)">Les animaux domestiques sont devenus plus sauvages avec le temps</div>
+              <button class="option" onclick="answer(this,false)">L'agriculture est apparue indépendamment sur plusieurs continents</button>
+              <button class="option" onclick="answer(this,true)">L'agriculture a augmenté la quantité de nourriture mais dégradé la santé des premiers agriculteurs</button>
+              <button class="option" onclick="answer(this,false)">Les chasseurs-cueilleurs étaient plus nombreux que les agriculteurs</button>
+              <button class="option" onclick="answer(this,false)">Les animaux domestiques sont devenus plus sauvages avec le temps</button>
             </div>
             <div class="q-feedback">Le paradoxe est que les premiers agriculteurs étaient moins bien nourris, plus petits et plus malades que les chasseurs-cueilleurs. Mais l'agriculture permettait de nourrir plus de monde par unité de surface, ce qui a entraîné une croissance démographique décisive.</div>
           </div>
@@ -288,8 +288,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

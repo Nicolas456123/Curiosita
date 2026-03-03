@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Solfège, harmonie, rythme, formes musicales — comprendre la théorie musicale permet d'écouter différemment, de jouer avec intention et de créer. Du jazz...">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Musique — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=2">
@@ -11,8 +13,7 @@
   --accent: #e8b07a;
   --accent2: #f5ca9a;
   --accent-dim: rgba(232,176,122,0.1);
-}
-.hero { background: radial-gradient(ellipse 70% 60% at 25% 50%, rgba(232,176,122,0.07) 0%, transparent 70%); }
+ --accent-hero: rgba(232,176,122,0.07); }
 .hero-deco { color: rgba(232,176,122,0.04); }
 </style>
 </head>
@@ -22,7 +23,7 @@
   <div class="breadcrumb"><a href="arts-culture.html">Arts & Culture</a> › <span>Musique</span></div>
   <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
 </nav>
-<div class="hero">
+<div class="hero hero--discipline">
   <div class="hero-deco">♪</div>
   <div class="hero-meta">
     <span class="tag-domain">🎨 Arts & Culture</span>
@@ -137,90 +138,87 @@
       <div class="quiz-container">
         <div class="quiz-header">
           <span class="quiz-title-text">Quiz — Théorie musicale</span>
-          <span class="quiz-score">Score : <span id="quizScore">0</span>/6</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span>/6</span>
         </div>
-        <div class="quiz-body">
+        <div class="quiz-body" id="quizBody">
           <div class="question-block active" id="q0">
             <div class="q-num">Question 1 / 6</div>
             <div class="q-text">Combien de notes différentes (demi-tons) contient une octave dans le système musical occidental ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(0,0)">7 notes</div>
-              <div class="option" onclick="selectOption(0,1)">10 notes</div>
-              <div class="option" onclick="selectOption(0,2)">12 notes</div>
-              <div class="option" onclick="selectOption(0,3)">8 notes</div>
+              <button class="option" onclick="answer(this,false)">7 notes</button>
+              <button class="option" onclick="answer(this,false)">10 notes</button>
+              <button class="option" onclick="answer(this,true)">12 notes</button>
+              <button class="option" onclick="answer(this,false)">8 notes</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">L'octave est divisée en 12 demi-tons égaux (gamme chromatique). Sur ces 12 sons, on sélectionne 7 pour former une gamme diatonique (majeure ou mineure). Cette division en 12 est le système tempéré, standardisé par Bach dans le Clavier bien tempéré (1722).</div>
           </div>
           <div class="question-block" id="q1">
             <div class="q-num">Question 2 / 6</div>
             <div class="q-text">Quelle figure de note dure 4 temps dans une mesure à 4/4 ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(1,0)">La noire</div>
-              <div class="option" onclick="selectOption(1,1)">La blanche</div>
-              <div class="option" onclick="selectOption(1,2)">La ronde</div>
-              <div class="option" onclick="selectOption(1,3)">La croche</div>
+              <button class="option" onclick="answer(this,false)">La noire</button>
+              <button class="option" onclick="answer(this,false)">La blanche</button>
+              <button class="option" onclick="answer(this,true)">La ronde</button>
+              <button class="option" onclick="answer(this,false)">La croche</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">En mesure à 4/4 : la ronde dure 4 temps (mesure entière), la blanche 2 temps, la noire 1 temps, la croche ½ temps, la double croche ¼ temps. La noire est l'unité de base du temps dans la plupart des musiques modernes.</div>
           </div>
           <div class="question-block" id="q2">
             <div class="q-num">Question 3 / 6</div>
             <div class="q-text">Quelles notes composent un accord de Do Majeur (triade) ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(2,0)">Do - Ré - Mi</div>
-              <div class="option" onclick="selectOption(2,1)">Do - Mi - Sol</div>
-              <div class="option" onclick="selectOption(2,2)">Do - Fa - La</div>
-              <div class="option" onclick="selectOption(2,3)">Do - Sol - Si</div>
+              <button class="option" onclick="answer(this,false)">Do - Ré - Mi</button>
+              <button class="option" onclick="answer(this,true)">Do - Mi - Sol</button>
+              <button class="option" onclick="answer(this,false)">Do - Fa - La</button>
+              <button class="option" onclick="answer(this,false)">Do - Sol - Si</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Un accord parfait majeur = fondamentale + tierce majeure (4 demi-tons au-dessus) + quinte juste (7 demi-tons). Pour Do : Do (fondamentale) + Mi (tierce majeure) + Sol (quinte). C'est l'accord le plus stable et le plus courant de la musique occidentale.</div>
           </div>
           <div class="question-block" id="q3">
             <div class="q-num">Question 4 / 6</div>
             <div class="q-text">Quelle progression harmonique est typique du blues classique ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(3,0)">I - V - vi - IV</div>
-              <div class="option" onclick="selectOption(3,1)">I - IV - V - I</div>
-              <div class="option" onclick="selectOption(3,2)">ii - V - I</div>
-              <div class="option" onclick="selectOption(3,3)">I - vi - II - V</div>
+              <button class="option" onclick="answer(this,false)">I - V - vi - IV</button>
+              <button class="option" onclick="answer(this,true)">I - IV - V - I</button>
+              <button class="option" onclick="answer(this,false)">ii - V - I</button>
+              <button class="option" onclick="answer(this,false)">I - vi - II - V</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">La grille de blues standard en 12 mesures utilise la progression I-IV-V. Ex en Do : Do(4 mes.)-Fa(2 mes.)-Do(2 mes.)-Sol(1 mes.)-Fa(1 mes.)-Do(2 mes.). Cette structure simple mais expressive est la base du blues, du rock'n'roll et du boogie.</div>
           </div>
           <div class="question-block" id="q4">
             <div class="q-num">Question 5 / 6</div>
             <div class="q-text">Qu'est-ce que le "contrepoint" ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(4,0)">Un outil de percussion dans l'orchestre</div>
-              <div class="option" onclick="selectOption(4,1)">L'art de superposer des lignes mélodiques indépendantes</div>
-              <div class="option" onclick="selectOption(4,2)">La technique de variation du tempo</div>
-              <div class="option" onclick="selectOption(4,3)">Un accord de 4 sons avec dissonance</div>
+              <button class="option" onclick="answer(this,false)">Un outil de percussion dans l'orchestre</button>
+              <button class="option" onclick="answer(this,true)">L'art de superposer des lignes mélodiques indépendantes</button>
+              <button class="option" onclick="answer(this,false)">La technique de variation du tempo</button>
+              <button class="option" onclick="answer(this,false)">Un accord de 4 sons avec dissonance</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le contrepoint (du latin punctus contra punctum = note contre note) est l'art de combiner plusieurs voix mélodiques indépendantes qui sonnent bien ensemble. Johann Sebastian Bach en est le maître absolu avec ses Fugues (Clavier bien tempéré, Art de la fugue). Les règles du contrepoint strict (Fux, 1725) définissent quelles intervalles sont permises.</div>
           </div>
           <div class="question-block" id="q5">
             <div class="q-num">Question 6 / 6</div>
             <div class="q-text">Combien de mesures comporte une grille de blues standard ?</div>
             <div class="options">
-              <div class="option" onclick="selectOption(5,0)">8 mesures</div>
-              <div class="option" onclick="selectOption(5,1)">12 mesures</div>
-              <div class="option" onclick="selectOption(5,2)">16 mesures</div>
-              <div class="option" onclick="selectOption(5,3)">32 mesures</div>
+              <button class="option" onclick="answer(this,false)">8 mesures</button>
+              <button class="option" onclick="answer(this,true)">12 mesures</button>
+              <button class="option" onclick="answer(this,false)">16 mesures</button>
+              <button class="option" onclick="answer(this,false)">32 mesures</button>
             </div>
-            <div class="q-feedback"></div>
+            <div class="q-feedback">Le blues standard comporte 12 mesures utilisant 3 accords (I, IV, V). Cette structure apparue dans le Delta du Mississippi au début du XXe siècle est devenue la base de tout le rock, R&B et jazz. Le 32 mesures (AABA) est la structure de la majorité des standards jazz (rhythm changes).</div>
           </div>
         </div>
         <div class="quiz-nav">
-          <div class="q-dots">
-            <div class="q-dot current"></div><div class="q-dot"></div><div class="q-dot"></div>
-            <div class="q-dot"></div><div class="q-dot"></div><div class="q-dot"></div>
-          </div>
+          <div class="q-dots" id="qDots"></div>
           <div style="display:flex;gap:.8rem">
-            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Préc</button>
-            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQuestion()">Suivant →</button>
+            <button class="btn-quiz btn-prev" id="btnPrev" onclick="prevQ()" disabled>← Préc</button>
+            <button class="btn-quiz btn-next" id="btnNext" onclick="nextQ()" disabled>Suivant →</button>
           </div>
         </div>
-        <div class="quiz-result">
-          <div class="result-score-big" id="finalScore"></div>
-          <div class="result-msg" id="finalMsg"></div>
-          <button class="btn-retry" onclick="restartQuiz()">↺ Recommencer</button>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore"></div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
         </div>
       </div>
     </section>
@@ -328,31 +326,16 @@
     </section>
   </main>
 </div>
-<script>
-const questions=[
-  {q:"Combien de demi-tons contient une octave dans le système occidental ?",opts:["7 notes","10 notes","12 notes","8 notes"],ans:2,expl:"L'octave est divisée en 12 demi-tons égaux (gamme chromatique). Sur ces 12 sons, on sélectionne 7 pour former une gamme diatonique (majeure ou mineure). Cette division en 12 est le système tempéré, standardisé par Bach dans le Clavier bien tempéré (1722)."},
-  {q:"Quelle figure de note dure 4 temps en 4/4 ?",opts:["La noire","La blanche","La ronde","La croche"],ans:2,expl:"En mesure à 4/4 : la ronde dure 4 temps (mesure entière), la blanche 2 temps, la noire 1 temps, la croche ½ temps, la double croche ¼ temps. La noire est l'unité de base du temps dans la plupart des musiques modernes."},
-  {q:"Quelles notes composent l'accord de Do Majeur ?",opts:["Do-Ré-Mi","Do-Mi-Sol","Do-Fa-La","Do-Sol-Si"],ans:1,expl:"Un accord parfait majeur = fondamentale + tierce majeure (4 demi-tons au-dessus) + quinte juste (7 demi-tons). Pour Do : Do (fondamentale) + Mi (tierce majeure) + Sol (quinte). C'est l'accord le plus stable et le plus courant de la musique occidentale."},
-  {q:"Quelle progression est typique du blues ?",opts:["I-V-vi-IV","I-IV-V-I","ii-V-I","I-vi-II-V"],ans:1,expl:"La grille de blues standard en 12 mesures utilise la progression I-IV-V. Ex en Do : Do(4 mes.)-Fa(2 mes.)-Do(2 mes.)-Sol(1 mes.)-Fa(1 mes.)-Do(2 mes.). Cette structure simple mais expressive est la base du blues, du rock'n'roll et du boogie."},
-  {q:"Qu'est-ce que le contrepoint ?",opts:["Un outil de percussion","L'art de superposer des lignes mélodiques indépendantes","La technique de variation du tempo","Un accord de 4 sons"],ans:1,expl:"Le contrepoint (du latin punctus contra punctum = note contre note) est l'art de combiner plusieurs voix mélodiques indépendantes qui sonnent bien ensemble. Johann Sebastian Bach en est le maître absolu avec ses Fugues (Clavier bien tempéré, Art de la fugue). Les règles du contrepoint strict (Fux, 1725) définissent quelles intervalles sont permises."},
-  {q:"Combien de mesures comporte une grille de blues standard ?",opts:["8 mesures","12 mesures","16 mesures","32 mesures"],ans:1,expl:"Le blues standard comporte 12 mesures utilisant 3 accords (I, IV, V). Cette structure apparue dans le Delta du Mississippi au début du XXe siècle est devenue la base de tout le rock, R&B et jazz. Le 32 mesures (AABA) est la structure de la majorité des standards jazz (rhythm changes)."}
-];
-let current=0,score=0,answered=new Array(6).fill(null);
-function renderQuestion(){document.querySelectorAll('.question-block').forEach((b,i)=>b.classList.toggle('active',i===current));document.querySelectorAll('.q-dot').forEach((d,i)=>{d.className='q-dot'+(answered[i]!==null?' done':i===current?' current':'');});document.getElementById('btnPrev').disabled=current===0;document.getElementById('btnNext').textContent=current===5?'Voir résultats':'Suivant →';}
-function selectOption(qi,oi){if(answered[qi]!==null)return;answered[qi]=oi;const block=document.querySelectorAll('.question-block')[qi];block.querySelectorAll('.option').forEach((o,i)=>{o.classList.add('disabled');if(i===questions[qi].ans)o.classList.add('correct');else if(i===oi)o.classList.add('wrong');});const fb=block.querySelector('.q-feedback');fb.textContent=questions[qi].expl;fb.className='q-feedback show '+(oi===questions[qi].ans?'good':'bad');if(oi===questions[qi].ans)score++;document.getElementById('quizScore').textContent=score;document.querySelectorAll('.q-dot')[qi].classList.add('done');}
-function nextQuestion(){if(current<5){current++;renderQuestion();}else showResult();}
-function prevQuestion(){if(current>0){current--;renderQuestion();}}
-function showResult(){document.querySelector('.quiz-body').style.display='none';document.querySelector('.quiz-nav').style.display='none';const r=document.querySelector('.quiz-result');r.style.display='block';document.getElementById('finalScore').textContent=score+'/6';document.getElementById('finalMsg').textContent=["Continue d'apprendre !",'Pas mal !','Très bien !','Excellent !'][score<=2?0:score<=4?1:score<=5?2:3];}
-function restartQuiz(){current=0;score=0;answered.fill(null);document.querySelector('.quiz-body').style.display='block';document.querySelector('.quiz-nav').style.display='flex';document.querySelector('.quiz-result').style.display='none';document.querySelectorAll('.option').forEach(o=>o.className='option');document.querySelectorAll('.q-feedback').forEach(f=>f.className='q-feedback');document.getElementById('quizScore').textContent=0;renderQuestion();}
-function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
-// Scroll spy
-(function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
-const sections=['resume','theorie','concepts','quiz','ressources','memo'];
-window.addEventListener('scroll',()=>{let vis=0;sections.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<window.innerHeight*.8)vis++;});document.getElementById('progressFill').style.width=(vis/sections.length*100)+'%';});
-function downloadMemo(){const w=window.open('','_blank','width=900,height=700');w.document.write(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Fiche mémo — Musique</title><style>body{font-family:'Segoe UI',sans-serif;padding:2rem;color:#1a1a1a;max-width:900px;margin:0 auto}h1{font-size:1.8rem;color:#b5682a;border-bottom:3px solid #b5682a;padding-bottom:.5rem;margin-bottom:1.5rem}h2{font-size:.75rem;color:#b5682a;margin-top:1.5rem;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.08em}ul{padding-left:1.2rem;margin-bottom:1rem}li{margin:.25rem 0;font-size:.88rem;line-height:1.5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}.box{border:1px solid #f5ddb0;padding:1rem;border-radius:4px;background:#fffbf5}.footer{margin-top:2rem;padding-top:1rem;border-top:1px solid #ddd;color:#888;font-size:.75rem}@media print{.no-print{display:none}}</style></head><body><h1>🎵 Fiche mémo — Théorie musicale</h1><div class="grid"><div class="box"><h2>Solfège</h2><ul><li>FR: Do-Ré-Mi-Fa-Sol-La-Si | EN: C-D-E-F-G-A-B</li><li>12 demi-tons par octave</li><li>♯ = +½ ton / ♭ = -½ ton</li><li>Portée à 5 lignes, clé de Sol (aigu), Fa (basse)</li></ul></div><div class="box"><h2>Durées</h2><ul><li>Ronde = 4 temps</li><li>Blanche = 2 temps</li><li>Noire = 1 temps</li><li>Croche = ½ temps</li><li>Mesure 4/4 = 4 noires / mesure</li><li>Mesure 3/4 = 3 noires (valse)</li></ul></div><div class="box"><h2>Gamme majeure</h2><ul><li>Schéma: T-T-S-T-T-T-S</li><li>Do M: Do Ré Mi Fa Sol La Si</li><li>Sol M: Sol La Si Do Ré Mi Fa♯</li><li>Accord Do M = Do + Mi + Sol</li><li>Mineur = T-S-T-T-S-T-T</li></ul></div><div class="box"><h2>Progressions classiques</h2><ul><li>Blues 12 mesures: I-IV-V</li><li>Pop: I-V-vi-IV</li><li>Jazz: ii-V-I</li><li>Cadence authentique: V → I</li><li>Fonctions: Tonique(I), Dom.(V), S-Dom.(IV)</li></ul></div></div><div class="footer">Curiosita — Fiche mémo Musique — ${new Date().toLocaleDateString('fr-FR')}</div><button class="no-print" onclick="window.print()" style="position:fixed;bottom:1.5rem;right:1.5rem;padding:.7rem 1.5rem;background:#b5682a;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:.9rem">🖨️ Imprimer / PDF</button>
-</body></html>`);w.document.close();}
-renderQuestion();
-</script>
-    <script src="mobile.js?v=2"></script>
+
+<script src="memo.js" defer></script>
+<script src="curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Cours</a>
+    <a href="apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

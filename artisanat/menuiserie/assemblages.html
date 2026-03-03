@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tenon-mortaise, queue d'aronde, tourillons, mi-bois et lamello.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Assemblages — Menuiserie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #8ae87a;
   --accent2: #a5f598;
   --accent-dim: rgba(138,232,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(138,232,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(138,232,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧩 Menuiserie</span>
     <span class="tag-level">Intermédiaire</span>
@@ -134,10 +134,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle proportion de l'épaisseur représente un tenon classique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La moitié</div>
-              <div class="option" onclick="answer(this,true)">Un tiers</div>
-              <div class="option" onclick="answer(this,false)">Un quart</div>
-              <div class="option" onclick="answer(this,false)">Deux tiers</div>
+              <button class="option" onclick="answer(this,false)">La moitié</button>
+              <button class="option" onclick="answer(this,true)">Un tiers</button>
+              <button class="option" onclick="answer(this,false)">Un quart</button>
+              <button class="option" onclick="answer(this,false)">Deux tiers</button>
             </div>
             <div class="q-feedback">Le tenon classique fait 1/3 de l'épaisseur de la pièce. Cela laisse 1/3 de chaque côté pour les joues de la mortaise, assurant un bon équilibre de résistance.</div>
           </div>
@@ -145,10 +145,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel assemblage est traditionnellement utilisé pour les tiroirs ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le tenon-mortaise</div>
-              <div class="option" onclick="answer(this,true)">La queue d'aronde</div>
-              <div class="option" onclick="answer(this,false)">Le mi-bois</div>
-              <div class="option" onclick="answer(this,false)">Le tourillon</div>
+              <button class="option" onclick="answer(this,false)">Le tenon-mortaise</button>
+              <button class="option" onclick="answer(this,true)">La queue d'aronde</button>
+              <button class="option" onclick="answer(this,false)">Le mi-bois</button>
+              <button class="option" onclick="answer(this,false)">Le tourillon</button>
             </div>
             <div class="q-feedback">La queue d'aronde est l'assemblage classique des tiroirs. Sa forme en trapèze résiste mécaniquement à la traction exercée quand on tire le tiroir.</div>
           </div>
@@ -156,10 +156,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que se passe-t-il quand un biscuit lamello absorbe la colle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il rétrécit</div>
-              <div class="option" onclick="answer(this,true)">Il gonfle et serre l'assemblage</div>
-              <div class="option" onclick="answer(this,false)">Il se dissout</div>
-              <div class="option" onclick="answer(this,false)">Il durcit instantanément</div>
+              <button class="option" onclick="answer(this,false)">Il rétrécit</button>
+              <button class="option" onclick="answer(this,true)">Il gonfle et serre l'assemblage</button>
+              <button class="option" onclick="answer(this,false)">Il se dissout</button>
+              <button class="option" onclick="answer(this,false)">Il durcit instantanément</button>
             </div>
             <div class="q-feedback">Le biscuit lamello est en hêtre compressé. En absorbant l'humidité de la colle, il gonfle et remplit complètement la rainure, créant un assemblage serré et solide.</div>
           </div>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Pourquoi faut-il pré-percer avant de visser dans du bois ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Pour que la vis tourne plus facilement</div>
-              <div class="option" onclick="answer(this,true)">Pour éviter que le bois ne se fende</div>
-              <div class="option" onclick="answer(this,false)">Pour que la vis soit plus solide</div>
-              <div class="option" onclick="answer(this,false)">Pour que le trou soit plus esthétique</div>
+              <button class="option" onclick="answer(this,false)">Pour que la vis tourne plus facilement</button>
+              <button class="option" onclick="answer(this,true)">Pour éviter que le bois ne se fende</button>
+              <button class="option" onclick="answer(this,false)">Pour que la vis soit plus solide</button>
+              <button class="option" onclick="answer(this,false)">Pour que le trou soit plus esthétique</button>
             </div>
             <div class="q-feedback">Le pré-perçage crée un passage pour la vis et réduit la pression qui fendrait le bois, surtout en bout de grain ou près des bords. Le diamètre du pré-perçage = 60-70 % du diamètre de la vis.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle colle est réversible à la chaleur ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La colle vinylique</div>
-              <div class="option" onclick="answer(this,false)">La colle polyuréthane</div>
-              <div class="option" onclick="answer(this,true)">La colle de peau (colle chaude)</div>
-              <div class="option" onclick="answer(this,false)">La colle époxy</div>
+              <button class="option" onclick="answer(this,false)">La colle vinylique</button>
+              <button class="option" onclick="answer(this,false)">La colle polyuréthane</button>
+              <button class="option" onclick="answer(this,true)">La colle de peau (colle chaude)</button>
+              <button class="option" onclick="answer(this,false)">La colle époxy</button>
             </div>
             <div class="q-feedback">La colle de peau (colle d'os ou de peau de lapin) se ramollit à la chaleur, ce qui permet de démonter les assemblages pour les restaurer. C'est pourquoi les luthiers et restaurateurs de meubles l'utilisent.</div>
           </div>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel assemblage enlève la moitié de l'épaisseur de chaque pièce ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le tenon-mortaise</div>
-              <div class="option" onclick="answer(this,false)">La queue d'aronde</div>
-              <div class="option" onclick="answer(this,true)">Le mi-bois</div>
-              <div class="option" onclick="answer(this,false)">Le tourillon</div>
+              <button class="option" onclick="answer(this,false)">Le tenon-mortaise</button>
+              <button class="option" onclick="answer(this,false)">La queue d'aronde</button>
+              <button class="option" onclick="answer(this,true)">Le mi-bois</button>
+              <button class="option" onclick="answer(this,false)">Le tourillon</button>
             </div>
             <div class="q-feedback">Le mi-bois enlève exactement la moitié de l'épaisseur de chaque pièce, permettant un emboîtement à plat sans surépaisseur.</div>
           </div>
@@ -265,8 +265,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

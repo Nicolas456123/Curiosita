@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Le père de la philosophie morale, celui qui a recentré la pensée sur l'homme et la quête de la vertu par le dialogue.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Socrate — Antiquité — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #9b7ae8;
   --accent2: #b39ddb;
   --accent-dim: rgba(155,122,232,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(155,122,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(155,122,232,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🗣️ Antiquité</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -141,10 +141,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Comment s'appelle la méthode de Socrate qui consiste à faire accoucher les esprits ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La dialectique</div>
-              <div class="option" onclick="answer(this,true)">La maïeutique</div>
-              <div class="option" onclick="answer(this,false)">La rhétorique</div>
-              <div class="option" onclick="answer(this,false)">La sophistique</div>
+              <button class="option" onclick="answer(this,false)">La dialectique</button>
+              <button class="option" onclick="answer(this,true)">La maïeutique</button>
+              <button class="option" onclick="answer(this,false)">La rhétorique</button>
+              <button class="option" onclick="answer(this,false)">La sophistique</button>
             </div>
             <div class="q-feedback">La maïeutique (du grec « art de l'accouchement ») est la méthode de Socrate : il aide ses interlocuteurs à découvrir la vérité par eux-mêmes grâce au questionnement.</div>
           </div>
@@ -152,10 +152,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Que signifie l'intellectualisme moral de Socrate ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Seuls les intellectuels sont vertueux</div>
-              <div class="option" onclick="answer(this,false)">La morale est une illusion</div>
-              <div class="option" onclick="answer(this,true)">Nul n'est méchant volontairement, le mal vient de l'ignorance</div>
-              <div class="option" onclick="answer(this,false)">La raison est inutile en morale</div>
+              <button class="option" onclick="answer(this,false)">Seuls les intellectuels sont vertueux</button>
+              <button class="option" onclick="answer(this,false)">La morale est une illusion</button>
+              <button class="option" onclick="answer(this,true)">Nul n'est méchant volontairement, le mal vient de l'ignorance</button>
+              <button class="option" onclick="answer(this,false)">La raison est inutile en morale</button>
             </div>
             <div class="q-feedback">Pour Socrate, connaître le bien c'est nécessairement le faire. Le mal résulte toujours de l'ignorance, jamais d'un choix délibéré.</div>
           </div>
@@ -163,10 +163,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Pourquoi Socrate refuse-t-il de fuir après sa condamnation à mort ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il croit à la réincarnation</div>
-              <div class="option" onclick="answer(this,false)">Il n'a pas d'argent pour partir</div>
-              <div class="option" onclick="answer(this,true)">Un citoyen doit respecter les lois de sa cité</div>
-              <div class="option" onclick="answer(this,false)">Il veut devenir un martyr</div>
+              <button class="option" onclick="answer(this,false)">Il croit à la réincarnation</button>
+              <button class="option" onclick="answer(this,false)">Il n'a pas d'argent pour partir</button>
+              <button class="option" onclick="answer(this,true)">Un citoyen doit respecter les lois de sa cité</button>
+              <button class="option" onclick="answer(this,false)">Il veut devenir un martyr</button>
             </div>
             <div class="q-feedback">Dans le Criton, Socrate explique que désobéir aux lois — même injustes — détruirait le fondement de la vie en société. Le respect des lois est un devoir du citoyen.</div>
           </div>
@@ -174,10 +174,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">En quoi Socrate se distingue-t-il des sophistes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il enseigne la rhétorique gratuitement</div>
-              <div class="option" onclick="answer(this,true)">Il cherche la vérité universelle, non l'art de persuader</div>
-              <div class="option" onclick="answer(this,false)">Il écrit des traités philosophiques</div>
-              <div class="option" onclick="answer(this,false)">Il refuse tout dialogue</div>
+              <button class="option" onclick="answer(this,false)">Il enseigne la rhétorique gratuitement</button>
+              <button class="option" onclick="answer(this,true)">Il cherche la vérité universelle, non l'art de persuader</button>
+              <button class="option" onclick="answer(this,false)">Il écrit des traités philosophiques</button>
+              <button class="option" onclick="answer(this,false)">Il refuse tout dialogue</button>
             </div>
             <div class="q-feedback">Contrairement aux sophistes qui enseignent l'art de persuader moyennant rétribution, Socrate cherche des vérités universelles par le dialogue désintéressé et ne se fait pas payer.</div>
           </div>
@@ -185,10 +185,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce que l'ironie socratique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Feindre l'ignorance pour amener l'interlocuteur à découvrir ses contradictions</div>
-              <div class="option" onclick="answer(this,false)">Se moquer ouvertement de ses adversaires</div>
-              <div class="option" onclick="answer(this,false)">Utiliser le sarcasme pour convaincre</div>
-              <div class="option" onclick="answer(this,false)">Refuser de répondre aux questions</div>
+              <button class="option" onclick="answer(this,true)">Feindre l'ignorance pour amener l'interlocuteur à découvrir ses contradictions</button>
+              <button class="option" onclick="answer(this,false)">Se moquer ouvertement de ses adversaires</button>
+              <button class="option" onclick="answer(this,false)">Utiliser le sarcasme pour convaincre</button>
+              <button class="option" onclick="answer(this,false)">Refuser de répondre aux questions</button>
             </div>
             <div class="q-feedback">L'ironie socratique consiste à feindre l'ignorance pour mieux interroger les « experts ». Par ses questions, Socrate révèle que ceux qui croient savoir ne savent pas vraiment.</div>
           </div>
@@ -196,10 +196,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel philosophe a critiqué l'intellectualisme moral de Socrate en reconnaissant la faiblesse de la volonté (akrasia) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Platon</div>
-              <div class="option" onclick="answer(this,false)">Épicure</div>
-              <div class="option" onclick="answer(this,true)">Aristote</div>
-              <div class="option" onclick="answer(this,false)">Zénon de Kition</div>
+              <button class="option" onclick="answer(this,false)">Platon</button>
+              <button class="option" onclick="answer(this,false)">Épicure</button>
+              <button class="option" onclick="answer(this,true)">Aristote</button>
+              <button class="option" onclick="answer(this,false)">Zénon de Kition</button>
             </div>
             <div class="q-feedback">Aristote reconnaît l'akrasia (faiblesse de la volonté) : on peut savoir ce qui est bien et ne pas le faire, par passion ou par habitude. Il s'oppose ainsi à la thèse socratique selon laquelle la vertu est un pur savoir.</div>
           </div>
@@ -257,8 +257,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

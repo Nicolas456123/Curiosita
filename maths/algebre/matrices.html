@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Opérations matricielles, inverse, déterminant — l'outil central de l'algèbre linéaire.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Matrices et déterminants — Algèbre — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #c0392b;
   --accent2: #e74c3c;
   --accent-dim: rgba(192,57,43,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(192,57,43,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📊 Algèbre</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -174,10 +174,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quel est le déterminant de la matrice [[3, 1], [2, 4]] ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">10</div>
-              <div class="option" onclick="answer(this,false)">14</div>
-              <div class="option" onclick="answer(this,false)">11</div>
-              <div class="option" onclick="answer(this,false)">-10</div>
+              <button class="option" onclick="answer(this,true)">10</button>
+              <button class="option" onclick="answer(this,false)">14</button>
+              <button class="option" onclick="answer(this,false)">11</button>
+              <button class="option" onclick="answer(this,false)">-10</button>
             </div>
             <div class="q-feedback">det = ad - bc = 3×4 - 1×2 = 12 - 2 = 10. Le déterminant est non nul, donc la matrice est inversible.</div>
           </div>
@@ -185,10 +185,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">La multiplication matricielle est-elle commutative ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Oui, toujours</div>
-              <div class="option" onclick="answer(this,true)">Non, en général AB ≠ BA</div>
-              <div class="option" onclick="answer(this,false)">Oui, pour les matrices carrées</div>
-              <div class="option" onclick="answer(this,false)">Seulement si det ≠ 0</div>
+              <button class="option" onclick="answer(this,false)">Oui, toujours</button>
+              <button class="option" onclick="answer(this,true)">Non, en général AB ≠ BA</button>
+              <button class="option" onclick="answer(this,false)">Oui, pour les matrices carrées</button>
+              <button class="option" onclick="answer(this,false)">Seulement si det ≠ 0</button>
             </div>
             <div class="q-feedback">En général, AB ≠ BA. C'est l'une des propriétés fondamentales des matrices. Exception : la matrice identité commute avec toutes les matrices.</div>
           </div>
@@ -196,10 +196,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que vaut det(AB) si det(A) = 3 et det(B) = 5 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">15</div>
-              <div class="option" onclick="answer(this,false)">8</div>
-              <div class="option" onclick="answer(this,false)">-2</div>
-              <div class="option" onclick="answer(this,false)">Impossible à déterminer</div>
+              <button class="option" onclick="answer(this,true)">15</button>
+              <button class="option" onclick="answer(this,false)">8</button>
+              <button class="option" onclick="answer(this,false)">-2</button>
+              <button class="option" onclick="answer(this,false)">Impossible à déterminer</button>
             </div>
             <div class="q-feedback">det(AB) = det(A) × det(B) = 3 × 5 = 15. C'est la propriété de multiplicativité du déterminant.</div>
           </div>
@@ -207,10 +207,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle est la trace de la matrice [[1, 2, 3], [4, 5, 6], [7, 8, 9]] ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">15</div>
-              <div class="option" onclick="answer(this,false)">45</div>
-              <div class="option" onclick="answer(this,false)">12</div>
-              <div class="option" onclick="answer(this,false)">6</div>
+              <button class="option" onclick="answer(this,true)">15</button>
+              <button class="option" onclick="answer(this,false)">45</button>
+              <button class="option" onclick="answer(this,false)">12</button>
+              <button class="option" onclick="answer(this,false)">6</button>
             </div>
             <div class="q-feedback">La trace est la somme des éléments diagonaux : tr(A) = 1 + 5 + 9 = 15.</div>
           </div>
@@ -218,10 +218,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Si A est une matrice 3×2 et B une matrice 2×4, quelle est la taille de AB ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">3×4</div>
-              <div class="option" onclick="answer(this,false)">2×2</div>
-              <div class="option" onclick="answer(this,false)">3×2</div>
-              <div class="option" onclick="answer(this,false)">Le produit est impossible</div>
+              <button class="option" onclick="answer(this,true)">3×4</button>
+              <button class="option" onclick="answer(this,false)">2×2</button>
+              <button class="option" onclick="answer(this,false)">3×2</button>
+              <button class="option" onclick="answer(this,false)">Le produit est impossible</button>
             </div>
             <div class="q-feedback">A (3×2) × B (2×4) : le nombre de colonnes de A (2) = nombre de lignes de B (2), donc le produit est possible. Le résultat est 3×4 (lignes de A × colonnes de B).</div>
           </div>
@@ -229,10 +229,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que vaut (AB)⁻¹ si A et B sont inversibles ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">A⁻¹ × B⁻¹</div>
-              <div class="option" onclick="answer(this,true)">B⁻¹ × A⁻¹</div>
-              <div class="option" onclick="answer(this,false)">(A × B)⁻¹ n'existe pas</div>
-              <div class="option" onclick="answer(this,false)">A⁻¹ + B⁻¹</div>
+              <button class="option" onclick="answer(this,false)">A⁻¹ × B⁻¹</button>
+              <button class="option" onclick="answer(this,true)">B⁻¹ × A⁻¹</button>
+              <button class="option" onclick="answer(this,false)">(A × B)⁻¹ n'existe pas</button>
+              <button class="option" onclick="answer(this,false)">A⁻¹ + B⁻¹</button>
             </div>
             <div class="q-feedback">(AB)⁻¹ = B⁻¹A⁻¹. Attention à l'ordre inversé ! On peut vérifier : (AB)(B⁻¹A⁻¹) = A(BB⁻¹)A⁻¹ = AIA⁻¹ = AA⁻¹ = I.</div>
           </div>
@@ -305,8 +305,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La philosophie du plaisir mesuré, de l'amitié et de la sérénité — bien loin du cliché de la jouissance sans frein.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>L'Épicurisme — Antiquité — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #9b7ae8;
   --accent2: #b39ddb;
   --accent-dim: rgba(155,122,232,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(155,122,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(155,122,232,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🌿 Antiquité</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -144,10 +144,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qu'est-ce que l'ataraxie pour Épicure ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le plaisir intense et constant</div>
-              <div class="option" onclick="answer(this,true)">L'absence de trouble dans l'âme</div>
-              <div class="option" onclick="answer(this,false)">L'indifférence à tout sentiment</div>
-              <div class="option" onclick="answer(this,false)">La contemplation des dieux</div>
+              <button class="option" onclick="answer(this,false)">Le plaisir intense et constant</button>
+              <button class="option" onclick="answer(this,true)">L'absence de trouble dans l'âme</button>
+              <button class="option" onclick="answer(this,false)">L'indifférence à tout sentiment</button>
+              <button class="option" onclick="answer(this,false)">La contemplation des dieux</button>
             </div>
             <div class="q-feedback">L'ataraxie est l'absence de trouble dans l'âme — un état de sérénité profonde. C'est, avec l'aponie (absence de douleur corporelle), le but de la vie épicurienne.</div>
           </div>
@@ -155,10 +155,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Comment Épicure répond-il à la peur de la mort ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'âme est immortelle</div>
-              <div class="option" onclick="answer(this,false)">La mort mène à une vie meilleure</div>
-              <div class="option" onclick="answer(this,true)">La mort n'est rien pour nous : quand elle est là, nous ne sommes plus</div>
-              <div class="option" onclick="answer(this,false)">Il faut ignorer la mort et vivre intensément</div>
+              <button class="option" onclick="answer(this,false)">L'âme est immortelle</button>
+              <button class="option" onclick="answer(this,false)">La mort mène à une vie meilleure</button>
+              <button class="option" onclick="answer(this,true)">La mort n'est rien pour nous : quand elle est là, nous ne sommes plus</button>
+              <button class="option" onclick="answer(this,false)">Il faut ignorer la mort et vivre intensément</button>
             </div>
             <div class="q-feedback">Épicure raisonne ainsi : la mort est la dissolution des atomes. Tant que nous vivons, la mort n'est pas. Quand la mort est là, nous ne sommes plus. Elle ne nous concerne donc jamais.</div>
           </div>
@@ -166,10 +166,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qu'est-ce que le clinamen dans la physique d'Épicure ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La force qui attire les atomes entre eux</div>
-              <div class="option" onclick="answer(this,false)">L'énergie vitale de l'univers</div>
-              <div class="option" onclick="answer(this,true)">La déviation spontanée des atomes, fondement de la liberté</div>
-              <div class="option" onclick="answer(this,false)">Le mouvement circulaire des astres</div>
+              <button class="option" onclick="answer(this,false)">La force qui attire les atomes entre eux</button>
+              <button class="option" onclick="answer(this,false)">L'énergie vitale de l'univers</button>
+              <button class="option" onclick="answer(this,true)">La déviation spontanée des atomes, fondement de la liberté</button>
+              <button class="option" onclick="answer(this,false)">Le mouvement circulaire des astres</button>
             </div>
             <div class="q-feedback">Le clinamen est la légère déviation spontanée des atomes dans leur chute. Cet écart imprévisible rompt le déterminisme strict et fonde la possibilité de la liberté humaine.</div>
           </div>
@@ -177,10 +177,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quels sont les trois types de désirs selon Épicure ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Physiques, intellectuels et spirituels</div>
-              <div class="option" onclick="answer(this,true)">Naturels et nécessaires, naturels mais non nécessaires, ni naturels ni nécessaires</div>
-              <div class="option" onclick="answer(this,false)">Bons, mauvais et neutres</div>
-              <div class="option" onclick="answer(this,false)">Individuels, sociaux et cosmiques</div>
+              <button class="option" onclick="answer(this,false)">Physiques, intellectuels et spirituels</button>
+              <button class="option" onclick="answer(this,true)">Naturels et nécessaires, naturels mais non nécessaires, ni naturels ni nécessaires</button>
+              <button class="option" onclick="answer(this,false)">Bons, mauvais et neutres</button>
+              <button class="option" onclick="answer(this,false)">Individuels, sociaux et cosmiques</button>
             </div>
             <div class="q-feedback">Épicure classe les désirs en trois catégories : naturels et nécessaires (manger, boire), naturels mais non nécessaires (manger raffiné), ni naturels ni nécessaires (gloire, richesse). Les derniers sont source de trouble et doivent être éliminés.</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Pourquoi Épicure conseille-t-il de « vivre caché » (lathe biosas) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Par lâcheté face aux responsabilités</div>
-              <div class="option" onclick="answer(this,false)">Parce que les dieux punissent ceux qui se montrent</div>
-              <div class="option" onclick="answer(this,true)">Parce que la vie politique est source de trouble et d'ambitions destructrices</div>
-              <div class="option" onclick="answer(this,false)">Parce que le savoir doit rester secret</div>
+              <button class="option" onclick="answer(this,false)">Par lâcheté face aux responsabilités</button>
+              <button class="option" onclick="answer(this,false)">Parce que les dieux punissent ceux qui se montrent</button>
+              <button class="option" onclick="answer(this,true)">Parce que la vie politique est source de trouble et d'ambitions destructrices</button>
+              <button class="option" onclick="answer(this,false)">Parce que le savoir doit rester secret</button>
             </div>
             <div class="q-feedback">Épicure recommande de se retirer de la vie publique car la politique engendre l'ambition, la rivalité et l'anxiété — autant d'obstacles à l'ataraxie. Le bonheur se cultive dans le cercle intime des amis.</div>
           </div>
@@ -199,10 +199,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel rôle les dieux jouent-ils dans la philosophie d'Épicure ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Ils n'existent pas du tout</div>
-              <div class="option" onclick="answer(this,false)">Ils gouvernent le monde par la Providence</div>
-              <div class="option" onclick="answer(this,true)">Ils existent mais ne s'occupent pas des affaires humaines</div>
-              <div class="option" onclick="answer(this,false)">Ils punissent les méchants après la mort</div>
+              <button class="option" onclick="answer(this,false)">Ils n'existent pas du tout</button>
+              <button class="option" onclick="answer(this,false)">Ils gouvernent le monde par la Providence</button>
+              <button class="option" onclick="answer(this,true)">Ils existent mais ne s'occupent pas des affaires humaines</button>
+              <button class="option" onclick="answer(this,false)">Ils punissent les méchants après la mort</button>
             </div>
             <div class="q-feedback">Pour Épicure, les dieux existent comme des êtres bienheureux et immortels, mais ils ne s'occupent pas du monde humain. Croire qu'ils nous punissent ou nous récompensent est une source de peur inutile.</div>
           </div>
@@ -257,8 +257,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

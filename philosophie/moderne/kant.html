@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Le philosophe de la raison critique, des limites de la connaissance et de la loi morale universelle.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Kant — Moderne — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #9b7ae8;
   --accent2: #b39ddb;
   --accent-dim: rgba(155,122,232,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(155,122,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(155,122,232,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">⚖️ Moderne</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -138,10 +138,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Que signifie la « révolution copernicienne » de Kant ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La Terre tourne autour du Soleil</div>
-              <div class="option" onclick="answer(this,true)">Ce sont les objets qui se règlent sur notre faculté de connaître, et non l'inverse</div>
-              <div class="option" onclick="answer(this,false)">La raison est toute-puissante</div>
-              <div class="option" onclick="answer(this,false)">La morale remplace la métaphysique</div>
+              <button class="option" onclick="answer(this,false)">La Terre tourne autour du Soleil</button>
+              <button class="option" onclick="answer(this,true)">Ce sont les objets qui se règlent sur notre faculté de connaître, et non l'inverse</button>
+              <button class="option" onclick="answer(this,false)">La raison est toute-puissante</button>
+              <button class="option" onclick="answer(this,false)">La morale remplace la métaphysique</button>
             </div>
             <div class="q-feedback">Comme Copernic a montré que c'est la Terre qui tourne autour du Soleil, Kant montre que c'est le sujet qui structure l'expérience, et non les objets qui impriment leur forme en nous.</div>
           </div>
@@ -149,10 +149,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'est-ce que le noumène chez Kant ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La réalité telle que nous la percevons</div>
-              <div class="option" onclick="answer(this,true)">La chose en soi, inaccessible à la connaissance</div>
-              <div class="option" onclick="answer(this,false)">L'idée de Dieu</div>
-              <div class="option" onclick="answer(this,false)">La loi morale</div>
+              <button class="option" onclick="answer(this,false)">La réalité telle que nous la percevons</button>
+              <button class="option" onclick="answer(this,true)">La chose en soi, inaccessible à la connaissance</button>
+              <button class="option" onclick="answer(this,false)">L'idée de Dieu</button>
+              <button class="option" onclick="answer(this,false)">La loi morale</button>
             </div>
             <div class="q-feedback">Le noumène est la chose en soi, ce que les choses sont indépendamment de notre perception. Nous ne connaissons que les phénomènes (les choses telles qu'elles nous apparaissent).</div>
           </div>
@@ -160,10 +160,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel est le principe fondamental de la morale kantienne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Maximiser le bonheur du plus grand nombre</div>
-              <div class="option" onclick="answer(this,false)">Suivre ses sentiments moraux</div>
-              <div class="option" onclick="answer(this,true)">Agir selon une maxime universalisable (impératif catégorique)</div>
-              <div class="option" onclick="answer(this,false)">Obéir aux lois de l'État</div>
+              <button class="option" onclick="answer(this,false)">Maximiser le bonheur du plus grand nombre</button>
+              <button class="option" onclick="answer(this,false)">Suivre ses sentiments moraux</button>
+              <button class="option" onclick="answer(this,true)">Agir selon une maxime universalisable (impératif catégorique)</button>
+              <button class="option" onclick="answer(this,false)">Obéir aux lois de l'État</button>
             </div>
             <div class="q-feedback">L'impératif catégorique commande d'agir uniquement selon une maxime qu'on pourrait vouloir comme loi universelle. C'est un critère purement rationnel de la moralité.</div>
           </div>
@@ -171,10 +171,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Que sont les « formes a priori de la sensibilité » chez Kant ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Les cinq sens (vue, ouïe, toucher, goût, odorat)</div>
-              <div class="option" onclick="answer(this,true)">L'espace et le temps, qui structurent toute perception</div>
-              <div class="option" onclick="answer(this,false)">Les catégories de l'entendement (causalité, substance)</div>
-              <div class="option" onclick="answer(this,false)">Les idées de la raison (Dieu, liberté, immortalité)</div>
+              <button class="option" onclick="answer(this,false)">Les cinq sens (vue, ouïe, toucher, goût, odorat)</button>
+              <button class="option" onclick="answer(this,true)">L'espace et le temps, qui structurent toute perception</button>
+              <button class="option" onclick="answer(this,false)">Les catégories de l'entendement (causalité, substance)</button>
+              <button class="option" onclick="answer(this,false)">Les idées de la raison (Dieu, liberté, immortalité)</button>
             </div>
             <div class="q-feedback">L'espace et le temps sont les formes a priori de la sensibilité : nous ne percevons rien qui ne soit dans l'espace et le temps, non parce que le monde est ainsi, mais parce que notre esprit structure ainsi l'expérience.</div>
           </div>
@@ -182,10 +182,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Que propose Kant dans « Vers la paix perpétuelle » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le désarmement total de tous les États</div>
-              <div class="option" onclick="answer(this,false)">Un empire mondial gouverné par un philosophe</div>
-              <div class="option" onclick="answer(this,true)">Une fédération d'États républicains fondée sur le droit international</div>
-              <div class="option" onclick="answer(this,false)">L'abolition de toute forme de gouvernement</div>
+              <button class="option" onclick="answer(this,false)">Le désarmement total de tous les États</button>
+              <button class="option" onclick="answer(this,false)">Un empire mondial gouverné par un philosophe</button>
+              <button class="option" onclick="answer(this,true)">Une fédération d'États républicains fondée sur le droit international</button>
+              <button class="option" onclick="answer(this,false)">L'abolition de toute forme de gouvernement</button>
             </div>
             <div class="q-feedback">Kant propose une fédération d'États libres et républicains, unis par le droit international. Ce projet est considéré comme un précurseur de l'ONU et du droit international moderne.</div>
           </div>
@@ -193,10 +193,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Pourquoi Kant affirme-t-il que la métaphysique traditionnelle est impossible comme science ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Parce que Dieu n'existe pas</div>
-              <div class="option" onclick="answer(this,true)">Parce que la raison tombe dans des contradictions insolubles (antinomies) au-delà de l'expérience</div>
-              <div class="option" onclick="answer(this,false)">Parce que seules les mathématiques sont vraies</div>
-              <div class="option" onclick="answer(this,false)">Parce que les sens sont la seule source de connaissance</div>
+              <button class="option" onclick="answer(this,false)">Parce que Dieu n'existe pas</button>
+              <button class="option" onclick="answer(this,true)">Parce que la raison tombe dans des contradictions insolubles (antinomies) au-delà de l'expérience</button>
+              <button class="option" onclick="answer(this,false)">Parce que seules les mathématiques sont vraies</button>
+              <button class="option" onclick="answer(this,false)">Parce que les sens sont la seule source de connaissance</button>
             </div>
             <div class="q-feedback">Kant montre que la raison, quand elle dépasse les limites de l'expérience possible, produit des antinomies (contradictions insolubles). On peut prouver aussi bien que le monde est fini qu'infini. La métaphysique ne peut donc pas être une science rigoureuse.</div>
           </div>
@@ -254,8 +254,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

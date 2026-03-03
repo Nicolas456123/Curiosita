@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Taux de variation instantané, règles de dérivation, étude de fonctions et optimisation.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Dérivées — Analyse — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #c0392b;
   --accent2: #e74c3c;
   --accent-dim: rgba(192,57,43,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(192,57,43,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📈 Analyse</span>
     <span class="tag-level">Intermédiaire</span>
@@ -165,10 +165,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la dérivée de f(x) = x⁴ − 3x² + 5 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">4x³ − 3x</div>
-              <div class="option" onclick="answer(this,true)">4x³ − 6x</div>
-              <div class="option" onclick="answer(this,false)">4x³ − 6x + 5</div>
-              <div class="option" onclick="answer(this,false)">x⁵/5 − x³</div>
+              <button class="option" onclick="answer(this,false)">4x³ − 3x</button>
+              <button class="option" onclick="answer(this,true)">4x³ − 6x</button>
+              <button class="option" onclick="answer(this,false)">4x³ − 6x + 5</button>
+              <button class="option" onclick="answer(this,false)">x⁵/5 − x³</button>
             </div>
             <div class="q-feedback">On applique la règle (x<sup>n</sup>)' = nx<sup>n−1</sup> terme à terme : (x⁴)' = 4x³, (−3x²)' = −6x, (5)' = 0. Donc f'(x) = 4x³ − 6x.</div>
           </div>
@@ -176,10 +176,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle est la dérivée de g(x) = e<sup>3x+1</sup> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">e<sup>3x+1</sup></div>
-              <div class="option" onclick="answer(this,false)">(3x+1)e<sup>3x</sup></div>
-              <div class="option" onclick="answer(this,true)">3e<sup>3x+1</sup></div>
-              <div class="option" onclick="answer(this,false)">e<sup>3</sup></div>
+              <button class="option" onclick="answer(this,false)">e<sup>3x+1</sup></button>
+              <button class="option" onclick="answer(this,false)">(3x+1)e<sup>3x</sup></button>
+              <button class="option" onclick="answer(this,true)">3e<sup>3x+1</sup></button>
+              <button class="option" onclick="answer(this,false)">e<sup>3</sup></button>
             </div>
             <div class="q-feedback">Par la règle de la chaîne : la dérivée de e<sup>u</sup> est u' × e<sup>u</sup>. Ici u = 3x + 1, donc u' = 3 et g'(x) = 3e<sup>3x+1</sup>.</div>
           </div>
@@ -187,10 +187,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Si f'(x) > 0 sur un intervalle I, que peut-on dire de f sur I ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">f est concave</div>
-              <div class="option" onclick="answer(this,false)">f est positive</div>
-              <div class="option" onclick="answer(this,true)">f est strictement croissante</div>
-              <div class="option" onclick="answer(this,false)">f admet un maximum</div>
+              <button class="option" onclick="answer(this,false)">f est concave</button>
+              <button class="option" onclick="answer(this,false)">f est positive</button>
+              <button class="option" onclick="answer(this,true)">f est strictement croissante</button>
+              <button class="option" onclick="answer(this,false)">f admet un maximum</button>
             </div>
             <div class="q-feedback">Le signe de la dérivée indique le sens de variation : f' > 0 signifie que f est strictement croissante. La positivité de f et sa concavité sont des propriétés distinctes.</div>
           </div>
@@ -198,10 +198,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle est la formule de la dérivée d'un produit (fg)' ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">f' × g'</div>
-              <div class="option" onclick="answer(this,true)">f'g + fg'</div>
-              <div class="option" onclick="answer(this,false)">f'g − fg'</div>
-              <div class="option" onclick="answer(this,false)">(f' + g')/(fg)</div>
+              <button class="option" onclick="answer(this,false)">f' × g'</button>
+              <button class="option" onclick="answer(this,true)">f'g + fg'</button>
+              <button class="option" onclick="answer(this,false)">f'g − fg'</button>
+              <button class="option" onclick="answer(this,false)">(f' + g')/(fg)</button>
             </div>
             <div class="q-feedback">La formule de Leibniz pour le produit est (fg)' = f'g + fg'. Attention : la dérivée d'un produit n'est pas le produit des dérivées.</div>
           </div>
@@ -209,10 +209,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">La fonction f(x) = |x| est-elle dérivable en x = 0 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Non, car les limites à gauche et à droite du taux de variation sont différentes</div>
-              <div class="option" onclick="answer(this,false)">Oui, et f'(0) = 0</div>
-              <div class="option" onclick="answer(this,false)">Oui, et f'(0) = 1</div>
-              <div class="option" onclick="answer(this,false)">Non, car f(0) n'est pas définie</div>
+              <button class="option" onclick="answer(this,true)">Non, car les limites à gauche et à droite du taux de variation sont différentes</button>
+              <button class="option" onclick="answer(this,false)">Oui, et f'(0) = 0</button>
+              <button class="option" onclick="answer(this,false)">Oui, et f'(0) = 1</button>
+              <button class="option" onclick="answer(this,false)">Non, car f(0) n'est pas définie</button>
             </div>
             <div class="q-feedback">Pour x > 0, |x|/x = 1 → la limite à droite du taux de variation vaut 1. Pour x &lt; 0, |x|/x = −1 → la limite à gauche vaut −1. Les deux limites étant différentes, f n'est pas dérivable en 0 (bien qu'elle soit continue).</div>
           </div>
@@ -220,10 +220,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Si f'(c) = 0 et f''(c) > 0, que peut-on conclure ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">f admet un maximum local en c</div>
-              <div class="option" onclick="answer(this,true)">f admet un minimum local en c</div>
-              <div class="option" onclick="answer(this,false)">f a un point d'inflexion en c</div>
-              <div class="option" onclick="answer(this,false)">On ne peut rien conclure</div>
+              <button class="option" onclick="answer(this,false)">f admet un maximum local en c</button>
+              <button class="option" onclick="answer(this,true)">f admet un minimum local en c</button>
+              <button class="option" onclick="answer(this,false)">f a un point d'inflexion en c</button>
+              <button class="option" onclick="answer(this,false)">On ne peut rien conclure</button>
             </div>
             <div class="q-feedback">Par le test de la dérivée seconde : f'(c) = 0 indique un point critique, et f''(c) > 0 indique une concavité vers le haut (convexe), donc la courbe « sourit » en ce point. C'est bien un minimum local.</div>
           </div>
@@ -293,8 +293,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

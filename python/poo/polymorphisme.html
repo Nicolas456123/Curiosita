@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Duck typing, surcharge d'opérateurs, interfaces et classes abstraites (ABC) — écrire du code flexible qui fonctionne avec différents types d'objets.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Polymorphisme — POO Python — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #27ae60;
   --accent2: #2ecc71;
   --accent-dim: rgba(39,174,96,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(39,174,96,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(39,174,96,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🐍 POO Python</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -381,10 +381,10 @@ print(formater("texte"))     # texte (comportement par défaut)</code></pre>
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qu'est-ce que le « duck typing » en Python ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un type de donnée réservé aux canards virtuels</div>
-              <div class="option" onclick="answer(this,true)">Un principe où le type d'un objet est déterminé par ses méthodes, pas par sa classe</div>
-              <div class="option" onclick="answer(this,false)">Un type de typage statique comme en Java</div>
-              <div class="option" onclick="answer(this,false)">Un design pattern de création d'objets</div>
+              <button class="option" onclick="answer(this,false)">Un type de donnée réservé aux canards virtuels</button>
+              <button class="option" onclick="answer(this,true)">Un principe où le type d'un objet est déterminé par ses méthodes, pas par sa classe</button>
+              <button class="option" onclick="answer(this,false)">Un type de typage statique comme en Java</button>
+              <button class="option" onclick="answer(this,false)">Un design pattern de création d'objets</button>
             </div>
             <div class="q-feedback">Le duck typing signifie : « si ça marche comme un canard et cancane comme un canard, c'est un canard. » Python vérifie les capacités d'un objet (ses méthodes) plutôt que son type déclaré.</div>
           </div>
@@ -392,10 +392,10 @@ print(formater("texte"))     # texte (comportement par défaut)</code></pre>
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle méthode spéciale permet de surcharger l'opérateur <code>+</code> ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">__plus__</div>
-              <div class="option" onclick="answer(this,false)">__sum__</div>
-              <div class="option" onclick="answer(this,true)">__add__</div>
-              <div class="option" onclick="answer(this,false)">__concat__</div>
+              <button class="option" onclick="answer(this,false)">__plus__</button>
+              <button class="option" onclick="answer(this,false)">__sum__</button>
+              <button class="option" onclick="answer(this,true)">__add__</button>
+              <button class="option" onclick="answer(this,false)">__concat__</button>
             </div>
             <div class="q-feedback">__add__(self, other) est appelée quand on utilise l'opérateur +. Par exemple, a + b appelle a.__add__(b). C'est ce qui permet à + de fonctionner avec des entiers, des chaînes et des listes.</div>
           </div>
@@ -403,10 +403,10 @@ print(formater("texte"))     # texte (comportement par défaut)</code></pre>
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que se passe-t-il si on essaie d'instancier une classe abstraite (ABC) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une instance vide est créée</div>
-              <div class="option" onclick="answer(this,true)">Un TypeError est levé</div>
-              <div class="option" onclick="answer(this,false)">Les méthodes abstraites retournent None</div>
-              <div class="option" onclick="answer(this,false)">Un avertissement est affiché mais l'objet est créé</div>
+              <button class="option" onclick="answer(this,false)">Une instance vide est créée</button>
+              <button class="option" onclick="answer(this,true)">Un TypeError est levé</button>
+              <button class="option" onclick="answer(this,false)">Les méthodes abstraites retournent None</button>
+              <button class="option" onclick="answer(this,false)">Un avertissement est affiché mais l'objet est créé</button>
             </div>
             <div class="q-feedback">Python lève un TypeError si on essaie d'instancier une classe abstraite ou une sous-classe qui n'a pas implémenté toutes les méthodes abstraites. C'est un contrat strict.</div>
           </div>
@@ -414,10 +414,10 @@ print(formater("texte"))     # texte (comportement par défaut)</code></pre>
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel module Python fournit les classes abstraites (ABC) ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">abc</div>
-              <div class="option" onclick="answer(this,false)">abstract</div>
-              <div class="option" onclick="answer(this,false)">interface</div>
-              <div class="option" onclick="answer(this,false)">typing</div>
+              <button class="option" onclick="answer(this,true)">abc</button>
+              <button class="option" onclick="answer(this,false)">abstract</button>
+              <button class="option" onclick="answer(this,false)">interface</button>
+              <button class="option" onclick="answer(this,false)">typing</button>
             </div>
             <div class="q-feedback">Le module abc (Abstract Base Classes) fournit ABC et le décorateur @abstractmethod. On utilise from abc import ABC, abstractmethod pour définir des classes abstraites.</div>
           </div>
@@ -425,10 +425,10 @@ print(formater("texte"))     # texte (comportement par défaut)</code></pre>
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quelle méthode spéciale faut-il implémenter pour que <code>len(obj)</code> fonctionne ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">__size__</div>
-              <div class="option" onclick="answer(this,false)">__count__</div>
-              <div class="option" onclick="answer(this,true)">__len__</div>
-              <div class="option" onclick="answer(this,false)">__length__</div>
+              <button class="option" onclick="answer(this,false)">__size__</button>
+              <button class="option" onclick="answer(this,false)">__count__</button>
+              <button class="option" onclick="answer(this,true)">__len__</button>
+              <button class="option" onclick="answer(this,false)">__length__</button>
             </div>
             <div class="q-feedback">__len__ doit retourner un entier positif. Quand on appelle len(obj), Python appelle en réalité obj.__len__(). C'est un exemple de protocole Python.</div>
           </div>
@@ -436,10 +436,10 @@ print(formater("texte"))     # texte (comportement par défaut)</code></pre>
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle est la différence principale entre le duck typing et les ABC ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le duck typing est plus rapide en exécution</div>
-              <div class="option" onclick="answer(this,false)">Les ABC ne supportent pas l'héritage multiple</div>
-              <div class="option" onclick="answer(this,false)">Le duck typing nécessite plus de mémoire</div>
-              <div class="option" onclick="answer(this,true)">Les ABC imposent un contrat vérifié à l'instanciation, le duck typing vérifie à l'appel</div>
+              <button class="option" onclick="answer(this,false)">Le duck typing est plus rapide en exécution</button>
+              <button class="option" onclick="answer(this,false)">Les ABC ne supportent pas l'héritage multiple</button>
+              <button class="option" onclick="answer(this,false)">Le duck typing nécessite plus de mémoire</button>
+              <button class="option" onclick="answer(this,true)">Les ABC imposent un contrat vérifié à l'instanciation, le duck typing vérifie à l'appel</button>
             </div>
             <div class="q-feedback">Avec le duck typing, l'erreur survient quand on appelle une méthode manquante (AttributeError). Avec les ABC, l'erreur survient dès l'instanciation si une méthode abstraite n'est pas implémentée (TypeError). Les ABC offrent une détection plus précoce des erreurs.</div>
           </div>
@@ -755,8 +755,14 @@ effectuer_achat(pp, 99.99)  # PayPal (alice@mail.com) : 99.99€ débité</code>
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

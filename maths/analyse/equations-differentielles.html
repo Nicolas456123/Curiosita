@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Équations contenant une fonction et ses dérivées — le langage mathématique de la physique et des sciences.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Équations différentielles — Analyse — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #c0392b;
   --accent2: #e74c3c;
   --accent-dim: rgba(192,57,43,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(192,57,43,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📈 Analyse</span>
     <span class="tag-level">Avancé</span>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle est la solution générale de y' = 3y ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">y = 3x + C</div>
-              <div class="option" onclick="answer(this,true)">y = Ce<sup>3x</sup></div>
-              <div class="option" onclick="answer(this,false)">y = e<sup>3x</sup></div>
-              <div class="option" onclick="answer(this,false)">y = C·cos(3x)</div>
+              <button class="option" onclick="answer(this,false)">y = 3x + C</button>
+              <button class="option" onclick="answer(this,true)">y = Ce<sup>3x</sup></button>
+              <button class="option" onclick="answer(this,false)">y = e<sup>3x</sup></button>
+              <button class="option" onclick="answer(this,false)">y = C·cos(3x)</button>
             </div>
             <div class="q-feedback">y' = 3y est une EDO à variables séparables. En séparant : dy/y = 3 dx, d'où ln|y| = 3x + C, donc y = Ce<sup>3x</sup> (la constante C englobe ±e<sup>C</sup>). Vérification : (Ce<sup>3x</sup>)' = 3Ce<sup>3x</sup> = 3y.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quelle est l'équation caractéristique de y'' − 4y' + 3y = 0 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">r² + 4r + 3 = 0</div>
-              <div class="option" onclick="answer(this,true)">r² − 4r + 3 = 0</div>
-              <div class="option" onclick="answer(this,false)">r² − 4r − 3 = 0</div>
-              <div class="option" onclick="answer(this,false)">2r − 4 = 0</div>
+              <button class="option" onclick="answer(this,false)">r² + 4r + 3 = 0</button>
+              <button class="option" onclick="answer(this,true)">r² − 4r + 3 = 0</button>
+              <button class="option" onclick="answer(this,false)">r² − 4r − 3 = 0</button>
+              <button class="option" onclick="answer(this,false)">2r − 4 = 0</button>
             </div>
             <div class="q-feedback">On remplace y par e<sup>rx</sup> : y'' = r²e<sup>rx</sup>, y' = re<sup>rx</sup>, y = e<sup>rx</sup>. L'EDO donne (r² − 4r + 3)e<sup>rx</sup> = 0. Comme e<sup>rx</sup> ≠ 0, l'équation caractéristique est r² − 4r + 3 = 0, de racines r = 1 et r = 3.</div>
           </div>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Que modélise l'équation y'' + ω²y = 0 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une croissance exponentielle</div>
-              <div class="option" onclick="answer(this,false)">Une décroissance radioactive</div>
-              <div class="option" onclick="answer(this,true)">Un oscillateur harmonique (mouvement périodique)</div>
-              <div class="option" onclick="answer(this,false)">Un refroidissement de Newton</div>
+              <button class="option" onclick="answer(this,false)">Une croissance exponentielle</button>
+              <button class="option" onclick="answer(this,false)">Une décroissance radioactive</button>
+              <button class="option" onclick="answer(this,true)">Un oscillateur harmonique (mouvement périodique)</button>
+              <button class="option" onclick="answer(this,false)">Un refroidissement de Newton</button>
             </div>
             <div class="q-feedback">y'' + ω²y = 0 a pour solutions y = A·cos(ωx) + B·sin(ωx) : ce sont des fonctions sinusoïdales. C'est l'oscillateur harmonique, qui modélise le mouvement d'un pendule, d'un ressort, ou les oscillations dans un circuit LC.</div>
           </div>
@@ -200,10 +200,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Combien de constantes arbitraires contient la solution générale d'une EDO d'ordre 2 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">0</div>
-              <div class="option" onclick="answer(this,false)">1</div>
-              <div class="option" onclick="answer(this,true)">2</div>
-              <div class="option" onclick="answer(this,false)">3</div>
+              <button class="option" onclick="answer(this,false)">0</button>
+              <button class="option" onclick="answer(this,false)">1</button>
+              <button class="option" onclick="answer(this,true)">2</button>
+              <button class="option" onclick="answer(this,false)">3</button>
             </div>
             <div class="q-feedback">La solution générale d'une EDO d'ordre n contient exactement n constantes arbitraires. Pour une EDO d'ordre 2, il faut 2 conditions initiales (y(x₀) et y'(x₀)) pour déterminer la solution unique.</div>
           </div>
@@ -211,10 +211,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Si l'équation caractéristique a un discriminant négatif (Δ &lt; 0), la solution contient :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Deux exponentielles réelles</div>
-              <div class="option" onclick="answer(this,false)">Un polynôme multiplié par une exponentielle</div>
-              <div class="option" onclick="answer(this,true)">Des fonctions cosinus et sinus multipliées par une exponentielle</div>
-              <div class="option" onclick="answer(this,false)">Uniquement des polynômes</div>
+              <button class="option" onclick="answer(this,false)">Deux exponentielles réelles</button>
+              <button class="option" onclick="answer(this,false)">Un polynôme multiplié par une exponentielle</button>
+              <button class="option" onclick="answer(this,true)">Des fonctions cosinus et sinus multipliées par une exponentielle</button>
+              <button class="option" onclick="answer(this,false)">Uniquement des polynômes</button>
             </div>
             <div class="q-feedback">Quand Δ &lt; 0, les racines sont complexes conjuguées α ± iβ. La solution réelle est y = e<sup>αx</sup>(C₁cos(βx) + C₂sin(βx)). Le facteur exponentiel e<sup>αx</sup> contrôle l'amplitude (amortissement si α &lt; 0, amplification si α > 0), tandis que cos et sin produisent les oscillations.</div>
           </div>
@@ -222,10 +222,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quelle méthode utilise-t-on pour résoudre y' = x/y ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Séparation des variables</div>
-              <div class="option" onclick="answer(this,false)">Équation caractéristique</div>
-              <div class="option" onclick="answer(this,false)">Coefficients indéterminés</div>
-              <div class="option" onclick="answer(this,false)">Variation des constantes</div>
+              <button class="option" onclick="answer(this,true)">Séparation des variables</button>
+              <button class="option" onclick="answer(this,false)">Équation caractéristique</button>
+              <button class="option" onclick="answer(this,false)">Coefficients indéterminés</button>
+              <button class="option" onclick="answer(this,false)">Variation des constantes</button>
             </div>
             <div class="q-feedback">y' = x/y s'écrit y dy = x dx. En intégrant : y²/2 = x²/2 + C, d'où y² = x² + K. C'est une équation à variables séparables (non linéaire à cause de y au dénominateur). Les méthodes linéaires ne s'appliquent pas ici.</div>
           </div>
@@ -292,8 +292,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

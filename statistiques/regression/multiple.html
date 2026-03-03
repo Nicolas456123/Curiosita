@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Variables explicatives multiples, multicolinéarité, sélection de modèle — étendre la régression à plusieurs prédicteurs.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Régression multiple — Régression — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #16a085;
   --accent2: #1abc9c;
   --accent-dim: rgba(22,160,133,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(22,160,133,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(22,160,133,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📈 Régression</span>
     <span class="tag-level">Intermédiaire</span>
@@ -145,10 +145,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Comment interpréter β₂ dans Y = β₀ + β₁X₁ + β₂X₂ ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'effet total de X₂ sur Y</div>
-              <div class="option" onclick="answer(this,true)">L'effet de X₂ sur Y en maintenant X₁ constant</div>
-              <div class="option" onclick="answer(this,false)">La corrélation entre X₂ et Y</div>
-              <div class="option" onclick="answer(this,false)">La proportion de variance de Y expliquée par X₂</div>
+              <button class="option" onclick="answer(this,false)">L'effet total de X₂ sur Y</button>
+              <button class="option" onclick="answer(this,true)">L'effet de X₂ sur Y en maintenant X₁ constant</button>
+              <button class="option" onclick="answer(this,false)">La corrélation entre X₂ et Y</button>
+              <button class="option" onclick="answer(this,false)">La proportion de variance de Y expliquée par X₂</button>
             </div>
             <div class="q-feedback">En régression multiple, chaque coefficient mesure l'effet partiel (ceteris paribus) : la variation de Y pour une unité de variation de X₂, les autres variables étant fixées.</div>
           </div>
@@ -156,10 +156,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Pourquoi utiliser le R² ajusté plutôt que le R² ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Il est plus facile à calculer</div>
-              <div class="option" onclick="answer(this,true)">Il pénalise l'ajout de variables non pertinentes</div>
-              <div class="option" onclick="answer(this,false)">Il est toujours plus élevé que le R²</div>
-              <div class="option" onclick="answer(this,false)">Il ne nécessite pas l'hypothèse de normalité</div>
+              <button class="option" onclick="answer(this,false)">Il est plus facile à calculer</button>
+              <button class="option" onclick="answer(this,true)">Il pénalise l'ajout de variables non pertinentes</button>
+              <button class="option" onclick="answer(this,false)">Il est toujours plus élevé que le R²</button>
+              <button class="option" onclick="answer(this,false)">Il ne nécessite pas l'hypothèse de normalité</button>
             </div>
             <div class="q-feedback">Le R² augmente toujours en ajoutant une variable. Le R² ajusté corrige ce biais en pénalisant pour le nombre de prédicteurs, permettant une comparaison équitable entre modèles.</div>
           </div>
@@ -167,10 +167,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Un VIF de 8 pour une variable indique :</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Que la variable est non significative</div>
-              <div class="option" onclick="answer(this,true)">Un problème de multicolinéarité</div>
-              <div class="option" onclick="answer(this,false)">Que la variable est la plus importante</div>
-              <div class="option" onclick="answer(this,false)">Une hétéroscédasticité</div>
+              <button class="option" onclick="answer(this,false)">Que la variable est non significative</button>
+              <button class="option" onclick="answer(this,true)">Un problème de multicolinéarité</button>
+              <button class="option" onclick="answer(this,false)">Que la variable est la plus importante</button>
+              <button class="option" onclick="answer(this,false)">Une hétéroscédasticité</button>
             </div>
             <div class="q-feedback">Un VIF > 5 signale une multicolinéarité préoccupante. VIF = 8 signifie que la variance de ce coefficient est 8 fois plus grande qu'elle ne le serait sans corrélation avec les autres variables.</div>
           </div>
@@ -178,10 +178,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Combien de variables indicatrices faut-il pour une variable à 4 modalités ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">4</div>
-              <div class="option" onclick="answer(this,true)">3</div>
-              <div class="option" onclick="answer(this,false)">2</div>
-              <div class="option" onclick="answer(this,false)">1</div>
+              <button class="option" onclick="answer(this,false)">4</button>
+              <button class="option" onclick="answer(this,true)">3</button>
+              <button class="option" onclick="answer(this,false)">2</button>
+              <button class="option" onclick="answer(this,false)">1</button>
             </div>
             <div class="q-feedback">Une variable à k modalités nécessite (k−1) indicatrices pour éviter la multicolinéarité parfaite avec l'ordonnée à l'origine. La modalité omise sert de référence.</div>
           </div>
@@ -189,10 +189,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel critère pénalise plus fortement la complexité du modèle ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">L'AIC</div>
-              <div class="option" onclick="answer(this,true)">Le BIC</div>
-              <div class="option" onclick="answer(this,false)">Le R²</div>
-              <div class="option" onclick="answer(this,false)">Le test F</div>
+              <button class="option" onclick="answer(this,false)">L'AIC</button>
+              <button class="option" onclick="answer(this,true)">Le BIC</button>
+              <button class="option" onclick="answer(this,false)">Le R²</button>
+              <button class="option" onclick="answer(this,false)">Le test F</button>
             </div>
             <div class="q-feedback">Le BIC pénalise par p × ln(n), qui croît avec n, alors que l'AIC pénalise par 2p seulement. Pour n ≥ 8, le BIC est plus sévère et sélectionne des modèles plus parcimonieux.</div>
           </div>
@@ -200,10 +200,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Que signifie un terme d'interaction significatif X₁×X₂ ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">X₁ et X₂ sont corrélées</div>
-              <div class="option" onclick="answer(this,false)">X₁ et X₂ ont le même effet sur Y</div>
-              <div class="option" onclick="answer(this,true)">L'effet de X₁ sur Y dépend du niveau de X₂</div>
-              <div class="option" onclick="answer(this,false)">Le modèle est surajusté</div>
+              <button class="option" onclick="answer(this,false)">X₁ et X₂ sont corrélées</button>
+              <button class="option" onclick="answer(this,false)">X₁ et X₂ ont le même effet sur Y</button>
+              <button class="option" onclick="answer(this,true)">L'effet de X₁ sur Y dépend du niveau de X₂</button>
+              <button class="option" onclick="answer(this,false)">Le modèle est surajusté</button>
             </div>
             <div class="q-feedback">Une interaction significative signifie que l'effet d'une variable change selon la valeur de l'autre. Par exemple, l'effet de la formation sur le salaire peut dépendre du secteur d'activité.</div>
           </div>
@@ -296,8 +296,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-<script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Atmosphere, oceans, cryosphere, biosphere et lithosphere — les cinq composantes du climat terrestre et leurs interactions complexes.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Le systeme climatique — Climat et energie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae8d8;
   --accent2: #80cbc4;
   --accent-dim: rgba(122,232,216,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,216,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,216,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🌡️ Climat et energie</span>
     <span class="tag-level">Debutant → Intermediaire</span>
@@ -141,10 +141,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Sans effet de serre naturel, quelle serait la temperature moyenne de la Terre ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">0 °C</div>
-              <div class="option" onclick="answer(this,true)">-18 °C</div>
-              <div class="option" onclick="answer(this,false)">-50 °C</div>
-              <div class="option" onclick="answer(this,false)">+5 °C</div>
+              <button class="option" onclick="answer(this,false)">0 °C</button>
+              <button class="option" onclick="answer(this,true)">-18 °C</button>
+              <button class="option" onclick="answer(this,false)">-50 °C</button>
+              <button class="option" onclick="answer(this,false)">+5 °C</button>
             </div>
             <div class="q-feedback">Sans l'effet de serre naturel, la temperature moyenne serait de -18 °C au lieu de +15 °C actuellement. L'effet de serre naturel apporte donc un rechauffement de 33 °C.</div>
           </div>
@@ -152,10 +152,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel pourcentage de l'exces de chaleur du au rechauffement les oceans ont-ils absorbe ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">50 %</div>
-              <div class="option" onclick="answer(this,false)">75 %</div>
-              <div class="option" onclick="answer(this,true)">Plus de 90 %</div>
-              <div class="option" onclick="answer(this,false)">25 %</div>
+              <button class="option" onclick="answer(this,false)">50 %</button>
+              <button class="option" onclick="answer(this,false)">75 %</button>
+              <button class="option" onclick="answer(this,true)">Plus de 90 %</button>
+              <button class="option" onclick="answer(this,false)">25 %</button>
             </div>
             <div class="q-feedback">Les oceans ont absorbe plus de 90 % de l'exces de chaleur du au rechauffement climatique, ce qui explique leur role de regulateur thermique mais aussi leur rechauffement progressif.</div>
           </div>
@@ -163,10 +163,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qu'est-ce que l'effet albedo ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">La capacite d'une surface a reflechir le rayonnement solaire</div>
-              <div class="option" onclick="answer(this,false)">L'absorption de CO₂ par les oceans</div>
-              <div class="option" onclick="answer(this,false)">Le rechauffement des couches profondes de l'ocean</div>
-              <div class="option" onclick="answer(this,false)">L'evaporation de l'eau par les forets</div>
+              <button class="option" onclick="answer(this,true)">La capacite d'une surface a reflechir le rayonnement solaire</button>
+              <button class="option" onclick="answer(this,false)">L'absorption de CO₂ par les oceans</button>
+              <button class="option" onclick="answer(this,false)">Le rechauffement des couches profondes de l'ocean</button>
+              <button class="option" onclick="answer(this,false)">L'evaporation de l'eau par les forets</button>
             </div>
             <div class="q-feedback">L'albedo mesure la fraction du rayonnement solaire reflechi par une surface. La glace a un albedo eleve (~90 %), l'ocean sombre un albedo faible (~6 %).</div>
           </div>
@@ -174,10 +174,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel courant oceanique rend l'Europe occidentale plus douce ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Le Gulf Stream</div>
-              <div class="option" onclick="answer(this,false)">Le courant de Humboldt</div>
-              <div class="option" onclick="answer(this,false)">Le Kuroshio</div>
-              <div class="option" onclick="answer(this,false)">Le courant du Benguela</div>
+              <button class="option" onclick="answer(this,true)">Le Gulf Stream</button>
+              <button class="option" onclick="answer(this,false)">Le courant de Humboldt</button>
+              <button class="option" onclick="answer(this,false)">Le Kuroshio</button>
+              <button class="option" onclick="answer(this,false)">Le courant du Benguela</button>
             </div>
             <div class="q-feedback">Le Gulf Stream transporte les eaux chaudes du golfe du Mexique vers l'Atlantique Nord, rechauffant les cotes europeennes de plusieurs degres par rapport aux regions a la meme latitude.</div>
           </div>
@@ -185,10 +185,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Combien de CO₂ les oceans absorbent-ils par rapport aux emissions humaines ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">5 %</div>
-              <div class="option" onclick="answer(this,true)">Environ 25 %</div>
-              <div class="option" onclick="answer(this,false)">50 %</div>
-              <div class="option" onclick="answer(this,false)">75 %</div>
+              <button class="option" onclick="answer(this,false)">5 %</button>
+              <button class="option" onclick="answer(this,true)">Environ 25 %</button>
+              <button class="option" onclick="answer(this,false)">50 %</button>
+              <button class="option" onclick="answer(this,false)">75 %</button>
             </div>
             <div class="q-feedback">Les oceans absorbent environ 25 % du CO₂ emis par les activites humaines, ce qui provoque l'acidification des eaux oceanique.</div>
           </div>
@@ -196,10 +196,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Qu'est-ce qu'un forcage radiatif positif ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Un desequilibre qui rechauffe le climat</div>
-              <div class="option" onclick="answer(this,false)">Un phenomene benefique pour l'environnement</div>
-              <div class="option" onclick="answer(this,false)">Une augmentation de l'albedo</div>
-              <div class="option" onclick="answer(this,false)">Un refroidissement naturel</div>
+              <button class="option" onclick="answer(this,true)">Un desequilibre qui rechauffe le climat</button>
+              <button class="option" onclick="answer(this,false)">Un phenomene benefique pour l'environnement</button>
+              <button class="option" onclick="answer(this,false)">Une augmentation de l'albedo</button>
+              <button class="option" onclick="answer(this,false)">Un refroidissement naturel</button>
             </div>
             <div class="q-feedback">Un forcage radiatif positif signifie que la Terre recoit plus d'energie qu'elle n'en emet, ce qui provoque un rechauffement. Les GES produisent un forcage positif d'environ +3 W/m² depuis 1750.</div>
           </div>
@@ -263,8 +263,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

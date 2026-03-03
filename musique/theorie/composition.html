@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Forme, contrepoint, orchestration et techniques d'écriture — l'art de créer une oeuvre musicale cohérente et expressive.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Composition musicale — Théorie musicale — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e8b07a;
   --accent2: #ffcc80;
   --accent-dim: rgba(232,176,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,176,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,176,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">✍️ Théorie musicale</span>
     <span class="tag-level">Intermédiaire → Avancé</span>
@@ -160,10 +160,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle forme musicale est structurée en exposition-développement-réexposition ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Rondo</div>
-              <div class="option" onclick="answer(this,true)">Forme sonate</div>
-              <div class="option" onclick="answer(this,false)">Forme binaire</div>
-              <div class="option" onclick="answer(this,false)">Thème et variations</div>
+              <button class="option" onclick="answer(this,false)">Rondo</button>
+              <button class="option" onclick="answer(this,true)">Forme sonate</button>
+              <button class="option" onclick="answer(this,false)">Forme binaire</button>
+              <button class="option" onclick="answer(this,false)">Thème et variations</button>
             </div>
             <div class="q-feedback">La forme sonate se compose de trois parties : l'exposition (deux thèmes contrastants), le développement (transformation thématique) et la réexposition (retour des thèmes dans la tonalité principale).</div>
           </div>
@@ -171,10 +171,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'est-ce que la fugue ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Une danse en trois temps</div>
-              <div class="option" onclick="answer(this,false)">Un morceau pour instrument solo</div>
-              <div class="option" onclick="answer(this,true)">Une forme contrapuntique basée sur l'imitation d'un sujet</div>
-              <div class="option" onclick="answer(this,false)">Une variation sur un thème populaire</div>
+              <button class="option" onclick="answer(this,false)">Une danse en trois temps</button>
+              <button class="option" onclick="answer(this,false)">Un morceau pour instrument solo</button>
+              <button class="option" onclick="answer(this,true)">Une forme contrapuntique basée sur l'imitation d'un sujet</button>
+              <button class="option" onclick="answer(this,false)">Une variation sur un thème populaire</button>
             </div>
             <div class="q-feedback">La fugue est une forme contrapuntique où un sujet (thème) est introduit par une voix puis repris en imitation par les autres voix, avec des épisodes de développement. Bach en est le maître absolu.</div>
           </div>
@@ -182,10 +182,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Quel procédé de développement consiste à jouer un motif « à l'envers » ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Inversion</div>
-              <div class="option" onclick="answer(this,true)">Rétrograde</div>
-              <div class="option" onclick="answer(this,false)">Augmentation</div>
-              <div class="option" onclick="answer(this,false)">Transposition</div>
+              <button class="option" onclick="answer(this,false)">Inversion</button>
+              <button class="option" onclick="answer(this,true)">Rétrograde</button>
+              <button class="option" onclick="answer(this,false)">Augmentation</button>
+              <button class="option" onclick="answer(this,false)">Transposition</button>
             </div>
             <div class="q-feedback">Le rétrograde consiste à jouer les notes du motif dans l'ordre inverse (de la fin au début). L'inversion, elle, renverse la direction des intervalles (montée → descente).</div>
           </div>
@@ -193,10 +193,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle est la structure d'un rondo ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">AB</div>
-              <div class="option" onclick="answer(this,false)">ABA</div>
-              <div class="option" onclick="answer(this,true)">ABACA</div>
-              <div class="option" onclick="answer(this,false)">AABB</div>
+              <button class="option" onclick="answer(this,false)">AB</button>
+              <button class="option" onclick="answer(this,false)">ABA</button>
+              <button class="option" onclick="answer(this,true)">ABACA</button>
+              <button class="option" onclick="answer(this,false)">AABB</button>
             </div>
             <div class="q-feedback">Le rondo alterne un refrain (A) avec des couplets différents (B, C, etc.) selon le schéma ABACA ou ABACABA. Le retour régulier du refrain donne une impression de stabilité et d'unité.</div>
           </div>
@@ -204,10 +204,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qu'est-ce que la « doublure » en orchestration ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Jouer deux fois plus vite</div>
-              <div class="option" onclick="answer(this,true)">Confier la même mélodie à plusieurs instruments pour enrichir le timbre</div>
-              <div class="option" onclick="answer(this,false)">Répéter une section entière</div>
-              <div class="option" onclick="answer(this,false)">Diviser l'orchestre en deux groupes</div>
+              <button class="option" onclick="answer(this,false)">Jouer deux fois plus vite</button>
+              <button class="option" onclick="answer(this,true)">Confier la même mélodie à plusieurs instruments pour enrichir le timbre</button>
+              <button class="option" onclick="answer(this,false)">Répéter une section entière</button>
+              <button class="option" onclick="answer(this,false)">Diviser l'orchestre en deux groupes</button>
             </div>
             <div class="q-feedback">La doublure consiste à faire jouer la même ligne mélodique par plusieurs instruments simultanément, créant un timbre composite plus riche. Par exemple, doubler les violons par la flûte à l'octave supérieure.</div>
           </div>
@@ -215,10 +215,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Quel compositeur est célèbre pour avoir construit une symphonie entière à partir d'un motif de quatre notes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Mozart</div>
-              <div class="option" onclick="answer(this,true)">Beethoven</div>
-              <div class="option" onclick="answer(this,false)">Bach</div>
-              <div class="option" onclick="answer(this,false)">Haydn</div>
+              <button class="option" onclick="answer(this,false)">Mozart</button>
+              <button class="option" onclick="answer(this,true)">Beethoven</button>
+              <button class="option" onclick="answer(this,false)">Bach</button>
+              <button class="option" onclick="answer(this,false)">Haydn</button>
             </div>
             <div class="q-feedback">Beethoven a construit sa Symphonie n°5 en do mineur à partir du célèbre motif de quatre notes (ta-ta-ta-taaaa), démontrant comment un matériau minimal peut générer une oeuvre monumentale par le développement thématique.</div>
           </div>
@@ -274,8 +274,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

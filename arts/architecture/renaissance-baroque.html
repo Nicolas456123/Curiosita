@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Brunelleschi, Palladio, Bernin — de la coupole de Florence aux palais de Versailles.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Renaissance & Baroque — Architecture — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #e87a7a;
   --accent2: #ef9a9a;
   --accent-dim: rgba(232,122,122,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(232,122,122,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(232,122,122,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🏛️ Architecture</span>
     <span class="tag-level">Intermédiaire</span>
@@ -137,10 +137,10 @@
             <p class="q-num">Question 1 / 5</p>
             <p class="q-text">Quelle innovation technique Brunelleschi a-t-il utilisée pour construire la coupole de Florence ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Un cintre en bois géant</div>
-              <div class="option" onclick="answer(this,true)">Une double coque autoportante en spirale</div>
-              <div class="option" onclick="answer(this,false)">Du béton romain</div>
-              <div class="option" onclick="answer(this,false)">Des arcs-boutants gothiques</div>
+              <button class="option" onclick="answer(this,false)">Un cintre en bois géant</button>
+              <button class="option" onclick="answer(this,true)">Une double coque autoportante en spirale</button>
+              <button class="option" onclick="answer(this,false)">Du béton romain</button>
+              <button class="option" onclick="answer(this,false)">Des arcs-boutants gothiques</button>
             </div>
             <div class="q-feedback">Brunelleschi a conçu une double coque (intérieure et extérieure) construite en spirale autoportante avec un appareil en « arêtes de poisson », chaque rang de briques soutenant le suivant sans nécessiter de cintre en bois.</div>
           </div>
@@ -148,10 +148,10 @@
             <p class="q-num">Question 2 / 5</p>
             <p class="q-text">Quel architecte a écrit les « Quattro Libri dell'Architettura », traité qui a influencé l'architecture mondiale ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Leon Battista Alberti</div>
-              <div class="option" onclick="answer(this,false)">Donato Bramante</div>
-              <div class="option" onclick="answer(this,true)">Andrea Palladio</div>
-              <div class="option" onclick="answer(this,false)">Sebastiano Serlio</div>
+              <button class="option" onclick="answer(this,false)">Leon Battista Alberti</button>
+              <button class="option" onclick="answer(this,false)">Donato Bramante</button>
+              <button class="option" onclick="answer(this,true)">Andrea Palladio</button>
+              <button class="option" onclick="answer(this,false)">Sebastiano Serlio</button>
             </div>
             <div class="q-feedback">Andrea Palladio publie les Quattro Libri dell'Architettura en 1570. Ce traité illustré devient la référence de l'architecture classique pendant trois siècles, influençant l'Angleterre (Inigo Jones), les États-Unis (Jefferson) et le monde entier.</div>
           </div>
@@ -159,10 +159,10 @@
             <p class="q-num">Question 3 / 5</p>
             <p class="q-text">Qui a conçu la colonnade de la place Saint-Pierre de Rome ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Michel-Ange</div>
-              <div class="option" onclick="answer(this,false)">Borromini</div>
-              <div class="option" onclick="answer(this,true)">Le Bernin (Bernini)</div>
-              <div class="option" onclick="answer(this,false)">Bramante</div>
+              <button class="option" onclick="answer(this,false)">Michel-Ange</button>
+              <button class="option" onclick="answer(this,false)">Borromini</button>
+              <button class="option" onclick="answer(this,true)">Le Bernin (Bernini)</button>
+              <button class="option" onclick="answer(this,false)">Bramante</button>
             </div>
             <div class="q-feedback">Gian Lorenzo Bernini (Le Bernin) conçoit la colonnade de la place Saint-Pierre entre 1656 et 1667. Les 284 colonnes toscanes disposées sur quatre rangées forment deux bras embrassant la place ovale, symbolisant l'accueil de l'Église catholique.</div>
           </div>
@@ -170,10 +170,10 @@
             <p class="q-num">Question 4 / 5</p>
             <p class="q-text">Combien de miroirs compte la Galerie des Glaces de Versailles ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">200</div>
-              <div class="option" onclick="answer(this,false)">280</div>
-              <div class="option" onclick="answer(this,true)">357</div>
-              <div class="option" onclick="answer(this,false)">500</div>
+              <button class="option" onclick="answer(this,false)">200</button>
+              <button class="option" onclick="answer(this,false)">280</button>
+              <button class="option" onclick="answer(this,true)">357</button>
+              <button class="option" onclick="answer(this,false)">500</button>
             </div>
             <div class="q-feedback">La Galerie des Glaces (1678-1684), conçue par Jules Hardouin-Mansart, mesure 73 mètres de long et compte 357 miroirs disposés face à 357 fenêtres, créant un jeu de lumière et de reflets qui symbolise la splendeur du règne de Louis XIV.</div>
           </div>
@@ -181,10 +181,10 @@
             <p class="q-num">Question 5 / 5</p>
             <p class="q-text">Quel architecte baroque est célèbre pour ses façades ondulantes concaves et convexes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Le Bernin</div>
-              <div class="option" onclick="answer(this,true)">Borromini</div>
-              <div class="option" onclick="answer(this,false)">Hardouin-Mansart</div>
-              <div class="option" onclick="answer(this,false)">Palladio</div>
+              <button class="option" onclick="answer(this,false)">Le Bernin</button>
+              <button class="option" onclick="answer(this,true)">Borromini</button>
+              <button class="option" onclick="answer(this,false)">Hardouin-Mansart</button>
+              <button class="option" onclick="answer(this,false)">Palladio</button>
             </div>
             <div class="q-feedback">Francesco Borromini (1599-1667) est célèbre pour ses façades aux surfaces concaves et convexes qui ondulent comme de la pierre vivante. Son église San Carlo alle Quattro Fontane à Rome (1638-1641) est le chef-d'oeuvre de cette approche sculpturale de l'architecture.</div>
           </div>
@@ -216,8 +216,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

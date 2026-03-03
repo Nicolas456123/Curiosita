@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Trois mille ans de civilisation le long du Nil — pharaons, pyramides, hiéroglyphes et croyances éternelles.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Égypte ancienne — Antiquité — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #7ae88a;
   --accent2: #a5d6a7;
   --accent-dim: rgba(122,232,138,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(122,232,138,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(122,232,138,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">📜 Antiquité</span>
     <span class="tag-level">Débutant → Intermédiaire</span>
@@ -144,10 +144,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Qui fait construire la Grande Pyramide de Gizeh, vers 2560 av. J.-C. ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Ramsès II</div>
-              <div class="option" onclick="answer(this,true)">Khéops</div>
-              <div class="option" onclick="answer(this,false)">Toutânkhamon</div>
-              <div class="option" onclick="answer(this,false)">Akhenaton</div>
+              <button class="option" onclick="answer(this,false)">Ramsès II</button>
+              <button class="option" onclick="answer(this,true)">Khéops</button>
+              <button class="option" onclick="answer(this,false)">Toutânkhamon</button>
+              <button class="option" onclick="answer(this,false)">Akhenaton</button>
             </div>
             <div class="q-feedback">Khéops (Khoufou en égyptien) fait construire la Grande Pyramide de Gizeh vers 2560 av. J.-C. C'est la seule des sept merveilles du monde antique encore debout.</div>
           </div>
@@ -155,10 +155,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Quel événement en 1274 av. J.-C. aboutit au premier traité de paix international connu ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La conquête de la Nubie</div>
-              <div class="option" onclick="answer(this,true)">La bataille de Qadesh</div>
-              <div class="option" onclick="answer(this,false)">La construction d'Abou Simbel</div>
-              <div class="option" onclick="answer(this,false)">L'invasion des Peuples de la Mer</div>
+              <button class="option" onclick="answer(this,false)">La conquête de la Nubie</button>
+              <button class="option" onclick="answer(this,true)">La bataille de Qadesh</button>
+              <button class="option" onclick="answer(this,false)">La construction d'Abou Simbel</button>
+              <button class="option" onclick="answer(this,false)">L'invasion des Peuples de la Mer</button>
             </div>
             <div class="q-feedback">La bataille de Qadesh (1274 av. J.-C.) oppose Ramsès II aux Hittites. Elle débouche sur le premier traité de paix international connu de l'histoire.</div>
           </div>
@@ -166,10 +166,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Qui est le dernier souverain de l'Égypte pharaonique ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Alexandre le Grand</div>
-              <div class="option" onclick="answer(this,false)">Ptolémée Iᵉʳ</div>
-              <div class="option" onclick="answer(this,true)">Cléopâtre VII</div>
-              <div class="option" onclick="answer(this,false)">Ramsès II</div>
+              <button class="option" onclick="answer(this,false)">Alexandre le Grand</button>
+              <button class="option" onclick="answer(this,false)">Ptolémée Iᵉʳ</button>
+              <button class="option" onclick="answer(this,true)">Cléopâtre VII</button>
+              <button class="option" onclick="answer(this,false)">Ramsès II</button>
             </div>
             <div class="q-feedback">Cléopâtre VII meurt en 30 av. J.-C. Avec elle s'éteint la dynastie des Ptolémées et l'Égypte devient une province de l'Empire romain.</div>
           </div>
@@ -177,10 +177,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quel pharaon tente d'imposer le monothéisme solaire en Égypte ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Thoutmôsis III</div>
-              <div class="option" onclick="answer(this,true)">Akhenaton</div>
-              <div class="option" onclick="answer(this,false)">Hatchepsout</div>
-              <div class="option" onclick="answer(this,false)">Ramsès II</div>
+              <button class="option" onclick="answer(this,false)">Thoutmôsis III</button>
+              <button class="option" onclick="answer(this,true)">Akhenaton</button>
+              <button class="option" onclick="answer(this,false)">Hatchepsout</button>
+              <button class="option" onclick="answer(this,false)">Ramsès II</button>
             </div>
             <div class="q-feedback">Akhenaton (Amenhotep IV) impose le culte exclusif d'Aton, le disque solaire, vers 1350 av. J.-C. C'est la première tentative de monothéisme connue dans l'histoire.</div>
           </div>
@@ -188,10 +188,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Qui conçoit la première pyramide de l'histoire à Saqqarah ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Khéops</div>
-              <div class="option" onclick="answer(this,false)">Narmer</div>
-              <div class="option" onclick="answer(this,true)">Imhotep</div>
-              <div class="option" onclick="answer(this,false)">Snéfrou</div>
+              <button class="option" onclick="answer(this,false)">Khéops</button>
+              <button class="option" onclick="answer(this,false)">Narmer</button>
+              <button class="option" onclick="answer(this,true)">Imhotep</button>
+              <button class="option" onclick="answer(this,false)">Snéfrou</button>
             </div>
             <div class="q-feedback">Imhotep, architecte du pharaon Djéser (~2670 av. J.-C.), conçoit la pyramide à degrés de Saqqarah — la première pyramide de l'histoire.</div>
           </div>
@@ -199,10 +199,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Qui déchiffre les hiéroglyphes en 1822 grâce à la pierre de Rosette ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Howard Carter</div>
-              <div class="option" onclick="answer(this,false)">Napoléon Bonaparte</div>
-              <div class="option" onclick="answer(this,true)">Jean-François Champollion</div>
-              <div class="option" onclick="answer(this,false)">Auguste Mariette</div>
+              <button class="option" onclick="answer(this,false)">Howard Carter</button>
+              <button class="option" onclick="answer(this,false)">Napoléon Bonaparte</button>
+              <button class="option" onclick="answer(this,true)">Jean-François Champollion</button>
+              <button class="option" onclick="answer(this,false)">Auguste Mariette</button>
             </div>
             <div class="q-feedback">Jean-François Champollion déchiffre les hiéroglyphes en 1822 grâce à la pierre de Rosette, ouvrant la voie à l'égyptologie moderne.</div>
           </div>
@@ -265,8 +265,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

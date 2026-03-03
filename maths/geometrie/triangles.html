@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pythagore, Thalès, propriétés des triangles — les théorèmes qui fondent toute la géométrie.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Triangles et théorèmes fondamentaux — Géométrie — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
 <style>
-:root { --accent: #c0392b; --accent2: #e74c3c; --accent-dim: rgba(192,57,43,0.08); }
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(192,57,43,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+:root { --accent: #c0392b; --accent2: #e74c3c; --accent-dim: rgba(192,57,43,0.08);  --accent-hero: rgba(192,57,43,0.04); }
 </style>
 </head>
 <body>
@@ -17,7 +17,7 @@
   <a href="../../index.html" class="logo">Curiosita.</a>
   <div class="breadcrumb"><a href="../../maths-page.html">Mathématiques</a> › <a href="../geometrie.html">Géométrie</a> › <span>Triangles</span></div>
 </nav>
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta"><span class="tag-domain">🔺 Géométrie</span><span class="tag-level">Débutant → Intermédiaire</span><span class="tag-time">⏱ ~45 min</span></div>
   <h1><em>Triangles et théorèmes fondamentaux</em></h1>
   <p class="hero-desc">Pythagore, Thalès, propriétés des triangles — les théorèmes qui fondent toute la géométrie.</p>
@@ -139,10 +139,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Dans un triangle rectangle avec a = 5 et b = 12, que vaut l'hypoténuse c ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">13</div>
-              <div class="option" onclick="answer(this,false)">17</div>
-              <div class="option" onclick="answer(this,false)">√17</div>
-              <div class="option" onclick="answer(this,false)">7</div>
+              <button class="option" onclick="answer(this,true)">13</button>
+              <button class="option" onclick="answer(this,false)">17</button>
+              <button class="option" onclick="answer(this,false)">√17</button>
+              <button class="option" onclick="answer(this,false)">7</button>
             </div>
             <div class="q-feedback">c² = 5² + 12² = 25 + 144 = 169, donc c = 13. Le triplet (5, 12, 13) est classique.</div>
           </div>
@@ -150,10 +150,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Les médianes d'un triangle se coupent au...</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Centre de gravité</div>
-              <div class="option" onclick="answer(this,false)">Orthocentre</div>
-              <div class="option" onclick="answer(this,false)">Centre du cercle circonscrit</div>
-              <div class="option" onclick="answer(this,false)">Centre du cercle inscrit</div>
+              <button class="option" onclick="answer(this,true)">Centre de gravité</button>
+              <button class="option" onclick="answer(this,false)">Orthocentre</button>
+              <button class="option" onclick="answer(this,false)">Centre du cercle circonscrit</button>
+              <button class="option" onclick="answer(this,false)">Centre du cercle inscrit</button>
             </div>
             <div class="q-feedback">Les médianes se coupent au centre de gravité G, situé aux 2/3 de chaque médiane depuis le sommet. L'orthocentre est l'intersection des hauteurs.</div>
           </div>
@@ -161,10 +161,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Peut-on former un triangle avec des côtés de longueur 2, 3 et 6 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Oui</div>
-              <div class="option" onclick="answer(this,true)">Non (inégalité triangulaire)</div>
-              <div class="option" onclick="answer(this,false)">Oui, mais il est aplati</div>
-              <div class="option" onclick="answer(this,false)">Seulement s'il est rectangle</div>
+              <button class="option" onclick="answer(this,false)">Oui</button>
+              <button class="option" onclick="answer(this,true)">Non (inégalité triangulaire)</button>
+              <button class="option" onclick="answer(this,false)">Oui, mais il est aplati</button>
+              <button class="option" onclick="answer(this,false)">Seulement s'il est rectangle</button>
             </div>
             <div class="q-feedback">2 + 3 = 5 < 6. L'inégalité triangulaire n'est pas vérifiée : chaque côté doit être strictement inférieur à la somme des deux autres.</div>
           </div>
@@ -172,10 +172,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Quelle est l'aire d'un triangle de côtés 6, 8 et 10 ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">24</div>
-              <div class="option" onclick="answer(this,false)">30</div>
-              <div class="option" onclick="answer(this,false)">48</div>
-              <div class="option" onclick="answer(this,false)">40</div>
+              <button class="option" onclick="answer(this,true)">24</button>
+              <button class="option" onclick="answer(this,false)">30</button>
+              <button class="option" onclick="answer(this,false)">48</button>
+              <button class="option" onclick="answer(this,false)">40</button>
             </div>
             <div class="q-feedback">6² + 8² = 36 + 64 = 100 = 10². C'est un triangle rectangle ! Aire = (6 × 8) / 2 = 24. Avec Héron : s = 12, A = √(12×6×4×2) = √576 = 24.</div>
           </div>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">La somme des angles d'un triangle est toujours égale à...</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">180°</div>
-              <div class="option" onclick="answer(this,false)">360°</div>
-              <div class="option" onclick="answer(this,false)">90°</div>
-              <div class="option" onclick="answer(this,false)">270°</div>
+              <button class="option" onclick="answer(this,true)">180°</button>
+              <button class="option" onclick="answer(this,false)">360°</button>
+              <button class="option" onclick="answer(this,false)">90°</button>
+              <button class="option" onclick="answer(this,false)">270°</button>
             </div>
             <div class="q-feedback">En géométrie euclidienne (plane), la somme des angles d'un triangle vaut toujours 180°. 360° est la somme des angles d'un quadrilatère.</div>
           </div>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Dans un triangle ABC, si (DE) est parallèle à (BC) avec AD/AB = 2/5, que vaut DE/BC ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">2/5</div>
-              <div class="option" onclick="answer(this,false)">3/5</div>
-              <div class="option" onclick="answer(this,false)">5/2</div>
-              <div class="option" onclick="answer(this,false)">4/25</div>
+              <button class="option" onclick="answer(this,true)">2/5</button>
+              <button class="option" onclick="answer(this,false)">3/5</button>
+              <button class="option" onclick="answer(this,false)">5/2</button>
+              <button class="option" onclick="answer(this,false)">4/25</button>
             </div>
             <div class="q-feedback">Par le théorème de Thalès, si (DE) // (BC), alors AD/AB = AE/AC = DE/BC. Donc DE/BC = 2/5. Attention : le rapport des aires serait (2/5)² = 4/25.</div>
           </div>
@@ -253,8 +253,14 @@
     </div>
   </main>
 </div>
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>

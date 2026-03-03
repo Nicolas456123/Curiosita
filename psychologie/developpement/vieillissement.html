@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Déclin cognitif normal vs pathologique, réserve cognitive, bien-être subjectif et sagesse — la psychologie du vieillissement réussir.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>Vieillissement — Psychologie du Développement — Curiosita</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../style.css?v=2">
@@ -11,9 +13,7 @@
   --accent: #b07fe8;
   --accent2: #c9a0f0;
   --accent-dim: rgba(176,127,232,0.08);
-}
-.hero { padding: 6rem 2.5rem 2.5rem; background: radial-gradient(ellipse 50% 40% at 25% 50%, rgba(176,127,232,0.04) 0%, transparent 70%); }
-.hero h1 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+ --accent-hero: rgba(176,127,232,0.04); }
 </style>
 </head>
 <body>
@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="hero">
+<div class="hero hero--course">
   <div class="hero-meta">
     <span class="tag-domain">🧠 Développement</span>
     <span class="tag-level">Intermédiaire</span>
@@ -150,10 +150,10 @@
             <p class="q-num">Question 1 / 6</p>
             <p class="q-text">Quelle fonction cognitive est généralement préservée avec l'âge ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La mémoire de travail</div>
-              <div class="option" onclick="answer(this,false)">La vitesse de traitement</div>
-              <div class="option" onclick="answer(this,true)">La mémoire sémantique</div>
-              <div class="option" onclick="answer(this,false)">L'attention divisée</div>
+              <button class="option" onclick="answer(this,false)">La mémoire de travail</button>
+              <button class="option" onclick="answer(this,false)">La vitesse de traitement</button>
+              <button class="option" onclick="answer(this,true)">La mémoire sémantique</button>
+              <button class="option" onclick="answer(this,false)">L'attention divisée</button>
             </div>
             <div class="q-feedback">La mémoire sémantique (connaissances générales, vocabulaire) est bien préservée et peut même s'enrichir avec l'âge, contrairement à la mémoire de travail et à la vitesse de traitement.</div>
           </div>
@@ -161,10 +161,10 @@
             <p class="q-num">Question 2 / 6</p>
             <p class="q-text">Qu'est-ce que la réserve cognitive ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">La quantité de neurones à la naissance</div>
-              <div class="option" onclick="answer(this,true)">La capacité du cerveau à compenser les dommages grâce aux ressources accumulées</div>
-              <div class="option" onclick="answer(this,false)">La mémoire à long terme</div>
-              <div class="option" onclick="answer(this,false)">La capacité de stockage maximale du cerveau</div>
+              <button class="option" onclick="answer(this,false)">La quantité de neurones à la naissance</button>
+              <button class="option" onclick="answer(this,true)">La capacité du cerveau à compenser les dommages grâce aux ressources accumulées</button>
+              <button class="option" onclick="answer(this,false)">La mémoire à long terme</button>
+              <button class="option" onclick="answer(this,false)">La capacité de stockage maximale du cerveau</button>
             </div>
             <div class="q-feedback">La réserve cognitive (Stern) désigne la capacité du cerveau à tolérer les dommages sans montrer de symptômes, grâce aux réseaux neuronaux construits par l'éducation, les activités intellectuelles et sociales.</div>
           </div>
@@ -172,10 +172,10 @@
             <p class="q-num">Question 3 / 6</p>
             <p class="q-text">Selon la théorie de la sélectivité socio-émotionnelle, pourquoi les personnes âgées réduisent-elles leur réseau social ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Parce qu'elles perdent leurs amis</div>
-              <div class="option" onclick="answer(this,false)">Parce qu'elles deviennent déprimées</div>
-              <div class="option" onclick="answer(this,true)">Parce qu'elles choisissent de privilégier les relations significatives</div>
-              <div class="option" onclick="answer(this,false)">Parce qu'elles manquent d'énergie</div>
+              <button class="option" onclick="answer(this,false)">Parce qu'elles perdent leurs amis</button>
+              <button class="option" onclick="answer(this,false)">Parce qu'elles deviennent déprimées</button>
+              <button class="option" onclick="answer(this,true)">Parce qu'elles choisissent de privilégier les relations significatives</button>
+              <button class="option" onclick="answer(this,false)">Parce qu'elles manquent d'énergie</button>
             </div>
             <div class="q-feedback">Selon Carstensen, les personnes âgées sélectionnent activement leurs relations pour privilégier celles qui sont émotionnellement satisfaisantes, car l'horizon temporel perçu comme limité modifie les priorités.</div>
           </div>
@@ -183,10 +183,10 @@
             <p class="q-num">Question 4 / 6</p>
             <p class="q-text">Que signifient les lettres SOC dans le modèle de Baltes ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Sélection, Optimisation, Compensation</div>
-              <div class="option" onclick="answer(this,false)">Stimulation, Organisation, Cognition</div>
-              <div class="option" onclick="answer(this,false)">Social, Occupationnel, Cognitif</div>
-              <div class="option" onclick="answer(this,false)">Santé, Objectifs, Compétences</div>
+              <button class="option" onclick="answer(this,true)">Sélection, Optimisation, Compensation</button>
+              <button class="option" onclick="answer(this,false)">Stimulation, Organisation, Cognition</button>
+              <button class="option" onclick="answer(this,false)">Social, Occupationnel, Cognitif</button>
+              <button class="option" onclick="answer(this,false)">Santé, Objectifs, Compétences</button>
             </div>
             <div class="q-feedback">Le modèle SOC de Baltes décrit trois stratégies pour un vieillissement réussi : Sélection des domaines prioritaires, Optimisation des ressources, et Compensation des pertes.</div>
           </div>
@@ -194,10 +194,10 @@
             <p class="q-num">Question 5 / 6</p>
             <p class="q-text">Quel facteur retarde le plus l'apparition des symptômes de démence ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,true)">Un haut niveau d'éducation</div>
-              <div class="option" onclick="answer(this,false)">Une alimentation végétarienne</div>
-              <div class="option" onclick="answer(this,false)">Le célibat</div>
-              <div class="option" onclick="answer(this,false)">La retraite anticipée</div>
+              <button class="option" onclick="answer(this,true)">Un haut niveau d'éducation</button>
+              <button class="option" onclick="answer(this,false)">Une alimentation végétarienne</button>
+              <button class="option" onclick="answer(this,false)">Le célibat</button>
+              <button class="option" onclick="answer(this,false)">La retraite anticipée</button>
             </div>
             <div class="q-feedback">Le niveau d'éducation est le facteur de réserve cognitive le plus documenté. Chaque année de scolarité supplémentaire retarde significativement l'apparition des symptômes de démence.</div>
           </div>
@@ -205,10 +205,10 @@
             <p class="q-num">Question 6 / 6</p>
             <p class="q-text">Qu'est-ce que l'« effet de positivité » chez les personnes âgées ?</p>
             <div class="options">
-              <div class="option" onclick="answer(this,false)">Elles nient les problèmes</div>
-              <div class="option" onclick="answer(this,true)">Elles prêtent davantage attention aux informations positives</div>
-              <div class="option" onclick="answer(this,false)">Elles sont toujours de bonne humeur</div>
-              <div class="option" onclick="answer(this,false)">Elles surestiment leurs capacités</div>
+              <button class="option" onclick="answer(this,false)">Elles nient les problèmes</button>
+              <button class="option" onclick="answer(this,true)">Elles prêtent davantage attention aux informations positives</button>
+              <button class="option" onclick="answer(this,false)">Elles sont toujours de bonne humeur</button>
+              <button class="option" onclick="answer(this,false)">Elles surestiment leurs capacités</button>
             </div>
             <div class="q-feedback">L'effet de positivité (Carstensen) signifie que les personnes âgées orientent spontanément leur attention vers les stimuli positifs et mémorisent mieux les souvenirs agréables, ce qui contribue à leur bien-être.</div>
           </div>
@@ -275,8 +275,14 @@
   </main>
 </div>
 
-<script src="../../utils.js"></script>
-<script src="../../quiz.js"></script>
-    <script src="../../mobile.js?v=2"></script>
+<script src="../../curiosita.js" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
 </body>
 </html>
