@@ -204,16 +204,27 @@ const SR = (function () {
   }
 
   // ── Review ──
-  function getDueCards(limit) {
+  function getDueCards(limit, filter) {
     const now = Date.now();
-    const due = Object.values(_data.cards)
-      .filter(c => c.nextReview <= now)
-      .sort((a, b) => {
-        // New cards first (never reviewed), then by nextReview ascending
-        if (!a.lastReview && b.lastReview) return -1;
-        if (a.lastReview && !b.lastReview) return 1;
-        return a.nextReview - b.nextReview;
-      });
+    let due = Object.values(_data.cards)
+      .filter(c => c.nextReview <= now);
+
+    // Apply optional filter
+    if (filter) {
+      if (filter.type === 'theme') {
+        const prefix = '/Curiosita/' + filter.value + '/';
+        due = due.filter(c => (c.source || '').startsWith(prefix));
+      } else if (filter.type === 'source') {
+        due = due.filter(c => c.source === filter.value);
+      }
+    }
+
+    due.sort((a, b) => {
+      // New cards first (never reviewed), then by nextReview ascending
+      if (!a.lastReview && b.lastReview) return -1;
+      if (a.lastReview && !b.lastReview) return 1;
+      return a.nextReview - b.nextReview;
+    });
 
     const max = limit || _data.settings.reviewsPerDay;
     return due.slice(0, max);
@@ -421,6 +432,46 @@ const SR = (function () {
     };
   }
 
+  // ── Themes ──
+  function getThemes() {
+    const cards = Object.values(_data.cards);
+    const now = Date.now();
+    const themes = {};
+
+    cards.forEach(c => {
+      const match = (c.source || '').match(/\/Curiosita\/([^/]+)\//);
+      const theme = match ? match[1] : null;
+      if (!theme) return;
+
+      if (!themes[theme]) {
+        themes[theme] = { theme: theme, totalCount: 0, dueCount: 0, courses: {} };
+      }
+      themes[theme].totalCount++;
+      if (c.nextReview <= now) themes[theme].dueCount++;
+
+      const src = c.source;
+      if (!themes[theme].courses[src]) {
+        themes[theme].courses[src] = {
+          source: src,
+          title: c.sourceTitle || src.split('/').pop().replace('.html', ''),
+          totalCount: 0,
+          dueCount: 0
+        };
+      }
+      themes[theme].courses[src].totalCount++;
+      if (c.nextReview <= now) themes[theme].courses[src].dueCount++;
+    });
+
+    return Object.values(themes)
+      .map(t => ({
+        theme: t.theme,
+        totalCount: t.totalCount,
+        dueCount: t.dueCount,
+        courses: Object.values(t.courses).sort((a, b) => a.title.localeCompare(b.title))
+      }))
+      .sort((a, b) => a.theme.localeCompare(b.theme));
+  }
+
   // ── Init ──
   load();
 
@@ -443,6 +494,7 @@ const SR = (function () {
     getAllCards,
     getCardCount,
     getSources,
+    getThemes,
 
     // Stats
     getStats,

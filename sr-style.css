@@ -129,6 +129,37 @@
 }
 .sr-panel.active { display: block; }
 
+/* Filter bar */
+.sr-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--sr-border);
+}
+.sr-filter-label {
+  font-size: 0.82rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.sr-filter-select {
+  flex: 1;
+  max-width: 360px;
+  background: var(--sr-surface);
+  border: 1px solid var(--sr-border);
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  color: var(--text);
+  font-size: 0.85rem;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+}
+.sr-filter-select:focus {
+  outline: none;
+  border-color: var(--sr-new);
+}
+
 /* ════════════════════════════════
    REVIEW CARD (flip)
    ════════════════════════════════ */
@@ -1092,6 +1123,62 @@
 .sr-m-reco-link:hover { text-decoration: underline; }
 
 /* ════════════════════════════════
+   COURSE EXTRACT BANNER
+   ════════════════════════════════ */
+.sr-extract-banner {
+  margin-top: 3rem;
+  padding: 1.2rem 1.5rem;
+  background: var(--sr-surface);
+  border: 1px solid var(--sr-border);
+  border-radius: var(--sr-radius);
+}
+.sr-extract-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.sr-extract-banner-info {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+.sr-extract-banner-icon { font-size: 1.3rem; }
+.sr-extract-banner-btn {
+  white-space: nowrap;
+  background: var(--sr-new);
+  color: #0c0c0e;
+  border: none;
+  border-radius: 8px;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.sr-extract-banner-btn:hover { opacity: 0.85; }
+.sr-extract-banner-btn:disabled { opacity: 0.5; cursor: default; }
+.sr-extract-banner-result {
+  margin-top: 0.6rem;
+  font-size: 0.82rem;
+}
+.sr-extract-result {
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+}
+.sr-extract-result.success {
+  color: var(--sr-good);
+  background: rgba(76, 175, 80, 0.1);
+}
+.sr-extract-result.info {
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* ════════════════════════════════
    RESPONSIVE
    ════════════════════════════════ */
 
@@ -1128,4 +1215,12 @@
   /* Methode tab mobile */
   .sr-m-tech-header { padding: 0.8rem; }
   .sr-m-tech-emoji { font-size: 1.2rem; }
+
+  /* Filter bar mobile */
+  .sr-filter-bar { margin-bottom: 1rem; }
+  .sr-filter-select { max-width: none; }
+
+  /* Extract banner mobile */
+  .sr-extract-banner-inner { flex-direction: column; align-items: stretch; }
+  .sr-extract-banner-btn { width: 100%; text-align: center; }
 }

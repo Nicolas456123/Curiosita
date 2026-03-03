@@ -14,6 +14,7 @@
   let sessionTotal = 0;
   let isFlipped = false;
   let currentDeckSource = null; // for deck detail view
+  let currentFilter = null;     // { type: 'theme'|'source', value: string } or null
 
   // ── DOM refs ──
   const $ = s => document.querySelector(s);
@@ -80,15 +81,100 @@
   }
 
   // ══════════════════════════════
+  //  REVIEW FILTER
+  // ══════════════════════════════
+
+  function parseFilterValue(val) {
+    if (!val) return null;
+    if (val.startsWith('theme:')) return { type: 'theme', value: val.substring(6) };
+    if (val.startsWith('source:')) return { type: 'source', value: val.substring(7) };
+    return null;
+  }
+
+  function buildFilterOptions() {
+    const select = $('#review-filter');
+    if (!select) return;
+
+    const themes = SR.getThemes();
+    const totalDue = SR.getDueCount();
+
+    // Hide filter bar if no cards at all
+    const filterBar = $('#review-filter-bar');
+    if (filterBar) filterBar.style.display = themes.length > 0 ? '' : 'none';
+
+    // Save current value before rebuild
+    const prevVal = select.value;
+
+    select.innerHTML = '';
+
+    // "All" option
+    const allOpt = document.createElement('option');
+    allOpt.value = '';
+    allOpt.textContent = 'Tout (' + totalDue + ')';
+    select.appendChild(allOpt);
+
+    // Theme groups
+    themes.forEach(t => {
+      if (t.totalCount === 0) return;
+
+      const group = document.createElement('optgroup');
+      const themeName = t.theme.charAt(0).toUpperCase() + t.theme.slice(1).replace(/-/g, ' ');
+      group.label = themeName;
+
+      // Theme-level option
+      const themeOpt = document.createElement('option');
+      themeOpt.value = 'theme:' + t.theme;
+      themeOpt.textContent = 'Tout ' + themeName + ' (' + t.dueCount + ')';
+      group.appendChild(themeOpt);
+
+      // Individual courses
+      t.courses.forEach(course => {
+        const opt = document.createElement('option');
+        opt.value = 'source:' + course.source;
+        opt.textContent = course.title + ' (' + course.dueCount + ')';
+        group.appendChild(opt);
+      });
+
+      select.appendChild(group);
+    });
+
+    // Restore previous selection or sessionStorage
+    const saved = prevVal || sessionStorage.getItem('sr_review_filter') || '';
+    if (saved) {
+      select.value = saved;
+      // If value wasn't found in options, reset to "Tout"
+      if (!select.value) select.value = '';
+    }
+    currentFilter = parseFilterValue(select.value);
+  }
+
+  function initFilter() {
+    const select = $('#review-filter');
+    if (!select) return;
+
+    buildFilterOptions();
+
+    select.addEventListener('change', function () {
+      const val = select.value;
+      sessionStorage.setItem('sr_review_filter', val);
+      currentFilter = parseFilterValue(val);
+      initReview();
+    });
+  }
+
+  // ══════════════════════════════
   //  REVIEW
   // ══════════════════════════════
 
   function initReview() {
-    reviewQueue = SR.getDueCards();
+    reviewQueue = SR.getDueCards(null, currentFilter);
     reviewIndex = 0;
     sessionCorrect = 0;
     sessionTotal = 0;
     isFlipped = false;
+
+    // Refresh filter counts
+    buildFilterOptions();
 
     if (reviewQueue.length === 0) {
       renderEmptyReview();
@@ -697,6 +783,7 @@
   function init() {
     initTabs();
     updateDashboard();
+    initFilter();
     initReview();
     initAddPanel();
     initSettings();
