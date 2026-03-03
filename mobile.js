@@ -53,3 +53,23 @@
     if (e.key === 'Escape') closeSidebar();
   });
 })();
+
+// ── SR Highlight injection on course pages ──
+(function() {
+  // Detect course page: has sidebar with section links + main content
+  const isCourse = document.querySelector('.sidebar-link[data-section]') && document.querySelector('.main');
+  if (!isCourse) return;
+
+  // Resolve path to sr-highlight.js from style.css href
+  const styleLink = document.querySelector('link[href*="style.css"]');
+  let base = '';
+  if (styleLink) {
+    const href = styleLink.getAttribute('href');
+    base = href.substring(0, href.lastIndexOf('/') + 1);
+  }
+
+  const s = document.createElement('script');
+  s.src = base + 'sr-highlight.js';
+  s.defer = true;
+  document.body.appendChild(s);
+})();

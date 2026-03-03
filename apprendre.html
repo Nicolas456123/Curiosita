@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apprendre — Curiosita</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="sr-style.css?v=1">
+<style>
+  body { overflow-x: hidden; }
+  .sr-page-nav { display: flex; gap: 1rem; align-items: center; }
+  .sr-page-nav a { color: var(--muted); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+  .sr-page-nav a:hover { color: var(--text); }
+  .sr-page-nav a.active-nav { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Curiosita<span>.</span></a>
+  <div class="sr-page-nav">
+    <a href="index.html">Accueil</a>
+    <a href="cours.html">Tous les cours</a>
+    <a href="apprendre.html" class="active-nav">Apprendre</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="sr-hero">
+  <h1><em>Apprendre</em></h1>
+  <p class="sr-hero-desc">Répétition espacée — mémorise, retiens, progresse</p>
+  <div class="sr-stats-row" id="sr-stats-row">
+    <div class="sr-stat-card">
+      <div class="sr-stat-value due" id="stat-due">0</div>
+      <div class="sr-stat-label">À réviser</div>
+    </div>
+    <div class="sr-stat-card">
+      <div class="sr-stat-value streak" id="stat-streak">0</div>
+      <div class="sr-stat-label">Jours de série</div>
+    </div>
+    <div class="sr-stat-card">
+      <div class="sr-stat-value total" id="stat-total">0</div>
+      <div class="sr-stat-label">Cartes totales</div>
+    </div>
+    <div class="sr-stat-card">
+      <div class="sr-stat-value rate" id="stat-rate">—</div>
+      <div class="sr-stat-label">Taux de réussite</div>
+    </div>
+  </div>
+</header>
+
+<!-- Tabs -->
+<div class="sr-tabs" id="sr-tabs">
+  <button class="sr-tab active" data-tab="review">
+    🎯 Réviser
+    <span class="sr-badge" id="tab-due-badge" style="display:none">0</span>
+  </button>
+  <button class="sr-tab" data-tab="decks">📚 Mes decks</button>
+  <button class="sr-tab" data-tab="add">➕ Ajouter</button>
+  <button class="sr-tab" data-tab="settings">⚙️ Paramètres</button>
+</div>
+
+<!-- ═══ TAB: REVIEW ═══ -->
+<div class="sr-panel active" id="panel-review">
+  <div id="review-content">
+    <!-- Filled by sr-ui.js -->
+  </div>
+</div>
+
+<!-- ═══ TAB: DECKS ═══ -->
+<div class="sr-panel" id="panel-decks">
+  <div id="decks-content">
+    <!-- Filled by sr-ui.js -->
+  </div>
+</div>
+
+<!-- ═══ TAB: ADD ═══ -->
+<div class="sr-panel" id="panel-add">
+  <!-- Manual card creation -->
+  <h3 style="font-size:1rem;margin-bottom:1rem;">Créer une carte manuellement</h3>
+  <form class="sr-form" id="manual-card-form">
+    <div class="sr-form-group">
+      <label class="sr-form-label">Recto (question / terme)</label>
+      <textarea class="sr-form-textarea" id="manual-front" rows="3" placeholder="Ex: Qu'est-ce que la mitose ?"></textarea>
+    </div>
+    <div class="sr-form-group">
+      <label class="sr-form-label">Verso (réponse / définition)</label>
+      <textarea class="sr-form-textarea" id="manual-back" rows="4" placeholder="Ex: Division cellulaire qui produit deux cellules identiques..."></textarea>
+    </div>
+    <div class="sr-form-group">
+      <label class="sr-form-label">Tags (séparés par des virgules)</label>
+      <input class="sr-form-input" id="manual-tags" placeholder="biologie, cellule">
+    </div>
+    <div class="sr-btn-row">
+      <button type="submit" class="sr-btn sr-btn-primary">Créer la carte</button>
+    </div>
+  </form>
+  <div id="manual-result"></div>
+
+  <!-- Auto-extraction (single URL) -->
+  <div class="sr-extract-section">
+    <h3>Extraire depuis un cours</h3>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.8rem;">Entrez l'URL d'un cours pour en extraire automatiquement les flashcards.</p>
+    <div class="sr-form" style="flex-direction:row;gap:0.5rem;">
+      <input class="sr-form-input" id="extract-url" placeholder="/biologie/cellule/structure.html" style="flex:1;">
+      <button class="sr-btn sr-btn-secondary" id="extract-btn">Extraire</button>
+    </div>
+    <div id="extract-result"></div>
+  </div>
+
+  <!-- Bulk extraction (all courses) -->
+  <div class="sr-extract-section">
+    <h3>Extraire tous les cours</h3>
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.8rem;">
+      Lance l'extraction automatique sur l'ensemble des cours du site
+      (<strong id="bulk-count">…</strong> pages).
+      Les cartes déjà extraites sont ignorées.
+    </p>
+    <div class="sr-btn-row">
+      <button class="sr-btn sr-btn-primary" id="bulk-extract-btn">⚡ Tout extraire</button>
+      <button class="sr-btn sr-btn-secondary" id="bulk-extract-stop" style="display:none">⏹ Arrêter</button>
+    </div>
+    <div id="bulk-extract-progress" style="display:none;margin-top:1rem;">
+      <div style="background:var(--sr-border);border-radius:4px;height:6px;overflow:hidden;margin-bottom:0.6rem;">
+        <div id="bulk-progress-bar" style="height:100%;background:var(--sr-new);width:0%;transition:width 0.2s ease"></div>
+      </div>
+      <div id="bulk-progress-text" style="font-size:0.8rem;color:var(--muted);">Préparation…</div>
+    </div>
+    <div id="bulk-extract-result" style="margin-top:0.8rem;font-size:0.85rem;"></div>
+  </div>
+</div>
+
+<!-- ═══ TAB: SETTINGS ═══ -->
+<div class="sr-panel" id="panel-settings">
+  <div class="sr-settings-group">
+    <h3>Limites quotidiennes</h3>
+    <div class="sr-setting-row">
+      <span class="sr-setting-label">Nouvelles cartes par jour</span>
+      <input type="number" class="sr-setting-input" id="set-new-per-day" min="1" max="200" value="20">
+    </div>
+    <div class="sr-setting-row">
+      <span class="sr-setting-label">Révisions par jour (max)</span>
+      <input type="number" class="sr-setting-input" id="set-reviews-per-day" min="10" max="500" value="100">
+    </div>
+  </div>
+
+  <div class="sr-settings-group">
+    <h3>Données</h3>
+    <div class="sr-btn-row" style="margin-top:0.5rem;">
+      <button class="sr-btn sr-btn-secondary" id="btn-export">📤 Exporter (JSON)</button>
+      <label class="sr-btn sr-btn-secondary" style="cursor:pointer;">
+        📥 Importer
+        <input type="file" accept=".json" id="btn-import" style="display:none;">
+      </label>
+    </div>
+    <div id="import-result" style="margin-top:0.5rem;"></div>
+  </div>
+
+  <div class="sr-settings-group">
+    <h3>Zone de danger</h3>
+    <button class="sr-btn sr-btn-danger" id="btn-reset">🗑️ Réinitialiser toutes les cartes</button>
+    <div id="reset-confirm" style="display:none;margin-top:0.8rem;">
+      <p style="font-size:0.82rem;color:var(--sr-fail);margin-bottom:0.5rem;">⚠️ Cette action supprimera toutes vos cartes et votre progression. Es-tu sûr ?</p>
+      <div class="sr-btn-row">
+        <button class="sr-btn sr-btn-danger" id="btn-reset-confirm">Oui, tout supprimer</button>
+        <button class="sr-btn sr-btn-secondary" id="btn-reset-cancel">Annuler</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal overlay (for edit, etc.) -->
+<div class="sr-modal-overlay" id="sr-modal">
+  <div class="sr-modal" id="sr-modal-content"></div>
+</div>
+
+<script src="sr-engine.js"></script>
+<script src="sr-extract.js"></script>
+<script src="sr-courses.js"></script>
+<script src="sr-ui.js"></script>
+</body>
+</html>

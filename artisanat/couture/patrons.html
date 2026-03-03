@@ -306,6 +306,6 @@ function resetQuiz() { score = 0; currentQ = 0; answered = new Array(questions.l
 function goTo(id,el){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));if(el)el.classList.add('active');}
 (function(){var links=document.querySelectorAll('.sidebar-link[data-section]');if(!links.length)return;window.addEventListener('scroll',function(){var current=null;links.forEach(function(l){var s=document.getElementById(l.dataset.section);if(s&&s.getBoundingClientRect().top<=120)current=l;});if(current){links.forEach(function(l){l.classList.remove('active');});current.classList.add('active');}},{passive:true});})();
 </script>
-    <script src="../../mobile.js"></script>
+    <script src="../../mobile.js?v=2"></script>
 </body>
 </html>
