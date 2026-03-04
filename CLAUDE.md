@@ -32,7 +32,8 @@ Navigation: Landing → Grand thème → Discipline (`*-page.html`) → Hub → 
 
 - `index.html` — Main landing page (7 grand theme cards + dynamic search)
 - `style.css` — Shared stylesheet for all pages (variables, layout, components)
-- `mobile.js` — Mobile hamburger menu + sidebar drawer (included on all pages)
+- `mobile.js` — Mobile hamburger menu + sidebar drawer (bundled in curiosita.min.js)
+- `apprendre.html` — Spaced repetition hub (review, decks, progress, method)
 - Grand theme pages (`sciences-exactes.html`, etc.) — Intermediate pages listing disciplines
 - `*-page.html` — Discipline pages (subject-specific accent color, sidebar, quiz, resources)
 - `*/` — Course directories (e.g. `python/`, `maths/`, `biologie/`)
@@ -67,11 +68,45 @@ Navigation: Landing → Grand thème → Discipline (`*-page.html`) → Hub → 
 
 ## Tech Stack
 
-- Pure HTML/CSS/JS — no build tools, no frameworks, no dependencies
+- Pure HTML/CSS/JS — no frameworks, no runtime dependencies
+- Build tools: `terser` (JS minification), `clean-css` (CSS minification) — devDependencies only
 - Google Fonts: Playfair Display (headings), DM Sans (body), Lora (formulas), JetBrains Mono (code)
-- `style.css?v=2` — shared CSS with dark theme defaults and all components (cache-busted)
-- `mobile.js` — sidebar toggle for mobile (hamburger menu + drawer)
-- Each page's `<style>` block contains ONLY `:root` variable overrides and hero background
+- `style.min.css?v=3` — shared CSS with dark theme defaults and all components (cache-busted, minified)
+- `curiosita.min.js?v=3` — bundled JS: utils.js + quiz.js + mobile.js (cache-busted, minified)
+- `sr-style.min.css?v=3` — SR system styles (loaded on course pages + apprendre.html)
+- Each page's `<style>` block contains ONLY `:root` variable overrides (`--accent`, `--accent2`, `--accent-dim`, `--accent-hero`)
+
+### Build Pipeline
+
+```
+npm run build        → Bundles + minifies JS and CSS
+npm run index        → Generates search-index.json + sr-courses.js
+npm run all          → Both above
+```
+
+- `scripts/build.js` — Concatenates JS IIFEs into bundles, then minifies with terser/clean-css
+- `scripts/build-search-index.js` — Crawls HTML pages to generate search-index.json (compact keys)
+- `scripts/_generate.js` — Course page generator (template with current conventions)
+
+### JS Bundles
+
+| Bundle | Sources | Purpose |
+|--------|---------|---------|
+| `curiosita.min.js` | utils.js + quiz.js + mobile.js | All regular pages |
+| `sr-app.min.js` | sr-engine.js + sr-ui.js + sr-extract.js + sr-progress.js + sr-method.js | apprendre.html (full SR app) |
+| `search.min.js` | search.js | index.html (search) |
+| `memo.min.js` | memo.js | Course pages with downloadable memo |
+
+### Spaced Repetition System
+
+- `apprendre.html` — Hub page: review cards, manage decks, view progress, study method
+- `sr-engine.js` — SM-2 algorithm, CRUD cartes, localStorage persistence
+- `sr-extract.js` — Auto-extraction de flashcards depuis le contenu HTML des cours
+- `sr-highlight.js` — Colore les termes-clés des cours, bouton d'extraction (chargé statiquement sur 654 pages cours)
+- `sr-ui.js` — Interface de révision (flip cards, rating, deck browser)
+- `sr-progress.js` — Onglet Progrès (charts, forecast, retention)
+- `sr-method.js` — Onglet Méthode (techniques de mémorisation, Pomodoro)
+- `sr-style.css` — Tous les styles SR préfixés `sr-`
 
 ## CSS Architecture
 
@@ -105,10 +140,11 @@ Navigation: Landing → Grand thème → Discipline (`*-page.html`) → Hub → 
 
 ## Search
 
-- `index.html` has a dynamic search that builds an index by fetching pages at runtime
-- Traverses the full tree: grand theme → discipline → hub → course
+- `index.html` uses `search.min.js` which loads `search-index.json` (pre-built, compact keys: `n,c,u,t,i`)
+- Fallback: if `search-index.json` fails, builds index dynamically by fetching pages
 - Cached in `sessionStorage` for 10 minutes
 - Search results show type badges: thème, matière, domaine, cours
+- `npm run index` regenerates `search-index.json` from HTML pages
 
 ## Language
 

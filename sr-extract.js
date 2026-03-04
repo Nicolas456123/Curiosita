@@ -395,10 +395,6 @@ const SRExtract = (function () {
     return { newCount, existingCount, newCards, total: newCount + existingCount };
   }
 
-  function extractFromPage(courseUrl, courseTitle) {
-    return extractFromDocument(document, courseUrl, courseTitle);
-  }
-
   async function extractFromUrl(url) {
     try {
       const resp = await fetch(url);
@@ -412,26 +408,5 @@ const SRExtract = (function () {
     }
   }
 
-  function previewExtraction(doc, courseUrl) {
-    const title = getPageTitle(doc);
-    const tags = getPageTags(doc);
-    const source = courseUrl || '';
-
-    const extractors = [
-      extractHighlights, extractFormulas, extractTimeline,
-      extractBiais, extractTheories, extractConcepts,
-      extractMemo, extractQuiz, extractDefinitions
-    ];
-
-    const preview = [];
-    extractors.forEach(fn => {
-      fn(doc, source, title, tags).forEach(c => {
-        const id = SR.generateId(c.source, c.type, c.front);
-        preview.push({ ...c, id, existing: !!SR.getCard(id) });
-      });
-    });
-    return preview;
-  }
-
-  return { extractFromPage, extractFromUrl, extractFromDocument, previewExtraction };
+  return { extractFromUrl, extractFromDocument };
 })();

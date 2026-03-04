@@ -47,7 +47,6 @@ const SR = (function () {
         if (parsed && parsed.version === VERSION) {
           _data = parsed;
         } else if (parsed) {
-          // Future: migration logic
           _data = parsed;
           _data.version = VERSION;
           save();
@@ -253,10 +252,6 @@ const SR = (function () {
   // ── Filters / Decks ──
   function getCardsBySource(url) {
     return Object.values(_data.cards).filter(c => c.source === url);
-  }
-
-  function getCardsByTag(tag) {
-    return Object.values(_data.cards).filter(c => c.tags && c.tags.includes(tag));
   }
 
   function getAllCards() {
@@ -490,7 +485,6 @@ const SR = (function () {
 
     // Filters
     getCardsBySource,
-    getCardsByTag,
     getAllCards,
     getCardCount,
     getSources,

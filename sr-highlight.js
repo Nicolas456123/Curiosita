@@ -2,7 +2,7 @@
 //  Curiosita — SR Highlight + Extract
 //  Colore les termes-clés du cours qui ont une flashcard
 //  + bouton d'extraction en bas de chaque page de cours
-//  Injecté par mobile.js sur les cours
+//  Chargé statiquement via <script defer> sur les pages cours
 //  Depends: sr-engine.js, sr-extract.js, sr-style.css
 // ══════════════════════════════════════════════════════
 

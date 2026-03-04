@@ -1,7 +1,7 @@
 // ══════════════════════════════════════════════════════
 //  Curiosita — Shared Utilities
 //  Base path resolution + script/style loader
-//  Must be loaded BEFORE mobile.js, sr-highlight.js
+//  Bundled first in curiosita.js (build order enforced)
 // ══════════════════════════════════════════════════════
 
 (function () {
