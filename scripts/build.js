@@ -1,16 +1,23 @@
 /**
  * Curiosita — Build Script
- * Concatenates source JS files into production bundles.
+ * Concatenates source JS files into production bundles,
+ * then minifies JS (terser) and CSS (clean-css).
  *
  * Usage:  node scripts/build.js
  *
  * Produces:
- *   curiosita.js  — utils + quiz + mobile  (loaded by all 808+ pages)
- *   sr-app.js     — 6 SR scripts           (loaded by apprendre.html)
+ *   curiosita.js / .min.js  — utils + quiz + mobile
+ *   sr-app.js / .min.js     — 6 SR scripts
+ *   style.min.css            — minified main CSS
+ *   sr-style.min.css         — minified SR CSS
+ *   search.min.js            — minified search
+ *   memo.min.js              — minified memo
  */
 
 const fs = require('fs');
 const path = require('path');
+const { minify } = require('terser');
+const CleanCSS = require('clean-css');
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -35,33 +42,98 @@ const bundles = [
   },
 ];
 
-// ── Build each bundle ───────────────────────────────────
-let allOk = true;
+// Standalone JS files to minify (not bundled)
+const standaloneJS = ['search.js', 'memo.js'];
 
-bundles.forEach(bundle => {
-  const parts = [];
+// CSS files to minify
+const cssFiles = ['style.css', 'sr-style.css'];
 
-  for (const src of bundle.sources) {
-    const filePath = path.join(ROOT, src);
-    if (!fs.existsSync(filePath)) {
-      console.error(`[ERROR] Missing source: ${src}`);
-      allOk = false;
-      return;
+// ── Helpers ─────────────────────────────────────────────
+function sizeKB(str) {
+  return (Buffer.byteLength(str, 'utf-8') / 1024).toFixed(1);
+}
+
+// ── Main async build ────────────────────────────────────
+async function build() {
+  let allOk = true;
+
+  // 1. JS Bundles: concatenate + minify
+  for (const bundle of bundles) {
+    const parts = [];
+
+    for (const src of bundle.sources) {
+      const filePath = path.join(ROOT, src);
+      if (!fs.existsSync(filePath)) {
+        console.error(`[ERROR] Missing source: ${src}`);
+        allOk = false;
+        continue;
+      }
+      parts.push(fs.readFileSync(filePath, 'utf-8'));
     }
-    parts.push(fs.readFileSync(filePath, 'utf-8'));
+
+    if (!allOk) continue;
+
+    // Write unminified bundle (for debugging)
+    const raw = bundle.header + '\n' + parts.join('\n\n');
+    fs.writeFileSync(path.join(ROOT, bundle.name), raw, 'utf-8');
+
+    // Minify
+    const result = await minify(raw, { compress: true, mangle: true });
+    if (result.error) {
+      console.error(`[ERROR] terser failed on ${bundle.name}:`, result.error);
+      allOk = false;
+      continue;
+    }
+
+    const minName = bundle.name.replace('.js', '.min.js');
+    fs.writeFileSync(path.join(ROOT, minName), result.code, 'utf-8');
+
+    console.log(`  ✓ ${bundle.name}  ${sizeKB(raw)} KB → ${minName}  ${sizeKB(result.code)} KB  (${Math.round((1 - result.code.length / raw.length) * 100)}% saved)`);
   }
 
-  const output = bundle.header + '\n' + parts.join('\n\n');
-  const outPath = path.join(ROOT, bundle.name);
-  fs.writeFileSync(outPath, output, 'utf-8');
+  // 2. Standalone JS: minify individually
+  for (const src of standaloneJS) {
+    const filePath = path.join(ROOT, src);
+    if (!fs.existsSync(filePath)) {
+      console.error(`[WARN] Standalone not found: ${src} — skipping`);
+      continue;
+    }
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    const result = await minify(raw, { compress: true, mangle: true });
+    if (result.error) {
+      console.error(`[ERROR] terser failed on ${src}:`, result.error);
+      continue;
+    }
+    const minName = src.replace('.js', '.min.js');
+    fs.writeFileSync(path.join(ROOT, minName), result.code, 'utf-8');
+    console.log(`  ✓ ${src}  ${sizeKB(raw)} KB → ${minName}  ${sizeKB(result.code)} KB  (${Math.round((1 - result.code.length / raw.length) * 100)}% saved)`);
+  }
 
-  const sizeKB = (Buffer.byteLength(output, 'utf-8') / 1024).toFixed(1);
-  console.log(`  ✓ ${bundle.name}  (${sizeKB} KB)  ← ${bundle.sources.join(' + ')}`);
-});
+  // 3. CSS: minify
+  const cleanCss = new CleanCSS({ level: 2 });
+  for (const src of cssFiles) {
+    const filePath = path.join(ROOT, src);
+    if (!fs.existsSync(filePath)) {
+      console.error(`[WARN] CSS not found: ${src} — skipping`);
+      continue;
+    }
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    const result = cleanCss.minify(raw);
+    if (result.errors && result.errors.length) {
+      console.error(`[ERROR] clean-css failed on ${src}:`, result.errors);
+      continue;
+    }
+    const minName = src.replace('.css', '.min.css');
+    fs.writeFileSync(path.join(ROOT, minName), result.styles, 'utf-8');
+    console.log(`  ✓ ${src}  ${sizeKB(raw)} KB → ${minName}  ${sizeKB(result.styles)} KB  (${Math.round((1 - result.styles.length / raw.length) * 100)}% saved)`);
+  }
 
-if (allOk) {
-  console.log('\nBuild complete.');
-} else {
-  console.error('\nBuild finished with errors.');
-  process.exit(1);
+  if (allOk) {
+    console.log('\nBuild complete.');
+  } else {
+    console.error('\nBuild finished with errors.');
+    process.exit(1);
+  }
 }
+
+build();

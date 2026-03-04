@@ -127,15 +127,9 @@ function build() {
   const themeCards = extractThemeCards(indexHtml);
   console.log(`  Found ${themeCards.length} themes`);
 
+  // Compact format: n=name, c=cat, u=url, t=type, i=icon (no keywords — rebuilt client-side)
   for (const theme of themeCards) {
-    index.push({
-      name: theme.themeName,
-      cat: 'Curiosita',
-      url: theme.href,
-      type: 'thème',
-      icon: theme.icon,
-      keywords: theme.themeName
-    });
+    index.push({ n: theme.themeName, c: 'Curiosita', u: theme.href, t: 'thème', i: theme.icon });
 
     // 2. Subject pages (from theme page)
     const themeHtml = readHtml(path.join(BASE, theme.href));
@@ -149,14 +143,7 @@ function build() {
       const subjectName = subject.name || (subjectHtml ? extractTitle(subjectHtml) : '');
 
       if (subjectUrl.endsWith('-page.html')) {
-        index.push({
-          name: subjectName,
-          cat: theme.themeName,
-          url: subjectUrl,
-          type: 'matière',
-          icon: theme.icon,
-          keywords: `${theme.themeName} ${subjectName}`
-        });
+        index.push({ n: subjectName, c: theme.themeName, u: subjectUrl, t: 'matière', i: theme.icon });
 
         // 3. Hub pages (from subject page)
         if (!subjectHtml) continue;
@@ -166,14 +153,7 @@ function build() {
           const hubUrl = resolveUrl(hub.href, subjectUrl);
           courseUrls.push('/Curiosita/' + hubUrl);
 
-          index.push({
-            name: hub.name,
-            cat: subjectName,
-            url: hubUrl,
-            type: 'domaine',
-            icon: theme.icon,
-            keywords: `${subjectName} ${hub.name} ${hub.desc}`
-          });
+          index.push({ n: hub.name, c: subjectName, u: hubUrl, t: 'domaine', i: theme.icon });
 
           // 4. Course pages (from hub page)
           const hubHtml = readHtml(path.join(BASE, hubUrl));
@@ -184,14 +164,7 @@ function build() {
             const courseUrl = resolveUrl(course.href, hubUrl);
             courseUrls.push('/Curiosita/' + courseUrl);
 
-            index.push({
-              name: course.name,
-              cat: `${subjectName} › ${hub.name}`,
-              url: courseUrl,
-              type: 'cours',
-              icon: theme.icon,
-              keywords: `${subjectName} ${hub.name} ${course.name} ${course.desc}`
-            });
+            index.push({ n: course.name, c: `${subjectName} › ${hub.name}`, u: courseUrl, t: 'cours', i: theme.icon });
           }
         }
       }

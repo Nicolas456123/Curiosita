@@ -53,18 +53,3 @@
     if (e.key === 'Escape') closeSidebar();
   });
 })();
-
-// ── SR Highlight injection on course pages ──
-(function() {
-  // Detect course page: has sidebar with section links + main content
-  const isCourse = document.querySelector('.sidebar-link[data-section]') && document.querySelector('.main');
-  if (!isCourse) return;
-
-  // Use shared CurUtils (loaded via utils.js before this script)
-  const base = (typeof CurUtils !== 'undefined') ? CurUtils.basePath : '';
-
-  const s = document.createElement('script');
-  s.src = base + 'sr-highlight.js';
-  s.defer = true;
-  document.body.appendChild(s);
-})();

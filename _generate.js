@@ -62,8 +62,11 @@ ${opts}
 <meta name="description" content="${introText.replace(/<[^>]+>/g,'').substring(0,155)}">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <title>${title} — ${hubTitle} — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../style.css?v=2">
+<link rel="stylesheet" href="../../style.min.css?v=3">
+<link rel="stylesheet" href="../../sr-style.min.css?v=3">
 <style>
 :root { --accent: #e87a7a; --accent2: #f09090; --accent-dim: rgba(232,122,122,0.08); --accent-hero: rgba(232,122,122,0.04); }
 </style>
@@ -156,7 +159,8 @@ ${navNext}
   </div>
   <p>&copy; 2025 Curiosita</p>
 </footer>
-<script src="../../curiosita.js" defer></script>
+<script src="../../curiosita.min.js?v=3" defer></script>
+<script src="../../sr-highlight.js" defer></script>
 </body>
 </html>`;
 }

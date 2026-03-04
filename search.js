@@ -93,7 +93,7 @@
     // 2. Fetch grand theme pages and discover subject pages
     const subjectLinks = [];
     await Promise.allSettled(themeLinks.map(async (t) => {
-      index.push({ name: t.themeName, cat: 'Curiosita', url: t.href, type: 'thème', icon: t.icon, keywords: t.themeName });
+      index.push({ n: t.themeName, c: 'Curiosita', u: t.href, t: 'thème', i: t.icon });
       try {
         const doc = await fetchDoc(t.href);
         const cards = extractCourseCards(doc, t.href);
@@ -110,7 +110,7 @@
       subjectLinks.map(async (s) => {
         const doc = await fetchDoc(s.href);
         const subjectName = s.subjectHint || extractTitle(doc);
-        index.push({ name: subjectName, cat: s.themeName, url: s.href, type: 'matière', icon: s.icon, keywords: `${s.themeName} ${subjectName}` });
+        index.push({ n: subjectName, c: s.themeName, u: s.href, t: 'matière', i: s.icon });
         const hubs = extractCourseCards(doc, s.href);
         return { subjectName, icon: s.icon, hubs, themeName: s.themeName };
       })
@@ -122,12 +122,12 @@
       if (result.status !== 'fulfilled') continue;
       const { subjectName, icon, hubs, themeName } = result.value;
       for (const hub of hubs) {
-        index.push({ name: hub.name, cat: subjectName, url: hub.url, type: 'domaine', icon, keywords: `${subjectName} ${hub.name} ${hub.desc}` });
+        index.push({ n: hub.name, c: subjectName, u: hub.url, t: 'domaine', i: icon });
         hubFetches.push(
           fetchDoc(hub.url).then(hubDoc => {
             const courses = extractCourseCards(hubDoc, hub.url);
             for (const course of courses) {
-              index.push({ name: course.name, cat: `${subjectName} › ${hub.name}`, url: course.url, type: 'cours', icon, keywords: `${subjectName} ${hub.name} ${course.name} ${course.desc}` });
+              index.push({ n: course.name, c: `${subjectName} › ${hub.name}`, u: course.url, t: 'cours', i: icon });
             }
           }).catch(() => {})
         );
@@ -190,9 +190,10 @@
     const qn = normalize(q);
     const words = qn.split(/\s+/).filter(Boolean);
 
+    // Compact keys: n=name, c=cat, u=url, t=type, i=icon
     const scored = searchData.map(d => {
-      const nameN = normalize(d.name);
-      const kwN = normalize(d.keywords || '');
+      const nameN = normalize(d.n);
+      const kwN = normalize(d.c + ' ' + d.n);
       let score = 0;
       for (const w of words) {
         if (nameN.includes(w)) score += 10;
@@ -212,12 +213,12 @@
     }
 
     results.innerHTML = scored.map(d => `
-      <a href="${d.url}" class="result-item">
-        <span class="result-icon">${d.icon}</span>
-        <span class="result-name">${d.name}</span>
+      <a href="${d.u}" class="result-item">
+        <span class="result-icon">${d.i}</span>
+        <span class="result-name">${d.n}</span>
         <span class="result-meta">
-          <span class="result-cat">${d.cat}</span>
-          <span class="result-type">${d.type}</span>
+          <span class="result-cat">${d.c}</span>
+          <span class="result-type">${d.t}</span>
         </span>
       </a>
     `).join('');
@@ -244,11 +245,11 @@
   // ── Expandable tree on theme cards ──
 
   function buildTreeForTheme(themeName) {
-    const subjects = searchData.filter(d => d.type === 'matière' && d.cat === themeName);
+    const subjects = searchData.filter(d => d.t === 'matière' && d.c === themeName);
     return subjects.map(subject => {
-      const domains = searchData.filter(d => d.type === 'domaine' && d.cat === subject.name);
+      const domains = searchData.filter(d => d.t === 'domaine' && d.c === subject.n);
       const domainTree = domains.map(domain => {
-        const courses = searchData.filter(d => d.type === 'cours' && d.cat === `${subject.name} › ${domain.name}`);
+        const courses = searchData.filter(d => d.t === 'cours' && d.c === `${subject.n} › ${domain.n}`);
         return { ...domain, children: courses };
       });
       return { ...subject, children: domainTree };
@@ -256,29 +257,29 @@
   }
 
   function renderCourse(c) {
-    return `<div class="tree-leaf"><a href="${c.url}" class="tree-link tree-course-link"><span class="tree-leaf-bullet">•</span>${c.name}</a></div>`;
+    return `<div class="tree-leaf"><a href="${c.u}" class="tree-link tree-course-link"><span class="tree-leaf-bullet">•</span>${c.n}</a></div>`;
   }
 
   function renderDomain(d) {
-    const n = d.children.length;
+    const cnt = d.children.length;
     return `<div class="tree-node tree-domain">
       <div class="tree-node-header" data-toggle>
         <span class="tree-chevron">&#9654;</span>
-        <a href="${d.url}" class="tree-link tree-node-name">${d.name}</a>
-        <span class="tree-node-count">${n} cours</span>
+        <a href="${d.u}" class="tree-link tree-node-name">${d.n}</a>
+        <span class="tree-node-count">${cnt} cours</span>
       </div>
       <div class="tree-children" style="display:none">${d.children.map(renderCourse).join('')}</div>
     </div>`;
   }
 
   function renderSubject(s) {
-    const n = s.children.length;
+    const cnt = s.children.length;
     return `<div class="tree-node tree-subject">
       <div class="tree-node-header" data-toggle>
         <span class="tree-chevron">&#9654;</span>
-        <span class="tree-node-icon">${s.icon}</span>
-        <a href="${s.url}" class="tree-link tree-node-name">${s.name}</a>
-        <span class="tree-node-count">${n} domaine${n > 1 ? 's' : ''}</span>
+        <span class="tree-node-icon">${s.i}</span>
+        <a href="${s.u}" class="tree-link tree-node-name">${s.n}</a>
+        <span class="tree-node-count">${cnt} domaine${cnt > 1 ? 's' : ''}</span>
       </div>
       <div class="tree-children" style="display:none">${s.children.map(renderDomain).join('')}</div>
     </div>`;
