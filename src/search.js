@@ -59,7 +59,7 @@
   // ── Primary: load pre-built search-index.json ──
   async function loadStaticIndex() {
     try {
-      const resp = await fetch('search-index.json?v=4');
+      const resp = await fetch('assets/search-index.json?v=4');
       if (!resp.ok) throw new Error(resp.status);
       const data = await resp.json();
       if (Array.isArray(data) && data.length > 0) {

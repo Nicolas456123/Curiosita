@@ -6,7 +6,7 @@
  * Usage:  node scripts/build.js
  *
  * Sources:  src/          (JS + CSS source files)
- * Outputs:  root          (minified bundles + CSS)
+ * Outputs:  assets/       (minified bundles + CSS)
  *
  * Produces:
  *   curiosita.js / .min.js  — utils + quiz + mobile
@@ -25,6 +25,7 @@ const CleanCSS = require('clean-css');
 
 const ROOT = path.resolve(__dirname, '..');
 const SRC = path.join(ROOT, 'src');
+const ASSETS = path.join(ROOT, 'assets');
 
 // ── Bundle definitions ──────────────────────────────────
 const bundles = [
@@ -72,8 +73,8 @@ async function build() {
     const parts = [];
 
     for (const src of bundle.sources) {
-      // sr-courses.js is auto-generated and lives in ROOT, not SRC
-      const filePath = src === 'sr-courses.js' ? path.join(ROOT, src) : path.join(SRC, src);
+      // sr-courses.js is auto-generated and lives in ASSETS, not SRC
+      const filePath = src === 'sr-courses.js' ? path.join(ASSETS, src) : path.join(SRC, src);
       if (!fs.existsSync(filePath)) {
         console.error(`[ERROR] Missing source: ${src}`);
         allOk = false;
@@ -86,7 +87,7 @@ async function build() {
 
     // Write unminified bundle (for debugging)
     const raw = bundle.header + '\n' + parts.join('\n\n');
-    fs.writeFileSync(path.join(ROOT, bundle.name), raw, 'utf-8');
+    fs.writeFileSync(path.join(ASSETS, bundle.name), raw, 'utf-8');
 
     // Minify
     const result = await minify(raw, { compress: true, mangle: true });
@@ -97,7 +98,7 @@ async function build() {
     }
 
     const minName = bundle.name.replace('.js', '.min.js');
-    fs.writeFileSync(path.join(ROOT, minName), result.code, 'utf-8');
+    fs.writeFileSync(path.join(ASSETS, minName), result.code, 'utf-8');
 
     console.log(`  ✓ ${bundle.name}  ${sizeKB(raw)} KB → ${minName}  ${sizeKB(result.code)} KB  (${Math.round((1 - result.code.length / raw.length) * 100)}% saved)`);
   }
@@ -116,7 +117,7 @@ async function build() {
       continue;
     }
     const minName = src.replace('.js', '.min.js');
-    fs.writeFileSync(path.join(ROOT, minName), result.code, 'utf-8');
+    fs.writeFileSync(path.join(ASSETS, minName), result.code, 'utf-8');
     console.log(`  ✓ ${src}  ${sizeKB(raw)} KB → ${minName}  ${sizeKB(result.code)} KB  (${Math.round((1 - result.code.length / raw.length) * 100)}% saved)`);
   }
 
@@ -135,7 +136,7 @@ async function build() {
       continue;
     }
     const minName = src.replace('.css', '.min.css');
-    fs.writeFileSync(path.join(ROOT, minName), result.styles, 'utf-8');
+    fs.writeFileSync(path.join(ASSETS, minName), result.styles, 'utf-8');
     console.log(`  ✓ ${src}  ${sizeKB(raw)} KB → ${minName}  ${sizeKB(result.styles)} KB  (${Math.round((1 - result.styles.length / raw.length) * 100)}% saved)`);
   }
 
