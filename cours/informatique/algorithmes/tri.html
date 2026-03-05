@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tri par insertion, sélection, fusion et rapide — comprendre, implémenter et comparer les algorithmes classiques de tri.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Algorithmes de tri — Algorithmes — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root {
+  --accent: #4fc3f7;
+  --accent2: #81d4fa;
+  --accent-dim: rgba(79,195,247,0.08);
+ --accent-hero: rgba(79,195,247,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../index.html">Informatique</a> › <a href="../algorithmes.html">Algorithmes</a> › <span>Algorithmes de tri</span>
+  </div>
+</nav>
+
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">💻 Informatique</span>
+    <span class="tag-level">Intermédiaire</span>
+    <span class="tag-time">⏱ ~40 min</span>
+  </div>
+  <h1><em>Algorithmes de tri</em></h1>
+  <p class="hero-desc">Tri par insertion, sélection, fusion et rapide — comprendre, implémenter et comparer les algorithmes classiques de tri.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../algorithmes.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Algorithmes</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">💻 Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="complexite.html">Complexité algorithmique</a>
+    <a class="sidebar-link active" href="#">Algorithmes de tri</a>
+    <a class="sidebar-link" href="recherche.html">Recherche et parcours</a>
+    <a class="sidebar-link" href="arbres-graphes.html">Arbres et graphes</a>
+    <a class="sidebar-link" href="dynamique.html">Programmation dynamique</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Pourquoi trier est fondamental</p>
+        </div>
+      </div>
+      <p class="resume-text">Le <strong>tri</strong> est l'une des opérations les plus fréquentes en informatique. Trier une liste de noms par ordre alphabétique, classer des produits par prix, organiser des données pour permettre une recherche rapide — le tri est partout. C'est aussi l'un des problèmes les mieux étudiés de l'algorithmique, avec des dizaines d'algorithmes différents, chacun avec ses forces et ses faiblesses.</p>
+      <div class="highlight-box">
+        <p><strong>Borne inférieure :</strong> il a été prouvé mathématiquement qu'aucun algorithme de tri par comparaison ne peut faire mieux que O(n log n) dans le pire cas. Les tris fusion et tas atteignent cette borne optimale.</p>
+      </div>
+      <p class="resume-text">Un algorithme de tri est dit <strong>stable</strong> s'il préserve l'ordre relatif des éléments égaux, et <strong>en place</strong> s'il n'utilise que O(1) de mémoire supplémentaire. Ces propriétés influencent le choix de l'algorithme selon le contexte.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Les grands algorithmes de tri</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Tri par insertion</h3>
+        <p>Le tri par insertion construit le résultat trié élément par élément, en insérant chaque nouvel élément à sa place dans la partie déjà triée. Simple et efficace pour les petites listes ou les listes presque triées.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="kw">def</span> <span class="fn">tri_insertion</span>(liste):
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="fn">len</span>(liste)):
+        cle = liste[i]
+        j = i - <span class="num">1</span>
+        <span class="kw">while</span> j >= <span class="num">0</span> <span class="kw">and</span> liste[j] > cle:
+            liste[j + <span class="num">1</span>] = liste[j]  <span class="cm"># Décaler vers la droite</span>
+            j -= <span class="num">1</span>
+        liste[j + <span class="num">1</span>] = cle  <span class="cm"># Insérer à la bonne position</span>
+    <span class="kw">return</span> liste
+
+<span class="cm"># Complexité : O(n²) pire cas, O(n) meilleur cas (liste triée)</span>
+<span class="cm"># Stable : oui | En place : oui</span></code></pre>
+        </div>
+
+        <h3>Tri par sélection</h3>
+        <p>Le tri par sélection trouve le minimum de la partie non triée et le place à sa position définitive. Simple mais toujours en O(n²), même pour une liste déjà triée.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="kw">def</span> <span class="fn">tri_selection</span>(liste):
+    n = <span class="fn">len</span>(liste)
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(n):
+        i_min = i
+        <span class="kw">for</span> j <span class="kw">in</span> <span class="fn">range</span>(i + <span class="num">1</span>, n):
+            <span class="kw">if</span> liste[j] < liste[i_min]:
+                i_min = j
+        liste[i], liste[i_min] = liste[i_min], liste[i]
+    <span class="kw">return</span> liste
+
+<span class="cm"># Complexité : O(n²) dans tous les cas</span>
+<span class="cm"># Stable : non | En place : oui</span></code></pre>
+        </div>
+
+        <h3>Tri fusion (Merge Sort)</h3>
+        <p>Le tri fusion divise la liste en deux moitiés, trie récursivement chaque moitié, puis fusionne les deux moitiés triées. C'est un algorithme « diviser pour régner » qui garantit O(n log n) dans tous les cas.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="kw">def</span> <span class="fn">tri_fusion</span>(liste):
+    <span class="kw">if</span> <span class="fn">len</span>(liste) <= <span class="num">1</span>:
+        <span class="kw">return</span> liste
+
+    milieu = <span class="fn">len</span>(liste) // <span class="num">2</span>
+    gauche = <span class="fn">tri_fusion</span>(liste[:milieu])
+    droite = <span class="fn">tri_fusion</span>(liste[milieu:])
+    <span class="kw">return</span> <span class="fn">fusionner</span>(gauche, droite)
+
+<span class="kw">def</span> <span class="fn">fusionner</span>(g, d):
+    resultat = []
+    i = j = <span class="num">0</span>
+    <span class="kw">while</span> i < <span class="fn">len</span>(g) <span class="kw">and</span> j < <span class="fn">len</span>(d):
+        <span class="kw">if</span> g[i] <= d[j]:
+            resultat.append(g[i]); i += <span class="num">1</span>
+        <span class="kw">else</span>:
+            resultat.append(d[j]); j += <span class="num">1</span>
+    resultat.extend(g[i:])
+    resultat.extend(d[j:])
+    <span class="kw">return</span> resultat
+
+<span class="cm"># Complexité : O(n log n) dans tous les cas</span>
+<span class="cm"># Stable : oui | En place : non (O(n) en espace)</span></code></pre>
+        </div>
+
+        <h3>Tri rapide (Quick Sort)</h3>
+        <p>Le tri rapide choisit un « pivot », partitionne la liste en éléments plus petits et plus grands que le pivot, puis trie récursivement. En moyenne O(n log n) et souvent le plus rapide en pratique.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="kw">def</span> <span class="fn">tri_rapide</span>(liste):
+    <span class="kw">if</span> <span class="fn">len</span>(liste) <= <span class="num">1</span>:
+        <span class="kw">return</span> liste
+
+    pivot = liste[<span class="fn">len</span>(liste) // <span class="num">2</span>]
+    gauche = [x <span class="kw">for</span> x <span class="kw">in</span> liste <span class="kw">if</span> x < pivot]
+    milieu = [x <span class="kw">for</span> x <span class="kw">in</span> liste <span class="kw">if</span> x == pivot]
+    droite = [x <span class="kw">for</span> x <span class="kw">in</span> liste <span class="kw">if</span> x > pivot]
+    <span class="kw">return</span> <span class="fn">tri_rapide</span>(gauche) + milieu + <span class="fn">tri_rapide</span>(droite)
+
+<span class="cm"># Complexité : O(n log n) moyen, O(n²) pire cas</span>
+<span class="cm"># Stable : non | En place : oui (version partition)</span></code></pre>
+        </div>
+
+        <h3>Tableau comparatif</h3>
+        <div class="highlight-box">
+          <p><strong>Insertion :</strong> O(n²) | stable, en place, bon pour petites listes<br>
+          <strong>Sélection :</strong> O(n²) | non stable, en place, peu d'échanges<br>
+          <strong>Fusion :</strong> O(n log n) | stable, O(n) espace, garanti optimal<br>
+          <strong>Rapide :</strong> O(n log n) moyen | non stable, en place, le plus rapide en pratique</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">📊 Algorithmes de tri — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">5</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 5</p>
+            <p class="q-text">Quel tri est le plus efficace pour une liste presque triée ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">Tri par insertion</button>
+              <button class="option" onclick="answer(this,false)">Tri par sélection</button>
+              <button class="option" onclick="answer(this,false)">Tri rapide</button>
+              <button class="option" onclick="answer(this,false)">Tri fusion</button>
+            </div>
+            <div class="q-feedback">Le tri par insertion est en O(n) sur une liste presque triée car il ne déplace que quelques éléments. Les autres restent en O(n log n) ou O(n²).</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 5</p>
+            <p class="q-text">Quelle est la complexité du tri fusion dans le pire cas ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">O(n²)</button>
+              <button class="option" onclick="answer(this,true)">O(n log n)</button>
+              <button class="option" onclick="answer(this,false)">O(n)</button>
+              <button class="option" onclick="answer(this,false)">O(log n)</button>
+            </div>
+            <div class="q-feedback">Le tri fusion garantit O(n log n) dans tous les cas (meilleur, moyen et pire). C'est sa grande force par rapport au tri rapide.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 5</p>
+            <p class="q-text">Qu'est-ce qu'un tri « stable » ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Un tri qui ne plante jamais</button>
+              <button class="option" onclick="answer(this,true)">Un tri qui préserve l'ordre des éléments égaux</button>
+              <button class="option" onclick="answer(this,false)">Un tri en place</button>
+              <button class="option" onclick="answer(this,false)">Un tri en O(n log n)</button>
+            </div>
+            <div class="q-feedback">Un tri stable conserve l'ordre relatif des éléments ayant la même clé de tri. Par exemple, si deux étudiants ont la même note, leur ordre initial est préservé.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 5</p>
+            <p class="q-text">Le tri rapide a un pire cas en O(n²). Quand cela se produit-il ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Quand la liste est aléatoire</button>
+              <button class="option" onclick="answer(this,true)">Quand le pivot choisi est toujours le minimum ou le maximum</button>
+              <button class="option" onclick="answer(this,false)">Quand la liste contient des doublons</button>
+              <button class="option" onclick="answer(this,false)">Quand la liste est de taille impaire</button>
+            </div>
+            <div class="q-feedback">Si le pivot est toujours le plus petit ou le plus grand élément, la partition est maximalement déséquilibrée : un sous-tableau de taille 0 et un de taille n-1, donnant O(n²).</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 5</p>
+            <p class="q-text">Quel tri utilise la stratégie « diviser pour régner » ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Tri par insertion</button>
+              <button class="option" onclick="answer(this,false)">Tri par sélection</button>
+              <button class="option" onclick="answer(this,true)">Tri fusion</button>
+              <button class="option" onclick="answer(this,false)">Tri à bulles</button>
+            </div>
+            <div class="q-feedback">Le tri fusion et le tri rapide utilisent tous deux la stratégie « diviser pour régner ». Le tri fusion divise en deux moitiés puis fusionne ; le tri rapide partitionne autour d'un pivot.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/5</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Tri à bulles</h3>
+        <p>Implémentez le tri à bulles : parcourez la liste en échangeant les éléments adjacents mal ordonnés, et recommencez jusqu'à ce qu'aucun échange ne soit nécessaire. Quelle est sa complexité ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>def tri_bulles(liste):
+    n = len(liste)
+    for i in range(n):
+        echange = False
+        for j in range(n - 1 - i):
+            if liste[j] > liste[j + 1]:
+                liste[j], liste[j + 1] = liste[j + 1], liste[j]
+                echange = True
+        if not echange:
+            break
+    return liste
+# O(n²) pire/moyen, O(n) meilleur (déjà trié grâce au flag)</code></pre></div>
+        </details>
+
+        <h3>Exercice 2 — Compter les comparaisons</h3>
+        <p>Modifiez le tri par insertion et le tri fusion pour qu'ils comptent et retournent le nombre de comparaisons effectuées. Testez sur une liste de 1000 éléments aléatoires.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>def tri_insertion_count(liste):
+    comps = 0
+    for i in range(1, len(liste)):
+        cle = liste[i]
+        j = i - 1
+        while j >= 0:
+            comps += 1
+            if liste[j] > cle:
+                liste[j + 1] = liste[j]
+                j -= 1
+            else:
+                break
+        liste[j + 1] = cle
+    return liste, comps
+# Pour 1000 éléments aléatoires :
+# insertion ~ 250 000 comparaisons
+# fusion ~ 10 000 comparaisons</code></pre></div>
+        </details>
+
+        <h3>Exercice 3 — Tri personnalisé</h3>
+        <p>Triez une liste de dictionnaires représentant des étudiants par note décroissante, puis par nom alphabétique en cas d'égalité. Utilisez la fonction <code>sorted()</code> de Python.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>etudiants = [
+    {"nom": "Alice", "note": 16},
+    {"nom": "Bob", "note": 18},
+    {"nom": "Claire", "note": 16},
+    {"nom": "David", "note": 14},
+]
+
+resultat = sorted(etudiants, key=lambda e: (-e["note"], e["nom"]))
+# Bob (18), Alice (16), Claire (16), David (14)</code></pre></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="complexite.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Complexité algorithmique</span>
+      </a>
+      <a href="recherche.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Recherche et parcours →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Maîtriser yield, les expressions génératrices, le module itertools et le protocole d'itération de Python.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Générateurs et itérateurs — Python avancé — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root {
+  --accent: #27ae60;
+  --accent2: #2ecc71;
+  --accent-dim: rgba(39,174,96,0.08);
+ --accent-hero: rgba(39,174,96,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../index.html">Informatique</a> › <a href="../avance.html">Python avancé</a> › <span>Générateurs et itérateurs</span>
+  </div>
+</nav>
+
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">🐍 Python avancé</span>
+    <span class="tag-level">Avancé</span>
+    <span class="tag-time">⏱ ~50 min</span>
+  </div>
+  <h1><em>Générateurs et itérateurs</em></h1>
+  <p class="hero-desc">Maîtriser yield, les expressions génératrices, le module itertools et le protocole d'itération de Python.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../avance.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Python avancé</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">💻 Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="exceptions.html">Exceptions</a>
+    <a class="sidebar-link" href="decorateurs.html">Décorateurs</a>
+    <a class="sidebar-link active" href="#">Générateurs</a>
+    <a class="sidebar-link" href="modules.html">Modules et packages</a>
+    <a class="sidebar-link" href="regex.html">Expressions régulières</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>L'évaluation paresseuse en Python</p>
+        </div>
+      </div>
+      <p class="resume-text">Un <strong>générateur</strong> est une fonction spéciale qui produit une séquence de valeurs à la demande, une par une, au lieu de les stocker toutes en mémoire. Grâce au mot-clé <code>yield</code>, la fonction « se met en pause » entre chaque valeur et reprend là où elle s'était arrêtée.</p>
+      <p class="resume-text">Ce mécanisme d'<strong>évaluation paresseuse</strong> (lazy evaluation) est essentiel pour traiter de grands volumes de données : au lieu de charger un fichier de 10 Go en mémoire, on le lit ligne par ligne. Les générateurs sont au coeur de nombreuses fonctionnalités Python : boucles <code>for</code>, compréhensions, <code>range()</code>, lecture de fichiers, etc.</p>
+      <div class="highlight-box">
+        <p><strong>Mémoire constante :</strong> une liste de 10 millions d'éléments consomme des centaines de Mo de RAM. Un générateur équivalent ne consomme que quelques octets, car il ne produit qu'un élément à la fois.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>yield, expressions génératrices, itertools et protocole d'itération</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Le protocole d'itération</h3>
+        <p>En Python, un objet est <strong>itérable</strong> s'il implémente la méthode <code>__iter__()</code> qui retourne un <strong>itérateur</strong>. Un itérateur implémente <code>__next__()</code> pour produire la valeur suivante et lève <code>StopIteration</code> quand la séquence est épuisée.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Comprendre le protocole d'itération</span>
+ma_liste = [<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>]
+
+<span class="cm"># La boucle for fait ceci en interne :</span>
+iterateur = <span class="fn">iter</span>(ma_liste)  <span class="cm"># Appelle __iter__()</span>
+<span class="fn">print</span>(<span class="fn">next</span>(iterateur))  <span class="cm"># 10  — Appelle __next__()</span>
+<span class="fn">print</span>(<span class="fn">next</span>(iterateur))  <span class="cm"># 20</span>
+<span class="fn">print</span>(<span class="fn">next</span>(iterateur))  <span class="cm"># 30</span>
+<span class="cm"># next(iterateur)  # StopIteration !</span>
+
+<span class="cm"># Créer un itérateur personnalisé</span>
+<span class="kw">class</span> <span class="fn">Compteur</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(self, debut, fin):
+        self.courant = debut
+        self.fin = fin
+
+    <span class="kw">def</span> <span class="fn">__iter__</span>(self):
+        <span class="kw">return</span> self
+
+    <span class="kw">def</span> <span class="fn">__next__</span>(self):
+        <span class="kw">if</span> self.courant &gt;= self.fin:
+            <span class="kw">raise</span> StopIteration
+        valeur = self.courant
+        self.courant += <span class="num">1</span>
+        <span class="kw">return</span> valeur
+
+<span class="kw">for</span> n <span class="kw">in</span> Compteur(<span class="num">1</span>, <span class="num">4</span>):
+    <span class="fn">print</span>(n)  <span class="cm"># 1, 2, 3</span></code></pre>
+        </div>
+
+        <h3>Fonctions génératrices avec yield</h3>
+        <p>Une fonction contenant <code>yield</code> devient automatiquement une <strong>fonction génératrice</strong>. Chaque appel à <code>next()</code> exécute le code jusqu'au prochain <code>yield</code>, retourne la valeur, puis met la fonction en pause.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Générateur simple</span>
+<span class="kw">def</span> <span class="fn">compter_jusqua</span>(n):
+    <span class="str">"""Génère les entiers de 1 à n."""</span>
+    i = <span class="num">1</span>
+    <span class="kw">while</span> i &lt;= n:
+        <span class="kw">yield</span> i  <span class="cm"># Pause ici, retourne i</span>
+        i += <span class="num">1</span>   <span class="cm"># Reprend ici au prochain next()</span>
+
+<span class="cm"># Le générateur est paresseux</span>
+gen = <span class="fn">compter_jusqua</span>(<span class="num">3</span>)
+<span class="fn">print</span>(<span class="fn">type</span>(gen))     <span class="cm"># &lt;class 'generator'&gt;</span>
+<span class="fn">print</span>(<span class="fn">next</span>(gen))     <span class="cm"># 1</span>
+<span class="fn">print</span>(<span class="fn">next</span>(gen))     <span class="cm"># 2</span>
+<span class="fn">print</span>(<span class="fn">next</span>(gen))     <span class="cm"># 3</span>
+<span class="cm"># next(gen)          # StopIteration</span>
+
+<span class="cm"># Utilisation dans une boucle for</span>
+<span class="kw">for</span> n <span class="kw">in</span> <span class="fn">compter_jusqua</span>(<span class="num">5</span>):
+    <span class="fn">print</span>(n, end=<span class="str">" "</span>)  <span class="cm"># 1 2 3 4 5</span>
+
+<span class="cm"># Comparaison mémoire</span>
+<span class="kw">import</span> sys
+
+liste = [i <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1_000_000</span>)]
+gen = (i <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1_000_000</span>))
+
+<span class="fn">print</span>(sys.getsizeof(liste))  <span class="cm"># ~8 Mo</span>
+<span class="fn">print</span>(sys.getsizeof(gen))    <span class="cm"># ~200 octets</span></code></pre>
+        </div>
+
+        <h3>Expressions génératrices</h3>
+        <p>Comme les compréhensions de liste, mais avec des parenthèses au lieu de crochets. Elles créent un générateur au lieu d'une liste.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Compréhension de liste (tout en mémoire)</span>
+carres_liste = [x**<span class="num">2</span> <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="num">10</span>)]
+
+<span class="cm"># Expression génératrice (paresseuse)</span>
+carres_gen = (x**<span class="num">2</span> <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="num">10</span>))
+
+<span class="cm"># Utilisation directe dans une fonction</span>
+total = <span class="fn">sum</span>(x**<span class="num">2</span> <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1000</span>))
+<span class="fn">print</span>(total)  <span class="cm"># 332833500</span>
+
+<span class="cm"># Chaîner des expressions génératrices</span>
+nombres = <span class="fn">range</span>(<span class="num">100</span>)
+pairs = (n <span class="kw">for</span> n <span class="kw">in</span> nombres <span class="kw">if</span> n % <span class="num">2</span> == <span class="num">0</span>)
+carres = (n**<span class="num">2</span> <span class="kw">for</span> n <span class="kw">in</span> pairs)
+petits = (n <span class="kw">for</span> n <span class="kw">in</span> carres <span class="kw">if</span> n &lt; <span class="num">100</span>)
+
+<span class="fn">print</span>(<span class="fn">list</span>(petits))  <span class="cm"># [0, 4, 16, 36, 64]</span>
+
+<span class="cm"># Attention : un générateur ne s'utilise qu'une seule fois</span>
+gen = (x <span class="kw">for</span> x <span class="kw">in</span> [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>])
+<span class="fn">print</span>(<span class="fn">list</span>(gen))  <span class="cm"># [1, 2, 3]</span>
+<span class="fn">print</span>(<span class="fn">list</span>(gen))  <span class="cm"># [] — épuisé !</span></code></pre>
+        </div>
+
+        <h3>yield from — Délégation de générateurs</h3>
+        <p>L'expression <code>yield from</code> permet de déléguer la production de valeurs à un autre itérable ou générateur. C'est plus lisible et plus efficace qu'une boucle <code>for</code> avec <code>yield</code>.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Sans yield from</span>
+<span class="kw">def</span> <span class="fn">chaine_v1</span>(*iterables):
+    <span class="kw">for</span> it <span class="kw">in</span> iterables:
+        <span class="kw">for</span> element <span class="kw">in</span> it:
+            <span class="kw">yield</span> element
+
+<span class="cm"># Avec yield from — plus élégant</span>
+<span class="kw">def</span> <span class="fn">chaine_v2</span>(*iterables):
+    <span class="kw">for</span> it <span class="kw">in</span> iterables:
+        <span class="kw">yield from</span> it
+
+<span class="fn">print</span>(<span class="fn">list</span>(<span class="fn">chaine_v2</span>([<span class="num">1</span>, <span class="num">2</span>], [<span class="num">3</span>, <span class="num">4</span>], [<span class="num">5</span>])))
+<span class="cm"># [1, 2, 3, 4, 5]</span>
+
+<span class="cm"># Aplatir une structure imbriquée</span>
+<span class="kw">def</span> <span class="fn">aplatir</span>(structure):
+    <span class="kw">for</span> element <span class="kw">in</span> structure:
+        <span class="kw">if</span> <span class="fn">isinstance</span>(element, (list, tuple)):
+            <span class="kw">yield from</span> <span class="fn">aplatir</span>(element)
+        <span class="kw">else</span>:
+            <span class="kw">yield</span> element
+
+imbriquee = [<span class="num">1</span>, [<span class="num">2</span>, [<span class="num">3</span>, <span class="num">4</span>]], [<span class="num">5</span>, <span class="num">6</span>]]
+<span class="fn">print</span>(<span class="fn">list</span>(<span class="fn">aplatir</span>(imbriquee)))  <span class="cm"># [1, 2, 3, 4, 5, 6]</span></code></pre>
+        </div>
+
+        <h3>Le module itertools</h3>
+        <p>Le module <code>itertools</code> fournit des outils puissants pour créer des itérateurs efficaces. Tous produisent des résultats paresseux.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="kw">import</span> itertools
+
+<span class="cm"># count — compteur infini</span>
+compteur = itertools.count(start=<span class="num">10</span>, step=<span class="num">5</span>)
+<span class="fn">print</span>([<span class="fn">next</span>(compteur) <span class="kw">for</span> _ <span class="kw">in</span> <span class="fn">range</span>(<span class="num">5</span>)])
+<span class="cm"># [10, 15, 20, 25, 30]</span>
+
+<span class="cm"># cycle — répète un itérable indéfiniment</span>
+couleurs = itertools.cycle([<span class="str">"rouge"</span>, <span class="str">"vert"</span>, <span class="str">"bleu"</span>])
+<span class="fn">print</span>([<span class="fn">next</span>(couleurs) <span class="kw">for</span> _ <span class="kw">in</span> <span class="fn">range</span>(<span class="num">7</span>)])
+<span class="cm"># ['rouge', 'vert', 'bleu', 'rouge', 'vert', 'bleu', 'rouge']</span>
+
+<span class="cm"># chain — concatène des itérables</span>
+<span class="fn">print</span>(<span class="fn">list</span>(itertools.chain([<span class="num">1</span>, <span class="num">2</span>], [<span class="num">3</span>], [<span class="num">4</span>, <span class="num">5</span>])))
+<span class="cm"># [1, 2, 3, 4, 5]</span>
+
+<span class="cm"># islice — découper un itérateur (comme le slicing)</span>
+infini = itertools.count(<span class="num">0</span>)
+<span class="fn">print</span>(<span class="fn">list</span>(itertools.islice(infini, <span class="num">5</span>, <span class="num">10</span>)))
+<span class="cm"># [5, 6, 7, 8, 9]</span>
+
+<span class="cm"># product — produit cartésien</span>
+<span class="fn">print</span>(<span class="fn">list</span>(itertools.product(<span class="str">"AB"</span>, [<span class="num">1</span>, <span class="num">2</span>])))
+<span class="cm"># [('A', 1), ('A', 2), ('B', 1), ('B', 2)]</span>
+
+<span class="cm"># groupby — regrouper par clé</span>
+donnees = [(<span class="str">"fruit"</span>, <span class="str">"pomme"</span>), (<span class="str">"fruit"</span>, <span class="str">"poire"</span>),
+           (<span class="str">"légume"</span>, <span class="str">"carotte"</span>), (<span class="str">"légume"</span>, <span class="str">"navet"</span>)]
+
+<span class="kw">for</span> cle, groupe <span class="kw">in</span> itertools.groupby(donnees, key=<span class="kw">lambda</span> x: x[<span class="num">0</span>]):
+    <span class="fn">print</span>(<span class="str">f"{cle}: {[g[1] for g in groupe]}"</span>)
+<span class="cm"># fruit: ['pomme', 'poire']</span>
+<span class="cm"># légume: ['carotte', 'navet']</span></code></pre>
+        </div>
+
+        <h3>Cas d'usage concrets</h3>
+        <p>Les générateurs brillent pour le traitement de fichiers volumineux, les pipelines de données et les séquences infinies.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Lire un gros fichier ligne par ligne</span>
+<span class="kw">def</span> <span class="fn">lire_lignes</span>(chemin):
+    <span class="str">"""Lit un fichier ligne par ligne sans tout charger."""</span>
+    <span class="kw">with</span> <span class="fn">open</span>(chemin) <span class="kw">as</span> f:
+        <span class="kw">for</span> ligne <span class="kw">in</span> f:
+            <span class="kw">yield</span> ligne.strip()
+
+<span class="cm"># Pipeline de traitement</span>
+<span class="kw">def</span> <span class="fn">filtrer_non_vides</span>(lignes):
+    <span class="kw">for</span> ligne <span class="kw">in</span> lignes:
+        <span class="kw">if</span> ligne:
+            <span class="kw">yield</span> ligne
+
+<span class="kw">def</span> <span class="fn">extraire_nombres</span>(lignes):
+    <span class="kw">for</span> ligne <span class="kw">in</span> lignes:
+        <span class="kw">try</span>:
+            <span class="kw">yield</span> <span class="fn">float</span>(ligne)
+        <span class="kw">except</span> ValueError:
+            <span class="kw">continue</span>
+
+<span class="cm"># Composition paresseuse — rien n'est exécuté tant qu'on ne consomme pas</span>
+<span class="cm"># lignes = lire_lignes("donnees.txt")</span>
+<span class="cm"># non_vides = filtrer_non_vides(lignes)</span>
+<span class="cm"># nombres = extraire_nombres(non_vides)</span>
+<span class="cm"># total = sum(nombres)  # Tout se déroule ici</span>
+
+<span class="cm"># Générateur infini : suite de Fibonacci</span>
+<span class="kw">def</span> <span class="fn">fibonacci</span>():
+    a, b = <span class="num">0</span>, <span class="num">1</span>
+    <span class="kw">while</span> <span class="kw">True</span>:
+        <span class="kw">yield</span> a
+        a, b = b, a + b
+
+<span class="cm"># Prendre les 10 premiers</span>
+fib = <span class="fn">fibonacci</span>()
+dix_premiers = [<span class="fn">next</span>(fib) <span class="kw">for</span> _ <span class="kw">in</span> <span class="fn">range</span>(<span class="num">10</span>)]
+<span class="fn">print</span>(dix_premiers)  <span class="cm"># [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]</span></code></pre>
+        </div>
+
+        <h3>send() et gestion avancée</h3>
+        <p>Les générateurs peuvent aussi <strong>recevoir</strong> des valeurs avec <code>send()</code> et être fermés avec <code>close()</code>. Cela en fait des coroutines simples.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Générateur qui reçoit des valeurs</span>
+<span class="kw">def</span> <span class="fn">moyenne_courante</span>():
+    <span class="str">"""Calcule la moyenne au fur et à mesure."""</span>
+    total = <span class="num">0</span>
+    compteur = <span class="num">0</span>
+    moyenne = <span class="kw">None</span>
+    <span class="kw">while</span> <span class="kw">True</span>:
+        valeur = <span class="kw">yield</span> moyenne
+        total += valeur
+        compteur += <span class="num">1</span>
+        moyenne = total / compteur
+
+gen = <span class="fn">moyenne_courante</span>()
+<span class="fn">next</span>(gen)              <span class="cm"># Initialiser (avance jusqu'au premier yield)</span>
+<span class="fn">print</span>(gen.send(<span class="num">10</span>))   <span class="cm"># 10.0</span>
+<span class="fn">print</span>(gen.send(<span class="num">20</span>))   <span class="cm"># 15.0</span>
+<span class="fn">print</span>(gen.send(<span class="num">30</span>))   <span class="cm"># 20.0</span>
+gen.close()            <span class="cm"># Fermer proprement le générateur</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">🐍 Générateurs — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quelle est la différence principale entre une liste et un générateur ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Un générateur est plus rapide qu'une liste</button>
+              <button class="option" onclick="answer(this,true)">Un générateur produit ses éléments un par un sans tout stocker en mémoire</button>
+              <button class="option" onclick="answer(this,false)">Un générateur peut contenir plus d'éléments qu'une liste</button>
+              <button class="option" onclick="answer(this,false)">Il n'y a pas de différence, c'est juste une syntaxe alternative</button>
+            </div>
+            <div class="q-feedback">Le générateur est <strong>paresseux</strong> : il ne produit un élément que quand on le demande (<code>next()</code>). Il n'occupe donc qu'une quantité constante de mémoire, quelle que soit la taille de la séquence.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Que se passe-t-il quand on appelle <code>next()</code> sur un générateur épuisé ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Il retourne None</button>
+              <button class="option" onclick="answer(this,false)">Il recommence depuis le début</button>
+              <button class="option" onclick="answer(this,true)">Il lève StopIteration</button>
+              <button class="option" onclick="answer(this,false)">Il retourne le dernier élément</button>
+            </div>
+            <div class="q-feedback">Quand un générateur n'a plus de valeurs à produire (la fonction se termine), <code>next()</code> lève l'exception <code>StopIteration</code>. C'est le signal de fin pour les boucles <code>for</code>.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Quelle syntaxe crée une expression génératrice ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">[x**2 for x in range(10)]</button>
+              <button class="option" onclick="answer(this,true)">(x**2 for x in range(10))</button>
+              <button class="option" onclick="answer(this,false)">{x**2 for x in range(10)}</button>
+              <button class="option" onclick="answer(this,false)">gen x**2 for x in range(10)</button>
+            </div>
+            <div class="q-feedback">Les parenthèses <code>()</code> créent une expression génératrice. Les crochets <code>[]</code> créent une liste, les accolades <code>{}</code> un ensemble ou un dictionnaire.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Que fait <code>yield from iterable</code> ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Importe un itérable depuis un module</button>
+              <button class="option" onclick="answer(this,true)">Délègue la production de valeurs à un autre itérable</button>
+              <button class="option" onclick="answer(this,false)">Crée une copie de l'itérable</button>
+              <button class="option" onclick="answer(this,false)">Convertit un itérable en générateur</button>
+            </div>
+            <div class="q-feedback"><code>yield from iterable</code> est équivalent à <code>for item in iterable: yield item</code> mais plus efficace et plus lisible, et gère correctement <code>send()</code> et <code>throw()</code>.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quelle fonction d'itertools crée un compteur infini ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">itertools.cycle</button>
+              <button class="option" onclick="answer(this,false)">itertools.repeat</button>
+              <button class="option" onclick="answer(this,true)">itertools.count</button>
+              <button class="option" onclick="answer(this,false)">itertools.chain</button>
+            </div>
+            <div class="q-feedback"><code>itertools.count(start, step)</code> génère une séquence infinie de nombres. <code>cycle</code> répète un itérable, <code>repeat</code> répète une valeur, <code>chain</code> concatène des itérables.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Peut-on itérer deux fois sur un même générateur ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Oui, il se réinitialise automatiquement</button>
+              <button class="option" onclick="answer(this,true)">Non, un générateur s'épuise après une seule itération</button>
+              <button class="option" onclick="answer(this,false)">Oui, avec la méthode reset()</button>
+              <button class="option" onclick="answer(this,false)">Oui, si on utilise itertools.tee</button>
+            </div>
+            <div class="q-feedback">Un générateur ne peut être consommé qu'une seule fois. Pour l'itérer plusieurs fois, il faut soit le recréer, soit le convertir en liste, soit utiliser <code>itertools.tee()</code> (avec précaution).</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Générateur de nombres premiers</h3>
+        <p>Écrivez un générateur <code>premiers()</code> qui produit les nombres premiers un par un, indéfiniment. Utilisez-le pour afficher les 20 premiers nombres premiers.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>def premiers():
+    """Génère les nombres premiers indéfiniment."""
+    n = 2
+    while True:
+        if all(n % i != 0 for i in range(2, int(n**0.5) + 1)):
+            yield n
+        n += 1
+
+# Les 20 premiers nombres premiers
+import itertools
+vingt_premiers = list(itertools.islice(premiers(), 20))
+print(vingt_premiers)
+# [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71]</code></pre></div>
+        </details>
+
+        <h3>Exercice 2 — Pipeline de traitement de données</h3>
+        <p>Créez un pipeline de générateurs qui : (1) génère des nombres de 1 à 100, (2) filtre les multiples de 3, (3) met au carré chaque nombre, (4) ne garde que ceux inférieurs à 500. Calculez la somme finale.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>def generer(debut, fin):
+    """Génère les entiers de debut à fin."""
+    for i in range(debut, fin + 1):
+        yield i
+
+def filtrer_multiples(nombres, diviseur):
+    """Ne garde que les multiples du diviseur."""
+    for n in nombres:
+        if n % diviseur == 0:
+            yield n
+
+def mettre_au_carre(nombres):
+    """Élève chaque nombre au carré."""
+    for n in nombres:
+        yield n ** 2
+
+def limiter(nombres, maximum):
+    """Ne garde que les nombres inférieurs au maximum."""
+    for n in nombres:
+        if n < maximum:
+            yield n
+
+# Pipeline
+nombres = generer(1, 100)
+multiples_3 = filtrer_multiples(nombres, 3)
+carres = mettre_au_carre(multiples_3)
+petits = limiter(carres, 500)
+total = sum(petits)
+print(f"Somme : {total}")  # Somme : 1296
+
+# Version compacte avec expressions génératrices
+total = sum(
+    n**2
+    for n in range(1, 101)
+    if n % 3 == 0 and n**2 < 500
+)
+print(f"Somme (compacte) : {total}")  # 1296</code></pre></div>
+        </details>
+
+        <h3>Exercice 3 — Fenêtre glissante</h3>
+        <p>Implémentez un générateur <code>fenetre_glissante(iterable, taille)</code> qui produit des tuples de <code>taille</code> éléments consécutifs. Par exemple, <code>fenetre_glissante([1,2,3,4,5], 3)</code> donne <code>(1,2,3), (2,3,4), (3,4,5)</code>.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>from collections import deque
+
+def fenetre_glissante(iterable, taille):
+    """Produit des tuples de taille éléments consécutifs."""
+    it = iter(iterable)
+    fenetre = deque(maxlen=taille)
+
+    # Remplir la première fenêtre
+    for _ in range(taille):
+        fenetre.append(next(it))
+    yield tuple(fenetre)
+
+    # Glisser la fenêtre
+    for element in it:
+        fenetre.append(element)
+        yield tuple(fenetre)
+
+# Tests
+donnees = [1, 2, 3, 4, 5, 6, 7]
+for f in fenetre_glissante(donnees, 3):
+    print(f)
+# (1, 2, 3)
+# (2, 3, 4)
+# (3, 4, 5)
+# (4, 5, 6)
+# (5, 6, 7)
+
+# Calculer la moyenne mobile
+prix = [100, 102, 98, 105, 110, 108, 112]
+moyennes = [sum(f)/len(f) for f in fenetre_glissante(prix, 3)]
+print(moyennes)  # [100.0, 101.67, 104.33, 107.67, 110.0]</code></pre></div>
+        </details>
+
+        <h3>Exercice 4 — Lecture paresseuse de CSV</h3>
+        <p>Écrivez un générateur <code>lire_csv(chemin, separateur=",")</code> qui lit un fichier CSV ligne par ligne et produit des dictionnaires (la première ligne contient les en-têtes). Ne chargez jamais tout le fichier en mémoire.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>def lire_csv(chemin, separateur=","):
+    """Lit un CSV et produit des dictionnaires ligne par ligne."""
+    with open(chemin, encoding="utf-8") as f:
+        # Première ligne = en-têtes
+        entetes = f.readline().strip().split(separateur)
+
+        # Chaque ligne suivante = un enregistrement
+        for ligne in f:
+            valeurs = ligne.strip().split(separateur)
+            if len(valeurs) == len(entetes):
+                yield dict(zip(entetes, valeurs))
+
+# Utilisation
+# for personne in lire_csv("contacts.csv"):
+#     print(f"{personne['nom']} — {personne['email']}")
+
+# Compter les lignes sans tout charger
+# total = sum(1 for _ in lire_csv("gros_fichier.csv"))
+
+# Filtrer et transformer
+# adultes = (
+#     p for p in lire_csv("personnes.csv")
+#     if int(p["age"]) >= 18
+# )</code></pre></div>
+        </details>
+
+        <h3>Exercice 5 — Combinaisons avec itertools</h3>
+        <p>Utilisez <code>itertools</code> pour : (1) générer toutes les permutations de <code>"ABC"</code>, (2) trouver les combinaisons de 2 éléments parmi <code>[1,2,3,4]</code>, (3) créer un « round-robin » qui alterne entre plusieurs itérables.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>import itertools
+
+# 1. Permutations de "ABC"
+perms = list(itertools.permutations("ABC"))
+print(f"Permutations de ABC : {len(perms)}")
+for p in perms:
+    print("".join(p), end=" ")
+# ABC ACB BAC BCA CAB CBA
+
+print()
+
+# 2. Combinaisons de 2 parmi [1, 2, 3, 4]
+combis = list(itertools.combinations([1, 2, 3, 4], 2))
+print(f"Combinaisons : {combis}")
+# [(1,2), (1,3), (1,4), (2,3), (2,4), (3,4)]
+
+# 3. Round-robin
+def round_robin(*iterables):
+    """Alterne entre les itérables : A1, B1, C1, A2, B2, C2..."""
+    iterateurs = [iter(it) for it in iterables]
+    actifs = len(iterateurs)
+    indices = itertools.cycle(range(actifs))
+    epuises = set()
+
+    for i in indices:
+        if len(epuises) == actifs:
+            break
+        if i in epuises:
+            continue
+        try:
+            yield next(iterateurs[i])
+        except StopIteration:
+            epuises.add(i)
+
+# Test round-robin
+print(list(round_robin("AB", "CDE", "FG")))
+# ['A', 'C', 'F', 'B', 'D', 'G', 'E']</code></pre></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="decorateurs.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Décorateurs</span>
+      </a>
+      <a href="modules.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Modules et packages →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

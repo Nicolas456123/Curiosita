@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Fonctions, listes, dictionnaires, compréhensions et fichiers — organiser et manipuler les données efficacement en Python.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<title>Structures de données — Python — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.min.css?v=4">
+<style>
+:root {
+  --accent: #4fc3f7;
+  --accent2: #81d4fa;
+  --accent-dim: rgba(79,195,247,0.08);
+ --accent-hero: rgba(79,195,247,0.05); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="index.html">Python</a> › <span>Structures de données</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero hero--hub">
+  <div class="hero-meta">
+    <span class="tag-domain">💻 Python</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~4h de lecture</span>
+  </div>
+  <h1><em>Structures de données</em></h1>
+  <p class="hero-desc">Fonctions, listes, dictionnaires, compréhensions et fichiers — organiser et manipuler les données efficacement en Python.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="index.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Python</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="bases.html">Les bases</a>
+    <a class="sidebar-link active" href="#">Structures de données</a>
+    <a class="sidebar-link" href="poo.html">POO</a>
+    <a class="sidebar-link" href="avance.html">Avancé</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Organiser les données</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">Un programme ne se résume pas à des variables isolées. Pour résoudre des problèmes réels, il faut <strong>regrouper, organiser et transformer</strong> les données. Python offre des structures de données puissantes et élégantes : listes, dictionnaires, tuples, ensembles — chacune avec ses forces et ses cas d'usage.</p>
+      <div class="highlight-box">
+        <p><strong>L'idée clé :</strong> les fonctions permettent de découper un programme en blocs réutilisables, et les structures de données permettent de stocker et manipuler des collections d'informations. Ensemble, ils forment le cœur de la programmation procédurale.</p>
+      </div>
+      <p class="resume-text">Ce chapitre commence par les <strong>fonctions</strong> — le mécanisme fondamental de réutilisation du code — puis explore les principales structures de données de Python. Vous apprendrez aussi les <strong>compréhensions de listes</strong>, une syntaxe concise et puissante propre à Python, ainsi que la gestion des <strong>fichiers</strong> pour lire et écrire des données sur le disque.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours</h2>
+          <p>Progressez étape par étape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="structures/fonctions.html" class="course-card">
+          <span class="course-card-icon">⚙️</span>
+          <h3>Fonctions</h3>
+          <p>Définir des fonctions avec def, paramètres, valeurs par défaut, *args, **kwargs et fonctions lambda.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="structures/listes.html" class="course-card">
+          <span class="course-card-icon">📋</span>
+          <h3>Listes</h3>
+          <p>Création, indexation, slicing, méthodes de listes, tri et manipulation de séquences.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="structures/dictionnaires.html" class="course-card">
+          <span class="course-card-icon">📚</span>
+          <h3>Dictionnaires</h3>
+          <p>Paires clé-valeur, méthodes, itération et cas d'utilisation des dictionnaires Python.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="structures/comprehensions.html" class="course-card">
+          <span class="course-card-icon">✨</span>
+          <h3>Compréhensions</h3>
+          <p>List, dict et set comprehensions — la syntaxe concise et pythonique pour créer des collections.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="structures/fichiers.html" class="course-card">
+          <span class="course-card-icon">📁</span>
+          <h3>Fichiers</h3>
+          <p>Lire et écrire des fichiers texte et CSV, le context manager with et la gestion de chemins.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel des structures en un coup d'œil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🐍 Structures de données — Fiche mémo</h3>
+          <p>Curiosita · Fonctions et collections Python</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Fonctions</div>
+            <div class="memo-item"><span class="mf">def f(x):</span> Définir</div>
+            <div class="memo-item"><span class="mf">return val</span> Retourner</div>
+            <div class="memo-item"><span class="mf">*args</span> Args positionnels</div>
+            <div class="memo-item"><span class="mf">**kwargs</span> Args nommés</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Listes</div>
+            <div class="memo-item"><span class="mf">.append(x)</span> Ajouter</div>
+            <div class="memo-item"><span class="mf">.pop(i)</span> Retirer</div>
+            <div class="memo-item"><span class="mf">.sort()</span> Trier en place</div>
+            <div class="memo-item"><span class="mf">lst[a:b]</span> Slicing</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Dictionnaires</div>
+            <div class="memo-item"><span class="mf">d[clé]</span> Accéder</div>
+            <div class="memo-item"><span class="mf">.get(k, def)</span> Accès sûr</div>
+            <div class="memo-item"><span class="mf">.keys()</span> Les clés</div>
+            <div class="memo-item"><span class="mf">.items()</span> Paires clé-val</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Fichiers</div>
+            <div class="memo-item"><span class="mf">open(f,"r")</span> Lire</div>
+            <div class="memo-item"><span class="mf">open(f,"w")</span> Écrire</div>
+            <div class="memo-item"><span class="mf">with ... as:</span> Context mgr</div>
+            <div class="memo-item"><span class="mf">.readlines()</span> Toutes les lignes</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../memo.min.js?v=4" defer></script>
+<script src="../../curiosita.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

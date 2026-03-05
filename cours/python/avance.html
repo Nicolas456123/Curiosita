@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Exceptions, décorateurs, générateurs, modules et expressions régulières — les outils du développeur Python confirmé.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<title>Python avancé — Python — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.min.css?v=4">
+<style>
+:root {
+  --accent: #4fc3f7;
+  --accent2: #81d4fa;
+  --accent-dim: rgba(79,195,247,0.08);
+ --accent-hero: rgba(79,195,247,0.05); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="index.html">Python</a> › <span>Avancé</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+
+<div class="hero hero--hub">
+  <div class="hero-meta">
+    <span class="tag-domain">💻 Python</span>
+    <span class="tag-level">Intermédiaire → Avancé</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Python avancé</em></h1>
+  <p class="hero-desc">Exceptions, décorateurs, générateurs, modules et expressions régulières — les outils du développeur Python confirmé.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="index.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Python</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="bases.html">Les bases</a>
+    <a class="sidebar-link" href="structures.html">Structures de données</a>
+    <a class="sidebar-link" href="poo.html">POO</a>
+    <a class="sidebar-link active" href="#">Avancé</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Maîtriser Python en profondeur</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">Une fois les bases et la POO maîtrisées, Python offre des mécanismes avancés qui rendent le code plus <strong>robuste, élégant et performant</strong>. Ce chapitre explore les outils que tout développeur Python sérieux doit connaître.</p>
+      <div class="highlight-box">
+        <p><strong>Le niveau suivant :</strong> les exceptions rendent votre code résistant aux erreurs, les décorateurs ajoutent des comportements sans modifier le code existant, les générateurs gèrent de grands volumes de données sans exploser la mémoire, et les regex permettent de traiter du texte avec une puissance chirurgicale.</p>
+      </div>
+      <p class="resume-text">Les <strong>exceptions</strong> sont le mécanisme de gestion d'erreurs de Python — indispensable pour écrire des applications professionnelles. Les <strong>décorateurs</strong> exploitent le fait que les fonctions sont des objets pour ajouter dynamiquement des fonctionnalités. Les <strong>générateurs</strong> utilisent le mot-clé yield pour produire des séquences paresseuses, parfaites pour le traitement de données massives.</p>
+      <p class="resume-text">Enfin, comprendre le système de <strong>modules</strong> et de <strong>packages</strong> est essentiel pour organiser un projet réel, et les <strong>expressions régulières</strong> (regex) sont un outil universel pour la recherche et la manipulation de texte.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours</h2>
+          <p>Progressez étape par étape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="avance/exceptions.html" class="course-card">
+          <span class="course-card-icon">🛡️</span>
+          <h3>Exceptions</h3>
+          <p>try/except/finally, lever des exceptions, créer des exceptions personnalisées et bonnes pratiques.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="avance/decorateurs.html" class="course-card">
+          <span class="course-card-icon">🎨</span>
+          <h3>Décorateurs</h3>
+          <p>Fonctions d'ordre supérieur, créer et chaîner des décorateurs, @staticmethod et @classmethod.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="avance/generateurs.html" class="course-card">
+          <span class="course-card-icon">🔄</span>
+          <h3>Générateurs</h3>
+          <p>yield, expressions génératrices, itérateurs personnalisés et traitement paresseux de données.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="avance/modules.html" class="course-card">
+          <span class="course-card-icon">📦</span>
+          <h3>Modules et packages</h3>
+          <p>import, from...import, créer des modules, __init__.py, pip et environnements virtuels.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="avance/regex.html" class="course-card">
+          <span class="course-card-icon">🔍</span>
+          <h3>Expressions régulières</h3>
+          <p>Le module re, patterns de recherche, groupes de capture, substitution et validation de données.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche mémo</h2>
+          <p>L'essentiel du Python avancé en un coup d'œil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🐍 Python avancé — Fiche mémo</h3>
+          <p>Curiosita · Exceptions, décorateurs, générateurs et regex</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">Exceptions</div>
+            <div class="memo-item"><span class="mf">try: ... except:</span> Capturer</div>
+            <div class="memo-item"><span class="mf">finally:</span> Toujours exécuté</div>
+            <div class="memo-item"><span class="mf">raise</span> Lever une erreur</div>
+            <div class="memo-item"><span class="mf">except E as e:</span> Nommer</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Décorateurs</div>
+            <div class="memo-item"><span class="mf">@decorateur</span> Appliquer</div>
+            <div class="memo-item"><span class="mf">@staticmethod</span> Sans self</div>
+            <div class="memo-item"><span class="mf">@classmethod</span> Avec cls</div>
+            <div class="memo-item"><span class="mf">functools.wraps</span> Préserver</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Générateurs</div>
+            <div class="memo-item"><span class="mf">yield val</span> Produire</div>
+            <div class="memo-item"><span class="mf">next(gen)</span> Valeur suivante</div>
+            <div class="memo-item"><span class="mf">(x for x in ...)</span> Expression</div>
+            <div class="memo-item"><span class="mf">yield from</span> Déléguer</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Regex (re)</div>
+            <div class="memo-item"><span class="mf">re.search()</span> Chercher</div>
+            <div class="memo-item"><span class="mf">re.findall()</span> Tous les résultats</div>
+            <div class="memo-item"><span class="mf">re.sub()</span> Remplacer</div>
+            <div class="memo-item"><span class="mf">\d \w \s . *</span> Patterns</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../memo.min.js?v=4" defer></script>
+<script src="../../curiosita.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

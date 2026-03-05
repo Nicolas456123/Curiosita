@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.min.css?v=3">
+<link rel="stylesheet" href="style.min.css?v=4">
 <style>
 /* ── Page layout ── */
 .page-header {
@@ -523,7 +523,7 @@ async function buildTree() {
     try {
       const doc = await fetchDoc(t.page);
       for (const c of extractCards(doc, t.page)) {
-        if (c.url.endsWith('-page.html'))
+        if (c.url.endsWith('-page.html') || c.url.match(/cours\/[\w-]+\/index\.html$/))
           node.disciplines.push({ name: c.name, url: c.url, icon: c.icon, color: t.color, domains: [] });
       }
     } catch(e) {}

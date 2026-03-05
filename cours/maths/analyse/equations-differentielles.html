@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Équations contenant une fonction et ses dérivées — le langage mathématique de la physique et des sciences.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Équations différentielles — Analyse — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root {
+  --accent: #c0392b;
+  --accent2: #e74c3c;
+  --accent-dim: rgba(192,57,43,0.08);
+ --accent-hero: rgba(192,57,43,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../index.html">Mathématiques</a> › <a href="../analyse.html">Analyse</a> › <span>Équations différentielles</span>
+  </div>
+</nav>
+
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">📈 Analyse</span>
+    <span class="tag-level">Avancé</span>
+    <span class="tag-time">⏱ ~60 min</span>
+  </div>
+  <h1><em>Équations différentielles</em></h1>
+  <p class="hero-desc">Équations contenant une fonction et ses dérivées — le langage mathématique de la physique et des sciences.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../analyse.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Analyse</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="limites.html">Limites et continuité</a>
+    <a class="sidebar-link" href="derivees.html">Dérivées</a>
+    <a class="sidebar-link" href="integrales.html">Intégrales</a>
+    <a class="sidebar-link" href="suites-series.html">Suites et séries</a>
+    <a class="sidebar-link active" href="#">Équations différentielles</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Quand le changement décrit le système</p>
+        </div>
+      </div>
+      <p class="resume-text">Une <strong>équation différentielle</strong> est une équation qui relie une fonction inconnue y(x) à ses dérivées y'(x), y''(x), etc. Contrairement aux équations algébriques dont la solution est un nombre, la solution d'une équation différentielle est une <strong>fonction</strong>.</p>
+      <div class="highlight-box">
+        <p><strong>Idée centrale :</strong> les équations différentielles sont le langage naturel des lois de la physique. La deuxième loi de Newton F = ma est une équation différentielle : l'accélération a = y'' est la dérivée seconde de la position y(t). De même, la croissance radioactive, les circuits électriques, la propagation de la chaleur et la dynamique des populations sont tous décrits par des équations différentielles.</p>
+      </div>
+      <p class="resume-text">Ce cours couvre les types fondamentaux d'équations différentielles ordinaires (EDO), c'est-à-dire celles qui ne font intervenir qu'une seule variable indépendante. Les équations aux dérivées partielles (EDP), qui impliquent plusieurs variables, constituent un sujet plus avancé.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Types, méthodes de résolution et applications</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Vocabulaire et classification</h3>
+        <p>Une équation différentielle ordinaire (EDO) se caractérise par :</p>
+        <ul>
+          <li><strong>L'ordre :</strong> le plus haut degré de dérivation qui apparaît. y' + y = 0 est d'ordre 1 ; y'' + y = 0 est d'ordre 2</li>
+          <li><strong>Linéarité :</strong> l'équation est linéaire si y et ses dérivées n'apparaissent qu'au premier degré (pas de y², y·y', etc.)</li>
+          <li><strong>Coefficients constants :</strong> les coefficients devant y, y', y'', ... sont des constantes (pas des fonctions de x)</li>
+        </ul>
+        <p>La <strong>solution générale</strong> contient des constantes arbitraires (autant que l'ordre de l'EDO). Une <strong>condition initiale</strong> fixe ces constantes pour donner une <strong>solution particulière</strong> unique.</p>
+        <div class="highlight-box">
+          <p><strong>Problème de Cauchy :</strong> une EDO d'ordre n accompagnée de n conditions initiales y(x₀) = y₀, y'(x₀) = y₁, ..., y<sup>(n-1)</sup>(x₀) = y<sub>n-1</sub>. Le théorème de Cauchy-Lipschitz garantit, sous des conditions raisonnables, l'existence et l'unicité de la solution.</p>
+        </div>
+
+        <h3>Équations du premier ordre à variables séparables</h3>
+        <p>L'EDO y' = f(x)·g(y) se résout en « séparant les variables » :</p>
+        <p style="text-align:center;"><strong>dy/g(y) = f(x) dx</strong> puis on intègre chaque côté</p>
+        <p><strong>Exemple :</strong> résoudre y' = 2xy. On sépare : dy/y = 2x dx. En intégrant : ln|y| = x² + C, d'où <strong>y = Ke<sup>x²</sup></strong> (avec K = ±e<sup>C</sup>). On peut vérifier : y' = 2xKe<sup>x²</sup> = 2xy.</p>
+
+        <h3>Équations linéaires du premier ordre</h3>
+        <p>L'EDO <strong>y' + a(x)y = b(x)</strong> se résout en deux étapes :</p>
+        <ul>
+          <li><strong>1. Équation homogène</strong> (b(x) = 0) : y' + a(x)y = 0 a pour solution y<sub>H</sub> = Ce<sup>−A(x)</sup>, où A(x) = ∫a(x) dx</li>
+          <li><strong>2. Solution particulière</strong> par variation de la constante : on cherche y<sub>P</sub> = C(x)·e<sup>−A(x)</sup> et on substitue dans l'équation complète</li>
+        </ul>
+        <p><strong>Cas à coefficients constants :</strong> y' + ay = b (a, b constants). Solution homogène : y<sub>H</sub> = Ce<sup>−ax</sup>. Solution particulière constante : y<sub>P</sub> = b/a. Solution générale : <strong>y = Ce<sup>−ax</sup> + b/a</strong>.</p>
+        <p><strong>Exemple :</strong> résoudre y' + 3y = 6 avec y(0) = 1. Solution générale : y = Ce<sup>−3x</sup> + 2. Condition initiale : 1 = C + 2, donc C = −1. Solution : <strong>y = −e<sup>−3x</sup> + 2</strong>.</p>
+
+        <h3>Équations linéaires du second ordre à coefficients constants</h3>
+        <p>L'EDO <strong>ay'' + by' + cy = 0</strong> se résout grâce à l'<strong>équation caractéristique</strong> :</p>
+        <div class="highlight-box">
+          <p><strong>ar² + br + c = 0</strong></p>
+          <p>Le discriminant Δ = b² − 4ac détermine la nature des solutions :</p>
+        </div>
+        <ul>
+          <li><strong>Δ > 0 :</strong> deux racines réelles distinctes r₁, r₂. Solution : <strong>y = C₁e<sup>r₁x</sup> + C₂e<sup>r₂x</sup></strong></li>
+          <li><strong>Δ = 0 :</strong> une racine double r. Solution : <strong>y = (C₁ + C₂x)e<sup>rx</sup></strong></li>
+          <li><strong>Δ &lt; 0 :</strong> deux racines complexes conjuguées α ± iβ. Solution : <strong>y = e<sup>αx</sup>(C₁cos(βx) + C₂sin(βx))</strong></li>
+        </ul>
+        <p><strong>Exemple :</strong> résoudre y'' − 5y' + 6y = 0. Équation caractéristique : r² − 5r + 6 = 0, Δ = 25 − 24 = 1 > 0. Racines : r₁ = 2, r₂ = 3. Solution : <strong>y = C₁e<sup>2x</sup> + C₂e<sup>3x</sup></strong>.</p>
+        <p><strong>Exemple avec racines complexes :</strong> y'' + 4y = 0. Équation caractéristique : r² + 4 = 0, r = ±2i (α = 0, β = 2). Solution : <strong>y = C₁cos(2x) + C₂sin(2x)</strong>. C'est l'équation de l'oscillateur harmonique.</p>
+
+        <h3>Second membre (équation complète)</h3>
+        <p>Pour résoudre <strong>ay'' + by' + cy = f(x)</strong>, on combine :</p>
+        <ul>
+          <li>La <strong>solution homogène</strong> y<sub>H</sub> (comme ci-dessus, avec f(x) = 0)</li>
+          <li>Une <strong>solution particulière</strong> y<sub>P</sub> trouvée par la méthode des coefficients indéterminés ou la variation des constantes</li>
+        </ul>
+        <p><strong>Méthode des coefficients indéterminés :</strong> on devine la forme de y<sub>P</sub> d'après celle de f(x) :</p>
+        <ul>
+          <li>Si f(x) = polynôme de degré n → chercher y<sub>P</sub> = polynôme de degré n</li>
+          <li>Si f(x) = e<sup>kx</sup> → chercher y<sub>P</sub> = Ae<sup>kx</sup> (sauf si k est racine de l'équation caractéristique)</li>
+          <li>Si f(x) = cos(ωx) ou sin(ωx) → chercher y<sub>P</sub> = A·cos(ωx) + B·sin(ωx)</li>
+        </ul>
+        <p><strong>Exemple :</strong> résoudre y'' + y = x. Solution homogène : y<sub>H</sub> = C₁cos(x) + C₂sin(x). On cherche y<sub>P</sub> = Ax + B. On a y<sub>P</sub>'' = 0, donc 0 + Ax + B = x, d'où A = 1 et B = 0. Solution générale : <strong>y = C₁cos(x) + C₂sin(x) + x</strong>.</p>
+
+        <h3>Applications physiques</h3>
+        <p>Les équations différentielles modélisent de nombreux phénomènes naturels :</p>
+        <ul>
+          <li><strong>Croissance/décroissance exponentielle :</strong> y' = ky donne y = y₀e<sup>kt</sup>. Modélise la radioactivité (k &lt; 0), la croissance bactérienne (k > 0), les intérêts composés</li>
+          <li><strong>Oscillateur harmonique :</strong> y'' + ω²y = 0 donne y = A·cos(ωt + φ). Modélise le pendule, les ressorts, les circuits LC</li>
+          <li><strong>Oscillateur amorti :</strong> y'' + 2λy' + ω²y = 0 ajoute un terme de frottement. Trois régimes : sur-amorti (Δ > 0), critique (Δ = 0), sous-amorti (Δ &lt; 0, oscillations décroissantes)</li>
+          <li><strong>Équation logistique :</strong> y' = ry(1 − y/K), modèle de croissance avec capacité limite K (populations, épidémies)</li>
+          <li><strong>Loi de refroidissement de Newton :</strong> T' = −k(T − T<sub>ext</sub>), la température converge exponentiellement vers la température ambiante</li>
+        </ul>
+
+        <h3>Pièges courants</h3>
+        <ul>
+          <li><strong>Oublier la solution homogène :</strong> la solution générale est toujours y<sub>H</sub> + y<sub>P</sub>. Donner seulement y<sub>P</sub> est incomplet</li>
+          <li><strong>Oublier les constantes d'intégration :</strong> une EDO d'ordre n a n constantes arbitraires dans sa solution générale</li>
+          <li><strong>Résonance :</strong> si le second membre f(x) = e<sup>kx</sup> et k est racine de l'équation caractéristique, il faut multiplier y<sub>P</sub> par x (ou x² si racine double). Chercher Ae<sup>kx</sup> ne fonctionnera pas</li>
+          <li><strong>Ne pas vérifier la solution :</strong> on peut toujours substituer la solution trouvée dans l'EDO pour vérifier qu'elle la satisfait</li>
+          <li><strong>Confondre EDO linéaire et non linéaire :</strong> y' = y² n'est pas linéaire et ne se résout pas par les méthodes linéaires. Il faut la traiter comme une équation à variables séparables</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info"><h2>Quiz</h2><p>Testez votre compréhension</p></div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">📈 Équations différentielles — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quelle est la solution générale de y' = 3y ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">y = 3x + C</button>
+              <button class="option" onclick="answer(this,true)">y = Ce<sup>3x</sup></button>
+              <button class="option" onclick="answer(this,false)">y = e<sup>3x</sup></button>
+              <button class="option" onclick="answer(this,false)">y = C·cos(3x)</button>
+            </div>
+            <div class="q-feedback">y' = 3y est une EDO à variables séparables. En séparant : dy/y = 3 dx, d'où ln|y| = 3x + C, donc y = Ce<sup>3x</sup> (la constante C englobe ±e<sup>C</sup>). Vérification : (Ce<sup>3x</sup>)' = 3Ce<sup>3x</sup> = 3y.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Quelle est l'équation caractéristique de y'' − 4y' + 3y = 0 ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">r² + 4r + 3 = 0</button>
+              <button class="option" onclick="answer(this,true)">r² − 4r + 3 = 0</button>
+              <button class="option" onclick="answer(this,false)">r² − 4r − 3 = 0</button>
+              <button class="option" onclick="answer(this,false)">2r − 4 = 0</button>
+            </div>
+            <div class="q-feedback">On remplace y par e<sup>rx</sup> : y'' = r²e<sup>rx</sup>, y' = re<sup>rx</sup>, y = e<sup>rx</sup>. L'EDO donne (r² − 4r + 3)e<sup>rx</sup> = 0. Comme e<sup>rx</sup> ≠ 0, l'équation caractéristique est r² − 4r + 3 = 0, de racines r = 1 et r = 3.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Que modélise l'équation y'' + ω²y = 0 ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Une croissance exponentielle</button>
+              <button class="option" onclick="answer(this,false)">Une décroissance radioactive</button>
+              <button class="option" onclick="answer(this,true)">Un oscillateur harmonique (mouvement périodique)</button>
+              <button class="option" onclick="answer(this,false)">Un refroidissement de Newton</button>
+            </div>
+            <div class="q-feedback">y'' + ω²y = 0 a pour solutions y = A·cos(ωx) + B·sin(ωx) : ce sont des fonctions sinusoïdales. C'est l'oscillateur harmonique, qui modélise le mouvement d'un pendule, d'un ressort, ou les oscillations dans un circuit LC.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Combien de constantes arbitraires contient la solution générale d'une EDO d'ordre 2 ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">0</button>
+              <button class="option" onclick="answer(this,false)">1</button>
+              <button class="option" onclick="answer(this,true)">2</button>
+              <button class="option" onclick="answer(this,false)">3</button>
+            </div>
+            <div class="q-feedback">La solution générale d'une EDO d'ordre n contient exactement n constantes arbitraires. Pour une EDO d'ordre 2, il faut 2 conditions initiales (y(x₀) et y'(x₀)) pour déterminer la solution unique.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Si l'équation caractéristique a un discriminant négatif (Δ &lt; 0), la solution contient :</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Deux exponentielles réelles</button>
+              <button class="option" onclick="answer(this,false)">Un polynôme multiplié par une exponentielle</button>
+              <button class="option" onclick="answer(this,true)">Des fonctions cosinus et sinus multipliées par une exponentielle</button>
+              <button class="option" onclick="answer(this,false)">Uniquement des polynômes</button>
+            </div>
+            <div class="q-feedback">Quand Δ &lt; 0, les racines sont complexes conjuguées α ± iβ. La solution réelle est y = e<sup>αx</sup>(C₁cos(βx) + C₂sin(βx)). Le facteur exponentiel e<sup>αx</sup> contrôle l'amplitude (amortissement si α &lt; 0, amplification si α > 0), tandis que cos et sin produisent les oscillations.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Quelle méthode utilise-t-on pour résoudre y' = x/y ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">Séparation des variables</button>
+              <button class="option" onclick="answer(this,false)">Équation caractéristique</button>
+              <button class="option" onclick="answer(this,false)">Coefficients indéterminés</button>
+              <button class="option" onclick="answer(this,false)">Variation des constantes</button>
+            </div>
+            <div class="q-feedback">y' = x/y s'écrit y dy = x dx. En intégrant : y²/2 = x²/2 + C, d'où y² = x² + K. C'est une équation à variables séparables (non linéaire à cause de y au dénominateur). Les méthodes linéaires ne s'appliquent pas ici.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info"><h2>Exercices</h2><p>Mettez en pratique</p></div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — EDO à variables séparables</h3>
+        <p>Résoudre y' = −2xy avec la condition initiale y(0) = 3.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>On sépare les variables : dy/y = −2x dx. En intégrant : ln|y| = −x² + C, d'où y = Ke<sup>−x²</sup>. Condition initiale : y(0) = K = 3. Solution : <strong>y = 3e<sup>−x²</sup></strong>. C'est une courbe en cloche (gaussienne).</p></div>
+        </details>
+
+        <h3>Exercice 2 — EDO linéaire du premier ordre</h3>
+        <p>Résoudre y' − 2y = e<sup>3x</sup>.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Solution homogène : y' − 2y = 0 donne y<sub>H</sub> = Ce<sup>2x</sup>. Solution particulière : on cherche y<sub>P</sub> = Ae<sup>3x</sup>. On a y<sub>P</sub>' = 3Ae<sup>3x</sup>, donc 3Ae<sup>3x</sup> − 2Ae<sup>3x</sup> = e<sup>3x</sup>, d'où A = 1. Solution générale : <strong>y = Ce<sup>2x</sup> + e<sup>3x</sup></strong>.</p></div>
+        </details>
+
+        <h3>Exercice 3 — EDO du second ordre (racines réelles)</h3>
+        <p>Résoudre y'' + y' − 6y = 0 avec y(0) = 1 et y'(0) = 0.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Équation caractéristique : r² + r − 6 = 0, Δ = 1 + 24 = 25. Racines : r = (−1 ± 5)/2, donc r₁ = 2 et r₂ = −3. Solution générale : y = C₁e<sup>2x</sup> + C₂e<sup>−3x</sup>. Conditions : y(0) = C₁ + C₂ = 1 et y'(0) = 2C₁ − 3C₂ = 0. Du système : C₁ = 3/5, C₂ = 2/5. Solution : <strong>y = (3/5)e<sup>2x</sup> + (2/5)e<sup>−3x</sup></strong>.</p></div>
+        </details>
+
+        <h3>Exercice 4 — EDO du second ordre (racines complexes)</h3>
+        <p>Résoudre y'' + 2y' + 5y = 0.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Équation caractéristique : r² + 2r + 5 = 0, Δ = 4 − 20 = −16 &lt; 0. Racines complexes : r = (−2 ± 4i)/2 = −1 ± 2i. Donc α = −1 et β = 2. Solution : <strong>y = e<sup>−x</sup>(C₁cos(2x) + C₂sin(2x))</strong>. C'est un oscillateur amorti : les oscillations (cos, sin) sont multipliées par e<sup>−x</sup> qui décroît vers 0.</p></div>
+        </details>
+
+        <h3>Exercice 5 — Application : décroissance radioactive</h3>
+        <p>Un échantillon radioactif perd la moitié de sa masse en 5 730 ans (demi-vie du carbone-14). Si la masse initiale est de 100 g, quelle masse reste-t-il après 10 000 ans ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Le modèle est m' = −km, de solution m(t) = m₀e<sup>−kt</sup>. La demi-vie donne m₀/2 = m₀e<sup>−5730k</sup>, donc k = ln(2)/5730 ≈ 1.21 × 10<sup>−4</sup> an<sup>−1</sup>. Après 10 000 ans : m = 100 × e<sup>−10000 × ln(2)/5730</sup> = 100 × 2<sup>−10000/5730</sup> = 100 × 2<sup>−1.745</sup> ≈ 100 × 0.298 ≈ <strong>29.8 g</strong>.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="suites-series.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Suites et séries</span>
+      </a>
+      <div></div>
+    </div>
+
+  </main>
+</div>
+
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

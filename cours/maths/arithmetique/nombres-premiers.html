@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Les atomes des mathématiques — définition, crible d'Ératosthène, infinité et décomposition en facteurs premiers.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Les nombres premiers — Arithmétique — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root {
+  --accent: #c0392b;
+  --accent2: #e74c3c;
+  --accent-dim: rgba(192,57,43,0.08);
+ --accent-hero: rgba(192,57,43,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../index.html">Mathématiques</a> › <a href="../arithmetique.html">Arithmétique</a> › <span>Nombres premiers</span>
+  </div>
+</nav>
+
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">🔢 Arithmétique</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~40 min</span>
+  </div>
+  <h1><em>Les nombres premiers</em></h1>
+  <p class="hero-desc">Les atomes des mathématiques — définition, crible d'Ératosthène, infinité et décomposition en facteurs premiers.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../arithmetique.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Arithmétique</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link active" href="#">Nombres premiers</a>
+    <a class="sidebar-link" href="divisibilite.html">Divisibilité, PGCD, PPCM</a>
+    <a class="sidebar-link" href="fractions.html">Fractions</a>
+    <a class="sidebar-link" href="puissances.html">Puissances et racines</a>
+    <a class="sidebar-link" href="bases-numeration.html">Bases de numération</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Pourquoi les nombres premiers fascinent</p>
+        </div>
+      </div>
+      <p class="resume-text">Un <strong>nombre premier</strong> est un entier naturel supérieur à 1 qui n'est divisible que par 1 et par lui-même. Les premiers nombres premiers sont 2, 3, 5, 7, 11, 13, 17, 19, 23, 29... Le nombre 1 n'est pas premier par convention, et 2 est le seul nombre premier pair. Malgré leur définition simple, les nombres premiers recèlent des mystères qui occupent les mathématiciens depuis plus de 2 300 ans.</p>
+      <div class="highlight-box">
+        <p><strong>Le théorème fondamental de l'arithmétique :</strong> tout entier naturel supérieur à 1 se décompose de manière unique en produit de facteurs premiers (à l'ordre près). Par exemple, 360 = 2³ × 3² × 5. Les nombres premiers sont les briques élémentaires de tous les entiers.</p>
+      </div>
+      <p class="resume-text">Les nombres premiers sont au coeur de la <strong>cryptographie moderne</strong>. Le chiffrement RSA, qui sécurise les transactions bancaires sur Internet, repose sur le fait qu'il est facile de multiplier deux grands nombres premiers, mais extrêmement difficile de retrouver ces facteurs à partir du produit. Cette asymétrie protège notre sécurité numérique au quotidien.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Propriétés et méthodes autour des nombres premiers</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Reconnaître un nombre premier</h3>
+        <p>Pour vérifier si un nombre n est premier, il suffit de tester sa divisibilité par tous les nombres premiers p tels que p² ≤ n. En effet, si n = a × b avec a ≤ b, alors a ≤ √n.</p>
+        <p><strong>Exemple :</strong> 97 est-il premier ? On teste : √97 ≈ 9,8. On vérifie la divisibilité par 2, 3, 5 et 7. 97 n'est divisible par aucun de ces nombres, donc 97 est premier.</p>
+
+        <h3>Le crible d'Ératosthène</h3>
+        <p>Le <strong>crible d'Ératosthène</strong> est un algorithme ancien (IIIe siècle av. J.-C.) pour trouver tous les nombres premiers jusqu'à un nombre donné N :</p>
+        <ul>
+          <li>Écrire tous les entiers de 2 à N</li>
+          <li>Le premier nombre non rayé (2) est premier. Rayer tous ses multiples (4, 6, 8...)</li>
+          <li>Passer au nombre non rayé suivant (3) et rayer ses multiples (9, 15, 21...)</li>
+          <li>Continuer jusqu'à ce que le nombre courant dépasse √N</li>
+          <li>Tous les nombres non rayés sont premiers</li>
+        </ul>
+
+        <h3>L'infinité des nombres premiers</h3>
+        <p>Euclide a démontré vers 300 av. J.-C. qu'il existe une infinité de nombres premiers. Sa preuve est d'une élégance remarquable :</p>
+        <div class="highlight-box">
+          <p><strong>Preuve par l'absurde :</strong> supposons qu'il n'existe qu'un nombre fini de premiers : p₁, p₂, ..., pₙ. Considérons N = p₁ × p₂ × ... × pₙ + 1. Ce nombre N n'est divisible par aucun des pᵢ (le reste de la division est toujours 1). Donc N est premier ou possède un facteur premier qui n'est pas dans notre liste. Contradiction.</p>
+        </div>
+
+        <h3>Décomposition en facteurs premiers</h3>
+        <p>Pour décomposer un nombre en facteurs premiers, on divise successivement par les plus petits premiers possibles :</p>
+        <p><strong>Exemple :</strong> Décomposer 180.</p>
+        <ul>
+          <li>180 ÷ 2 = 90</li>
+          <li>90 ÷ 2 = 45</li>
+          <li>45 ÷ 3 = 15</li>
+          <li>15 ÷ 3 = 5</li>
+          <li>5 ÷ 5 = 1</li>
+          <li>Donc 180 = 2² × 3² × 5</li>
+        </ul>
+
+        <h3>Distribution des nombres premiers</h3>
+        <p>Les nombres premiers se raréfient à mesure qu'on avance dans les entiers, mais de manière irrégulière. Le <strong>théorème des nombres premiers</strong> (prouvé en 1896) dit que le nombre de premiers inférieurs à n est approximativement n/ln(n). Plus précisément, la « densité » des premiers autour de n est environ 1/ln(n).</p>
+        <p>Les <strong>nombres premiers jumeaux</strong> sont des paires de premiers séparés de 2 : (3,5), (5,7), (11,13), (17,19), (29,31)... La conjecture des premiers jumeaux affirme qu'il en existe une infinité, mais cela n'a jamais été prouvé — l'un des grands problèmes ouverts des mathématiques.</p>
+
+        <h3>Décomposition en facteurs premiers — méthode avancée</h3>
+        <p>Pour les grands nombres, il est utile de combiner les critères de divisibilité avec la décomposition systématique :</p>
+        <p><strong>Exemple :</strong> Décomposer 2 310.</p>
+        <ul>
+          <li>2 310 est pair → 2 310 = 2 × 1 155</li>
+          <li>1 155 : somme des chiffres = 12, divisible par 3 → 1 155 = 3 × 385</li>
+          <li>385 finit par 5 → 385 = 5 × 77</li>
+          <li>77 = 7 × 11</li>
+          <li>Résultat : <strong>2 310 = 2 × 3 × 5 × 7 × 11</strong> (produit de 5 premiers consécutifs !)</li>
+        </ul>
+
+        <h3>Applications de la décomposition</h3>
+        <p>La décomposition en facteurs premiers permet de calculer efficacement le PGCD et le PPCM :</p>
+        <div class="highlight-box">
+          <p><strong>Règle :</strong> PGCD = produit des facteurs communs avec les plus petits exposants. PPCM = produit de tous les facteurs avec les plus grands exposants.</p>
+        </div>
+        <p><strong>Exemple :</strong> 360 = 2³ × 3² × 5 et 540 = 2² × 3³ × 5.</p>
+        <ul>
+          <li>PGCD(360, 540) = 2² × 3² × 5 = 180</li>
+          <li>PPCM(360, 540) = 2³ × 3³ × 5 = 1 080</li>
+          <li>Vérification : 360 × 540 = 194 400 = 180 × 1 080</li>
+        </ul>
+
+        <h3>Pièges courants</h3>
+        <ul>
+          <li><strong>1 n'est pas premier :</strong> par convention, 1 est exclu des nombres premiers. Sinon, la décomposition en facteurs premiers ne serait pas unique (on pourrait toujours ajouter des facteurs 1).</li>
+          <li><strong>2 est le seul premier pair :</strong> tous les autres nombres pairs sont divisibles par 2, donc non premiers. C'est aussi le plus petit nombre premier.</li>
+          <li><strong>Ne pas confondre « premier » et « impair » :</strong> 9 est impair mais pas premier (9 = 3²). 2 est pair mais premier.</li>
+          <li><strong>Tester trop de diviseurs :</strong> il suffit de tester les premiers p avec p² ≤ n. Au-delà de √n, si on n'a trouvé aucun diviseur, le nombre est premier.</li>
+          <li><strong>Oublier les exposants dans la décomposition :</strong> 72 = 2³ × 3², pas 2 × 3. Les exposants comptent.</li>
+        </ul>
+
+        <h3>Applications</h3>
+        <ul>
+          <li><strong>Cryptographie RSA :</strong> on choisit deux grands premiers p et q (de 150+ chiffres chacun). Le produit n = p × q est public, mais factoriser n pour retrouver p et q est pratiquement impossible avec la technologie actuelle.</li>
+          <li><strong>Codes-barres et vérification :</strong> les sommes de contrôle utilisent souvent l'arithmétique modulo un nombre premier pour détecter les erreurs.</li>
+          <li><strong>Hachage :</strong> les tables de hachage en informatique utilisent des nombres premiers comme taille pour minimiser les collisions et répartir uniformément les données.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">🔢 Nombres premiers — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quel est le plus petit nombre premier ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">1</button>
+              <button class="option" onclick="answer(this,true)">2</button>
+              <button class="option" onclick="answer(this,false)">3</button>
+              <button class="option" onclick="answer(this,false)">0</button>
+            </div>
+            <div class="q-feedback">1 n'est pas premier par convention. 2 est le plus petit et le seul nombre premier pair.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Quelle est la décomposition en facteurs premiers de 84 ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">2² × 3 × 7</button>
+              <button class="option" onclick="answer(this,false)">2 × 3² × 7</button>
+              <button class="option" onclick="answer(this,false)">2² × 21</button>
+              <button class="option" onclick="answer(this,false)">4 × 3 × 7</button>
+            </div>
+            <div class="q-feedback">84 = 2 × 42 = 2 × 2 × 21 = 2 × 2 × 3 × 7 = 2² × 3 × 7. Attention : 4 et 21 ne sont pas premiers.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Pour vérifier si 127 est premier, jusqu'à quel nombre faut-il tester les diviseurs ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">11 (car √127 ≈ 11,3)</button>
+              <button class="option" onclick="answer(this,false)">63 (la moitié)</button>
+              <button class="option" onclick="answer(this,false)">126 (n-1)</button>
+              <button class="option" onclick="answer(this,false)">13</button>
+            </div>
+            <div class="q-feedback">Il suffit de tester les premiers p avec p² ≤ 127. Comme 11² = 121 ≤ 127 et 12² = 144 > 127, on teste jusqu'à 11. Les premiers à tester : 2, 3, 5, 7, 11. Aucun ne divise 127, donc 127 est premier.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Lequel de ces nombres N'est PAS premier ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">37</button>
+              <button class="option" onclick="answer(this,false)">41</button>
+              <button class="option" onclick="answer(this,true)">51</button>
+              <button class="option" onclick="answer(this,false)">53</button>
+            </div>
+            <div class="q-feedback">51 = 3 × 17, donc 51 n'est pas premier. On peut vérifier : 5 + 1 = 6 est divisible par 3. Les trois autres (37, 41, 53) sont bien premiers.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Combien y a-t-il de nombres premiers entre 1 et 10 ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">4</button>
+              <button class="option" onclick="answer(this,false)">5</button>
+              <button class="option" onclick="answer(this,false)">3</button>
+              <button class="option" onclick="answer(this,false)">6</button>
+            </div>
+            <div class="q-feedback">Les nombres premiers entre 1 et 10 sont : 2, 3, 5 et 7. Soit 4 nombres. Rappel : 1 n'est pas premier, et les nombres 4, 6, 8, 9, 10 sont composés.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Dans la preuve d'Euclide de l'infinité des premiers, que peut-on dire du nombre N = p₁ × p₂ × ... × pₙ + 1 ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">N est toujours premier</button>
+              <button class="option" onclick="answer(this,true)">N est premier ou a un facteur premier non dans la liste</button>
+              <button class="option" onclick="answer(this,false)">N est toujours composé</button>
+              <button class="option" onclick="answer(this,false)">N est divisible par l'un des pᵢ</button>
+            </div>
+            <div class="q-feedback">N n'est divisible par aucun des pᵢ (reste 1). Donc soit N est lui-même premier, soit il a un facteur premier qui n'est pas dans la liste {p₁, ..., pₙ}. Dans les deux cas, il existe un premier supplémentaire.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Test de primalité</h3>
+        <p>Le nombre 191 est-il premier ? Justifier rigoureusement.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>√191 ≈ 13,8. Il faut tester les premiers p ≤ 13 : 2, 3, 5, 7, 11, 13. 191 est impair (pas div. par 2). 1+9+1 = 11 (pas div. par 3). Ne finit pas par 0 ou 5 (pas div. par 5). 191/7 ≈ 27,3 (non entier). 191/11 ≈ 17,4 (non entier). 191/13 ≈ 14,7 (non entier). <strong>191 est premier</strong>.</p></div>
+        </details>
+
+        <h3>Exercice 2 — Décomposition en facteurs premiers</h3>
+        <p>Décomposer 1 260 en facteurs premiers.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>1 260 ÷ 2 = 630. 630 ÷ 2 = 315. 315 ÷ 3 = 105. 105 ÷ 3 = 35. 35 ÷ 5 = 7. 7 est premier. <strong>1 260 = 2² × 3² × 5 × 7</strong>. Vérification : 4 × 9 × 5 × 7 = 36 × 35 = 1 260.</p></div>
+        </details>
+
+        <h3>Exercice 3 — Crible d'Ératosthène</h3>
+        <p>Trouver tous les nombres premiers entre 30 et 50 en utilisant le crible.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Nombres de 30 à 50 : 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50. On raye les multiples de 2 (pairs) : reste 31, 33, 35, 37, 39, 41, 43, 45, 47, 49. Multiples de 3 (33, 39, 45) : reste 31, 35, 37, 41, 43, 47, 49. Multiples de 5 (35) : reste 31, 37, 41, 43, 47, 49. Multiples de 7 (49) : reste <strong>31, 37, 41, 43, 47</strong>. √50 ≈ 7, on a fini.</p></div>
+        </details>
+
+        <h3>Exercice 4 — PGCD et PPCM par décomposition</h3>
+        <p>Calculer PGCD(504, 990) et PPCM(504, 990) par décomposition en facteurs premiers.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>504 = 2³ × 3² × 7. 990 = 2 × 3² × 5 × 11. PGCD = 2¹ × 3² = 2 × 9 = <strong>18</strong>. PPCM = 2³ × 3² × 5 × 7 × 11 = 8 × 9 × 5 × 7 × 11 = <strong>27 720</strong>. Vérification : 504 × 990 = 498 960 = 18 × 27 720.</p></div>
+        </details>
+
+        <h3>Exercice 5 — Raisonnement</h3>
+        <p>Montrer que si p est un nombre premier supérieur à 3, alors p² - 1 est divisible par 24.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>p² - 1 = (p-1)(p+1). Comme p est premier > 3, p est impair, donc p-1 et p+1 sont pairs consécutifs. L'un d'eux est divisible par 4, l'autre par 2, donc (p-1)(p+1) est divisible par 8. Parmi trois entiers consécutifs p-1, p, p+1, l'un est divisible par 3. Ce n'est pas p (premier > 3), donc c'est p-1 ou p+1. Ainsi (p-1)(p+1) est divisible par 3. Comme PGCD(8, 3) = 1, <strong>p² - 1 est divisible par 24</strong>. Ex : 5² - 1 = 24, 7² - 1 = 48 = 2×24.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <div></div>
+      <a href="divisibilite.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Divisibilité, PGCD et PPCM →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

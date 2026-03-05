@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Échelles de température, capacité thermique, transferts de chaleur et calorimétrie.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Température et chaleur — Thermodynamique — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08);  --accent-hero: rgba(142,68,173,0.04); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../../../sciences-exactes.html">Sciences exactes</a> › <a href="../thermodynamique.html">Thermodynamique</a> › <span>Température et chaleur</span></div>
+</nav>
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">🌡️ Thermodynamique</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~40 min</span>
+  </div>
+  <h1><em>Température et chaleur</em></h1>
+  <p class="hero-desc">Échelles de température, capacité thermique, transferts de chaleur et calorimétrie.</p>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../thermodynamique.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Thermodynamique</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link active" href="#">Température et chaleur</a>
+    <a class="sidebar-link" href="lois.html">Lois de la thermodynamique</a>
+    <a class="sidebar-link" href="changements-etat.html">Changements d'état</a>
+    <a class="sidebar-link" href="machines.html">Machines thermiques</a>
+    <a class="sidebar-link" href="entropie.html">Entropie</a>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="introduction">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Introduction</h2><p>La science de la chaleur et de la température</p></div></div>
+      <p class="resume-text">La température est une grandeur physique fondamentale qui caractérise l'agitation thermique des particules constituant la matière. Plus les molécules s'agitent rapidement, plus la température est élevée. Cette notion intuitive — le chaud et le froid — cache une physique riche qui relie le monde microscopique au monde macroscopique.</p>
+      <p class="resume-text">La chaleur, quant à elle, n'est pas une propriété d'un corps mais un mode de transfert d'énergie entre deux systèmes de températures différentes. Contrairement au langage courant, un objet ne « contient » pas de la chaleur : il possède de l'énergie interne, et la chaleur est l'énergie transférée spontanément du corps chaud vers le corps froid.</p>
+      <div class="highlight-box"><p><strong>Principe fondamental :</strong> la chaleur circule toujours spontanément du corps le plus chaud vers le corps le plus froid, jusqu'à atteindre l'équilibre thermique (principe zéro de la thermodynamique).</p></div>
+      <p class="resume-text">Ce cours présente les échelles de température, la notion de capacité thermique, les trois modes de transfert de chaleur (conduction, convection, rayonnement) et les principes de la calorimétrie.</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Le cours</h2><p>Température et chaleur</p></div></div>
+      <div class="course-content">
+        <h3>Les échelles de température</h3>
+        <p>Trois échelles de température sont couramment utilisées en physique :</p>
+        <p>L'échelle <strong>Celsius</strong> (°C) est définie par deux points de référence : la fusion de la glace (0 °C) et l'ébullition de l'eau (100 °C) sous pression atmosphérique normale. L'échelle <strong>Fahrenheit</strong> (°F) utilise 32 °F pour la fusion de la glace et 212 °F pour l'ébullition. La conversion est : <strong>T(°F) = 9/5 × T(°C) + 32</strong>.</p>
+        <p>L'échelle <strong>Kelvin</strong> (K) est l'échelle absolue du SI. Le zéro absolu (0 K = −273,15 °C) correspond à l'arrêt théorique de toute agitation thermique. La relation est : <strong>T(K) = T(°C) + 273,15</strong>. Les intervalles d'un kelvin et d'un degré Celsius sont identiques.</p>
+
+        <h3>Agitation thermique et énergie cinétique moyenne</h3>
+        <p>La température est liée à l'énergie cinétique moyenne de translation des particules. Pour un gaz parfait monoatomique, la théorie cinétique donne : <strong>⟨Ec⟩ = 3/2 × k_B × T</strong>, où k_B = 1,381 × 10⁻²³ J/K est la constante de Boltzmann et T la température en kelvins.</p>
+        <p>La vitesse quadratique moyenne des molécules d'un gaz de masse molaire M est : <strong>v_qm = √(3RT/M)</strong>, où R = 8,314 J/(mol·K) est la constante des gaz parfaits. À 20 °C, les molécules de N₂ se déplacent à environ 510 m/s.</p>
+
+        <h3>La capacité thermique</h3>
+        <p>La capacité thermique (ou calorifique) mesure l'énergie nécessaire pour élever la température d'un corps. La <strong>capacité thermique massique</strong> c (en J/(kg·K)) est définie par : <strong>Q = m × c × ΔT</strong>, où Q est la chaleur échangée, m la masse et ΔT la variation de température.</p>
+        <p>Quelques valeurs typiques : eau liquide c = 4 185 J/(kg·K) (exceptionnellement élevée, ce qui en fait un excellent régulateur thermique), fer c = 449 J/(kg·K), cuivre c = 385 J/(kg·K), air c_p = 1 005 J/(kg·K).</p>
+        <p>La <strong>capacité thermique molaire</strong> C (en J/(mol·K)) est liée à c par C = M × c. Pour un gaz parfait monoatomique, C_v = 3/2 × R ≈ 12,5 J/(mol·K) et C_p = 5/2 × R ≈ 20,8 J/(mol·K), avec la relation de Mayer : <strong>C_p − C_v = R</strong>.</p>
+
+        <h3>Les modes de transfert de chaleur</h3>
+        <p><strong>Conduction :</strong> transfert de proche en proche dans un milieu matériel sans déplacement de matière. La loi de Fourier donne le flux thermique : <strong>Φ = −λ × A × (dT/dx)</strong>, où λ est la conductivité thermique (W/(m·K)), A la surface et dT/dx le gradient de température. Les métaux (λ_Cu ≈ 390 W/(m·K)) sont de bons conducteurs ; les isolants (λ_laine ≈ 0,04 W/(m·K)) sont de mauvais conducteurs.</p>
+        <p><strong>Convection :</strong> transfert de chaleur par déplacement macroscopique de fluide. La convection peut être naturelle (poussée d'Archimède due aux différences de densité) ou forcée (ventilateur, pompe). La loi de Newton du refroidissement s'écrit : <strong>Φ = h × A × (T_s − T_∞)</strong>, où h est le coefficient de transfert convectif.</p>
+        <p><strong>Rayonnement :</strong> transfert par ondes électromagnétiques, ne nécessitant aucun support matériel. Tout corps à température T émet un rayonnement selon la loi de Stefan-Boltzmann : <strong>P = ε × σ × A × T⁴</strong>, où σ = 5,67 × 10⁻⁸ W/(m²·K⁴) et ε est l'émissivité (0 ≤ ε ≤ 1). C'est ainsi que le Soleil nous réchauffe à travers le vide spatial.</p>
+
+        <h3>Calorimétrie</h3>
+        <p>La calorimétrie étudie les échanges de chaleur dans un système isolé. Le principe fondamental est : <strong>ΣQ_i = 0</strong> (la somme algébrique des chaleurs échangées est nulle dans un calorimètre parfait). Si l'on met en contact un corps chaud (m₁, c₁, T₁) et un corps froid (m₂, c₂, T₂), la température d'équilibre T_eq est :</p>
+        <p><strong>T_eq = (m₁c₁T₁ + m₂c₂T₂) / (m₁c₁ + m₂c₂)</strong></p>
+        <p>En pratique, le calorimètre lui-même absorbe de la chaleur. On caractérise cette absorption par la <strong>capacité calorifique du calorimètre</strong> μ (aussi appelée « valeur en eau ») : Q_cal = μ × ΔT.</p>
+
+        <h3>Dilatation thermique</h3>
+        <p>L'augmentation de température provoque une dilatation des corps. Pour un solide, la dilatation linéaire s'écrit : <strong>ΔL = α × L₀ × ΔT</strong>, où α est le coefficient de dilatation linéaire. Pour l'acier, α ≈ 12 × 10⁻⁶ K⁻¹ ; pour l'aluminium, α ≈ 23 × 10⁻⁶ K⁻¹.</p>
+        <p>La dilatation volumique suit : <strong>ΔV = β × V₀ × ΔT</strong>, avec β ≈ 3α pour les solides isotropes. L'eau présente une anomalie célèbre : elle atteint sa densité maximale à 4 °C, ce qui permet aux lacs de geler par la surface et de préserver la vie aquatique en hiver.</p>
+
+        <h3>Résistance thermique et isolation</h3>
+        <p>Par analogie avec la résistance électrique, on définit la <strong>résistance thermique</strong> d'une paroi plane : <strong>R_th = e / (λ × A)</strong>, où e est l'épaisseur. Le flux thermique à travers la paroi est Φ = ΔT / R_th. Pour des couches en série, les résistances s'additionnent : R_total = R₁ + R₂ + ... Cette notion est essentielle en isolation thermique des bâtiments.</p>
+        <div class="highlight-box"><p><strong>Application :</strong> le double vitrage fonctionne grâce à la lame d'air (λ_air ≈ 0,026 W/(m·K)) entre deux vitres. L'air immobile est un excellent isolant, ce qui réduit considérablement les pertes thermiques.</p></div>
+      </div>
+    </section>
+    <section class="content-section" id="quiz">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Quiz</h2><p>Testez votre compréhension</p></div></div>
+      <div class="quiz-container">
+        <div class="quiz-header"><span class="quiz-title-text">🌡️ Température et chaleur — Quiz</span><span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span></div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0"><p class="q-num">Question 1 / 6</p><p class="q-text">Quelle est la température du zéro absolu en degrés Celsius ?</p><div class="options"><button class="option" onclick="answer(this,false)">0 °C</button><button class="option" onclick="answer(this,false)">−100 °C</button><button class="option" onclick="answer(this,true)">−273,15 °C</button><button class="option" onclick="answer(this,false)">−460 °C</button></div><div class="q-feedback">Le zéro absolu correspond à 0 K = −273,15 °C, température théorique où l'agitation thermique cesse.</div></div>
+          <div class="question-block" data-q="1"><p class="q-num">Question 2 / 6</p><p class="q-text">Parmi ces matériaux, lequel a la capacité thermique massique la plus élevée ?</p><div class="options"><button class="option" onclick="answer(this,false)">Fer (449 J/(kg·K))</button><button class="option" onclick="answer(this,true)">Eau (4 185 J/(kg·K))</button><button class="option" onclick="answer(this,false)">Cuivre (385 J/(kg·K))</button><button class="option" onclick="answer(this,false)">Aluminium (897 J/(kg·K))</button></div><div class="q-feedback">L'eau possède une capacité thermique massique exceptionnellement élevée (4 185 J/(kg·K)), ce qui en fait un excellent régulateur thermique.</div></div>
+          <div class="question-block" data-q="2"><p class="q-num">Question 3 / 6</p><p class="q-text">Quel mode de transfert de chaleur ne nécessite aucun support matériel ?</p><div class="options"><button class="option" onclick="answer(this,false)">Conduction</button><button class="option" onclick="answer(this,false)">Convection</button><button class="option" onclick="answer(this,true)">Rayonnement</button><button class="option" onclick="answer(this,false)">Diffusion</button></div><div class="q-feedback">Le rayonnement se propage par ondes électromagnétiques et peut traverser le vide. C'est ainsi que le Soleil réchauffe la Terre.</div></div>
+          <div class="question-block" data-q="3"><p class="q-num">Question 4 / 6</p><p class="q-text">Quelle est la relation de Mayer pour un gaz parfait ?</p><div class="options"><button class="option" onclick="answer(this,false)">C_p × C_v = R</button><button class="option" onclick="answer(this,true)">C_p − C_v = R</button><button class="option" onclick="answer(this,false)">C_p + C_v = R</button><button class="option" onclick="answer(this,false)">C_p / C_v = R</button></div><div class="q-feedback">La relation de Mayer C_p − C_v = R relie les capacités thermiques à pression et volume constants d'un gaz parfait.</div></div>
+          <div class="question-block" data-q="4"><p class="q-num">Question 5 / 6</p><p class="q-text">La loi de Stefan-Boltzmann indique que la puissance rayonnée est proportionnelle à...</p><div class="options"><button class="option" onclick="answer(this,false)">T</button><button class="option" onclick="answer(this,false)">T²</button><button class="option" onclick="answer(this,false)">T³</button><button class="option" onclick="answer(this,true)">T⁴</button></div><div class="q-feedback">P = εσAT⁴. La puissance rayonnée est proportionnelle à la puissance quatrième de la température absolue.</div></div>
+          <div class="question-block" data-q="5"><p class="q-num">Question 6 / 6</p><p class="q-text">À quelle température l'eau atteint-elle sa densité maximale ?</p><div class="options"><button class="option" onclick="answer(this,false)">0 °C</button><button class="option" onclick="answer(this,true)">4 °C</button><button class="option" onclick="answer(this,false)">20 °C</button><button class="option" onclick="answer(this,false)">100 °C</button></div><div class="q-feedback">L'eau atteint sa densité maximale à 4 °C. Cette anomalie permet aux lacs de geler par la surface tout en préservant la vie aquatique.</div></div>
+        </div>
+        <div class="quiz-result" id="quizResult"><div class="result-score-big" id="resultScore">0/6</div><div class="result-msg" id="resultMsg"></div><button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button></div>
+        <div class="quiz-nav"><button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button><div class="q-dots" id="qDots"></div><button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button></div>
+      </div>
+    </section>
+    <section class="content-section" id="exercices">
+      <div class="section-header"><div class="section-num">04</div><div class="section-info"><h2>Exercices</h2><p>Mettez en pratique</p></div></div>
+      <div class="course-content">
+        <h3>Exercice 1 — Conversion de températures</h3>
+        <p>Convertissez 98,6 °F (température corporelle) en degrés Celsius puis en kelvins.</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>T(°C) = (T(°F) − 32) × 5/9 = (98,6 − 32) × 5/9 = 66,6 × 5/9 = <strong>37,0 °C</strong></p><p>T(K) = T(°C) + 273,15 = 37,0 + 273,15 = <strong>310,15 K</strong></p></div></details>
+
+        <h3>Exercice 2 — Calorimétrie</h3>
+        <p>On verse 200 g d'eau à 80 °C dans 500 g d'eau à 15 °C. Quelle est la température d'équilibre ? (c_eau = 4 185 J/(kg·K))</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>T_eq = (m₁c₁T₁ + m₂c₂T₂) / (m₁c₁ + m₂c₂)</p><p>Comme c est identique : T_eq = (m₁T₁ + m₂T₂) / (m₁ + m₂)</p><p>T_eq = (0,200 × 80 + 0,500 × 15) / (0,200 + 0,500) = (16 + 7,5) / 0,700 = 23,5 / 0,700 = <strong>33,6 °C</strong></p></div></details>
+
+        <h3>Exercice 3 — Conduction thermique</h3>
+        <p>Un mur de béton (λ = 1,4 W/(m·K)) a une épaisseur de 20 cm et une surface de 10 m². La température intérieure est 20 °C, extérieure −5 °C. Calculez le flux thermique à travers le mur.</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>R_th = e / (λ × A) = 0,20 / (1,4 × 10) = 0,0143 K/W</p><p>Φ = ΔT / R_th = (20 − (−5)) / 0,0143 = 25 / 0,0143 = <strong>1 750 W</strong></p><p>Le mur perd 1 750 W, soit l'équivalent d'un radiateur électrique puissant.</p></div></details>
+
+        <h3>Exercice 4 — Vitesse quadratique moyenne</h3>
+        <p>Calculez la vitesse quadratique moyenne des molécules de diazote (M = 28 × 10⁻³ kg/mol) à 25 °C. R = 8,314 J/(mol·K).</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>T = 25 + 273,15 = 298,15 K</p><p>v_qm = √(3RT/M) = √(3 × 8,314 × 298,15 / (28 × 10⁻³))</p><p>v_qm = √(7 436 / 0,028) = √(265 571) = <strong>515 m/s</strong></p><p>Les molécules de N₂ se déplacent à plus de 1 800 km/h à température ambiante.</p></div></details>
+
+        <h3>Exercice 5 — Dilatation thermique</h3>
+        <p>Un rail en acier (α = 12 × 10⁻⁶ K⁻¹) mesure 36 m à 20 °C. De combien s'allonge-t-il si la température monte à 55 °C ? Pourquoi laisse-t-on des joints de dilatation entre les rails ?</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>ΔL = α × L₀ × ΔT = 12 × 10⁻⁶ × 36 × (55 − 20) = 12 × 10⁻⁶ × 36 × 35</p><p>ΔL = 12 × 10⁻⁶ × 1 260 = <strong>0,01512 m ≈ 1,5 cm</strong></p><p>Sans joints de dilatation, la contrainte thermique due à l'allongement empêché provoquerait le flambage des rails, ce qui est dangereux pour la circulation ferroviaire.</p></div></details>
+      </div>
+    </section>
+    <div class="course-nav">
+      <span class="prev"></span>
+      <a href="lois.html" class="next"><span class="course-nav-label">Cours suivant</span><span class="course-nav-title">Lois de la thermodynamique →</span></a>
+    </div>
+  </main>
+</div>
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

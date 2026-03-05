@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Regrouper les observations similaires — k-means, classification hiérarchique, dendrogramme et mesures de qualité du clustering.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Classification — Analyse de données — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root {
+  --accent: #4fc3f7;
+  --accent2: #81d4fa;
+  --accent-dim: rgba(79,195,247,0.08);
+ --accent-hero: rgba(79,195,247,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../index.html">Statistiques</a> › <a href="../analyse-donnees.html">Analyse de données</a> › <span>Classification</span>
+  </div>
+</nav>
+
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">🗂️ Analyse de données</span>
+    <span class="tag-level">Avancé</span>
+    <span class="tag-time">⏱ ~50 min</span>
+  </div>
+  <h1><em>Classification</em></h1>
+  <p class="hero-desc">Regrouper les observations similaires — k-means, classification hiérarchique, dendrogramme et mesures de qualité du clustering.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../analyse-donnees.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Analyse de données</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="acp.html">Analyse en composantes principales</a>
+    <a class="sidebar-link active" href="#">Classification</a>
+    <a class="sidebar-link" href="series-temporelles.html">Séries temporelles</a>
+    <a class="sidebar-link" href="data-mining.html">Data mining</a>
+    <a class="sidebar-link" href="bayesiennes.html">Statistiques bayésiennes</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Regrouper pour comprendre</p>
+        </div>
+      </div>
+      <p class="resume-text">La <strong>classification non supervisée</strong> (ou clustering) consiste à regrouper des individus en classes homogènes sans connaître a priori les groupes. L'objectif est que les individus d'un même groupe se ressemblent le plus possible, tandis que les individus de groupes différents diffèrent le plus possible.</p>
+      <div class="highlight-box">
+        <p><strong>Le principe :</strong> minimiser la variabilité <em>intra-classe</em> (les individus d'un même groupe sont proches) et maximiser la variabilité <em>inter-classes</em> (les groupes sont bien séparés). C'est le compromis fondamental de toute méthode de classification.</p>
+      </div>
+      <p class="resume-text">Les applications sont innombrables : segmentation de clientèle en marketing, taxonomie en biologie, détection de communautés dans les réseaux sociaux, regroupement de documents par thème, classification d'images médicales. La classification est souvent utilisée en complément de l'ACP pour interpréter les structures révélées par la réduction de dimensionnalité.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Méthodes et algorithmes de classification</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Les distances</h3>
+        <p>Toute classification repose sur une <strong>mesure de distance</strong> (ou de dissimilarité) entre les individus. Les distances les plus courantes sont :</p>
+        <ul>
+          <li><strong>Distance euclidienne :</strong> d(x,y) = √(Σ(xᵢ - yᵢ)²) — la plus classique, sensible à l'échelle des variables.</li>
+          <li><strong>Distance de Manhattan :</strong> d(x,y) = Σ|xᵢ - yᵢ| — plus robuste aux valeurs extrêmes.</li>
+          <li><strong>Distance de Mahalanobis :</strong> tient compte de la corrélation entre les variables.</li>
+        </ul>
+
+        <h3>K-means (centres mobiles)</h3>
+        <p>L'algorithme <strong>k-means</strong> est la méthode de partitionnement la plus populaire :</p>
+        <ul>
+          <li>Choisir k centres initiaux (au hasard ou par k-means++).</li>
+          <li>Affecter chaque individu au centre le plus proche.</li>
+          <li>Recalculer le centre de chaque groupe (barycentre).</li>
+          <li>Répéter jusqu'à convergence (les affectations ne changent plus).</li>
+        </ul>
+        <p>K-means minimise l'<strong>inertie intra-classe</strong> : W = Σₖ Σᵢ∈Cₖ ||xᵢ - μₖ||². L'algorithme converge toujours, mais vers un minimum local — d'où l'importance de lancer plusieurs initialisations.</p>
+
+        <h3>Classification ascendante hiérarchique (CAH)</h3>
+        <p>La <strong>CAH</strong> construit un arbre de classification (dendrogramme) en fusionnant itérativement les deux groupes les plus proches :</p>
+        <ul>
+          <li>Au départ, chaque individu forme un groupe.</li>
+          <li>À chaque étape, on fusionne les deux groupes les plus proches.</li>
+          <li>On continue jusqu'à n'avoir qu'un seul groupe.</li>
+        </ul>
+        <p>Le <strong>critère d'agrégation</strong> détermine comment on mesure la distance entre deux groupes : lien simple (minimum), lien complet (maximum), lien moyen, ou <strong>critère de Ward</strong> (minimise l'augmentation d'inertie intra-classe à chaque fusion).</p>
+        <div class="highlight-box">
+          <p><strong>Le critère de Ward</strong> est le plus utilisé en pratique. Il tend à produire des classes de tailles équilibrées et des groupes compacts. Le dendrogramme permet de visualiser la structure hiérarchique et de choisir le nombre de classes en coupant l'arbre à un niveau donné.</p>
+        </div>
+
+        <h3>Choisir le nombre de classes</h3>
+        <p>Plusieurs critères existent pour déterminer le nombre optimal de classes :</p>
+        <ul>
+          <li><strong>Méthode du coude :</strong> tracer l'inertie intra-classe en fonction de k et chercher le point d'inflexion.</li>
+          <li><strong>Indice de silhouette :</strong> mesure de la qualité de chaque affectation (entre -1 et 1, un score élevé indique un bon clustering).</li>
+          <li><strong>Critère de Calinski-Harabasz :</strong> rapport de la variance inter-classes à la variance intra-classe.</li>
+        </ul>
+
+        <h3>Comparaison k-means vs CAH</h3>
+        <ul>
+          <li><strong>K-means :</strong> rapide, adapté aux grands jeux de données, mais il faut fixer k à l'avance et le résultat dépend de l'initialisation.</li>
+          <li><strong>CAH :</strong> pas besoin de fixer k a priori, produit un dendrogramme informatif, mais coûteuse en calcul (O(n²) en mémoire).</li>
+          <li><strong>En pratique :</strong> on combine souvent les deux — la CAH pour explorer et choisir k, puis k-means pour la partition finale.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">🗂️ Classification — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">5</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 5</p>
+            <p class="q-text">Que minimise l'algorithme k-means ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">La variance inter-classes</button>
+              <button class="option" onclick="answer(this,true)">L'inertie intra-classe</button>
+              <button class="option" onclick="answer(this,false)">Le nombre de classes</button>
+              <button class="option" onclick="answer(this,false)">La distance entre les centres</button>
+            </div>
+            <div class="q-feedback">K-means minimise la somme des distances au carré entre chaque individu et le centre de sa classe, c'est-à-dire l'inertie intra-classe.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 5</p>
+            <p class="q-text">Quel est l'avantage principal de la CAH par rapport à k-means ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Elle est plus rapide</button>
+              <button class="option" onclick="answer(this,false)">Elle produit toujours de meilleurs résultats</button>
+              <button class="option" onclick="answer(this,true)">Elle ne nécessite pas de fixer k à l'avance</button>
+              <button class="option" onclick="answer(this,false)">Elle fonctionne sans mesure de distance</button>
+            </div>
+            <div class="q-feedback">La CAH produit un dendrogramme complet qui permet de choisir le nombre de classes a posteriori en coupant l'arbre à différents niveaux.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 5</p>
+            <p class="q-text">L'indice de silhouette mesure :</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Le nombre optimal de clusters</button>
+              <button class="option" onclick="answer(this,true)">La qualité de l'affectation de chaque individu à son cluster</button>
+              <button class="option" onclick="answer(this,false)">La distance entre les centres des clusters</button>
+              <button class="option" onclick="answer(this,false)">La variance totale des données</button>
+            </div>
+            <div class="q-feedback">L'indice de silhouette compare, pour chaque individu, sa distance moyenne aux membres de son cluster à sa distance moyenne aux membres du cluster le plus proche. Il varie de -1 à 1.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 5</p>
+            <p class="q-text">Le critère de Ward en CAH cherche à minimiser :</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">La distance entre les deux individus les plus éloignés</button>
+              <button class="option" onclick="answer(this,true)">L'augmentation d'inertie intra-classe à chaque fusion</button>
+              <button class="option" onclick="answer(this,false)">Le nombre total de fusions</button>
+              <button class="option" onclick="answer(this,false)">La taille du plus grand cluster</button>
+            </div>
+            <div class="q-feedback">À chaque étape, le critère de Ward fusionne les deux groupes dont la réunion entraîne la plus petite augmentation d'inertie intra-classe. Il produit des classes compactes et équilibrées.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 5</p>
+            <p class="q-text">Pourquoi lance-t-on souvent k-means plusieurs fois avec des initialisations différentes ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Pour augmenter la vitesse de convergence</button>
+              <button class="option" onclick="answer(this,true)">Parce que l'algorithme converge vers un minimum local qui dépend de l'initialisation</button>
+              <button class="option" onclick="answer(this,false)">Pour trouver automatiquement le bon nombre de classes</button>
+              <button class="option" onclick="answer(this,false)">Pour réduire le nombre d'itérations nécessaires</button>
+            </div>
+            <div class="q-feedback">K-means converge toujours, mais vers un minimum local de l'inertie intra-classe. Le résultat dépend des centres initiaux, donc on lance plusieurs fois l'algorithme et on conserve le meilleur résultat.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/5</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — K-means à la main</h3>
+        <p>On a 4 points : A(1,1), B(2,1), C(5,5), D(6,5). On initialise k-means avec k=2, centres c₁=(1,1) et c₂=(6,5). Effectuer une itération complète.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Affectation : d(A,c₁)=0, d(A,c₂)=√41≈6,4 → A→C₁. d(B,c₁)=1, d(B,c₂)=√32≈5,7 → B→C₁. d(C,c₁)=√32≈5,7, d(C,c₂)=1 → C→C₂. d(D,c₁)=√41≈6,4, d(D,c₂)=0 → D→C₂. Nouveaux centres : c₁=(1,5; 1), c₂=(5,5; 5). L'algorithme a convergé : les classes sont <strong>{A,B}</strong> et <strong>{C,D}</strong>.</p></div>
+        </details>
+
+        <h3>Exercice 2 — Dendrogramme</h3>
+        <p>Construire le dendrogramme (lien simple) pour les points : P₁(0), P₂(2), P₃(6), P₄(7) sur une droite.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Distances : d(P₁,P₂)=2, d(P₁,P₃)=6, d(P₁,P₄)=7, d(P₂,P₃)=4, d(P₂,P₄)=5, d(P₃,P₄)=1. Étape 1 : fusion P₃-P₄ (distance 1). Étape 2 : fusion P₁-P₂ (distance 2). Étape 3 : fusion {P₁,P₂}-{P₃,P₄} (distance min = d(P₂,P₃) = 4). Dendrogramme : hauteurs 1, 2, 4.</p></div>
+        </details>
+
+        <h3>Exercice 3 — Indice de silhouette</h3>
+        <p>Un individu x a une distance moyenne de 2 aux membres de son cluster et de 5 au cluster le plus proche. Calculer son indice de silhouette.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>s(x) = (b(x) - a(x)) / max(a(x), b(x)) = (5 - 2) / max(2, 5) = 3/5 = <strong>0,6</strong>. C'est un bon score (proche de 1), l'individu est bien classé dans son cluster.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="acp.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← ACP</span>
+      </a>
+      <a href="series-temporelles.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Séries temporelles →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

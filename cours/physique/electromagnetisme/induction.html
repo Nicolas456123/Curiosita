@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La loi de Faraday, la loi de Lenz et les courants induits : le ph nom ne qui permet de convertir le mouvement en lectricit et alimente le monde moderne.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Induction &eacute;lectromagn&eacute;tique &mdash; &Eacute;lectromagn&eacute;tisme &mdash; Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08);  --accent-hero: rgba(142,68,173,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../../sciences-exactes.html">Sciences exactes</a> &rsaquo; <a href="../electromagnetisme.html">&Eacute;lectromagn&eacute;tisme</a> &rsaquo; <span>Induction &eacute;lectromagn&eacute;tique</span>
+  </div>
+</nav>
+
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">&#9889; &Eacute;lectromagn&eacute;tisme</span>
+    <span class="tag-level">Interm&eacute;diaire &rarr; Avanc&eacute;</span>
+    <span class="tag-time">&#9201; ~50 min</span>
+  </div>
+  <h1><em>Induction &eacute;lectromagn&eacute;tique</em></h1>
+  <p class="hero-desc">La loi de Faraday, la loi de Lenz et les courants induits : le ph&eacute;nom&egrave;ne qui permet de convertir le mouvement en &eacute;lectricit&eacute; et alimente le monde moderne.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../electromagnetisme.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">&larr; &Eacute;lectromagn&eacute;tisme</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">&#128214; Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">&#128221; Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">&#127919; Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">&#9999;&#65039; Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="charges.html">Charges &eacute;lectriques</a>
+    <a class="sidebar-link" href="circuits.html">Circuits &eacute;lectriques</a>
+    <a class="sidebar-link" href="magnetisme.html">Magn&eacute;tisme</a>
+    <a class="sidebar-link active" href="#">Induction</a>
+    <a class="sidebar-link" href="ondes.html">Ondes EM</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info"><h2>Introduction</h2><p>Du magn&eacute;tisme &agrave; l'&eacute;lectricit&eacute;</p></div>
+      </div>
+      <p class="resume-text">En 1831, Michael Faraday d&eacute;couvrit qu'un champ magn&eacute;tique variable dans le temps pouvait g&eacute;n&eacute;rer un courant &eacute;lectrique dans un circuit. Cette d&eacute;couverte &mdash; l'induction &eacute;lectromagn&eacute;tique &mdash; est l'une des plus importantes de l'histoire des sciences. Elle est &agrave; la base de la production d'&eacute;lectricit&eacute; (centrales, &eacute;oliennes), des transformateurs et de toute la technologie moderne.</p>
+      <div class="highlight-box">
+        <p><strong>Id&eacute;e cl&eacute; :</strong> Un courant &eacute;lectrique cr&eacute;e un champ magn&eacute;tique (&OElig;rsted, Amp&egrave;re). R&eacute;ciproquement, un champ magn&eacute;tique <em>variable</em> cr&eacute;e un champ &eacute;lectrique (Faraday). Cette sym&eacute;trie profonde est au c&oelig;ur des &eacute;quations de Maxwell.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info"><h2>Le cours</h2><p>Flux, induction et applications</p></div>
+      </div>
+      <div class="course-content">
+
+        <h3>Le flux magn&eacute;tique</h3>
+        <p>Le flux magn&eacute;tique &Phi; &agrave; travers une surface S est la mesure du &laquo; nombre de lignes de champ &raquo; traversant cette surface :</p>
+        <div class="highlight-box">
+          <p><strong>&Phi; = &int; B &middot; dS = B &middot; S &middot; cos(&theta;)</strong> &nbsp; (pour un champ uniforme)</p>
+          <p>Unit&eacute; : le weber (Wb). 1 Wb = 1 T &middot; m&sup2;.</p>
+        </div>
+        <p>Le flux est maximal lorsque la surface est perpendiculaire au champ (&theta; = 0) et nul lorsqu'elle est parall&egrave;le (&theta; = 90&deg;). Pour N spires, le flux total est N&Phi;.</p>
+
+        <h3>La loi de Faraday</h3>
+        <p>La loi de Faraday &eacute;tablit que toute variation de flux magn&eacute;tique &agrave; travers un circuit ferm&eacute; induit une force &eacute;lectromotrice (f.&eacute;.m.) :</p>
+        <div class="highlight-box">
+          <p><strong>&epsilon; = &minus;d&Phi;/dt</strong></p>
+          <p>Pour N spires : <strong>&epsilon; = &minus;N &middot; d&Phi;/dt</strong></p>
+        </div>
+        <p>Le signe n&eacute;gatif est fondamental : il traduit la <strong>loi de Lenz</strong>. La f.&eacute;.m. induite est mesur&eacute;e en volts. La variation de flux peut &ecirc;tre caus&eacute;e par :</p>
+        <ul>
+          <li>Une variation de B (on change l'intensit&eacute; du champ)</li>
+          <li>Une variation de S (on d&eacute;forme le circuit)</li>
+          <li>Une variation de &theta; (on fait tourner le circuit dans le champ)</li>
+          <li>Un d&eacute;placement relatif entre la source du champ et le circuit</li>
+        </ul>
+
+        <h3>La loi de Lenz</h3>
+        <p>La loi de Lenz (1834) donne le <strong>sens</strong> du courant induit : il s'oppose toujours &agrave; la variation de flux qui lui a donn&eacute; naissance.</p>
+        <div class="highlight-box">
+          <p><strong>Le courant induit cr&eacute;e un champ magn&eacute;tique qui s'oppose &agrave; la variation du flux externe.</strong></p>
+          <p>Si &Phi; augmente &rarr; le courant induit cr&eacute;e un champ oppos&eacute; au champ ext&eacute;rieur.<br>
+          Si &Phi; diminue &rarr; le courant induit cr&eacute;e un champ dans le m&ecirc;me sens que le champ ext&eacute;rieur.</p>
+        </div>
+        <p>La loi de Lenz est une cons&eacute;quence de la <strong>conservation de l'&eacute;nergie</strong> : si le courant induit amplifiait la variation de flux, on cr&eacute;erait de l'&eacute;nergie &agrave; partir de rien, ce qui violerait le premier principe de la thermodynamique.</p>
+
+        <h3>L'inductance propre et mutuelle</h3>
+        <p>L'<strong>inductance propre</strong> L d'un circuit caract&eacute;rise sa capacit&eacute; &agrave; s'opposer aux variations de courant par auto-induction :</p>
+        <div class="highlight-box">
+          <p><strong>&Phi; = L &middot; I</strong> &nbsp; donc &nbsp; <strong>&epsilon;<sub>auto</sub> = &minus;L &middot; dI/dt</strong></p>
+          <p>Pour un sol&eacute;no&iuml;de : <strong>L = &mu;&#8320; &middot; n&sup2; &middot; V</strong> (V = volume, n = spires/m)</p>
+        </div>
+        <p>L'<strong>inductance mutuelle</strong> M entre deux circuits traduit le couplage magn&eacute;tique. Une variation de courant dans le circuit 1 induit une f.&eacute;.m. dans le circuit 2 :</p>
+        <p><strong>&epsilon;&#8322; = &minus;M &middot; dI&#8321;/dt</strong></p>
+        <p>Le coefficient de couplage k = M / &radic;(L&#8321; &middot; L&#8322;) varie entre 0 (pas de couplage) et 1 (couplage parfait).</p>
+
+        <h3>Les courants de Foucault</h3>
+        <p>Lorsqu'un conducteur massif est soumis &agrave; un flux magn&eacute;tique variable, des courants s'y d&eacute;veloppent en boucles ferm&eacute;es : ce sont les <strong>courants de Foucault</strong> (ou courants induits).</p>
+        <ul>
+          <li><strong>Effet utile :</strong> freinage &eacute;lectromagn&eacute;tique (freins &agrave; courants de Foucault des trains, compteurs &eacute;lectriques), chauffage par induction (plaques de cuisson, fours industriels).</li>
+          <li><strong>Effet nuisible :</strong> pertes d'&eacute;nergie par effet Joule dans les noyaux de transformateurs. On les r&eacute;duit en utilisant des t&ocirc;les feuillet&eacute;es ou de la ferrite.</li>
+        </ul>
+
+        <h3>Les transformateurs</h3>
+        <p>Le transformateur est l'application la plus importante de l'induction mutuelle. Il est compos&eacute; de deux bobines (primaire et secondaire) coupl&eacute;es par un noyau magn&eacute;tique :</p>
+        <div class="highlight-box">
+          <p><strong>U&#8322; / U&#8321; = N&#8322; / N&#8321;</strong> &nbsp; (rapport de transformation)</p>
+          <p>Pour un transformateur id&eacute;al : <strong>P&#8321; = P&#8322;</strong>, donc U&#8321; &middot; I&#8321; = U&#8322; &middot; I&#8322;.</p>
+        </div>
+        <ul>
+          <li>Si N&#8322; &gt; N&#8321; : <strong>&eacute;l&eacute;vateur</strong> de tension (sortie des centrales : 20 kV &rarr; 400 kV)</li>
+          <li>Si N&#8322; &lt; N&#8321; : <strong>abaisseur</strong> de tension (distribution domestique : 20 kV &rarr; 230 V)</li>
+        </ul>
+        <p>Le transport d'&eacute;lectricit&eacute; &agrave; haute tension r&eacute;duit le courant (I = P/U) et donc les pertes par effet Joule dans les lignes (P<sub>pertes</sub> = R &middot; I&sup2;). C'est gr&acirc;ce aux transformateurs que le courant alternatif a supplant&eacute; le courant continu (victoire de Tesla/Westinghouse sur Edison).</p>
+
+        <h3>Les g&eacute;n&eacute;rateurs &eacute;lectriques</h3>
+        <p>Un g&eacute;n&eacute;rateur &eacute;lectrique (alternateur, dynamo) convertit l'&eacute;nergie m&eacute;canique en &eacute;nergie &eacute;lectrique par induction. Une bobine de N spires tourne &agrave; vitesse angulaire &omega; dans un champ magn&eacute;tique B :</p>
+        <div class="highlight-box">
+          <p><strong>&epsilon;(t) = N &middot; B &middot; S &middot; &omega; &middot; sin(&omega;t)</strong></p>
+          <p>La f.&eacute;.m. maximale est &epsilon;&#8320; = NBS&omega;. La fr&eacute;quence est f = &omega; / (2&pi;).</p>
+        </div>
+        <p>En France, les alternateurs des centrales tournent &agrave; 3000 tr/min (50 Hz, 1 paire de p&ocirc;les) ou 1500 tr/min (50 Hz, 2 paires de p&ocirc;les). Toute l'&eacute;lectricit&eacute; du r&eacute;seau est produite par induction &eacute;lectromagn&eacute;tique, qu'il s'agisse de centrales nucl&eacute;aires, hydrauliques, &eacute;oliennes ou thermiques.</p>
+
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info"><h2>Quiz</h2><p>Testez votre compr&eacute;hension</p></div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">&#9889; Induction &eacute;lectromagn&eacute;tique &mdash; Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Qui a d&eacute;couvert l'induction &eacute;lectromagn&eacute;tique en 1831 ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Amp&egrave;re</button>
+              <button class="option" onclick="answer(this,true)">Faraday</button>
+              <button class="option" onclick="answer(this,false)">Maxwell</button>
+              <button class="option" onclick="answer(this,false)">Tesla</button>
+            </div>
+            <div class="q-feedback">Michael Faraday d&eacute;couvrit en 1831 qu'un aimant en mouvement pr&egrave;s d'un circuit ferm&eacute; y induit un courant. Joseph Henry fit ind&eacute;pendamment la m&ecirc;me d&eacute;couverte aux &Eacute;tats-Unis la m&ecirc;me ann&eacute;e.</div>
+          </div>
+
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">La loi de Faraday s'&eacute;crit &epsilon; = &minus;d&Phi;/dt. Le signe n&eacute;gatif traduit :</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">L'effet Joule dans le circuit</button>
+              <button class="option" onclick="answer(this,false)">La d&eacute;croissance exponentielle du flux</button>
+              <button class="option" onclick="answer(this,true)">La loi de Lenz (opposition &agrave; la cause)</button>
+              <button class="option" onclick="answer(this,false)">Le caract&egrave;re alternatif du courant</button>
+            </div>
+            <div class="q-feedback">Le signe moins traduit la loi de Lenz : le courant induit s'oppose &agrave; la variation de flux qui l'a cr&eacute;&eacute;. C'est une cons&eacute;quence directe de la conservation de l'&eacute;nergie.</div>
+          </div>
+
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Le flux magn&eacute;tique &agrave; travers une surface est maximal lorsque :</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">La surface est perpendiculaire au champ B</button>
+              <button class="option" onclick="answer(this,false)">La surface est parall&egrave;le au champ B</button>
+              <button class="option" onclick="answer(this,false)">Le champ B est nul</button>
+              <button class="option" onclick="answer(this,false)">La surface est inclin&eacute;e &agrave; 45&deg;</button>
+            </div>
+            <div class="q-feedback">&Phi; = B &middot; S &middot; cos(&theta;). Le flux est maximal quand &theta; = 0 (surface perpendiculaire &agrave; B, c'est-&agrave;-dire la normale &agrave; la surface est parall&egrave;le &agrave; B). Il est nul quand &theta; = 90&deg;.</div>
+          </div>
+
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Un transformateur id&eacute;al a 500 spires au primaire et 50 au secondaire. Si la tension d'entr&eacute;e est 230 V, la tension de sortie est :</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">23 V</button>
+              <button class="option" onclick="answer(this,false)">2300 V</button>
+              <button class="option" onclick="answer(this,false)">115 V</button>
+              <button class="option" onclick="answer(this,false)">46 V</button>
+            </div>
+            <div class="q-feedback">U&#8322; = U&#8321; &times; N&#8322;/N&#8321; = 230 &times; 50/500 = 230 &times; 0,1 = 23 V. C'est un transformateur abaisseur (rapport 10:1), utilis&eacute; par exemple pour alimenter des appareils basse tension.</div>
+          </div>
+
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Pourquoi transporte-t-on l'&eacute;lectricit&eacute; &agrave; haute tension ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Pour augmenter la puissance transmise</button>
+              <button class="option" onclick="answer(this,true)">Pour r&eacute;duire le courant et donc les pertes Joule</button>
+              <button class="option" onclick="answer(this,false)">Pour acc&eacute;l&eacute;rer la vitesse du courant</button>
+              <button class="option" onclick="answer(this,false)">Pour r&eacute;duire la r&eacute;sistance des c&acirc;bles</button>
+            </div>
+            <div class="q-feedback">&Agrave; puissance constante P = U &times; I, augmenter U r&eacute;duit I. Les pertes dans les lignes valent P<sub>pertes</sub> = R &times; I&sup2;. En passant de 230 V &agrave; 400 kV (facteur ~1700), les pertes sont divis&eacute;es par ~3 millions.</div>
+          </div>
+
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Les courants de Foucault sont utilis&eacute;s dans :</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Les piles &eacute;lectriques</button>
+              <button class="option" onclick="answer(this,false)">Les condensateurs</button>
+              <button class="option" onclick="answer(this,true)">Les plaques de cuisson &agrave; induction</button>
+              <button class="option" onclick="answer(this,false)">Les panneaux solaires</button>
+            </div>
+            <div class="q-feedback">Les plaques &agrave; induction utilisent les courants de Foucault : une bobine sous la plaque cr&eacute;e un champ magn&eacute;tique variable qui induit des courants dans le fond m&eacute;tallique de la casserole, la chauffant directement par effet Joule.</div>
+          </div>
+
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">&#8634; Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>&larr; Pr&eacute;c&eacute;dent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant &rarr;</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info"><h2>Exercices</h2><p>Mettez en pratique</p></div>
+      </div>
+      <div class="course-content">
+
+        <h3>Exercice 1 &mdash; Flux et f.&eacute;.m. induite</h3>
+        <p>Une bobine de 200 spires et de surface 50 cm&sup2; est plac&eacute;e dans un champ magn&eacute;tique uniforme perpendiculaire. Le champ passe de 0,5 T &agrave; 0,1 T en 0,2 s. Calculer la f.&eacute;.m. induite.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>&Delta;&Phi; = S &middot; &Delta;B = 50 &times; 10&minus;&sup4; &times; (0,1 &minus; 0,5) = 50 &times; 10&minus;&sup4; &times; (&minus;0,4) = &minus;2 &times; 10&minus;&sup3; Wb</p>
+            <p>&epsilon; = &minus;N &middot; &Delta;&Phi; / &Delta;t = &minus;200 &times; (&minus;2 &times; 10&minus;&sup3;) / 0,2</p>
+            <p>&epsilon; = 200 &times; 0,01 = <strong>2 V</strong></p>
+            <p>Le flux diminue, donc par la loi de Lenz le courant induit cr&eacute;e un champ dans le m&ecirc;me sens que B pour compenser la diminution.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 2 &mdash; G&eacute;n&eacute;rateur</h3>
+        <p>Un alternateur comporte une bobine de 100 spires de surface 0,1 m&sup2; tournant &agrave; 3000 tr/min dans un champ B = 0,5 T. Calculer la f.&eacute;.m. maximale et la fr&eacute;quence.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>&omega; = 3000 &times; 2&pi; / 60 = 100&pi; rad/s &asymp; 314 rad/s</p>
+            <p>f = &omega; / (2&pi;) = 3000/60 = <strong>50 Hz</strong> (fr&eacute;quence du r&eacute;seau fran&ccedil;ais)</p>
+            <p>&epsilon;&#8320; = N &middot; B &middot; S &middot; &omega; = 100 &times; 0,5 &times; 0,1 &times; 314</p>
+            <p>&epsilon;&#8320; = <strong>1570 V</strong> (valeur cr&ecirc;te)</p>
+            <p>Valeur efficace : &epsilon;<sub>eff</sub> = &epsilon;&#8320; / &radic;2 &asymp; 1110 V</p>
+          </div>
+        </details>
+
+        <h3>Exercice 3 &mdash; Transformateur</h3>
+        <p>Un transformateur id&eacute;al &eacute;l&egrave;ve la tension de 230 V &agrave; 12 000 V. Le primaire a 460 spires et d&eacute;bite 50 A. Calculer le nombre de spires au secondaire et le courant secondaire.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>N&#8322; = N&#8321; &times; U&#8322; / U&#8321; = 460 &times; 12000 / 230 = <strong>24 000 spires</strong></p>
+            <p>Conservation de la puissance : I&#8322; = I&#8321; &times; U&#8321; / U&#8322; = 50 &times; 230 / 12000</p>
+            <p>I&#8322; = 11500 / 12000 &asymp; <strong>0,958 A</strong></p>
+            <p>V&eacute;rification : P&#8321; = 230 &times; 50 = 11 500 W = P&#8322; = 12000 &times; 0,958 &#10003;</p>
+          </div>
+        </details>
+
+        <h3>Exercice 4 &mdash; Auto-induction</h3>
+        <p>Un sol&eacute;no&iuml;de de 1000 spires, de longueur 50 cm et de section 10 cm&sup2;, est parcouru par un courant qui varie de 0 &agrave; 5 A en 10 ms. Calculer l'inductance et la f.&eacute;.m. d'auto-induction.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>n = N/L = 1000/0,5 = 2000 spires/m</p>
+            <p>L = &mu;&#8320; &middot; n&sup2; &middot; V = 4&pi; &times; 10&minus;&sup7; &times; (2000)&sup2; &times; (0,5 &times; 10 &times; 10&minus;&sup4;)</p>
+            <p>L = 4&pi; &times; 10&minus;&sup7; &times; 4 &times; 10&sup6; &times; 5 &times; 10&minus;&sup4;</p>
+            <p>L = 4&pi; &times; 10&minus;&sup7; &times; 2000 = 8&pi; &times; 10&minus;&sup4; &asymp; <strong>2,51 mH</strong></p>
+            <p>&epsilon; = &minus;L &middot; dI/dt = &minus;2,51 &times; 10&minus;&sup3; &times; 5 / 0,01 = <strong>&minus;1,26 V</strong></p>
+            <p>La f.&eacute;.m. est n&eacute;gative (elle s'oppose &agrave; l'augmentation du courant).</p>
+          </div>
+        </details>
+
+        <h3>Exercice 5 &mdash; Freinage &eacute;lectromagn&eacute;tique</h3>
+        <p>Un aimant tombe dans un tube de cuivre vertical (conducteur non ferromagn&eacute;tique). Expliquer qualitativement pourquoi sa chute est ralentie. La vitesse est-elle constante ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>Lorsque l'aimant tombe, le flux magn&eacute;tique &agrave; travers chaque &laquo; anneau &raquo; de cuivre varie. Par la loi de Faraday, des courants de Foucault sont induits dans le tube.</p>
+            <p>Par la loi de Lenz, ces courants cr&eacute;ent un champ magn&eacute;tique qui <strong>s'oppose au mouvement</strong> de l'aimant (au-dessus : p&ocirc;le de m&ecirc;me nom qui repousse ; en dessous : p&ocirc;le oppos&eacute; qui attire).</p>
+            <p>La force de freinage augmente avec la vitesse (car d&Phi;/dt augmente). L'aimant atteint une <strong>vitesse limite</strong> lorsque la force de freinage &eacute;quilibre exactement le poids : l'aimant tombe alors &agrave; vitesse constante.</p>
+            <p>L'&eacute;nergie potentielle de gravitation est convertie en chaleur par effet Joule dans le cuivre.</p>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="magnetisme.html" class="prev">
+        <span class="course-nav-label">Cours pr&eacute;c&eacute;dent</span>
+        <span class="course-nav-title">&larr; Magn&eacute;tisme</span>
+      </a>
+      <a href="ondes.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Ondes &eacute;lectromagn&eacute;tiques &rarr;</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

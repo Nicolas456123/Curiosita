@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Travailler mieux, pas plus — méthodes, outils et habitudes pour être efficace au quotidien.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<title>Productivité — Gestion personnelle — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.min.css?v=4">
+<style>
+:root { --accent: #8ae87a; --accent2: #a5f598; --accent-dim: rgba(138,232,122,0.08);  --accent-hero: rgba(138,232,122,0.05); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="index.html">Gestion personnelle</a> › <span>Productivité</span></div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+<div class="hero hero--hub">
+  <div class="hero-meta">
+    <span class="tag-domain">💼 Gestion personnelle</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~4h de lecture</span>
+  </div>
+  <h1><em>Productivité</em></h1>
+  <p class="hero-desc">Travailler mieux, pas plus — méthodes, outils et habitudes pour être efficace au quotidien.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="index.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Gestion personnelle</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="finances.html">Finances personnelles</a>
+    <a class="sidebar-link active" href="#">Productivité</a>
+    <a class="sidebar-link" href="developpement.html">Développement personnel</a>
+    <a class="sidebar-link" href="organisation.html">Organisation</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="presentation">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Qu'est-ce que la productivité ?</h2><p>Introduction et vue d'ensemble</p></div></div>
+      <p class="resume-text">La productivité personnelle est la capacité à <strong>accomplir ses objectifs de manière efficace</strong>, en utilisant au mieux son temps et son énergie. Il ne s'agit pas de travailler plus, mais de travailler mieux — en éliminant le superflu et en se concentrant sur l'essentiel.</p>
+      <div class="highlight-box"><p><strong>L'idée fondamentale :</strong> la vraie productivité n'est pas de tout faire, mais de faire ce qui compte. C'est un équilibre entre efficacité, créativité et bien-être.</p></div>
+      <p class="resume-text">De la <strong>méthode Pomodoro</strong> à <strong>Getting Things Done</strong> (GTD), des <strong>matrices d'Eisenhower</strong> aux techniques de deep work, de nombreux systèmes ont été développés pour aider à gérer son temps et ses priorités.</p>
+      <p class="resume-text">Ce domaine couvre la gestion du temps, la concentration, les méthodes d'organisation, la prise de décision et les outils numériques de productivité.</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Les cours de productivité</h2><p>Progressez étape par étape</p></div></div>
+      <div class="courses-grid">
+        <a href="productivite/temps.html" class="course-card"><span class="course-card-icon">⏰</span><h3>Gestion du temps</h3><p>Pomodoro, time blocking, loi de Pareto : maîtriser son emploi du temps.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="productivite/priorisation.html" class="course-card"><span class="course-card-icon">🎯</span><h3>Priorisation</h3><p>Matrice d'Eisenhower, méthode ABCDE : distinguer l'urgent de l'important.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="productivite/concentration.html" class="course-card"><span class="course-card-icon">🧠</span><h3>Concentration et deep work</h3><p>Éliminer les distractions, flow state et travail profond pour des résultats exceptionnels.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="productivite/methodes.html" class="course-card"><span class="course-card-icon">📋</span><h3>Méthodes d'organisation</h3><p>GTD, Zettelkasten, bullet journal : les systèmes pour organiser ses idées et ses projets.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="productivite/outils.html" class="course-card"><span class="course-card-icon">💻</span><h3>Outils numériques</h3><p>Applications de gestion de tâches, prise de notes et automatisation.</p><span class="course-card-link">Voir le cours →</span></a>
+      </div>
+    </section>
+    <section class="content-section" id="memo">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Fiche mémo</h2><p>L'essentiel en un coup d'oeil</p></div></div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top"><h3>⏰ Productivité — Fiche mémo</h3><p>Curiosita · Méthodes, techniques et outils</p></div>
+        <div class="memo-grid">
+          <div class="memo-section"><div class="memo-section-title">Gestion du temps</div><div class="memo-item"><span class="mf">Pomodoro</span> 25 min travail + 5 min pause</div><div class="memo-item"><span class="mf">Time blocking</span> Créneaux dédiés à chaque tâche</div><div class="memo-item"><span class="mf">Pareto</span> 20% des efforts = 80% des résultats</div><div class="memo-item"><span class="mf">2 min rule</span> Si <2 min, faire immédiatement</div></div>
+          <div class="memo-section"><div class="memo-section-title">Priorisation</div><div class="memo-item"><span class="mf">Eisenhower</span> Urgent×Important : 4 quadrants</div><div class="memo-item"><span class="mf">MITs</span> 3 Most Important Tasks / jour</div><div class="memo-item"><span class="mf">ABCDE</span> Classer par impact décroissant</div><div class="memo-item"><span class="mf">Non</span> Dire non aux tâches sans valeur</div></div>
+          <div class="memo-section"><div class="memo-section-title">Concentration</div><div class="memo-item"><span class="mf">Deep work</span> 2-4h sans interruption</div><div class="memo-item"><span class="mf">Batch</span> Regrouper les tâches similaires</div><div class="memo-item"><span class="mf">Distractions</span> Notifications off, lieu dédié</div><div class="memo-item"><span class="mf">Récupération</span> Pauses régulières, nature</div></div>
+          <div class="memo-section"><div class="memo-section-title">Méthodes</div><div class="memo-item"><span class="mf">GTD</span> Capturer, clarifier, organiser, agir</div><div class="memo-item"><span class="mf">Bullet journal</span> Carnet, index, migration</div><div class="memo-item"><span class="mf">Zettelkasten</span> Notes atomiques, liens</div><div class="memo-item"><span class="mf">Révision</span> Revue hebdomadaire des projets</div></div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="../../memo.min.js?v=4" defer></script>
+<script src="../../curiosita.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

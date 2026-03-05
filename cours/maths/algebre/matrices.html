@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Opérations matricielles, inverse, déterminant — l'outil central de l'algèbre linéaire.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Matrices et déterminants — Algèbre — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root {
+  --accent: #c0392b;
+  --accent2: #e74c3c;
+  --accent-dim: rgba(192,57,43,0.08);
+ --accent-hero: rgba(192,57,43,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../index.html">Mathématiques</a> › <a href="../algebre.html">Algèbre</a> › <span>Matrices</span>
+  </div>
+</nav>
+
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">📊 Algèbre</span>
+    <span class="tag-level">Intermédiaire → Avancé</span>
+    <span class="tag-time">⏱ ~45 min</span>
+  </div>
+  <h1><em>Matrices et déterminants</em></h1>
+  <p class="hero-desc">Opérations matricielles, inverse, déterminant — l'outil central de l'algèbre linéaire.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../algebre.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Algèbre</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="equations.html">Équations 1er/2nd degré</a>
+    <a class="sidebar-link" href="systemes.html">Systèmes d'équations</a>
+    <a class="sidebar-link" href="polynomes.html">Polynômes</a>
+    <a class="sidebar-link active" href="#">Matrices</a>
+    <a class="sidebar-link" href="nombres-complexes.html">Nombres complexes</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Pourquoi les matrices sont essentielles</p>
+        </div>
+      </div>
+      <p class="resume-text">Une <strong>matrice</strong> est un tableau rectangulaire de nombres disposés en lignes et colonnes. Loin d'être un simple tableau, les matrices forment un outil mathématique d'une puissance extraordinaire : elles permettent de représenter des systèmes d'équations linéaires, des transformations géométriques, des graphes, des réseaux et bien plus encore.</p>
+      <div class="highlight-box">
+        <p><strong>Applications concrètes :</strong> Google utilise des matrices pour classer les pages web (PageRank). Les jeux vidéo utilisent des matrices 4×4 pour positionner chaque objet 3D à l'écran. Le machine learning repose entièrement sur des multiplications matricielles.</p>
+      </div>
+      <p class="resume-text">Ce cours couvre les opérations fondamentales sur les matrices : addition, multiplication, transposition, calcul du déterminant et de l'inverse. Ces outils sont le socle de l'<strong>algèbre linéaire</strong>, indispensable en physique, informatique, data science et ingénierie.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Matrices, déterminants et inverse</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Définitions et notations</h3>
+        <p>Une matrice de taille <strong>m × n</strong> a m lignes et n colonnes. On note A = (aᵢⱼ) où aᵢⱼ est l'élément en ligne i et colonne j. Une matrice carrée a autant de lignes que de colonnes. La <strong>matrice identité</strong> Iₙ est la matrice carrée avec des 1 sur la diagonale et des 0 ailleurs.</p>
+        <p><strong>Matrices particulières :</strong></p>
+        <ul>
+          <li><strong>Matrice nulle</strong> : tous les éléments sont 0</li>
+          <li><strong>Matrice diagonale</strong> : non nuls seulement sur la diagonale</li>
+          <li><strong>Matrice symétrique</strong> : A = Aᵀ (symétrique par rapport à la diagonale)</li>
+          <li><strong>Matrice triangulaire</strong> : nulle au-dessus ou au-dessous de la diagonale</li>
+        </ul>
+
+        <h3>Opérations sur les matrices</h3>
+        <p>L'<strong>addition</strong> se fait terme à terme : (A + B)ᵢⱼ = aᵢⱼ + bᵢⱼ (les matrices doivent avoir la même taille). La <strong>multiplication par un scalaire</strong> : (λA)ᵢⱼ = λ·aᵢⱼ.</p>
+        <p>La <strong>multiplication matricielle</strong> est plus complexe. Pour A (m×n) et B (n×p), le produit AB est une matrice m×p dont l'élément (i,j) est :</p>
+        <div class="highlight-box">
+          <p><strong>(AB)ᵢⱼ = Σₖ aᵢₖ · bₖⱼ</strong> (somme des produits ligne i de A par colonne j de B)</p>
+        </div>
+        <p><strong>Attention :</strong> la multiplication n'est <strong>pas commutative</strong> : AB ≠ BA en général. C'est une propriété fondamentale qui distingue les matrices des nombres ordinaires.</p>
+        <p>La <strong>transposée</strong> Aᵀ s'obtient en échangeant lignes et colonnes : (Aᵀ)ᵢⱼ = aⱼᵢ.</p>
+
+        <h3>Déterminant</h3>
+        <p>Le <strong>déterminant</strong> est un nombre associé à toute matrice carrée. Pour une matrice 2×2 :</p>
+        <div class="highlight-box">
+          <p><strong>det([[a,b],[c,d]]) = ad - bc</strong></p>
+        </div>
+        <p>Pour une matrice 3×3, on développe selon la première ligne (règle de Sarrus ou cofacteurs). Le déterminant a plusieurs interprétations :</p>
+        <ul>
+          <li><strong>Géométrique :</strong> |det(A)| est le facteur de dilatation des aires (2D) ou des volumes (3D)</li>
+          <li><strong>Inversibilité :</strong> A est inversible si et seulement si det(A) ≠ 0</li>
+          <li><strong>Propriétés :</strong> det(AB) = det(A)·det(B), det(Aᵀ) = det(A), det(λA) = λⁿ·det(A)</li>
+        </ul>
+
+        <h3>Matrice inverse</h3>
+        <p>La matrice inverse A⁻¹ vérifie A·A⁻¹ = A⁻¹·A = I. Elle n'existe que si det(A) ≠ 0. Pour une matrice 2×2 :</p>
+        <div class="highlight-box">
+          <p><strong>A⁻¹ = (1/det(A)) · [[d, -b], [-c, a]]</strong></p>
+        </div>
+        <p>Pour les matrices plus grandes, on utilise la méthode de Gauss-Jordan : on juxtapose A et I, puis on applique le pivot de Gauss jusqu'à obtenir I à gauche. La matrice à droite est alors A⁻¹.</p>
+        <p><strong>Application aux systèmes :</strong> le système AX = B se résout par X = A⁻¹B quand A est inversible.</p>
+
+        <h3>Trace et propriétés</h3>
+        <p>La <strong>trace</strong> d'une matrice carrée est la somme de ses éléments diagonaux : tr(A) = Σ aᵢᵢ. Propriétés utiles : tr(A + B) = tr(A) + tr(B) et tr(AB) = tr(BA).</p>
+
+        <h3>Calcul de l'inverse d'une matrice 2×2</h3>
+        <p><strong>Exemple détaillé :</strong> Calculer l'inverse de A = [[2, 1], [5, 3]].</p>
+        <ul>
+          <li>det(A) = 2×3 - 1×5 = 6 - 5 = 1</li>
+          <li>A⁻¹ = (1/1) × [[3, -1], [-5, 2]] = [[3, -1], [-5, 2]]</li>
+          <li>Vérification : A×A⁻¹ = [[2×3+1×(-5), 2×(-1)+1×2], [5×3+3×(-5), 5×(-1)+3×2]] = [[1, 0], [0, 1]] = I</li>
+        </ul>
+
+        <h3>Puissances de matrices</h3>
+        <p>Pour calculer Aⁿ, on peut chercher une régularité ou <strong>diagonaliser</strong> la matrice. Si A = PDP⁻¹ avec D diagonale, alors Aⁿ = PDⁿP⁻¹, ce qui simplifie considérablement le calcul.</p>
+        <p><strong>Exemple :</strong> Pour A = [[1, 1], [0, 1]], on vérifie par récurrence que Aⁿ = [[1, n], [0, 1]]. En effet, A² = [[1, 2], [0, 1]], A³ = [[1, 3], [0, 1]], etc.</p>
+
+        <h3>Rang d'une matrice</h3>
+        <p>Le <strong>rang</strong> d'une matrice est le nombre maximal de lignes (ou colonnes) linéairement indépendantes. On le calcule en échelonnant la matrice par le pivot de Gauss : le rang est le nombre de pivots non nuls.</p>
+        <div class="highlight-box">
+          <p><strong>Théorème du rang :</strong> pour une matrice m × n, rang(A) ≤ min(m, n). Le système AX = B a une solution unique si et seulement si rang(A) = n (nombre d'inconnues).</p>
+        </div>
+
+        <h3>Pièges courants</h3>
+        <ul>
+          <li><strong>Multiplier terme à terme :</strong> le produit matriciel n'est PAS aᵢⱼ × bᵢⱼ. Il faut faire les sommes produits ligne-colonne.</li>
+          <li><strong>Supposer la commutativité :</strong> AB ≠ BA en général. L'ordre des facteurs compte.</li>
+          <li><strong>AB = 0 n'implique pas A = 0 ou B = 0 :</strong> contrairement aux nombres, le produit de deux matrices non nulles peut être la matrice nulle.</li>
+          <li><strong>Inverse d'un produit :</strong> (AB)⁻¹ = B⁻¹A⁻¹ (attention à l'ordre inversé), et non A⁻¹B⁻¹.</li>
+          <li><strong>Erreur de taille :</strong> A (m×n) × B (n×p) = C (m×p). Le nombre de colonnes de A doit égaler le nombre de lignes de B.</li>
+        </ul>
+
+        <h3>Applications</h3>
+        <ul>
+          <li><strong>Transformations géométriques :</strong> rotation d'angle θ : [[cos θ, -sin θ], [sin θ, cos θ]]. Réflexion, homothétie et projection sont aussi des matrices.</li>
+          <li><strong>Chaînes de Markov :</strong> les matrices stochastiques modélisent les probabilités de transition entre états (météo, navigation web, génétique).</li>
+          <li><strong>Compression d'images :</strong> la décomposition en valeurs singulières (SVD) permet de compresser une image en ne gardant que les composantes matricielles principales.</li>
+          <li><strong>Machine learning :</strong> les réseaux de neurones sont fondamentalement des suites de multiplications matricielles suivies de fonctions d'activation.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">📊 Matrices — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quel est le déterminant de la matrice [[3, 1], [2, 4]] ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">10</button>
+              <button class="option" onclick="answer(this,false)">14</button>
+              <button class="option" onclick="answer(this,false)">11</button>
+              <button class="option" onclick="answer(this,false)">-10</button>
+            </div>
+            <div class="q-feedback">det = ad - bc = 3×4 - 1×2 = 12 - 2 = 10. Le déterminant est non nul, donc la matrice est inversible.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">La multiplication matricielle est-elle commutative ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Oui, toujours</button>
+              <button class="option" onclick="answer(this,true)">Non, en général AB ≠ BA</button>
+              <button class="option" onclick="answer(this,false)">Oui, pour les matrices carrées</button>
+              <button class="option" onclick="answer(this,false)">Seulement si det ≠ 0</button>
+            </div>
+            <div class="q-feedback">En général, AB ≠ BA. C'est l'une des propriétés fondamentales des matrices. Exception : la matrice identité commute avec toutes les matrices.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Que vaut det(AB) si det(A) = 3 et det(B) = 5 ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">15</button>
+              <button class="option" onclick="answer(this,false)">8</button>
+              <button class="option" onclick="answer(this,false)">-2</button>
+              <button class="option" onclick="answer(this,false)">Impossible à déterminer</button>
+            </div>
+            <div class="q-feedback">det(AB) = det(A) × det(B) = 3 × 5 = 15. C'est la propriété de multiplicativité du déterminant.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Quelle est la trace de la matrice [[1, 2, 3], [4, 5, 6], [7, 8, 9]] ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">15</button>
+              <button class="option" onclick="answer(this,false)">45</button>
+              <button class="option" onclick="answer(this,false)">12</button>
+              <button class="option" onclick="answer(this,false)">6</button>
+            </div>
+            <div class="q-feedback">La trace est la somme des éléments diagonaux : tr(A) = 1 + 5 + 9 = 15.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Si A est une matrice 3×2 et B une matrice 2×4, quelle est la taille de AB ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">3×4</button>
+              <button class="option" onclick="answer(this,false)">2×2</button>
+              <button class="option" onclick="answer(this,false)">3×2</button>
+              <button class="option" onclick="answer(this,false)">Le produit est impossible</button>
+            </div>
+            <div class="q-feedback">A (3×2) × B (2×4) : le nombre de colonnes de A (2) = nombre de lignes de B (2), donc le produit est possible. Le résultat est 3×4 (lignes de A × colonnes de B).</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Que vaut (AB)⁻¹ si A et B sont inversibles ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">A⁻¹ × B⁻¹</button>
+              <button class="option" onclick="answer(this,true)">B⁻¹ × A⁻¹</button>
+              <button class="option" onclick="answer(this,false)">(A × B)⁻¹ n'existe pas</button>
+              <button class="option" onclick="answer(this,false)">A⁻¹ + B⁻¹</button>
+            </div>
+            <div class="q-feedback">(AB)⁻¹ = B⁻¹A⁻¹. Attention à l'ordre inversé ! On peut vérifier : (AB)(B⁻¹A⁻¹) = A(BB⁻¹)A⁻¹ = AIA⁻¹ = AA⁻¹ = I.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Produit matriciel</h3>
+        <p>Calculer le produit AB avec A = [[1, 2], [3, 4]] et B = [[5, 6], [7, 8]].</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>(AB)₁₁ = 1×5 + 2×7 = 19. (AB)₁₂ = 1×6 + 2×8 = 22. (AB)₂₁ = 3×5 + 4×7 = 43. (AB)₂₂ = 3×6 + 4×8 = 50. <strong>AB = [[19, 22], [43, 50]]</strong>. Note : BA = [[23, 34], [31, 46]] ≠ AB (non commutatif).</p></div>
+        </details>
+
+        <h3>Exercice 2 — Inverse d'une matrice</h3>
+        <p>Calculer l'inverse de A = [[4, 7], [2, 6]].</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>det(A) = 4×6 - 7×2 = 24 - 14 = 10. A⁻¹ = (1/10) × [[6, -7], [-2, 4]] = <strong>[[3/5, -7/10], [-1/5, 2/5]]</strong>. Vérification : AA⁻¹ = [[4(3/5)+7(-1/5), ...], [...]] = [[1, 0], [0, 1]].</p></div>
+        </details>
+
+        <h3>Exercice 3 — Déterminant 3×3</h3>
+        <p>Calculer le déterminant de A = [[1, 2, 3], [0, 1, 4], [5, 6, 0]].</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Développement selon la 1re ligne : det = 1×(1×0 - 4×6) - 2×(0×0 - 4×5) + 3×(0×6 - 1×5) = 1×(-24) - 2×(-20) + 3×(-5) = -24 + 40 - 15 = <strong>1</strong>. Comme det ≠ 0, la matrice est inversible.</p></div>
+        </details>
+
+        <h3>Exercice 4 — Système matriciel</h3>
+        <p>Résoudre le système AX = B avec A = [[2, 1], [5, 3]] et B = [[4], [11]] en utilisant l'inverse de A.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>det(A) = 6 - 5 = 1. A⁻¹ = [[3, -1], [-5, 2]]. X = A⁻¹B = [[3×4 + (-1)×11], [(-5)×4 + 2×11]] = [[12-11], [-20+22]] = <strong>[[1], [2]]</strong>. Donc x = 1, y = 2. Vérification : 2(1) + 2 = 4 et 5(1) + 3(2) = 11.</p></div>
+        </details>
+
+        <h3>Exercice 5 — Puissance de matrice</h3>
+        <p>Calculer A³ pour A = [[1, 1], [0, 1]].</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>A² = [[1, 1], [0, 1]] × [[1, 1], [0, 1]] = [[1, 2], [0, 1]]. A³ = A² × A = [[1, 2], [0, 1]] × [[1, 1], [0, 1]] = <strong>[[1, 3], [0, 1]]</strong>. On observe le motif : Aⁿ = [[1, n], [0, 1]] pour tout n ≥ 0.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="polynomes.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Polynômes et factorisation</span>
+      </a>
+      <a href="nombres-complexes.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Nombres complexes →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

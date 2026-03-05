@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Addition, multiplication, simplification — maîtriser les fractions pour calculer avec précision.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Fractions et opérations — Arithmétique — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root { --accent: #c0392b; --accent2: #e74c3c; --accent-dim: rgba(192,57,43,0.08);  --accent-hero: rgba(192,57,43,0.04); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../index.html">Mathématiques</a> › <a href="../arithmetique.html">Arithmétique</a> › <span>Fractions</span></div>
+</nav>
+<div class="hero hero--course">
+  <div class="hero-meta"><span class="tag-domain">📊 Arithmétique</span><span class="tag-level">Débutant</span><span class="tag-time">⏱ ~35 min</span></div>
+  <h1><em>Fractions et opérations</em></h1>
+  <p class="hero-desc">Addition, multiplication, simplification — maîtriser les fractions pour calculer avec précision.</p>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../arithmetique.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Arithmétique</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="nombres-premiers.html">Nombres premiers</a>
+    <a class="sidebar-link" href="divisibilite.html">Divisibilité, PGCD, PPCM</a>
+    <a class="sidebar-link active" href="#">Fractions</a>
+    <a class="sidebar-link" href="puissances.html">Puissances et racines</a>
+    <a class="sidebar-link" href="bases-numeration.html">Bases de numération</a>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="introduction">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Introduction</h2><p>Les fractions dans la vie quotidienne</p></div></div>
+      <p class="resume-text">Une <strong>fraction</strong> a/b représente la division de a par b, où a est le <strong>numérateur</strong> et b le <strong>dénominateur</strong> (b ≠ 0). Les fractions permettent d'exprimer des quantités qui ne sont pas des entiers avec une précision exacte, contrairement aux nombres décimaux qui sont parfois des approximations. Par exemple, 1/3 = 0,333... — seule la fraction est exacte.</p>
+      <div class="highlight-box">
+        <p><strong>Les nombres rationnels :</strong> l'ensemble des fractions a/b (avec a entier et b entier non nul) forme l'ensemble des <strong>nombres rationnels</strong>, noté Q. Un nombre est rationnel si et seulement si son écriture décimale est finie ou périodique.</p>
+      </div>
+      <p class="resume-text">Ce cours couvre toutes les opérations sur les fractions : simplification, addition, soustraction, multiplication, division, et comparaison. Ces compétences sont essentielles pour l'algèbre, les probabilités et la vie quotidienne (cuisine, bricolage, pourcentages).</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Le cours</h2><p>Opérations et simplification des fractions</p></div></div>
+      <div class="course-content">
+        <h3>Simplification de fractions</h3>
+        <p>Une fraction est <strong>irréductible</strong> quand le numérateur et le dénominateur sont premiers entre eux (PGCD = 1). Pour simplifier une fraction, on divise numérateur et dénominateur par leur PGCD.</p>
+        <p><strong>Exemple :</strong> Simplifier 42/56. PGCD(42, 56) = 14. Donc 42/56 = 3/4.</p>
+
+        <h3>Addition et soustraction</h3>
+        <p>Pour additionner deux fractions, il faut les mettre au <strong>même dénominateur</strong> (le PPCM des dénominateurs) :</p>
+        <div class="highlight-box">
+          <p><strong>a/b + c/d = (a×d + c×b) / (b×d)</strong> — ou mieux, on utilise le PPCM de b et d comme dénominateur commun.</p>
+        </div>
+        <p><strong>Exemple :</strong> 2/3 + 3/4. PPCM(3,4) = 12. Donc 2/3 + 3/4 = 8/12 + 9/12 = 17/12.</p>
+
+        <h3>Multiplication</h3>
+        <p>On multiplie les numérateurs entre eux et les dénominateurs entre eux :</p>
+        <p><strong>a/b × c/d = (a×c) / (b×d)</strong></p>
+        <p><strong>Exemple :</strong> 3/5 × 7/4 = 21/20. Astuce : simplifier avant de multiplier. 6/7 × 14/9 = (6×14)/(7×9). On simplifie : 6 et 9 par 3 (→ 2/3), 14 et 7 par 7 (→ 2/1). Résultat : 4/3.</p>
+
+        <h3>Division</h3>
+        <p>Diviser par une fraction revient à multiplier par son <strong>inverse</strong> :</p>
+        <div class="highlight-box">
+          <p><strong>(a/b) ÷ (c/d) = (a/b) × (d/c) = (a×d) / (b×c)</strong></p>
+        </div>
+        <p><strong>Exemple :</strong> (3/4) ÷ (2/5) = (3/4) × (5/2) = 15/8.</p>
+
+        <h3>Comparaison de fractions</h3>
+        <p>Pour comparer deux fractions, on les met au même dénominateur, puis on compare les numérateurs. Alternativement, on peut utiliser le <strong>produit en croix</strong> : a/b < c/d si et seulement si a×d < b×c (quand b et d sont positifs).</p>
+        <p><strong>Exemple :</strong> 3/7 et 5/11. 3×11 = 33 et 7×5 = 35. Comme 33 < 35, on a 3/7 < 5/11.</p>
+
+        <h3>Fractions et décimaux</h3>
+        <p>Toute fraction donne un développement décimal fini ou périodique. Inversement, tout décimal périodique peut s'écrire comme fraction. Par exemple, 0,272727... = 27/99 = 3/11. La méthode : poser x = 0,272727..., alors 100x = 27,2727..., d'où 99x = 27, soit x = 27/99 = 3/11.</p>
+
+        <h3>Fractions composées (fraction de fractions)</h3>
+        <p>Une <strong>fraction composée</strong> est une fraction dont le numérateur ou le dénominateur (ou les deux) contient lui-même une fraction. Pour la simplifier, on utilise la règle de la division :</p>
+        <p><strong>Exemple :</strong> Simplifier (2/3) / (5/7).</p>
+        <ul>
+          <li>(2/3) / (5/7) = (2/3) × (7/5) = 14/15</li>
+        </ul>
+        <p><strong>Exemple plus complexe :</strong> Simplifier (1 + 1/2) / (1 - 1/3).</p>
+        <ul>
+          <li>Numérateur : 1 + 1/2 = 3/2</li>
+          <li>Dénominateur : 1 - 1/3 = 2/3</li>
+          <li>Résultat : (3/2) / (2/3) = (3/2) × (3/2) = 9/4</li>
+        </ul>
+
+        <h3>Fractions et pourcentages</h3>
+        <p>Un <strong>pourcentage</strong> est une fraction de dénominateur 100. Conversions utiles :</p>
+        <div class="highlight-box">
+          <p><strong>Fraction → pourcentage :</strong> multiplier par 100. Ex : 3/4 = 75%. <strong>Pourcentage → fraction :</strong> diviser par 100 et simplifier. Ex : 60% = 60/100 = 3/5.</p>
+        </div>
+        <p><strong>Fractions courantes à connaître :</strong> 1/2 = 50%, 1/3 ≈ 33,3%, 1/4 = 25%, 1/5 = 20%, 1/8 = 12,5%, 2/3 ≈ 66,7%, 3/4 = 75%.</p>
+
+        <h3>Pièges courants</h3>
+        <ul>
+          <li><strong>Additionner les numérateurs et dénominateurs :</strong> 1/2 + 1/3 ≠ 2/5. Il faut mettre au même dénominateur : 1/2 + 1/3 = 3/6 + 2/6 = 5/6.</li>
+          <li><strong>Simplifier avant la mise au même dénominateur :</strong> dans 2/6 + 1/6, on peut simplifier APRÈS l'addition (3/6 = 1/2), pas avant chaque fraction séparément.</li>
+          <li><strong>Oublier de simplifier le résultat :</strong> 8/12 n'est pas irréductible. Il faut toujours simplifier : 8/12 = 2/3.</li>
+          <li><strong>Division par 0 :</strong> une fraction avec dénominateur 0 n'a pas de sens. Toujours vérifier que le dénominateur est non nul.</li>
+          <li><strong>Signe d'une fraction :</strong> -a/b = a/(-b) = -(a/b). On place conventionnellement le signe moins devant la fraction ou au numérateur.</li>
+        </ul>
+
+        <h3>Applications</h3>
+        <ul>
+          <li><strong>Cuisine :</strong> adapter une recette pour 6 personnes à 4 personnes revient à multiplier chaque quantité par 4/6 = 2/3.</li>
+          <li><strong>Probabilités :</strong> la probabilité de tirer un as dans un jeu de 52 cartes est 4/52 = 1/13 ≈ 7,7%.</li>
+          <li><strong>Taux et proportions :</strong> un produit coûte 40 euros HT avec une TVA à 20%. Le prix TTC est 40 × (1 + 20/100) = 40 × 6/5 = 48 euros.</li>
+        </ul>
+      </div>
+    </section>
+    <section class="content-section" id="quiz">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Quiz</h2><p>Testez votre compréhension</p></div></div>
+      <div class="quiz-container">
+        <div class="quiz-header"><span class="quiz-title-text">📊 Fractions — Quiz</span><span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span></div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Que vaut 2/5 + 1/3 ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">11/15</button>
+              <button class="option" onclick="answer(this,false)">3/8</button>
+              <button class="option" onclick="answer(this,false)">3/15</button>
+              <button class="option" onclick="answer(this,false)">7/15</button>
+            </div>
+            <div class="q-feedback">PPCM(5,3) = 15. 2/5 = 6/15 et 1/3 = 5/15. Donc 6/15 + 5/15 = 11/15.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Quelle est la forme irréductible de 36/48 ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">3/4</button>
+              <button class="option" onclick="answer(this,false)">9/12</button>
+              <button class="option" onclick="answer(this,false)">6/8</button>
+              <button class="option" onclick="answer(this,false)">18/24</button>
+            </div>
+            <div class="q-feedback">PGCD(36, 48) = 12. Donc 36/48 = 3/4. Les autres réponses ne sont pas irréductibles.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Que vaut (3/4) ÷ (6/5) ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">5/8</button>
+              <button class="option" onclick="answer(this,false)">18/20</button>
+              <button class="option" onclick="answer(this,false)">9/10</button>
+              <button class="option" onclick="answer(this,false)">15/24</button>
+            </div>
+            <div class="q-feedback">(3/4) ÷ (6/5) = (3/4) × (5/6) = 15/24 = 5/8 après simplification par 3.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Convertir 5/8 en pourcentage :</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">62,5%</button>
+              <button class="option" onclick="answer(this,false)">58%</button>
+              <button class="option" onclick="answer(this,false)">80%</button>
+              <button class="option" onclick="answer(this,false)">56%</button>
+            </div>
+            <div class="q-feedback">5/8 × 100 = 500/8 = 62,5%. Autre méthode : 5 ÷ 8 = 0,625 = 62,5%.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quelle fraction irréductible représente 0,333... (0,3 périodique) ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">1/3</button>
+              <button class="option" onclick="answer(this,false)">3/10</button>
+              <button class="option" onclick="answer(this,false)">33/100</button>
+              <button class="option" onclick="answer(this,false)">1/4</button>
+            </div>
+            <div class="q-feedback">Soit x = 0,333..., alors 10x = 3,333..., donc 9x = 3, d'où x = 3/9 = 1/3. La fraction 1/3 ne peut pas s'écrire comme décimal fini.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Comparer 5/7 et 7/10 :</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">5/7 < 7/10</button>
+              <button class="option" onclick="answer(this,true)">5/7 > 7/10</button>
+              <button class="option" onclick="answer(this,false)">5/7 = 7/10</button>
+              <button class="option" onclick="answer(this,false)">On ne peut pas les comparer</button>
+            </div>
+            <div class="q-feedback">Produit en croix : 5 × 10 = 50 et 7 × 7 = 49. Comme 50 > 49, on a 5/7 > 7/10. En décimal : 5/7 ≈ 0,714 et 7/10 = 0,700.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult"><div class="result-score-big" id="resultScore">0/6</div><div class="result-msg" id="resultMsg"></div><button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button></div>
+        <div class="quiz-nav"><button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button><div class="q-dots" id="qDots"></div><button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button></div>
+      </div>
+    </section>
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Calcul fractionnaire</h3>
+        <p>Calculer et simplifier : 3/4 + 5/6 - 1/3.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>PPCM(4, 6, 3) = 12. 3/4 = 9/12. 5/6 = 10/12. 1/3 = 4/12. Résultat : 9/12 + 10/12 - 4/12 = <strong>15/12 = 5/4</strong>.</p></div>
+        </details>
+
+        <h3>Exercice 2 — Multiplication et simplification</h3>
+        <p>Calculer : (14/15) × (25/49) × (3/10).</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>On simplifie avant de multiplier. 14 et 49 : PGCD = 7 → 2/1 et 1/7 (non, 14/49 = 2/7). 25 et 15 : PGCD = 5 → 5/3. 3 et 3 : simplifie. Numérateur : 14 × 25 × 3 = 1050. Dénominateur : 15 × 49 × 10 = 7350. 1050/7350 = <strong>1/7</strong>. Vérification par simplification croisée : (2/3) × (5/7) × (3/10) = 30/210 = 1/7.</p></div>
+        </details>
+
+        <h3>Exercice 3 — Fraction composée</h3>
+        <p>Simplifier : (1/2 + 1/3) / (1/2 - 1/3).</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Numérateur : 1/2 + 1/3 = 3/6 + 2/6 = 5/6. Dénominateur : 1/2 - 1/3 = 3/6 - 2/6 = 1/6. Résultat : (5/6) ÷ (1/6) = (5/6) × (6/1) = <strong>5</strong>.</p></div>
+        </details>
+
+        <h3>Exercice 4 — Décimal périodique</h3>
+        <p>Exprimer 0,181818... comme fraction irréductible.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Soit x = 0,181818... La période est de 2 chiffres. 100x = 18,181818... Donc 99x = 18, soit x = 18/99. PGCD(18, 99) = 9. <strong>x = 2/11</strong>. Vérification : 2 ÷ 11 = 0,181818...</p></div>
+        </details>
+
+        <h3>Exercice 5 — Problème concret</h3>
+        <p>Un réservoir est rempli aux 3/5. On utilise 1/4 de son contenu. Quelle fraction du réservoir total reste-t-il ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Contenu initial : 3/5 du réservoir. On utilise 1/4 de ce contenu : (1/4) × (3/5) = 3/20. Reste : 3/5 - 3/20 = 12/20 - 3/20 = <strong>9/20</strong> du réservoir. Vérification : 9/20 = 45%, ce qui est bien 3/4 de 3/5 = 3/4 × 60% = 45%.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="divisibilite.html" class="prev"><span class="course-nav-label">Cours précédent</span><span class="course-nav-title">← Divisibilité, PGCD et PPCM</span></a>
+      <a href="puissances.html" class="next"><span class="course-nav-label">Cours suivant</span><span class="course-nav-title">Puissances et racines →</span></a>
+    </div>
+  </main>
+</div>
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Du gène à la protéine fonctionnelle — traduction de l'ARN messager par les ribosomes et repliement protéique.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Synthèse des protéines — La cellule — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root {
+  --accent: #7ae8d8;
+  --accent2: #80cbc4;
+  --accent-dim: rgba(122,232,216,0.08);
+ --accent-hero: rgba(122,232,216,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../index.html">Biologie</a> › <a href="../cellule.html">La cellule</a> › <span>Synthèse des protéines</span>
+  </div>
+</nav>
+
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">🧬 La cellule</span>
+    <span class="tag-level">Intermédiaire → Avancé</span>
+    <span class="tag-time">⏱ ~50 min</span>
+  </div>
+  <h1><em>Synthèse des protéines</em></h1>
+  <p class="hero-desc">Du gène à la protéine fonctionnelle — traduction de l'ARN messager par les ribosomes et repliement protéique.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../cellule.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← La cellule</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="structure.html">Structure cellulaire</a>
+    <a class="sidebar-link" href="division.html">Division cellulaire</a>
+    <a class="sidebar-link" href="adn.html">ADN et code génétique</a>
+    <a class="sidebar-link active" href="#">Synthèse des protéines</a>
+    <a class="sidebar-link" href="metabolisme.html">Métabolisme cellulaire</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Les ouvrières moléculaires de la cellule</p>
+        </div>
+      </div>
+      <p class="resume-text">Les protéines sont les <strong>molécules fonctionnelles</strong> les plus diverses de la cellule. Enzymes, anticorps, hormones, récepteurs, transporteurs, éléments structuraux — elles remplissent presque toutes les fonctions cellulaires. Le <strong>dogme central de la biologie moléculaire</strong> (Crick, 1958) décrit le flux d'information : ADN → ARN → Protéine.</p>
+      <div class="highlight-box">
+        <p><strong>Principe clé :</strong> la traduction convertit le langage des nucléotides (4 lettres) en langage des acides aminés (20 lettres). Les ribosomes sont les « usines » qui assemblent les acides aminés dans l'ordre dicté par l'ARN messager.</p>
+      </div>
+      <p class="resume-text">Ce cours détaille le mécanisme de la traduction, le rôle des différents types d'ARN, et les modifications post-traductionnelles qui permettent aux protéines d'acquérir leur forme et leur fonction définitives.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>De l'ARN messager à la protéine fonctionnelle</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Les acteurs de la traduction</h3>
+        <p>La synthèse protéique fait intervenir trois types d'ARN :</p>
+        <ul>
+          <li><strong>ARN messager (ARNm)</strong> — porte le message génétique sous forme de codons. Il est lu dans le sens 5' → 3'</li>
+          <li><strong>ARN de transfert (ARNt)</strong> — molécules en forme de trèfle qui apportent les acides aminés au ribosome. Chaque ARNt possède un <strong>anticodon</strong> complémentaire du codon de l'ARNm et porte l'acide aminé correspondant</li>
+          <li><strong>ARN ribosomique (ARNr)</strong> — composant structural et catalytique des ribosomes (le ribosome est un <strong>ribozyme</strong>)</li>
+        </ul>
+        <p>Le <strong>ribosome</strong> est composé de deux sous-unités (grande et petite). Chez les eucaryotes : 60S + 40S = 80S. Il possède trois sites fonctionnels :</p>
+        <ul>
+          <li><strong>Site A</strong> (aminoacyl) — accueille l'ARNt chargé d'un acide aminé</li>
+          <li><strong>Site P</strong> (peptidyl) — contient l'ARNt portant la chaîne polypeptidique en cours de synthèse</li>
+          <li><strong>Site E</strong> (exit) — site de sortie de l'ARNt déchargé</li>
+        </ul>
+
+        <h3>La traduction : étapes</h3>
+        <p><strong>1. Initiation</strong></p>
+        <p>La petite sous-unité ribosomique se fixe sur l'ARNm au niveau de la coiffe 5' et glisse jusqu'au <strong>codon d'initiation AUG</strong>. L'ARNt initiateur portant la méthionine (Met-ARNtᴹᵉᵗ) se place sur le site P. La grande sous-unité s'assemble, formant le ribosome fonctionnel.</p>
+
+        <p><strong>2. Élongation</strong></p>
+        <p>Le cycle d'élongation se répète pour chaque codon :</p>
+        <ul>
+          <li><strong>Reconnaissance du codon</strong> — un ARNt chargé dont l'anticodon est complémentaire du codon en site A se fixe (nécessite du GTP)</li>
+          <li><strong>Formation de la liaison peptidique</strong> — la peptidyl-transférase (activité de l'ARNr 28S) catalyse la liaison entre l'acide aminé en site A et la chaîne en site P</li>
+          <li><strong>Translocation</strong> — le ribosome se déplace d'un codon vers le 3'. L'ARNt du site P passe en site E (et sort), celui du site A passe en site P</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Vitesse :</strong> un ribosome eucaryote ajoute environ 6 acides aminés par seconde. Plusieurs ribosomes peuvent traduire simultanément le même ARNm, formant un <strong>polysome</strong> (polyribosome).</p>
+        </div>
+
+        <p><strong>3. Terminaison</strong></p>
+        <p>Lorsqu'un <strong>codon stop</strong> (UAA, UAG ou UGA) arrive en site A, aucun ARNt ne le reconnaît. Des <strong>facteurs de libération</strong> (release factors) se fixent, provoquant la libération de la chaîne polypeptidique et la dissociation du ribosome.</p>
+
+        <h3>Repliement et modifications post-traductionnelles</h3>
+        <p>La chaîne polypeptidique doit se replier en une structure tridimensionnelle précise pour être fonctionnelle :</p>
+        <ul>
+          <li><strong>Structure primaire</strong> — séquence linéaire d'acides aminés</li>
+          <li><strong>Structure secondaire</strong> — hélices alpha et feuillets bêta, stabilisés par des liaisons hydrogène</li>
+          <li><strong>Structure tertiaire</strong> — repliement 3D global, stabilisé par des ponts disulfure, des interactions hydrophobes et ioniques</li>
+          <li><strong>Structure quaternaire</strong> — assemblage de plusieurs sous-unités polypeptidiques (ex : hémoglobine = 4 sous-unités)</li>
+        </ul>
+        <p>Des <strong>protéines chaperonnes</strong> (ex : Hsp70, chaperonines) assistent le repliement correct et empêchent l'agrégation. Les modifications post-traductionnelles incluent la glycosylation, la phosphorylation, l'acétylation et le clivage protéolytique.</p>
+
+        <h3>Adressage des protéines</h3>
+        <p>Les protéines sont dirigées vers leur destination par des <strong>séquences signal</strong> :</p>
+        <ul>
+          <li>Les protéines sécrétées ou membranaires possèdent un peptide signal N-terminal qui les dirige vers le RER via la particule de reconnaissance du signal (SRP)</li>
+          <li>Les protéines mitochondriales possèdent une séquence de transit reconnue par les translocases TOM/TIM</li>
+          <li>Les protéines nucléaires portent un signal de localisation nucléaire (NLS) reconnu par les importines</li>
+        </ul>
+
+        <h3>Dégradation des protéines : le protéasome</h3>
+        <p>Les protéines mal repliées, endommagées ou devenues inutiles sont marquées pour la destruction par le système <strong>ubiquitine-protéasome</strong> :</p>
+        <ul>
+          <li><strong>Ubiquitination</strong> — une cascade enzymatique (E1, E2, E3) attache des chaînes de polyubiquitine à la protéine cible. L'ubiquitine ligase E3 détermine la spécificité du substrat</li>
+          <li><strong>Protéasome 26S</strong> — complexe protéolytique en forme de tonneau qui reconnaît les protéines polyubiquitinées, les déplie et les dégrade en peptides courts (8-10 acides aminés)</li>
+          <li><strong>Recyclage</strong> — les ubiquitines sont retirées par des déubiquitinases et recyclées. Les peptides générés peuvent être présentés par le CMH de classe I aux lymphocytes T</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Prix Nobel 2004 :</strong> Aaron Ciechanover, Avram Hershko et Irwin Rose ont reçu le prix Nobel de chimie pour la découverte du système de dégradation des protéines par l'ubiquitine, révélant un mécanisme de contrôle qualité essentiel dans la cellule.</p>
+        </div>
+
+        <h3>Protéines et régulation de l'expression génique</h3>
+        <p>De nombreuses protéines régulent elles-mêmes l'expression des gènes, créant des boucles de rétroaction :</p>
+        <ul>
+          <li><strong>Facteurs de transcription</strong> — protéines qui se lient à des séquences spécifiques de l'ADN (promoteurs, enhancers) pour activer ou réprimer la transcription. Exemples : p53, NF-kB, les récepteurs nucléaires</li>
+          <li><strong>Protéines régulatrices de l'ARN</strong> — contrôlent la stabilité, la localisation et la traduction des ARNm. Les protéines Argonaute participent à l'interférence par ARN (RNAi)</li>
+          <li><strong>Kinases et phosphatases</strong> — modifient l'activité d'autres protéines par phosphorylation/déphosphorylation, constituant des cascades de signalisation (ex : voie MAPK, voie PI3K/AKT)</li>
+        </ul>
+
+        <h3>Pathologies associées</h3>
+        <ul>
+          <li><strong>Maladies à prions</strong> — la protéine prion (PrP) normale se replie anormalement en PrPˢᶜ, qui convertit d'autres PrP normales en forme pathogène. Exemples : maladie de Creutzfeldt-Jakob, encéphalopathie spongiforme bovine (« maladie de la vache folle »)</li>
+          <li><strong>Maladies neurodégénératives à agrégation protéique</strong> — Alzheimer (plaques amyloïdes beta et enchevêtrements de protéine tau), Parkinson (corps de Lewy, alpha-synucléine), Huntington (polyglutamine dans la huntingtine)</li>
+          <li><strong>Mucoviscidose</strong> — mutation ΔF508 du canal CFTR empêchant son repliement correct. La protéine mal repliée est dégradée par le protéasome avant d'atteindre la membrane, privant les cellules épithéliales de transport de chlorure</li>
+          <li><strong>Anémie falciforme</strong> — une seule substitution d'acide aminé (Glu → Val) dans la beta-globine modifie les propriétés de repliement et d'agrégation de l'hémoglobine</li>
+        </ul>
+
+        <h3>Découvertes et recherche</h3>
+        <ul>
+          <li><strong>1958 — Francis Crick</strong> formule le dogme central de la biologie moléculaire : ADN → ARN → Protéine</li>
+          <li><strong>1961 — Marshall Nirenberg et Heinrich Matthaei</strong> déchiffrent le premier codon du code génétique (UUU = phénylalanine)</li>
+          <li><strong>2003 — Ribosome en 3D</strong> — Venkatraman Ramakrishnan, Thomas Steitz et Ada Yonath obtiennent la structure cristallographique du ribosome à résolution atomique (prix Nobel 2009)</li>
+          <li><strong>2020 — AlphaFold</strong> (DeepMind) résout le problème du repliement des protéines par intelligence artificielle, prédisant la structure 3D de presque toutes les protéines connues avec une précision comparable aux méthodes expérimentales (prix Nobel de chimie 2024, Demis Hassabis et John Jumper)</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Protéines thérapeutiques :</strong> de nombreux médicaments modernes sont des protéines recombinantes produites par génie génétique : insuline recombinante (diabète), anticorps monoclonaux (cancer, maladies auto-immunes), facteurs de coagulation (hémophilie), érythropoïétine (anémie).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">🧬 Synthèse des protéines — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quel codon initie la traduction et code pour quel acide aminé ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">AUG — Méthionine</button>
+              <button class="option" onclick="answer(this,false)">UAG — Méthionine</button>
+              <button class="option" onclick="answer(this,false)">AUG — Alanine</button>
+              <button class="option" onclick="answer(this,false)">GUA — Valine</button>
+            </div>
+            <div class="q-feedback">Le codon AUG est le codon d'initiation universel. Il code la méthionine et est le premier codon traduit de tout ARN messager.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Dans quel site du ribosome se fixe l'ARNt chargé portant un nouvel acide aminé ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">Site A (aminoacyl)</button>
+              <button class="option" onclick="answer(this,false)">Site P (peptidyl)</button>
+              <button class="option" onclick="answer(this,false)">Site E (exit)</button>
+              <button class="option" onclick="answer(this,false)">Site S (synthèse)</button>
+            </div>
+            <div class="q-feedback">Le site A (aminoacyl) accueille chaque nouvel ARNt chargé. Après la formation de la liaison peptidique, la translocation déplace l'ARNt du site A vers le site P.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Comment appelle-t-on l'assemblage de plusieurs sous-unités polypeptidiques en une protéine fonctionnelle ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Structure secondaire</button>
+              <button class="option" onclick="answer(this,false)">Structure tertiaire</button>
+              <button class="option" onclick="answer(this,true)">Structure quaternaire</button>
+              <button class="option" onclick="answer(this,false)">Structure primaire</button>
+            </div>
+            <div class="q-feedback">La structure quaternaire correspond à l'association de plusieurs chaînes polypeptidiques (sous-unités) en un complexe fonctionnel. Exemple : l'hémoglobine est un tétramère (2 sous-unités alpha + 2 sous-unités bêta).</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Quel système marque les protéines mal repliées pour leur dégradation ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Le système lysosomal</button>
+              <button class="option" onclick="answer(this,true)">Le système ubiquitine-protéasome</button>
+              <button class="option" onclick="answer(this,false)">Le système de sécrétion</button>
+              <button class="option" onclick="answer(this,false)">Le système d'autophagie</button>
+            </div>
+            <div class="q-feedback">Le système ubiquitine-protéasome marque les protéines cibles avec des chaînes de polyubiquitine, puis le protéasome 26S les reconnaît, les déplie et les dégrade en peptides courts. Ce système contrôle la qualité des protéines cellulaires.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quelle maladie est causée par le repliement anormal d'une protéine qui convertit d'autres protéines normales en forme pathogène ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">La maladie d'Alzheimer</button>
+              <button class="option" onclick="answer(this,true)">La maladie de Creutzfeldt-Jakob (maladie à prion)</button>
+              <button class="option" onclick="answer(this,false)">La maladie de Parkinson</button>
+              <button class="option" onclick="answer(this,false)">La mucoviscidose</button>
+            </div>
+            <div class="q-feedback">La maladie de Creutzfeldt-Jakob est une maladie à prion. La protéine prion (PrPˢᶜ) mal repliée agit comme un agent infectieux en convertissant les protéines PrP normales en forme pathogène, provoquant une neurodégénérescence fatale.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Quel outil d'intelligence artificielle a révolutionné la prédiction de la structure 3D des protéines ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Watson (IBM)</button>
+              <button class="option" onclick="answer(this,true)">AlphaFold (DeepMind)</button>
+              <button class="option" onclick="answer(this,false)">BLAST (NCBI)</button>
+              <button class="option" onclick="answer(this,false)">Rosetta (Baker Lab)</button>
+            </div>
+            <div class="q-feedback">AlphaFold, développé par DeepMind (Google), a résolu le problème du repliement des protéines en 2020, prédisant la structure 3D de presque toutes les protéines connues. Ses créateurs ont reçu le prix Nobel de chimie en 2024.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Testez vos connaissances</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Du gène à la protéine</h3>
+        <p>Un ARNm mature possède la séquence codante suivante : 5'-AUGGCUUACCUGUAA-3'. (a) Combien d'acides aminés composent la protéine traduite ? (b) Donnez la séquence peptidique. (c) Si une mutation change le 7e nucléotide (U → A), quel est l'effet sur la protéine ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p><strong>(a)</strong> La séquence contient 5 codons : AUG-GCU-UAC-CUG-UAA. UAA est un codon stop, donc la protéine contient <strong>4 acides aminés</strong>.</p>
+            <p><strong>(b)</strong> AUG = Met, GCU = Ala, UAC = Tyr, CUG = Leu. Séquence : <strong>Met-Ala-Tyr-Leu</strong>.</p>
+            <p><strong>(c)</strong> Le 7e nucléotide (U) fait partie du 3e codon. UAC → AAC. AAC code l'asparagine (Asn) au lieu de la tyrosine (Tyr). C'est une <strong>mutation faux-sens</strong> : Met-Ala-<strong>Asn</strong>-Leu. Les propriétés de la protéine peuvent être altérées si ce résidu est important pour la structure ou la fonction.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 2 — Niveaux de structure protéique</h3>
+        <p>L'hémoglobine est composée de 4 sous-unités (2 alpha et 2 bêta), chacune contenant des hélices alpha et possédant un groupe hème. Identifiez les 4 niveaux de structure protéique dans cette description et donnez un exemple de liaison stabilisant chaque niveau.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p><strong>Structure primaire :</strong> séquence linéaire des acides aminés de chaque chaîne (alpha : 141 aa, bêta : 146 aa). Stabilisée par les <strong>liaisons peptidiques</strong> covalentes.</p>
+            <p><strong>Structure secondaire :</strong> les hélices alpha mentionnées. Stabilisées par des <strong>liaisons hydrogène</strong> entre le C=O d'un acide aminé et le N-H situé 4 résidus plus loin.</p>
+            <p><strong>Structure tertiaire :</strong> repliement 3D global de chaque sous-unité, incluant la poche hydrophobe qui lie le groupe hème. Stabilisée par des <strong>interactions hydrophobes</strong>, des ponts disulfure, des liaisons ioniques et des liaisons hydrogène.</p>
+            <p><strong>Structure quaternaire :</strong> l'assemblage des 4 sous-unités (2 alpha + 2 bêta) en tétramère fonctionnel. Stabilisée par des <strong>liaisons non covalentes</strong> (interactions hydrophobes, liaisons ioniques, liaisons hydrogène) entre les sous-unités.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 3 — Adressage protéique</h3>
+        <p>Une protéine est synthétisée avec un peptide signal N-terminal hydrophobe. Décrivez étape par étape son parcours depuis le ribosome jusqu'à sa sécrétion hors de la cellule.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>1. Le ribosome commence la traduction dans le cytoplasme. Le <strong>peptide signal</strong> N-terminal émerge du ribosome.</p>
+            <p>2. La <strong>particule de reconnaissance du signal (SRP)</strong> se lie au peptide signal et arrête temporairement la traduction.</p>
+            <p>3. Le complexe ribosome-SRP se fixe au <strong>récepteur de la SRP</strong> sur la membrane du RER. Le ribosome s'ancre au translocon (canal protéique).</p>
+            <p>4. La traduction reprend. La chaîne polypeptidique est transloquée dans la <strong>lumière du RER</strong>. Le peptide signal est clivé par une signal peptidase.</p>
+            <p>5. Dans le RER, la protéine est repliée (avec l'aide de chaperonnes comme BiP) et peut subir une <strong>N-glycosylation</strong>.</p>
+            <p>6. La protéine est empaquetée dans des <strong>vésicules de transport</strong> qui bourgeonnent du RER et fusionnent avec l'<strong>appareil de Golgi</strong> (face cis).</p>
+            <p>7. Dans le Golgi, la protéine subit des modifications (maturation des glycanes, protéolyse). Elle progresse de la face cis à la face trans.</p>
+            <p>8. La protéine triée est empaquetée dans des <strong>vésicules de sécrétion</strong> qui fusionnent avec la membrane plasmique par <strong>exocytose</strong>, libérant la protéine dans le milieu extracellulaire.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="adn.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← ADN et code génétique</span>
+      </a>
+      <a href="metabolisme.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Métabolisme cellulaire →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

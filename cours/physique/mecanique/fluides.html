@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pression, poussée d'Archimède, théorème de Bernoulli, viscosité et les différents régimes d'écoulement.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Mécanique des fluides — Mécanique — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08);  --accent-hero: rgba(142,68,173,0.04); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../../../sciences-exactes.html">Sciences exactes</a> › <a href="../mecanique.html">Mécanique</a> › <span>Mécanique des fluides</span></div>
+</nav>
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">⚙️ Mécanique</span>
+    <span class="tag-level">Intermédiaire</span>
+    <span class="tag-time">⏱ ~45 min</span>
+  </div>
+  <h1><em>Mécanique des fluides</em></h1>
+  <p class="hero-desc">Pression, poussée d'Archimède, théorème de Bernoulli, viscosité et les différents régimes d'écoulement.</p>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../mecanique.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Mécanique</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="forces.html">Forces et lois de Newton</a>
+    <a class="sidebar-link" href="energie.html">Énergie et travail</a>
+    <a class="sidebar-link" href="gravitation.html">Gravitation</a>
+    <a class="sidebar-link" href="cinematique.html">Cinématique</a>
+    <a class="sidebar-link active" href="#">Mécanique des fluides</a>
+  </aside>
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Introduction</h2><p>La physique des liquides et des gaz</p></div></div>
+      <p class="resume-text">La mécanique des fluides étudie le comportement des liquides et des gaz, qu'ils soient au repos (hydrostatique) ou en mouvement (hydrodynamique). Cette discipline est au carrefour de la physique et de l'ingénierie : elle intervient dans la conception des avions, des barrages, des systèmes de plomberie, de la circulation sanguine et de la météorologie.</p>
+      <p class="resume-text">Un <strong>fluide</strong> est un milieu continu déformable qui s'écoule sous l'action d'une contrainte de cisaillement, aussi petite soit-elle. Contrairement aux solides, les fluides n'ont pas de forme propre : ils adoptent celle de leur contenant. Les liquides ont un volume propre, tandis que les gaz occupent tout le volume disponible.</p>
+      <div class="highlight-box">
+        <p><strong>Principe clé :</strong> dans un fluide au repos, la pression en un point est la même dans toutes les directions (théorème de Pascal). La pression augmente avec la profondeur selon P = P₀ + ρgh.</p>
+      </div>
+      <p class="resume-text">Ce cours couvre les notions de pression, le principe d'Archimède, le théorème de Bernoulli, la viscosité et les différents régimes d'écoulement.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Le cours</h2><p>Pression, flottabilité et écoulements</p></div></div>
+      <div class="course-content">
+
+        <h3>Pression dans un fluide</h3>
+        <p>La <strong>pression</strong> est la force par unité de surface : P = F/A. L'unité SI est le pascal (Pa) : 1 Pa = 1 N/m². La pression atmosphérique standard vaut P_atm = 101 325 Pa ≈ 1 013 hPa ≈ 1 atm.</p>
+        <p>Dans un fluide incompressible au repos soumis à la gravité, la pression augmente linéairement avec la profondeur :</p>
+        <p><strong>P = P₀ + ρ·g·h</strong></p>
+        <p>P₀ est la pression à la surface, ρ la masse volumique du fluide (eau : 1 000 kg/m³), g = 9,81 m/s² et h la profondeur. A 10 m de profondeur dans l'eau, la pression augmente de ρgh = 1 000 × 9,81 × 10 ≈ 98 100 Pa ≈ 1 atm. Chaque 10 m de profondeur ajoute environ une atmosphère.</p>
+        <p>Le <strong>principe de Pascal</strong> stipule qu'une variation de pression appliquée à un fluide enfermé se transmet intégralement en tout point. C'est le principe de fonctionnement des vérins hydrauliques et des freins à disque : une petite force sur un petit piston crée une grande force sur un grand piston (F₂ = F₁ × A₂/A₁).</p>
+
+        <h3>Poussée d'Archimède</h3>
+        <p>Tout corps immergé dans un fluide subit une force verticale ascendante appelée <strong>poussée d'Archimède</strong>, égale au poids du fluide déplacé :</p>
+        <p><strong>F_A = ρ_fluide · V_immergé · g</strong></p>
+        <p>Un objet flotte si sa masse volumique est inférieure à celle du fluide (F_A > P). Il coule si sa masse volumique est supérieure (F_A < P). Il est en équilibre neutre si les deux sont égales. La glace flotte sur l'eau car ρ_glace ≈ 917 kg/m³ < ρ_eau = 1 000 kg/m³, avec environ 8 % du volume au-dessus de la surface.</p>
+        <div class="highlight-box">
+          <p><strong>Poids apparent :</strong> un objet immergé semble plus léger. Son poids apparent est P_app = P − F_A = (ρ_objet − ρ_fluide) · V · g. Un plongeur de 80 kg (volume ≈ 0,08 m³) dans l'eau a un poids apparent de seulement (1 000 − 1 000) × 0,08 × 9,81 ≈ 0 N, ce qui explique la sensation de quasi-apesanteur.</p>
+        </div>
+
+        <h3>Équation de continuité</h3>
+        <p>Pour un fluide incompressible en écoulement permanent dans un tube de section variable, le <strong>débit volumique</strong> Q est constant le long du tube :</p>
+        <p><strong>Q = A · v = constante</strong></p>
+        <p>Si la section A diminue, la vitesse v augmente proportionnellement (et inversement). C'est pourquoi l'eau accélère quand on pince le bout d'un tuyau d'arrosage : A diminue, donc v augmente pour conserver le débit. Le débit se mesure en m³/s. Pour un tuyau circulaire de rayon r : A = πr².</p>
+
+        <h3>Théorème de Bernoulli</h3>
+        <p>Pour un fluide idéal (incompressible, non visqueux) en écoulement permanent et irrotationnel, le théorème de Bernoulli exprime la conservation de l'énergie le long d'une ligne de courant :</p>
+        <p><strong>P + ½ρv² + ρgh = constante</strong></p>
+        <p>Les trois termes représentent respectivement la pression statique, la pression dynamique (énergie cinétique par unité de volume) et la pression hydrostatique (énergie potentielle par unité de volume).</p>
+        <p>Applications :</p>
+        <ul>
+          <li><strong>Effet Venturi :</strong> dans un rétrécissement, v augmente et P diminue. C'est le principe du pulvérisateur et du carburateur.</li>
+          <li><strong>Portance d'une aile :</strong> l'air circule plus vite au-dessus de l'aile (profil courbé), créant une dépression par rapport au dessous. La différence de pression crée une force ascendante.</li>
+          <li><strong>Tube de Pitot :</strong> mesure la vitesse d'un fluide en comparant pression statique et pression totale : v = √(2·ΔP / ρ).</li>
+        </ul>
+
+        <h3>Viscosité</h3>
+        <p>La <strong>viscosité</strong> caractérise la résistance interne d'un fluide à l'écoulement. Elle résulte du frottement entre les couches adjacentes de fluide en mouvement relatif. La viscosité dynamique μ se mesure en Pa·s (ou kg/(m·s)).</p>
+        <p>Exemples de viscosité à 20°C : eau ≈ 10⁻³ Pa·s, huile d'olive ≈ 0,08 Pa·s, miel ≈ 2-10 Pa·s. L'air a une viscosité très faible (≈ 1,8 × 10⁻⁵ Pa·s). La viscosité des liquides diminue avec la température (le miel chaud coule plus facilement), tandis que celle des gaz augmente.</p>
+        <p>Pour un écoulement laminaire dans un tube cylindrique, le <strong>profil de vitesse est parabolique</strong> (loi de Poiseuille) : la vitesse est maximale au centre et nulle aux parois. Le débit est Q = π·r⁴·ΔP / (8·μ·L). Notez la dépendance en r⁴ : doubler le rayon multiplie le débit par 16.</p>
+
+        <h3>Régimes d'écoulement et nombre de Reynolds</h3>
+        <p>Le <strong>nombre de Reynolds</strong> Re est un nombre sans dimension qui caractérise le régime d'écoulement :</p>
+        <p><strong>Re = ρ·v·D / μ</strong></p>
+        <p>D est le diamètre du tube (ou une longueur caractéristique), v la vitesse moyenne du fluide. Le nombre de Reynolds compare les forces d'inertie (qui tendent à créer du désordre) aux forces de viscosité (qui tendent à ordonner l'écoulement).</p>
+        <ul>
+          <li><strong>Re < 2 000 :</strong> écoulement <strong>laminaire</strong>. Les couches de fluide glissent les unes sur les autres de manière ordonnée. Le profil de vitesse est parabolique.</li>
+          <li><strong>2 000 < Re < 4 000 :</strong> régime de <strong>transition</strong>. L'écoulement alterne entre laminaire et turbulent.</li>
+          <li><strong>Re > 4 000 :</strong> écoulement <strong>turbulent</strong>. Le fluide présente des tourbillons et des fluctuations aléatoires. Le mélange est intense et les pertes de charge sont plus élevées.</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Exemple :</strong> l'eau (ρ = 1 000 kg/m³, μ = 10⁻³ Pa·s) coulant à 1 m/s dans un tuyau de 2 cm de diamètre donne Re = 1 000 × 1 × 0,02 / 10⁻³ = 20 000. L'écoulement est nettement turbulent.</p>
+        </div>
+
+        <h3>Force de traînée</h3>
+        <p>Un objet se déplaçant dans un fluide subit une force de résistance appelée <strong>traînée</strong> :</p>
+        <p><strong>F_traînée = ½ · C_D · ρ · A · v²</strong></p>
+        <p>C_D est le coefficient de traînée (dépend de la forme : 0,47 pour une sphère, 0,04 pour un profil aérodynamique), A est la section frontale, et v la vitesse relative. La traînée augmente avec le carré de la vitesse, ce qui explique pourquoi la consommation d'une voiture augmente fortement à haute vitesse.</p>
+        <p>La <strong>vitesse terminale</strong> est atteinte quand la traînée équilibre le poids : v_t = √(2mg / (C_D · ρ · A)). Pour un parachutiste, v_t ≈ 55 m/s (200 km/h) sans parachute, et ≈ 5 m/s (18 km/h) avec parachute ouvert.</p>
+
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Quiz</h2><p>Testez votre compréhension</p></div></div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">⚙️ Mécanique des fluides — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quelle pression supplémentaire subit un plongeur à 20 m de profondeur dans l'eau (ρ = 1 000 kg/m³) ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">9 810 Pa</button>
+              <button class="option" onclick="answer(this,true)">196 200 Pa</button>
+              <button class="option" onclick="answer(this,false)">20 000 Pa</button>
+              <button class="option" onclick="answer(this,false)">1 013 250 Pa</button>
+            </div>
+            <div class="q-feedback">ΔP = ρgh = 1 000 × 9,81 × 20 = 196 200 Pa ≈ 2 atm. A 20 m, la pression totale est environ 3 atm (2 atm dues a l'eau + 1 atm atmospherique).</div>
+          </div>
+
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Un objet flotte lorsque...</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Sa masse est faible</button>
+              <button class="option" onclick="answer(this,true)">Sa masse volumique est inférieure à celle du fluide</button>
+              <button class="option" onclick="answer(this,false)">Son volume est grand</button>
+              <button class="option" onclick="answer(this,false)">Sa forme est plate</button>
+            </div>
+            <div class="q-feedback">La condition de flottabilité est ρ_objet < ρ_fluide. La poussée d'Archimède dépasse alors le poids. La masse seule ne suffit pas : un pétrolier de 100 000 tonnes flotte car sa masse volumique moyenne est inférieure à celle de l'eau.</div>
+          </div>
+
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Selon le théorème de Bernoulli, quand la vitesse d'un fluide augmente dans un rétrécissement...</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">La pression augmente aussi</button>
+              <button class="option" onclick="answer(this,true)">La pression diminue</button>
+              <button class="option" onclick="answer(this,false)">La pression reste constante</button>
+              <button class="option" onclick="answer(this,false)">La densité change</button>
+            </div>
+            <div class="q-feedback">P + ½ρv² + ρgh = cte. Si v augmente, P doit diminuer pour que la somme reste constante (à hauteur égale). C'est l'effet Venturi.</div>
+          </div>
+
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Dans la loi de Poiseuille, le débit dans un tube dépend du rayon r selon...</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Q ∝ r</button>
+              <button class="option" onclick="answer(this,false)">Q ∝ r²</button>
+              <button class="option" onclick="answer(this,true)">Q ∝ r⁴</button>
+              <button class="option" onclick="answer(this,false)">Q ∝ r³</button>
+            </div>
+            <div class="q-feedback">Q = πr⁴ΔP/(8μL). La dépendance en r⁴ est remarquable : une réduction de 10 % du rayon diminue le débit de 34 %. C'est crucial en médecine (artériosclérose).</div>
+          </div>
+
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Un écoulement est considéré comme turbulent lorsque le nombre de Reynolds est...</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Inférieur à 100</button>
+              <button class="option" onclick="answer(this,false)">Compris entre 100 et 2 000</button>
+              <button class="option" onclick="answer(this,false)">Exactement 2 000</button>
+              <button class="option" onclick="answer(this,true)">Supérieur à 4 000</button>
+            </div>
+            <div class="q-feedback">Re > 4 000 correspond au régime turbulent. Re < 2 000 est laminaire, et 2 000-4 000 est la zone de transition.</div>
+          </div>
+
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">La force de traînée sur un objet dans un fluide dépend de la vitesse selon...</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">F ∝ v</button>
+              <button class="option" onclick="answer(this,true)">F ∝ v²</button>
+              <button class="option" onclick="answer(this,false)">F ∝ v³</button>
+              <button class="option" onclick="answer(this,false)">F ∝ √v</button>
+            </div>
+            <div class="q-feedback">F = ½·C_D·ρ·A·v². La traînée croît avec le carré de la vitesse. Doubler la vitesse quadruple la résistance, ce qui explique l'augmentation rapide de la consommation de carburant à haute vitesse.</div>
+          </div>
+
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header"><div class="section-num">04</div><div class="section-info"><h2>Exercices</h2><p>Mettez en pratique</p></div></div>
+      <div class="course-content">
+
+        <h3>Exercice 1 — Pression hydraulique</h3>
+        <p>Un vérin hydraulique possède un petit piston de diamètre 2 cm et un grand piston de diamètre 20 cm. On applique une force de 100 N sur le petit piston. Quelle force obtient-on sur le grand piston ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>Principe de Pascal : P₁ = P₂ → F₁/A₁ = F₂/A₂</p>
+            <p>A₁ = π × (0,01)² = 3,14 × 10⁻⁴ m²</p>
+            <p>A₂ = π × (0,10)² = 3,14 × 10⁻² m²</p>
+            <p>F₂ = F₁ × A₂/A₁ = 100 × (0,10/0,01)² = 100 × 100 = <strong>10 000 N</strong></p>
+            <p>Le facteur d'amplification est (D₂/D₁)² = 100. Avec 100 N, on soulève une charge de plus d'une tonne !</p>
+          </div>
+        </details>
+
+        <h3>Exercice 2 — Flottabilité d'un iceberg</h3>
+        <p>Un iceberg a une masse volumique de ρ_glace = 917 kg/m³. Il flotte dans l'eau de mer (ρ_mer = 1 025 kg/m³). Quel pourcentage de son volume dépasse de la surface ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>À l'équilibre : poids = poussée d'Archimède</p>
+            <p>ρ_glace · V_total · g = ρ_mer · V_immergé · g</p>
+            <p>V_immergé / V_total = ρ_glace / ρ_mer = 917 / 1 025 = 0,8946</p>
+            <p>Fraction immergée : 89,5 %</p>
+            <p>Fraction émergée : 100 % − 89,5 % = <strong>10,5 %</strong></p>
+            <p>Environ 90 % de l'iceberg est sous l'eau, confirmant l'expression « la partie émergée de l'iceberg ».</p>
+          </div>
+        </details>
+
+        <h3>Exercice 3 — Théorème de Bernoulli</h3>
+        <p>De l'eau coule dans un tuyau horizontal. Dans la partie large (diamètre 6 cm), la vitesse est 2 m/s et la pression est 250 kPa. Le tuyau se rétrécit à un diamètre de 3 cm. Calculez la vitesse et la pression dans la partie étroite.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p><strong>Équation de continuité :</strong> A₁v₁ = A₂v₂</p>
+            <p>A₁ = π(0,03)² = 2,83 × 10⁻³ m² ; A₂ = π(0,015)² = 7,07 × 10⁻⁴ m²</p>
+            <p>v₂ = v₁ × A₁/A₂ = 2 × (0,03/0,015)² = 2 × 4 = <strong>8 m/s</strong></p>
+            <p><strong>Bernoulli (tuyau horizontal, h constant) :</strong></p>
+            <p>P₁ + ½ρv₁² = P₂ + ½ρv₂²</p>
+            <p>P₂ = P₁ + ½ρ(v₁² − v₂²)</p>
+            <p>P₂ = 250 000 + ½ × 1 000 × (4 − 64)</p>
+            <p>P₂ = 250 000 − 30 000 = <strong>220 000 Pa = 220 kPa</strong></p>
+            <p>La pression a diminué de 30 kPa dans le rétrécissement (effet Venturi).</p>
+          </div>
+        </details>
+
+        <h3>Exercice 4 — Nombre de Reynolds</h3>
+        <p>Du sang (ρ = 1 060 kg/m³, μ = 3,5 × 10⁻³ Pa·s) circule à 0,33 m/s dans l'aorte (diamètre 2,5 cm). Calculez le nombre de Reynolds et déterminez le régime d'écoulement.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>Re = ρ·v·D / μ</p>
+            <p>Re = 1 060 × 0,33 × 0,025 / (3,5 × 10⁻³)</p>
+            <p>Re = 8,745 / 0,0035</p>
+            <p>Re = <strong>2 499 ≈ 2 500</strong></p>
+            <p>Re est dans la zone de transition (2 000-4 000). L'écoulement dans l'aorte est à la limite entre laminaire et turbulent. Lors d'un effort physique, la vitesse augmente et l'écoulement peut devenir turbulent, ce qui crée les bruits cardiaques audibles au stéthoscope (souffles).</p>
+          </div>
+        </details>
+
+        <h3>Exercice 5 — Vitesse terminale</h3>
+        <p>Une bille d'acier (m = 0,034 kg, diamètre 2 cm, C_D = 0,47) chute dans l'air (ρ_air = 1,225 kg/m³). Calculez sa vitesse terminale.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>À la vitesse terminale : mg = ½ · C_D · ρ · A · v²</p>
+            <p>Section frontale : A = π·r² = π × (0,01)² = 3,14 × 10⁻⁴ m²</p>
+            <p>v_t = √(2mg / (C_D · ρ · A))</p>
+            <p>v_t = √(2 × 0,034 × 9,81 / (0,47 × 1,225 × 3,14 × 10⁻⁴))</p>
+            <p>v_t = √(0,6671 / 1,808 × 10⁻⁴)</p>
+            <p>v_t = √(3 690)</p>
+            <p>v_t = <strong>60,7 m/s ≈ 219 km/h</strong></p>
+            <p>La bille d'acier, petite mais dense, atteint une vitesse terminale élevée car son rapport masse/surface est grand.</p>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="cinematique.html" class="prev"><span class="course-nav-label">Cours précédent</span><span class="course-nav-title">← Cinématique</span></a>
+      <div></div>
+    </div>
+
+  </main>
+</div>
+
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

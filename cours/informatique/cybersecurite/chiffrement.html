@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Chiffrement symétrique et asymétrique, RSA, AES, fonctions de hachage et signatures numériques — les mathématiques au service de la confidentialité.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Chiffrement et cryptographie — Cybersécurité — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root {
+  --accent: #2980b9;
+  --accent2: #3498db;
+  --accent-dim: rgba(41,128,185,0.08);
+ --accent-hero: rgba(41,128,185,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../index.html">Informatique</a> › <a href="../cybersecurite.html">Cybersécurité</a> › <span>Chiffrement et cryptographie</span>
+  </div>
+</nav>
+
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">🔒 Cybersécurité</span>
+    <span class="tag-level">Intermédiaire</span>
+    <span class="tag-time">⏱ ~50 min</span>
+  </div>
+  <h1><em>Chiffrement et cryptographie</em></h1>
+  <p class="hero-desc">Chiffrement symétrique et asymétrique, RSA, AES, fonctions de hachage et signatures numériques — les mathématiques au service de la confidentialité.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../cybersecurite.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Cybersécurité</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">💻 Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="fondamentaux.html">Fondamentaux</a>
+    <a class="sidebar-link active" href="#">Chiffrement</a>
+    <a class="sidebar-link" href="reseaux.html">Sécurité des réseaux</a>
+    <a class="sidebar-link" href="hacking.html">Hacking éthique</a>
+    <a class="sidebar-link" href="applications.html">Sécurité des applications</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>L'art de cacher l'information</p>
+        </div>
+      </div>
+      <p class="resume-text">La <strong>cryptographie</strong> est la science du secret. Depuis les codes de César dans l'Antiquité jusqu'aux protocoles TLS qui sécurisent le web moderne, les humains ont toujours cherché à protéger leurs communications des regards indiscrets. Aujourd'hui, la cryptographie est omniprésente : chaque transaction bancaire, chaque message chiffré, chaque connexion HTTPS repose sur des algorithmes mathématiques sophistiqués.</p>
+      <p class="resume-text">La cryptographie moderne ne se limite pas au chiffrement. Elle fournit des outils pour garantir la confidentialité (personne ne peut lire le message), l'intégrité (le message n'a pas été modifié), l'authenticité (l'expéditeur est bien celui qu'il prétend être) et la non-répudiation (l'expéditeur ne peut nier avoir envoyé le message).</p>
+      <div class="highlight-box">
+        <p><strong>Chiffrement vs. encodage :</strong> le chiffrement transforme des données en un format illisible à l'aide d'une clé secrète — sans la clé, le déchiffrement est computationnellement impossible. L'encodage (Base64, URL encoding) est une simple transformation de format, sans aucune sécurité.</p>
+      </div>
+      <p class="resume-text">Ce cours explore les deux grandes familles de chiffrement — symétrique et asymétrique — ainsi que les fonctions de hachage, les signatures numériques et les certificats qui forment l'infrastructure de confiance du web.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Algorithmes et protocoles cryptographiques</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Chiffrement symétrique</h3>
+        <p>Dans le chiffrement symétrique, la <strong>même clé</strong> sert à chiffrer et à déchiffrer le message. C'est rapide et efficace, mais pose le problème fondamental de l'échange de clé : comment transmettre la clé secrète de manière sûre ?</p>
+        <p><strong>AES (Advanced Encryption Standard)</strong> est l'algorithme symétrique de référence depuis 2001. Il opère sur des blocs de 128 bits avec des clés de 128, 192 ou 256 bits. AES-256 est considéré comme résistant aux attaques par force brute même avec des ordinateurs quantiques.</p>
+        <p><strong>Modes de fonctionnement</strong> : AES seul chiffre un bloc à la fois. Les modes définissent comment enchaîner les blocs. ECB (Electronic Codebook) est dangereux car les blocs identiques produisent le même chiffré. CBC, CTR et GCM sont les modes recommandés, GCM étant préféré car il assure aussi l'intégrité.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="kw">from</span> cryptography.fernet <span class="kw">import</span> Fernet
+
+<span class="cm"># Chiffrement symétrique avec Fernet (AES-128-CBC + HMAC)</span>
+cle = Fernet.generate_key()          <span class="cm"># Génère une clé aléatoire</span>
+f = Fernet(cle)
+
+message = <span class="str">b"Données confidentielles"</span>
+chiffre = f.encrypt(message)          <span class="cm"># Chiffrement</span>
+dechiffre = f.decrypt(chiffre)        <span class="cm"># Déchiffrement</span>
+
+<span class="fn">print</span>(chiffre)     <span class="cm"># → b'gAAAAA...' (base64, illisible)</span>
+<span class="fn">print</span>(dechiffre)   <span class="cm"># → b'Données confidentielles'</span>
+
+<span class="cm"># PROBLÈME : comment transmettre `cle` de manière sûre ?</span>
+<span class="cm"># → C'est là qu'intervient le chiffrement asymétrique</span></code></pre>
+        </div>
+
+        <h3>Chiffrement asymétrique</h3>
+        <p>Le chiffrement asymétrique utilise une <strong>paire de clés</strong> : une clé publique (partageable) et une clé privée (secrète). Ce qui est chiffré avec la clé publique ne peut être déchiffré qu'avec la clé privée correspondante, et inversement.</p>
+        <p><strong>RSA</strong> (Rivest-Shamir-Adleman) est l'algorithme asymétrique le plus connu. Sa sécurité repose sur la difficulté de factoriser le produit de deux très grands nombres premiers. Avec une clé de 2048 bits, la factorisation prendrait des milliards d'années avec la technologie actuelle.</p>
+        <p><strong>Courbes elliptiques (ECC)</strong> : alternative moderne à RSA, offrant le même niveau de sécurité avec des clés beaucoup plus courtes. Une clé ECC de 256 bits équivaut à une clé RSA de 3072 bits, ce qui la rend plus rapide et économe en ressources.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="kw">from</span> cryptography.hazmat.primitives.asymmetric <span class="kw">import</span> rsa, padding
+<span class="kw">from</span> cryptography.hazmat.primitives <span class="kw">import</span> hashes
+
+<span class="cm"># Génération de la paire de clés RSA</span>
+cle_privee = rsa.generate_private_key(
+    public_exponent=<span class="num">65537</span>,
+    key_size=<span class="num">2048</span>
+)
+cle_publique = cle_privee.public_key()
+
+<span class="cm"># Alice chiffre avec la clé publique de Bob</span>
+message = <span class="str">b"Message secret pour Bob"</span>
+chiffre = cle_publique.encrypt(
+    message,
+    padding.OAEP(
+        mgf=padding.MGF1(algorithm=hashes.SHA256()),
+        algorithm=hashes.SHA256(),
+        label=<span class="kw">None</span>
+    )
+)
+
+<span class="cm"># Bob déchiffre avec sa clé privée</span>
+dechiffre = cle_privee.decrypt(
+    chiffre,
+    padding.OAEP(
+        mgf=padding.MGF1(algorithm=hashes.SHA256()),
+        algorithm=hashes.SHA256(),
+        label=<span class="kw">None</span>
+    )
+)
+<span class="fn">print</span>(dechiffre)  <span class="cm"># → b'Message secret pour Bob'</span></code></pre>
+        </div>
+
+        <h3>Fonctions de hachage</h3>
+        <p>Une <strong>fonction de hachage</strong> transforme une entrée de taille quelconque en une empreinte de taille fixe. C'est une fonction à sens unique : il est computationnellement impossible de retrouver l'entrée à partir du hash.</p>
+        <p>Propriétés essentielles : <strong>déterministe</strong> (même entrée = même hash), <strong>résistance à la préimage</strong> (impossible de retrouver l'entrée), <strong>résistance aux collisions</strong> (impossible de trouver deux entrées avec le même hash), <strong>effet avalanche</strong> (un changement d'un seul bit modifie radicalement le hash).</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="kw">import</span> hashlib
+
+<span class="cm"># SHA-256 : standard actuel, produit un hash de 256 bits (64 hex)</span>
+msg1 = <span class="str">"Bonjour le monde"</span>
+msg2 = <span class="str">"Bonjour le Monde"</span>  <span class="cm"># Un seul caractère changé</span>
+
+h1 = hashlib.sha256(msg1.encode()).hexdigest()
+h2 = hashlib.sha256(msg2.encode()).hexdigest()
+
+<span class="fn">print</span>(h1)  <span class="cm"># → a7f5f35...  (64 caractères hex)</span>
+<span class="fn">print</span>(h2)  <span class="cm"># → 3e2d8b1...  (complètement différent !)</span>
+
+<span class="cm"># Algorithmes à éviter : MD5 et SHA-1 (vulnérables aux collisions)</span>
+<span class="cm"># Recommandés : SHA-256, SHA-3, BLAKE2</span>
+
+<span class="cm"># Pour les mots de passe : utiliser bcrypt, scrypt ou Argon2</span>
+<span class="kw">import</span> bcrypt
+mdp = <span class="str">b"MonMotDePasse123"</span>
+sel = bcrypt.gensalt(rounds=<span class="num">12</span>)
+hache = bcrypt.hashpw(mdp, sel)
+<span class="cm"># Vérification : bcrypt.checkpw(mdp, hache) → True</span></code></pre>
+        </div>
+
+        <h3>Signatures numériques</h3>
+        <p>La <strong>signature numérique</strong> est l'équivalent électronique de la signature manuscrite. Elle utilise le chiffrement asymétrique à l'envers : l'expéditeur signe avec sa clé privée, et n'importe qui peut vérifier avec sa clé publique.</p>
+        <p>Le processus : (1) hacher le message avec SHA-256, (2) chiffrer le hash avec la clé privée de l'expéditeur, (3) joindre la signature au message. Le destinataire vérifie en déchiffrant la signature avec la clé publique et en comparant avec le hash recalculé.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Processus de signature</span></div>
+          <pre><code><span class="cm">SIGNATURE :</span>
+  Message → <span class="fn">SHA-256</span> → Hash → <span class="kw">Chiffrer(clé_privée)</span> → Signature
+
+<span class="cm">VÉRIFICATION :</span>
+  Signature → <span class="kw">Déchiffrer(clé_publique)</span> → Hash_reçu
+  Message   → <span class="fn">SHA-256</span>                   → Hash_calculé
+  Hash_reçu == Hash_calculé ? → <span class="kw">Signature valide</span>
+
+<span class="cm">Garanties fournies :</span>
+  ✓ Authenticité   → Seul le détenteur de la clé privée a pu signer
+  ✓ Intégrité      → Toute modification invalide la signature
+  ✓ Non-répudiation → L'auteur ne peut nier avoir signé</code></pre>
+        </div>
+
+        <h3>Certificats et PKI</h3>
+        <p>Un <strong>certificat numérique</strong> (X.509) lie une clé publique à une identité. Il est émis par une <strong>autorité de certification</strong> (CA) qui garantit l'authenticité du lien. C'est le fondement de HTTPS : quand vous visitez un site sécurisé, votre navigateur vérifie le certificat du serveur.</p>
+        <p>La <strong>PKI</strong> (Public Key Infrastructure) est l'ensemble des politiques, procédures et technologies qui gèrent les certificats : émission, renouvellement, révocation. La chaîne de confiance part des CA racines (préinstallées dans les navigateurs) vers les CA intermédiaires puis les certificats finaux.</p>
+        <div class="highlight-box">
+          <p><strong>Let's Encrypt</strong> a démocratisé HTTPS en proposant des certificats gratuits et automatisables. Depuis son lancement, le pourcentage de pages chargées en HTTPS est passé d'environ 40% à plus de 90% du trafic web mondial.</p>
+        </div>
+
+        <h3>Échange de clés et protocole TLS</h3>
+        <p>Le protocole <strong>TLS</strong> (Transport Layer Security) combine chiffrement symétrique et asymétrique pour sécuriser les communications web. Le handshake TLS résout le problème de l'échange de clé :</p>
+        <p>(1) Le client et le serveur négocient les algorithmes (cipher suite). (2) Le serveur présente son certificat. (3) Un échange de clé Diffie-Hellman (ou ECDHE) établit un secret partagé. (4) Ce secret génère les clés symétriques pour le chiffrement AES de la session.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Handshake TLS 1.3 simplifié</span></div>
+          <pre><code><span class="cm">Client                                  Serveur</span>
+  │                                        │
+  │──── ClientHello ──────────────────────→│
+  │     (versions, cipher suites,          │
+  │      clé ECDHE client)                 │
+  │                                        │
+  │←─── ServerHello ──────────────────────│
+  │     (cipher suite choisie,             │
+  │      clé ECDHE serveur,                │
+  │      certificat, signature)            │
+  │                                        │
+  │  <span class="kw">Secret partagé calculé des deux côtés</span>  │
+  │  <span class="kw">via Diffie-Hellman sur courbe elliptique</span>│
+  │                                        │
+  │←──→ <span class="fn">Communication chiffrée AES-GCM</span> ←──→│
+
+<span class="cm">TLS 1.3 : un seul aller-retour (1-RTT)</span>
+<span class="cm">vs TLS 1.2 : deux allers-retours (2-RTT)</span></code></pre>
+        </div>
+
+        <h3>Menaces sur la cryptographie</h3>
+        <p>Malgré la robustesse des algorithmes modernes, plusieurs menaces existent :</p>
+        <p><strong>Informatique quantique</strong> : l'algorithme de Shor pourrait casser RSA et ECC en temps polynomial sur un ordinateur quantique suffisamment puissant. La cryptographie post-quantique développe des algorithmes résistants, comme CRYSTALS-Kyber (standardisé par le NIST en 2024).</p>
+        <p><strong>Erreurs d'implémentation</strong> : un algorithme sûr peut être rendu vulnérable par une implémentation défaillante. Les attaques par canal auxiliaire (timing, consommation électrique) exploitent les fuites d'information physiques plutôt que les failles mathématiques.</p>
+        <p><strong>Mauvaise utilisation</strong> : utiliser ECB au lieu de GCM, des clés trop courtes, un générateur de nombres aléatoires prévisible, ou stocker des clés en clair sont des erreurs fréquentes qui annulent la protection cryptographique.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">📊 Chiffrement et cryptographie — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quelle est la différence fondamentale entre chiffrement symétrique et asymétrique ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Le symétrique est plus sûr que l'asymétrique</button>
+              <button class="option" onclick="answer(this,true)">Le symétrique utilise une seule clé, l'asymétrique utilise une paire de clés</button>
+              <button class="option" onclick="answer(this,false)">Le symétrique ne fonctionne qu'avec du texte, l'asymétrique avec tout type de données</button>
+              <button class="option" onclick="answer(this,false)">Le symétrique est plus lent que l'asymétrique</button>
+            </div>
+            <div class="q-feedback">Le chiffrement symétrique utilise la même clé pour chiffrer et déchiffrer, tandis que l'asymétrique utilise une clé publique pour chiffrer et une clé privée pour déchiffrer (ou inversement pour la signature).</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Quel algorithme de chiffrement symétrique est le standard actuel ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">DES</button>
+              <button class="option" onclick="answer(this,false)">RSA</button>
+              <button class="option" onclick="answer(this,true)">AES</button>
+              <button class="option" onclick="answer(this,false)">MD5</button>
+            </div>
+            <div class="q-feedback">AES (Advanced Encryption Standard) est le standard depuis 2001, remplaçant DES devenu trop faible. RSA est asymétrique et MD5 est une fonction de hachage, pas un algorithme de chiffrement.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Pourquoi ne doit-on pas utiliser MD5 pour sécuriser des mots de passe ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">MD5 produit un hash trop long</button>
+              <button class="option" onclick="answer(this,false)">MD5 est un algorithme de chiffrement, pas de hachage</button>
+              <button class="option" onclick="answer(this,true)">MD5 est vulnérable aux collisions et trop rapide à calculer</button>
+              <button class="option" onclick="answer(this,false)">MD5 nécessite une clé secrète</button>
+            </div>
+            <div class="q-feedback">MD5 est vulnérable aux collisions (deux entrées différentes peuvent produire le même hash) et sa rapidité permet des attaques par force brute très efficaces. Pour les mots de passe, on utilise bcrypt, scrypt ou Argon2 qui sont volontairement lents.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Dans une signature numérique, avec quelle clé l'expéditeur signe-t-il ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">Sa clé privée</button>
+              <button class="option" onclick="answer(this,false)">Sa clé publique</button>
+              <button class="option" onclick="answer(this,false)">La clé publique du destinataire</button>
+              <button class="option" onclick="answer(this,false)">Une clé symétrique partagée</button>
+            </div>
+            <div class="q-feedback">L'expéditeur signe avec sa clé privée (que lui seul possède), ce qui prouve son identité. Le destinataire vérifie avec la clé publique de l'expéditeur. C'est l'inverse du chiffrement asymétrique classique.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quel protocole sécurise les communications HTTPS ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">SSH</button>
+              <button class="option" onclick="answer(this,true)">TLS</button>
+              <button class="option" onclick="answer(this,false)">IPsec</button>
+              <button class="option" onclick="answer(this,false)">PGP</button>
+            </div>
+            <div class="q-feedback">TLS (Transport Layer Security) est le protocole qui sécurise HTTPS. Il combine chiffrement asymétrique (pour l'échange de clés) et symétrique (pour le chiffrement des données) lors du handshake TLS.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Quelle menace l'informatique quantique fait-elle peser sur la cryptographie ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Elle rend toute forme de chiffrement obsolète</button>
+              <button class="option" onclick="answer(this,false)">Elle permet de deviner les mots de passe instantanément</button>
+              <button class="option" onclick="answer(this,true)">L'algorithme de Shor pourrait casser RSA et ECC</button>
+              <button class="option" onclick="answer(this,false)">Elle empêche l'utilisation de fonctions de hachage</button>
+            </div>
+            <div class="q-feedback">L'algorithme de Shor peut factoriser de grands nombres en temps polynomial sur un ordinateur quantique, menaçant RSA et ECC. Cependant, AES-256 et les fonctions de hachage restent résistants (algorithme de Grover ne fait que diviser la sécurité par deux).</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Chiffrement de César</h3>
+        <p>Implémentez en Python le chiffrement de César : chaque lettre est décalée de N positions dans l'alphabet. Écrivez les fonctions <code>chiffrer(texte, decalage)</code> et <code>dechiffrer(texte, decalage)</code>. Puis écrivez une fonction <code>casser(texte)</code> qui teste les 26 décalages possibles.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>def chiffrer(texte, decalage):
+    resultat = ""
+    for c in texte:
+        if c.isalpha():
+            base = ord('A') if c.isupper() else ord('a')
+            resultat += chr((ord(c) - base + decalage) % 26 + base)
+        else:
+            resultat += c
+    return resultat
+
+def dechiffrer(texte, decalage):
+    return chiffrer(texte, -decalage)
+
+def casser(texte):
+    for d in range(26):
+        print(f"Décalage {d:2d} : {dechiffrer(texte, d)}")
+
+# Test
+chiffre = chiffrer("Bonjour le monde", 3)
+print(chiffre)              # → "Erqmrxu oh prqgh"
+print(dechiffrer(chiffre, 3))  # → "Bonjour le monde"
+
+# César est trivial à casser : 26 possibilités seulement !</code></pre></div>
+        </details>
+
+        <h3>Exercice 2 — Hachage et intégrité</h3>
+        <p>Écrivez un programme Python qui : (a) calcule le hash SHA-256 d'un fichier, (b) modifie un seul octet du fichier, (c) recalcule le hash et compare. Démontrez l'effet avalanche en affichant le pourcentage de bits différents entre les deux hash.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>import hashlib
+
+def hash_fichier(chemin):
+    h = hashlib.sha256()
+    with open(chemin, 'rb') as f:
+        for bloc in iter(lambda: f.read(4096), b''):
+            h.update(bloc)
+    return h.hexdigest()
+
+def bits_differents(h1, h2):
+    """Compte les bits différents entre deux hash hex."""
+    n1 = int(h1, 16)
+    n2 = int(h2, 16)
+    xor = n1 ^ n2
+    return bin(xor).count('1')
+
+# Créer un fichier de test
+with open("test.txt", "w") as f:
+    f.write("Contenu original du fichier")
+
+hash1 = hash_fichier("test.txt")
+
+# Modifier un seul caractère
+with open("test.txt", "w") as f:
+    f.write("Contenu Original du fichier")  # 'o' → 'O'
+
+hash2 = hash_fichier("test.txt")
+
+diff = bits_differents(hash1, hash2)
+print(f"Hash 1 : {hash1}")
+print(f"Hash 2 : {hash2}")
+print(f"Bits différents : {diff}/256 ({diff/256*100:.1f}%)")
+# → Environ 50% des bits changent (effet avalanche)</code></pre></div>
+        </details>
+
+        <h3>Exercice 3 — Chiffrement symétrique AES</h3>
+        <p>En utilisant la bibliothèque <code>cryptography</code> de Python, chiffrez un message avec AES-GCM (qui assure confidentialité et intégrité). Montrez qu'une modification du texte chiffré est détectée lors du déchiffrement.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+import os
+
+# Générer une clé AES-256 (32 octets)
+cle = AESGCM.generate_key(bit_length=256)
+aesgcm = AESGCM(cle)
+
+# Chiffrement
+nonce = os.urandom(12)  # 96 bits, unique pour chaque message
+message = b"Information ultra confidentielle"
+chiffre = aesgcm.encrypt(nonce, message, None)
+
+# Déchiffrement normal
+dechiffre = aesgcm.decrypt(nonce, chiffre, None)
+print(dechiffre)  # → b'Information ultra confidentielle'
+
+# Tentative de modification du texte chiffré
+chiffre_modifie = bytearray(chiffre)
+chiffre_modifie[0] ^= 0xFF  # Inverser le premier octet
+try:
+    aesgcm.decrypt(nonce, bytes(chiffre_modifie), None)
+except Exception as e:
+    print(f"Altération détectée : {e}")
+    # → InvalidTag: le tag GCM ne correspond plus</code></pre></div>
+        </details>
+
+        <h3>Exercice 4 — Analyse de certificat</h3>
+        <p>Utilisez la commande <code>openssl</code> pour examiner le certificat TLS d'un site web. Identifiez : l'émetteur (CA), le sujet, la période de validité, l'algorithme de signature et la taille de la clé publique. Expliquez chaque champ.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code># Récupérer et afficher le certificat
+openssl s_client -connect example.com:443 -servername example.com \
+  2>/dev/null | openssl x509 -text -noout
+
+# Champs importants :
+# Issuer: C=US, O=DigiCert Inc, CN=DigiCert Global G2 TLS RSA SHA256
+#   → L'autorité de certification qui a émis le certificat
+
+# Subject: CN=example.com
+#   → L'identité certifiée (le domaine)
+
+# Validity:
+#   Not Before: Jan 15 00:00:00 2024 GMT
+#   Not After:  Feb 14 23:59:59 2025 GMT
+#   → Période de validité (généralement 1 an)
+
+# Signature Algorithm: sha256WithRSAEncryption
+#   → Algorithme utilisé par la CA pour signer
+
+# Public Key Algorithm: rsaEncryption (2048 bit)
+#   → Clé publique du serveur (RSA 2048 bits)
+
+# X509v3 Subject Alternative Name:
+#   DNS:example.com, DNS:www.example.com
+#   → Domaines couverts par le certificat</code></pre></div>
+        </details>
+
+        <h3>Exercice 5 — Comparatif des algorithmes</h3>
+        <p>Réalisez un tableau comparatif des algorithmes cryptographiques suivants : AES-256, RSA-2048, SHA-256, bcrypt, ECDSA P-256. Pour chacun, indiquez : le type (symétrique/asymétrique/hachage), l'usage principal, la taille de sortie, la résistance quantique et un cas d'utilisation concret.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>| Algorithme  | Type        | Usage          | Taille    | Quantique | Cas d'usage        |
+|-------------|-------------|----------------|-----------|-----------|---------------------|
+| AES-256     | Symétrique  | Chiffrement    | 256 bits  | Résistant | Chiffrement disque  |
+| RSA-2048    | Asymétrique | Chiffr./Sign.  | 2048 bits | Vulnérable| Certificats TLS     |
+| SHA-256     | Hachage     | Intégrité      | 256 bits  | Résistant | Vérification fichier|
+| bcrypt      | Hachage MDP | Mots de passe  | 184 bits  | Résistant | Stockage MDP en BDD |
+| ECDSA P-256 | Asymétrique | Signature      | 256 bits  | Vulnérable| Signature JWT/TLS   |
+
+Notes :
+- AES-256 : Grover réduit la sécurité à 128 bits → reste sûr
+- RSA/ECDSA : Shor les casse → migrer vers post-quantique
+- bcrypt : volontairement lent (facteur de coût ajustable)
+- SHA-256 : Grover réduit à 128 bits → reste sûr
+- Post-quantique : CRYSTALS-Kyber (chiffrement),
+  CRYSTALS-Dilithium (signature) — standardisés NIST 2024</code></pre></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="fondamentaux.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Fondamentaux de la cybersécurité</span>
+      </a>
+      <a href="reseaux.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Sécurité des réseaux →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Etendue, variance, ecart-type, coefficient de variation — mesurer a quel point les donnees sont etalees autour de leur centre.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Dispersion et variabilite — Statistiques descriptives — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08);  --accent-hero: rgba(79,195,247,0.04); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../index.html">Statistiques</a> › <a href="../descriptives.html">Descriptives</a> › <span>Dispersion</span>
+  </div>
+</nav>
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">📐 Statistiques descriptives</span>
+    <span class="tag-level">Debutant → Intermediaire</span>
+    <span class="tag-time">⏱ ~45 min</span>
+  </div>
+  <h1><em>Dispersion et variabilite</em></h1>
+  <p class="hero-desc">Etendue, variance, ecart-type, coefficient de variation — mesurer a quel point les donnees sont etalees autour de leur centre.</p>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../descriptives.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Descriptives</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="tendance-centrale.html">Tendance centrale</a>
+    <a class="sidebar-link active" href="#">Dispersion</a>
+    <a class="sidebar-link" href="graphiques.html">Graphiques</a>
+    <a class="sidebar-link" href="distributions.html">Distributions</a>
+    <a class="sidebar-link" href="aberrantes.html">Donnees aberrantes</a>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info"><h2>Introduction</h2><p>Pourquoi la dispersion compte</p></div>
+      </div>
+      <p class="resume-text">Deux ensembles de donnees peuvent avoir la meme moyenne mais des distributions tres differentes. Par exemple, {10, 10, 10} et {0, 10, 20} ont la meme moyenne (10), mais le second est bien plus disperse. Les <strong>mesures de dispersion</strong> quantifient cette variabilite.</p>
+      <div class="highlight-box">
+        <p><strong>Principe :</strong> la tendance centrale seule ne suffit pas. Il faut aussi mesurer l'<em>etalement</em> des donnees pour avoir une image complete de la distribution.</p>
+      </div>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info"><h2>Le cours</h2><p>Mesures de dispersion en detail</p></div>
+      </div>
+      <div class="course-content">
+        <h3>L'etendue (range)</h3>
+        <p>L'etendue est la difference entre la plus grande et la plus petite valeur : <strong>E = x_max - x_min</strong>. Simple a calculer mais tres sensible aux valeurs extremes et ne tient compte que de deux observations.</p>
+
+        <h3>La variance</h3>
+        <p>La variance mesure la dispersion moyenne des donnees autour de la moyenne. C'est la <strong>moyenne des carres des ecarts a la moyenne</strong> :</p>
+        <div class="highlight-box">
+          <p><strong>Variance (population) :</strong> σ² = Σ(xᵢ - μ)² / N</p>
+          <p><strong>Variance (echantillon) :</strong> s² = Σ(xᵢ - x̄)² / (n - 1)</p>
+        </div>
+        <p>On divise par (n-1) et non par n pour l'echantillon : c'est la <strong>correction de Bessel</strong>, qui donne un estimateur sans biais de la variance de la population.</p>
+        <p><strong>Exemple :</strong> Donnees : 2, 4, 4, 4, 5, 5, 7, 9. Moyenne x̄ = 40/8 = 5. Ecarts au carre : 9, 1, 1, 1, 0, 0, 4, 16. Somme = 32. Variance (population) = 32/8 = <strong>4</strong>. Variance (echantillon) = 32/7 ≈ <strong>4,57</strong>.</p>
+
+        <h3>L'ecart-type</h3>
+        <p>L'ecart-type est la <strong>racine carree de la variance</strong> : σ = √(σ²). Son avantage majeur : il s'exprime dans la <strong>meme unite</strong> que les donnees (contrairement a la variance qui est en unites au carre).</p>
+        <div class="highlight-box">
+          <p><strong>Regle empirique (loi normale) :</strong> environ 68 % des donnees sont a ± 1σ, 95 % a ± 2σ, et 99,7 % a ± 3σ de la moyenne.</p>
+        </div>
+
+        <h3>Le coefficient de variation (CV)</h3>
+        <p>Le CV est le rapport de l'ecart-type a la moyenne, exprime en pourcentage : <strong>CV = (σ / μ) × 100 %</strong>. Il permet de comparer la dispersion de distributions ayant des unites ou des ordres de grandeur differents.</p>
+        <p><strong>Exemple :</strong> Les tailles d'adultes ont un CV d'environ 4 %, tandis que les poids ont un CV d'environ 15 %. Les poids sont donc relativement plus disperses que les tailles.</p>
+
+        <h3>L'ecart interquartile (IQR)</h3>
+        <p>L'IQR est la difference entre le 3e quartile (Q₃, 75e percentile) et le 1er quartile (Q₁, 25e percentile) : <strong>IQR = Q₃ - Q₁</strong>. Il mesure l'etendue des 50 % centraux des donnees et est <strong>robuste aux outliers</strong>.</p>
+        <p>Les quartiles divisent les donnees ordonnees en quatre parts egales : Q₁ (25 %), Q₂ = mediane (50 %), Q₃ (75 %). Les <strong>percentiles</strong> generalisent cette idee a n'importe quel pourcentage.</p>
+
+        <h3>Choix de la mesure</h3>
+        <ul>
+          <li><strong>Ecart-type :</strong> le plus courant, adapte aux distributions symetriques sans outliers</li>
+          <li><strong>IQR :</strong> prefere quand il y a des outliers ou une asymetrie forte</li>
+          <li><strong>CV :</strong> ideal pour comparer des variables d'echelles differentes</li>
+          <li><strong>Etendue :</strong> rapide mais peu informative, a eviter seule</li>
+        </ul>
+      </div>
+    </section>
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info"><h2>Quiz</h2><p>Testez votre comprehension</p></div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">📐 Dispersion — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">5</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 5</p>
+            <p class="q-text">L'etendue de {3, 7, 2, 15, 9} est :</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">7</button>
+              <button class="option" onclick="answer(this,true)">13</button>
+              <button class="option" onclick="answer(this,false)">12</button>
+              <button class="option" onclick="answer(this,false)">9</button>
+            </div>
+            <div class="q-feedback">E = 15 - 2 = 13.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 5</p>
+            <p class="q-text">Pourquoi divise-t-on par (n-1) dans la variance d'echantillon ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Pour simplifier le calcul</button>
+              <button class="option" onclick="answer(this,true)">Pour obtenir un estimateur sans biais</button>
+              <button class="option" onclick="answer(this,false)">Par convention</button>
+              <button class="option" onclick="answer(this,false)">Pour obtenir une valeur plus petite</button>
+            </div>
+            <div class="q-feedback">La correction de Bessel (n-1 au lieu de n) compense le fait que la moyenne echantillonnale sous-estime la variabilite reelle de la population.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 5</p>
+            <p class="q-text">L'ecart-type est :</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Le carre de la variance</button>
+              <button class="option" onclick="answer(this,true)">La racine carree de la variance</button>
+              <button class="option" onclick="answer(this,false)">La moitie de la variance</button>
+              <button class="option" onclick="answer(this,false)">La variance divisee par n</button>
+            </div>
+            <div class="q-feedback">σ = √(σ²). L'ecart-type est la racine carree de la variance, ce qui le ramene dans l'unite d'origine des donnees.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 5</p>
+            <p class="q-text">L'IQR mesure l'etendue des :</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">25 % centraux</button>
+              <button class="option" onclick="answer(this,true)">50 % centraux</button>
+              <button class="option" onclick="answer(this,false)">75 % centraux</button>
+              <button class="option" onclick="answer(this,false)">100 % des donnees</button>
+            </div>
+            <div class="q-feedback">IQR = Q₃ - Q₁ couvre les 50 % centraux des donnees (du 25e au 75e percentile).</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 5</p>
+            <p class="q-text">Quel indicateur permet de comparer la dispersion de variables d'echelles differentes ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">La variance</button>
+              <button class="option" onclick="answer(this,false)">L'etendue</button>
+              <button class="option" onclick="answer(this,true)">Le coefficient de variation</button>
+              <button class="option" onclick="answer(this,false)">L'ecart-type</button>
+            </div>
+            <div class="q-feedback">Le CV = σ/μ × 100 % est sans dimension, ce qui permet de comparer la variabilite relative de variables mesurees dans des unites differentes.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/5</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Precedent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info"><h2>Exercices</h2><p>Mettez en pratique</p></div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Variance et ecart-type</h3>
+        <p>Calculer la variance et l'ecart-type (population) de : 6, 2, 8, 4, 10.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Moyenne = 30/5 = 6. Ecarts² : 0, 16, 4, 4, 16. Variance = 40/5 = <strong>8</strong>. Ecart-type = √8 ≈ <strong>2,83</strong>.</p></div>
+        </details>
+        <h3>Exercice 2 — IQR</h3>
+        <p>Calculer Q₁, Q₃ et l'IQR de : 1, 3, 5, 7, 9, 11, 13, 15.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Q₁ = mediane de {1,3,5,7} = (3+5)/2 = <strong>4</strong>. Q₃ = mediane de {9,11,13,15} = (11+13)/2 = <strong>12</strong>. IQR = 12 - 4 = <strong>8</strong>.</p></div>
+        </details>
+        <h3>Exercice 3 — Coefficient de variation</h3>
+        <p>Le poids moyen d'un lot de pommes est 180 g (σ = 25 g). Celui d'un lot de pasteques est 5 kg (σ = 0,8 kg). Quel fruit a la variabilite relative la plus grande ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>CV pommes = 25/180 × 100 ≈ <strong>13,9 %</strong>. CV pasteques = 0,8/5 × 100 = <strong>16 %</strong>. Les pasteques sont relativement plus variables malgre un ecart-type plus petit en valeur absolue.</p></div>
+        </details>
+      </div>
+    </section>
+    <div class="course-nav">
+      <a href="tendance-centrale.html" class="prev"><span class="course-nav-label">Cours precedent</span><span class="course-nav-title">← Tendance centrale</span></a>
+      <a href="graphiques.html" class="next"><span class="course-nav-label">Cours suivant</span><span class="course-nav-title">Representations graphiques →</span></a>
+    </div>
+  </main>
+</div>
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

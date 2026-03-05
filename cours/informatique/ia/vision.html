@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Détection d'objets, segmentation, reconnaissance faciale, augmentation de données — apprendre aux machines à voir et comprendre les images.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Vision par ordinateur — Intelligence artificielle — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root {
+  --accent: #2980b9;
+  --accent2: #3498db;
+  --accent-dim: rgba(41,128,185,0.08);
+ --accent-hero: rgba(41,128,185,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../index.html">Informatique</a> › <a href="../ia.html">Intelligence artificielle</a> › <span>Vision par ordinateur</span>
+  </div>
+</nav>
+
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">🤖 Intelligence artificielle</span>
+    <span class="tag-level">Avancé</span>
+    <span class="tag-time">⏱ ~50 min</span>
+  </div>
+  <h1><em>Vision par ordinateur</em></h1>
+  <p class="hero-desc">Détection d'objets, segmentation, reconnaissance faciale, augmentation de données — apprendre aux machines à voir et comprendre les images.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../ia.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Intelligence artificielle</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">💻 Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="machine-learning.html">Machine Learning</a>
+    <a class="sidebar-link" href="reseaux-neurones.html">Réseaux de neurones</a>
+    <a class="sidebar-link" href="deep-learning.html">Deep Learning</a>
+    <a class="sidebar-link" href="nlp.html">Traitement du langage</a>
+    <a class="sidebar-link active" href="#">Vision par ordinateur</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Quand les machines apprennent à voir</p>
+        </div>
+      </div>
+      <p class="resume-text">La <strong>vision par ordinateur</strong> (Computer Vision) est le domaine de l'IA qui permet aux machines d'interpréter et de comprendre le contenu visuel du monde : images, vidéos, flux de caméras en temps réel. C'est l'un des domaines où le deep learning a eu l'impact le plus spectaculaire, transformant radicalement les performances en quelques années.</p>
+      <p class="resume-text">Les applications sont innombrables : voitures autonomes qui détectent les piétons et les panneaux, imagerie médicale qui identifie des tumeurs sur des radiographies, contrôle qualité automatisé dans les usines, filtres de réalité augmentée sur les smartphones, ou encore vidéosurveillance intelligente. La vision par ordinateur est au coeur de la transformation numérique de nombreuses industries.</p>
+      <div class="highlight-box">
+        <p><strong>Le tournant ImageNet :</strong> en 2012, le réseau AlexNet a réduit le taux d'erreur du concours ImageNet de 26% à 16%, une amélioration sans précédent. Depuis, les CNN puis les Vision Transformers ont ramené ce taux sous les 2%, surpassant les performances humaines (~5%).</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Les techniques fondamentales de la vision par ordinateur</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Classification d'images</h3>
+        <p>La <strong>classification d'images</strong> est la tâche la plus fondamentale : attribuer une catégorie à une image entière (chat, chien, voiture, avion...). Le modèle reçoit une image en entrée (matrice de pixels) et produit un vecteur de probabilités sur les classes possibles. Les CNN (réseaux convolutifs) sont l'architecture dominante pour cette tâche.</p>
+        <p>Les architectures classiques incluent <strong>VGG</strong> (couches 3x3 empilées), <strong>ResNet</strong> (connexions résiduelles), <strong>Inception</strong> (filtres de tailles multiples en parallèle), et <strong>EfficientNet</strong> (scaling optimisé). Plus récemment, les <strong>Vision Transformers</strong> (ViT) découpent l'image en patches et les traitent comme une séquence de tokens, atteignant des performances supérieures avec suffisamment de données.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python — PyTorch</span></div>
+          <pre><code><span class="kw">import</span> torch
+<span class="kw">from</span> torchvision <span class="kw">import</span> models, transforms
+<span class="kw">from</span> PIL <span class="kw">import</span> Image
+
+<span class="cm"># Charger un modèle pré-entraîné</span>
+modele = models.resnet50(pretrained=<span class="kw">True</span>)
+modele.eval()
+
+<span class="cm"># Prétraitement standard pour ImageNet</span>
+preprocess = transforms.Compose([
+    transforms.Resize(<span class="num">256</span>),
+    transforms.CenterCrop(<span class="num">224</span>),
+    transforms.ToTensor(),
+    transforms.Normalize([<span class="num">0.485</span>, <span class="num">0.456</span>, <span class="num">0.406</span>],
+                         [<span class="num">0.229</span>, <span class="num">0.224</span>, <span class="num">0.225</span>])
+])
+
+image = Image.open(<span class="str">"photo_chat.jpg"</span>)
+tensor = preprocess(image).unsqueeze(<span class="num">0</span>)
+
+<span class="kw">with</span> torch.no_grad():
+    probs = torch.softmax(modele(tensor), dim=<span class="num">1</span>)
+    top5 = torch.topk(probs, <span class="num">5</span>)
+    <span class="fn">print</span>(<span class="str">"Top-5 prédictions :"</span>, top5)</code></pre>
+        </div>
+
+        <h3>Détection d'objets</h3>
+        <p>La <strong>détection d'objets</strong> va plus loin que la classification : elle identifie chaque objet dans une image et localise sa position avec une <strong>boîte englobante</strong> (bounding box). Chaque détection comprend la classe de l'objet, ses coordonnées (x, y, largeur, hauteur), et un score de confiance.</p>
+        <p>Les architectures de détection se divisent en deux familles. Les détecteurs <strong>two-stage</strong> comme <strong>Faster R-CNN</strong> proposent d'abord des régions d'intérêt, puis les classifient. Les détecteurs <strong>one-stage</strong> comme <strong>YOLO</strong> (You Only Look Once) et <strong>SSD</strong> prédisent directement les boîtes et les classes en un seul passage. YOLO est particulièrement populaire pour la détection en temps réel grâce à sa vitesse (30-60 FPS).</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python — YOLOv8</span></div>
+          <pre><code><span class="kw">from</span> ultralytics <span class="kw">import</span> YOLO
+
+<span class="cm"># Charger le modèle YOLOv8 pré-entraîné</span>
+modele = YOLO(<span class="str">"yolov8n.pt"</span>)  <span class="cm"># version nano (rapide)</span>
+
+<span class="cm"># Détection sur une image</span>
+resultats = modele(<span class="str">"rue_ville.jpg"</span>)
+
+<span class="cm"># Afficher les détections</span>
+<span class="kw">for</span> r <span class="kw">in</span> resultats:
+    <span class="kw">for</span> box <span class="kw">in</span> r.boxes:
+        classe = modele.names[<span class="fn">int</span>(box.cls)]
+        confiance = <span class="fn">float</span>(box.conf)
+        coords = box.xyxy[<span class="num">0</span>].tolist()  <span class="cm"># [x1, y1, x2, y2]</span>
+        <span class="fn">print</span>(<span class="str">f"{classe}: {confiance:.0%} à {coords}"</span>)
+
+<span class="cm"># Résultat : personne: 95% à [120, 50, 280, 400]</span>
+<span class="cm">#            voiture: 88% à [300, 150, 550, 320]</span></code></pre>
+        </div>
+
+        <h3>Segmentation d'images</h3>
+        <p>La <strong>segmentation sémantique</strong> attribue une classe à chaque pixel de l'image. Contrairement à la détection qui donne des boîtes rectangulaires, la segmentation délimite la forme exacte de chaque objet. C'est essentiel pour les voitures autonomes (distinguer route, trottoir, piétons pixel par pixel) et l'imagerie médicale (segmenter tumeurs, organes).</p>
+        <p>L'architecture <strong>U-Net</strong> est la référence en segmentation. Elle a une structure encoder-decoder avec des <strong>skip connections</strong> qui transmettent les détails fins de l'encodeur au décodeur. Le <strong>Feature Pyramid Network</strong> (FPN) fonctionne sur un principe similaire en fusionnant des features à différentes échelles. La <strong>segmentation d'instances</strong> (Mask R-CNN) distingue en plus les différentes instances d'une même classe.</p>
+        <div class="highlight-box">
+          <p><strong>Types de segmentation :</strong><br>
+          <strong>Sémantique :</strong> une classe par pixel (route, ciel, arbre) — ne distingue pas les instances<br>
+          <strong>D'instances :</strong> distingue chaque objet individuellement (personne 1, personne 2)<br>
+          <strong>Panoptique :</strong> combine les deux — segmentation complète de la scène</p>
+        </div>
+
+        <h3>Reconnaissance faciale</h3>
+        <p>La <strong>reconnaissance faciale</strong> est un problème en plusieurs étapes : (1) <strong>détection de visages</strong> dans l'image, (2) <strong>alignement</strong> pour normaliser la position et la taille, (3) extraction d'un <strong>embedding facial</strong> (vecteur de 128-512 dimensions représentant l'identité), (4) <strong>comparaison</strong> avec une base de données pour identifier la personne.</p>
+        <p>Les architectures modernes comme <strong>FaceNet</strong> utilisent la <strong>triplet loss</strong> : entraîner le réseau pour que les embeddings de la même personne soient proches, et ceux de personnes différentes soient éloignés. <strong>ArcFace</strong> améliore cela avec une fonction de coût angulaire qui augmente la marge entre les classes dans l'espace des embeddings. Ces systèmes atteignent des taux de reconnaissance supérieurs à 99% sur les benchmarks.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python — face_recognition</span></div>
+          <pre><code><span class="kw">import</span> face_recognition
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+
+<span class="cm"># Charger et encoder un visage de référence</span>
+img_ref = face_recognition.load_image_file(<span class="str">"alice.jpg"</span>)
+encoding_ref = face_recognition.face_encodings(img_ref)[<span class="num">0</span>]
+
+<span class="cm"># Comparer avec un nouveau visage</span>
+img_test = face_recognition.load_image_file(<span class="str">"inconnu.jpg"</span>)
+encodings_test = face_recognition.face_encodings(img_test)
+
+<span class="kw">for</span> enc <span class="kw">in</span> encodings_test:
+    distance = np.linalg.norm(encoding_ref - enc)
+    match = distance < <span class="num">0.6</span>  <span class="cm"># Seuil de similarité</span>
+    <span class="fn">print</span>(<span class="str">f"Distance : {distance:.3f} → {'Match !' if match else 'Différent'}"</span>)
+
+<span class="cm"># Distance : 0.35 → Match ! (même personne)</span>
+<span class="cm"># L'embedding est un vecteur de 128 dimensions</span></code></pre>
+        </div>
+
+        <h3>Augmentation de données</h3>
+        <p>L'<strong>augmentation de données</strong> (data augmentation) est une technique essentielle pour améliorer la généralisation des modèles de vision. Elle consiste à appliquer des transformations aléatoires aux images d'entraînement pour créer artificiellement de la diversité : rotations, retournements horizontaux, recadrages aléatoires, variations de luminosité et de contraste, ajout de bruit.</p>
+        <p>Les techniques avancées incluent <strong>CutMix</strong> (combiner des morceaux de deux images), <strong>MixUp</strong> (mélanger deux images et leurs labels), et <strong>RandAugment</strong> (appliquer automatiquement une combinaison optimale de transformations). L'augmentation est appliquée à la volée pendant l'entraînement, sans stocker les images transformées.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python — torchvision</span></div>
+          <pre><code><span class="kw">from</span> torchvision <span class="kw">import</span> transforms
+
+<span class="cm"># Pipeline d'augmentation pour l'entraînement</span>
+augmentation_train = transforms.Compose([
+    transforms.RandomResizedCrop(<span class="num">224</span>, scale=(<span class="num">0.8</span>, <span class="num">1.0</span>)),
+    transforms.RandomHorizontalFlip(p=<span class="num">0.5</span>),
+    transforms.RandomRotation(<span class="num">15</span>),
+    transforms.ColorJitter(
+        brightness=<span class="num">0.2</span>, contrast=<span class="num">0.2</span>,
+        saturation=<span class="num">0.2</span>, hue=<span class="num">0.1</span>
+    ),
+    transforms.RandomGrayscale(p=<span class="num">0.1</span>),
+    transforms.ToTensor(),
+    transforms.Normalize([<span class="num">0.485</span>, <span class="num">0.456</span>, <span class="num">0.406</span>],
+                         [<span class="num">0.229</span>, <span class="num">0.224</span>, <span class="num">0.225</span>]),
+    transforms.RandomErasing(p=<span class="num">0.1</span>),  <span class="cm"># Masquer un rectangle aléatoire</span>
+])
+
+<span class="cm"># Pipeline de test (pas d'augmentation)</span>
+preprocess_test = transforms.Compose([
+    transforms.Resize(<span class="num">256</span>),
+    transforms.CenterCrop(<span class="num">224</span>),
+    transforms.ToTensor(),
+    transforms.Normalize([<span class="num">0.485</span>, <span class="num">0.456</span>, <span class="num">0.406</span>],
+                         [<span class="num">0.229</span>, <span class="num">0.224</span>, <span class="num">0.225</span>]),
+])</code></pre>
+        </div>
+
+        <h3>Modèles génératifs pour les images</h3>
+        <p>Les <strong>modèles génératifs</strong> créent de nouvelles images à partir de bruit aléatoire ou de descriptions textuelles. Les <strong>GAN</strong> (Generative Adversarial Networks) opposent un générateur (qui crée des images) à un discriminateur (qui distingue le vrai du faux) dans un jeu adversarial. StyleGAN peut générer des visages photoréalistes de personnes qui n'existent pas.</p>
+        <p>Les <strong>modèles de diffusion</strong> (Stable Diffusion, DALL-E, Midjourney) ont largement supplanté les GAN pour la génération d'images. Ils fonctionnent en deux phases : bruiter progressivement une image pendant l'entraînement, puis apprendre à la débruiter. À l'inférence, on part de bruit pur et on débruite étape par étape pour obtenir une image cohérente, éventuellement guidée par un prompt textuel.</p>
+
+        <h3>Vision par ordinateur en temps réel</h3>
+        <p>La <strong>vision en temps réel</strong> impose des contraintes de latence strictes : la voiture autonome doit détecter un piéton en moins de 50 ms. Cela nécessite des architectures optimisées comme <strong>MobileNet</strong> (convolutions dépthwise separable), <strong>EfficientNet-Lite</strong>, ou des versions compactes de YOLO. La <strong>quantification</strong> réduit la précision des poids de 32 bits à 8 bits, accélérant l'inférence de 2 à 4 fois.</p>
+        <p>Le <strong>pruning</strong> (élagage) supprime les connexions de faible importance, réduisant la taille du modèle. La <strong>distillation de connaissances</strong> entraîne un petit modèle « étudiant » à imiter les sorties d'un grand modèle « professeur ». Ces techniques permettent de déployer des modèles performants sur des appareils mobiles, des caméras embarquées ou des drones.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">📊 Vision par ordinateur — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quelle est la différence entre la classification d'images et la détection d'objets ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">La classification est plus précise</button>
+              <button class="option" onclick="answer(this,true)">La détection localise aussi les objets avec des boîtes englobantes</button>
+              <button class="option" onclick="answer(this,false)">La détection ne fonctionne que sur les vidéos</button>
+              <button class="option" onclick="answer(this,false)">La classification utilise des CNN, pas la détection</button>
+            </div>
+            <div class="q-feedback">La classification attribue une seule catégorie à toute l'image. La détection identifie plusieurs objets dans l'image et donne la position de chacun sous forme de boîte englobante (bounding box).</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Pourquoi YOLO est-il populaire pour la détection en temps réel ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Il est plus précis que tous les autres détecteurs</button>
+              <button class="option" onclick="answer(this,true)">Il prédit les boîtes et les classes en un seul passage, ce qui le rend très rapide</button>
+              <button class="option" onclick="answer(this,false)">Il ne nécessite pas de GPU</button>
+              <button class="option" onclick="answer(this,false)">Il fonctionne uniquement sur les caméras de surveillance</button>
+            </div>
+            <div class="q-feedback">YOLO (You Only Look Once) est un détecteur one-stage : il traite l'image en un seul passage réseau, contrairement aux détecteurs two-stage qui nécessitent une étape de proposition de régions puis de classification.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Qu'est-ce que la segmentation sémantique ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Détecter des objets avec des boîtes rectangulaires</button>
+              <button class="option" onclick="answer(this,false)">Classifier une image entière</button>
+              <button class="option" onclick="answer(this,true)">Attribuer une classe à chaque pixel de l'image</button>
+              <button class="option" onclick="answer(this,false)">Identifier les couleurs dominantes</button>
+            </div>
+            <div class="q-feedback">La segmentation sémantique classe chaque pixel de l'image (route, ciel, piéton, voiture...), donnant une carte dense qui délimite précisément la forme de chaque région.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Comment fonctionne la reconnaissance faciale moderne ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Elle compare les pixels directement</button>
+              <button class="option" onclick="answer(this,false)">Elle mesure les distances entre les yeux et le nez</button>
+              <button class="option" onclick="answer(this,true)">Elle transforme chaque visage en un vecteur (embedding) et compare les distances</button>
+              <button class="option" onclick="answer(this,false)">Elle utilise uniquement la couleur de la peau</button>
+            </div>
+            <div class="q-feedback">Les modèles comme FaceNet extraient un embedding (vecteur dense de 128-512 dimensions) pour chaque visage. Deux visages de la même personne ont des embeddings proches dans l'espace vectoriel.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quel est le but de l'augmentation de données ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Augmenter la résolution des images</button>
+              <button class="option" onclick="answer(this,true)">Créer artificiellement de la diversité pour améliorer la généralisation</button>
+              <button class="option" onclick="answer(this,false)">Compresser les images pour économiser de l'espace</button>
+              <button class="option" onclick="answer(this,false)">Supprimer les images de mauvaise qualité</button>
+            </div>
+            <div class="q-feedback">L'augmentation applique des transformations aléatoires (rotation, recadrage, variation de couleur) aux images d'entraînement, créant de la diversité artificielle qui aide le modèle à mieux généraliser.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Quelle technique réduit la taille d'un modèle pour le déploiement sur appareils mobiles ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">L'augmentation de données</button>
+              <button class="option" onclick="answer(this,false)">Le transfer learning</button>
+              <button class="option" onclick="answer(this,false)">La batch normalization</button>
+              <button class="option" onclick="answer(this,true)">La quantification et le pruning</button>
+            </div>
+            <div class="q-feedback">La quantification réduit la précision des poids (32 bits → 8 bits), et le pruning supprime les connexions peu importantes. Ces deux techniques combinées peuvent réduire la taille d'un modèle de 4x à 10x.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Classification avec transfer learning</h3>
+        <p>Utilisez un ResNet18 pré-entraîné pour classifier des images de fleurs en 5 catégories (roses, tulipes, tournesols, marguerites, pissenlits). Gelez les couches convolutives, remplacez le classifieur final, et entraînez pendant 5 epochs. Mesurez la précision sur un jeu de test.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>import torch
+import torch.nn as nn
+from torchvision import models, transforms, datasets
+from torch.utils.data import DataLoader
+
+transform_train = transforms.Compose([
+    transforms.RandomResizedCrop(224),
+    transforms.RandomHorizontalFlip(),
+    transforms.ToTensor(),
+    transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+])
+
+transform_test = transforms.Compose([
+    transforms.Resize(256), transforms.CenterCrop(224),
+    transforms.ToTensor(),
+    transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+])
+
+# train_data = datasets.ImageFolder('fleurs/train', transform_train)
+# test_data = datasets.ImageFolder('fleurs/test', transform_test)
+# train_loader = DataLoader(train_data, batch_size=32, shuffle=True)
+# test_loader = DataLoader(test_data, batch_size=32)
+
+model = models.resnet18(pretrained=True)
+for p in model.parameters(): p.requires_grad = False
+model.fc = nn.Linear(model.fc.in_features, 5)
+
+optimizer = torch.optim.Adam(model.fc.parameters(), lr=0.001)
+criterion = nn.CrossEntropyLoss()
+
+for epoch in range(5):
+    for images, labels in train_loader:
+        loss = criterion(model(images), labels)
+        optimizer.zero_grad(); loss.backward(); optimizer.step()
+
+# Évaluation : précision typique ~90-95% avec transfer learning</code></pre></div>
+        </details>
+
+        <h3>Exercice 2 — Détection d'objets avec YOLOv8</h3>
+        <p>Installez Ultralytics et utilisez YOLOv8 pré-entraîné pour détecter les objets dans 5 images différentes (scène de rue, cuisine, parc, bureau, plage). Affichez les résultats avec les boîtes englobantes et comptez le nombre d'objets par catégorie.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>from ultralytics import YOLO
+from collections import Counter
+
+model = YOLO("yolov8n.pt")
+
+images = ["rue.jpg", "cuisine.jpg", "parc.jpg", "bureau.jpg", "plage.jpg"]
+total_detections = Counter()
+
+for img_path in images:
+    results = model(img_path)
+    detections = Counter()
+
+    for r in results:
+        for box in r.boxes:
+            classe = model.names[int(box.cls)]
+            confiance = float(box.conf)
+            if confiance > 0.5:  # Seuil de confiance
+                detections[classe] += 1
+
+    print(f"\n{img_path} :")
+    for cls, count in detections.most_common():
+        print(f"  {cls}: {count}")
+    total_detections += detections
+
+    # Sauvegarder l'image annotée
+    r.save(filename=f"resultat_{img_path}")
+
+print(f"\nTotal : {sum(total_detections.values())} objets détectés")
+print("Catégories :", dict(total_detections.most_common(10)))</code></pre></div>
+        </details>
+
+        <h3>Exercice 3 — Segmentation avec U-Net simplifié</h3>
+        <p>Implémentez une version simplifiée de U-Net avec PyTorch pour la segmentation binaire (objet/fond). Utilisez un encodeur à 3 niveaux et un décodeur symétrique avec skip connections. Entraînez sur un petit dataset de masques.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>import torch
+import torch.nn as nn
+
+class UNetSimple(nn.Module):
+    def __init__(self):
+        super().__init__()
+        # Encodeur
+        self.enc1 = self._block(3, 64)
+        self.enc2 = self._block(64, 128)
+        self.enc3 = self._block(128, 256)
+        self.pool = nn.MaxPool2d(2)
+
+        # Bottleneck
+        self.bottleneck = self._block(256, 512)
+
+        # Décodeur
+        self.up3 = nn.ConvTranspose2d(512, 256, 2, stride=2)
+        self.dec3 = self._block(512, 256)  # 256+256 skip
+        self.up2 = nn.ConvTranspose2d(256, 128, 2, stride=2)
+        self.dec2 = self._block(256, 128)
+        self.up1 = nn.ConvTranspose2d(128, 64, 2, stride=2)
+        self.dec1 = self._block(128, 64)
+
+        self.final = nn.Conv2d(64, 1, 1)  # Segmentation binaire
+
+    def _block(self, in_c, out_c):
+        return nn.Sequential(
+            nn.Conv2d(in_c, out_c, 3, padding=1), nn.ReLU(),
+            nn.Conv2d(out_c, out_c, 3, padding=1), nn.ReLU())
+
+    def forward(self, x):
+        e1 = self.enc1(x)
+        e2 = self.enc2(self.pool(e1))
+        e3 = self.enc3(self.pool(e2))
+        b = self.bottleneck(self.pool(e3))
+        d3 = self.dec3(torch.cat([self.up3(b), e3], dim=1))
+        d2 = self.dec2(torch.cat([self.up2(d3), e2], dim=1))
+        d1 = self.dec1(torch.cat([self.up1(d2), e1], dim=1))
+        return torch.sigmoid(self.final(d1))
+
+model = UNetSimple()
+# Entraîner avec BCELoss pour la segmentation binaire
+# Loss = nn.BCELoss(), optimiseur Adam lr=1e-4</code></pre></div>
+        </details>
+
+        <h3>Exercice 4 — Pipeline d'augmentation de données</h3>
+        <p>Créez un pipeline d'augmentation de données complet avec torchvision et Albumentations. Appliquez-le à une image et affichez 16 versions augmentées côte à côte pour visualiser l'effet des transformations. Comparez les performances d'un modèle entraîné avec et sans augmentation.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>from torchvision import transforms
+from PIL import Image
+import matplotlib.pyplot as plt
+
+augmentation = transforms.Compose([
+    transforms.RandomResizedCrop(224, scale=(0.7, 1.0)),
+    transforms.RandomHorizontalFlip(),
+    transforms.RandomRotation(20),
+    transforms.ColorJitter(brightness=0.3, contrast=0.3,
+                            saturation=0.3, hue=0.15),
+    transforms.RandomGrayscale(p=0.1),
+    transforms.RandomPerspective(distortion_scale=0.2, p=0.3),
+])
+
+image = Image.open("exemple.jpg")
+
+fig, axes = plt.subplots(4, 4, figsize=(12, 12))
+for ax in axes.flat:
+    img_aug = augmentation(image)
+    ax.imshow(img_aug)
+    ax.axis('off')
+plt.suptitle("16 augmentations aléatoires de la même image")
+plt.show()
+
+# Sans augmentation : train 98%, test 82% (surapprentissage)
+# Avec augmentation : train 94%, test 89% (meilleure généralisation)</code></pre></div>
+        </details>
+
+        <h3>Exercice 5 — Grad-CAM : visualiser l'attention du modèle</h3>
+        <p>Implémentez Grad-CAM pour visualiser quelles régions de l'image influencent le plus la décision d'un CNN. Utilisez un ResNet pré-entraîné, classifiez une image, puis générez la carte de chaleur (heatmap) montrant les zones les plus importantes pour la prédiction.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>import torch
+import torch.nn.functional as F
+from torchvision import models, transforms
+from PIL import Image
+import matplotlib.pyplot as plt
+import numpy as np
+
+model = models.resnet50(pretrained=True)
+model.eval()
+
+# Hook pour capturer les feature maps et les gradients
+features = {}
+def hook_features(module, input, output):
+    features['maps'] = output
+def hook_gradients(module, grad_in, grad_out):
+    features['gradients'] = grad_out[0]
+
+model.layer4.register_forward_hook(hook_features)
+model.layer4.register_full_backward_hook(hook_gradients)
+
+# Charger et prétraiter l'image
+preprocess = transforms.Compose([
+    transforms.Resize(256), transforms.CenterCrop(224),
+    transforms.ToTensor(),
+    transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
+
+image = Image.open("chat.jpg")
+tensor = preprocess(image).unsqueeze(0).requires_grad_(True)
+
+# Forward + backward
+output = model(tensor)
+classe_pred = output.argmax(1).item()
+output[0, classe_pred].backward()
+
+# Calculer Grad-CAM
+gradients = features['gradients'].mean(dim=[2, 3], keepdim=True)
+cam = F.relu((features['maps'] * gradients).sum(dim=1, keepdim=True))
+cam = F.interpolate(cam, size=(224, 224), mode='bilinear')
+cam = cam.squeeze().detach().numpy()
+cam = (cam - cam.min()) / (cam.max() - cam.min())
+
+# Afficher
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 5))
+ax1.imshow(image.resize((224, 224))); ax1.set_title("Image originale")
+ax2.imshow(image.resize((224, 224))); ax2.imshow(cam, alpha=0.5, cmap='jet')
+ax2.set_title(f"Grad-CAM (classe: {classe_pred})")
+plt.show()</code></pre></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="nlp.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Traitement du langage naturel</span>
+      </a>
+      <div></div>
+    </div>
+
+  </main>
+</div>
+
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

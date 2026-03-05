@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Taux de variation instantané, règles de dérivation, étude de fonctions et optimisation.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Dérivées — Analyse — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root {
+  --accent: #c0392b;
+  --accent2: #e74c3c;
+  --accent-dim: rgba(192,57,43,0.08);
+ --accent-hero: rgba(192,57,43,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../index.html">Mathématiques</a> › <a href="../analyse.html">Analyse</a> › <span>Dérivées</span>
+  </div>
+</nav>
+
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">📈 Analyse</span>
+    <span class="tag-level">Intermédiaire</span>
+    <span class="tag-time">⏱ ~55 min</span>
+  </div>
+  <h1><em>Dérivées</em></h1>
+  <p class="hero-desc">Taux de variation instantané, règles de dérivation, étude de fonctions et optimisation.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../analyse.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Analyse</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="limites.html">Limites et continuité</a>
+    <a class="sidebar-link active" href="#">Dérivées</a>
+    <a class="sidebar-link" href="integrales.html">Intégrales</a>
+    <a class="sidebar-link" href="suites-series.html">Suites et séries</a>
+    <a class="sidebar-link" href="equations-differentielles.html">Équations différentielles</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Mesurer le changement instantané</p>
+        </div>
+      </div>
+      <p class="resume-text">La dérivée est l'outil mathématique qui mesure le <strong>taux de variation instantané</strong> d'une grandeur par rapport à une autre. Si vous conduisez une voiture et regardez le compteur de vitesse, vous lisez une dérivée : la vitesse est la dérivée de la position par rapport au temps.</p>
+      <div class="highlight-box">
+        <p><strong>Idée centrale :</strong> la dérivée de f en a est la pente de la tangente à la courbe de f au point (a, f(a)). Elle transforme une question géométrique (quelle est la direction de la courbe ?) en un calcul algébrique précis.</p>
+      </div>
+      <p class="resume-text">Newton a inventé le calcul différentiel pour décrire les lois du mouvement, tandis que Leibniz a développé la notation dy/dx que nous utilisons encore aujourd'hui. La dérivée est omniprésente : en physique (vitesse, accélération), en économie (coût marginal), en biologie (taux de croissance) et en intelligence artificielle (descente de gradient).</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Dérivation et applications</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Définition de la dérivée</h3>
+        <p>La dérivée de f en a est définie comme la <strong>limite du taux de variation</strong> :</p>
+        <div class="highlight-box">
+          <p><strong>f'(a) = lim<sub>h→0</sub> [f(a + h) − f(a)] / h</strong></p>
+          <p>Cette limite, si elle existe, donne la pente de la tangente à la courbe y = f(x) au point d'abscisse a. On dit alors que f est dérivable en a.</p>
+        </div>
+        <p>Géométriquement, le quotient [f(a+h) − f(a)]/h représente la pente de la <strong>sécante</strong> passant par les points (a, f(a)) et (a+h, f(a+h)). Quand h → 0, la sécante « pivote » vers la tangente.</p>
+        <p><strong>Exemple :</strong> soit f(x) = x². Calculons f'(3) : f'(3) = lim<sub>h→0</sub> [(3+h)² − 9]/h = lim<sub>h→0</sub> [9 + 6h + h² − 9]/h = lim<sub>h→0</sub> (6h + h²)/h = lim<sub>h→0</sub> (6 + h) = 6.</p>
+
+        <h3>Dérivées des fonctions usuelles</h3>
+        <p>Voici les dérivées fondamentales à connaître par coeur :</p>
+        <ul>
+          <li><strong>(c)' = 0</strong> — la dérivée d'une constante est nulle</li>
+          <li><strong>(x<sup>n</sup>)' = nx<sup>n−1</sup></strong> — pour tout n réel (règle de puissance)</li>
+          <li><strong>(e<sup>x</sup>)' = e<sup>x</sup></strong> — l'exponentielle est sa propre dérivée</li>
+          <li><strong>(ln x)' = 1/x</strong> — pour x > 0</li>
+          <li><strong>(sin x)' = cos x</strong></li>
+          <li><strong>(cos x)' = −sin x</strong></li>
+          <li><strong>(tan x)' = 1 + tan²x = 1/cos²x</strong></li>
+          <li><strong>(√x)' = 1/(2√x)</strong> — cas particulier de x<sup>1/2</sup></li>
+        </ul>
+
+        <h3>Règles de dérivation</h3>
+        <p>Ces règles permettent de dériver des combinaisons de fonctions :</p>
+        <ul>
+          <li><strong>Linéarité :</strong> (αf + βg)' = αf' + βg'</li>
+          <li><strong>Produit :</strong> (fg)' = f'g + fg'</li>
+          <li><strong>Quotient :</strong> (f/g)' = (f'g − fg') / g²</li>
+          <li><strong>Composée (chaîne) :</strong> (f ∘ g)'(x) = f'(g(x)) × g'(x)</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>La règle de la chaîne</strong> est la plus importante et la plus utilisée. Elle dit que pour dériver une « fonction dans une fonction », on dérive la fonction extérieure puis on multiplie par la dérivée de la fonction intérieure.</p>
+          <p><strong>Exemple :</strong> soit h(x) = e<sup>3x²</sup>. Ici, f(u) = e<sup>u</sup> et g(x) = 3x². Donc h'(x) = e<sup>3x²</sup> × 6x.</p>
+        </div>
+
+        <h3>Dérivée et sens de variation</h3>
+        <p>La dérivée fournit des informations essentielles sur le comportement de la fonction :</p>
+        <ul>
+          <li>Si <strong>f'(x) > 0</strong> sur un intervalle, alors f est <strong>strictement croissante</strong> sur cet intervalle</li>
+          <li>Si <strong>f'(x) &lt; 0</strong> sur un intervalle, alors f est <strong>strictement décroissante</strong></li>
+          <li>Si <strong>f'(x) = 0</strong> en un point, c'est un <strong>point critique</strong> (candidat extremum)</li>
+        </ul>
+        <p><strong>Tableau de variations :</strong> pour étudier une fonction, on calcule f', on trouve ses zéros, on détermine son signe sur chaque intervalle, et on en déduit les variations de f.</p>
+        <p><strong>Exemple :</strong> f(x) = x³ − 3x. On a f'(x) = 3x² − 3 = 3(x² − 1) = 3(x−1)(x+1). Les zéros sont x = −1 et x = 1. f' > 0 sur ]−∞, −1[ et ]1, +∞[, f' &lt; 0 sur ]−1, 1[. Donc f est croissante, puis décroissante, puis croissante, avec un maximum local en x = −1 (f(−1) = 2) et un minimum local en x = 1 (f(1) = −2).</p>
+
+        <h3>Dérivées d'ordre supérieur et concavité</h3>
+        <p>La dérivée seconde f'' est la dérivée de f'. Elle mesure la <strong>concavité</strong> de la courbe :</p>
+        <ul>
+          <li>Si <strong>f''(x) > 0</strong>, la courbe est <strong>convexe</strong> (concavité tournée vers le haut, « sourit »)</li>
+          <li>Si <strong>f''(x) &lt; 0</strong>, la courbe est <strong>concave</strong> (concavité tournée vers le bas, « pleure »)</li>
+          <li>Un <strong>point d'inflexion</strong> est un point où la concavité change de sens (f'' change de signe)</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Test de la dérivée seconde :</strong> si f'(c) = 0 et f''(c) > 0, alors f admet un minimum local en c. Si f'(c) = 0 et f''(c) &lt; 0, alors f admet un maximum local en c. Si f''(c) = 0, le test est non concluant.</p>
+        </div>
+
+        <h3>Applications : optimisation et tangente</h3>
+        <p><strong>Équation de la tangente :</strong> la tangente à la courbe y = f(x) au point d'abscisse a a pour équation :</p>
+        <p style="text-align:center;"><strong>y = f(a) + f'(a)(x − a)</strong></p>
+        <p><strong>Optimisation :</strong> trouver les extremums d'une fonction revient à résoudre f'(x) = 0 puis à vérifier la nature de chaque point critique. C'est la base de nombreux problèmes pratiques : maximiser un profit, minimiser un coût, optimiser une forme géométrique.</p>
+        <p><strong>Exemple :</strong> on veut clôturer un rectangle de périmètre 100 m avec une aire maximale. Soit x la largeur : le périmètre donne 2x + 2y = 100, donc y = 50 − x. L'aire est A(x) = x(50 − x) = 50x − x². On dérive : A'(x) = 50 − 2x = 0, d'où x = 25. Comme A''(x) = −2 &lt; 0, c'est bien un maximum. L'aire maximale est A(25) = 625 m² (un carré).</p>
+
+        <h3>Pièges courants</h3>
+        <ul>
+          <li><strong>Oublier la règle de la chaîne :</strong> la dérivée de e<sup>2x</sup> n'est pas e<sup>2x</sup> mais 2e<sup>2x</sup>. Chaque fois qu'une fonction est composée, il faut multiplier par la dérivée intérieure</li>
+          <li><strong>Confondre f'(x) = 0 et extremum :</strong> f'(x) = 0 est une condition nécessaire mais pas suffisante. Pour f(x) = x³, on a f'(0) = 0 mais 0 n'est ni un maximum ni un minimum (c'est un point d'inflexion)</li>
+          <li><strong>Erreur de signe dans la règle du quotient :</strong> c'est f'g − fg' au numérateur, pas fg' − f'g. L'ordre compte</li>
+          <li><strong>Dérivabilité implique continuité, pas l'inverse :</strong> f(x) = |x| est continue en 0 mais pas dérivable (la courbe présente un « coin »)</li>
+          <li><strong>Domaine de définition :</strong> vérifier que la fonction est bien définie avant de dériver. La dérivée de ln(x) est 1/x, mais seulement pour x > 0</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info"><h2>Quiz</h2><p>Testez votre compréhension</p></div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">📈 Dérivées — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quelle est la dérivée de f(x) = x⁴ − 3x² + 5 ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">4x³ − 3x</button>
+              <button class="option" onclick="answer(this,true)">4x³ − 6x</button>
+              <button class="option" onclick="answer(this,false)">4x³ − 6x + 5</button>
+              <button class="option" onclick="answer(this,false)">x⁵/5 − x³</button>
+            </div>
+            <div class="q-feedback">On applique la règle (x<sup>n</sup>)' = nx<sup>n−1</sup> terme à terme : (x⁴)' = 4x³, (−3x²)' = −6x, (5)' = 0. Donc f'(x) = 4x³ − 6x.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Quelle est la dérivée de g(x) = e<sup>3x+1</sup> ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">e<sup>3x+1</sup></button>
+              <button class="option" onclick="answer(this,false)">(3x+1)e<sup>3x</sup></button>
+              <button class="option" onclick="answer(this,true)">3e<sup>3x+1</sup></button>
+              <button class="option" onclick="answer(this,false)">e<sup>3</sup></button>
+            </div>
+            <div class="q-feedback">Par la règle de la chaîne : la dérivée de e<sup>u</sup> est u' × e<sup>u</sup>. Ici u = 3x + 1, donc u' = 3 et g'(x) = 3e<sup>3x+1</sup>.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Si f'(x) > 0 sur un intervalle I, que peut-on dire de f sur I ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">f est concave</button>
+              <button class="option" onclick="answer(this,false)">f est positive</button>
+              <button class="option" onclick="answer(this,true)">f est strictement croissante</button>
+              <button class="option" onclick="answer(this,false)">f admet un maximum</button>
+            </div>
+            <div class="q-feedback">Le signe de la dérivée indique le sens de variation : f' > 0 signifie que f est strictement croissante. La positivité de f et sa concavité sont des propriétés distinctes.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Quelle est la formule de la dérivée d'un produit (fg)' ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">f' × g'</button>
+              <button class="option" onclick="answer(this,true)">f'g + fg'</button>
+              <button class="option" onclick="answer(this,false)">f'g − fg'</button>
+              <button class="option" onclick="answer(this,false)">(f' + g')/(fg)</button>
+            </div>
+            <div class="q-feedback">La formule de Leibniz pour le produit est (fg)' = f'g + fg'. Attention : la dérivée d'un produit n'est pas le produit des dérivées.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">La fonction f(x) = |x| est-elle dérivable en x = 0 ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">Non, car les limites à gauche et à droite du taux de variation sont différentes</button>
+              <button class="option" onclick="answer(this,false)">Oui, et f'(0) = 0</button>
+              <button class="option" onclick="answer(this,false)">Oui, et f'(0) = 1</button>
+              <button class="option" onclick="answer(this,false)">Non, car f(0) n'est pas définie</button>
+            </div>
+            <div class="q-feedback">Pour x > 0, |x|/x = 1 → la limite à droite du taux de variation vaut 1. Pour x &lt; 0, |x|/x = −1 → la limite à gauche vaut −1. Les deux limites étant différentes, f n'est pas dérivable en 0 (bien qu'elle soit continue).</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Si f'(c) = 0 et f''(c) > 0, que peut-on conclure ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">f admet un maximum local en c</button>
+              <button class="option" onclick="answer(this,true)">f admet un minimum local en c</button>
+              <button class="option" onclick="answer(this,false)">f a un point d'inflexion en c</button>
+              <button class="option" onclick="answer(this,false)">On ne peut rien conclure</button>
+            </div>
+            <div class="q-feedback">Par le test de la dérivée seconde : f'(c) = 0 indique un point critique, et f''(c) > 0 indique une concavité vers le haut (convexe), donc la courbe « sourit » en ce point. C'est bien un minimum local.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info"><h2>Exercices</h2><p>Mettez en pratique</p></div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Dérivée par définition</h3>
+        <p>En utilisant la définition (limite du taux de variation), calculer la dérivée de f(x) = 1/x en x = 2.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>f'(2) = lim<sub>h→0</sub> [1/(2+h) − 1/2] / h = lim<sub>h→0</sub> [2 − (2+h)] / [2h(2+h)] = lim<sub>h→0</sub> −h / [2h(2+h)] = lim<sub>h→0</sub> −1 / [2(2+h)] = −1/4. On retrouve bien la formule (1/x)' = −1/x², soit −1/4 en x = 2.</p></div>
+        </details>
+
+        <h3>Exercice 2 — Règle de la chaîne</h3>
+        <p>Calculer la dérivée de h(x) = ln(x² + 1).</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>On applique la règle de la chaîne avec f(u) = ln(u) et u = x² + 1. On a f'(u) = 1/u et u' = 2x. Donc h'(x) = 2x / (x² + 1).</p></div>
+        </details>
+
+        <h3>Exercice 3 — Étude de fonction</h3>
+        <p>Étudier les variations de f(x) = x·e<sup>−x</sup> sur [0, +∞[.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Par la règle du produit : f'(x) = 1·e<sup>−x</sup> + x·(−e<sup>−x</sup>) = e<sup>−x</sup>(1 − x). Comme e<sup>−x</sup> > 0 pour tout x, le signe de f'(x) est celui de (1 − x). Donc f'(x) > 0 pour x &lt; 1 et f'(x) &lt; 0 pour x > 1. La fonction est croissante sur [0, 1] et décroissante sur [1, +∞[. Elle admet un maximum en x = 1, de valeur f(1) = 1/e ≈ 0.368.</p></div>
+        </details>
+
+        <h3>Exercice 4 — Équation de la tangente</h3>
+        <p>Déterminer l'équation de la tangente à la courbe y = x³ au point d'abscisse x = 1.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>On a f(1) = 1 et f'(x) = 3x², donc f'(1) = 3. L'équation de la tangente est y = f(1) + f'(1)(x − 1) = 1 + 3(x − 1) = 3x − 2. La tangente à y = x³ en (1, 1) est <strong>y = 3x − 2</strong>.</p></div>
+        </details>
+
+        <h3>Exercice 5 — Problème d'optimisation</h3>
+        <p>Un fermier dispose de 200 m de clôture pour délimiter un enclos rectangulaire accolé à un mur existant (le mur constitue un des quatre côtés). Quelles dimensions maximisent l'aire de l'enclos ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Soit x la longueur des deux côtés perpendiculaires au mur et y la longueur du côté parallèle au mur. On a 2x + y = 200, donc y = 200 − 2x. L'aire est A(x) = xy = x(200 − 2x) = 200x − 2x² avec x ∈ ]0, 100[. On dérive : A'(x) = 200 − 4x = 0, d'où x = 50. Comme A''(x) = −4 &lt; 0, c'est un maximum. Donc x = 50 m et y = 200 − 100 = 100 m. L'aire maximale est <strong>5 000 m²</strong>.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="limites.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Limites et continuité</span>
+      </a>
+      <a href="integrales.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Intégrales →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

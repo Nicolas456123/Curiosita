@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Duck typing, surcharge d'opérateurs, interfaces et classes abstraites (ABC) — écrire du code flexible qui fonctionne avec différents types d'objets.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Polymorphisme — POO Python — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root {
+  --accent: #27ae60;
+  --accent2: #2ecc71;
+  --accent-dim: rgba(39,174,96,0.08);
+ --accent-hero: rgba(39,174,96,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../index.html">Informatique</a> › <a href="../poo.html">POO Python</a> › <span>Polymorphisme</span>
+  </div>
+</nav>
+
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">🐍 POO Python</span>
+    <span class="tag-level">Intermédiaire → Avancé</span>
+    <span class="tag-time">⏱ ~55 min</span>
+  </div>
+  <h1><em>Polymorphisme</em></h1>
+  <p class="hero-desc">Duck typing, surcharge d'opérateurs, interfaces et classes abstraites (ABC) — écrire du code flexible qui fonctionne avec différents types d'objets.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../poo.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← POO Python</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="classes.html">Classes et objets</a>
+    <a class="sidebar-link" href="heritage.html">Héritage</a>
+    <a class="sidebar-link" href="encapsulation.html">Encapsulation</a>
+    <a class="sidebar-link active" href="#">Polymorphisme</a>
+    <a class="sidebar-link" href="methodes-speciales.html">Méthodes spéciales</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Un même message, plusieurs comportements</p>
+        </div>
+      </div>
+      <p class="resume-text">Le <strong>polymorphisme</strong> (du grec « plusieurs formes ») est la capacité d'utiliser une même interface pour des objets de types différents. Chaque objet répond au même message (appel de méthode) à sa manière. Ce principe permet d'écrire du code <strong>générique</strong> et <strong>extensible</strong> qui n'a pas besoin de connaître le type exact des objets qu'il manipule.</p>
+      <p class="resume-text">Python excelle dans ce domaine grâce au <strong>typage dynamique</strong> et au <strong>duck typing</strong> : ce qui compte n'est pas le type d'un objet, mais les méthodes et attributs qu'il possède. Si un objet « marche comme un canard et cancane comme un canard, alors c'est un canard. »</p>
+      <div class="highlight-box">
+        <p><strong>Exemple quotidien :</strong> la fonction <code>len()</code> est polymorphe. Elle fonctionne sur des listes, des chaînes, des dictionnaires, des ensembles — tout objet qui implémente <code>__len__()</code>. Vous n'avez pas besoin de <code>len_liste()</code>, <code>len_str()</code>, etc.</p>
+      </div>
+      <p class="resume-text">Ce cours explore les différentes formes de polymorphisme en Python : le duck typing, la surcharge d'opérateurs, les interfaces informelles et les classes abstraites (ABC).</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Les formes du polymorphisme en Python</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Polymorphisme par héritage</h3>
+        <p>La forme la plus classique : des classes enfants redéfinissent une méthode de la classe parente. Le code appelant manipule des objets via l'interface commune :</p>
+<pre><code>class Forme:
+    def aire(self):
+        raise NotImplementedError
+
+    def description(self):
+        return f"{self.__class__.__name__} — aire = {self.aire():.2f}"
+
+class Cercle(Forme):
+    def __init__(self, rayon):
+        self.rayon = rayon
+
+    def aire(self):
+        return 3.14159 * self.rayon ** 2
+
+class Rectangle(Forme):
+    def __init__(self, largeur, hauteur):
+        self.largeur = largeur
+        self.hauteur = hauteur
+
+    def aire(self):
+        return self.largeur * self.hauteur
+
+class Triangle(Forme):
+    def __init__(self, base, hauteur):
+        self.base = base
+        self.hauteur = hauteur
+
+    def aire(self):
+        return 0.5 * self.base * self.hauteur
+
+# Code polymorphe — fonctionne avec n'importe quelle Forme
+formes = [Cercle(5), Rectangle(4, 6), Triangle(3, 8)]
+for f in formes:
+    print(f.description())
+# Cercle — aire = 78.54
+# Rectangle — aire = 24.00
+# Triangle — aire = 12.00</code></pre>
+        <p>La boucle <code>for</code> ne sait pas quel type de forme elle manipule — elle appelle simplement <code>aire()</code> et chaque objet répond à sa manière.</p>
+
+        <h3>Duck typing</h3>
+        <p>En Python, le polymorphisme ne nécessite pas d'héritage. N'importe quel objet qui possède la bonne méthode peut être utilisé :</p>
+<pre><code>class Fichier:
+    def __init__(self, nom, taille):
+        self.nom = nom
+        self.taille = taille
+
+    def afficher(self):
+        return f"Fichier: {self.nom} ({self.taille} Ko)"
+
+class Dossier:
+    def __init__(self, nom, nb_elements):
+        self.nom = nom
+        self.nb_elements = nb_elements
+
+    def afficher(self):
+        return f"Dossier: {self.nom} ({self.nb_elements} éléments)"
+
+class LienSymbolique:
+    def __init__(self, nom, cible):
+        self.nom = nom
+        self.cible = cible
+
+    def afficher(self):
+        return f"Lien: {self.nom} → {self.cible}"
+
+# Aucun lien d'héritage entre ces classes !
+# Mais elles partagent la même interface (méthode afficher)
+elements = [
+    Fichier("rapport.pdf", 245),
+    Dossier("photos", 42),
+    LienSymbolique("raccourci", "/home/docs")
+]
+
+for e in elements:
+    print(e.afficher())  # Fonctionne grâce au duck typing</code></pre>
+        <div class="highlight-box">
+          <p><strong>Duck typing :</strong> « If it walks like a duck and quacks like a duck, then it's a duck. » Python ne vérifie pas le type d'un objet avant d'appeler une méthode — il essaie simplement de l'appeler. Si la méthode existe, tout va bien. Sinon, une <code>AttributeError</code> est levée.</p>
+        </div>
+
+        <h3>Surcharge d'opérateurs</h3>
+        <p>Python permet de redéfinir le comportement des opérateurs (<code>+</code>, <code>-</code>, <code>*</code>, <code>==</code>, etc.) pour vos propres classes via les <strong>méthodes spéciales</strong> :</p>
+<pre><code>class Vecteur:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, autre):
+        """v1 + v2"""
+        return Vecteur(self.x + autre.x, self.y + autre.y)
+
+    def __sub__(self, autre):
+        """v1 - v2"""
+        return Vecteur(self.x - autre.x, self.y - autre.y)
+
+    def __mul__(self, scalaire):
+        """v * 3"""
+        return Vecteur(self.x * scalaire, self.y * scalaire)
+
+    def __eq__(self, autre):
+        """v1 == v2"""
+        return self.x == autre.x and self.y == autre.y
+
+    def __abs__(self):
+        """abs(v) — norme du vecteur"""
+        return (self.x ** 2 + self.y ** 2) ** 0.5
+
+    def __repr__(self):
+        return f"Vecteur({self.x}, {self.y})"
+
+v1 = Vecteur(3, 4)
+v2 = Vecteur(1, 2)
+
+print(v1 + v2)      # Vecteur(4, 6)
+print(v1 - v2)      # Vecteur(2, 2)
+print(v1 * 3)       # Vecteur(9, 12)
+print(v1 == v2)     # False
+print(abs(v1))      # 5.0</code></pre>
+        <p>Les opérateurs les plus courants et leurs méthodes spéciales :</p>
+        <ul>
+          <li><code>+</code> → <code>__add__</code> | <code>-</code> → <code>__sub__</code> | <code>*</code> → <code>__mul__</code></li>
+          <li><code>/</code> → <code>__truediv__</code> | <code>//</code> → <code>__floordiv__</code> | <code>%</code> → <code>__mod__</code></li>
+          <li><code>==</code> → <code>__eq__</code> | <code>&lt;</code> → <code>__lt__</code> | <code>&gt;</code> → <code>__gt__</code></li>
+          <li><code>[]</code> → <code>__getitem__</code> | <code>in</code> → <code>__contains__</code> | <code>len()</code> → <code>__len__</code></li>
+        </ul>
+
+        <h3>Protocoles Python (interfaces informelles)</h3>
+        <p>Python définit des <strong>protocoles</strong> — des ensembles de méthodes spéciales qui permettent à un objet de se comporter comme un type standard :</p>
+<pre><code>class Playlist:
+    """Se comporte comme une séquence (protocole itérable + indexable)."""
+
+    def __init__(self, nom):
+        self.nom = nom
+        self._morceaux = []
+
+    def ajouter(self, morceau):
+        self._morceaux.append(morceau)
+
+    def __len__(self):
+        return len(self._morceaux)
+
+    def __getitem__(self, index):
+        return self._morceaux[index]
+
+    def __contains__(self, morceau):
+        return morceau in self._morceaux
+
+    def __iter__(self):
+        return iter(self._morceaux)
+
+playlist = Playlist("Rock classique")
+playlist.ajouter("Bohemian Rhapsody")
+playlist.ajouter("Stairway to Heaven")
+playlist.ajouter("Hotel California")
+
+print(len(playlist))              # 3
+print(playlist[0])                # Bohemian Rhapsody
+print("Hotel California" in playlist)  # True
+
+for morceau in playlist:          # itérable !
+    print(f"  ♪ {morceau}")</code></pre>
+
+        <h3>Classes abstraites (ABC)</h3>
+        <p>Le module <code>abc</code> (Abstract Base Classes) permet de définir des <strong>interfaces formelles</strong> que les sous-classes doivent obligatoirement implémenter :</p>
+<pre><code>from abc import ABC, abstractmethod
+
+class FormeFermee(ABC):
+    """Classe abstraite — ne peut pas être instanciée directement."""
+
+    @abstractmethod
+    def aire(self):
+        """Doit être implémentée par les sous-classes."""
+        pass
+
+    @abstractmethod
+    def perimetre(self):
+        """Doit être implémentée par les sous-classes."""
+        pass
+
+    def rapport(self):
+        """Méthode concrète — héritée par toutes les sous-classes."""
+        return f"Aire/Périmètre = {self.aire() / self.perimetre():.3f}"
+
+# f = FormeFermee()  # TypeError: Can't instantiate abstract class
+
+class Carre(FormeFermee):
+    def __init__(self, cote):
+        self.cote = cote
+
+    def aire(self):
+        return self.cote ** 2
+
+    def perimetre(self):
+        return 4 * self.cote
+
+class CercleF(FormeFermee):
+    def __init__(self, rayon):
+        self.rayon = rayon
+
+    def aire(self):
+        return 3.14159 * self.rayon ** 2
+
+    def perimetre(self):
+        return 2 * 3.14159 * self.rayon
+
+# Si on oublie d'implémenter une méthode abstraite :
+# class FormeIncomplete(FormeFermee):
+#     def aire(self):
+#         return 0
+# # TypeError: Can't instantiate abstract class FormeIncomplete
+# # with abstract method perimetre
+
+c = Carre(5)
+print(c.aire())       # 25
+print(c.rapport())    # Aire/Périmètre = 1.250</code></pre>
+        <div class="highlight-box">
+          <p><strong>ABC vs duck typing :</strong> les classes abstraites ajoutent un <strong>contrat explicite</strong>. Si une sous-classe oublie d'implémenter une méthode abstraite, Python lève une erreur <em>dès l'instanciation</em>, pas lors de l'appel. C'est plus sûr pour les grands projets et les bibliothèques.</p>
+        </div>
+
+        <h3>Protocoles avec @abstractmethod</h3>
+        <p>On peut combiner ABC avec des propriétés abstraites pour créer des interfaces riches :</p>
+<pre><code>from abc import ABC, abstractmethod
+
+class Exportable(ABC):
+    @abstractmethod
+    def to_dict(self):
+        pass
+
+    @abstractmethod
+    def to_json(self):
+        pass
+
+class Affichable(ABC):
+    @abstractmethod
+    def afficher(self):
+        pass
+
+class Produit(Exportable, Affichable):
+    def __init__(self, nom, prix):
+        self.nom = nom
+        self.prix = prix
+
+    def to_dict(self):
+        return {"nom": self.nom, "prix": self.prix}
+
+    def to_json(self):
+        import json
+        return json.dumps(self.to_dict(), ensure_ascii=False)
+
+    def afficher(self):
+        return f"{self.nom} — {self.prix:.2f}€"
+
+p = Produit("Clavier mécanique", 89.99)
+print(p.afficher())    # Clavier mécanique — 89.99€
+print(p.to_json())     # {"nom": "Clavier mécanique", "prix": 89.99}</code></pre>
+
+        <h3>Fonctions polymorphes avec dispatch</h3>
+        <p>Le module <code>functools</code> propose <code>singledispatch</code> pour créer des fonctions qui se comportent différemment selon le type de leur argument :</p>
+<pre><code>from functools import singledispatch
+
+@singledispatch
+def formater(valeur):
+    """Comportement par défaut."""
+    return str(valeur)
+
+@formater.register(int)
+def _(valeur):
+    return f"{valeur:,}".replace(",", " ")
+
+@formater.register(float)
+def _(valeur):
+    return f"{valeur:.2f}"
+
+@formater.register(list)
+def _(valeur):
+    return f"[{len(valeur)} éléments]"
+
+print(formater(1234567))     # 1 234 567
+print(formater(3.14159))     # 3.14
+print(formater([1, 2, 3]))   # [3 éléments]
+print(formater("texte"))     # texte (comportement par défaut)</code></pre>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">🐍 Polymorphisme — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Qu'est-ce que le « duck typing » en Python ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Un type de donnée réservé aux canards virtuels</button>
+              <button class="option" onclick="answer(this,true)">Un principe où le type d'un objet est déterminé par ses méthodes, pas par sa classe</button>
+              <button class="option" onclick="answer(this,false)">Un type de typage statique comme en Java</button>
+              <button class="option" onclick="answer(this,false)">Un design pattern de création d'objets</button>
+            </div>
+            <div class="q-feedback">Le duck typing signifie : « si ça marche comme un canard et cancane comme un canard, c'est un canard. » Python vérifie les capacités d'un objet (ses méthodes) plutôt que son type déclaré.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Quelle méthode spéciale permet de surcharger l'opérateur <code>+</code> ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">__plus__</button>
+              <button class="option" onclick="answer(this,false)">__sum__</button>
+              <button class="option" onclick="answer(this,true)">__add__</button>
+              <button class="option" onclick="answer(this,false)">__concat__</button>
+            </div>
+            <div class="q-feedback">__add__(self, other) est appelée quand on utilise l'opérateur +. Par exemple, a + b appelle a.__add__(b). C'est ce qui permet à + de fonctionner avec des entiers, des chaînes et des listes.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Que se passe-t-il si on essaie d'instancier une classe abstraite (ABC) ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Une instance vide est créée</button>
+              <button class="option" onclick="answer(this,true)">Un TypeError est levé</button>
+              <button class="option" onclick="answer(this,false)">Les méthodes abstraites retournent None</button>
+              <button class="option" onclick="answer(this,false)">Un avertissement est affiché mais l'objet est créé</button>
+            </div>
+            <div class="q-feedback">Python lève un TypeError si on essaie d'instancier une classe abstraite ou une sous-classe qui n'a pas implémenté toutes les méthodes abstraites. C'est un contrat strict.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Quel module Python fournit les classes abstraites (ABC) ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">abc</button>
+              <button class="option" onclick="answer(this,false)">abstract</button>
+              <button class="option" onclick="answer(this,false)">interface</button>
+              <button class="option" onclick="answer(this,false)">typing</button>
+            </div>
+            <div class="q-feedback">Le module abc (Abstract Base Classes) fournit ABC et le décorateur @abstractmethod. On utilise from abc import ABC, abstractmethod pour définir des classes abstraites.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quelle méthode spéciale faut-il implémenter pour que <code>len(obj)</code> fonctionne ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">__size__</button>
+              <button class="option" onclick="answer(this,false)">__count__</button>
+              <button class="option" onclick="answer(this,true)">__len__</button>
+              <button class="option" onclick="answer(this,false)">__length__</button>
+            </div>
+            <div class="q-feedback">__len__ doit retourner un entier positif. Quand on appelle len(obj), Python appelle en réalité obj.__len__(). C'est un exemple de protocole Python.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Quelle est la différence principale entre le duck typing et les ABC ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Le duck typing est plus rapide en exécution</button>
+              <button class="option" onclick="answer(this,false)">Les ABC ne supportent pas l'héritage multiple</button>
+              <button class="option" onclick="answer(this,false)">Le duck typing nécessite plus de mémoire</button>
+              <button class="option" onclick="answer(this,true)">Les ABC imposent un contrat vérifié à l'instanciation, le duck typing vérifie à l'appel</button>
+            </div>
+            <div class="q-feedback">Avec le duck typing, l'erreur survient quand on appelle une méthode manquante (AttributeError). Avec les ABC, l'erreur survient dès l'instanciation si une méthode abstraite n'est pas implémentée (TypeError). Les ABC offrent une détection plus précoce des erreurs.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Classe Monnaie avec surcharge d'opérateurs</h3>
+        <p>Créez une classe <code>Monnaie</code> avec <code>montant</code> et <code>devise</code>. Surchargez <code>+</code> (addition de deux montants de même devise), <code>*</code> (multiplication par un scalaire), <code>==</code> et <code>&lt;</code>. Levez une erreur si on additionne des devises différentes.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+<pre><code>class Monnaie:
+    def __init__(self, montant, devise="EUR"):
+        self.montant = montant
+        self.devise = devise
+
+    def __add__(self, autre):
+        if self.devise != autre.devise:
+            raise ValueError(f"Devises différentes : {self.devise} et {autre.devise}")
+        return Monnaie(self.montant + autre.montant, self.devise)
+
+    def __mul__(self, scalaire):
+        return Monnaie(self.montant * scalaire, self.devise)
+
+    def __eq__(self, autre):
+        return self.montant == autre.montant and self.devise == autre.devise
+
+    def __lt__(self, autre):
+        if self.devise != autre.devise:
+            raise ValueError("Comparaison impossible entre devises différentes")
+        return self.montant &lt; autre.montant
+
+    def __repr__(self):
+        return f"{self.montant:.2f} {self.devise}"
+
+# Test
+a = Monnaie(100, "EUR")
+b = Monnaie(50, "EUR")
+print(a + b)       # 150.00 EUR
+print(a * 3)       # 300.00 EUR
+print(a == b)      # False
+print(b &lt; a)       # True</code></pre>
+          </div>
+        </details>
+
+        <h3>Exercice 2 — Classe abstraite Animal</h3>
+        <p>Créez une classe abstraite <code>Animal</code> avec les méthodes abstraites <code>parler()</code> et <code>se_deplacer()</code>, et une propriété abstraite <code>regime</code>. Créez trois implémentations : <code>Aigle</code>, <code>Dauphin</code> et <code>Serpent</code>.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+<pre><code>from abc import ABC, abstractmethod
+
+class Animal(ABC):
+    def __init__(self, nom):
+        self.nom = nom
+
+    @abstractmethod
+    def parler(self):
+        pass
+
+    @abstractmethod
+    def se_deplacer(self):
+        pass
+
+    @property
+    @abstractmethod
+    def regime(self):
+        pass
+
+    def fiche(self):
+        return f"{self.nom} | {self.regime} | {self.se_deplacer()}"
+
+class Aigle(Animal):
+    def parler(self):
+        return "Cri perçant !"
+
+    def se_deplacer(self):
+        return "Vole dans les airs"
+
+    @property
+    def regime(self):
+        return "Carnivore"
+
+class Dauphin(Animal):
+    def parler(self):
+        return "Clics et sifflements"
+
+    def se_deplacer(self):
+        return "Nage dans l'océan"
+
+    @property
+    def regime(self):
+        return "Piscivore"
+
+class Serpent(Animal):
+    def parler(self):
+        return "Sssssss"
+
+    def se_deplacer(self):
+        return "Rampe au sol"
+
+    @property
+    def regime(self):
+        return "Carnivore"
+
+# Test
+animaux = [Aigle("Horus"), Dauphin("Flipper"), Serpent("Kaa")]
+for a in animaux:
+    print(a.fiche())</code></pre>
+          </div>
+        </details>
+
+        <h3>Exercice 3 — Collection personnalisée (protocoles)</h3>
+        <p>Créez une classe <code>FileAttente</code> (FIFO) qui implémente les protocoles <code>__len__</code>, <code>__contains__</code>, <code>__iter__</code> et <code>__bool__</code>. Ajoutez les méthodes <code>enfiler()</code> et <code>defiler()</code>.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+<pre><code>class FileAttente:
+    def __init__(self):
+        self._elements = []
+
+    def enfiler(self, element):
+        self._elements.append(element)
+
+    def defiler(self):
+        if not self._elements:
+            raise IndexError("La file est vide")
+        return self._elements.pop(0)
+
+    def __len__(self):
+        return len(self._elements)
+
+    def __contains__(self, element):
+        return element in self._elements
+
+    def __iter__(self):
+        return iter(self._elements)
+
+    def __bool__(self):
+        return len(self._elements) &gt; 0
+
+    def __repr__(self):
+        return f"FileAttente({self._elements})"
+
+# Test
+f = FileAttente()
+f.enfiler("Alice")
+f.enfiler("Bob")
+f.enfiler("Charlie")
+
+print(len(f))           # 3
+print("Bob" in f)       # True
+print(bool(f))          # True
+
+for personne in f:
+    print(f"  → {personne}")
+
+print(f.defiler())      # Alice (premier arrivé, premier sorti)
+print(f)                # FileAttente(['Bob', 'Charlie'])</code></pre>
+          </div>
+        </details>
+
+        <h3>Exercice 4 — Matrice 2x2 avec surcharge</h3>
+        <p>Créez une classe <code>Matrice2x2</code> qui représente une matrice 2x2. Surchargez <code>+</code>, <code>*</code> (multiplication matricielle), <code>==</code> et <code>__repr__</code>. Ajoutez une méthode <code>determinant()</code>.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+<pre><code>class Matrice2x2:
+    def __init__(self, a, b, c, d):
+        # | a  b |
+        # | c  d |
+        self.a, self.b = a, b
+        self.c, self.d = c, d
+
+    def __add__(self, autre):
+        return Matrice2x2(
+            self.a + autre.a, self.b + autre.b,
+            self.c + autre.c, self.d + autre.d
+        )
+
+    def __mul__(self, autre):
+        if isinstance(autre, Matrice2x2):
+            return Matrice2x2(
+                self.a*autre.a + self.b*autre.c,
+                self.a*autre.b + self.b*autre.d,
+                self.c*autre.a + self.d*autre.c,
+                self.c*autre.b + self.d*autre.d
+            )
+        # Multiplication par un scalaire
+        return Matrice2x2(self.a*autre, self.b*autre,
+                          self.c*autre, self.d*autre)
+
+    def __eq__(self, autre):
+        return (self.a == autre.a and self.b == autre.b
+                and self.c == autre.c and self.d == autre.d)
+
+    def determinant(self):
+        return self.a * self.d - self.b * self.c
+
+    def __repr__(self):
+        return f"|{self.a} {self.b}|\n|{self.c} {self.d}|"
+
+# Test
+m1 = Matrice2x2(1, 2, 3, 4)
+m2 = Matrice2x2(5, 6, 7, 8)
+print(m1 + m2)           # |6 8|\n|10 12|
+print(m1 * m2)           # |19 22|\n|43 50|
+print(m1.determinant())  # -2</code></pre>
+          </div>
+        </details>
+
+        <h3>Exercice 5 — Système de paiement polymorphe</h3>
+        <p>Créez une classe abstraite <code>MethodePaiement</code> avec <code>payer(montant)</code> et <code>solde_suffisant(montant)</code>. Implémentez <code>CarteBancaire</code>, <code>Especes</code> et <code>PayPal</code>. Créez une fonction <code>effectuer_achat(methode, montant)</code> qui fonctionne avec toutes.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+<pre><code>from abc import ABC, abstractmethod
+
+class MethodePaiement(ABC):
+    @abstractmethod
+    def payer(self, montant):
+        pass
+
+    @abstractmethod
+    def solde_suffisant(self, montant):
+        pass
+
+class CarteBancaire(MethodePaiement):
+    def __init__(self, plafond):
+        self.plafond = plafond
+        self.depenses = 0
+
+    def solde_suffisant(self, montant):
+        return self.depenses + montant &lt;= self.plafond
+
+    def payer(self, montant):
+        if not self.solde_suffisant(montant):
+            return f"CB refusée : plafond dépassé"
+        self.depenses += montant
+        return f"CB : {montant:.2f}€ débité (reste {self.plafond - self.depenses:.2f}€)"
+
+class Especes(MethodePaiement):
+    def __init__(self, montant_disponible):
+        self.montant_disponible = montant_disponible
+
+    def solde_suffisant(self, montant):
+        return self.montant_disponible &gt;= montant
+
+    def payer(self, montant):
+        if not self.solde_suffisant(montant):
+            return "Espèces insuffisantes"
+        self.montant_disponible -= montant
+        rendu = 0
+        return f"Espèces : {montant:.2f}€ payé (reste {self.montant_disponible:.2f}€)"
+
+class PayPal(MethodePaiement):
+    def __init__(self, email, solde):
+        self.email = email
+        self.solde = solde
+
+    def solde_suffisant(self, montant):
+        return self.solde &gt;= montant
+
+    def payer(self, montant):
+        if not self.solde_suffisant(montant):
+            return f"PayPal : solde insuffisant"
+        self.solde -= montant
+        return f"PayPal ({self.email}) : {montant:.2f}€ débité"
+
+def effectuer_achat(methode, montant):
+    """Fonction polymorphe — accepte toute MethodePaiement."""
+    print(methode.payer(montant))
+
+# Test
+cb = CarteBancaire(500)
+cash = Especes(100)
+pp = PayPal("alice@mail.com", 250)
+
+effectuer_achat(cb, 150)    # CB : 150.00€ débité
+effectuer_achat(cash, 30)   # Espèces : 30.00€ payé
+effectuer_achat(pp, 99.99)  # PayPal (alice@mail.com) : 99.99€ débité</code></pre>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="encapsulation.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Encapsulation</span>
+      </a>
+      <a href="methodes-speciales.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Méthodes spéciales →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

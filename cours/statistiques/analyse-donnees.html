@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Explorer, structurer et extraire des connaissances de donnees complexes et multidimensionnelles. De l'ACP au data mining, les methodes avancees.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<title>Analyse de donnees — Statistiques — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.min.css?v=4">
+<style>
+:root {
+  --accent: #4fc3f7;
+  --accent2: #81d4fa;
+  --accent-dim: rgba(79,195,247,0.08);
+ --accent-hero: rgba(79,195,247,0.05); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="index.html">Statistiques</a> › <span>Analyse de donnees</span>
+  </div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche memo</button>
+</nav>
+
+<div class="hero hero--hub">
+  <div class="hero-meta">
+    <span class="tag-domain">🧮 Statistiques</span>
+    <span class="tag-level">Avance</span>
+    <span class="tag-time">⏱ ~6h de lecture</span>
+  </div>
+  <h1><em>Analyse de donnees</em></h1>
+  <p class="hero-desc">Explorer, structurer et extraire des connaissances de donnees complexes et multidimensionnelles. De l'ACP au data mining, les methodes avancees.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">25</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="index.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Statistiques</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Presentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche memo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="descriptives.html">Descriptives</a>
+    <a class="sidebar-link" href="probabilites.html">Probabilites</a>
+    <a class="sidebar-link" href="inference.html">Inference</a>
+    <a class="sidebar-link" href="regression.html">Regression</a>
+    <a class="sidebar-link active" href="#">Analyse de donnees</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="presentation">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Qu'est-ce que l'analyse de donnees ?</h2>
+          <p>Introduction et vue d'ensemble</p>
+        </div>
+      </div>
+      <p class="resume-text">L'analyse de donnees regroupe l'ensemble des methodes statistiques et informatiques permettant d'<strong>explorer, structurer et extraire de l'information</strong> a partir de grands ensembles de donnees multidimensionnelles. C'est le domaine ou la statistique rencontre l'informatique et le machine learning.</p>
+      <div class="highlight-box">
+        <p><strong>L'idee fondamentale :</strong> quand les donnees sont trop nombreuses ou trop complexes pour etre analysees a l'oeil nu, les methodes d'analyse de donnees permettent de reduire la dimensionnalite, de regrouper les observations similaires et de detecter des structures cachees.</p>
+      </div>
+      <p class="resume-text">L'<strong>analyse en composantes principales (ACP)</strong> reduit la dimensionnalite en projetant les donnees sur les axes de plus grande variance. La <strong>classification</strong> (k-means, classification hierarchique) regroupe les individus similaires. Les <strong>series temporelles</strong> analysent des donnees ordonnees dans le temps. Le <strong>data mining</strong> decouvre des motifs recurrents dans de vastes bases de donnees. Les <strong>statistiques bayesiennes</strong> integrent les connaissances prealables dans l'analyse.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Les cours d'analyse de donnees</h2>
+          <p>Progressez etape par etape</p>
+        </div>
+      </div>
+      <div class="courses-grid">
+        <a href="analyse-donnees/acp.html" class="course-card">
+          <span class="course-card-icon">🔬</span>
+          <h3>Analyse en composantes principales</h3>
+          <p>Reduction de dimensionnalite, valeurs propres, cercle des correlations — voir l'essentiel en moins de dimensions.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="analyse-donnees/classification.html" class="course-card">
+          <span class="course-card-icon">🗂️</span>
+          <h3>Classification</h3>
+          <p>K-means, classification hierarchique, dendrogramme — regrouper les observations par similarite.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="analyse-donnees/series-temporelles.html" class="course-card">
+          <span class="course-card-icon">📅</span>
+          <h3>Series temporelles</h3>
+          <p>Tendance, saisonnalite, stationnarite, ARIMA — analyser et predire des donnees ordonnees dans le temps.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="analyse-donnees/data-mining.html" class="course-card">
+          <span class="course-card-icon">⛏️</span>
+          <h3>Data mining</h3>
+          <p>Regles d'association, arbres de decision, detection d'anomalies — extraire des pepites d'information.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+        <a href="analyse-donnees/bayesiennes.html" class="course-card">
+          <span class="course-card-icon">🧠</span>
+          <h3>Statistiques bayesiennes</h3>
+          <p>Inference bayesienne, lois a priori et a posteriori, MCMC — une approche alternative et puissante.</p>
+          <span class="course-card-link">Voir le cours →</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section" id="memo">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Fiche memo</h2>
+          <p>L'essentiel en un coup d'oeil</p>
+        </div>
+      </div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top">
+          <h3>🧮 Analyse de donnees — Fiche memo</h3>
+          <p>Curiosita · Formules et concepts fondamentaux</p>
+        </div>
+        <div class="memo-grid">
+          <div class="memo-section">
+            <div class="memo-section-title">ACP</div>
+            <div class="memo-item"><span class="mf">Valeurs propres :</span> variance expliquee</div>
+            <div class="memo-item"><span class="mf">Vecteurs propres :</span> axes principaux</div>
+            <div class="memo-item"><span class="mf">Inertie =</span> Σ valeurs propres</div>
+          </div>
+          <div class="memo-section">
+            <div class="memo-section-title">Classification</div>
+            <div class="memo-item"><span class="mf">K-means :</span> min Σ||xᵢ-cₖ||²</div>
+            <div class="memo-item"><span class="mf">Ward :</span> min inertie intraclasse</div>
+            <div class="memo-item"><span class="mf">Silhouette :</span> qualite du clustering</div>
+          </div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Telecharger la fiche memo (HTML)</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../memo.min.js?v=4" defer></script>
+<script src="../../curiosita.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

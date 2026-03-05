@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Désordre, irréversibilité, flèche du temps et entropie statistique de Boltzmann.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Entropie — Thermodynamique — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08);  --accent-hero: rgba(142,68,173,0.04); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../../../sciences-exactes.html">Sciences exactes</a> › <a href="../thermodynamique.html">Thermodynamique</a> › <span>Entropie</span></div>
+</nav>
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">🌡️ Thermodynamique</span>
+    <span class="tag-level">Intermédiaire → Avancé</span>
+    <span class="tag-time">⏱ ~45 min</span>
+  </div>
+  <h1><em>Entropie</em></h1>
+  <p class="hero-desc">Désordre, irréversibilité, flèche du temps et entropie statistique de Boltzmann.</p>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../thermodynamique.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Thermodynamique</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="temperature.html">Température et chaleur</a>
+    <a class="sidebar-link" href="lois.html">Lois de la thermodynamique</a>
+    <a class="sidebar-link" href="changements-etat.html">Changements d'état</a>
+    <a class="sidebar-link" href="machines.html">Machines thermiques</a>
+    <a class="sidebar-link active" href="#">Entropie</a>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="introduction">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Introduction</h2><p>La grandeur la plus profonde de la physique</p></div></div>
+      <p class="resume-text">L'entropie est peut-être le concept le plus profond et le plus universel de toute la physique. Introduite par Rudolf Clausius en 1865, elle quantifie le degré de désordre d'un système et donne une direction au temps. Elle explique pourquoi un oeuf cassé ne se reconstitue jamais, pourquoi la chaleur coule du chaud vers le froid et pourquoi l'univers évolue vers un état de plus en plus désordonné.</p>
+      <p class="resume-text">La vision statistique de Ludwig Boltzmann (1877) a révolutionné la compréhension de l'entropie en la reliant au nombre de micro-états accessibles d'un système. Sa célèbre formule S = k_B ln(Ω), gravée sur sa tombe à Vienne, fait le pont entre la physique microscopique et la thermodynamique macroscopique.</p>
+      <div class="highlight-box"><p><strong>L'essentiel :</strong> l'entropie d'un système isolé ne peut qu'augmenter ou rester constante (ΔS ≥ 0). C'est le deuxième principe de la thermodynamique, qui impose une « flèche du temps » irréversible à tous les processus naturels.</p></div>
+      <p class="resume-text">Ce cours présente la définition thermodynamique de l'entropie, sa signification statistique, le calcul de l'entropie pour différentes transformations, le lien avec l'irréversibilité et les implications cosmologiques.</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Le cours</h2><p>Entropie</p></div></div>
+      <div class="course-content">
+        <h3>Définition thermodynamique de Clausius</h3>
+        <p>L'entropie S est une fonction d'état dont la variation lors d'une transformation réversible infinitésimale est : <strong>dS = δQ_rév / T</strong>. Pour une transformation réversible finie entre deux états A et B : <strong>ΔS = ∫(A→B) δQ_rév / T</strong>.</p>
+        <p>L'entropie étant une fonction d'état, sa variation ΔS entre deux états ne dépend pas du chemin suivi, même si la transformation réelle est irréversible. Pour calculer ΔS d'une transformation irréversible, on imagine un chemin réversible reliant les mêmes états initial et final.</p>
+        <p>L'unité de l'entropie est le J/K. L'entropie est une grandeur extensive : l'entropie d'un système composé est la somme des entropies de ses parties.</p>
+
+        <h3>L'inégalité de Clausius et la création d'entropie</h3>
+        <p>Pour toute transformation : <strong>dS ≥ δQ/T</strong>, où l'égalité n'est vérifiée que pour les transformations réversibles. On définit l'<strong>entropie créée</strong> (ou produite) : <strong>S_créée = ΔS − ∫δQ/T ≥ 0</strong>.</p>
+        <p>Pour un système isolé (δQ = 0) : <strong>ΔS_isolé ≥ 0</strong>. L'entropie d'un système isolé ne peut qu'augmenter. L'entropie créée est toujours positive ou nulle ; elle est nulle pour une transformation réversible et strictement positive pour une transformation irréversible.</p>
+        <p>Les sources d'irréversibilité qui créent de l'entropie sont : les frottements, le transfert de chaleur avec différence de température finie, le mélange de gaz, la détente irréversible (détente de Joule-Gay Lussac), les réactions chimiques hors équilibre.</p>
+
+        <h3>Calcul de l'entropie pour un gaz parfait</h3>
+        <p>Pour n moles d'un gaz parfait, la variation d'entropie entre deux états (T₁, V₁) et (T₂, V₂) est :</p>
+        <p><strong>ΔS = n × C_v × ln(T₂/T₁) + n × R × ln(V₂/V₁)</strong></p>
+        <p>En fonction de T et p : <strong>ΔS = n × C_p × ln(T₂/T₁) − n × R × ln(p₂/p₁)</strong></p>
+        <p>Applications importantes :</p>
+        <p>- Transformation isotherme : ΔS = nR ln(V₂/V₁) (car ΔT = 0)</p>
+        <p>- Transformation isochore : ΔS = nC_v ln(T₂/T₁) (car ΔV = 0)</p>
+        <p>- Transformation isobare : ΔS = nC_p ln(T₂/T₁) (car Δp = 0)</p>
+        <p>- Transformation adiabatique réversible : ΔS = 0 (isentropique)</p>
+
+        <h3>L'entropie statistique de Boltzmann</h3>
+        <p>Boltzmann a relié l'entropie au nombre Ω de micro-états (configurations microscopiques) compatibles avec le macro-état observé : <strong>S = k_B × ln(Ω)</strong>, où k_B = 1,381 × 10⁻²³ J/K est la constante de Boltzmann.</p>
+        <p>Un <strong>micro-état</strong> est une configuration précise de toutes les particules (positions et vitesses). Le <strong>macro-état</strong> est défini par les grandeurs macroscopiques (T, p, V). Plusieurs micro-états correspondent au même macro-état. Plus Ω est grand, plus l'entropie est élevée.</p>
+        <p>Exemple : pour N particules de gaz dans un récipient, le nombre de micro-états où toutes les particules se trouvent dans la moitié gauche est Ω₁ = Ω_total / 2^N. La variation d'entropie associée au passage d'une demi-volume au volume entier est ΔS = k_B × N × ln(2), ce qui correspond au résultat thermodynamique de la détente libre.</p>
+        <div class="highlight-box"><p><strong>Interprétation :</strong> l'entropie mesure notre ignorance sur le micro-état réel du système. Plus il y a de micro-états possibles, plus l'entropie est grande. Les états « désordonnés » sont overwhelmingly plus nombreux que les états « ordonnés », ce qui explique pourquoi les systèmes évoluent spontanément vers le désordre.</p></div>
+
+        <h3>La flèche du temps</h3>
+        <p>Les lois fondamentales de la physique (mécanique newtonienne, électromagnétisme, mécanique quantique) sont réversibles dans le temps : si on inverse toutes les vitesses, le système revient sur ses pas. Pourtant, les phénomènes macroscopiques sont irréversibles : un verre brisé ne se reconstitue jamais spontanément.</p>
+        <p>L'entropie résout ce paradoxe : bien que chaque micro-état soit réversible, le nombre astronomique de micro-états correspondant à l'état désordonné rend le retour à l'état ordonné statistiquement impossible. Pour N ≈ 10²³ particules, la probabilité de revenir spontanément à un état ordonné est de l'ordre de 2^(−10²³), un nombre si petit qu'il est effectivement nul.</p>
+        <p>C'est le deuxième principe qui donne une <strong>flèche du temps</strong> : le passé est l'état de basse entropie, le futur celui de haute entropie. Cette flèche thermodynamique est reliée à la flèche cosmologique (expansion de l'univers) et à la flèche psychologique (nous nous souvenons du passé, pas du futur).</p>
+
+        <h3>Entropie et information</h3>
+        <p>Claude Shannon (1948) a défini l'entropie d'information par une formule analogue à celle de Boltzmann : <strong>H = −Σ p_i × log₂(p_i)</strong>, où p_i est la probabilité de chaque message. Cette analogie n'est pas fortuite : l'entropie thermodynamique mesure l'information manquante sur le micro-état du système.</p>
+        <p>Le <strong>démon de Maxwell</strong> (1867) est une expérience de pensée où un être microscopique trie les molécules rapides et lentes, diminuant apparemment l'entropie. Léo Szilard (1929) puis Rolf Landauer (1961) ont montré que l'effacement de l'information acquise par le démon produit au moins autant d'entropie qu'il en a supprimée : <strong>l'effacement d'un bit d'information produit au minimum k_B × T × ln(2) joules de chaleur</strong> (principe de Landauer).</p>
+
+        <h3>La mort thermique de l'univers</h3>
+        <p>Si l'univers est un système isolé, le deuxième principe prédit que son entropie augmente inexorablement. L'état final serait un équilibre thermique uniforme, sans gradients de température, sans structures organisées : la « mort thermique » (Helmholtz, 1854).</p>
+        <p>L'entropie actuelle de l'univers observable est dominée par les trous noirs supermassifs. L'entropie du trou noir au centre de la Voie lactée (S ≈ 10⁹⁰ k_B) dépasse de loin celle de toutes les étoiles réunies. La formule de Bekenstein-Hawking donne l'entropie d'un trou noir : <strong>S_BH = (k_B × c³ × A) / (4 × G × ℏ)</strong>, proportionnelle à l'aire A de l'horizon des événements.</p>
+      </div>
+    </section>
+    <section class="content-section" id="quiz">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Quiz</h2><p>Testez votre compréhension</p></div></div>
+      <div class="quiz-container">
+        <div class="quiz-header"><span class="quiz-title-text">🌡️ Entropie — Quiz</span><span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span></div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0"><p class="q-num">Question 1 / 6</p><p class="q-text">Quelle est la formule de l'entropie statistique de Boltzmann ?</p><div class="options"><button class="option" onclick="answer(this,false)">S = k_B × Ω</button><button class="option" onclick="answer(this,true)">S = k_B × ln(Ω)</button><button class="option" onclick="answer(this,false)">S = k_B × Ω²</button><button class="option" onclick="answer(this,false)">S = k_B / ln(Ω)</button></div><div class="q-feedback">S = k_B × ln(Ω), où Ω est le nombre de micro-états accessibles. Le logarithme assure l'additivité de l'entropie pour des systèmes indépendants.</div></div>
+          <div class="question-block" data-q="1"><p class="q-num">Question 2 / 6</p><p class="q-text">Pour un système isolé, l'entropie...</p><div class="options"><button class="option" onclick="answer(this,false)">Diminue toujours</button><button class="option" onclick="answer(this,false)">Reste constante</button><button class="option" onclick="answer(this,true)">Ne peut qu'augmenter ou rester constante</button><button class="option" onclick="answer(this,false)">Peut augmenter ou diminuer</button></div><div class="q-feedback">Pour un système isolé, ΔS ≥ 0 (deuxième principe). L'entropie augmente lors de transformations irréversibles et reste constante uniquement pour les transformations réversibles.</div></div>
+          <div class="question-block" data-q="2"><p class="q-num">Question 3 / 6</p><p class="q-text">La variation d'entropie d'une transformation adiabatique réversible est...</p><div class="options"><button class="option" onclick="answer(this,true)">Nulle (isentropique)</button><button class="option" onclick="answer(this,false)">Toujours positive</button><button class="option" onclick="answer(this,false)">Toujours négative</button><button class="option" onclick="answer(this,false)">Égale à Q/T</button></div><div class="q-feedback">Adiabatique (Q = 0) et réversible → dS = δQ_rév/T = 0. La transformation est isentropique (S = constante).</div></div>
+          <div class="question-block" data-q="3"><p class="q-num">Question 4 / 6</p><p class="q-text">Pourquoi un verre brisé ne se reconstitue-t-il jamais spontanément ?</p><div class="options"><button class="option" onclick="answer(this,false)">Les lois de Newton l'interdisent</button><button class="option" onclick="answer(this,false)">La conservation de l'énergie l'empêche</button><button class="option" onclick="answer(this,true)">Le nombre de micro-états désordonnés est astronomiquement plus grand</button><button class="option" onclick="answer(this,false)">La gravité empêche les morceaux de remonter</button></div><div class="q-feedback">Les lois microscopiques sont réversibles, mais les états désordonnés sont tellement plus nombreux que le retour à l'ordre est statistiquement impossible pour ~10²³ particules.</div></div>
+          <div class="question-block" data-q="4"><p class="q-num">Question 5 / 6</p><p class="q-text">Le principe de Landauer stipule que l'effacement d'un bit d'information...</p><div class="options"><button class="option" onclick="answer(this,false)">Ne produit aucune chaleur</button><button class="option" onclick="answer(this,true)">Produit au minimum k_B × T × ln(2) joules de chaleur</button><button class="option" onclick="answer(this,false)">Diminue l'entropie de l'univers</button><button class="option" onclick="answer(this,false)">Viole le deuxième principe</button></div><div class="q-feedback">Le principe de Landauer (1961) établit un lien fondamental entre information et thermodynamique : effacer un bit coûte au minimum k_B × T × ln(2) joules de chaleur.</div></div>
+          <div class="question-block" data-q="5"><p class="q-num">Question 6 / 6</p><p class="q-text">L'entropie d'un gaz parfait lors d'une détente isotherme (V₂ > V₁)...</p><div class="options"><button class="option" onclick="answer(this,true)">Augmente</button><button class="option" onclick="answer(this,false)">Diminue</button><button class="option" onclick="answer(this,false)">Reste constante</button><button class="option" onclick="answer(this,false)">Dépend de la pression</button></div><div class="q-feedback">ΔS = nR ln(V₂/V₁). Comme V₂ > V₁, ln(V₂/V₁) > 0, donc ΔS > 0. Le gaz a plus de volume accessible, donc plus de micro-états possibles.</div></div>
+        </div>
+        <div class="quiz-result" id="quizResult"><div class="result-score-big" id="resultScore">0/6</div><div class="result-msg" id="resultMsg"></div><button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button></div>
+        <div class="quiz-nav"><button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button><div class="q-dots" id="qDots"></div><button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button></div>
+      </div>
+    </section>
+    <section class="content-section" id="exercices">
+      <div class="section-header"><div class="section-num">04</div><div class="section-info"><h2>Exercices</h2><p>Mettez en pratique</p></div></div>
+      <div class="course-content">
+        <h3>Exercice 1 — Détente isotherme</h3>
+        <p>2 moles de gaz parfait se détendent de manière isotherme et réversible de 5 L à 20 L à 300 K. Calculez la variation d'entropie du gaz.</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>ΔS = nR ln(V₂/V₁) = 2 × 8,314 × ln(20/5) = 16,63 × ln(4) = 16,63 × 1,386</p><p>ΔS = <strong>23,0 J/K</strong></p><p>L'entropie augmente car le gaz occupe un volume plus grand : il y a plus de micro-états accessibles.</p></div></details>
+
+        <h3>Exercice 2 — Mélange irréversible</h3>
+        <p>On met en contact 1 kg d'eau à 80 °C avec 1 kg d'eau à 20 °C dans un récipient isolé. Calculez la température d'équilibre et la variation d'entropie totale. (c_eau = 4 185 J/(kg·K))</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>T_eq = (T₁ + T₂)/2 = (80 + 20)/2 = <strong>50 °C = 323 K</strong></p><p>T₁ = 353 K ; T₂ = 293 K</p><p>ΔS₁ = mc ln(T_eq/T₁) = 1 × 4 185 × ln(323/353) = 4 185 × (−0,0889) = −372 J/K</p><p>ΔS₂ = mc ln(T_eq/T₂) = 1 × 4 185 × ln(323/293) = 4 185 × 0,0973 = 407 J/K</p><p>ΔS_total = ΔS₁ + ΔS₂ = −372 + 407 = <strong>+35 J/K</strong></p><p>L'entropie totale augmente (ΔS > 0), confirmant l'irréversibilité du mélange thermique.</p></div></details>
+
+        <h3>Exercice 3 — Entropie de Boltzmann</h3>
+        <p>Un système contient 100 particules identiques réparties entre deux compartiments. (a) Calculez l'entropie quand les 100 particules sont dans le compartiment gauche (Ω₁ = 1). (b) Calculez l'entropie quand les particules sont réparties 50-50 (Ω₂ = C(100,50) ≈ 10²⁹). (c) Quelle est la variation d'entropie ?</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>(a) S₁ = k_B × ln(1) = <strong>0</strong> (un seul micro-état, entropie nulle)</p><p>(b) S₂ = k_B × ln(10²⁹) = 1,381 × 10⁻²³ × 29 × ln(10) = 1,381 × 10⁻²³ × 29 × 2,303</p><p>S₂ = 1,381 × 10⁻²³ × 66,8 = <strong>9,22 × 10⁻²² J/K</strong></p><p>(c) ΔS = S₂ − S₁ = <strong>9,22 × 10⁻²² J/K</strong></p><p>L'entropie augmente considérablement en passant de l'état ordonné (toutes à gauche) à l'état le plus désordonné (répartition égale).</p></div></details>
+
+        <h3>Exercice 4 — Entropie et chauffage</h3>
+        <p>On chauffe 3 moles d'un gaz parfait diatomique (C_p = 7/2 R) de 200 K à 600 K à pression constante. Calculez la variation d'entropie.</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>À pression constante : ΔS = nC_p ln(T₂/T₁)</p><p>C_p = 7/2 × 8,314 = 29,10 J/(mol·K)</p><p>ΔS = 3 × 29,10 × ln(600/200) = 87,30 × ln(3) = 87,30 × 1,099</p><p>ΔS = <strong>95,9 J/K</strong></p></div></details>
+
+        <h3>Exercice 5 — Détente libre (Joule-Gay Lussac)</h3>
+        <p>1 mole de gaz parfait occupe initialement un volume de 10 L dans un récipient relié à un récipient vide de 10 L par un robinet. On ouvre le robinet (détente libre irréversible). Calculez ΔU, ΔT et ΔS. Le récipient est isolé thermiquement.</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p><strong>Détente libre (Joule-Gay Lussac) :</strong> W = 0 (pas de piston), Q = 0 (isolé)</p><p>Premier principe : ΔU = Q + W = 0 → <strong>ΔU = 0</strong></p><p>Pour un gaz parfait : U ne dépend que de T, donc ΔU = 0 → <strong>ΔT = 0</strong></p><p>La température ne change pas, mais le volume double : V₂ = 20 L</p><p>ΔS = nR ln(V₂/V₁) = 1 × 8,314 × ln(20/10) = 8,314 × ln(2) = 8,314 × 0,693</p><p>ΔS = <strong>+5,76 J/K</strong></p><p>Bien que Q = 0, l'entropie augmente car la transformation est irréversible. L'entropie créée vaut S_créée = 5,76 J/K > 0.</p></div></details>
+      </div>
+    </section>
+    <div class="course-nav">
+      <a href="machines.html" class="prev"><span class="course-nav-label">Cours précédent</span><span class="course-nav-title">← Machines thermiques</span></a>
+      <span class="next"></span>
+    </div>
+  </main>
+</div>
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

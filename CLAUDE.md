@@ -7,110 +7,123 @@ Educational website in French — "Tout ce qui peut être appris" (Everything th
 ```
 index.html (landing page — 7 grand themes)
 ├── sciences-exactes.html        🔬 Sciences exactes & Informatique
-│   ├── maths-page.html              Mathématiques (16 hubs)
-│   └── informatique-page.html       Informatique
-│       └── python-page.html             Python (branche)
+│   ├── cours/maths/index.html       Mathématiques (16 hubs)
+│   └── cours/informatique/index.html Informatique
+│       └── cours/python/index.html      Python (branche)
 ├── sciences-nature.html         🌱 Sciences de la nature
-│   └── biologie-page.html           Biologie (14 hubs)
+│   └── cours/biologie/index.html    Biologie (14 hubs)
 ├── sciences-humaines.html       🌍 Sciences humaines & sociales
-│   ├── histoire-page.html           Histoire (19 hubs)
-│   ├── economie-page.html           Économie (13 hubs)
-│   └── psychologie-page.html        Psychologie (14 hubs)
+│   ├── cours/histoire/index.html    Histoire (19 hubs)
+│   ├── cours/economie/index.html    Économie (13 hubs)
+│   └── cours/psychologie/index.html Psychologie (14 hubs)
 ├── lettres-langues.html         📚 Lettres, Langues & Philosophie
-│   ├── philosophie-page.html        Philosophie (12 hubs)
-│   └── langues-page.html            Langues (16 hubs)
+│   ├── cours/philosophie/index.html Philosophie (12 hubs)
+│   └── cours/langues/index.html     Langues (16 hubs)
 ├── arts-culture.html            🎨 Arts & Culture
-│   ├── arts-page.html               Arts visuels (13 hubs)
-│   └── musique-page.html            Musique (18 hubs)
-├── droit-politique.html         ⚖️ Droit, Politique & Société (placeholder)
-└── savoir-faire.html            🔧 Savoir-faire & Vie pratique (placeholder)
+│   ├── cours/arts/index.html        Arts visuels (13 hubs)
+│   └── cours/musique/index.html     Musique (18 hubs)
+├── droit-politique.html         ⚖️ Droit, Politique & Société
+└── savoir-faire.html            🔧 Savoir-faire & Vie pratique
 ```
 
-Navigation: Landing → Grand thème → Discipline (`*-page.html`) → Hub → Cours
+Navigation: Landing → Grand thème → Discipline (`cours/*/index.html`) → Hub → Cours
 
 ## Project Structure
 
-- `index.html` — Main landing page (7 grand theme cards + dynamic search)
-- `style.css` — Shared stylesheet for all pages (variables, layout, components)
-- `mobile.js` — Mobile hamburger menu + sidebar drawer (bundled in curiosita.min.js)
-- `apprendre.html` — Spaced repetition hub (review, decks, progress, method)
-- Grand theme pages (`sciences-exactes.html`, etc.) — Intermediate pages listing disciplines
-- `*-page.html` — Discipline pages (subject-specific accent color, sidebar, quiz, resources)
-- `*/` — Course directories (e.g. `python/`, `maths/`, `biologie/`)
+```
+Curiosita/
+├── cours/                        33 discipline directories
+│   ├── maths/
+│   │   ├── index.html            Discipline page (ex maths-page.html)
+│   │   ├── arithmetique.html     Hub page
+│   │   ├── algebre.html          Hub page
+│   │   └── arithmetique/         Course pages
+│   │       └── nombres-premiers.html
+│   ├── biologie/
+│   └── ...
+├── src/                          13 source files (JS + CSS)
+│   ├── utils.js, quiz.js, mobile.js
+│   ├── sr-engine.js, sr-extract.js, sr-highlight.js
+│   ├── sr-ui.js, sr-progress.js, sr-methode.js
+│   ├── search.js, memo.js
+│   ├── style.css, sr-style.css
+├── scripts/                      Build scripts
+│   ├── build.js                  Bundle + minify JS/CSS
+│   ├── build-search-index.js     Generate search-index.json + sr-courses.js
+│   └── _generate.js              Course page template generator
+├── index.html                    Landing page (search + theme cards)
+├── apprendre.html                Spaced repetition hub
+├── cours.html                    Course catalog
+├── sciences-exactes.html         Grand theme (×7)
+├── curiosita.min.js              Bundle: utils + quiz + mobile
+├── sr-app.min.js                 Bundle: full SR app (apprendre.html)
+├── sr-course.min.js              Bundle: SR engine + extract + highlight (course pages)
+├── search.min.js                 Search (index.html)
+├── memo.min.js                   Memo download (course pages)
+├── style.min.css                 Main CSS
+├── sr-style.min.css              SR styles
+├── search-index.json             Search index (compact keys)
+├── sr-courses.js                 Auto-generated course URL list
+├── favicon.svg
+├── package.json
+└── .gitignore
+```
 
-### Grand Theme Pages
+### Path Depth Reference
 
-| File | Theme | Accent Color | Disciplines |
-|------|-------|-------------|-------------|
-| `sciences-exactes.html` | Sciences exactes & Informatique | `#4fc3f7` (cyan) | Maths, Informatique |
-| `sciences-nature.html` | Sciences de la nature | `#7ae8d8` (teal) | Biologie |
-| `sciences-humaines.html` | Sciences humaines & sociales | `#7ae88a` (green) | Histoire, Économie, Psychologie |
-| `lettres-langues.html` | Lettres, Langues & Philosophie | `#9b7ae8` (violet) | Philosophie, Langues |
-| `arts-culture.html` | Arts & Culture | `#e87a7a` (pink) | Arts visuels, Musique |
-| `droit-politique.html` | Droit, Politique & Société | `#e87a9b` (magenta) | Placeholder |
-| `savoir-faire.html` | Savoir-faire & Vie pratique | `#8ae87a` (lime) | Placeholder |
-
-### Discipline Pages
-
-| File | Subject | Accent Color | Parent Theme |
-|------|---------|-------------|--------------|
-| `maths-page.html` | Mathématiques | `#c0392b` (red) | Sciences exactes |
-| `informatique-page.html` | Informatique | `#4fc3f7` (cyan) | Sciences exactes |
-| `python-page.html` | Python | `#4fc3f7` (cyan) | Informatique |
-| `biologie-page.html` | Biologie | `#7ae8d8` (teal) | Sciences de la nature |
-| `histoire-page.html` | Histoire | `#7ae88a` (green) | Sciences humaines |
-| `economie-page.html` | Économie | `#c97ae8` (violet) | Sciences humaines |
-| `psychologie-page.html` | Psychologie | `#b07fe8` (purple) | Sciences humaines |
-| `philosophie-page.html` | Philosophie | `#9b7ae8` (purple) | Lettres & Langues |
-| `langues-page.html` | Langues | `#e8c97a` (gold) | Lettres & Langues |
-| `arts-page.html` | Arts visuels | `#e87a7a` (pink) | Arts & Culture |
-| `musique-page.html` | Musique | `#e8b07a` (orange) | Arts & Culture |
+| Page type | Location | Root asset prefix | Example |
+|-----------|----------|-------------------|---------|
+| Grand theme | `*.html` (root) | none | `style.min.css?v=4` |
+| Discipline | `cours/*/index.html` | `../../` | `../../style.min.css?v=4` |
+| Hub | `cours/*/*.html` | `../../` | `../../style.min.css?v=4` |
+| Course | `cours/*/*/*.html` | `../../../` | `../../../style.min.css?v=4` |
 
 ## Tech Stack
 
 - Pure HTML/CSS/JS — no frameworks, no runtime dependencies
 - Build tools: `terser` (JS minification), `clean-css` (CSS minification) — devDependencies only
 - Google Fonts: Playfair Display (headings), DM Sans (body), Lora (formulas), JetBrains Mono (code)
-- `style.min.css?v=3` — shared CSS with dark theme defaults and all components (cache-busted, minified)
-- `curiosita.min.js?v=3` — bundled JS: utils.js + quiz.js + mobile.js (cache-busted, minified)
-- `sr-style.min.css?v=3` — SR system styles (loaded on course pages + apprendre.html)
+- All assets use cache-busted versions (`?v=4`)
 - Each page's `<style>` block contains ONLY `:root` variable overrides (`--accent`, `--accent2`, `--accent-dim`, `--accent-hero`)
 
 ### Build Pipeline
 
 ```
-npm run build        → Bundles + minifies JS and CSS
+npm run build        → Bundles + minifies JS and CSS (src/ → root)
 npm run index        → Generates search-index.json + sr-courses.js
 npm run all          → Both above
 ```
 
-- `scripts/build.js` — Concatenates JS IIFEs into bundles, then minifies with terser/clean-css
-- `scripts/build-search-index.js` — Crawls HTML pages to generate search-index.json (compact keys)
+- `scripts/build.js` — Reads sources from `src/`, concatenates JS IIFEs into bundles, minifies with terser/clean-css, outputs to root
+- `scripts/build-search-index.js` — Crawls HTML pages to generate search-index.json (compact keys: `n,c,u,t,i`)
 - `scripts/_generate.js` — Course page generator (template with current conventions)
 
 ### JS Bundles
 
-| Bundle | Sources | Purpose |
+| Bundle | Sources (in src/) | Purpose |
 |--------|---------|---------|
 | `curiosita.min.js` | utils.js + quiz.js + mobile.js | All regular pages |
-| `sr-app.min.js` | sr-engine.js + sr-ui.js + sr-extract.js + sr-progress.js + sr-method.js | apprendre.html (full SR app) |
-| `search.min.js` | search.js | index.html (search) |
+| `sr-app.min.js` | sr-engine + sr-extract + sr-courses + sr-ui + sr-progress + sr-methode | apprendre.html (full SR app) |
+| `sr-course.min.js` | sr-engine + sr-extract + sr-highlight | Course pages (SR annotation) |
+| `search.min.js` | search.js | index.html (search + tree) |
 | `memo.min.js` | memo.js | Course pages with downloadable memo |
+
+Note: `sr-courses.js` is auto-generated by `build-search-index.js` and lives in root (not src/)
 
 ### Spaced Repetition System
 
 - `apprendre.html` — Hub page: review cards, manage decks, view progress, study method
-- `sr-engine.js` — SM-2 algorithm, CRUD cartes, localStorage persistence
-- `sr-extract.js` — Auto-extraction de flashcards depuis le contenu HTML des cours
-- `sr-highlight.js` — Colore les termes-clés des cours, bouton d'extraction (chargé statiquement sur 654 pages cours)
-- `sr-ui.js` — Interface de révision (flip cards, rating, deck browser)
-- `sr-progress.js` — Onglet Progrès (charts, forecast, retention)
-- `sr-method.js` — Onglet Méthode (techniques de mémorisation, Pomodoro)
-- `sr-style.css` — Tous les styles SR préfixés `sr-`
+- `src/sr-engine.js` — SM-2 algorithm, CRUD cartes, localStorage persistence, migration
+- `src/sr-extract.js` — Auto-extraction de flashcards depuis le contenu HTML des cours
+- `src/sr-highlight.js` — Colore les termes-clés des cours, bouton d'extraction (bundled in sr-course.min.js)
+- `src/sr-ui.js` — Interface de révision (flip cards, rating, deck browser)
+- `src/sr-progress.js` — Onglet Progrès (charts, forecast, retention)
+- `src/sr-methode.js` — Onglet Méthode (techniques de mémorisation, Pomodoro)
+- `src/sr-style.css` — Tous les styles SR préfixés `sr-`
 
 ## CSS Architecture
 
-- `style.css` defines `:root` with dark theme defaults and all CSS variables
+- `src/style.css` defines `:root` with dark theme defaults and all CSS variables
 - Each page overrides only `--accent`, `--accent2`, `--accent-dim` + hero background
 - Psychologie overrides the full palette (different dark base: `#0f0d14`)
 - Landing page (`index.html`) uses `style.css` for reset/base + its own inline styles
@@ -140,7 +153,7 @@ npm run all          → Both above
 
 ## Search
 
-- `index.html` uses `search.min.js` which loads `search-index.json` (pre-built, compact keys: `n,c,u,t,i`)
+- `index.html` uses `search.min.js` which loads `search-index.json?v=3` (pre-built, compact keys: `n,c,u,t,i`)
 - Fallback: if `search-index.json` fails, builds index dynamically by fetching pages
 - Cached in `sessionStorage` for 10 minutes
 - Search results show type badges: thème, matière, domaine, cours

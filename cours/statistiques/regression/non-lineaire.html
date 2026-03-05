@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Polynomiale, logistique, exponentielle, ajustement — modéliser les relations courbes et les variables binaires.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Régression non linéaire — Régression — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root { --accent: #16a085; --accent2: #1abc9c; --accent-dim: rgba(22,160,133,0.08);  --accent-hero: rgba(22,160,133,0.04); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../index.html">Statistiques</a> › <a href="../regression.html">Régression</a> › <span>Régression non linéaire</span></div>
+</nav>
+<div class="hero hero--course">
+  <div class="hero-meta"><span class="tag-domain">📈 Régression</span><span class="tag-level">Intermédiaire → Avancé</span><span class="tag-time">⏱ ~45 min</span></div>
+  <h1><em>Régression non linéaire</em></h1>
+  <p class="hero-desc">Polynomiale, logistique, exponentielle, ajustement — modéliser les relations courbes et les variables binaires.</p>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../regression.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Régression</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="lineaire.html">Régression linéaire simple</a>
+    <a class="sidebar-link" href="multiple.html">Régression multiple</a>
+    <a class="sidebar-link" href="correlation.html">Corrélation</a>
+    <a class="sidebar-link" href="anova.html">ANOVA</a>
+    <a class="sidebar-link active" href="#">Régression non linéaire</a>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="introduction">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Introduction</h2><p>Au-delà de la droite</p></div></div>
+      <p class="resume-text">De nombreuses relations dans la nature ne sont pas linéaires. La croissance d'une population suit une courbe logistique. La décroissance radioactive est exponentielle. Le rendement agricole en fonction de l'engrais suit une courbe en forme de plateau. La régression non linéaire offre des outils pour modéliser ces relations <strong>courbes</strong>.</p>
+      <p class="resume-text">Il faut distinguer deux situations : les modèles <strong>linéarisables</strong> (polynomiaux, log-linéaires) qui se ramènent à une régression linéaire par transformation, et les modèles <strong>intrinsèquement non linéaires</strong> (logistique, Michaelis-Menten) qui nécessitent des algorithmes itératifs d'optimisation.</p>
+      <div class="highlight-box">
+        <p><strong>Principe clé :</strong> un modèle est linéaire en ses paramètres si Y est une combinaison linéaire des βᵢ (même si les variables sont transformées). Y = β₀ + β₁X² est linéaire en paramètres. Y = β₀ × e^(β₁X) ne l'est pas.</p>
+      </div>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Le cours</h2><p>Modèles et méthodes</p></div></div>
+      <div class="course-content">
+        <h3>Régression polynomiale</h3>
+        <p>La régression polynomiale ajoute des puissances de X comme prédicteurs : Y = β₀ + β₁X + β₂X² + ... + βₖXᵏ + ε. C'est un modèle linéaire en paramètres, donc estimable par MCO classiques.</p>
+        <ul>
+          <li><strong>Degré 2 (quadratique) :</strong> modélise une courbe en U ou U inversé (ex : relation performance-stress)</li>
+          <li><strong>Degré 3 (cubique) :</strong> modélise des courbes avec un point d'inflexion</li>
+          <li><strong>Attention au surajustement :</strong> un polynôme de degré (n−1) passe par tous les n points mais n'a aucun pouvoir prédictif</li>
+        </ul>
+
+        <h3>Transformations linéarisantes</h3>
+        <p>Certaines relations non linéaires deviennent linéaires après transformation :</p>
+        <ul>
+          <li><strong>Modèle exponentiel :</strong> Y = ae^(bX) → ln(Y) = ln(a) + bX (régression linéaire sur ln Y)</li>
+          <li><strong>Modèle puissance :</strong> Y = aX^b → ln(Y) = ln(a) + b ln(X) (régression log-log)</li>
+          <li><strong>Modèle inverse :</strong> Y = a + b/X → régression linéaire sur Z = 1/X</li>
+        </ul>
+        <p>Attention : la transformation change la structure des erreurs. Minimiser les moindres carrés sur ln(Y) n'est pas identique à les minimiser sur Y.</p>
+
+        <h3>Régression logistique</h3>
+        <p>La <strong>régression logistique</strong> modélise une variable réponse binaire (0/1). Au lieu de prédire Y directement, on modélise la probabilité P(Y=1) via la fonction logistique :</p>
+        <p>P(Y=1|X) = 1 / (1 + e^(−(β₀ + β₁X)))</p>
+        <p>Le <strong>logit</strong> (log-odds) ln(P/(1−P)) = β₀ + β₁X est linéaire en les paramètres. Les coefficients sont estimés par maximum de vraisemblance, non par MCO. β₁ s'interprète comme le changement du log-odds pour une unité de X : e^β₁ est l'odds ratio.</p>
+        <div class="highlight-box">
+          <p><strong>Applications :</strong> diagnostic médical (malade/sain), scoring bancaire (défaut/remboursement), marketing (achat/non-achat). La courbe en S (sigmoïde) borne les probabilités entre 0 et 1, contrairement à la régression linéaire qui peut prédire des probabilités négatives ou supérieures à 1.</p>
+        </div>
+
+        <h3>Modèles de croissance</h3>
+        <ul>
+          <li><strong>Croissance exponentielle :</strong> Y(t) = Y₀ × e^(rt). Croissance illimitée à taux constant r</li>
+          <li><strong>Croissance logistique :</strong> Y(t) = K / (1 + ((K−Y₀)/Y₀) × e^(−rt)). Croissance limitée par une capacité K (plateau)</li>
+          <li><strong>Modèle de Gompertz :</strong> Y(t) = K × e^(−a × e^(−bt)). Croissance asymétrique avec ralentissement progressif</li>
+        </ul>
+
+        <h3>Estimation non linéaire</h3>
+        <p>Pour les modèles intrinsèquement non linéaires, l'estimation des paramètres utilise des <strong>algorithmes itératifs</strong> :</p>
+        <ul>
+          <li><strong>Gauss-Newton :</strong> linéarise le modèle à chaque itération par développement de Taylor</li>
+          <li><strong>Levenberg-Marquardt :</strong> compromis entre Gauss-Newton et descente de gradient, plus robuste</li>
+          <li><strong>Convergence :</strong> dépend des valeurs initiales. De mauvais points de départ peuvent mener à un minimum local</li>
+        </ul>
+
+        <h3>Critères de choix de modèle</h3>
+        <p>Pour comparer différents modèles non linéaires :</p>
+        <ul>
+          <li><strong>AIC/BIC :</strong> comparent les modèles en pénalisant la complexité</li>
+          <li><strong>R² généralisé :</strong> R² = 1 − SCR/SCT, mais son interprétation est moins claire qu'en régression linéaire</li>
+          <li><strong>Analyse des résidus :</strong> les résidus doivent être aléatoires et sans patron</li>
+          <li><strong>Validation croisée :</strong> évalue la capacité prédictive sur des données non vues</li>
+          <li><strong>Principe de parcimonie :</strong> préférer le modèle le plus simple qui ajuste bien les données</li>
+        </ul>
+      </div>
+    </section>
+    <section class="content-section" id="quiz">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Quiz</h2><p>Testez votre compréhension</p></div></div>
+      <div class="quiz-container">
+        <div class="quiz-header"><span class="quiz-title-text">📈 Régression non linéaire — Quiz</span><span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span></div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p><p class="q-text">Le modèle Y = β₀ + β₁X + β₂X² est-il linéaire en paramètres ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">Oui, car Y est une combinaison linéaire des βᵢ</button>
+              <button class="option" onclick="answer(this,false)">Non, car X est au carré</button>
+              <button class="option" onclick="answer(this,false)">Seulement si β₂ = 0</button>
+              <button class="option" onclick="answer(this,false)">Cela dépend des données</button>
+            </div>
+            <div class="q-feedback">La linéarité se rapporte aux paramètres, pas aux variables. Y est bien une somme de β₀, β₁ × X et β₂ × X², donc linéaire en β₀, β₁, β₂. On peut l'estimer par MCO.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p><p class="q-text">Quelle transformation linéarise Y = aX^b ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Prendre la racine carrée</button>
+              <button class="option" onclick="answer(this,true)">Prendre le logarithme des deux côtés</button>
+              <button class="option" onclick="answer(this,false)">Inverser Y</button>
+              <button class="option" onclick="answer(this,false)">Prendre l'exponentielle</button>
+            </div>
+            <div class="q-feedback">ln(Y) = ln(a) + b × ln(X). En posant Y' = ln(Y), X' = ln(X), a' = ln(a), on obtient Y' = a' + bX', qui est linéaire.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p><p class="q-text">Que modélise la régression logistique ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Une variable continue</button>
+              <button class="option" onclick="answer(this,true)">La probabilité d'un événement binaire</button>
+              <button class="option" onclick="answer(this,false)">Le logarithme de Y</button>
+              <button class="option" onclick="answer(this,false)">La variance des résidus</button>
+            </div>
+            <div class="q-feedback">La régression logistique modélise P(Y=1|X) via la fonction sigmoïde. Elle est utilisée quand la variable réponse est binaire (succès/échec, oui/non).</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p><p class="q-text">Que représente e^β₁ en régression logistique ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">La pente de la droite</button>
+              <button class="option" onclick="answer(this,true)">L'odds ratio pour une unité de X</button>
+              <button class="option" onclick="answer(this,false)">La probabilité prédite</button>
+              <button class="option" onclick="answer(this,false)">Le coefficient de détermination</button>
+            </div>
+            <div class="q-feedback">En régression logistique, e^β₁ est le rapport de cotes (odds ratio) : le facteur par lequel les odds de Y=1 sont multipliés quand X augmente d'une unité.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p><p class="q-text">Quel modèle inclut un plateau (capacité maximale K) ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Le modèle exponentiel</button>
+              <button class="option" onclick="answer(this,true)">Le modèle logistique de croissance</button>
+              <button class="option" onclick="answer(this,false)">Le modèle polynomial</button>
+              <button class="option" onclick="answer(this,false)">Le modèle puissance</button>
+            </div>
+            <div class="q-feedback">Le modèle logistique de croissance Y(t) = K/(1 + ae^(−rt)) tend vers K quand t → ∞. Il modélise les croissances limitées par des ressources finies.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p><p class="q-text">Quel algorithme est le plus robuste pour l'estimation non linéaire ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Les moindres carrés ordinaires</button>
+              <button class="option" onclick="answer(this,false)">Gauss-Newton seul</button>
+              <button class="option" onclick="answer(this,true)">Levenberg-Marquardt</button>
+              <button class="option" onclick="answer(this,false)">La méthode des moments</button>
+            </div>
+            <div class="q-feedback">Levenberg-Marquardt combine Gauss-Newton (rapide près de la solution) et la descente de gradient (robuste loin de la solution). C'est l'algorithme standard pour les moindres carrés non linéaires.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult"><div class="result-score-big" id="resultScore">0/6</div><div class="result-msg" id="resultMsg"></div><button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button></div>
+        <div class="quiz-nav"><button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button><div class="q-dots" id="qDots"></div><button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button></div>
+      </div>
+    </section>
+    <section class="content-section" id="exercices">
+      <div class="section-header"><div class="section-num">04</div><div class="section-info"><h2>Exercices</h2><p>Testez vos connaissances</p></div></div>
+      <div class="course-content">
+        <h3>Exercice 1 — Régression polynomiale</h3>
+        <p>Des données montrent une relation en U inversé entre le stress (X) et la performance (Y). Quel modèle proposez-vous ? Que signifie un β₂ négatif ?</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box">
+          <p>On propose un modèle quadratique : Y = β₀ + β₁X + β₂X² + ε.</p>
+          <p>Un <strong>β₂ négatif</strong> signifie que la parabole est ouverte vers le bas (U inversé). La performance augmente d'abord avec le stress puis diminue. Le sommet de la parabole est à X* = −β₁/(2β₂), qui donne le niveau de stress optimal.</p>
+        </div></details>
+        <h3>Exercice 2 — Linéarisation</h3>
+        <p>Des données de décroissance radioactive suivent Y = 100 × e^(−0,05t). Transformez ce modèle pour l'estimer par régression linéaire.</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box">
+          <p>ln(Y) = ln(100) + (−0,05) × t = 4,605 − 0,05t.</p>
+          <p>On pose Y' = ln(Y). La régression linéaire Y' = a + bt donne a ≈ 4,605 (donc Y₀ = e^a ≈ 100) et b ≈ −0,05 (constante de décroissance).</p>
+        </div></details>
+        <h3>Exercice 3 — Régression logistique</h3>
+        <p>Une régression logistique du risque de diabète sur l'IMC donne : logit(P) = −8,5 + 0,25 × IMC. Calculez la probabilité de diabète pour un IMC de 30 et l'odds ratio.</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box">
+          <p>logit = −8,5 + 0,25 × 30 = −8,5 + 7,5 = −1,0.</p>
+          <p>P = 1/(1+e^1) = 1/(1+2,718) = 1/3,718 = <strong>0,269 (26,9 %)</strong>.</p>
+          <p>Odds ratio = e^0,25 = <strong>1,284</strong>. Chaque point d'IMC supplémentaire multiplie les odds de diabète par 1,28 (augmentation de 28 %).</p>
+        </div></details>
+        <h3>Exercice 4 — Choix de modèle</h3>
+        <p>Pour modéliser la population mondiale au cours du temps, trois modèles sont ajustés : exponentiel (AIC = 350), logistique (AIC = 310), polynomial de degré 4 (AIC = 305). Quel modèle choisir et pourquoi ?</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box">
+          <p>L'AIC favorise le polynôme (305), mais le modèle <strong>logistique</strong> (310) est préférable :</p>
+          <p>1. La différence d'AIC est faible (5 unités). 2. Le modèle logistique a un sens biologique (capacité de charge). 3. Le polynôme de degré 4 peut osciller dangereusement en extrapolation. 4. Le principe de parcimonie favorise les modèles interprétables.</p>
+        </div></details>
+        <h3>Exercice 5 — Interprétation d'une sigmoïde</h3>
+        <p>Un modèle de croissance logistique donne K = 10 000 (capacité), r = 0,15 (taux de croissance), Y₀ = 500 (population initiale). À quel moment t la population atteindra-t-elle 5 000 (la moitié de K) ?</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box">
+          <p>Y(t) = K/(1 + ((K−Y₀)/Y₀) × e^(−rt)) = 10000/(1 + 19 × e^(−0,15t)).</p>
+          <p>Pour Y = 5000 : 5000 = 10000/(1 + 19e^(−0,15t)).</p>
+          <p>1 + 19e^(−0,15t) = 2 → 19e^(−0,15t) = 1 → e^(−0,15t) = 1/19.</p>
+          <p>−0,15t = ln(1/19) = −2,944 → t = 2,944/0,15 = <strong>19,6 unités de temps</strong>.</p>
+          <p>Le point d'inflexion (croissance maximale) se situe toujours à K/2 pour le modèle logistique.</p>
+        </div></details>
+      </div>
+    </section>
+    <div class="course-nav">
+      <a href="anova.html" class="prev"><span class="course-nav-label">Cours précédent</span><span class="course-nav-title">← ANOVA</span></a>
+      <div></div>
+    </div>
+  </main>
+</div>
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

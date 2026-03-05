@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Variables explicatives multiples, multicolinéarité, sélection de modèle — étendre la régression à plusieurs prédicteurs.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Régression multiple — Régression — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root {
+  --accent: #16a085;
+  --accent2: #1abc9c;
+  --accent-dim: rgba(22,160,133,0.08);
+ --accent-hero: rgba(22,160,133,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../index.html">Statistiques</a> › <a href="../regression.html">Régression</a> › <span>Régression multiple</span>
+  </div>
+</nav>
+
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">📈 Régression</span>
+    <span class="tag-level">Intermédiaire</span>
+    <span class="tag-time">⏱ ~50 min</span>
+  </div>
+  <h1><em>Régression multiple</em></h1>
+  <p class="hero-desc">Variables explicatives multiples, multicolinéarité, sélection de modèle — étendre la régression à plusieurs prédicteurs.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../regression.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Régression</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="lineaire.html">Régression linéaire simple</a>
+    <a class="sidebar-link active" href="#">Régression multiple</a>
+    <a class="sidebar-link" href="correlation.html">Corrélation</a>
+    <a class="sidebar-link" href="anova.html">ANOVA</a>
+    <a class="sidebar-link" href="non-lineaire.html">Régression non linéaire</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Plusieurs variables pour un seul modèle</p>
+        </div>
+      </div>
+      <p class="resume-text">En pratique, un phénomène est rarement expliqué par une seule variable. Le salaire dépend de l'expérience, du niveau d'études, du secteur d'activité. La régression multiple généralise la régression simple en incluant <strong>plusieurs variables explicatives</strong> : Y = β₀ + β₁X₁ + β₂X₂ + ... + βₚXₚ + ε.</p>
+      <p class="resume-text">Cette extension soulève des questions nouvelles : comment interpréter chaque coefficient quand les variables sont corrélées entre elles ? Comment choisir les variables à inclure dans le modèle ? Comment détecter et gérer la <strong>multicolinéarité</strong> ?</p>
+      <div class="highlight-box">
+        <p><strong>Principe clé :</strong> en régression multiple, chaque coefficient βⱼ mesure l'effet de Xⱼ sur Y « toutes choses égales par ailleurs », c'est-à-dire en maintenant les autres variables constantes. C'est l'effet partiel ou ceteris paribus.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Modèle, estimation et sélection</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Formulation matricielle</h3>
+        <p>Le modèle s'écrit Y = Xβ + ε, où Y est le vecteur (n×1) des réponses, X la matrice (n×(p+1)) de design, β le vecteur ((p+1)×1) des coefficients et ε le vecteur (n×1) des erreurs. L'estimateur MCO est :</p>
+        <p>β̂ = (X'X)⁻¹X'Y</p>
+        <p>Cet estimateur existe si et seulement si X'X est inversible, ce qui requiert que les colonnes de X soient linéairement indépendantes (pas de multicolinéarité parfaite) et que n > p + 1.</p>
+
+        <h3>R² et R² ajusté</h3>
+        <p>Le R² augmente mécaniquement chaque fois qu'on ajoute une variable, même non pertinente. Le <strong>R² ajusté</strong> pénalise pour le nombre de variables :</p>
+        <p>R²ₐⱼ = 1 − (1 − R²) × (n − 1) / (n − p − 1)</p>
+        <p>Le R² ajusté peut diminuer si une variable ajoutée n'apporte pas suffisamment d'information. C'est un meilleur critère de comparaison entre modèles de tailles différentes.</p>
+
+        <h3>Multicolinéarité</h3>
+        <p>La <strong>multicolinéarité</strong> survient quand les variables explicatives sont fortement corrélées entre elles. Conséquences :</p>
+        <ul>
+          <li>Les coefficients estimés deviennent instables (grande variance)</li>
+          <li>Les signes des coefficients peuvent être contre-intuitifs</li>
+          <li>Les tests individuels (t-tests) perdent de la puissance, alors que le test global F peut rester significatif</li>
+        </ul>
+        <p>Le <strong>facteur d'inflation de la variance</strong> (VIF) détecte la multicolinéarité : VIFⱼ = 1 / (1 − R²ⱼ), où R²ⱼ est le R² de la régression de Xⱼ sur les autres variables. Un VIF > 5 (ou > 10) est problématique.</p>
+        <div class="highlight-box">
+          <p><strong>Solutions :</strong> retirer une des variables corrélées, combiner les variables (ACP), utiliser une régression pénalisée (ridge, lasso) qui gère naturellement la multicolinéarité en ajoutant une contrainte sur les coefficients.</p>
+        </div>
+
+        <h3>Sélection de variables</h3>
+        <p>Choisir les variables à inclure est crucial. Trop de variables → surajustement. Trop peu → biais d'omission.</p>
+        <ul>
+          <li><strong>Forward (progressive) :</strong> partir du modèle vide, ajouter la variable la plus significative, itérer</li>
+          <li><strong>Backward (rétrograde) :</strong> partir du modèle complet, retirer la variable la moins significative, itérer</li>
+          <li><strong>Stepwise :</strong> combinaison de forward et backward</li>
+          <li><strong>Critères d'information :</strong> AIC = n ln(SCR/n) + 2p, BIC = n ln(SCR/n) + p ln(n). Le BIC pénalise davantage les modèles complexes</li>
+          <li><strong>Validation croisée :</strong> évaluer la performance prédictive sur des données non utilisées pour l'ajustement</li>
+        </ul>
+
+        <h3>Variables qualitatives (dummy)</h3>
+        <p>Les variables catégorielles sont intégrées via des <strong>variables indicatrices</strong> (dummy variables). Une variable à k modalités nécessite (k−1) indicatrices, la modalité omise servant de référence.</p>
+        <p>Exemple : si la variable « région » a 3 modalités (Nord, Sud, Ouest), on crée D_Sud = 1 si Sud, D_Ouest = 1 si Ouest. Le coefficient de D_Sud mesure la différence de Y entre Sud et Nord (référence).</p>
+
+        <h3>Interactions</h3>
+        <p>Un terme d'<strong>interaction</strong> X₁ × X₂ permet de modéliser le fait que l'effet de X₁ dépend du niveau de X₂. Le modèle Y = β₀ + β₁X₁ + β₂X₂ + β₃X₁X₂ + ε signifie que l'effet de X₁ est β₁ + β₃X₂ : il varie selon X₂.</p>
+
+        <h3>Diagnostic et validation</h3>
+        <p>Comme en régression simple, on vérifie les hypothèses par l'analyse des résidus. En plus :</p>
+        <ul>
+          <li><strong>Test F global :</strong> teste H₀ : β₁ = β₂ = ... = βₚ = 0 (aucune variable n'est utile)</li>
+          <li><strong>Tests t partiels :</strong> testent la significativité de chaque variable conditionnellement aux autres</li>
+          <li><strong>Test F partiel :</strong> compare un modèle réduit à un modèle complet pour tester la significativité d'un groupe de variables</li>
+          <li><strong>Mallows' Cp :</strong> évalue le biais et la variance du modèle, Cp ≈ p+1 indique un bon ajustement</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">📈 Régression multiple — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Comment interpréter β₂ dans Y = β₀ + β₁X₁ + β₂X₂ ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">L'effet total de X₂ sur Y</button>
+              <button class="option" onclick="answer(this,true)">L'effet de X₂ sur Y en maintenant X₁ constant</button>
+              <button class="option" onclick="answer(this,false)">La corrélation entre X₂ et Y</button>
+              <button class="option" onclick="answer(this,false)">La proportion de variance de Y expliquée par X₂</button>
+            </div>
+            <div class="q-feedback">En régression multiple, chaque coefficient mesure l'effet partiel (ceteris paribus) : la variation de Y pour une unité de variation de X₂, les autres variables étant fixées.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Pourquoi utiliser le R² ajusté plutôt que le R² ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Il est plus facile à calculer</button>
+              <button class="option" onclick="answer(this,true)">Il pénalise l'ajout de variables non pertinentes</button>
+              <button class="option" onclick="answer(this,false)">Il est toujours plus élevé que le R²</button>
+              <button class="option" onclick="answer(this,false)">Il ne nécessite pas l'hypothèse de normalité</button>
+            </div>
+            <div class="q-feedback">Le R² augmente toujours en ajoutant une variable. Le R² ajusté corrige ce biais en pénalisant pour le nombre de prédicteurs, permettant une comparaison équitable entre modèles.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Un VIF de 8 pour une variable indique :</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Que la variable est non significative</button>
+              <button class="option" onclick="answer(this,true)">Un problème de multicolinéarité</button>
+              <button class="option" onclick="answer(this,false)">Que la variable est la plus importante</button>
+              <button class="option" onclick="answer(this,false)">Une hétéroscédasticité</button>
+            </div>
+            <div class="q-feedback">Un VIF > 5 signale une multicolinéarité préoccupante. VIF = 8 signifie que la variance de ce coefficient est 8 fois plus grande qu'elle ne le serait sans corrélation avec les autres variables.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Combien de variables indicatrices faut-il pour une variable à 4 modalités ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">4</button>
+              <button class="option" onclick="answer(this,true)">3</button>
+              <button class="option" onclick="answer(this,false)">2</button>
+              <button class="option" onclick="answer(this,false)">1</button>
+            </div>
+            <div class="q-feedback">Une variable à k modalités nécessite (k−1) indicatrices pour éviter la multicolinéarité parfaite avec l'ordonnée à l'origine. La modalité omise sert de référence.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quel critère pénalise plus fortement la complexité du modèle ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">L'AIC</button>
+              <button class="option" onclick="answer(this,true)">Le BIC</button>
+              <button class="option" onclick="answer(this,false)">Le R²</button>
+              <button class="option" onclick="answer(this,false)">Le test F</button>
+            </div>
+            <div class="q-feedback">Le BIC pénalise par p × ln(n), qui croît avec n, alors que l'AIC pénalise par 2p seulement. Pour n ≥ 8, le BIC est plus sévère et sélectionne des modèles plus parcimonieux.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Que signifie un terme d'interaction significatif X₁×X₂ ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">X₁ et X₂ sont corrélées</button>
+              <button class="option" onclick="answer(this,false)">X₁ et X₂ ont le même effet sur Y</button>
+              <button class="option" onclick="answer(this,true)">L'effet de X₁ sur Y dépend du niveau de X₂</button>
+              <button class="option" onclick="answer(this,false)">Le modèle est surajusté</button>
+            </div>
+            <div class="q-feedback">Une interaction significative signifie que l'effet d'une variable change selon la valeur de l'autre. Par exemple, l'effet de la formation sur le salaire peut dépendre du secteur d'activité.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Testez vos connaissances</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Interprétation d'une sortie de régression</h3>
+        <p>Un modèle de régression donne : Note = 45,2 + 2,1 × Heures_étude + 3,8 × Assiduité − 0,5 × Stress (R² = 0,68, R²ₐⱼ = 0,65). Interprétez chaque coefficient et le R² ajusté.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p><strong>Heures_étude (2,1) :</strong> une heure d'étude supplémentaire est associée à +2,1 points, à assiduité et stress constants.</p>
+            <p><strong>Assiduité (3,8) :</strong> un point d'assiduité supplémentaire est associé à +3,8 points de note.</p>
+            <p><strong>Stress (−0,5) :</strong> un point de stress supplémentaire est associé à −0,5 point de note.</p>
+            <p><strong>R²ₐⱼ = 0,65 :</strong> le modèle explique 65 % de la variabilité des notes après pénalisation pour le nombre de variables.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 2 — Multicolinéarité</h3>
+        <p>Dans un modèle avec les variables Taille (cm) et Taille (pouces), le VIF des deux variables est de 500. Expliquez pourquoi et proposez une solution.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>Taille (pouces) = Taille (cm) / 2,54. Les deux variables sont liées par une relation linéaire quasi parfaite (R² ≈ 1), d'où VIF = 1/(1−1) → très grand.</p>
+            <p><strong>Solution :</strong> retirer l'une des deux variables. Elles contiennent exactement la même information. Garder les deux rend les coefficients individuels ininterprétables et instables.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 3 — Sélection de modèle</h3>
+        <p>Trois modèles sont comparés. M1 : R²ₐⱼ = 0,72, AIC = 245. M2 : R²ₐⱼ = 0,74, AIC = 240. M3 : R²ₐⱼ = 0,74, AIC = 242. Quel modèle choisir ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p><strong>M2</strong> est le meilleur choix : il a le R² ajusté le plus élevé (ex aequo avec M3) et l'AIC le plus bas (240 < 242 < 245). Un AIC plus bas indique un meilleur compromis entre ajustement et parcimonie.</p>
+            <p>M3 a le même R² ajusté que M2 mais un AIC plus élevé, ce qui signifie qu'il est légèrement moins efficient (probablement une variable de plus pour le même pouvoir explicatif).</p>
+          </div>
+        </details>
+
+        <h3>Exercice 4 — Variables indicatrices</h3>
+        <p>On modélise le loyer en fonction de la surface et du quartier (Centre, Nord, Sud, Est). Écrivez le modèle avec les variables indicatrices et interprétez le coefficient de D_Centre si le quartier de référence est Sud.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>Loyer = β₀ + β₁ × Surface + β₂ × D_Centre + β₃ × D_Nord + β₄ × D_Est + ε.</p>
+            <p>D_Centre = 1 si Centre, 0 sinon. Idem pour D_Nord et D_Est. Le Sud est la référence (toutes les indicatrices = 0).</p>
+            <p>Si β₂ = 150, cela signifie que, à surface égale, un logement au Centre coûte en moyenne <strong>150 € de plus par mois</strong> qu'un logement au Sud.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 5 — Test F partiel</h3>
+        <p>Modèle complet (4 variables) : SCR = 200, n = 50. Modèle réduit (2 variables) : SCR = 280. Testez si les 2 variables supplémentaires sont conjointement significatives. (F_{0,05;2,45} ≈ 3,20)</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>F = [(SCR_réduit − SCR_complet) / q] / [SCR_complet / (n − p − 1)]</p>
+            <p>= [(280 − 200) / 2] / [200 / (50 − 4 − 1)]</p>
+            <p>= [80/2] / [200/45] = 40 / 4,44 = <strong>9,0</strong>.</p>
+            <p>F = 9,0 > 3,20 → on <strong>rejette H₀</strong>. Les deux variables supplémentaires apportent une contribution significative au modèle.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="lineaire.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Régression linéaire simple</span>
+      </a>
+      <a href="correlation.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Corrélation →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

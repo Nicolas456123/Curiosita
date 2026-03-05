@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Résoudre plusieurs équations simultanément — substitution, combinaison linéaire et pivot de Gauss.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Systèmes d'équations — Algèbre — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root {
+  --accent: #c0392b;
+  --accent2: #e74c3c;
+  --accent-dim: rgba(192,57,43,0.08);
+ --accent-hero: rgba(192,57,43,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../index.html">Mathématiques</a> › <a href="../algebre.html">Algèbre</a> › <span>Systèmes d'équations</span>
+  </div>
+</nav>
+
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">⚖️ Algèbre</span>
+    <span class="tag-level">Intermédiaire</span>
+    <span class="tag-time">⏱ ~40 min</span>
+  </div>
+  <h1><em>Systèmes d'équations</em></h1>
+  <p class="hero-desc">Résoudre plusieurs équations simultanément — substitution, combinaison linéaire et pivot de Gauss.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../algebre.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Algèbre</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="equations.html">Équations 1er/2nd degré</a>
+    <a class="sidebar-link active" href="#">Systèmes d'équations</a>
+    <a class="sidebar-link" href="polynomes.html">Polynômes</a>
+    <a class="sidebar-link" href="matrices.html">Matrices</a>
+    <a class="sidebar-link" href="nombres-complexes.html">Nombres complexes</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Pourquoi les systèmes d'équations</p>
+        </div>
+      </div>
+      <p class="resume-text">Un <strong>système d'équations</strong> est un ensemble de plusieurs équations portant sur les mêmes inconnues. Résoudre un système, c'est trouver les valeurs qui satisfont <em>toutes</em> les équations simultanément. Les systèmes apparaissent naturellement dès qu'un problème fait intervenir plusieurs grandeurs liées entre elles : mélange de solutions chimiques, circuits électriques, équilibres économiques, ou encore trajectoires de mobiles.</p>
+      <div class="highlight-box">
+        <p><strong>Interprétation géométrique :</strong> un système de deux équations à deux inconnues correspond à deux droites dans le plan. La solution est leur point d'intersection. Deux droites peuvent se couper (une solution), être parallèles (aucune solution) ou confondues (infinité de solutions).</p>
+      </div>
+      <p class="resume-text">Ce cours présente les trois méthodes fondamentales de résolution : la <strong>substitution</strong>, la <strong>combinaison linéaire</strong> (ou méthode par addition) et le <strong>pivot de Gauss</strong>. Cette dernière méthode, systématique et puissante, permet de résoudre des systèmes de toute taille et constitue la base de l'algèbre linéaire et du calcul scientifique.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Méthodes de résolution des systèmes</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Méthode par substitution</h3>
+        <p>Le principe est simple : on <strong>isole une inconnue</strong> dans une équation, puis on remplace cette expression dans l'autre équation. On obtient alors une équation à une seule inconnue.</p>
+        <p><strong>Exemple :</strong> Résoudre le système :</p>
+        <ul>
+          <li>x + 2y = 7</li>
+          <li>3x - y = 7</li>
+        </ul>
+        <p>De la première équation : x = 7 - 2y. On substitue dans la seconde :</p>
+        <ul>
+          <li>3(7 - 2y) - y = 7</li>
+          <li>21 - 6y - y = 7</li>
+          <li>-7y = -14, donc y = 2</li>
+          <li>x = 7 - 2(2) = 3</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Solution :</strong> S = {(3, 2)}. Vérification : 3 + 2(2) = 7 et 3(3) - 2 = 7.</p>
+        </div>
+
+        <h3>Méthode par combinaison linéaire</h3>
+        <p>On <strong>multiplie les équations</strong> par des coefficients choisis pour éliminer une inconnue lorsqu'on les additionne ou soustrait. Cette méthode est souvent plus rapide que la substitution.</p>
+        <p><strong>Exemple :</strong> Résoudre le système :</p>
+        <ul>
+          <li>2x + 3y = 12 ... (1)</li>
+          <li>4x - 3y = 6 ... (2)</li>
+        </ul>
+        <p>En additionnant (1) et (2) : 6x = 18, donc x = 3. En reportant : 2(3) + 3y = 12, soit y = 2. Solution : (3, 2).</p>
+
+        <h3>Le pivot de Gauss</h3>
+        <p>La méthode du <strong>pivot de Gauss</strong> (ou élimination gaussienne) est la méthode systématique par excellence. Elle fonctionne pour tout système, quelle que soit sa taille. Le principe est de transformer le système en un système triangulaire équivalent, par des opérations élémentaires sur les lignes :</p>
+        <ul>
+          <li><strong>L_i ← L_i + λ·L_j</strong> : ajouter un multiple d'une ligne à une autre</li>
+          <li><strong>L_i ← λ·L_i</strong> : multiplier une ligne par un scalaire non nul</li>
+          <li><strong>L_i ↔ L_j</strong> : échanger deux lignes</li>
+        </ul>
+        <p><strong>Exemple :</strong> Résoudre le système à 3 inconnues :</p>
+        <ul>
+          <li>x + y + z = 6</li>
+          <li>2x + 3y + z = 14</li>
+          <li>x - y + 2z = 2</li>
+        </ul>
+        <p>Étape 1 : L₂ ← L₂ - 2L₁ et L₃ ← L₃ - L₁. On obtient y - z = 2 et -2y + z = -4.</p>
+        <p>Étape 2 : L₃ ← L₃ + 2L₂. On obtient -z = 0, donc z = 0.</p>
+        <p>Remontée : y = 2, puis x = 6 - 2 - 0 = 4. Solution : (4, 2, 0).</p>
+
+        <h3>Systèmes sans solution ou avec infinité de solutions</h3>
+        <p>Un système est dit <strong>incompatible</strong> s'il n'admet aucune solution. Cela se produit quand le pivot de Gauss mène à une ligne contradictoire du type « 0 = 5 ». Un système est dit <strong>indéterminé</strong> s'il admet une infinité de solutions — on obtient alors une ou plusieurs variables libres (paramètres).</p>
+        <div class="highlight-box">
+          <p><strong>Règle générale :</strong> un système de n équations à n inconnues admet une solution unique si et seulement si le déterminant de la matrice des coefficients est non nul.</p>
+        </div>
+
+        <h3>Méthode de Cramer</h3>
+        <p>Pour un système 2×2 : ax + by = e et cx + dy = f, si le déterminant D = ad - bc ≠ 0, alors :</p>
+        <ul>
+          <li>x = (ed - bf) / D</li>
+          <li>y = (af - ec) / D</li>
+        </ul>
+        <p>Cette méthode est élégante pour les petits systèmes mais peu efficace pour les grands, où le pivot de Gauss est préféré.</p>
+
+        <h3>Systèmes non linéaires</h3>
+        <p>Un système non linéaire contient au moins une équation qui n'est pas du premier degré. La méthode de substitution reste souvent applicable :</p>
+        <p><strong>Exemple :</strong> Résoudre le système : x + y = 5 et x² + y² = 13.</p>
+        <ul>
+          <li>De la première équation : y = 5 - x</li>
+          <li>On substitue : x² + (5 - x)² = 13</li>
+          <li>x² + 25 - 10x + x² = 13, soit 2x² - 10x + 12 = 0, soit x² - 5x + 6 = 0</li>
+          <li>Δ = 25 - 24 = 1. x₁ = 2, x₂ = 3</li>
+          <li>Solutions : (2, 3) et (3, 2)</li>
+        </ul>
+
+        <h3>Interprétation matricielle</h3>
+        <p>Tout système linéaire s'écrit sous forme matricielle <strong>AX = B</strong>, où A est la matrice des coefficients, X le vecteur des inconnues, et B le vecteur des seconds membres. Cette écriture est fondamentale car elle permet d'utiliser les outils de l'algèbre linéaire (déterminant, inverse, rang) pour étudier le système.</p>
+        <div class="highlight-box">
+          <p><strong>Théorème de Rouché-Capelli :</strong> un système AX = B admet des solutions si et seulement si le rang de la matrice augmentée [A|B] est égal au rang de A. Si ce rang égale le nombre d'inconnues, la solution est unique.</p>
+        </div>
+
+        <h3>Pièges courants</h3>
+        <p>Les erreurs fréquentes à éviter lors de la résolution de systèmes :</p>
+        <ul>
+          <li><strong>Oublier de substituer dans TOUTES les occurrences :</strong> en méthode de substitution, chaque occurrence de la variable doit être remplacée.</li>
+          <li><strong>Erreur de signe dans la combinaison :</strong> quand on soustrait une équation, il faut changer TOUS les signes de la ligne soustraite, pas seulement le premier terme.</li>
+          <li><strong>Conclure trop vite à l'absence de solution :</strong> obtenir 0 = 0 signifie une infinité de solutions (système indéterminé), pas une erreur.</li>
+          <li><strong>Oublier la vérification :</strong> toujours substituer la solution dans les équations d'origine pour vérifier.</li>
+          <li><strong>Confondre PGCD et solution :</strong> la méthode de Cramer nécessite un déterminant non nul. Si D = 0, le système est soit incompatible, soit indéterminé.</li>
+        </ul>
+
+        <h3>Applications</h3>
+        <p>Les systèmes d'équations modélisent de nombreuses situations concrètes :</p>
+        <ul>
+          <li><strong>Mélange :</strong> un chimiste mélange deux solutions à 30% et 70% pour obtenir 100 mL à 45%. Si x et y sont les volumes : x + y = 100 et 0,3x + 0,7y = 45. Solution : x = 62,5 mL et y = 37,5 mL.</li>
+          <li><strong>Circuits électriques :</strong> les lois de Kirchhoff sur les courants et tensions donnent des systèmes linéaires dont les inconnues sont les intensités dans chaque branche.</li>
+          <li><strong>Économie :</strong> l'équilibre offre-demande se modélise par un système : prix et quantité d'équilibre sont les solutions du système formé par la courbe d'offre et la courbe de demande.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">⚖️ Systèmes — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quelle est la solution du système : x + y = 5 et x - y = 1 ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">(3, 2)</button>
+              <button class="option" onclick="answer(this,false)">(2, 3)</button>
+              <button class="option" onclick="answer(this,false)">(4, 1)</button>
+              <button class="option" onclick="answer(this,false)">(1, 4)</button>
+            </div>
+            <div class="q-feedback">En additionnant : 2x = 6, donc x = 3. Puis y = 5 - 3 = 2. Vérification : 3 + 2 = 5 et 3 - 2 = 1.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Le système 2x + 4y = 6 et x + 2y = 5 est...</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Déterminé (une solution)</button>
+              <button class="option" onclick="answer(this,true)">Incompatible (aucune solution)</button>
+              <button class="option" onclick="answer(this,false)">Indéterminé (infinité de solutions)</button>
+              <button class="option" onclick="answer(this,false)">Impossible à déterminer</button>
+            </div>
+            <div class="q-feedback">La 1re équation donne x + 2y = 3 (en divisant par 2), mais la 2e dit x + 2y = 5. On obtient 3 = 5, contradiction. Le système est incompatible.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Quelle opération élémentaire n'est PAS utilisée dans le pivot de Gauss ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Ajouter un multiple d'une ligne à une autre</button>
+              <button class="option" onclick="answer(this,false)">Échanger deux lignes</button>
+              <button class="option" onclick="answer(this,true)">Élever une ligne au carré</button>
+              <button class="option" onclick="answer(this,false)">Multiplier une ligne par un scalaire non nul</button>
+            </div>
+            <div class="q-feedback">Les opérations élémentaires sont : addition d'un multiple, échange de lignes, et multiplication par un scalaire non nul. Élever au carré n'est pas une opération élémentaire car elle ne préserve pas l'équivalence du système.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Par la méthode de Cramer, résoudre : 3x + 2y = 8 et x - y = 1. Que vaut x ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">2</button>
+              <button class="option" onclick="answer(this,false)">3</button>
+              <button class="option" onclick="answer(this,false)">1</button>
+              <button class="option" onclick="answer(this,false)">4</button>
+            </div>
+            <div class="q-feedback">D = 3×(-1) - 2×1 = -5. Dx = 8×(-1) - 2×1 = -10. x = Dx/D = -10/-5 = 2. Vérification : 3(2) + 2(1) = 8 et 2 - 1 = 1.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Le système x + y = 3 et 2x + 2y = 6 est...</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Déterminé (une solution unique)</button>
+              <button class="option" onclick="answer(this,false)">Incompatible</button>
+              <button class="option" onclick="answer(this,true)">Indéterminé (infinité de solutions)</button>
+              <button class="option" onclick="answer(this,false)">Impossible à résoudre</button>
+            </div>
+            <div class="q-feedback">La 2e équation est le double de la 1re (2x + 2y = 2(x+y) = 6). Les deux équations disent la même chose : y = 3 - x. Il y a une infinité de solutions paramétrées par x.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">On mélange du café à 6 euros/kg et du café à 10 euros/kg pour obtenir 5 kg à 7,20 euros/kg. Quelle quantité de café à 6 euros ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">2 kg</button>
+              <button class="option" onclick="answer(this,true)">3,5 kg</button>
+              <button class="option" onclick="answer(this,false)">2,5 kg</button>
+              <button class="option" onclick="answer(this,false)">4 kg</button>
+            </div>
+            <div class="q-feedback">Soit x le café à 6 euros et y à 10 euros. x + y = 5 et 6x + 10y = 36. De la 1re : y = 5 - x. Substitution : 6x + 10(5-x) = 36, soit -4x = -14, x = 3,5 kg.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Substitution</h3>
+        <p>Résoudre par substitution : 3x - 2y = 7 et x + 4y = -1.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>De la 2e équation : x = -1 - 4y. On substitue dans la 1re : 3(-1 - 4y) - 2y = 7, soit -3 - 12y - 2y = 7, donc -14y = 10, <strong>y = -5/7</strong>. Puis x = -1 - 4(-5/7) = -1 + 20/7 = 13/7. <strong>S = {(13/7, -5/7)}</strong>.</p></div>
+        </details>
+
+        <h3>Exercice 2 — Combinaison linéaire</h3>
+        <p>Résoudre par combinaison : 5x + 3y = 11 et 2x - 5y = -12.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>On multiplie la 1re par 5 et la 2e par 3 : 25x + 15y = 55 et 6x - 15y = -36. En additionnant : 31x = 19, donc <strong>x = 19/31</strong>. On reporte : 5(19/31) + 3y = 11, soit 95/31 + 3y = 341/31, donc 3y = 246/31, <strong>y = 82/31</strong>.</p></div>
+        </details>
+
+        <h3>Exercice 3 — Système 3×3</h3>
+        <p>Résoudre par le pivot de Gauss : x + 2y - z = 3, 2x - y + z = 5, 3x + y + 2z = 12.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>L₂ ← L₂ - 2L₁ : -5y + 3z = -1. L₃ ← L₃ - 3L₁ : -5y + 5z = 3. L₃ ← L₃ - L₂ : 2z = 4, donc <strong>z = 2</strong>. De L₂ : -5y + 6 = -1, donc <strong>y = 7/5</strong>. De L₁ : x + 14/5 - 2 = 3, donc x = 3 - 4/5 = <strong>11/5</strong>. Solution : <strong>(11/5, 7/5, 2)</strong>.</p></div>
+        </details>
+
+        <h3>Exercice 4 — Problème concret</h3>
+        <p>Un théâtre propose deux tarifs : adulte et enfant. Une famille de 2 adultes et 3 enfants paie 44 euros. Une autre famille de 3 adultes et 2 enfants paie 51 euros. Trouver le prix de chaque billet.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>Soit a le prix adulte et e le prix enfant. 2a + 3e = 44 et 3a + 2e = 51. Combinaison : 3×(1re) - 2×(2e) donne 5e = 132 - 102 = 30, soit <strong>e = 6 euros</strong>. Puis 2a + 18 = 44, soit <strong>a = 13 euros</strong>. Vérification : 3(13) + 2(6) = 39 + 12 = 51.</p></div>
+        </details>
+
+        <h3>Exercice 5 — Système non linéaire</h3>
+        <p>Résoudre le système : x × y = 12 et x + y = 7.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><p>De x + y = 7 : y = 7 - x. Substitution : x(7 - x) = 12, soit -x² + 7x - 12 = 0, soit x² - 7x + 12 = 0. Δ = 49 - 48 = 1. x₁ = (7-1)/2 = 3, x₂ = (7+1)/2 = 4. Les solutions sont <strong>(3, 4) et (4, 3)</strong>. Note : x et y sont les racines de t² - 7t + 12 = 0 (lien avec Viète).</p></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="equations.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Équations du 1er et 2nd degré</span>
+      </a>
+      <a href="polynomes.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Polynômes et factorisation →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

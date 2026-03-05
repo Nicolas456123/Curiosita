@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cycle de Carnot, rendement, moteurs thermiques, réfrigérateurs et pompes à chaleur.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Machines thermiques — Thermodynamique — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08);  --accent-hero: rgba(142,68,173,0.04); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../../../sciences-exactes.html">Sciences exactes</a> › <a href="../thermodynamique.html">Thermodynamique</a> › <span>Machines thermiques</span></div>
+</nav>
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">🌡️ Thermodynamique</span>
+    <span class="tag-level">Intermédiaire → Avancé</span>
+    <span class="tag-time">⏱ ~45 min</span>
+  </div>
+  <h1><em>Machines thermiques</em></h1>
+  <p class="hero-desc">Cycle de Carnot, rendement, moteurs thermiques, réfrigérateurs et pompes à chaleur.</p>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../thermodynamique.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Thermodynamique</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">✏️ Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="temperature.html">Température et chaleur</a>
+    <a class="sidebar-link" href="lois.html">Lois de la thermodynamique</a>
+    <a class="sidebar-link" href="changements-etat.html">Changements d'état</a>
+    <a class="sidebar-link active" href="#">Machines thermiques</a>
+    <a class="sidebar-link" href="entropie.html">Entropie</a>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="introduction">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Introduction</h2><p>Convertir la chaleur en travail</p></div></div>
+      <p class="resume-text">Les machines thermiques sont des dispositifs qui convertissent l'énergie thermique en travail mécanique (moteurs) ou qui utilisent du travail pour transférer de la chaleur d'une source froide vers une source chaude (réfrigérateurs, pompes à chaleur). Elles ont transformé le monde : la machine à vapeur a déclenché la révolution industrielle, et les moteurs thermiques restent au coeur de notre civilisation.</p>
+      <p class="resume-text">L'étude des machines thermiques est intimement liée au deuxième principe de la thermodynamique. C'est en cherchant à optimiser les machines à vapeur que Sadi Carnot a posé les fondements de la thermodynamique en 1824, établissant la limite théorique maximale du rendement de toute machine thermique.</p>
+      <div class="highlight-box"><p><strong>Idée centrale :</strong> il est impossible de convertir intégralement la chaleur en travail sur un cycle. Toute machine thermique doit rejeter une partie de la chaleur vers une source froide. Le rendement maximal est celui de Carnot : η = 1 − T_f/T_c.</p></div>
+      <p class="resume-text">Ce cours présente le cycle de Carnot, les cycles réels (Otto, Diesel, Rankine), le rendement, les réfrigérateurs, les pompes à chaleur et leurs coefficients de performance.</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Le cours</h2><p>Machines thermiques</p></div></div>
+      <div class="course-content">
+        <h3>Principe des machines thermiques</h3>
+        <p>Une machine thermique fonctionne en cycle entre deux sources de chaleur : une source chaude (température T_c) et une source froide (température T_f). Sur un cycle complet, ΔU = 0, donc le premier principe donne : <strong>W = −(Q_c + Q_f)</strong>, où Q_c est la chaleur reçue de la source chaude (Q_c > 0) et Q_f est la chaleur cédée à la source froide (Q_f < 0).</p>
+        <p>Pour un <strong>moteur</strong> : la machine reçoit Q_c de la source chaude, cède |Q_f| à la source froide et produit un travail |W| = Q_c − |Q_f|. Le <strong>rendement</strong> est : <strong>η = |W|/Q_c = 1 − |Q_f|/Q_c</strong>.</p>
+        <p>Pour un <strong>réfrigérateur</strong> : la machine reçoit du travail W et extrait Q_f de la source froide pour rejeter Q_c à la source chaude. Le coefficient de performance (COP) est : <strong>COP_frigo = |Q_f|/|W|</strong>.</p>
+
+        <h3>Le cycle de Carnot</h3>
+        <p>Le cycle de Carnot est le cycle réversible idéal composé de quatre transformations réversibles :</p>
+        <p>1) <strong>Détente isotherme</strong> (T_c) : le gaz se détend en absorbant Q_c de la source chaude.</p>
+        <p>2) <strong>Détente adiabatique</strong> : le gaz continue de se détendre sans échange de chaleur, sa température baisse de T_c à T_f.</p>
+        <p>3) <strong>Compression isotherme</strong> (T_f) : le gaz est comprimé en cédant |Q_f| à la source froide.</p>
+        <p>4) <strong>Compression adiabatique</strong> : le gaz est comprimé sans échange de chaleur, sa température remonte de T_f à T_c.</p>
+        <p>Le rendement de Carnot est : <strong>η_Carnot = 1 − T_f/T_c</strong> (températures en kelvins). C'est le rendement maximal possible entre deux sources données. Aucune machine réelle ne peut l'atteindre car toute transformation réelle comporte des irréversibilités.</p>
+        <div class="highlight-box"><p><strong>Théorème de Carnot :</strong> (1) Toutes les machines réversibles fonctionnant entre les mêmes sources ont le même rendement (celui de Carnot). (2) Aucune machine irréversible ne peut avoir un rendement supérieur. Ce théorème est une conséquence directe du deuxième principe.</p></div>
+
+        <h3>Le cycle de Beau de Rochas (Otto)</h3>
+        <p>Le cycle Otto modélise les moteurs à essence (allumage commandé) à quatre temps : admission, compression, détente (combustion), échappement. Le cycle théorique est constitué de :</p>
+        <p>1→2 : compression adiabatique (taux de compression r = V₁/V₂)</p>
+        <p>2→3 : combustion isochore (apport de chaleur Q_c à volume constant)</p>
+        <p>3→4 : détente adiabatique (temps moteur)</p>
+        <p>4→1 : refroidissement isochore (rejet de chaleur Q_f)</p>
+        <p>Le rendement théorique est : <strong>η_Otto = 1 − 1/r^(γ−1)</strong>. Pour un taux de compression r = 10 et γ = 1,4 : η = 1 − 1/10^0,4 = 1 − 1/2,512 = 0,602 = 60,2 %. En pratique, le rendement réel est d'environ 25-35 %.</p>
+
+        <h3>Le cycle Diesel</h3>
+        <p>Le cycle Diesel modélise les moteurs à allumage par compression. La différence avec le cycle Otto est que la combustion se fait à pression constante (isobare) au lieu de volume constant. Le mélange air-carburant s'enflamme spontanément sous l'effet de la compression.</p>
+        <p>Le rendement théorique est : <strong>η_Diesel = 1 − (1/r^(γ−1)) × (r_c^γ − 1) / (γ × (r_c − 1))</strong>, où r_c est le rapport de coupure (V₃/V₂). Le cycle Diesel permet des taux de compression plus élevés (r ≈ 15-22) car seul l'air est comprimé, ce qui donne un meilleur rendement réel (30-45 %).</p>
+
+        <h3>Réfrigérateurs et machines frigorifiques</h3>
+        <p>Un réfrigérateur est un moteur thermique fonctionnant à l'envers : il consomme du travail W pour extraire de la chaleur Q_f de la source froide (intérieur du frigo) et la rejeter vers la source chaude (cuisine). Le fluide frigorigène subit un cycle de compressions et détentes avec changements d'état.</p>
+        <p>Le <strong>coefficient de performance</strong> du réfrigérateur est : <strong>COP_frigo = |Q_f|/|W| = T_f/(T_c − T_f)</strong> pour un cycle de Carnot inversé. Pour un frigo domestique (T_f = 5 °C = 278 K, T_c = 30 °C = 303 K) : COP_Carnot = 278/25 = 11,1. En pratique, le COP est d'environ 2 à 4.</p>
+        <p>Le COP peut être supérieur à 1, ce qui signifie que la quantité de chaleur extraite est supérieure au travail fourni. Ce n'est pas une violation du premier principe : l'énergie totale est conservée (Q_c = Q_f + W).</p>
+
+        <h3>Pompes à chaleur</h3>
+        <p>La pompe à chaleur (PAC) utilise le même principe que le réfrigérateur, mais l'objectif est de chauffer la source chaude (habitation) en extrayant de la chaleur de la source froide (air extérieur, sol, nappe phréatique).</p>
+        <p>Le coefficient de performance de la PAC est : <strong>COP_PAC = |Q_c|/|W| = T_c/(T_c − T_f)</strong> pour un Carnot inversé. On remarque que <strong>COP_PAC = COP_frigo + 1</strong>, toujours supérieur à 1.</p>
+        <p>Pour une PAC chauffant à 20 °C (293 K) en hiver (0 °C = 273 K) : COP_Carnot = 293/20 = 14,65. En pratique, COP ≈ 3 à 5, ce qui signifie que pour 1 kWh électrique consommé, la PAC fournit 3 à 5 kWh de chaleur.</p>
+
+        <h3>Le cycle de Rankine</h3>
+        <p>Le cycle de Rankine est le cycle de base des centrales thermiques et nucléaires. Le fluide de travail (eau) subit les transformations suivantes :</p>
+        <p>1→2 : compression isentropique de l'eau liquide par une pompe</p>
+        <p>2→3 : chauffage isobare et vaporisation dans la chaudière (source chaude)</p>
+        <p>3→4 : détente isentropique de la vapeur dans une turbine (production de travail)</p>
+        <p>4→1 : condensation isobare dans le condenseur (source froide)</p>
+        <p>Le rendement de Rankine typique est de 30 à 40 %. Il peut être amélioré par surchauffe de la vapeur, resurchauffe et soutirage (cycle de Rankine avec régénération), atteignant alors 45 %.</p>
+      </div>
+    </section>
+    <section class="content-section" id="quiz">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Quiz</h2><p>Testez votre compréhension</p></div></div>
+      <div class="quiz-container">
+        <div class="quiz-header"><span class="quiz-title-text">🌡️ Machines thermiques — Quiz</span><span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span></div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0"><p class="q-num">Question 1 / 6</p><p class="q-text">Quel est le rendement de Carnot entre T_c = 500 K et T_f = 300 K ?</p><div class="options"><button class="option" onclick="answer(this,false)">20 %</button><button class="option" onclick="answer(this,true)">40 %</button><button class="option" onclick="answer(this,false)">60 %</button><button class="option" onclick="answer(this,false)">80 %</button></div><div class="q-feedback">η = 1 − T_f/T_c = 1 − 300/500 = 0,40 = 40 %. C'est le rendement maximal théorique entre ces deux sources.</div></div>
+          <div class="question-block" data-q="1"><p class="q-num">Question 2 / 6</p><p class="q-text">Le cycle de Carnot est composé de...</p><div class="options"><button class="option" onclick="answer(this,false)">Deux isobares et deux isochores</button><button class="option" onclick="answer(this,true)">Deux isothermes et deux adiabatiques</button><button class="option" onclick="answer(this,false)">Quatre isothermes</button><button class="option" onclick="answer(this,false)">Deux isobares et deux adiabatiques</button></div><div class="q-feedback">Le cycle de Carnot idéal est constitué de deux transformations isothermes et deux transformations adiabatiques, toutes réversibles.</div></div>
+          <div class="question-block" data-q="2"><p class="q-num">Question 3 / 6</p><p class="q-text">Dans un moteur Otto, la combustion est modélisée par une transformation...</p><div class="options"><button class="option" onclick="answer(this,true)">Isochore</button><button class="option" onclick="answer(this,false)">Isobare</button><button class="option" onclick="answer(this,false)">Isotherme</button><button class="option" onclick="answer(this,false)">Adiabatique</button></div><div class="q-feedback">Dans le cycle Otto (moteur essence), la combustion est modélisée comme un apport de chaleur à volume constant (isochore). Dans le cycle Diesel, c'est à pression constante.</div></div>
+          <div class="question-block" data-q="3"><p class="q-num">Question 4 / 6</p><p class="q-text">Le COP d'une pompe à chaleur peut-il être supérieur à 1 ?</p><div class="options"><button class="option" onclick="answer(this,true)">Oui, c'est toujours le cas</button><button class="option" onclick="answer(this,false)">Non, jamais</button><button class="option" onclick="answer(this,false)">Seulement en été</button><button class="option" onclick="answer(this,false)">Seulement pour un cycle de Carnot</button></div><div class="q-feedback">COP_PAC = COP_frigo + 1, donc toujours > 1. La PAC ne crée pas d'énergie : elle déplace la chaleur de l'extérieur vers l'intérieur, en consommant peu de travail.</div></div>
+          <div class="question-block" data-q="4"><p class="q-num">Question 5 / 6</p><p class="q-text">Pourquoi le rendement réel d'un moteur est-il toujours inférieur au rendement de Carnot ?</p><div class="options"><button class="option" onclick="answer(this,false)">Les sources de chaleur sont trop proches</button><button class="option" onclick="answer(this,false)">Le carburant n'est pas assez énergétique</button><button class="option" onclick="answer(this,true)">Les transformations réelles sont irréversibles</button><button class="option" onclick="answer(this,false)">Le cycle de Carnot est mal défini</button></div><div class="q-feedback">Les frottements, turbulences, pertes par conduction et autres irréversibilités font que le rendement réel est toujours inférieur au rendement de Carnot.</div></div>
+          <div class="question-block" data-q="5"><p class="q-num">Question 6 / 6</p><p class="q-text">Quel cycle est utilisé dans les centrales thermiques et nucléaires ?</p><div class="options"><button class="option" onclick="answer(this,false)">Cycle Otto</button><button class="option" onclick="answer(this,false)">Cycle Diesel</button><button class="option" onclick="answer(this,false)">Cycle de Carnot</button><button class="option" onclick="answer(this,true)">Cycle de Rankine</button></div><div class="q-feedback">Le cycle de Rankine (eau/vapeur) est le cycle de base des centrales thermiques et nucléaires, avec turbine à vapeur et condenseur.</div></div>
+        </div>
+        <div class="quiz-result" id="quizResult"><div class="result-score-big" id="resultScore">0/6</div><div class="result-msg" id="resultMsg"></div><button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button></div>
+        <div class="quiz-nav"><button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button><div class="q-dots" id="qDots"></div><button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button></div>
+      </div>
+    </section>
+    <section class="content-section" id="exercices">
+      <div class="section-header"><div class="section-num">04</div><div class="section-info"><h2>Exercices</h2><p>Mettez en pratique</p></div></div>
+      <div class="course-content">
+        <h3>Exercice 1 — Rendement de Carnot</h3>
+        <p>Un moteur de Carnot fonctionne entre une source chaude à 400 °C et une source froide à 20 °C. Calculez le rendement. Si le moteur absorbe 10 kJ par cycle, quelle est le travail produit et la chaleur rejetée ?</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>T_c = 400 + 273 = 673 K ; T_f = 20 + 273 = 293 K</p><p>η = 1 − T_f/T_c = 1 − 293/673 = 1 − 0,435 = <strong>0,565 = 56,5 %</strong></p><p>|W| = η × Q_c = 0,565 × 10 = <strong>5,65 kJ</strong></p><p>|Q_f| = Q_c − |W| = 10 − 5,65 = <strong>4,35 kJ</strong></p></div></details>
+
+        <h3>Exercice 2 — Cycle Otto</h3>
+        <p>Un moteur à essence a un taux de compression r = 8 et fonctionne avec de l'air (γ = 1,4). Calculez le rendement théorique du cycle Otto. Comparez avec le rendement de Carnot si T_c = 2 500 K et T_f = 300 K.</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>η_Otto = 1 − 1/r^(γ−1) = 1 − 1/8^0,4 = 1 − 1/2,297 = 1 − 0,435 = <strong>56,5 %</strong></p><p>η_Carnot = 1 − 300/2500 = 1 − 0,12 = <strong>88,0 %</strong></p><p>Le rendement d'Otto (56,5 %) est bien inférieur au rendement de Carnot (88 %) car le cycle Otto n'est pas un cycle de Carnot : il comporte des isochores au lieu d'isothermes.</p></div></details>
+
+        <h3>Exercice 3 — Pompe à chaleur</h3>
+        <p>Une pompe à chaleur chauffe une maison à 22 °C en prélevant de la chaleur dans le sol à 8 °C. Calculez le COP de Carnot. Si la PAC consomme 2 kW électrique, quelle puissance thermique fournit-elle dans le cas idéal ?</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>T_c = 22 + 273 = 295 K ; T_f = 8 + 273 = 281 K</p><p>COP_PAC = T_c / (T_c − T_f) = 295 / (295 − 281) = 295/14 = <strong>21,1</strong></p><p>P_thermique = COP × P_électrique = 21,1 × 2 = <strong>42,1 kW</strong></p><p>En pratique, le COP réel serait de 4 à 5, soit une puissance thermique de 8 à 10 kW pour 2 kW consommés.</p></div></details>
+
+        <h3>Exercice 4 — Réfrigérateur</h3>
+        <p>Un réfrigérateur maintient son intérieur à −18 °C (congélateur) dans une cuisine à 25 °C. Calculez le COP de Carnot. Pour extraire 200 J de chaleur du congélateur, quel travail minimal faut-il fournir ?</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>T_f = −18 + 273 = 255 K ; T_c = 25 + 273 = 298 K</p><p>COP_frigo = T_f / (T_c − T_f) = 255 / (298 − 255) = 255/43 = <strong>5,93</strong></p><p>|W|_min = |Q_f| / COP = 200 / 5,93 = <strong>33,7 J</strong></p><p>Vérification : |Q_c| = |Q_f| + |W| = 200 + 33,7 = 233,7 J (chaleur rejetée dans la cuisine)</p></div></details>
+
+        <h3>Exercice 5 — Comparaison de rendements</h3>
+        <p>Une machine thermique fonctionnant entre 800 K et 300 K produit un travail de 200 J en absorbant 500 J de chaleur. (a) Quel est son rendement réel ? (b) Quel est le rendement de Carnot ? (c) Cette machine est-elle réalisable ?</p>
+        <details><summary>Voir la solution</summary><div class="highlight-box"><p>(a) η_réel = |W|/Q_c = 200/500 = <strong>0,40 = 40 %</strong></p><p>(b) η_Carnot = 1 − T_f/T_c = 1 − 300/800 = 1 − 0,375 = <strong>0,625 = 62,5 %</strong></p><p>(c) η_réel (40 %) < η_Carnot (62,5 %) → <strong>Oui, cette machine est réalisable.</strong></p><p>Elle respecte le deuxième principe car son rendement est inférieur au rendement de Carnot. La différence (62,5 % − 40 % = 22,5 %) représente les pertes dues aux irréversibilités internes.</p></div></details>
+      </div>
+    </section>
+    <div class="course-nav">
+      <a href="changements-etat.html" class="prev"><span class="course-nav-label">Cours précédent</span><span class="course-nav-title">← Changements d'état</span></a>
+      <a href="entropie.html" class="next"><span class="course-nav-label">Cours suivant</span><span class="course-nav-title">Entropie →</span></a>
+    </div>
+  </main>
+</div>
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

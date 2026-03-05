@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Le langage du web — manipulation du DOM, gestion des événements, fonctions, programmation asynchrone et les apports majeurs d'ES6+.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>JavaScript — Web — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root {
+  --accent: #2980b9;
+  --accent2: #3498db;
+  --accent-dim: rgba(41,128,185,0.08);
+ --accent-hero: rgba(41,128,185,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../index.html">Informatique</a> › <a href="../web.html">Web</a> › <span>JavaScript</span>
+  </div>
+</nav>
+
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">🌐 Web</span>
+    <span class="tag-level">Intermédiaire</span>
+    <span class="tag-time">⏱ ~50 min</span>
+  </div>
+  <h1><em>JavaScript</em></h1>
+  <p class="hero-desc">Le langage du web — manipulation du DOM, gestion des événements, fonctions, programmation asynchrone et les apports majeurs d'ES6+.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../web.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Web</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">💻 Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="html-css.html">HTML & CSS</a>
+    <a class="sidebar-link active" href="#">JavaScript</a>
+    <a class="sidebar-link" href="frameworks.html">Frameworks front-end</a>
+    <a class="sidebar-link" href="backend.html">Back-end</a>
+    <a class="sidebar-link" href="bases-donnees.html">Bases de données</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Le langage universel du web</p>
+        </div>
+      </div>
+      <p class="resume-text"><strong>JavaScript</strong> est le seul langage de programmation exécuté nativement par tous les navigateurs web. Initialement conçu en 1995 pour ajouter de l'interactivité aux pages HTML, il est devenu un langage complet utilisé aussi bien côté client (navigateur) que côté serveur (Node.js). C'est un langage interprété, dynamiquement typé, multi-paradigme (impératif, fonctionnel, orienté objet par prototypes).</p>
+      <div class="highlight-box">
+        <p><strong>ECMAScript :</strong> JavaScript suit la spécification ECMAScript. Depuis ES6 (2015), le langage évolue chaque année avec de nouvelles fonctionnalités : <code>let</code>/<code>const</code>, fonctions fléchées, déstructuration, modules, <code>async</code>/<code>await</code>, etc.</p>
+      </div>
+      <p class="resume-text">Comprendre JavaScript est indispensable pour le développement web moderne. Il permet de manipuler le DOM, de réagir aux actions de l'utilisateur, de communiquer avec des API distantes et de construire des applications complètes dans le navigateur.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Fondamentaux et concepts avancés</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Variables et types de données</h3>
+        <p>JavaScript dispose de trois façons de déclarer des variables : <code>var</code> (portée fonction, évité aujourd'hui), <code>let</code> (portée bloc, réassignable) et <code>const</code> (portée bloc, non réassignable). Les types primitifs sont : <code>string</code>, <code>number</code>, <code>boolean</code>, <code>null</code>, <code>undefined</code>, <code>symbol</code> et <code>bigint</code>.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">JavaScript</span></div>
+          <pre><code><span class="kw">const</span> nom = <span class="str">"Alice"</span>;        <span class="cm">// string, non réassignable</span>
+<span class="kw">let</span> age = <span class="num">25</span>;               <span class="cm">// number, réassignable</span>
+<span class="kw">let</span> estEtudiant = <span class="num">true</span>;     <span class="cm">// boolean</span>
+<span class="kw">const</span> notes = [<span class="num">18</span>, <span class="num">15</span>, <span class="num">20</span>]; <span class="cm">// tableau (objet)</span>
+<span class="kw">const</span> user = {              <span class="cm">// objet littéral</span>
+  nom: <span class="str">"Alice"</span>,
+  age: <span class="num">25</span>
+};
+
+<span class="cm">// typeof renvoie le type d'une valeur</span>
+<span class="kw">typeof</span> nom;        <span class="cm">// "string"</span>
+<span class="kw">typeof</span> notes;      <span class="cm">// "object" (les tableaux sont des objets)</span>
+<span class="kw">typeof</span> <span class="num">null</span>;       <span class="cm">// "object" (bug historique du langage)</span></code></pre>
+        </div>
+
+        <h3>Fonctions et fonctions fléchées</h3>
+        <p>Les fonctions sont des citoyens de première classe en JavaScript : elles peuvent être assignées à des variables, passées en argument et retournées. ES6 introduit les <strong>fonctions fléchées</strong> (<code>=></code>) qui offrent une syntaxe concise et ne possèdent pas leur propre <code>this</code>.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">JavaScript</span></div>
+          <pre><code><span class="cm">// Déclaration classique</span>
+<span class="kw">function</span> <span class="fn">addition</span>(a, b) {
+  <span class="kw">return</span> a + b;
+}
+
+<span class="cm">// Expression de fonction</span>
+<span class="kw">const</span> <span class="fn">soustraction</span> = <span class="kw">function</span>(a, b) {
+  <span class="kw">return</span> a - b;
+};
+
+<span class="cm">// Fonction fléchée (concise)</span>
+<span class="kw">const</span> <span class="fn">multiplier</span> = (a, b) => a * b;
+
+<span class="cm">// Avec déstructuration et valeurs par défaut</span>
+<span class="kw">const</span> <span class="fn">saluer</span> = ({ nom, titre = <span class="str">"M."</span> }) =>
+  <span class="str">`Bonjour ${titre} ${nom}`</span>;
+
+<span class="fn">saluer</span>({ nom: <span class="str">"Dupont"</span> }); <span class="cm">// "Bonjour M. Dupont"</span></code></pre>
+        </div>
+
+        <h3>Manipulation du DOM</h3>
+        <p>Le <strong>DOM</strong> (Document Object Model) est la représentation en arbre du document HTML dans le navigateur. JavaScript peut sélectionner, créer, modifier et supprimer des éléments du DOM de manière dynamique.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">JavaScript</span></div>
+          <pre><code><span class="cm">// Sélectionner des éléments</span>
+<span class="kw">const</span> titre = document.<span class="fn">querySelector</span>(<span class="str">'h1'</span>);
+<span class="kw">const</span> items = document.<span class="fn">querySelectorAll</span>(<span class="str">'.item'</span>);
+
+<span class="cm">// Modifier le contenu et le style</span>
+titre.<span class="fn">textContent</span> = <span class="str">'Nouveau titre'</span>;
+titre.style.<span class="fn">color</span> = <span class="str">'#2980b9'</span>;
+
+<span class="cm">// Créer et ajouter un élément</span>
+<span class="kw">const</span> p = document.<span class="fn">createElement</span>(<span class="str">'p'</span>);
+p.<span class="fn">textContent</span> = <span class="str">'Paragraphe ajouté dynamiquement'</span>;
+p.classList.<span class="fn">add</span>(<span class="str">'highlight'</span>);
+document.<span class="fn">querySelector</span>(<span class="str">'main'</span>).<span class="fn">appendChild</span>(p);
+
+<span class="cm">// Supprimer un élément</span>
+titre.<span class="fn">remove</span>();</code></pre>
+        </div>
+
+        <h3>Événements</h3>
+        <p>Les <strong>événements</strong> permettent à JavaScript de réagir aux actions de l'utilisateur (clic, saisie, défilement, etc.). On attache un écouteur d'événement avec <code>addEventListener</code>, qui est préférable aux attributs HTML (<code>onclick</code>).</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">JavaScript</span></div>
+          <pre><code><span class="kw">const</span> bouton = document.<span class="fn">querySelector</span>(<span class="str">'#valider'</span>);
+
+<span class="cm">// Ajouter un écouteur d'événement</span>
+bouton.<span class="fn">addEventListener</span>(<span class="str">'click'</span>, (event) => {
+  event.<span class="fn">preventDefault</span>();   <span class="cm">// empêcher le comportement par défaut</span>
+  console.<span class="fn">log</span>(<span class="str">'Bouton cliqué !'</span>);
+});
+
+<span class="cm">// Délégation d'événements (un seul écouteur sur le parent)</span>
+document.<span class="fn">querySelector</span>(<span class="str">'.liste'</span>).<span class="fn">addEventListener</span>(<span class="str">'click'</span>, (e) => {
+  <span class="kw">if</span> (e.target.matches(<span class="str">'li'</span>)) {
+    console.<span class="fn">log</span>(<span class="str">'Élément :'</span>, e.target.textContent);
+  }
+});
+
+<span class="cm">// Événements clavier</span>
+document.<span class="fn">addEventListener</span>(<span class="str">'keydown'</span>, (e) => {
+  <span class="kw">if</span> (e.key === <span class="str">'Escape'</span>) <span class="fn">fermerModal</span>();
+});</code></pre>
+        </div>
+
+        <h3>Programmation asynchrone</h3>
+        <p>JavaScript est <strong>mono-thread</strong> mais gère l'asynchrone grâce à la <strong>boucle d'événements</strong> (event loop). Les <strong>Promises</strong> représentent une valeur future, et <code>async</code>/<code>await</code> offre une syntaxe lisible pour les utiliser.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">JavaScript</span></div>
+          <pre><code><span class="cm">// Fetch API avec Promises</span>
+<span class="fn">fetch</span>(<span class="str">'https://api.example.com/users'</span>)
+  .<span class="fn">then</span>(response => response.<span class="fn">json</span>())
+  .<span class="fn">then</span>(data => console.<span class="fn">log</span>(data))
+  .<span class="fn">catch</span>(err => console.<span class="fn">error</span>(err));
+
+<span class="cm">// Même chose avec async/await</span>
+<span class="kw">async function</span> <span class="fn">chargerUtilisateurs</span>() {
+  <span class="kw">try</span> {
+    <span class="kw">const</span> response = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="str">'https://api.example.com/users'</span>);
+    <span class="kw">const</span> data = <span class="kw">await</span> response.<span class="fn">json</span>();
+    console.<span class="fn">log</span>(data);
+  } <span class="kw">catch</span> (err) {
+    console.<span class="fn">error</span>(<span class="str">'Erreur :'</span>, err);
+  }
+}
+
+<span class="cm">// Promise.all pour les requêtes parallèles</span>
+<span class="kw">const</span> [users, posts] = <span class="kw">await</span> Promise.<span class="fn">all</span>([
+  <span class="fn">fetch</span>(<span class="str">'/api/users'</span>).<span class="fn">then</span>(r => r.<span class="fn">json</span>()),
+  <span class="fn">fetch</span>(<span class="str">'/api/posts'</span>).<span class="fn">then</span>(r => r.<span class="fn">json</span>())
+]);</code></pre>
+        </div>
+
+        <h3>Déstructuration et opérateur spread</h3>
+        <p>La <strong>déstructuration</strong> permet d'extraire des valeurs d'objets et de tableaux de manière concise. L'opérateur <strong>spread</strong> (<code>...</code>) étend un itérable en ses éléments, et le <strong>rest</strong> collecte les arguments restants.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">JavaScript</span></div>
+          <pre><code><span class="cm">// Déstructuration d'objet</span>
+<span class="kw">const</span> { nom, age, ville = <span class="str">"Paris"</span> } = utilisateur;
+
+<span class="cm">// Déstructuration de tableau</span>
+<span class="kw">const</span> [premier, deuxieme, ...reste] = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>, <span class="num">4</span>, <span class="num">5</span>];
+<span class="cm">// premier = 1, deuxieme = 2, reste = [3, 4, 5]</span>
+
+<span class="cm">// Spread pour copier / fusionner</span>
+<span class="kw">const</span> copie = { ...utilisateur, age: <span class="num">26</span> };
+<span class="kw">const</span> tous = [...tableau1, ...tableau2];
+
+<span class="cm">// Rest dans les paramètres</span>
+<span class="kw">function</span> <span class="fn">somme</span>(...nombres) {
+  <span class="kw">return</span> nombres.<span class="fn">reduce</span>((acc, n) => acc + n, <span class="num">0</span>);
+}</code></pre>
+        </div>
+
+        <h3>Modules ES6</h3>
+        <p>Les <strong>modules</strong> permettent de découper le code en fichiers séparés avec des importations et exportations explicites. Chaque module a sa propre portée, évitant la pollution du scope global.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">JavaScript</span></div>
+          <pre><code><span class="cm">// utils.js — exportations nommées</span>
+<span class="kw">export function</span> <span class="fn">formater</span>(prix) {
+  <span class="kw">return</span> <span class="str">`${prix.toFixed(2)} €`</span>;
+}
+<span class="kw">export const</span> TVA = <span class="num">0.20</span>;
+
+<span class="cm">// app.js — importation nommée</span>
+<span class="kw">import</span> { formater, TVA } <span class="kw">from</span> <span class="str">'./utils.js'</span>;
+
+<span class="cm">// Exportation par défaut</span>
+<span class="kw">export default class</span> <span class="fn">Panier</span> { <span class="cm">/* ... */</span> }
+<span class="kw">import</span> Panier <span class="kw">from</span> <span class="str">'./Panier.js'</span>;
+
+<span class="cm">// Import dynamique (chargement à la demande)</span>
+<span class="kw">const</span> module = <span class="kw">await</span> <span class="fn">import</span>(<span class="str">'./heavy-module.js'</span>);</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">📊 JavaScript — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quelle est la différence principale entre <code>let</code> et <code>const</code> ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">let est plus rapide que const</button>
+              <button class="option" onclick="answer(this,true)">const ne peut pas être réassigné, let peut l'être</button>
+              <button class="option" onclick="answer(this,false)">const a une portée fonction, let une portée bloc</button>
+              <button class="option" onclick="answer(this,false)">Il n'y a aucune différence</button>
+            </div>
+            <div class="q-feedback"><code>const</code> empêche la réassignation de la variable (mais pas la mutation de l'objet référencé). <code>let</code> permet la réassignation. Les deux ont une portée bloc.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Que retourne <code>typeof []</code> en JavaScript ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">"array"</button>
+              <button class="option" onclick="answer(this,true)">"object"</button>
+              <button class="option" onclick="answer(this,false)">"list"</button>
+              <button class="option" onclick="answer(this,false)">"undefined"</button>
+            </div>
+            <div class="q-feedback">En JavaScript, les tableaux sont des objets. <code>typeof</code> retourne donc <code>"object"</code>. Pour vérifier si une valeur est un tableau, on utilise <code>Array.isArray()</code>.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Quelle méthode permet de sélectionner un élément par sélecteur CSS dans le DOM ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">document.getElement()</button>
+              <button class="option" onclick="answer(this,false)">document.find()</button>
+              <button class="option" onclick="answer(this,true)">document.querySelector()</button>
+              <button class="option" onclick="answer(this,false)">document.select()</button>
+            </div>
+            <div class="q-feedback"><code>querySelector()</code> accepte n'importe quel sélecteur CSS et retourne le premier élément correspondant. <code>querySelectorAll()</code> retourne tous les éléments correspondants sous forme de NodeList.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Que fait le mot-clé <code>await</code> ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Il arrête complètement le programme</button>
+              <button class="option" onclick="answer(this,false)">Il crée un nouveau thread</button>
+              <button class="option" onclick="answer(this,true)">Il suspend l'exécution de la fonction async jusqu'à la résolution de la Promise</button>
+              <button class="option" onclick="answer(this,false)">Il lance une erreur si la Promise échoue</button>
+            </div>
+            <div class="q-feedback"><code>await</code> suspend l'exécution de la fonction <code>async</code> en attendant que la Promise soit résolue ou rejetée. Le reste du programme continue de s'exécuter (la boucle d'événements n'est pas bloquée).</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quelle syntaxe représente une fonction fléchée ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">function => (x) { return x; }</button>
+              <button class="option" onclick="answer(this,true)">(x) => x * 2</button>
+              <button class="option" onclick="answer(this,false)">arrow(x) { return x; }</button>
+              <button class="option" onclick="answer(this,false)">lambda x: x * 2</button>
+            </div>
+            <div class="q-feedback">La syntaxe <code>(x) => x * 2</code> est une fonction fléchée. Avec un seul paramètre, les parenthèses sont optionnelles : <code>x => x * 2</code>. Avec un corps sur plusieurs lignes, on utilise des accolades et <code>return</code>.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Comment importer une exportation nommée depuis un module ES6 ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">require('module')</button>
+              <button class="option" onclick="answer(this,false)">import module</button>
+              <button class="option" onclick="answer(this,true)">import { nom } from './module.js'</button>
+              <button class="option" onclick="answer(this,false)">include './module.js'</button>
+            </div>
+            <div class="q-feedback">Les exportations nommées s'importent avec des accolades : <code>import { nom } from './module.js'</code>. L'exportation par défaut s'importe sans accolades : <code>import nom from './module.js'</code>.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Liste dynamique</h3>
+        <p>Créez une page avec un champ de saisie et un bouton. Quand l'utilisateur clique sur le bouton, le texte saisi est ajouté comme nouvel élément <code>&lt;li&gt;</code> à une liste <code>&lt;ul&gt;</code>. Le champ est vidé après l'ajout.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>const input = document.querySelector('#saisie');
+const btn = document.querySelector('#ajouter');
+const liste = document.querySelector('#maListe');
+
+btn.addEventListener('click', () => {
+  const texte = input.value.trim();
+  if (texte) {
+    const li = document.createElement('li');
+    li.textContent = texte;
+    liste.appendChild(li);
+    input.value = '';
+    input.focus();
+  }
+});</code></pre></div>
+        </details>
+
+        <h3>Exercice 2 — Compteur avec état</h3>
+        <p>Créez un compteur avec trois boutons : « -1 », « Reset » et « +1 ». Le compteur affiche la valeur actuelle. Utilisez <code>let</code> pour l'état et mettez à jour le DOM à chaque clic.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>let compteur = 0;
+const affichage = document.querySelector('#valeur');
+
+function mettreAJour() {
+  affichage.textContent = compteur;
+}
+
+document.querySelector('#moins').addEventListener('click', () => {
+  compteur--;
+  mettreAJour();
+});
+
+document.querySelector('#reset').addEventListener('click', () => {
+  compteur = 0;
+  mettreAJour();
+});
+
+document.querySelector('#plus').addEventListener('click', () => {
+  compteur++;
+  mettreAJour();
+});</code></pre></div>
+        </details>
+
+        <h3>Exercice 3 — Fetch et affichage</h3>
+        <p>Utilisez <code>fetch</code> pour récupérer les données depuis <code>https://jsonplaceholder.typicode.com/users</code> et affichez le nom et l'email de chaque utilisateur dans une liste HTML. Gérez les erreurs avec <code>try/catch</code>.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>async function afficherUtilisateurs() {
+  const liste = document.querySelector('#users');
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+    if (!response.ok) throw new Error(`Erreur HTTP ${response.status}`);
+    const users = await response.json();
+    users.forEach(user => {
+      const li = document.createElement('li');
+      li.textContent = `${user.name} — ${user.email}`;
+      liste.appendChild(li);
+    });
+  } catch (err) {
+    liste.innerHTML = '&lt;li class="error"&gt;Impossible de charger les données.&lt;/li&gt;';
+    console.error(err);
+  }
+}
+afficherUtilisateurs();</code></pre></div>
+        </details>
+
+        <h3>Exercice 4 — Filtre de recherche</h3>
+        <p>Créez un champ de recherche qui filtre en temps réel une liste d'éléments. Utilisez l'événement <code>input</code> et la méthode <code>filter()</code> sur un tableau de données.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>const fruits = ['Pomme', 'Banane', 'Cerise', 'Fraise', 'Mangue', 'Orange'];
+const recherche = document.querySelector('#recherche');
+const container = document.querySelector('#resultats');
+
+function afficher(items) {
+  container.innerHTML = items.map(f => `&lt;li&gt;${f}&lt;/li&gt;`).join('');
+}
+
+recherche.addEventListener('input', (e) => {
+  const filtre = e.target.value.toLowerCase();
+  const resultats = fruits.filter(f => f.toLowerCase().includes(filtre));
+  afficher(resultats);
+});
+
+afficher(fruits); // affichage initial</code></pre></div>
+        </details>
+
+        <h3>Exercice 5 — Module de panier</h3>
+        <p>Créez un module <code>panier.js</code> avec les fonctions <code>ajouter(produit)</code>, <code>supprimer(id)</code> et <code>total()</code>. Exportez-les avec des exports nommés. Dans <code>app.js</code>, importez le module et testez les fonctions.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>// panier.js
+const articles = [];
+
+export function ajouter(produit) {
+  articles.push(produit);
+}
+
+export function supprimer(id) {
+  const index = articles.findIndex(a => a.id === id);
+  if (index !== -1) articles.splice(index, 1);
+}
+
+export function total() {
+  return articles.reduce((sum, a) => sum + a.prix * a.quantite, 0);
+}
+
+export function contenu() {
+  return [...articles]; // copie pour éviter la mutation
+}
+
+// app.js
+import { ajouter, supprimer, total, contenu } from './panier.js';
+
+ajouter({ id: 1, nom: 'Clavier', prix: 49.99, quantite: 1 });
+ajouter({ id: 2, nom: 'Souris', prix: 29.99, quantite: 2 });
+console.log(total());   // 109.97
+supprimer(2);
+console.log(contenu()); // [{ id: 1, nom: 'Clavier', ... }]</code></pre></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="html-css.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← HTML & CSS</span>
+      </a>
+      <a href="frameworks.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Frameworks front-end →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

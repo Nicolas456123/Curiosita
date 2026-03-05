@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Comprendre l'alimentation — macronutriments, micronutriments, équilibre alimentaire et santé.">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<title>Nutrition — Cuisine & Gastronomie — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.min.css?v=4">
+<style>
+:root { --accent: #8ae87a; --accent2: #a5f598; --accent-dim: rgba(138,232,122,0.08);  --accent-hero: rgba(138,232,122,0.05); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="index.html">Cuisine & Gastronomie</a> › <span>Nutrition</span></div>
+  <button class="btn-memo" onclick="downloadMemo()">↓ Fiche mémo</button>
+</nav>
+<div class="hero hero--hub">
+  <div class="hero-meta">
+    <span class="tag-domain">🍳 Cuisine & Gastronomie</span>
+    <span class="tag-level">Débutant → Intermédiaire</span>
+    <span class="tag-time">⏱ ~5h de lecture</span>
+  </div>
+  <h1><em>Nutrition</em></h1>
+  <p class="hero-desc">Comprendre l'alimentation — macronutriments, micronutriments, équilibre alimentaire et santé.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">5</div><div class="hstat-lab">Cours</div></div>
+    <div class="hstat"><div class="hstat-val">15</div><div class="hstat-lab">Quiz</div></div>
+  </div>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="index.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Cuisine & Gastronomie</a>
+    <p class="sidebar-title">Contenu</p>
+    <a class="sidebar-link active" data-section="presentation" onclick="goTo('presentation',this)">📖 Présentation</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📚 Cours</a>
+    <a class="sidebar-link" data-section="memo" onclick="goTo('memo',this)">📋 Fiche mémo</a>
+    <p class="sidebar-title">Domaines</p>
+    <a class="sidebar-link" href="techniques.html">Techniques culinaires</a>
+    <a class="sidebar-link" href="patisserie.html">Pâtisserie</a>
+    <a class="sidebar-link" href="monde.html">Cuisine du monde</a>
+    <a class="sidebar-link active" href="#">Nutrition</a>
+    <div class="sidebar-progress">
+      <div class="progress-label">Progression</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="presentation">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Qu'est-ce que la nutrition ?</h2><p>Introduction et vue d'ensemble</p></div></div>
+      <p class="resume-text">La nutrition est la science de l'<strong>alimentation et de ses effets sur la santé</strong>. Elle étudie comment les nutriments — protéines, glucides, lipides, vitamines, minéraux — sont digérés, absorbés et utilisés par l'organisme pour fonctionner, grandir et se réparer.</p>
+      <div class="highlight-box"><p><strong>L'idée fondamentale :</strong> bien manger ne signifie pas se priver. La nutrition moderne privilégie l'équilibre, la variété et le plaisir. Aucun aliment n'est mauvais en soi — c'est la dose et la régularité qui comptent.</p></div>
+      <p class="resume-text">Les recommandations nutritionnelles ont évolué : de la pyramide alimentaire au <strong>Nutri-Score</strong>, du comptage des calories à l'attention portée à la <strong>qualité des aliments</strong> et à leur transformation (ultra-transformés).</p>
+      <p class="resume-text">Comprendre la nutrition permet de faire des choix alimentaires éclairés, de prévenir les maladies liées à l'alimentation et d'améliorer sa qualité de vie.</p>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Les cours de nutrition</h2><p>Progressez étape par étape</p></div></div>
+      <div class="courses-grid">
+        <a href="nutrition/macronutriments.html" class="course-card"><span class="course-card-icon">🍔</span><h3>Macronutriments</h3><p>Protéines, glucides et lipides : rôles, sources et besoins quotidiens.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="nutrition/micronutriments.html" class="course-card"><span class="course-card-icon">🍊</span><h3>Vitamines et minéraux</h3><p>Les micronutriments essentiels, leurs fonctions et où les trouver.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="nutrition/equilibre.html" class="course-card"><span class="course-card-icon">⚖️</span><h3>Équilibre alimentaire</h3><p>Repas équilibré, portions, Nutri-Score et recommandations officielles.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="nutrition/sport.html" class="course-card"><span class="course-card-icon">🏋️</span><h3>Nutrition et sport</h3><p>Alimentation du sportif, hydratation, récupération et performance.</p><span class="course-card-link">Voir le cours →</span></a>
+        <a href="nutrition/sante.html" class="course-card"><span class="course-card-icon">⚠️</span><h3>Alimentation et santé</h3><p>Obésité, diabète, allergies, ultra-transformés et prévention.</p><span class="course-card-link">Voir le cours →</span></a>
+      </div>
+    </section>
+    <section class="content-section" id="memo">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Fiche mémo</h2><p>L'essentiel en un coup d'oeil</p></div></div>
+      <div class="memo-preview" id="memoCard">
+        <div class="memo-top"><h3>🍎 Nutrition — Fiche mémo</h3><p>Curiosita · Nutriments, besoins et repères</p></div>
+        <div class="memo-grid">
+          <div class="memo-section"><div class="memo-section-title">Macronutriments</div><div class="memo-item"><span class="mf">Protéines</span> 0,8-1,2 g/kg/jour, 4 kcal/g</div><div class="memo-item"><span class="mf">Glucides</span> 45-55% apports, 4 kcal/g</div><div class="memo-item"><span class="mf">Lipides</span> 35-40% apports, 9 kcal/g</div><div class="memo-item"><span class="mf">Fibres</span> 25-30 g/jour, transit</div></div>
+          <div class="memo-section"><div class="memo-section-title">Vitamines clés</div><div class="memo-item"><span class="mf">Vitamine C</span> Immunité, antioxydant (fruits)</div><div class="memo-item"><span class="mf">Vitamine D</span> Os, soleil, supplémentation</div><div class="memo-item"><span class="mf">Vitamines B</span> Énergie, système nerveux</div><div class="memo-item"><span class="mf">Vitamine A</span> Vision, peau (carotène)</div></div>
+          <div class="memo-section"><div class="memo-section-title">Minéraux</div><div class="memo-item"><span class="mf">Calcium</span> Os, 900 mg/j (laitages)</div><div class="memo-item"><span class="mf">Fer</span> Hémoglobine, 8-18 mg/j</div><div class="memo-item"><span class="mf">Magnésium</span> Muscles, 400 mg/j</div><div class="memo-item"><span class="mf">Zinc</span> Immunité, cicatrisation</div></div>
+          <div class="memo-section"><div class="memo-section-title">Repères pratiques</div><div class="memo-item"><span class="mf">Eau</span> 1,5 L/j minimum</div><div class="memo-item"><span class="mf">5 fruits/lég.</span> Par jour, variés</div><div class="memo-item"><span class="mf">Sel</span> Max 5 g/j (OMS)</div><div class="memo-item"><span class="mf">Nutri-Score</span> A (vert) à E (rouge)</div></div>
+        </div>
+        <button class="memo-dl-btn" onclick="downloadMemo()">↓ Télécharger la fiche mémo (HTML)</button>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="../../memo.min.js?v=4" defer></script>
+<script src="../../curiosita.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../index.html">Accueil</a>
+    <a href="../../cours.html">Cours</a>
+    <a href="../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

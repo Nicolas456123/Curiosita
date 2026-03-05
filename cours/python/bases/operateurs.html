@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Arithmétique, comparaison, logique et affectation — tous les opérateurs Python pour manipuler les données.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Opérateurs — Les bases — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root {
+  --accent: #4fc3f7;
+  --accent2: #81d4fa;
+  --accent-dim: rgba(79,195,247,0.08);
+ --accent-hero: rgba(79,195,247,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../index.html">Python</a> › <a href="../bases.html">Les bases</a> › <span>Opérateurs</span>
+  </div>
+</nav>
+
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">➕ Les bases</span>
+    <span class="tag-level">Débutant</span>
+    <span class="tag-time">⏱ ~30 min</span>
+  </div>
+  <h1><em>Opérateurs</em></h1>
+  <p class="hero-desc">Arithmétique, comparaison, logique et affectation — tous les opérateurs Python pour manipuler les données.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../bases.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Les bases</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">💻 Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="variables-types.html">Variables et types</a>
+    <a class="sidebar-link active" href="#">Opérateurs</a>
+    <a class="sidebar-link" href="conditions.html">Conditions</a>
+    <a class="sidebar-link" href="boucles.html">Boucles</a>
+    <a class="sidebar-link" href="entrees-sorties.html">Entrées et sorties</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Les outils de calcul et de comparaison</p>
+        </div>
+      </div>
+      <p class="resume-text">Les <strong>opérateurs</strong> sont des symboles qui effectuent des opérations sur des valeurs. Python propose plusieurs catégories d'opérateurs : arithmétiques pour les calculs, de comparaison pour tester des conditions, logiques pour combiner des booléens, et d'affectation pour modifier des variables.</p>
+      <div class="highlight-box">
+        <p><strong>Priorité des opérations :</strong> comme en mathématiques, Python respecte un ordre de priorité. La multiplication passe avant l'addition, et les parenthèses permettent de forcer l'ordre d'évaluation.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Tous les opérateurs Python</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Opérateurs arithmétiques</h3>
+        <p>Les opérateurs de base pour effectuer des calculs mathématiques.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Opérateurs arithmétiques</span>
+a = <span class="num">17</span>
+b = <span class="num">5</span>
+
+<span class="fn">print</span>(a + b)   <span class="cm"># Addition : 22</span>
+<span class="fn">print</span>(a - b)   <span class="cm"># Soustraction : 12</span>
+<span class="fn">print</span>(a * b)   <span class="cm"># Multiplication : 85</span>
+<span class="fn">print</span>(a / b)   <span class="cm"># Division : 3.4 (toujours un float)</span>
+<span class="fn">print</span>(a // b)  <span class="cm"># Division entière : 3</span>
+<span class="fn">print</span>(a % b)   <span class="cm"># Modulo (reste) : 2</span>
+<span class="fn">print</span>(a ** b)  <span class="cm"># Puissance : 1419857</span>
+
+<span class="cm"># Priorité : ** > * / // % > + -</span>
+resultat = <span class="num">2</span> + <span class="num">3</span> * <span class="num">4</span>    <span class="cm"># 14 (pas 20)</span>
+force = (<span class="num">2</span> + <span class="num">3</span>) * <span class="num">4</span>    <span class="cm"># 20 (parenthèses forcent)</span></code></pre>
+        </div>
+
+        <h3>Opérateurs de comparaison</h3>
+        <p>Ils comparent deux valeurs et retournent un booléen (<code>True</code> ou <code>False</code>).</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Opérateurs de comparaison</span>
+x = <span class="num">10</span>
+y = <span class="num">20</span>
+
+<span class="fn">print</span>(x == y)   <span class="cm"># Égal à : False</span>
+<span class="fn">print</span>(x != y)   <span class="cm"># Différent de : True</span>
+<span class="fn">print</span>(x > y)    <span class="cm"># Supérieur : False</span>
+<span class="fn">print</span>(x < y)    <span class="cm"># Inférieur : True</span>
+<span class="fn">print</span>(x >= <span class="num">10</span>)  <span class="cm"># Supérieur ou égal : True</span>
+<span class="fn">print</span>(x <= <span class="num">5</span>)   <span class="cm"># Inférieur ou égal : False</span>
+
+<span class="cm"># Chaînage de comparaisons (unique à Python)</span>
+age = <span class="num">25</span>
+<span class="fn">print</span>(<span class="num">18</span> <= age < <span class="num">65</span>)  <span class="cm"># True — élégant !</span></code></pre>
+        </div>
+
+        <h3>Opérateurs logiques</h3>
+        <p>Ils combinent des expressions booléennes : <code>and</code>, <code>or</code> et <code>not</code>.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Opérateurs logiques</span>
+age = <span class="num">25</span>
+revenu = <span class="num">35000</span>
+
+<span class="cm"># and — les DEUX conditions doivent être vraies</span>
+eligible = age >= <span class="num">18</span> <span class="kw">and</span> revenu > <span class="num">30000</span>
+<span class="fn">print</span>(eligible)  <span class="cm"># True</span>
+
+<span class="cm"># or — AU MOINS UNE condition doit être vraie</span>
+acces = age < <span class="num">12</span> <span class="kw">or</span> age >= <span class="num">65</span>
+<span class="fn">print</span>(acces)  <span class="cm"># False (25 n'est ni &lt;12 ni >=65)</span>
+
+<span class="cm"># not — inverse le booléen</span>
+connecte = <span class="kw">True</span>
+<span class="fn">print</span>(<span class="kw">not</span> connecte)  <span class="cm"># False</span></code></pre>
+        </div>
+
+        <h3>Opérateurs d'affectation composée</h3>
+        <p>Raccourcis pour modifier une variable en combinant une opération et une affectation.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Affectation composée</span>
+x = <span class="num">10</span>
+x += <span class="num">5</span>    <span class="cm"># x = x + 5  → 15</span>
+x -= <span class="num">3</span>    <span class="cm"># x = x - 3  → 12</span>
+x *= <span class="num">2</span>    <span class="cm"># x = x * 2  → 24</span>
+x //= <span class="num">5</span>   <span class="cm"># x = x // 5 → 4</span>
+x **= <span class="num">3</span>   <span class="cm"># x = x ** 3 → 64</span>
+
+<span class="cm"># Fonctionne aussi avec les chaînes</span>
+texte = <span class="str">"Bonjour"</span>
+texte += <span class="str">" le monde"</span>  <span class="cm"># "Bonjour le monde"</span></code></pre>
+        </div>
+
+        <h3>Opérateurs d'identité et d'appartenance</h3>
+        <p>Python propose aussi des opérateurs pour tester l'identité d'un objet (<code>is</code>) et l'appartenance à une collection (<code>in</code>).</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Opérateur 'in' — test d'appartenance</span>
+fruits = [<span class="str">"pomme"</span>, <span class="str">"banane"</span>, <span class="str">"cerise"</span>]
+<span class="fn">print</span>(<span class="str">"pomme"</span> <span class="kw">in</span> fruits)      <span class="cm"># True</span>
+<span class="fn">print</span>(<span class="str">"mangue"</span> <span class="kw">not in</span> fruits) <span class="cm"># True</span>
+
+<span class="cm"># Fonctionne aussi avec les chaînes</span>
+<span class="fn">print</span>(<span class="str">"Py"</span> <span class="kw">in</span> <span class="str">"Python"</span>)  <span class="cm"># True</span>
+
+<span class="cm"># Opérateur 'is' — identité d'objet</span>
+a = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>]
+b = [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>]
+c = a
+
+<span class="fn">print</span>(a == b)   <span class="cm"># True (mêmes valeurs)</span>
+<span class="fn">print</span>(a <span class="kw">is</span> b)   <span class="cm"># False (objets différents)</span>
+<span class="fn">print</span>(a <span class="kw">is</span> c)   <span class="cm"># True (même objet en mémoire)</span></code></pre>
+        </div>
+        <div class="highlight-box">
+          <p><strong>is vs == :</strong> <code>==</code> compare les <em>valeurs</em>, <code>is</code> compare les <em>identités</em> (même objet en mémoire). Utilisez <code>is</code> uniquement pour <code>None</code>, <code>True</code> et <code>False</code>.</p>
+        </div>
+
+        <h3>Priorité des opérateurs</h3>
+        <p>Python suit un ordre de priorité strict. Du plus prioritaire au moins prioritaire :</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Ordre de priorité (du plus au moins prioritaire)</span>
+<span class="cm"># 1. **        (puissance)</span>
+<span class="cm"># 2. -, +      (unaires : -x, +x)</span>
+<span class="cm"># 3. *, /, //, %</span>
+<span class="cm"># 4. +, -      (addition, soustraction)</span>
+<span class="cm"># 5. ==, !=, >, <, >=, <=, is, in</span>
+<span class="cm"># 6. not</span>
+<span class="cm"># 7. and</span>
+<span class="cm"># 8. or</span>
+
+<span class="cm"># Exemples concrets</span>
+<span class="fn">print</span>(<span class="num">2</span> ** <span class="num">3</span> ** <span class="num">2</span>)     <span class="cm"># 512 (** est associatif à droite : 2 ** 9)</span>
+<span class="fn">print</span>(-<span class="num">2</span> ** <span class="num">2</span>)         <span class="cm"># -4 (** avant le - unaire)</span>
+<span class="fn">print</span>((-<span class="num">2</span>) ** <span class="num">2</span>)       <span class="cm"># 4 (parenthèses forcent l'ordre)</span>
+
+<span class="cm"># En cas de doute, utilisez des parenthèses</span>
+resultat = (<span class="num">5</span> + <span class="num">3</span>) * (<span class="num">10</span> - <span class="num">2</span>) / (<span class="num">4</span> ** <span class="num">2</span>)  <span class="cm"># 4.0</span></code></pre>
+        </div>
+
+        <h3>Pièges courants</h3>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># PIÈGE 1 : Division entière vs décimale</span>
+<span class="fn">print</span>(<span class="num">7</span> / <span class="num">2</span>)    <span class="cm"># 3.5 (division classique → float)</span>
+<span class="fn">print</span>(<span class="num">7</span> // <span class="num">2</span>)   <span class="cm"># 3   (division entière → int)</span>
+
+<span class="cm"># PIÈGE 2 : Division entière avec négatifs</span>
+<span class="fn">print</span>(-<span class="num">7</span> // <span class="num">2</span>)  <span class="cm"># -4 (pas -3 ! arrondi vers le bas)</span>
+
+<span class="cm"># PIÈGE 3 : Évaluation court-circuit</span>
+<span class="cm"># Python arrête d'évaluer dès que le résultat est connu</span>
+x = <span class="num">0</span>
+<span class="cm"># x != 0 est False, donc le 'and' n'évalue pas 10/x</span>
+<span class="fn">print</span>(x != <span class="num">0</span> <span class="kw">and</span> <span class="num">10</span> / x > <span class="num">2</span>)  <span class="cm"># False (pas d'erreur)</span>
+
+<span class="cm"># PIÈGE 4 : Confondre 'and'/'or' avec '&'/'|'</span>
+<span class="cm"># 'and'/'or' → logique booléenne</span>
+<span class="cm"># '&'/'|'    → opérations bit à bit (différent !)</span></code></pre>
+        </div>
+
+        <h3>Bonnes pratiques</h3>
+        <ul>
+          <li><strong>Parenthèses :</strong> en cas de doute sur la priorité, ajoutez des parenthèses. Elles rendent le code plus lisible.</li>
+          <li><strong>Chaînage :</strong> profitez du chaînage de comparaisons : <code>0 &lt; x &lt; 100</code> est plus lisible que <code>x &gt; 0 and x &lt; 100</code>.</li>
+          <li><strong>Court-circuit :</strong> utilisez <code>and</code>/<code>or</code> pour des gardes : <code>if x != 0 and 10/x &gt; 2</code> évite la division par zéro.</li>
+          <li><strong>Espaces :</strong> mettez des espaces autour des opérateurs : <code>x = 5 + 3</code> et non <code>x=5+3</code>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">➕ Opérateurs — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Que retourne <code>17 % 5</code> ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">3.4</button>
+              <button class="option" onclick="answer(this,true)">2</button>
+              <button class="option" onclick="answer(this,false)">3</button>
+              <button class="option" onclick="answer(this,false)">5</button>
+            </div>
+            <div class="q-feedback">L'opérateur <code>%</code> (modulo) retourne le reste de la division entière. 17 ÷ 5 = 3 reste 2, donc 17 % 5 = 2.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Que retourne <code>True and False or True</code> ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">True</button>
+              <button class="option" onclick="answer(this,false)">False</button>
+              <button class="option" onclick="answer(this,false)">None</button>
+              <button class="option" onclick="answer(this,false)">Erreur</button>
+            </div>
+            <div class="q-feedback"><code>and</code> a priorité sur <code>or</code>. Donc : (True and False) or True = False or True = True.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Que vaut <code>x</code> après : <code>x = 10; x *= 3; x -= 5</code> ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">25</button>
+              <button class="option" onclick="answer(this,false)">30</button>
+              <button class="option" onclick="answer(this,false)">15</button>
+              <button class="option" onclick="answer(this,false)">35</button>
+            </div>
+            <div class="q-feedback">x = 10, puis x *= 3 donne x = 30, puis x -= 5 donne x = 25.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Que retourne <code>-7 // 2</code> ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">-3</button>
+              <button class="option" onclick="answer(this,true)">-4</button>
+              <button class="option" onclick="answer(this,false)">-3.5</button>
+              <button class="option" onclick="answer(this,false)">3</button>
+            </div>
+            <div class="q-feedback">La division entière <code>//</code> arrondit vers le bas (floor). -7 / 2 = -3.5, arrondi vers le bas donne -4.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Que retourne <code>"Py" in "Python"</code> ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">True</button>
+              <button class="option" onclick="answer(this,false)">False</button>
+              <button class="option" onclick="answer(this,false)">0</button>
+              <button class="option" onclick="answer(this,false)">Erreur</button>
+            </div>
+            <div class="q-feedback">L'opérateur <code>in</code> vérifie si une sous-chaîne est contenue dans une chaîne. <code>"Py"</code> est bien au début de <code>"Python"</code>, donc le résultat est <code>True</code>.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Que retourne <code>2 ** 3 ** 2</code> ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">64</button>
+              <button class="option" onclick="answer(this,true)">512</button>
+              <button class="option" onclick="answer(this,false)">36</button>
+              <button class="option" onclick="answer(this,false)">81</button>
+            </div>
+            <div class="q-feedback">L'opérateur <code>**</code> est associatif à droite. Donc <code>2 ** 3 ** 2</code> = <code>2 ** 9</code> = 512, et non <code>8 ** 2</code> = 64.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Calculatrice simple</h3>
+        <p>Demandez deux nombres à l'utilisateur et affichez le résultat de chaque opération arithmétique : addition, soustraction, multiplication, division, division entière, modulo et puissance.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>a = float(input("Premier nombre : "))
+b = float(input("Deuxième nombre : "))
+
+print(f"{a} + {b} = {a + b}")
+print(f"{a} - {b} = {a - b}")
+print(f"{a} * {b} = {a * b}")
+print(f"{a} / {b} = {a / b}")
+print(f"{a} // {b} = {a // b}")
+print(f"{a} % {b} = {a % b}")
+print(f"{a} ** {b} = {a ** b}")</code></pre></div>
+        </details>
+
+        <h3>Exercice 2 — Pair ou impair</h3>
+        <p>Demandez un nombre entier à l'utilisateur et affichez si ce nombre est pair ou impair en utilisant l'opérateur modulo <code>%</code>.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>nombre = int(input("Entrez un nombre entier : "))
+
+if nombre % 2 == 0:
+    print(f"{nombre} est pair")
+else:
+    print(f"{nombre} est impair")</code></pre></div>
+        </details>
+
+        <h3>Exercice 3 — Décomposition en heures, minutes, secondes</h3>
+        <p>Demandez un nombre de secondes total (ex: 3725) et affichez la décomposition en heures, minutes et secondes en utilisant <code>//</code> et <code>%</code>.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>total_secondes = int(input("Nombre de secondes : "))
+
+heures = total_secondes // 3600
+minutes = (total_secondes % 3600) // 60
+secondes = total_secondes % 60
+
+print(f"{total_secondes}s = {heures}h {minutes}min {secondes}s")
+# 3725s = 1h 2min 5s</code></pre></div>
+        </details>
+
+        <h3>Exercice 4 — Vérification d'éligibilité</h3>
+        <p>Écrivez un programme qui vérifie si une personne est éligible à un prêt. Les conditions sont : avoir au moins 18 ans ET avoir un revenu annuel supérieur à 25000 euros OU avoir un garant. Utilisez les opérateurs logiques.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>age = int(input("Âge : "))
+revenu = float(input("Revenu annuel : "))
+garant = input("Avez-vous un garant ? (oui/non) : ") == "oui"
+
+eligible = age >= 18 and (revenu > 25000 or garant)
+
+if eligible:
+    print("Vous êtes éligible au prêt.")
+else:
+    print("Vous n'êtes pas éligible au prêt.")</code></pre></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="variables-types.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Variables et types</span>
+      </a>
+      <a href="conditions.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Conditions →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

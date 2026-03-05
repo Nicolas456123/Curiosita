@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="La triade CIA, les menaces et vulnérabilités, la gestion des risques — les bases indispensables pour comprendre et pratiquer la sécurité informatique.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Fondamentaux de la cybersécurité — Cybersécurité — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root {
+  --accent: #2980b9;
+  --accent2: #3498db;
+  --accent-dim: rgba(41,128,185,0.08);
+ --accent-hero: rgba(41,128,185,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../index.html">Informatique</a> › <a href="../cybersecurite.html">Cybersécurité</a> › <span>Fondamentaux de la cybersécurité</span>
+  </div>
+</nav>
+
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">🔒 Cybersécurité</span>
+    <span class="tag-level">Débutant</span>
+    <span class="tag-time">⏱ ~45 min</span>
+  </div>
+  <h1><em>Fondamentaux de la cybersécurité</em></h1>
+  <p class="hero-desc">La triade CIA, les menaces et vulnérabilités, la gestion des risques — les bases indispensables pour comprendre et pratiquer la sécurité informatique.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../cybersecurite.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Cybersécurité</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">💻 Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link active" href="#">Fondamentaux</a>
+    <a class="sidebar-link" href="chiffrement.html">Chiffrement</a>
+    <a class="sidebar-link" href="reseaux.html">Sécurité des réseaux</a>
+    <a class="sidebar-link" href="hacking.html">Hacking éthique</a>
+    <a class="sidebar-link" href="applications.html">Sécurité des applications</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Pourquoi la cybersécurité est essentielle</p>
+        </div>
+      </div>
+      <p class="resume-text">La <strong>cybersécurité</strong> désigne l'ensemble des pratiques, technologies et processus conçus pour protéger les systèmes informatiques, les réseaux et les données contre les attaques numériques. Dans un monde où la quasi-totalité des échanges — personnels, professionnels, financiers — passent par des systèmes connectés, la sécurité informatique n'est plus une option mais une nécessité absolue.</p>
+      <p class="resume-text">Chaque année, les cyberattaques coûtent des milliards d'euros aux entreprises et aux institutions. Du vol de données personnelles aux ransomwares paralysant des hôpitaux, les conséquences d'une sécurité défaillante sont souvent dramatiques. Comprendre les fondamentaux permet non seulement de se protéger, mais aussi de concevoir des systèmes résilients dès leur conception.</p>
+      <div class="highlight-box">
+        <p><strong>La triade CIA</strong> — Confidentialité, Intégrité, Disponibilité — constitue le socle de toute réflexion en cybersécurité. Chaque mesure de sécurité vise à protéger au moins l'un de ces trois piliers fondamentaux.</p>
+      </div>
+      <p class="resume-text">Ce cours vous initie aux concepts fondamentaux : les trois piliers de la sécurité, la classification des menaces et des vulnérabilités, les méthodes d'analyse de risque, et les principes de défense en profondeur qui guident la construction de systèmes sécurisés.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>Les piliers de la cybersécurité</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>La triade CIA</h3>
+        <p>La triade CIA est le modèle fondateur de la sécurité de l'information. Chaque décision en cybersécurité peut être évaluée à travers ces trois dimensions :</p>
+        <p><strong>Confidentialité</strong> : garantir que l'information n'est accessible qu'aux personnes autorisées. Le chiffrement, le contrôle d'accès et l'authentification sont les mécanismes clés. Une fuite de données médicales ou bancaires viole la confidentialité.</p>
+        <p><strong>Intégrité</strong> : s'assurer que les données n'ont pas été altérées de manière non autorisée. Les fonctions de hachage, les signatures numériques et les sommes de contrôle permettent de vérifier l'intégrité. Un attaquant modifiant un virement bancaire compromet l'intégrité.</p>
+        <p><strong>Disponibilité</strong> : garantir que les systèmes et les données sont accessibles quand les utilisateurs en ont besoin. La redondance, les sauvegardes et les plans de reprise après sinistre protègent la disponibilité. Une attaque DDoS cible directement ce pilier.</p>
+        <div class="highlight-box">
+          <p><strong>Extensions de la triade :</strong> certains modèles ajoutent l'<strong>authenticité</strong> (certitude de l'origine), la <strong>non-répudiation</strong> (impossibilité de nier une action) et la <strong>traçabilité</strong> (capacité à suivre les actions). Le modèle Parkerian Hexad en compte six propriétés.</p>
+        </div>
+
+        <h3>Menaces et acteurs malveillants</h3>
+        <p>Une <strong>menace</strong> est toute circonstance ou événement susceptible de causer un dommage à un système. Les menaces se classent selon leur origine :</p>
+        <p><strong>Menaces externes</strong> : hackers, groupes criminels organisés, États-nations (APT — Advanced Persistent Threats), hacktivistes. Ces acteurs utilisent des techniques sophistiquées et disposent parfois de ressources considérables.</p>
+        <p><strong>Menaces internes</strong> : employés mécontents, erreurs humaines, négligences. Selon les études, les menaces internes sont responsables d'une part significative des incidents de sécurité car ces acteurs disposent déjà d'un accès légitime au système.</p>
+        <p><strong>Menaces naturelles</strong> : incendies, inondations, pannes électriques. Bien que non malveillantes, elles peuvent détruire des infrastructures critiques et doivent être intégrées à la stratégie de sécurité.</p>
+
+        <h3>Vulnérabilités</h3>
+        <p>Une <strong>vulnérabilité</strong> est une faiblesse dans un système qui peut être exploitée par une menace. On distingue plusieurs catégories :</p>
+        <p><strong>Vulnérabilités logicielles</strong> : bugs, erreurs de programmation, absence de validation des entrées. Les CVE (Common Vulnerabilities and Exposures) répertorient les failles connues avec un identifiant unique.</p>
+        <p><strong>Vulnérabilités de configuration</strong> : mots de passe par défaut, ports ouverts inutilement, services non mis à jour, permissions excessives.</p>
+        <p><strong>Vulnérabilités humaines</strong> : susceptibilité à l'ingénierie sociale, utilisation de mots de passe faibles, clic sur des liens malveillants. L'humain reste le maillon le plus vulnérable de la chaîne.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Cycle de vie d'une vulnérabilité</span></div>
+          <pre><code><span class="cm">1. Découverte   → La faille existe (zero-day si inconnue de l'éditeur)</span>
+<span class="cm">2. Divulgation  → Signalée à l'éditeur (responsible disclosure) ou exploitée</span>
+<span class="cm">3. Patch        → L'éditeur publie un correctif</span>
+<span class="cm">4. Déploiement  → Les utilisateurs appliquent la mise à jour</span>
+<span class="cm">5. Fenêtre      → Temps entre découverte et patch = fenêtre de vulnérabilité</span>
+
+<span class="kw">CVSS</span> (Common Vulnerability Scoring System) :
+  Score de <span class="num">0.0</span> à <span class="num">10.0</span> évaluant la gravité
+  <span class="num">0.0</span>-<span class="num">3.9</span>  → Faible
+  <span class="num">4.0</span>-<span class="num">6.9</span>  → Moyen
+  <span class="num">7.0</span>-<span class="num">8.9</span>  → Élevé
+  <span class="num">9.0</span>-<span class="num">10.0</span> → Critique</code></pre>
+        </div>
+
+        <h3>Gestion des risques</h3>
+        <p>Le <strong>risque</strong> est la combinaison de la probabilité qu'une menace exploite une vulnérabilité et de l'impact potentiel de cette exploitation. La formule classique est :</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Analyse de risque</span></div>
+          <pre><code><span class="kw">Risque</span> = <span class="fn">Probabilité</span>(menace × vulnérabilité) × <span class="fn">Impact</span>
+
+<span class="cm">Stratégies de traitement du risque :</span>
+├── <span class="kw">Éviter</span>      → Supprimer l'activité à risque
+├── <span class="kw">Réduire</span>    → Mettre en place des contrôles (pare-feu, chiffrement...)
+├── <span class="kw">Transférer</span> → Assurance cyber, externalisation
+└── <span class="kw">Accepter</span>   → Le coût de la protection dépasse le risque
+
+<span class="cm">Méthodologies courantes :</span>
+  • <span class="fn">EBIOS RM</span>  → Méthode française (ANSSI)
+  • <span class="fn">ISO 27005</span> → Norme internationale de gestion des risques
+  • <span class="fn">NIST RMF</span>  → Framework américain (Risk Management Framework)
+  • <span class="fn">OCTAVE</span>   → Orientée auto-évaluation organisationnelle</code></pre>
+        </div>
+
+        <h3>Défense en profondeur</h3>
+        <p>Le principe de <strong>défense en profondeur</strong> consiste à superposer plusieurs couches de sécurité indépendantes, de sorte que la compromission d'une couche ne suffise pas à compromettre le système entier. Ce concept est emprunté à la stratégie militaire.</p>
+        <p><strong>Couche physique</strong> : contrôle d'accès aux locaux, vidéosurveillance, serrures biométriques. Un serveur accessible physiquement à n'importe qui est intrinsèquement vulnérable.</p>
+        <p><strong>Couche réseau</strong> : pare-feu, segmentation du réseau, VPN, systèmes de détection d'intrusion (IDS/IPS). Le réseau est le premier périmètre de défense numérique.</p>
+        <p><strong>Couche applicative</strong> : validation des entrées, authentification forte, gestion des sessions, mises à jour régulières.</p>
+        <p><strong>Couche données</strong> : chiffrement au repos et en transit, sauvegardes, contrôle d'accès granulaire aux bases de données.</p>
+        <p><strong>Couche humaine</strong> : formation et sensibilisation des utilisateurs, politiques de sécurité, gestion des mots de passe.</p>
+
+        <h3>Principes de sécurité fondamentaux</h3>
+        <p>Plusieurs principes guident la conception de systèmes sécurisés :</p>
+        <p><strong>Moindre privilège</strong> : chaque utilisateur ou processus ne doit avoir que les droits strictement nécessaires à sa tâche. Un développeur n'a pas besoin d'un accès administrateur au serveur de production.</p>
+        <p><strong>Séparation des devoirs</strong> : aucune personne seule ne devrait pouvoir effectuer une action critique de bout en bout. Par exemple, celui qui écrit le code ne devrait pas être le seul à pouvoir le déployer en production.</p>
+        <p><strong>Zéro confiance (Zero Trust)</strong> : ne jamais faire confiance implicitement, toujours vérifier. Même un utilisateur authentifié sur le réseau interne doit prouver son identité pour chaque accès à une ressource.</p>
+        <div class="highlight-box">
+          <p><strong>Sécurité par l'obscurité :</strong> cacher les mécanismes de sécurité (algorithmes, code source) ne constitue jamais une protection suffisante. Le principe de Kerckhoffs stipule qu'un système doit rester sûr même si tout est connu de l'attaquant, sauf la clé secrète.</p>
+        </div>
+
+        <h3>Cadres et normes</h3>
+        <p>La cybersécurité s'appuie sur des cadres normatifs qui structurent les bonnes pratiques :</p>
+        <p><strong>ISO 27001/27002</strong> : norme internationale pour les systèmes de management de la sécurité de l'information (SMSI). Elle définit les exigences et les bonnes pratiques pour établir, mettre en oeuvre et améliorer continuellement la sécurité.</p>
+        <p><strong>NIST Cybersecurity Framework</strong> : cadre américain structuré autour de cinq fonctions — Identifier, Protéger, Détecter, Répondre, Récupérer. Largement adopté dans le monde entier.</p>
+        <p><strong>RGPD</strong> : le Règlement Général sur la Protection des Données impose des obligations légales en matière de protection des données personnelles dans l'Union européenne, avec des sanctions pouvant atteindre 4% du chiffre d'affaires mondial.</p>
+        <p><strong>ANSSI</strong> : l'Agence Nationale de la Sécurité des Systèmes d'Information publie des guides et recommandations adaptés au contexte français, et certifie les produits et prestataires de sécurité.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">📊 Fondamentaux de la cybersécurité — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quels sont les trois piliers de la triade CIA ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Contrôle, Identification, Authentification</button>
+              <button class="option" onclick="answer(this,true)">Confidentialité, Intégrité, Disponibilité</button>
+              <button class="option" onclick="answer(this,false)">Chiffrement, Isolation, Audit</button>
+              <button class="option" onclick="answer(this,false)">Conformité, Infrastructure, Analyse</button>
+            </div>
+            <div class="q-feedback">La triade CIA (Confidentiality, Integrity, Availability) est le modèle fondamental de la sécurité de l'information : protéger l'accès, la fiabilité et l'accessibilité des données.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Qu'est-ce qu'une vulnérabilité zero-day ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Une faille corrigée le jour même de sa découverte</button>
+              <button class="option" onclick="answer(this,false)">Un virus qui s'active à minuit</button>
+              <button class="option" onclick="answer(this,true)">Une faille inconnue de l'éditeur du logiciel, sans correctif disponible</button>
+              <button class="option" onclick="answer(this,false)">Une attaque qui dure moins de 24 heures</button>
+            </div>
+            <div class="q-feedback">Une vulnérabilité zero-day est une faille encore inconnue de l'éditeur, donc sans patch disponible. Le terme « zero-day » signifie que l'éditeur a eu zéro jour pour la corriger.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Quel principe stipule que chaque utilisateur ne doit avoir que les droits strictement nécessaires ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Défense en profondeur</button>
+              <button class="option" onclick="answer(this,false)">Séparation des devoirs</button>
+              <button class="option" onclick="answer(this,true)">Moindre privilège</button>
+              <button class="option" onclick="answer(this,false)">Zéro confiance</button>
+            </div>
+            <div class="q-feedback">Le principe de moindre privilège (least privilege) limite les droits de chaque utilisateur ou processus au strict minimum nécessaire pour accomplir sa tâche, réduisant ainsi la surface d'attaque.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Une attaque DDoS cible principalement quel pilier de la triade CIA ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Confidentialité</button>
+              <button class="option" onclick="answer(this,false)">Intégrité</button>
+              <button class="option" onclick="answer(this,true)">Disponibilité</button>
+              <button class="option" onclick="answer(this,false)">Authentification</button>
+            </div>
+            <div class="q-feedback">Une attaque DDoS (Distributed Denial of Service) vise à rendre un service inaccessible en le submergeant de requêtes. Elle cible donc directement la disponibilité du système.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quelle stratégie de gestion des risques consiste à souscrire une assurance cyber ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Éviter le risque</button>
+              <button class="option" onclick="answer(this,false)">Réduire le risque</button>
+              <button class="option" onclick="answer(this,true)">Transférer le risque</button>
+              <button class="option" onclick="answer(this,false)">Accepter le risque</button>
+            </div>
+            <div class="q-feedback">Souscrire une assurance est un transfert de risque : l'impact financier d'un incident est pris en charge par un tiers (l'assureur). L'entreprise ne réduit pas la probabilité mais transfère les conséquences.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Quelles sont les cinq fonctions du NIST Cybersecurity Framework ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Planifier, Implémenter, Vérifier, Agir, Documenter</button>
+              <button class="option" onclick="answer(this,true)">Identifier, Protéger, Détecter, Répondre, Récupérer</button>
+              <button class="option" onclick="answer(this,false)">Analyser, Concevoir, Développer, Tester, Déployer</button>
+              <button class="option" onclick="answer(this,false)">Prévenir, Surveiller, Alerter, Corriger, Auditer</button>
+            </div>
+            <div class="q-feedback">Le NIST CSF s'articule autour de cinq fonctions : Identify, Protect, Detect, Respond, Recover. Ce cadre offre une approche complète couvrant la prévention, la détection et la réaction aux incidents.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Classification CIA</h3>
+        <p>Pour chaque scénario, identifiez quel(s) pilier(s) de la triade CIA est/sont compromis : (a) Un ransomware chiffre tous les fichiers d'un hôpital. (b) Un employé accède aux fiches de paie de ses collègues. (c) Un attaquant modifie les résultats d'un examen dans la base de données de l'université. (d) Un câble réseau est coupé accidentellement. (e) Un email est intercepté pendant sa transmission.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>(a) Ransomware sur un hôpital → Disponibilité (les fichiers sont inaccessibles)
+    + Confidentialité si les données sont exfiltrées avant chiffrement
+
+(b) Accès aux fiches de paie → Confidentialité
+    (l'employé n'était pas autorisé à voir ces informations)
+
+(c) Modification des résultats → Intégrité
+    (les données ont été altérées de manière non autorisée)
+
+(d) Câble réseau coupé → Disponibilité
+    (les services deviennent inaccessibles)
+
+(e) Interception d'email → Confidentialité
+    (un tiers non autorisé lit le contenu)</code></pre></div>
+        </details>
+
+        <h3>Exercice 2 — Analyse de risque simplifiée</h3>
+        <p>Une PME de 50 employés utilise un serveur web pour son site e-commerce. Identifiez trois menaces, trois vulnérabilités possibles, évaluez la probabilité et l'impact de chaque risque (échelle 1-5), et proposez une stratégie de traitement pour chacun.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>Menace 1 : Attaque DDoS
+  Vulnérabilité : Pas de protection anti-DDoS, serveur unique
+  Probabilité : 3/5 | Impact : 4/5 | Risque : 12/25
+  Traitement : Réduire → Utiliser un CDN avec protection DDoS
+
+Menace 2 : Injection SQL
+  Vulnérabilité : Validation insuffisante des entrées utilisateur
+  Probabilité : 4/5 | Impact : 5/5 | Risque : 20/25
+  Traitement : Réduire → Requêtes paramétrées, WAF, audit de code
+
+Menace 3 : Employé malveillant
+  Vulnérabilité : Tous les employés ont un accès admin au back-office
+  Probabilité : 2/5 | Impact : 4/5 | Risque : 8/25
+  Traitement : Réduire → Appliquer le moindre privilège,
+               journaliser les accès</code></pre></div>
+        </details>
+
+        <h3>Exercice 3 — Défense en profondeur</h3>
+        <p>Vous concevez la sécurité d'une application bancaire en ligne. Proposez au moins une mesure de sécurité pour chacune des cinq couches de la défense en profondeur (physique, réseau, applicative, données, humaine).</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>Couche physique :
+  → Serveurs hébergés dans un datacenter certifié avec contrôle
+    d'accès biométrique et vidéosurveillance 24/7
+
+Couche réseau :
+  → Pare-feu applicatif (WAF), segmentation réseau (DMZ),
+    IDS/IPS, VPN pour l'accès administrateur
+
+Couche applicative :
+  → Authentification multifacteur (MFA), validation stricte
+    des entrées, gestion de session avec timeout, HTTPS obligatoire
+
+Couche données :
+  → Chiffrement AES-256 des données sensibles au repos,
+    TLS 1.3 en transit, sauvegardes chiffrées quotidiennes,
+    hachage bcrypt des mots de passe
+
+Couche humaine :
+  → Formation trimestrielle de sensibilisation au phishing,
+    politique de mots de passe robustes, procédure de signalement
+    des incidents</code></pre></div>
+        </details>
+
+        <h3>Exercice 4 — Politique de mots de passe</h3>
+        <p>Rédigez une politique de mots de passe pour une entreprise en vous basant sur les recommandations actuelles de l'ANSSI. Incluez : longueur minimale, complexité, renouvellement, stockage et gestion des cas particuliers (comptes administrateurs, comptes de service).</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>POLITIQUE DE MOTS DE PASSE
+
+1. Longueur minimale :
+   - Comptes utilisateurs : 12 caractères minimum
+   - Comptes administrateurs : 16 caractères minimum
+   - Comptes de service : 20 caractères générés aléatoirement
+
+2. Complexité :
+   - Mélange majuscules, minuscules, chiffres, caractères spéciaux
+   - Interdiction des mots du dictionnaire et données personnelles
+   - Vérification contre les listes de mots de passe compromis
+
+3. Renouvellement :
+   - Pas de rotation obligatoire systématique (recommandation ANSSI)
+   - Changement immédiat en cas de suspicion de compromission
+   - Historique : interdiction de réutiliser les 10 derniers
+
+4. Stockage :
+   - Hachage bcrypt (coût >= 12) ou Argon2id
+   - Salage unique par mot de passe
+   - JAMAIS de stockage en clair ou chiffrement réversible
+
+5. MFA obligatoire pour les accès sensibles</code></pre></div>
+        </details>
+
+        <h3>Exercice 5 — Cartographie des menaces</h3>
+        <p>Choisissez un système que vous utilisez quotidiennement (smartphone, boîte mail, réseau Wi-Fi domestique). Établissez une cartographie complète des menaces en identifiant : les actifs à protéger, les menaces potentielles, les vulnérabilités existantes et les contrôles déjà en place.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>Exemple : Smartphone personnel
+
+ACTIFS À PROTÉGER :
+  → Données personnelles (contacts, photos, messages)
+  → Comptes en ligne (banque, email, réseaux sociaux)
+  → Communications (appels, SMS, messagerie)
+  → Fonctions de paiement (NFC, applications bancaires)
+
+MENACES :
+  → Vol ou perte physique du téléphone
+  → Applications malveillantes (malware)
+  → Interception sur Wi-Fi public (man-in-the-middle)
+  → Phishing par SMS (smishing) ou email
+  → Exploitation de vulnérabilités OS non patchées
+
+VULNÉRABILITÉS :
+  → OS pas toujours à jour
+  → Applications tierces avec permissions excessives
+  → Connexion automatique aux Wi-Fi connus
+  → Pas de VPN sur les réseaux publics
+
+CONTRÔLES EXISTANTS :
+  → Verrouillage biométrique (empreinte / Face ID)
+  → Chiffrement du stockage (activé par défaut)
+  → Store officiel (vérification des applications)
+  → Localisation à distance et effacement à distance
+
+AMÉLIORATIONS RECOMMANDÉES :
+  → Activer le MFA sur tous les comptes critiques
+  → Installer un VPN pour les réseaux publics
+  → Auditer régulièrement les permissions des applications
+  → Activer les mises à jour automatiques</code></pre></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="../cybersecurite.html" class="prev">
+        <span class="course-nav-label">Retour</span>
+        <span class="course-nav-title">← Cybersécurité</span>
+      </a>
+      <a href="chiffrement.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Chiffrement et cryptographie →</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

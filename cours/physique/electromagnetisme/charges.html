@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="De la loi de Coulomb au potentiel lectrique : comprendre comment les charges cr ent des champs, des forces et stockent de l' nergie dans les condensateurs.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Charges &eacute;lectriques &mdash; &Eacute;lectromagn&eacute;tisme &mdash; Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root { --accent: #8e44ad; --accent2: #9b59b6; --accent-dim: rgba(142,68,173,0.08);  --accent-hero: rgba(142,68,173,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../../../sciences-exactes.html">Sciences exactes</a> &rsaquo; <a href="../electromagnetisme.html">&Eacute;lectromagn&eacute;tisme</a> &rsaquo; <span>Charges &eacute;lectriques</span>
+  </div>
+</nav>
+
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">&#9889; &Eacute;lectromagn&eacute;tisme</span>
+    <span class="tag-level">D&eacute;butant &rarr; Interm&eacute;diaire</span>
+    <span class="tag-time">&#9201; ~45 min</span>
+  </div>
+  <h1><em>Charges &eacute;lectriques</em></h1>
+  <p class="hero-desc">De la loi de Coulomb au potentiel &eacute;lectrique : comprendre comment les charges cr&eacute;ent des champs, des forces et stockent de l'&eacute;nergie dans les condensateurs.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../electromagnetisme.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">&larr; &Eacute;lectromagn&eacute;tisme</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">&#128214; Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">&#128221; Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">&#127919; Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">&#9999;&#65039; Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link active" href="#">Charges &eacute;lectriques</a>
+    <a class="sidebar-link" href="circuits.html">Circuits &eacute;lectriques</a>
+    <a class="sidebar-link" href="magnetisme.html">Magn&eacute;tisme</a>
+    <a class="sidebar-link" href="induction.html">Induction</a>
+    <a class="sidebar-link" href="ondes.html">Ondes EM</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info"><h2>Introduction</h2><p>Le fondement de l'&eacute;lectrostatique</p></div>
+      </div>
+      <p class="resume-text">La charge &eacute;lectrique est une propri&eacute;t&eacute; fondamentale de la mati&egrave;re. D&egrave;s l'Antiquit&eacute;, les Grecs observaient que l'ambre frott&eacute; attirait des objets l&eacute;gers &mdash; le mot &laquo; &eacute;lectricit&eacute; &raquo; vient d'ailleurs du grec <em>&eacute;lektron</em> (ambre). Aujourd'hui, l'&eacute;lectrostatique d&eacute;crit les interactions entre charges au repos et constitue le socle de toute l'&eacute;lectromagn&eacute;tisme.</p>
+      <div class="highlight-box">
+        <p><strong>Id&eacute;e cl&eacute; :</strong> Deux types de charges existent dans la nature : positive et n&eacute;gative. Les charges de m&ecirc;me signe se repoussent, les charges de signes oppos&eacute;s s'attirent. La charge &eacute;l&eacute;mentaire e = 1,6 &times; 10&minus;&sup1;&sup9; C est la plus petite charge libre observable.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info"><h2>Le cours</h2><p>Charges, champs et potentiel</p></div>
+      </div>
+      <div class="course-content">
+
+        <h3>La charge &eacute;lectrique</h3>
+        <p>La charge &eacute;lectrique est une grandeur scalaire conserv&eacute;e, mesur&eacute;e en <strong>coulombs</strong> (C). Elle est <strong>quantifi&eacute;e</strong> : toute charge observable est un multiple entier de la charge &eacute;l&eacute;mentaire e = 1,602 &times; 10&minus;&sup1;&sup9; C.</p>
+        <ul>
+          <li><strong>Proton :</strong> charge +e = +1,6 &times; 10&minus;&sup1;&sup9; C</li>
+          <li><strong>&Eacute;lectron :</strong> charge &minus;e = &minus;1,6 &times; 10&minus;&sup1;&sup9; C</li>
+          <li><strong>Neutron :</strong> charge nulle</li>
+        </ul>
+        <p>Un corps est &eacute;lectriquement neutre lorsqu'il contient autant de charges positives que n&eacute;gatives. L'&eacute;lectrisation (par frottement, contact ou influence) consiste &agrave; transf&eacute;rer des &eacute;lectrons d'un corps &agrave; un autre.</p>
+        <div class="highlight-box">
+          <p><strong>Conservation de la charge :</strong> Dans un syst&egrave;me isol&eacute;, la charge totale est constante. Si un corps gagne des &eacute;lectrons, un autre en perd autant.</p>
+        </div>
+
+        <h3>La loi de Coulomb</h3>
+        <p>Charles-Augustin de Coulomb a &eacute;tabli en 1785 la loi fondamentale de l'&eacute;lectrostatique. La force entre deux charges ponctuelles q&#8321; et q&#8322; s&eacute;par&eacute;es par une distance r est :</p>
+        <div class="highlight-box">
+          <p><strong>F = k &middot; |q&#8321; &middot; q&#8322;| / r&sup2;</strong></p>
+          <p>avec k = 1/(4&pi;&epsilon;&#8320;) &asymp; 8,99 &times; 10&sup9; N&middot;m&sup2;/C&sup2; et &epsilon;&#8320; = 8,854 &times; 10&minus;&sup1;&sup2; F/m (permittivit&eacute; du vide).</p>
+        </div>
+        <p>La force est <strong>attractive</strong> si les charges sont de signes oppos&eacute;s, <strong>r&eacute;pulsive</strong> si elles sont de m&ecirc;me signe. Elle agit le long de la droite joignant les deux charges et ob&eacute;it au principe d'action-r&eacute;action (troisi&egrave;me loi de Newton).</p>
+        <p>Pour un syst&egrave;me de plusieurs charges, la force totale sur une charge donn&eacute;e est la <strong>somme vectorielle</strong> des forces exerc&eacute;es par chacune des autres charges (principe de superposition).</p>
+
+        <h3>Le champ &eacute;lectrique</h3>
+        <p>Le champ &eacute;lectrique <strong>E</strong> est un champ vectoriel qui d&eacute;crit l'influence d'une charge source en tout point de l'espace. Il est d&eacute;fini comme la force par unit&eacute; de charge :</p>
+        <div class="highlight-box">
+          <p><strong>E = F / q</strong> &nbsp; (en N/C ou V/m)</p>
+          <p>Pour une charge ponctuelle Q : <strong>E = k &middot; Q / r&sup2;</strong>, dirig&eacute; radialement vers l'ext&eacute;rieur si Q &gt; 0.</p>
+        </div>
+        <p>Les <strong>lignes de champ</strong> partent des charges positives et arrivent sur les charges n&eacute;gatives. Leur densit&eacute; est proportionnelle &agrave; l'intensit&eacute; du champ. En un point, le vecteur E est tangent &agrave; la ligne de champ passant par ce point.</p>
+        <p>Le <strong>th&eacute;or&egrave;me de Gauss</strong> relie le flux du champ &eacute;lectrique &agrave; travers une surface ferm&eacute;e &agrave; la charge totale contenue : &Phi; = Q<sub>int</sub> / &epsilon;&#8320;. C'est un outil puissant pour calculer E lorsque la g&eacute;om&eacute;trie pr&eacute;sente des sym&eacute;tries (sph&eacute;rique, cylindrique, plane).</p>
+
+        <h3>Le potentiel &eacute;lectrique</h3>
+        <p>Le potentiel &eacute;lectrique V est une grandeur scalaire qui d&eacute;crit l'&eacute;nergie potentielle par unit&eacute; de charge en un point de l'espace :</p>
+        <div class="highlight-box">
+          <p><strong>V = k &middot; Q / r</strong> &nbsp; (en volts, V = J/C)</p>
+          <p>La diff&eacute;rence de potentiel (tension) entre A et B : <strong>U<sub>AB</sub> = V<sub>A</sub> &minus; V<sub>B</sub> = &minus;&int; E &middot; dl</strong></p>
+        </div>
+        <p>Les <strong>surfaces &eacute;quipotentielles</strong> sont perpendiculaires aux lignes de champ. Le champ &eacute;lectrique pointe toujours des hauts potentiels vers les bas potentiels. Une charge positive lib&eacute;r&eacute;e se d&eacute;place spontan&eacute;ment vers les potentiels d&eacute;croissants.</p>
+        <p>L'&eacute;nergie potentielle &eacute;lectrique d'un syst&egrave;me de deux charges est : <strong>U = k &middot; q&#8321; &middot; q&#8322; / r</strong>.</p>
+
+        <h3>Les condensateurs</h3>
+        <p>Un condensateur est un dispositif qui stocke de l'&eacute;nergie &eacute;lectrique sous forme de champ &eacute;lectrique entre deux armatures conductrices s&eacute;par&eacute;es par un isolant (di&eacute;lectrique).</p>
+        <div class="highlight-box">
+          <p><strong>C = Q / U</strong> &nbsp; (capacit&eacute; en farads, F)</p>
+          <p>Condensateur plan : <strong>C = &epsilon;&#8320; &middot; &epsilon;<sub>r</sub> &middot; S / d</strong> &nbsp; (S = surface, d = distance entre armatures)</p>
+        </div>
+        <p>L'&eacute;nergie stock&eacute;e dans un condensateur vaut :</p>
+        <p><strong>W = &frac12; &middot; C &middot; U&sup2; = &frac12; &middot; Q &middot; U = Q&sup2; / (2C)</strong></p>
+        <ul>
+          <li><strong>En s&eacute;rie :</strong> 1/C<sub>eq</sub> = 1/C&#8321; + 1/C&#8322; + ... (la capacit&eacute; &eacute;quivalente diminue)</li>
+          <li><strong>En parall&egrave;le :</strong> C<sub>eq</sub> = C&#8321; + C&#8322; + ... (les capacit&eacute;s s'ajoutent)</li>
+        </ul>
+
+        <h3>Le di&eacute;lectrique</h3>
+        <p>Un mat&eacute;riau di&eacute;lectrique plac&eacute; entre les armatures d'un condensateur augmente sa capacit&eacute; d'un facteur &epsilon;<sub>r</sub> (permittivit&eacute; relative). Sous l'effet du champ ext&eacute;rieur, les mol&eacute;cules du di&eacute;lectrique se <strong>polarisent</strong>, cr&eacute;ant un champ interne oppos&eacute; qui r&eacute;duit le champ total et permet de stocker davantage de charge.</p>
+        <ul>
+          <li>Vide : &epsilon;<sub>r</sub> = 1</li>
+          <li>Papier : &epsilon;<sub>r</sub> &asymp; 3,5</li>
+          <li>C&eacute;ramique : &epsilon;<sub>r</sub> &asymp; 200 &agrave; 14 000</li>
+          <li>Eau : &epsilon;<sub>r</sub> &asymp; 80</li>
+        </ul>
+
+        <h3>&Eacute;nergie du champ &eacute;lectrique</h3>
+        <p>Le champ &eacute;lectrique lui-m&ecirc;me porte de l'&eacute;nergie. La densit&eacute; volumique d'&eacute;nergie stock&eacute;e dans le champ est :</p>
+        <div class="highlight-box">
+          <p><strong>u = &frac12; &middot; &epsilon;&#8320; &middot; E&sup2;</strong> &nbsp; (en J/m&sup3;)</p>
+        </div>
+        <p>Cette expression est fondamentale : elle montre que l'&eacute;nergie &eacute;lectrostatique r&eacute;side dans le champ et non dans les charges elles-m&ecirc;mes. C'est cette vision de l'&eacute;nergie dans les champs qui m&egrave;nera aux ondes &eacute;lectromagn&eacute;tiques de Maxwell.</p>
+
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info"><h2>Quiz</h2><p>Testez votre compr&eacute;hension</p></div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">&#9889; Charges &eacute;lectriques &mdash; Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Quelle est la valeur de la charge &eacute;l&eacute;mentaire e ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">1,6 &times; 10&minus;&sup1;&sup2; C</button>
+              <button class="option" onclick="answer(this,true)">1,6 &times; 10&minus;&sup1;&sup9; C</button>
+              <button class="option" onclick="answer(this,false)">9,1 &times; 10&minus;&sup3;&sup1; C</button>
+              <button class="option" onclick="answer(this,false)">6,02 &times; 10&sup2;&sup3; C</button>
+            </div>
+            <div class="q-feedback">La charge &eacute;l&eacute;mentaire e = 1,602 &times; 10&minus;&sup1;&sup9; C correspond &agrave; la charge du proton (et &agrave; la valeur absolue de celle de l'&eacute;lectron).</div>
+          </div>
+
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Selon la loi de Coulomb, si on double la distance entre deux charges, la force est :</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Divis&eacute;e par 2</button>
+              <button class="option" onclick="answer(this,true)">Divis&eacute;e par 4</button>
+              <button class="option" onclick="answer(this,false)">Multipli&eacute;e par 2</button>
+              <button class="option" onclick="answer(this,false)">Multipli&eacute;e par 4</button>
+            </div>
+            <div class="q-feedback">La loi de Coulomb est en 1/r&sup2;. Si r est doubl&eacute;e, la force est divis&eacute;e par 2&sup2; = 4. C'est une loi en carr&eacute; inverse, comme la gravitation.</div>
+          </div>
+
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Quelle est l'unit&eacute; du champ &eacute;lectrique ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Coulomb (C)</button>
+              <button class="option" onclick="answer(this,false)">Farad (F)</button>
+              <button class="option" onclick="answer(this,true)">Volt par m&egrave;tre (V/m)</button>
+              <button class="option" onclick="answer(this,false)">Tesla (T)</button>
+            </div>
+            <div class="q-feedback">Le champ &eacute;lectrique s'exprime en V/m (ou de mani&egrave;re &eacute;quivalente en N/C). E = F/q donne des N/C, et E = &minus;dV/dr donne des V/m.</div>
+          </div>
+
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Comment sont associ&eacute;s les condensateurs pour augmenter la capacit&eacute; totale ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">En s&eacute;rie</button>
+              <button class="option" onclick="answer(this,true)">En parall&egrave;le</button>
+              <button class="option" onclick="answer(this,false)">En &eacute;toile</button>
+              <button class="option" onclick="answer(this,false)">Cela n'a pas d'influence</button>
+            </div>
+            <div class="q-feedback">En parall&egrave;le, les capacit&eacute;s s'ajoutent : C<sub>eq</sub> = C&#8321; + C&#8322;. En s&eacute;rie, c'est l'inverse des capacit&eacute;s qui s'ajoutent, ce qui r&eacute;duit la capacit&eacute; totale.</div>
+          </div>
+
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Le th&eacute;or&egrave;me de Gauss relie le flux du champ &eacute;lectrique &agrave; :</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">La tension aux bornes du conducteur</button>
+              <button class="option" onclick="answer(this,false)">Le courant traversant la surface</button>
+              <button class="option" onclick="answer(this,true)">La charge totale contenue dans la surface ferm&eacute;e</button>
+              <button class="option" onclick="answer(this,false)">Le potentiel magn&eacute;tique</button>
+            </div>
+            <div class="q-feedback">Le th&eacute;or&egrave;me de Gauss : &Phi; = &oint; E &middot; dS = Q<sub>int</sub> / &epsilon;&#8320;. Le flux total du champ &eacute;lectrique &agrave; travers une surface ferm&eacute;e est proportionnel &agrave; la charge enferm&eacute;e.</div>
+          </div>
+
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">L'&eacute;nergie stock&eacute;e dans un condensateur de capacit&eacute; C sous tension U vaut :</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">W = C &middot; U</button>
+              <button class="option" onclick="answer(this,false)">W = C &middot; U&sup2;</button>
+              <button class="option" onclick="answer(this,true)">W = &frac12; &middot; C &middot; U&sup2;</button>
+              <button class="option" onclick="answer(this,false)">W = 2 &middot; C &middot; U&sup2;</button>
+            </div>
+            <div class="q-feedback">L'&eacute;nergie stock&eacute;e est W = &frac12;CU&sup2;. Le facteur &frac12; vient de l'int&eacute;gration : l'&eacute;nergie est l'int&eacute;grale de U &middot; dQ de 0 &agrave; Q, avec U = Q/C.</div>
+          </div>
+
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">&#8634; Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>&larr; Pr&eacute;c&eacute;dent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant &rarr;</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info"><h2>Exercices</h2><p>Mettez en pratique</p></div>
+      </div>
+      <div class="course-content">
+
+        <h3>Exercice 1 &mdash; Force de Coulomb</h3>
+        <p>Deux charges q&#8321; = +3 &mu;C et q&#8322; = &minus;5 &mu;C sont s&eacute;par&eacute;es de 20 cm. Calculer la force entre elles et pr&eacute;ciser sa nature (attractive ou r&eacute;pulsive).</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>F = k &middot; |q&#8321;| &middot; |q&#8322;| / r&sup2; = 8,99 &times; 10&sup9; &times; 3 &times; 10&minus;&sup6; &times; 5 &times; 10&minus;&sup6; / (0,20)&sup2;</p>
+            <p>F = 8,99 &times; 10&sup9; &times; 15 &times; 10&minus;&sup1;&sup2; / 0,04 = 0,1349 / 0,04 &asymp; <strong>3,37 N</strong></p>
+            <p>Les charges sont de signes oppos&eacute;s, donc la force est <strong>attractive</strong>.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 2 &mdash; Champ &eacute;lectrique</h3>
+        <p>Calculer le champ &eacute;lectrique cr&eacute;&eacute; par un proton &agrave; une distance de 0,53 &Aring; (rayon de Bohr de l'hydrog&egrave;ne).</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>E = k &middot; e / r&sup2; = 8,99 &times; 10&sup9; &times; 1,6 &times; 10&minus;&sup1;&sup9; / (0,53 &times; 10&minus;&sup1;&#8304;)&sup2;</p>
+            <p>E = 1,4384 &times; 10&minus;&sup9; / (2,809 &times; 10&minus;&sup2;&sup1;) &asymp; <strong>5,12 &times; 10&sup1;&sup1; V/m</strong></p>
+            <p>C'est un champ extr&ecirc;mement intense, typique de l'&eacute;chelle atomique.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 3 &mdash; Potentiel &eacute;lectrique</h3>
+        <p>Deux charges q&#8321; = +2 &mu;C et q&#8322; = &minus;2 &mu;C sont plac&eacute;es en A(0, 0) et B(4 cm, 0). Calculer le potentiel au point M situ&eacute; au milieu de [AB].</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>Au milieu M, la distance &agrave; chaque charge est d = 2 cm = 0,02 m.</p>
+            <p>V<sub>M</sub> = k &middot; q&#8321;/d + k &middot; q&#8322;/d = k/d &middot; (q&#8321; + q&#8322;)</p>
+            <p>V<sub>M</sub> = 8,99 &times; 10&sup9; / 0,02 &times; (2 &minus; 2) &times; 10&minus;&sup6; = <strong>0 V</strong></p>
+            <p>Les contributions des deux charges oppos&eacute;es s'annulent exactement au point milieu. Ce r&eacute;sultat est caract&eacute;ristique d'un dip&ocirc;le &eacute;lectrique.</p>
+          </div>
+        </details>
+
+        <h3>Exercice 4 &mdash; Condensateur plan</h3>
+        <p>Un condensateur plan a des armatures de 10 cm &times; 10 cm s&eacute;par&eacute;es de 1 mm. Calculer sa capacit&eacute; (dans le vide), puis la charge stock&eacute;e sous 12 V.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>C = &epsilon;&#8320; &middot; S / d = 8,854 &times; 10&minus;&sup1;&sup2; &times; (0,10)&sup2; / 0,001</p>
+            <p>C = 8,854 &times; 10&minus;&sup1;&sup2; &times; 0,01 / 0,001 = <strong>88,54 pF</strong></p>
+            <p>Charge : Q = C &times; U = 88,54 &times; 10&minus;&sup1;&sup2; &times; 12 &asymp; <strong>1,06 nC</strong></p>
+          </div>
+        </details>
+
+        <h3>Exercice 5 &mdash; &Eacute;nergie du condensateur</h3>
+        <p>Un condensateur de 470 &mu;F est charg&eacute; sous 25 V. Calculer l'&eacute;nergie stock&eacute;e. Si cette &eacute;nergie est lib&eacute;r&eacute;e en 10 ms, quelle est la puissance instantan&eacute;e ?</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box">
+            <p>W = &frac12; &middot; C &middot; U&sup2; = &frac12; &times; 470 &times; 10&minus;&sup6; &times; 25&sup2;</p>
+            <p>W = &frac12; &times; 470 &times; 10&minus;&sup6; &times; 625 = <strong>0,147 J</strong></p>
+            <p>Puissance : P = W / t = 0,147 / 0,010 = <strong>14,7 W</strong></p>
+            <p>Un condensateur peut lib&eacute;rer son &eacute;nergie tr&egrave;s rapidement, ce qui en fait un composant essentiel dans les flashs d'appareils photo ou les d&eacute;fibrillateurs cardiaques.</p>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <div></div>
+      <a href="circuits.html" class="next">
+        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-title">Circuits &eacute;lectriques &rarr;</span>
+      </a>
+    </div>
+
+  </main>
+</div>
+
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

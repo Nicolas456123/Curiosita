@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="List, dict et set comprehensions — la syntaxe concise et pythonique pour créer des collections en une ligne.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Compréhensions — Structures de données — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root { --accent: #4fc3f7; --accent2: #81d4fa; --accent-dim: rgba(79,195,247,0.08);  --accent-hero: rgba(79,195,247,0.04); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb"><a href="../index.html">Python</a> › <a href="../structures.html">Structures</a> › <span>Compréhensions</span></div>
+</nav>
+<div class="hero hero--course">
+  <div class="hero-meta"><span class="tag-domain">✨ Structures de données</span><span class="tag-level">Intermédiaire</span><span class="tag-time">⏱ ~35 min</span></div>
+  <h1><em>Compréhensions</em></h1>
+  <p class="hero-desc">List, dict et set comprehensions — la syntaxe concise et pythonique pour créer des collections en une ligne.</p>
+</div>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../structures.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Structures</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">💻 Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="fonctions.html">Fonctions</a>
+    <a class="sidebar-link" href="listes.html">Listes</a>
+    <a class="sidebar-link" href="dictionnaires.html">Dictionnaires</a>
+    <a class="sidebar-link active" href="#">Compréhensions</a>
+    <a class="sidebar-link" href="fichiers.html">Fichiers</a>
+  </aside>
+  <main class="main">
+    <section class="content-section" id="introduction">
+      <div class="section-header"><div class="section-num">01</div><div class="section-info"><h2>Introduction</h2><p>L'élégance pythonique</p></div></div>
+      <p class="resume-text">Les <strong>compréhensions</strong> sont une syntaxe concise propre à Python pour créer des listes, dictionnaires et ensembles en une seule ligne. Elles remplacent les boucles <code>for</code> classiques et rendent le code plus lisible et plus rapide.</p>
+      <div class="highlight-box">
+        <p><strong>Formule :</strong> <code>[expression for élément in itérable if condition]</code> — créer une liste en filtrant et transformant chaque élément d'une séquence.</p>
+      </div>
+    </section>
+    <section class="content-section" id="cours">
+      <div class="section-header"><div class="section-num">02</div><div class="section-info"><h2>Le cours</h2><p>List, dict et set comprehensions</p></div></div>
+      <div class="course-content">
+        <h3>List comprehensions</h3>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Sans compréhension (classique)</span>
+carres = []
+<span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="num">10</span>):
+    carres.append(x ** <span class="num">2</span>)
+
+<span class="cm"># Avec compréhension — une seule ligne</span>
+carres = [x ** <span class="num">2</span> <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="num">10</span>)]
+<span class="cm"># [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</span>
+
+<span class="cm"># Avec condition (filtre)</span>
+pairs = [x <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="num">20</span>) <span class="kw">if</span> x % <span class="num">2</span> == <span class="num">0</span>]
+<span class="cm"># [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]</span>
+
+<span class="cm"># Transformation de chaînes</span>
+noms = [<span class="str">"alice"</span>, <span class="str">"bob"</span>, <span class="str">"clara"</span>]
+majuscules = [nom.upper() <span class="kw">for</span> nom <span class="kw">in</span> noms]
+<span class="cm"># ["ALICE", "BOB", "CLARA"]</span></code></pre>
+        </div>
+        <h3>Dict et set comprehensions</h3>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Dict comprehension</span>
+carres_dict = {x: x**<span class="num">2</span> <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="num">6</span>)}
+<span class="cm"># {0: 0, 1: 1, 2: 4, 3: 9, 4: 16, 5: 25}</span>
+
+<span class="cm"># Inverser un dictionnaire</span>
+original = {<span class="str">"a"</span>: <span class="num">1</span>, <span class="str">"b"</span>: <span class="num">2</span>, <span class="str">"c"</span>: <span class="num">3</span>}
+inverse = {v: k <span class="kw">for</span> k, v <span class="kw">in</span> original.items()}
+<span class="cm"># {1: "a", 2: "b", 3: "c"}</span>
+
+<span class="cm"># Set comprehension — élimine les doublons</span>
+mots = [<span class="str">"hello"</span>, <span class="str">"world"</span>, <span class="str">"hello"</span>, <span class="str">"python"</span>]
+uniques = {mot.upper() <span class="kw">for</span> mot <span class="kw">in</span> mots}
+<span class="cm"># {"HELLO", "WORLD", "PYTHON"}</span></code></pre>
+        </div>
+        <h3>Compréhensions imbriquées</h3>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Aplatir une liste de listes</span>
+matrice = [[<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>], [<span class="num">4</span>, <span class="num">5</span>, <span class="num">6</span>], [<span class="num">7</span>, <span class="num">8</span>, <span class="num">9</span>]]
+plat = [n <span class="kw">for</span> ligne <span class="kw">in</span> matrice <span class="kw">for</span> n <span class="kw">in</span> ligne]
+<span class="cm"># [1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+
+<span class="cm"># Table de multiplication</span>
+table = {(i, j): i * j <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">4</span>) <span class="kw">for</span> j <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">4</span>)}
+<span class="cm"># {(1,1): 1, (1,2): 2, ..., (3,3): 9}</span></code></pre>
+        </div>
+
+        <h3>Expressions génératrices</h3>
+        <p>Les <strong>expressions génératrices</strong> (generator expressions) ressemblent aux list comprehensions mais utilisent des parenthèses au lieu de crochets. Elles ne créent pas de liste en mémoire mais produisent les éléments à la demande.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Generator expression — avec parenthèses</span>
+carres_gen = (x ** <span class="num">2</span> <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1000000</span>))
+<span class="cm"># Ne consomme presque pas de mémoire !</span>
+
+<span class="cm"># Très utile avec sum(), min(), max(), any(), all()</span>
+total = <span class="fn">sum</span>(x ** <span class="num">2</span> <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="num">100</span>))
+<span class="fn">print</span>(total)  <span class="cm"># 328350</span>
+
+<span class="cm"># Vérifier si au moins un élément satisfait une condition</span>
+nombres = [<span class="num">4</span>, <span class="num">7</span>, <span class="num">11</span>, <span class="num">2</span>, <span class="num">9</span>]
+a_pair = <span class="fn">any</span>(n % <span class="num">2</span> == <span class="num">0</span> <span class="kw">for</span> n <span class="kw">in</span> nombres)
+<span class="fn">print</span>(a_pair)  <span class="cm"># True</span>
+
+<span class="cm"># Vérifier que TOUS les éléments satisfont une condition</span>
+tous_positifs = <span class="fn">all</span>(n > <span class="num">0</span> <span class="kw">for</span> n <span class="kw">in</span> nombres)
+<span class="fn">print</span>(tous_positifs)  <span class="cm"># True</span></code></pre>
+        </div>
+        <div class="highlight-box">
+          <p><strong>Mémoire :</strong> une list comprehension crée toute la liste en mémoire. Un générateur ne calcule les éléments qu'au fur et à mesure. Pour des millions d'éléments, le générateur est bien plus efficace.</p>
+        </div>
+
+        <h3>Compréhensions avec if/else</h3>
+        <p>On peut inclure des expressions conditionnelles dans les compréhensions, mais la syntaxe change selon qu'on filtre ou qu'on transforme.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># Filtre (if à la fin) — exclut les éléments</span>
+pairs = [x <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="num">20</span>) <span class="kw">if</span> x % <span class="num">2</span> == <span class="num">0</span>]
+<span class="cm"># [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]</span>
+
+<span class="cm"># Transformation (if/else dans l'expression)</span>
+labels = [<span class="str">"pair"</span> <span class="kw">if</span> x % <span class="num">2</span> == <span class="num">0</span> <span class="kw">else</span> <span class="str">"impair"</span> <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="num">6</span>)]
+<span class="cm"># ["pair", "impair", "pair", "impair", "pair", "impair"]</span>
+
+<span class="cm"># Combiné : transformer ET filtrer</span>
+notes = [<span class="num">5</span>, <span class="num">12</span>, <span class="num">8</span>, <span class="num">15</span>, <span class="num">3</span>, <span class="num">18</span>]
+mentions = [<span class="str">f"{n}/20 ✓"</span> <span class="kw">for</span> n <span class="kw">in</span> notes <span class="kw">if</span> n >= <span class="num">10</span>]
+<span class="cm"># ['12/20 ✓', '15/20 ✓', '18/20 ✓']</span></code></pre>
+        </div>
+
+        <h3>Pièges courants</h3>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">Python</span></div>
+          <pre><code><span class="cm"># PIÈGE 1 : Compréhension trop complexe</span>
+<span class="cm"># Mauvais — illisible :</span>
+<span class="cm"># result = [f(x) for x in data if g(x) for y in h(x) if p(y)]</span>
+<span class="cm"># Mieux — utiliser une boucle classique :</span>
+result = []
+<span class="kw">for</span> x <span class="kw">in</span> data:
+    <span class="kw">if</span> g(x):
+        <span class="kw">for</span> y <span class="kw">in</span> h(x):
+            <span class="kw">if</span> p(y):
+                result.append(f(x))
+
+<span class="cm"># PIÈGE 2 : Confusion filtre / transformation</span>
+<span class="cm"># Filtre : if APRÈS le for</span>
+[x <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="num">10</span>) <span class="kw">if</span> x > <span class="num">5</span>]     <span class="cm"># [6, 7, 8, 9]</span>
+<span class="cm"># Transformation : if/else AVANT le for</span>
+[x <span class="kw">if</span> x > <span class="num">5</span> <span class="kw">else</span> <span class="num">0</span> <span class="kw">for</span> x <span class="kw">in</span> <span class="fn">range</span>(<span class="num">10</span>)]  <span class="cm"># [0,0,0,0,0,0,6,7,8,9]</span>
+
+<span class="cm"># PIÈGE 3 : Utiliser une compréhension pour les effets de bord</span>
+<span class="cm"># [print(x) for x in range(5)]  # Fonctionne mais DÉCONSEILLÉ</span>
+<span class="cm"># Utilisez une boucle for classique pour les effets de bord</span></code></pre>
+        </div>
+
+        <h3>Bonnes pratiques</h3>
+        <ul>
+          <li><strong>Lisibilité :</strong> si la compréhension dépasse une ligne ou est difficile à lire, utilisez une boucle classique.</li>
+          <li><strong>Générateurs :</strong> utilisez <code>(x for x in ...)</code> au lieu de <code>[x for x in ...]</code> quand vous n'avez pas besoin de la liste complète en mémoire.</li>
+          <li><strong>Pas d'effets de bord :</strong> n'utilisez pas de compréhension pour appeler <code>print()</code> ou modifier des variables externes.</li>
+          <li><strong>any() / all() :</strong> combinez-les avec des générateurs : <code>any(x > 10 for x in data)</code>.</li>
+          <li><strong>Nommez les variables :</strong> utilisez des noms descriptifs même dans les compréhensions : <code>[e.nom for e in etudiants]</code>.</li>
+        </ul>
+      </div>
+    </section>
+    <section class="content-section" id="quiz">
+      <div class="section-header"><div class="section-num">03</div><div class="section-info"><h2>Quiz</h2><p>Testez votre compréhension</p></div></div>
+      <div class="quiz-container">
+        <div class="quiz-header"><span class="quiz-title-text">✨ Compréhensions — Quiz</span><span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span></div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Que produit <code>[x*2 for x in [1,2,3]]</code> ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">[2, 4, 6]</button>
+              <button class="option" onclick="answer(this,false)">[1, 2, 3, 1, 2, 3]</button>
+              <button class="option" onclick="answer(this,false)">[1, 4, 9]</button>
+              <button class="option" onclick="answer(this,false)">6</button>
+            </div>
+            <div class="q-feedback">Chaque élément est multiplié par 2 : 1*2=2, 2*2=4, 3*2=6. Résultat : [2, 4, 6].</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Quelle syntaxe crée un dict comprehension ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">[k: v for k, v in items]</button>
+              <button class="option" onclick="answer(this,true)">{k: v for k, v in items}</button>
+              <button class="option" onclick="answer(this,false)">dict(k: v for k, v in items)</button>
+              <button class="option" onclick="answer(this,false)">(k: v for k, v in items)</button>
+            </div>
+            <div class="q-feedback">Les dict comprehensions utilisent des accolades <code>{}</code> avec la syntaxe <code>clé: valeur</code>. Les crochets <code>[]</code> créent des listes.</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Que retourne <code>[x for x in range(10) if x % 3 == 0]</code> ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">[1, 2, 4, 5, 7, 8]</button>
+              <button class="option" onclick="answer(this,true)">[0, 3, 6, 9]</button>
+              <button class="option" onclick="answer(this,false)">[3, 6, 9]</button>
+              <button class="option" onclick="answer(this,false)">[0, 3, 6]</button>
+            </div>
+            <div class="q-feedback">La condition <code>x % 3 == 0</code> filtre les multiples de 3 dans range(10) : 0, 3, 6, 9. Le 0 est inclus car 0 % 3 == 0.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">Quelle est la différence entre <code>[x for x in ...]</code> et <code>(x for x in ...)</code> ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Aucune, les deux créent une liste</button>
+              <button class="option" onclick="answer(this,false)">Les parenthèses créent un tuple</button>
+              <button class="option" onclick="answer(this,true)">Les parenthèses créent un générateur (évaluation paresseuse)</button>
+              <button class="option" onclick="answer(this,false)">Les parenthèses sont une erreur de syntaxe</button>
+            </div>
+            <div class="q-feedback">Les parenthèses créent une expression génératrice qui produit les éléments à la demande, sans stocker toute la séquence en mémoire. C'est plus efficace pour les grandes séquences.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Que produit <code>[x if x > 3 else 0 for x in range(6)]</code> ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">[4, 5]</button>
+              <button class="option" onclick="answer(this,true)">[0, 0, 0, 0, 4, 5]</button>
+              <button class="option" onclick="answer(this,false)">[0, 1, 2, 3, 4, 5]</button>
+              <button class="option" onclick="answer(this,false)">Erreur de syntaxe</button>
+            </div>
+            <div class="q-feedback">L'expression ternaire <code>x if x > 3 else 0</code> remplace par 0 les valeurs de 0 à 3, et garde 4 et 5 tels quels. Tous les éléments sont inclus.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Que retourne <code>any(x > 10 for x in [1, 5, 15, 3])</code> ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">True</button>
+              <button class="option" onclick="answer(this,false)">False</button>
+              <button class="option" onclick="answer(this,false)">15</button>
+              <button class="option" onclick="answer(this,false)">[15]</button>
+            </div>
+            <div class="q-feedback"><code>any()</code> retourne <code>True</code> si au moins un élément du générateur est vrai. Ici, 15 > 10 est vrai, donc <code>any()</code> retourne <code>True</code>.</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult"><div class="result-score-big" id="resultScore">0/6</div><div class="result-msg" id="resultMsg"></div><button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button></div>
+        <div class="quiz-nav"><button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button><div class="q-dots" id="qDots"></div><button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button></div>
+      </div>
+    </section>
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Réécrire avec des compréhensions</h3>
+        <p>Réécrivez chacun de ces codes en utilisant des compréhensions de liste :</p>
+        <pre><code># Code 1 : carrés des nombres pairs de 1 à 20
+result = []
+for i in range(1, 21):
+    if i % 2 == 0:
+        result.append(i ** 2)
+
+# Code 2 : premières lettres de chaque mot
+mots = ["python", "est", "génial"]
+initiales = []
+for mot in mots:
+    initiales.append(mot[0].upper())</code></pre>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code># Code 1
+result = [i ** 2 for i in range(1, 21) if i % 2 == 0]
+print(result)  # [4, 16, 36, 64, 100, 144, 196, 256, 324, 400]
+
+# Code 2
+mots = ["python", "est", "génial"]
+initiales = [mot[0].upper() for mot in mots]
+print(initiales)  # ['P', 'E', 'G']</code></pre></div>
+        </details>
+
+        <h3>Exercice 2 — Filtre de données</h3>
+        <p>A partir de la liste de dictionnaires suivante, utilisez des compréhensions pour : (1) extraire les noms des personnes majeures, (2) créer un dict nom->age uniquement pour les personnes de Paris.</p>
+        <pre><code>personnes = [
+    {"nom": "Alice", "age": 25, "ville": "Paris"},
+    {"nom": "Bob", "age": 17, "ville": "Lyon"},
+    {"nom": "Clara", "age": 30, "ville": "Paris"},
+    {"nom": "David", "age": 15, "ville": "Marseille"},
+]</code></pre>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>personnes = [
+    {"nom": "Alice", "age": 25, "ville": "Paris"},
+    {"nom": "Bob", "age": 17, "ville": "Lyon"},
+    {"nom": "Clara", "age": 30, "ville": "Paris"},
+    {"nom": "David", "age": 15, "ville": "Marseille"},
+]
+
+# 1. Noms des majeurs
+majeurs = [p["nom"] for p in personnes if p["age"] >= 18]
+print(majeurs)  # ['Alice', 'Clara']
+
+# 2. Dict nom->age pour les Parisiens
+parisiens = {p["nom"]: p["age"] for p in personnes if p["ville"] == "Paris"}
+print(parisiens)  # {'Alice': 25, 'Clara': 30}</code></pre></div>
+        </details>
+
+        <h3>Exercice 3 — Matrice avec compréhension</h3>
+        <p>Créez une matrice identité 5x5 (1 sur la diagonale, 0 ailleurs) en utilisant une compréhension de liste imbriquée. Affichez-la ligne par ligne.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>identite = [[1 if i == j else 0 for j in range(5)] for i in range(5)]
+
+for ligne in identite:
+    print(ligne)
+# [1, 0, 0, 0, 0]
+# [0, 1, 0, 0, 0]
+# [0, 0, 1, 0, 0]
+# [0, 0, 0, 1, 0]
+# [0, 0, 0, 0, 1]</code></pre></div>
+        </details>
+
+        <h3>Exercice 4 — Analyse de texte</h3>
+        <p>Utilisez des compréhensions et des générateurs pour analyser un texte : compter les voyelles, extraire les mots de plus de 5 lettres, et vérifier si toutes les phrases commencent par une majuscule.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>texte = "Python est un langage puissant. Les compréhensions sont élégantes."
+
+# Compter les voyelles
+voyelles = "aeiouyAEIOUY"
+nb_voyelles = sum(1 for c in texte if c in voyelles)
+print(f"Voyelles : {nb_voyelles}")
+
+# Mots de plus de 5 lettres
+mots_longs = [mot.strip(".,!?") for mot in texte.split() if len(mot.strip(".,!?")) > 5]
+print(f"Mots longs : {mots_longs}")
+
+# Vérifier que toutes les phrases commencent par une majuscule
+phrases = [p.strip() for p in texte.split(".") if p.strip()]
+toutes_maj = all(p[0].isupper() for p in phrases)
+print(f"Toutes les phrases commencent par une majuscule : {toutes_maj}")</code></pre></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="dictionnaires.html" class="prev"><span class="course-nav-label">Cours précédent</span><span class="course-nav-title">← Dictionnaires</span></a>
+      <a href="fichiers.html" class="next"><span class="course-nav-label">Cours suivant</span><span class="course-nav-title">Fichiers →</span></a>
+    </div>
+  </main>
+</div>
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>

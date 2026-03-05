@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SQL et NoSQL, modélisation relationnelle, requêtes, jointures, indexation et intégration avec les applications web.">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<title>Bases de données — Web — Curiosita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../style.min.css?v=4">
+<link rel="stylesheet" href="../../../sr-style.min.css?v=4">
+<style>
+:root {
+  --accent: #2980b9;
+  --accent2: #3498db;
+  --accent-dim: rgba(41,128,185,0.08);
+ --accent-hero: rgba(41,128,185,0.04); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../../index.html" class="logo">Curiosita.</a>
+  <div class="breadcrumb">
+    <a href="../index.html">Informatique</a> › <a href="../web.html">Web</a> › <span>Bases de données</span>
+  </div>
+</nav>
+
+<div class="hero hero--course">
+  <div class="hero-meta">
+    <span class="tag-domain">🌐 Web</span>
+    <span class="tag-level">Intermédiaire</span>
+    <span class="tag-time">⏱ ~50 min</span>
+  </div>
+  <h1><em>Bases de données</em></h1>
+  <p class="hero-desc">SQL et NoSQL, modélisation relationnelle, requêtes, jointures, indexation et intégration avec les applications web.</p>
+</div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <a class="sidebar-link" href="../web.html" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">← Web</a>
+    <p class="sidebar-title">Ce cours</p>
+    <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">📖 Introduction</a>
+    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">📝 Le cours</a>
+    <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">🎯 Quiz</a>
+    <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">💻 Exercices</a>
+    <p class="sidebar-title">Autres cours</p>
+    <a class="sidebar-link" href="html-css.html">HTML & CSS</a>
+    <a class="sidebar-link" href="javascript.html">JavaScript</a>
+    <a class="sidebar-link" href="frameworks.html">Frameworks front-end</a>
+    <a class="sidebar-link" href="backend.html">Back-end</a>
+    <a class="sidebar-link active" href="#">Bases de données</a>
+  </aside>
+
+  <main class="main">
+
+    <section class="content-section" id="introduction">
+      <div class="section-header">
+        <div class="section-num">01</div>
+        <div class="section-info">
+          <h2>Introduction</h2>
+          <p>Stocker et interroger les données</p>
+        </div>
+      </div>
+      <p class="resume-text">Une <strong>base de données</strong> est un système organisé pour stocker, gérer et récupérer des données de manière efficace et fiable. Toute application web qui gère des utilisateurs, des produits, des articles ou des transactions repose sur une base de données. Comprendre les bases de données est essentiel pour concevoir des applications performantes et robustes.</p>
+      <div class="highlight-box">
+        <p><strong>Deux grandes familles :</strong> les bases <strong>relationnelles</strong> (SQL) organisent les données en tables avec des relations (PostgreSQL, MySQL, SQLite), tandis que les bases <strong>NoSQL</strong> utilisent des modèles flexibles — documents (MongoDB), clé-valeur (Redis), colonnes (Cassandra) ou graphes (Neo4j).</p>
+      </div>
+      <p class="resume-text">Le choix entre SQL et NoSQL dépend du type de données, des besoins de cohérence, de la charge et de la complexité des requêtes. De nombreuses applications modernes combinent les deux approches selon les cas d'usage.</p>
+    </section>
+
+    <section class="content-section" id="cours">
+      <div class="section-header">
+        <div class="section-num">02</div>
+        <div class="section-info">
+          <h2>Le cours</h2>
+          <p>SQL, NoSQL et modélisation</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Modélisation relationnelle</h3>
+        <p>La <strong>modélisation relationnelle</strong> organise les données en <strong>tables</strong> (ou relations). Chaque table a des <strong>colonnes</strong> (attributs) et des <strong>lignes</strong> (enregistrements). Les relations entre tables sont établies par des <strong>clés primaires</strong> (identifiant unique) et des <strong>clés étrangères</strong> (référence vers une autre table).</p>
+        <div class="highlight-box">
+          <p><strong>Types de relations :</strong><br>
+          <strong>Un-à-un (1:1)</strong> — un utilisateur a un profil<br>
+          <strong>Un-à-plusieurs (1:N)</strong> — un auteur écrit plusieurs articles<br>
+          <strong>Plusieurs-à-plusieurs (N:N)</strong> — des étudiants suivent plusieurs cours, et chaque cours a plusieurs étudiants (table de jonction nécessaire)<br><br>
+          <strong>Normalisation :</strong> processus d'élimination des redondances en décomposant les tables. Les trois premières formes normales (1NF, 2NF, 3NF) suffisent dans la plupart des cas.</p>
+        </div>
+
+        <h3>SQL : créer et structurer</h3>
+        <p><strong>SQL</strong> (Structured Query Language) est le langage standard pour interagir avec les bases relationnelles. Le sous-ensemble DDL (Data Definition Language) sert à créer et modifier la structure des tables.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">SQL</span></div>
+          <pre><code><span class="cm">-- Créer une table</span>
+<span class="kw">CREATE TABLE</span> utilisateurs (
+  id        <span class="fn">SERIAL PRIMARY KEY</span>,
+  nom       <span class="fn">VARCHAR</span>(<span class="num">100</span>) <span class="kw">NOT NULL</span>,
+  email     <span class="fn">VARCHAR</span>(<span class="num">255</span>) <span class="kw">UNIQUE NOT NULL</span>,
+  age       <span class="fn">INTEGER</span> <span class="kw">CHECK</span> (age >= <span class="num">0</span>),
+  cree_le   <span class="fn">TIMESTAMP</span> <span class="kw">DEFAULT</span> <span class="fn">CURRENT_TIMESTAMP</span>
+);
+
+<span class="cm">-- Table avec clé étrangère</span>
+<span class="kw">CREATE TABLE</span> articles (
+  id          <span class="fn">SERIAL PRIMARY KEY</span>,
+  titre       <span class="fn">VARCHAR</span>(<span class="num">200</span>) <span class="kw">NOT NULL</span>,
+  contenu     <span class="fn">TEXT</span>,
+  auteur_id   <span class="fn">INTEGER</span> <span class="kw">REFERENCES</span> utilisateurs(id),
+  publie_le   <span class="fn">TIMESTAMP</span> <span class="kw">DEFAULT</span> <span class="fn">CURRENT_TIMESTAMP</span>
+);
+
+<span class="cm">-- Table de jonction (relation N:N)</span>
+<span class="kw">CREATE TABLE</span> articles_tags (
+  article_id  <span class="fn">INTEGER</span> <span class="kw">REFERENCES</span> articles(id),
+  tag_id      <span class="fn">INTEGER</span> <span class="kw">REFERENCES</span> tags(id),
+  <span class="kw">PRIMARY KEY</span> (article_id, tag_id)
+);</code></pre>
+        </div>
+
+        <h3>SQL : interroger les données</h3>
+        <p>Le sous-ensemble DML (Data Manipulation Language) permet d'insérer, lire, modifier et supprimer des données. La clause <code>SELECT</code> est la plus utilisée, avec <code>WHERE</code> pour filtrer, <code>ORDER BY</code> pour trier et <code>GROUP BY</code> pour agréger.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">SQL</span></div>
+          <pre><code><span class="cm">-- Insérer des données</span>
+<span class="kw">INSERT INTO</span> utilisateurs (nom, email, age)
+<span class="kw">VALUES</span> (<span class="str">'Alice Dupont'</span>, <span class="str">'alice@example.com'</span>, <span class="num">28</span>);
+
+<span class="cm">-- Lire avec filtres et tri</span>
+<span class="kw">SELECT</span> nom, email
+<span class="kw">FROM</span> utilisateurs
+<span class="kw">WHERE</span> age >= <span class="num">18</span>
+<span class="kw">ORDER BY</span> nom <span class="kw">ASC</span>
+<span class="kw">LIMIT</span> <span class="num">10</span>;
+
+<span class="cm">-- Agrégation</span>
+<span class="kw">SELECT</span> auteur_id, <span class="fn">COUNT</span>(*) <span class="kw">AS</span> nb_articles
+<span class="kw">FROM</span> articles
+<span class="kw">GROUP BY</span> auteur_id
+<span class="kw">HAVING</span> <span class="fn">COUNT</span>(*) > <span class="num">5</span>;
+
+<span class="cm">-- Modifier</span>
+<span class="kw">UPDATE</span> utilisateurs <span class="kw">SET</span> age = <span class="num">29</span> <span class="kw">WHERE</span> email = <span class="str">'alice@example.com'</span>;
+
+<span class="cm">-- Supprimer</span>
+<span class="kw">DELETE FROM</span> articles <span class="kw">WHERE</span> id = <span class="num">42</span>;</code></pre>
+        </div>
+
+        <h3>Jointures SQL</h3>
+        <p>Les <strong>jointures</strong> combinent les données de plusieurs tables en fonction d'une condition. C'est la puissance fondamentale du modèle relationnel : pouvoir reconstruire des vues complexes à partir de tables normalisées.</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">SQL</span></div>
+          <pre><code><span class="cm">-- INNER JOIN : articles avec leur auteur</span>
+<span class="kw">SELECT</span> a.titre, u.nom <span class="kw">AS</span> auteur
+<span class="kw">FROM</span> articles a
+<span class="kw">INNER JOIN</span> utilisateurs u <span class="kw">ON</span> a.auteur_id = u.id;
+
+<span class="cm">-- LEFT JOIN : tous les utilisateurs, même sans article</span>
+<span class="kw">SELECT</span> u.nom, <span class="fn">COUNT</span>(a.id) <span class="kw">AS</span> nb_articles
+<span class="kw">FROM</span> utilisateurs u
+<span class="kw">LEFT JOIN</span> articles a <span class="kw">ON</span> u.id = a.auteur_id
+<span class="kw">GROUP BY</span> u.nom;
+
+<span class="cm">-- Jointure multiple (N:N via table de jonction)</span>
+<span class="kw">SELECT</span> a.titre, t.nom <span class="kw">AS</span> tag
+<span class="kw">FROM</span> articles a
+<span class="kw">JOIN</span> articles_tags at <span class="kw">ON</span> a.id = at.article_id
+<span class="kw">JOIN</span> tags t <span class="kw">ON</span> at.tag_id = t.id
+<span class="kw">WHERE</span> t.nom = <span class="str">'JavaScript'</span>;</code></pre>
+        </div>
+
+        <h3>Indexation et performances</h3>
+        <p>Un <strong>index</strong> est une structure de données (souvent un B-tree) qui accélère la recherche dans une table, au prix d'un léger surcoût en écriture et en espace. Sans index, le moteur doit parcourir toute la table (full table scan).</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">SQL</span></div>
+          <pre><code><span class="cm">-- Créer un index sur la colonne email</span>
+<span class="kw">CREATE INDEX</span> idx_users_email <span class="kw">ON</span> utilisateurs(email);
+
+<span class="cm">-- Index composé (pour les requêtes filtrant sur deux colonnes)</span>
+<span class="kw">CREATE INDEX</span> idx_articles_auteur_date
+<span class="kw">ON</span> articles(auteur_id, publie_le <span class="kw">DESC</span>);
+
+<span class="cm">-- Analyser une requête avec EXPLAIN</span>
+<span class="kw">EXPLAIN ANALYZE</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> utilisateurs <span class="kw">WHERE</span> email = <span class="str">'alice@example.com'</span>;</code></pre>
+        </div>
+        <div class="highlight-box">
+          <p><strong>Quand indexer ?</strong> Indexez les colonnes utilisées dans <code>WHERE</code>, <code>JOIN</code>, <code>ORDER BY</code> et <code>GROUP BY</code> fréquemment. Les clés primaires sont indexées automatiquement. Trop d'index ralentissent les écritures (INSERT, UPDATE, DELETE).</p>
+        </div>
+
+        <h3>Bases NoSQL</h3>
+        <p>Les bases <strong>NoSQL</strong> abandonnent le modèle tabulaire strict au profit de structures plus flexibles. MongoDB, la plus populaire, stocke des <strong>documents JSON</strong> dans des <strong>collections</strong> (équivalent des tables).</p>
+        <div class="code-block">
+          <div class="code-header"><span class="code-lang">JavaScript (MongoDB avec Mongoose)</span></div>
+          <pre><code><span class="kw">const</span> mongoose = <span class="fn">require</span>(<span class="str">'mongoose'</span>);
+
+<span class="cm">// Définir un schéma</span>
+<span class="kw">const</span> userSchema = <span class="kw">new</span> mongoose.<span class="fn">Schema</span>({
+  nom:   { type: <span class="fn">String</span>, required: <span class="num">true</span> },
+  email: { type: <span class="fn">String</span>, unique: <span class="num">true</span>, required: <span class="num">true</span> },
+  age:   <span class="fn">Number</span>,
+  tags:  [<span class="fn">String</span>],       <span class="cm">// tableau de chaînes</span>
+  adresse: {              <span class="cm">// document imbriqué</span>
+    rue: <span class="fn">String</span>,
+    ville: <span class="fn">String</span>
+  }
+});
+
+<span class="kw">const</span> User = mongoose.<span class="fn">model</span>(<span class="str">'User'</span>, userSchema);
+
+<span class="cm">// Créer</span>
+<span class="kw">await</span> User.<span class="fn">create</span>({ nom: <span class="str">'Alice'</span>, email: <span class="str">'alice@ex.com'</span>, age: <span class="num">28</span> });
+
+<span class="cm">// Lire avec filtres</span>
+<span class="kw">const</span> users = <span class="kw">await</span> User.<span class="fn">find</span>({ age: { $gte: <span class="num">18</span> } })
+  .<span class="fn">sort</span>({ nom: <span class="num">1</span> })
+  .<span class="fn">limit</span>(<span class="num">10</span>);
+
+<span class="cm">// Modifier</span>
+<span class="kw">await</span> User.<span class="fn">updateOne</span>(
+  { email: <span class="str">'alice@ex.com'</span> },
+  { $set: { age: <span class="num">29</span> } }
+);</code></pre>
+        </div>
+
+        <h3>SQL vs NoSQL : quand utiliser quoi ?</h3>
+        <div class="highlight-box">
+          <p><strong>SQL (relationnel) :</strong><br>
+          - Données structurées avec des relations complexes<br>
+          - Transactions ACID nécessaires (banque, e-commerce)<br>
+          - Requêtes complexes avec jointures<br>
+          - Schéma stable et bien défini<br><br>
+          <strong>NoSQL (document, clé-valeur, etc.) :</strong><br>
+          - Données semi-structurées ou variables<br>
+          - Scalabilité horizontale (gros volumes)<br>
+          - Prototypage rapide (schéma flexible)<br>
+          - Données imbriquées (profils, catalogues)<br><br>
+          <strong>ACID vs BASE :</strong> SQL garantit Atomicité, Cohérence, Isolation, Durabilité. NoSQL privilégie souvent disponibilité et tolérance aux partitions (théorème CAP), avec cohérence « éventuelle ».</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="quiz">
+      <div class="section-header">
+        <div class="section-num">03</div>
+        <div class="section-info">
+          <h2>Quiz</h2>
+          <p>Testez votre compréhension</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <span class="quiz-title-text">📊 Bases de données — Quiz</span>
+          <span class="quiz-score">Score : <span id="scoreDisplay">0</span> / <span id="totalDisplay">6</span></span>
+        </div>
+        <div class="quiz-body" id="quizBody">
+          <div class="question-block active" data-q="0">
+            <p class="q-num">Question 1 / 6</p>
+            <p class="q-text">Qu'est-ce qu'une clé primaire dans une base relationnelle ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Un mot de passe pour accéder à la base</button>
+              <button class="option" onclick="answer(this,true)">Un identifiant unique pour chaque enregistrement d'une table</button>
+              <button class="option" onclick="answer(this,false)">Le nom de la première colonne</button>
+              <button class="option" onclick="answer(this,false)">Une référence vers une autre table</button>
+            </div>
+            <div class="q-feedback">La clé primaire (PRIMARY KEY) identifie de manière unique chaque ligne d'une table. Elle ne peut pas être nulle ni dupliquée. Souvent un entier auto-incrémenté (SERIAL) ou un UUID.</div>
+          </div>
+          <div class="question-block" data-q="1">
+            <p class="q-num">Question 2 / 6</p>
+            <p class="q-text">Quelle clause SQL permet de filtrer les résultats d'un SELECT ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">FILTER</button>
+              <button class="option" onclick="answer(this,false)">SEARCH</button>
+              <button class="option" onclick="answer(this,true)">WHERE</button>
+              <button class="option" onclick="answer(this,false)">FIND</button>
+            </div>
+            <div class="q-feedback"><code>WHERE</code> filtre les lignes selon une condition. <code>HAVING</code> sert à filtrer après un <code>GROUP BY</code> (sur les résultats agrégés).</div>
+          </div>
+          <div class="question-block" data-q="2">
+            <p class="q-num">Question 3 / 6</p>
+            <p class="q-text">Quelle jointure retourne toutes les lignes de la table de gauche, même sans correspondance ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">INNER JOIN</button>
+              <button class="option" onclick="answer(this,true)">LEFT JOIN</button>
+              <button class="option" onclick="answer(this,false)">CROSS JOIN</button>
+              <button class="option" onclick="answer(this,false)">SELF JOIN</button>
+            </div>
+            <div class="q-feedback"><code>LEFT JOIN</code> retourne toutes les lignes de la table de gauche. Si aucune correspondance n'est trouvée dans la table de droite, les colonnes de droite contiennent NULL. <code>INNER JOIN</code> ne retourne que les correspondances.</div>
+          </div>
+          <div class="question-block" data-q="3">
+            <p class="q-num">Question 4 / 6</p>
+            <p class="q-text">À quoi sert un index dans une base de données ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">À chiffrer les données sensibles</button>
+              <button class="option" onclick="answer(this,false)">À compresser la base pour économiser de l'espace</button>
+              <button class="option" onclick="answer(this,true)">À accélérer la recherche de données dans une table</button>
+              <button class="option" onclick="answer(this,false)">À créer une copie de sauvegarde</button>
+            </div>
+            <div class="q-feedback">Un index crée une structure de recherche (B-tree en général) qui permet de trouver rapidement les lignes correspondant à une condition, sans parcourir toute la table. C'est un compromis : lectures plus rapides, écritures légèrement plus lentes.</div>
+          </div>
+          <div class="question-block" data-q="4">
+            <p class="q-num">Question 5 / 6</p>
+            <p class="q-text">Quelle est la principale caractéristique de MongoDB ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,false)">Elle stocke les données dans des tables relationnelles</button>
+              <button class="option" onclick="answer(this,true)">Elle stocke des documents JSON/BSON dans des collections</button>
+              <button class="option" onclick="answer(this,false)">Elle utilise exclusivement le langage SQL</button>
+              <button class="option" onclick="answer(this,false)">Elle ne peut stocker que des paires clé-valeur</button>
+            </div>
+            <div class="q-feedback">MongoDB est une base de données orientée documents. Les données sont stockées au format BSON (Binary JSON) dans des collections. Le schéma est flexible : chaque document peut avoir une structure différente.</div>
+          </div>
+          <div class="question-block" data-q="5">
+            <p class="q-num">Question 6 / 6</p>
+            <p class="q-text">Que signifie ACID dans le contexte des bases de données ?</p>
+            <div class="options">
+              <button class="option" onclick="answer(this,true)">Atomicité, Cohérence, Isolation, Durabilité</button>
+              <button class="option" onclick="answer(this,false)">Access, Create, Insert, Delete</button>
+              <button class="option" onclick="answer(this,false)">Automatic, Consistent, Indexed, Distributed</button>
+              <button class="option" onclick="answer(this,false)">Aggregation, Caching, Integration, Deployment</button>
+            </div>
+            <div class="q-feedback">ACID garantit la fiabilité des transactions : <strong>Atomicité</strong> (tout ou rien), <strong>Cohérence</strong> (les contraintes sont respectées), <strong>Isolation</strong> (les transactions concurrentes n'interfèrent pas), <strong>Durabilité</strong> (les données commitées survivent aux pannes).</div>
+          </div>
+        </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="result-score-big" id="resultScore">0/6</div>
+          <div class="result-msg" id="resultMsg"></div>
+          <button class="btn-retry" onclick="resetQuiz()">↺ Recommencer</button>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-quiz btn-prev" onclick="prevQ()" id="btnPrev" disabled>← Précédent</button>
+          <div class="q-dots" id="qDots"></div>
+          <button class="btn-quiz btn-next" onclick="nextQ()" id="btnNext" disabled>Suivant →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="exercices">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div class="section-info">
+          <h2>Exercices</h2>
+          <p>Mettez en pratique</p>
+        </div>
+      </div>
+      <div class="course-content">
+        <h3>Exercice 1 — Modéliser un blog</h3>
+        <p>Concevez le schéma d'une base de données pour un blog. Vous devez avoir des utilisateurs, des articles, des commentaires et des catégories. Un article peut appartenir à plusieurs catégories. Écrivez les requêtes SQL de création des tables.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>CREATE TABLE utilisateurs (
+  id       SERIAL PRIMARY KEY,
+  nom      VARCHAR(100) NOT NULL,
+  email    VARCHAR(255) UNIQUE NOT NULL,
+  cree_le  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE categories (
+  id   SERIAL PRIMARY KEY,
+  nom  VARCHAR(50) UNIQUE NOT NULL
+);
+
+CREATE TABLE articles (
+  id         SERIAL PRIMARY KEY,
+  titre      VARCHAR(200) NOT NULL,
+  contenu    TEXT NOT NULL,
+  auteur_id  INTEGER REFERENCES utilisateurs(id) ON DELETE CASCADE,
+  publie_le  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE commentaires (
+  id          SERIAL PRIMARY KEY,
+  contenu     TEXT NOT NULL,
+  auteur_id   INTEGER REFERENCES utilisateurs(id) ON DELETE CASCADE,
+  article_id  INTEGER REFERENCES articles(id) ON DELETE CASCADE,
+  cree_le     TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Relation N:N entre articles et catégories
+CREATE TABLE articles_categories (
+  article_id   INTEGER REFERENCES articles(id) ON DELETE CASCADE,
+  categorie_id INTEGER REFERENCES categories(id) ON DELETE CASCADE,
+  PRIMARY KEY (article_id, categorie_id)
+);</code></pre></div>
+        </details>
+
+        <h3>Exercice 2 — Requêtes d'analyse</h3>
+        <p>En utilisant le schéma du blog ci-dessus, écrivez les requêtes SQL pour : (1) les 5 articles les plus commentés, (2) le nombre d'articles par catégorie, (3) les utilisateurs n'ayant jamais écrit d'article.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>-- 1. Les 5 articles les plus commentés
+SELECT a.titre, COUNT(c.id) AS nb_commentaires
+FROM articles a
+LEFT JOIN commentaires c ON a.id = c.article_id
+GROUP BY a.id, a.titre
+ORDER BY nb_commentaires DESC
+LIMIT 5;
+
+-- 2. Nombre d'articles par catégorie
+SELECT cat.nom, COUNT(ac.article_id) AS nb_articles
+FROM categories cat
+LEFT JOIN articles_categories ac ON cat.id = ac.categorie_id
+GROUP BY cat.id, cat.nom
+ORDER BY nb_articles DESC;
+
+-- 3. Utilisateurs n'ayant jamais écrit d'article
+SELECT u.nom, u.email
+FROM utilisateurs u
+LEFT JOIN articles a ON u.id = a.auteur_id
+WHERE a.id IS NULL;
+
+-- Alternative avec NOT EXISTS :
+SELECT nom, email
+FROM utilisateurs u
+WHERE NOT EXISTS (
+  SELECT 1 FROM articles a WHERE a.auteur_id = u.id
+);</code></pre></div>
+        </details>
+
+        <h3>Exercice 3 — Requêtes paramétrées (sécurité)</h3>
+        <p>Montrez la différence entre une requête vulnérable aux injections SQL et une requête paramétrée sécurisée. Utilisez Node.js avec le module <code>pg</code> (PostgreSQL).</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>const { Pool } = require('pg');
+const pool = new Pool();
+
+// DANGEREUX — injection SQL possible !
+async function rechercheVulnerable(email) {
+  // Si email = "' OR '1'='1" → toute la table est exposée
+  const query = `SELECT * FROM utilisateurs WHERE email = '${email}'`;
+  return pool.query(query);
+}
+
+// SÉCURISÉ — requête paramétrée
+async function rechercheSecurisee(email) {
+  const query = 'SELECT * FROM utilisateurs WHERE email = $1';
+  return pool.query(query, [email]);
+  // Le paramètre est échappé automatiquement par le driver
+}
+
+// Avec un ORM (Prisma) — sécurisé par défaut
+const user = await prisma.utilisateur.findUnique({
+  where: { email: email }
+});</code></pre></div>
+        </details>
+
+        <h3>Exercice 4 — Optimisation avec index</h3>
+        <p>Vous avez une table <code>commandes</code> avec 10 millions de lignes. Les requêtes fréquentes filtrent par <code>client_id</code> et trient par <code>date_commande DESC</code>. Créez les index appropriés et expliquez l'impact sur les performances.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>-- Index composé pour les requêtes : SELECT ... WHERE client_id = X ORDER BY date_commande DESC
+CREATE INDEX idx_commandes_client_date
+ON commandes(client_id, date_commande DESC);
+
+-- Cet index est efficace car :
+-- 1. client_id filtre d'abord les commandes du client (B-tree)
+-- 2. date_commande DESC permet le tri sans opération supplémentaire
+-- Le moteur peut servir la requête uniquement via l'index (Index Only Scan)
+
+-- Vérification avec EXPLAIN :
+EXPLAIN ANALYZE
+SELECT id, montant, date_commande
+FROM commandes
+WHERE client_id = 42
+ORDER BY date_commande DESC
+LIMIT 20;
+
+-- Sans index : Seq Scan → parcours des 10M de lignes (~secondes)
+-- Avec index : Index Scan → accès direct (~millisecondes)
+
+-- Index sur le statut (cardinalité faible — moins efficace)
+-- Utiliser un index partiel pour les commandes en cours uniquement :
+CREATE INDEX idx_commandes_en_cours
+ON commandes(client_id)
+WHERE statut = 'en_cours';</code></pre></div>
+        </details>
+
+        <h3>Exercice 5 — MongoDB : CRUD complet</h3>
+        <p>Implémentez un CRUD complet pour une collection <code>produits</code> avec MongoDB et Mongoose. Chaque produit a un nom, un prix, une catégorie et un tableau de tags. Ajoutez une méthode de recherche par tag et une agrégation pour le prix moyen par catégorie.</p>
+        <details><summary>Voir la solution</summary>
+          <div class="highlight-box"><pre><code>const mongoose = require('mongoose');
+
+const produitSchema = new mongoose.Schema({
+  nom:       { type: String, required: true },
+  prix:      { type: Number, required: true, min: 0 },
+  categorie: { type: String, required: true },
+  tags:      [String],
+  cree_le:   { type: Date, default: Date.now }
+});
+
+const Produit = mongoose.model('Produit', produitSchema);
+
+// Créer
+async function creer(data) {
+  return Produit.create(data);
+}
+
+// Lire tous (avec pagination)
+async function lister(page = 1, limite = 10) {
+  return Produit.find()
+    .skip((page - 1) * limite)
+    .limit(limite)
+    .sort({ cree_le: -1 });
+}
+
+// Rechercher par tag
+async function parTag(tag) {
+  return Produit.find({ tags: tag });
+}
+
+// Modifier
+async function modifier(id, data) {
+  return Produit.findByIdAndUpdate(id, data, { new: true });
+}
+
+// Supprimer
+async function supprimer(id) {
+  return Produit.findByIdAndDelete(id);
+}
+
+// Agrégation : prix moyen par catégorie
+async function prixMoyenParCategorie() {
+  return Produit.aggregate([
+    { $group: {
+      _id: '$categorie',
+      prixMoyen: { $avg: '$prix' },
+      count: { $sum: 1 }
+    }},
+    { $sort: { prixMoyen: -1 } }
+  ]);
+}</code></pre></div>
+        </details>
+      </div>
+    </section>
+
+    <div class="course-nav">
+      <a href="backend.html" class="prev">
+        <span class="course-nav-label">Cours précédent</span>
+        <span class="course-nav-title">← Développement back-end</span>
+      </a>
+      <div></div>
+    </div>
+
+  </main>
+</div>
+
+<script src="../../../curiosita.min.js?v=4" defer></script>
+<script src="../../../sr-course.min.js?v=4" defer></script>
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="../../../index.html">Accueil</a>
+    <a href="../../../cours.html">Cours</a>
+    <a href="../../../apprendre.html">Apprendre</a>
+  </div>
+  <p>&copy; 2025 Curiosita</p>
+</footer>
+</body>
+</html>
