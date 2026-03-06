@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Un espace ouvert, organisé par grands thèmes, pour explorer, apprendre et comprendre — des mathématiques à la philosophie, de la musique à la biologie.">
+<meta name="description" content="Curiosita — Apprendre, pratiquer, retenir. 200+ cours structurés avec quiz intégrés et répétition espacée. Gratuit, sans compte.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <title>Curiosita — Tout ce qui peut être appris</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,12 +20,10 @@
     --accent: #e8c97a;
     --accent2: #c97a7a;
     --border: rgba(240,237,232,0.08);
+    --green: #69f0ae;
   }
 
-  body {
-    line-height: 1.6;
-    min-height: 100vh;
-  }
+  body { line-height: 1.6; min-height: 100vh; }
 
   /* NOISE TEXTURE */
   body::before {
@@ -38,7 +36,7 @@
     opacity: 0.5;
   }
 
-  /* NAV */
+  /* === NAV === */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -60,15 +58,14 @@
     letter-spacing: -0.02em;
     text-decoration: none;
   }
-
   .logo span { color: var(--text); font-style: normal; font-weight: 400; }
 
   .nav-links {
     display: flex;
     gap: 2rem;
     list-style: none;
+    align-items: center;
   }
-
   .nav-links a {
     color: var(--muted);
     text-decoration: none;
@@ -77,10 +74,22 @@
     text-transform: uppercase;
     transition: color 0.2s;
   }
-
   .nav-links a:hover { color: var(--text); }
 
-  /* NAV TOGGLE (mobile hamburger) */
+  .nav-help {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .nav-help:hover { border-color: var(--accent); color: var(--accent); }
+
   .nav-toggle {
     display: none;
     background: none;
@@ -102,89 +111,203 @@
   .nav-toggle.open span:nth-child(2) { opacity: 0; }
   .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: var(--accent); }
 
-  /* HERO */
-  .hero {
-    min-height: 100vh;
+  /* === DASHBOARD === */
+  .dashboard {
+    padding: 6rem 3rem 2rem;
+  }
+
+  .dash-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .dash-card {
+    background: var(--surface);
+    padding: 2rem;
+    border-radius: 8px;
+  }
+
+  .dash-card-header {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0 3rem 6rem;
-    position: relative;
-    overflow: hidden;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.2rem;
   }
 
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background: 
-      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(232,201,122,0.06) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,122,122,0.05) 0%, transparent 60%);
-  }
+  .dash-icon { font-size: 1.2rem; }
 
-  .hero-number {
-    position: absolute;
-    top: 50%;
-    right: -2rem;
-    transform: translateY(-60%);
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(15rem, 30vw, 28rem);
-    font-weight: 900;
-    color: rgba(240,237,232,0.02);
-    line-height: 1;
-    user-select: none;
-    pointer-events: none;
-  }
-
-  .hero-tag {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
+  .dash-label {
+    font-size: 0.72rem;
     text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  .dash-due-count {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1;
     color: var(--accent);
+    margin-bottom: 0.3rem;
+  }
+
+  .dash-due-label {
+    font-size: 0.88rem;
+    color: var(--muted);
     margin-bottom: 1.5rem;
   }
 
-  .hero-title {
+  .dash-btn {
+    display: inline-block;
+    padding: 0.65rem 1.8rem;
+    background: var(--accent);
+    color: var(--bg);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    border-radius: 4px;
+    transition: opacity 0.2s;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .dash-btn:hover { opacity: 0.85; }
+
+  .dash-review.all-done .dash-due-count { color: var(--green); }
+
+  .dash-stats { display: flex; gap: 1.5rem; }
+  .dash-stat { text-align: center; flex: 1; }
+
+  .dash-stat-value {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(3.5rem, 8vw, 7.5rem);
-    font-weight: 900;
-    line-height: 1;
-    letter-spacing: -0.03em;
-    max-width: 900px;
-    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
   }
 
-  .hero-title em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  .hero-desc {
+  .dash-stat-label {
+    font-size: 0.68rem;
     color: var(--muted);
-    font-size: 1.05rem;
-    max-width: 480px;
-    line-height: 1.8;
-    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 0.2rem;
   }
 
-  .hero-scroll {
+  .dash-link {
+    display: inline-block;
+    margin-top: 1.2rem;
+    font-size: 0.78rem;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .dash-link:hover { color: var(--text); }
+
+  /* Discover card */
+  .dash-discover-link {
     display: flex;
     align-items: center;
     gap: 1rem;
+    padding: 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .dash-discover-link:hover { border-color: var(--accent); background: var(--surface2); }
+  .dash-discover-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .dash-discover-info { flex: 1; min-width: 0; }
+  .dash-discover-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .dash-discover-cat { font-size: 0.75rem; color: var(--muted); }
+  .dash-discover-arrow { font-size: 0.8rem; color: var(--muted); flex-shrink: 0; }
+
+  .dash-random-btn {
+    margin-top: 0.8rem;
+    background: none;
+    border: 1px solid var(--border);
     color: var(--muted);
+    font-size: 0.72rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .dash-random-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  .dash-discover-skeleton {
+    height: 62px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    animation: pulse 1.5s ease infinite;
+  }
+
+  /* Themes chips */
+  #dash-themes-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+  .dash-theme-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.9rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--text);
     font-size: 0.8rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    text-transform: capitalize;
+    transition: border-color 0.2s;
+  }
+  .dash-theme-chip:hover { border-color: var(--accent); }
+
+  .dash-theme-badge {
+    font-size: 0.65rem;
+    background: var(--accent);
+    color: var(--bg);
+    padding: 0.1rem 0.4rem;
+    border-radius: 100px;
+    font-weight: 500;
   }
 
-  .scroll-line {
-    width: 60px;
-    height: 1px;
-    background: var(--muted);
+  /* Empty state */
+  .dash-empty {
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.7;
   }
+  .dash-empty-link {
+    display: inline-block;
+    margin-top: 0.8rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: color 0.2s;
+  }
+  .dash-empty-link:hover { color: var(--text); }
 
-  /* SEARCH */
+  /* === SEARCH === */
   .search-section {
-    padding: 4rem 3rem;
+    padding: 3rem;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     background: var(--surface);
@@ -218,16 +341,10 @@
     outline: none;
     transition: border-color 0.3s;
   }
-
   .search-input::placeholder { color: var(--muted); }
   .search-input:focus { border-color: var(--accent); }
 
-  .search-hint {
-    margin-top: 1rem;
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
+  .search-hint { margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap; }
 
   .tag {
     font-size: 0.75rem;
@@ -238,13 +355,44 @@
     cursor: pointer;
     transition: all 0.2s;
   }
-
   .tag:hover { border-color: var(--accent); color: var(--accent); }
 
-  /* THEMES GRID */
-  .themes-section {
-    padding: 6rem 3rem;
+  /* Search results */
+  .search-results {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-top: none;
+    z-index: 50;
+    max-height: 280px;
+    overflow-y: auto;
   }
+  .search-results.visible { display: block; }
+  .result-item {
+    padding: 0.9rem 1.2rem;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .result-item:hover { background: var(--surface); }
+  .result-icon { font-size: 1rem; }
+  .result-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .result-meta { margin-left: auto; display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+  .result-cat { font-size: 0.72rem; color: var(--accent); }
+  .result-type { font-size: 0.6rem; padding: 0.15rem 0.4rem; border-radius: 3px; background: var(--border); color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .search-loading { padding: 1rem; text-align: center; font-size: 0.8rem; color: var(--muted); }
+
+  /* === THEMES GRID === */
+  .themes-section { padding: 4rem 3rem; }
 
   .section-header {
     display: flex;
@@ -254,24 +402,14 @@
     padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--border);
   }
-
-  .section-number {
-    font-size: 0.75rem;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-  }
-
+  .section-number { font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; }
   .section-title {
     font-family: 'Playfair Display', serif;
     font-size: 2.2rem;
     font-weight: 700;
     letter-spacing: -0.02em;
   }
-
-  .section-count {
-    font-size: 0.8rem;
-    color: var(--muted);
-  }
+  .section-count { font-size: 0.8rem; color: var(--muted); }
 
   .themes-grid {
     display: grid;
@@ -292,7 +430,6 @@
     color: inherit;
     display: block;
   }
-
   .theme-card::before {
     content: '';
     position: absolute;
@@ -303,19 +440,10 @@
     transform-origin: left;
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   }
-
   .theme-card:hover { background: var(--surface); }
   .theme-card:hover::before { transform: scaleX(1); }
-
-  .theme-icon {
-    font-size: 2rem;
-    margin-bottom: 1.2rem;
-    display: block;
-    transition: transform 0.3s;
-  }
-
+  .theme-icon { font-size: 2rem; margin-bottom: 1.2rem; display: block; transition: transform 0.3s; }
   .theme-card:hover .theme-icon { transform: scale(1.15); }
-
   .theme-name {
     font-family: 'Playfair Display', serif;
     font-size: 1.4rem;
@@ -323,20 +451,8 @@
     margin-bottom: 0.6rem;
     letter-spacing: -0.01em;
   }
-
-  .theme-desc {
-    color: var(--muted);
-    font-size: 0.88rem;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-  }
-
-  .theme-topics {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-  }
-
+  .theme-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 1.5rem; }
+  .theme-topics { display: flex; flex-wrap: wrap; gap: 0.4rem; }
   .topic-chip {
     font-size: 0.72rem;
     padding: 0.2rem 0.6rem;
@@ -345,218 +461,317 @@
     color: var(--muted);
     letter-spacing: 0.02em;
   }
-
   .theme-arrow {
     position: absolute;
-    top: 2.5rem;
-    right: 2.5rem;
-    width: 28px;
-    height: 28px;
+    top: 2.5rem; right: 2.5rem;
+    width: 28px; height: 28px;
     border: 1px solid var(--border);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     font-size: 0.75rem;
     color: var(--muted);
     opacity: 0;
     transform: translateX(-6px);
     transition: all 0.3s;
   }
+  .theme-card:hover .theme-arrow { opacity: 1; transform: translateX(0); }
 
-  .theme-card:hover .theme-arrow {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  /* EXPANDED THEME CARD + TREE */
-  .theme-card.expanded {
-    grid-column: 1 / -1;
-    background: var(--surface);
-    cursor: default;
-  }
+  /* Expanded tree */
+  .theme-card.expanded { grid-column: 1 / -1; background: var(--surface); cursor: default; }
   .theme-card.expanded::before { transform: scaleX(1); }
   .theme-card.expanded .theme-topics { display: none; }
   .theme-card.expanded .theme-arrow { display: none; }
 
   .tree-container {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
+    max-height: 0; opacity: 0; overflow: hidden;
     transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
     margin-top: 1.5rem;
     border-top: 1px solid var(--border);
     padding-top: 0;
   }
   .tree-container.open { padding-top: 1rem; }
-
-  .tree-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-  }
+  .tree-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
   .tree-theme-link {
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--card-accent, #e8c97a);
-    text-decoration: none;
-    transition: color 0.2s;
+    font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--card-accent, #e8c97a); text-decoration: none; transition: color 0.2s;
   }
   .tree-theme-link:hover { color: var(--text); text-decoration: underline; }
-
   .tree-close {
-    background: none;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 0.75rem;
-    display: flex; align-items: center; justify-content: center;
+    background: none; border: 1px solid var(--border); color: var(--muted);
+    width: 28px; height: 28px; border-radius: 50%; cursor: pointer;
+    font-size: 0.75rem; display: flex; align-items: center; justify-content: center;
     transition: all 0.2s;
   }
   .tree-close:hover { border-color: var(--card-accent, #e8c97a); color: var(--text); }
-
   .tree-node { margin-bottom: 0.15rem; }
   .tree-node-header {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.45rem 0.4rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background 0.15s;
-    user-select: none;
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.45rem 0.4rem; border-radius: 4px;
+    cursor: pointer; transition: background 0.15s; user-select: none;
   }
   .tree-node-header:hover { background: var(--surface2); }
-
-  .tree-chevron {
-    font-size: 0.5rem;
-    color: var(--muted);
-    transition: transform 0.2s ease;
-    flex-shrink: 0;
-    width: 12px;
-    text-align: center;
-  }
+  .tree-chevron { font-size: 0.5rem; color: var(--muted); transition: transform 0.2s ease; flex-shrink: 0; width: 12px; text-align: center; }
   .tree-chevron.open { transform: rotate(90deg); }
-
   .tree-node-icon { font-size: 0.95rem; flex-shrink: 0; }
-
-  .tree-node-name {
-    font-size: 0.88rem;
-    color: var(--text);
-    text-decoration: none;
-  }
+  .tree-node-name { font-size: 0.88rem; color: var(--text); text-decoration: none; }
   .tree-node-name:hover { color: var(--card-accent, #e8c97a); }
-
   .tree-subject > .tree-node-header .tree-node-name {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-style: italic;
-    font-size: 0.95rem;
+    font-family: 'Playfair Display', serif; font-weight: 700; font-style: italic; font-size: 0.95rem;
   }
-
-  .tree-node-count {
-    font-size: 0.65rem;
-    color: var(--muted);
-    margin-left: auto;
-    letter-spacing: 0.03em;
-  }
-
-  .tree-children {
-    padding-left: 1.1rem;
-    border-left: 1px solid var(--border);
-    margin-left: 0.55rem;
-  }
-
+  .tree-node-count { font-size: 0.65rem; color: var(--muted); margin-left: auto; letter-spacing: 0.03em; }
+  .tree-children { padding-left: 1.1rem; border-left: 1px solid var(--border); margin-left: 0.55rem; }
   .tree-leaf { padding: 0.15rem 0; }
   .tree-course-link {
+    display: flex; align-items: center; gap: 0.45rem;
+    font-size: 0.8rem; color: var(--muted); text-decoration: none;
+    padding: 0.25rem 0.4rem; border-radius: 3px; transition: all 0.15s;
+  }
+  .tree-course-link:hover { color: var(--card-accent, #e8c97a); background: rgba(255,255,255,0.03); }
+  .tree-leaf-bullet { color: var(--border); font-size: 0.55rem; }
+  .tree-empty { font-size: 0.82rem; color: var(--muted); font-style: italic; padding: 1rem 0; }
+
+  /* === REVIEW MODAL === */
+  .review-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(12,12,14,0.97);
+    backdrop-filter: blur(8px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .review-overlay.open { display: flex; }
+
+  .review-header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
     display: flex;
     align-items: center;
-    gap: 0.45rem;
-    font-size: 0.8rem;
-    color: var(--muted);
-    text-decoration: none;
-    padding: 0.25rem 0.4rem;
-    border-radius: 3px;
-    transition: all 0.15s;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
   }
-  .tree-course-link:hover {
-    color: var(--card-accent, #e8c97a);
-    background: rgba(255,255,255,0.03);
-  }
-  .tree-leaf-bullet { color: var(--border); font-size: 0.55rem; }
 
-  .tree-empty {
+  .review-close {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .review-close:hover { border-color: var(--accent); color: var(--text); }
+
+  .review-progress-text {
     font-size: 0.82rem;
     color: var(--muted);
-    font-style: italic;
-    padding: 1rem 0;
+    letter-spacing: 0.05em;
   }
 
-  /* HIGHLIGHT BAND */
-  .highlight-band {
+  .review-progress-bar {
+    position: absolute;
+    top: 0; left: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+
+  .review-card-container {
+    perspective: 600px;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 2rem;
+  }
+
+  .review-card {
     background: var(--surface);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 5rem 3rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.4s;
+    transform-style: preserve-3d;
   }
+  .review-card:hover { border-color: var(--accent); }
 
-  .highlight-quote {
+  .review-card-text {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-    font-style: italic;
-    line-height: 1.4;
-    color: var(--text);
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
   }
 
-  .highlight-quote em { color: var(--accent); font-style: normal; }
-
-  .highlight-quote cite {
-    display: block;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.8rem;
-    font-style: normal;
+  .review-card-hint {
+    font-size: 0.75rem;
     color: var(--muted);
-    margin-top: 1.2rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
 
-  .highlight-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+  .review-card-back .review-card-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text);
   }
 
-  .stat {
-    padding: 1.5rem;
-    border: 1px solid var(--border);
-  }
+  .review-card-front,
+  .review-card-back { width: 100%; }
+  .review-card-back { display: none; }
+  .review-card.flipped .review-card-front { display: none; }
+  .review-card.flipped .review-card-back { display: block; }
 
-  .stat-value {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    font-weight: 900;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 0.4rem;
-  }
-
-  .stat-label {
-    font-size: 0.78rem;
+  .review-card-source {
+    margin-top: 1rem;
+    font-size: 0.7rem;
     color: var(--muted);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+  }
+  .review-card-source a { color: var(--accent); text-decoration: none; }
+  .review-card-source a:hover { text-decoration: underline; }
+
+  .review-actions {
+    display: none;
+    gap: 0.8rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .review-overlay.show-actions .review-actions { display: flex; }
+
+  .review-action-btn {
+    padding: 0.6rem 1.4rem;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 0.82rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .review-action-btn:hover { border-color: var(--accent); }
+  .review-action-btn .review-key {
+    display: inline-block;
+    font-size: 0.6rem;
+    color: var(--muted);
+    margin-left: 0.4rem;
+    vertical-align: middle;
+  }
+  .review-action-btn[data-quality="1"] { border-color: rgba(255,82,82,0.3); }
+  .review-action-btn[data-quality="1"]:hover { border-color: #ff5252; background: rgba(255,82,82,0.1); }
+  .review-action-btn[data-quality="3"]:hover { border-color: #ffab40; background: rgba(255,171,64,0.1); }
+  .review-action-btn[data-quality="4"]:hover { border-color: var(--green); background: rgba(105,240,174,0.1); }
+  .review-action-btn[data-quality="5"]:hover { border-color: #40c4ff; background: rgba(64,196,255,0.1); }
+
+  /* Review done */
+  .review-done {
+    display: none;
+    text-align: center;
+  }
+  .review-done-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .review-done-stats {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    line-height: 1.8;
   }
 
-  /* FOOTER */
+  /* === WELCOME MODAL === */
+  .welcome-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    background: rgba(12,12,14,0.92);
+    backdrop-filter: blur(12px);
+    align-items: center;
+    justify-content: center;
+  }
+  .welcome-overlay.open { display: flex; }
+
+  .welcome-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    max-width: 480px;
+    width: 90%;
+    padding: 3rem 2.5rem;
+  }
+
+  .welcome-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .welcome-step {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .welcome-step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: rgba(232,201,122,0.2);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 2rem;
+  }
+
+  .welcome-step-title {
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+    font-size: 0.95rem;
+  }
+
+  .welcome-step-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .welcome-cta {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .welcome-cta button {
+    padding: 0.7rem 2.5rem;
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.04em;
+    transition: opacity 0.2s;
+  }
+  .welcome-cta button:hover { opacity: 0.85; }
+
+  /* === FOOTER === */
   footer {
     padding: 3rem;
     border-top: 1px solid var(--border);
@@ -564,118 +779,81 @@
     align-items: center;
     justify-content: space-between;
   }
-
   .footer-logo {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-size: 1.2rem;
     color: var(--accent);
   }
+  .footer-copy { font-size: 0.78rem; color: var(--muted); }
 
-  .footer-copy {
-    font-size: 0.78rem;
-    color: var(--muted);
-  }
-
-  /* ANIMATIONS */
+  /* === ANIMATIONS === */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
-  .hero-tag { animation: fadeUp 0.7s ease both; }
-  .hero-title { animation: fadeUp 0.7s 0.1s ease both; }
-  .hero-desc { animation: fadeUp 0.7s 0.2s ease both; }
-  .hero-scroll { animation: fadeUp 0.7s 0.35s ease both; }
-
-  /* SEARCH RESULTS */
-  .search-results {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0; right: 0;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-top: none;
-    z-index: 50;
-    max-height: 280px;
-    overflow-y: auto;
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.7; }
   }
 
-  .search-results.visible { display: block; }
+  .dash-card { animation: fadeUp 0.4s ease both; }
+  .dash-card:nth-child(2) { animation-delay: 0.05s; }
+  .dash-card:nth-child(3) { animation-delay: 0.1s; }
+  .dash-card:nth-child(4) { animation-delay: 0.15s; }
 
-  .result-item {
-    padding: 0.9rem 1.2rem;
-    border-bottom: 1px solid var(--border);
-    cursor: pointer;
-    transition: background 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    font-size: 0.9rem;
-  }
-
-  .result-item { text-decoration: none; color: inherit; }
-  .result-item:hover { background: var(--surface); }
-  .result-icon { font-size: 1rem; }
-  .result-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .result-meta { margin-left: auto; display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
-  .result-cat { font-size: 0.72rem; color: var(--accent); }
-  .result-type { font-size: 0.6rem; padding: 0.15rem 0.4rem; border-radius: 3px; background: var(--border); color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
-  .search-loading { padding: 1rem; text-align: center; font-size: 0.8rem; color: var(--muted); }
-
-  /* --- Tablet --- */
+  /* === RESPONSIVE === */
   @media (max-width: 768px) {
     nav { padding: 0.8rem 1.2rem; flex-wrap: wrap; }
     .nav-toggle { display: block; }
     .nav-links {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      gap: 0;
-      padding: 0.5rem 0 0.2rem;
-      order: 3;
+      display: none; flex-direction: column; width: 100%;
+      gap: 0; padding: 0.5rem 0 0.2rem; order: 3;
     }
     .nav-links.open { display: flex; }
     .nav-links li { border-top: 1px solid var(--border); }
-    .nav-links a {
-      display: block;
-      padding: 0.7rem 0.2rem;
-      font-size: 0.82rem;
-    }
-    .hero, .themes-section, .search-section { padding-left: 1.5rem; padding-right: 1.5rem; }
-    .themes-section { padding-top: 3rem; padding-bottom: 3rem; }
+    .nav-links a { display: block; padding: 0.7rem 0.2rem; font-size: 0.82rem; }
+
+    .dashboard { padding: 5rem 1.5rem 1.5rem; }
+    .dash-grid { grid-template-columns: 1fr; }
+    .dash-due-count { font-size: 2.5rem; }
+    .dash-stats { gap: 1rem; }
+    .dash-stat-value { font-size: 1.4rem; }
+
+    .search-section { padding: 2rem 1.5rem; }
+    .search-input { font-size: 1rem; }
+
+    .themes-section { padding: 2.5rem 1.5rem; }
     .section-title { font-size: 1.6rem; }
     .themes-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
     .theme-card { padding: 1.8rem; }
     .theme-name { font-size: 1rem; }
     .theme-desc { font-size: 0.78rem; }
-    .highlight-band { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 1.5rem; }
-    .search-section { padding: 2.5rem 1.5rem; }
-    .search-input { font-size: 1rem; }
+
     .tree-children { padding-left: 0.8rem; }
     .tree-node-name { font-size: 0.82rem; }
     .tree-course-link { font-size: 0.78rem; }
+
     footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+
+    .review-card-container { max-width: 100%; margin: 0 1rem; }
+    .review-card { min-height: 180px; padding: 2rem 1.5rem; }
+    .review-card-text { font-size: 1.2rem; }
+    .review-action-btn { padding: 0.5rem 1rem; font-size: 0.78rem; }
   }
 
-  /* --- Phone --- */
   @media (max-width: 480px) {
     nav { padding: 0.7rem 1rem; }
     .logo { font-size: 1.1rem; }
-    .hero { padding-left: 1rem; padding-right: 1rem; }
-    .hero-tag { font-size: 0.6rem; }
-    .hero-title { font-size: clamp(2rem, 10vw, 3rem); }
-    .hero-desc { font-size: 0.85rem; }
-    .search-section { padding: 2rem 1rem; }
+    .dashboard { padding: 4.5rem 1rem 1rem; }
+    .dash-stats { flex-direction: column; gap: 0.8rem; }
+    .dash-due-count { font-size: 2rem; }
+    .search-section { padding: 1.5rem 1rem; }
     .search-label { font-size: 0.65rem; }
     .search-input { font-size: 0.9rem; padding: 0.8rem 0; }
     .search-hint { gap: 0.5rem; }
     .tag { font-size: 0.65rem; padding: 0.25rem 0.6rem; }
     .result-item { padding: 0.7rem 0.9rem; font-size: 0.8rem; }
-    .result-meta { gap: 0.3rem; }
-    .result-cat { font-size: 0.6rem; }
-    .result-type { font-size: 0.5rem; }
     .themes-section { padding: 2rem 1rem; }
     .section-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; margin-bottom: 1.5rem; }
     .section-title { font-size: 1.4rem; }
@@ -687,14 +865,189 @@
     .theme-arrow { display: none; }
     .tree-node-count { display: none; }
     .tree-children { padding-left: 0.6rem; margin-left: 0.4rem; }
-    .highlight-band { padding: 2rem 1rem; gap: 1.5rem; }
-    .hb-value { font-size: 2.5rem; }
     footer { padding: 1.5rem 1rem; font-size: 0.75rem; }
+    .welcome-box { padding: 2rem 1.5rem; }
+    .welcome-title { font-size: 1.3rem; }
+    .cb-sidebar { display: none !important; }
+    .cb-sidebar.mobile-open { display: block !important; position: fixed; inset: 0; z-index: 300; background: var(--bg); padding: 1rem 1.2rem; overflow-y: auto; }
+    .cb-body { flex-direction: column; }
+    .cb-main { min-height: 0; }
+    .cb-filter-toggle { display: flex !important; }
+    .cb-header { flex-wrap: wrap; gap: 0.5rem; padding: 0.8rem 1rem; }
+    .cb-search-wrap { width: 100%; max-width: 100%; }
+    .cb-search { font-size: 0.85rem; }
+    .cb-item { flex-direction: column; align-items: stretch; overflow: hidden; }
+    .cb-item-front { white-space: normal !important; -webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
+    .cb-item-btn { align-self: flex-end; margin-top: 0.5rem; }
   }
+
+  /* === CARD BROWSER === */
+  .cb-overlay {
+    position: fixed; inset: 0; z-index: 200;
+    background: var(--bg);
+    display: flex; flex-direction: column;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.25s;
+  }
+  .cb-overlay.open { opacity: 1; pointer-events: auto; }
+
+  .cb-header {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 0.8rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .cb-close {
+    background: none; border: none; color: var(--muted);
+    font-size: 1.2rem; cursor: pointer; padding: 0.3rem;
+    transition: color 0.2s;
+  }
+  .cb-close:hover { color: var(--text); }
+  .cb-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .cb-search-wrap { flex: 1; max-width: 400px; margin-left: auto; }
+  .cb-search {
+    width: 100%; background: var(--surface); border: 1px solid var(--border);
+    border-radius: 6px; padding: 0.5rem 0.8rem;
+    color: var(--text); font-size: 0.85rem;
+    font-family: 'DM Sans', sans-serif;
+    outline: none; transition: border-color 0.2s;
+  }
+  .cb-search:focus { border-color: var(--accent); }
+  .cb-deck-count { font-size: 0.75rem; color: var(--accent); flex-shrink: 0; }
+  .cb-filter-toggle {
+    display: none; background: none; border: 1px solid var(--border);
+    color: var(--muted); font-size: 0.75rem; padding: 0.4rem 0.8rem;
+    border-radius: 4px; cursor: pointer;
+  }
+
+  .cb-body {
+    display: flex; flex: 1; overflow: hidden;
+  }
+
+  .cb-sidebar {
+    width: 220px; flex-shrink: 0;
+    border-right: 1px solid var(--border);
+    padding: 1rem; overflow-y: auto;
+  }
+  .cb-sidebar-close {
+    display: none; width: 100%; background: none;
+    border: 1px solid var(--border); color: var(--muted);
+    font-size: 0.78rem; padding: 0.6rem; margin-bottom: 1rem;
+    border-radius: 6px; cursor: pointer; text-align: center;
+  }
+  .cb-sidebar.mobile-open .cb-sidebar-close { display: block; }
+  .cb-filter-section { margin-bottom: 1.5rem; }
+  .cb-filter-title {
+    font-size: 0.65rem; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--muted);
+    margin-bottom: 0.6rem;
+  }
+  .cb-filter-opt {
+    display: flex; align-items: center; gap: 0.4rem;
+    font-size: 0.78rem; color: var(--text);
+    padding: 0.2rem 0; cursor: pointer;
+  }
+  .cb-filter-opt input[type="checkbox"],
+  .cb-filter-opt input[type="radio"] {
+    accent-color: var(--accent);
+  }
+  .cb-filter-count {
+    margin-left: auto; font-size: 0.65rem; color: var(--muted);
+  }
+
+  .cb-main {
+    flex: 1; display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .cb-toolbar {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 0.8rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .cb-result-count { font-size: 0.8rem; color: var(--muted); }
+  .cb-add-all {
+    margin-left: auto; background: none;
+    border: 1px solid var(--border); color: var(--muted);
+    font-size: 0.72rem; padding: 0.35rem 0.8rem;
+    border-radius: 4px; cursor: pointer;
+    transition: all 0.2s;
+  }
+  .cb-add-all:hover { border-color: var(--accent); color: var(--accent); }
+  .cb-add-all.active { border-color: var(--green); color: var(--green); }
+
+  #cbCardList {
+    flex: 1; overflow-y: auto; padding: 0.5rem 1.5rem;
+  }
+
+  .cb-item {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+  .cb-item:hover { background: var(--surface); }
+  .cb-item.added { opacity: 0.7; }
+  .cb-item.added:hover { opacity: 1; }
+
+  .cb-item-content { flex: 1; min-width: 0; }
+  .cb-item-front {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; font-size: 0.92rem;
+    margin-bottom: 0.2rem;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .cb-item-back {
+    font-size: 0.78rem; color: var(--muted);
+    display: -webkit-box; -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; overflow: hidden;
+    line-height: 1.4;
+  }
+  .cb-item-meta {
+    display: flex; gap: 0.6rem; margin-top: 0.3rem;
+    font-size: 0.68rem;
+  }
+  .cb-item-type {
+    color: var(--accent); background: rgba(232,201,122,0.1);
+    padding: 0.1rem 0.4rem; border-radius: 3px;
+  }
+  .cb-item-source { color: var(--muted); }
+
+  .cb-item-btn {
+    width: 36px; height: 36px; flex-shrink: 0;
+    border-radius: 50%; border: 1px solid var(--border);
+    background: none; color: var(--muted);
+    font-size: 1rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .cb-item-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .cb-item-btn.active {
+    background: var(--green); border-color: var(--green);
+    color: var(--bg); font-size: 0.8rem;
+  }
+
+  .cb-loading, .cb-empty {
+    text-align: center; color: var(--muted);
+    padding: 3rem 1rem; font-size: 0.9rem;
+  }
+  .cb-load-more {
+    display: block; width: 100%; margin: 1rem 0;
+    padding: 0.8rem; background: var(--surface);
+    border: 1px solid var(--border); border-radius: 6px;
+    color: var(--muted); font-size: 0.8rem;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .cb-load-more:hover { border-color: var(--accent); color: var(--accent); }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <a href="#" class="logo">Curiosita<span>.</span></a>
   <button class="nav-toggle" aria-label="Menu" onclick="this.classList.toggle('open');document.querySelector('.nav-links').classList.toggle('open');">
@@ -704,27 +1057,87 @@
     <li><a href="#themes">Thèmes</a></li>
     <li><a href="cours/cours.html">Tous les cours</a></li>
     <li><a href="cours/apprendre.html">Apprendre</a></li>
-    <li><a href="#a-propos">À propos</a></li>
+    <li><button class="nav-help" onclick="openWelcome()" title="Guide d'utilisation">?</button></li>
   </ul>
 </nav>
 
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-number">∞</div>
+<!-- DASHBOARD -->
+<section class="dashboard" id="dashboard">
+  <div class="dash-grid">
 
-  <p class="hero-tag">— La bibliothèque universelle du savoir</p>
-  <h1 class="hero-title">
-    Tout ce qui<br>peut être <em>appris.</em>
-  </h1>
-  <p class="hero-desc">
-    Un espace ouvert, organisé par grands thèmes, pour explorer, apprendre et comprendre — des mathématiques à la philosophie, de la musique à la biologie.
-  </p>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    Explorer les thèmes
+    <div class="dash-card dash-review" id="dash-review">
+      <div class="dash-card-header">
+        <span class="dash-icon">🔄</span>
+        <span class="dash-label">Révisions du jour</span>
+      </div>
+      <div id="dash-review-content">
+        <div class="dash-due-count" id="dash-due">--</div>
+        <div class="dash-due-label" id="dash-due-label">cartes à réviser</div>
+        <button class="dash-btn" id="dash-review-btn" onclick="openReview()">Réviser maintenant →</button>
+      </div>
+    </div>
+
+    <div class="dash-card dash-progress">
+      <div class="dash-card-header">
+        <span class="dash-icon">📊</span>
+        <span class="dash-label">Progression</span>
+      </div>
+      <div class="dash-stats">
+        <div class="dash-stat">
+          <div class="dash-stat-value" id="dash-streak">--</div>
+          <div class="dash-stat-label">jours de série</div>
+        </div>
+        <div class="dash-stat">
+          <div class="dash-stat-value" id="dash-rate">--</div>
+          <div class="dash-stat-label">taux de réussite</div>
+        </div>
+        <div class="dash-stat">
+          <div class="dash-stat-value" id="dash-total">--</div>
+          <div class="dash-stat-label">cartes totales</div>
+        </div>
+      </div>
+      <a href="cours/apprendre.html#progress" class="dash-link">Détails →</a>
+    </div>
+
+    <div class="dash-card dash-discover">
+      <div class="dash-card-header">
+        <span class="dash-icon">✨</span>
+        <span class="dash-label">Découverte du jour</span>
+      </div>
+      <div id="dash-discover-content">
+        <div class="dash-discover-skeleton"></div>
+      </div>
+    </div>
+
+    <div class="dash-card dash-themes">
+      <div class="dash-card-header">
+        <span class="dash-icon">📚</span>
+        <span class="dash-label">Thèmes actifs</span>
+      </div>
+      <div id="dash-themes-list">
+        <div class="dash-empty">
+          <a href="#themes" class="dash-empty-link">Commencer par un thème →</a>
+        </div>
+      </div>
+      <a href="cours/cours.html" class="dash-link" id="dash-themes-fallback-link">Tous les cours →</a>
+    </div>
+
+    <div class="dash-card dash-library">
+      <div class="dash-card-header">
+        <span class="dash-icon">📖</span>
+        <span class="dash-label">Bibliothèque de cartes</span>
+      </div>
+      <div id="dash-library-content">
+        <div class="dash-stat-value" id="dash-library-count">--</div>
+        <div class="dash-due-label">cartes disponibles</div>
+        <button class="dash-btn" onclick="CB.open()">Parcourir →</button>
+      </div>
+    </div>
+
   </div>
 </section>
 
+<!-- SEARCH -->
 <section class="search-section">
   <div class="search-wrap">
     <label class="search-label">Rechercher un sujet</label>
@@ -741,17 +1154,17 @@
   </div>
 </section>
 
+<!-- THEMES -->
 <section class="themes-section" id="themes">
   <div class="section-header">
     <div>
-      <p class="section-number">01 — Domaines</p>
+      <p class="section-number">Domaines</p>
       <h2 class="section-title">Les grands thèmes</h2>
     </div>
     <p class="section-count">7 grands thèmes · 10 disciplines · 200+ cours</p>
   </div>
 
   <div class="themes-grid" id="themesGrid">
-
     <a href="cours/sciences-exactes.html" class="theme-card" style="--card-accent:#4fc3f7">
       <div class="theme-arrow">→</div>
       <span class="theme-icon">🔬</span>
@@ -765,7 +1178,6 @@
         <span class="topic-chip">Statistiques</span>
       </div>
     </a>
-
     <a href="cours/sciences-nature.html" class="theme-card" style="--card-accent:#7ae8d8">
       <div class="theme-arrow">→</div>
       <span class="theme-icon">🌱</span>
@@ -779,7 +1191,6 @@
         <span class="topic-chip">Évolution</span>
       </div>
     </a>
-
     <a href="cours/sciences-humaines.html" class="theme-card" style="--card-accent:#7ae88a">
       <div class="theme-arrow">→</div>
       <span class="theme-icon">🌍</span>
@@ -793,7 +1204,6 @@
         <span class="topic-chip">Géographie</span>
       </div>
     </a>
-
     <a href="cours/lettres-langues.html" class="theme-card" style="--card-accent:#9b7ae8">
       <div class="theme-arrow">→</div>
       <span class="theme-icon">📚</span>
@@ -807,7 +1217,6 @@
         <span class="topic-chip">Linguistique</span>
       </div>
     </a>
-
     <a href="cours/arts-culture.html" class="theme-card" style="--card-accent:#e87a7a">
       <div class="theme-arrow">→</div>
       <span class="theme-icon">🎨</span>
@@ -821,7 +1230,6 @@
         <span class="topic-chip">Design</span>
       </div>
     </a>
-
     <a href="cours/droit-politique.html" class="theme-card" style="--card-accent:#e87a9b">
       <div class="theme-arrow">→</div>
       <span class="theme-icon">⚖️</span>
@@ -834,7 +1242,6 @@
         <span class="topic-chip">Citoyenneté</span>
       </div>
     </a>
-
     <a href="cours/savoir-faire.html" class="theme-card" style="--card-accent:#8ae87a">
       <div class="theme-arrow">→</div>
       <span class="theme-icon">🔧</span>
@@ -848,49 +1255,329 @@
         <span class="topic-chip">Finances</span>
       </div>
     </a>
-
   </div>
 </section>
 
-<section class="highlight-band" id="a-propos">
-  <blockquote class="highlight-quote">
-    "Un investissement dans la connaissance paie le <em>meilleur intérêt.</em>"
-    <cite>— Benjamin Franklin</cite>
-  </blockquote>
-  <div class="highlight-stats">
-    <div class="stat">
-      <div class="stat-value">7</div>
-      <div class="stat-label">Grands thèmes</div>
+<!-- REVIEW MODAL -->
+<div class="review-overlay" id="reviewOverlay">
+  <div class="review-progress-bar" id="reviewProgressBar"></div>
+  <div class="review-header">
+    <button class="review-close" onclick="closeReview()">✕</button>
+    <span class="review-progress-text" id="reviewProgressText">0 / 0</span>
+  </div>
+  <div class="review-card-container">
+    <div class="review-card" id="reviewCard" onclick="flipCard()">
+      <div class="review-card-front">
+        <div class="review-card-text" id="reviewFront"></div>
+        <div class="review-card-hint">Cliquer ou Espace pour voir la réponse</div>
+      </div>
+      <div class="review-card-back">
+        <div class="review-card-text" id="reviewBack"></div>
+        <div class="review-card-source" id="reviewSource"></div>
+      </div>
     </div>
-    <div class="stat">
-      <div class="stat-value">200+</div>
-      <div class="stat-label">Disciplines</div>
+    <div class="review-actions" id="reviewActions">
+      <button class="review-action-btn" data-quality="1" onclick="rateCard(1)">À revoir <span class="review-key">1</span></button>
+      <button class="review-action-btn" data-quality="3" onclick="rateCard(3)">Difficile <span class="review-key">2</span></button>
+      <button class="review-action-btn" data-quality="4" onclick="rateCard(4)">Bien <span class="review-key">3</span></button>
+      <button class="review-action-btn" data-quality="5" onclick="rateCard(5)">Facile <span class="review-key">4</span></button>
     </div>
-    <div class="stat">
-      <div class="stat-value">∞</div>
-      <div class="stat-label">Curiosité</div>
-    </div>
-    <div class="stat">
-      <div class="stat-value">0€</div>
-      <div class="stat-label">Accès libre</div>
+    <div class="review-done" id="reviewDone">
+      <div class="review-done-title">Session terminée</div>
+      <div class="review-done-stats" id="reviewDoneStats"></div>
+      <button class="dash-btn" onclick="closeReview()">Fermer</button>
     </div>
   </div>
-</section>
+</div>
+
+<!-- CARD BROWSER -->
+<div class="cb-overlay" id="cardBrowserOverlay">
+  <div class="cb-header">
+    <button class="cb-close" onclick="CB.close()">✕</button>
+    <span class="cb-title">Bibliothèque de cartes</span>
+    <span class="cb-deck-count" id="cbDeckCount"></span>
+    <button class="cb-filter-toggle" onclick="document.querySelector('.cb-sidebar').classList.toggle('mobile-open')">Filtres</button>
+    <div class="cb-search-wrap">
+      <input class="cb-search" type="text" id="cbSearch" placeholder="Rechercher une carte…" autocomplete="off">
+    </div>
+  </div>
+  <div class="cb-body">
+    <aside class="cb-sidebar">
+      <button class="cb-sidebar-close" onclick="this.parentElement.classList.remove('mobile-open')">✕ Fermer les filtres</button>
+      <div class="cb-filter-section">
+        <div class="cb-filter-title">Disciplines</div>
+        <div id="cbDisciplineList"></div>
+      </div>
+      <div class="cb-filter-section" id="cbCourseSection" style="display:none">
+        <div class="cb-filter-title">Cours</div>
+        <div id="cbCourseList"></div>
+      </div>
+      <div class="cb-filter-section">
+        <div class="cb-filter-title">Type de carte</div>
+        <div id="cbTypeList"></div>
+      </div>
+      <div class="cb-filter-section">
+        <div class="cb-filter-title">Statut</div>
+        <label class="cb-filter-opt"><input type="radio" name="cbStatus" value="all" checked> Toutes</label>
+        <label class="cb-filter-opt"><input type="radio" name="cbStatus" value="not-added"> Non ajoutées</label>
+        <label class="cb-filter-opt"><input type="radio" name="cbStatus" value="added"> Dans le deck</label>
+      </div>
+    </aside>
+    <div class="cb-main">
+      <div class="cb-toolbar">
+        <span class="cb-result-count" id="cbResultCount">-- cartes</span>
+        <button class="cb-add-all" id="cbAddFiltered">+ Ajouter les cartes filtrées</button>
+      </div>
+      <div id="cbCardList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- WELCOME MODAL -->
+<div class="welcome-overlay" id="welcomeOverlay" onclick="if(event.target===this)closeWelcome()">
+  <div class="welcome-box">
+    <div class="welcome-title">Bienvenue sur Curiosita</div>
+    <div class="welcome-step">
+      <div class="welcome-step-num">01</div>
+      <div>
+        <div class="welcome-step-title">Explorer</div>
+        <div class="welcome-step-desc">Parcourir les thèmes et les cours. Chaque cours contient des quiz pour vérifier la compréhension.</div>
+      </div>
+    </div>
+    <div class="welcome-step">
+      <div class="welcome-step-num">02</div>
+      <div>
+        <div class="welcome-step-title">Apprendre</div>
+        <div class="welcome-step-desc">Les informations importantes peuvent être ajoutées au deck de révision depuis chaque cours.</div>
+      </div>
+    </div>
+    <div class="welcome-step">
+      <div class="welcome-step-num">03</div>
+      <div>
+        <div class="welcome-step-title">Réviser</div>
+        <div class="welcome-step-desc">La répétition espacée ramène les informations au bon moment. Le tableau de bord affiche les cartes à réviser chaque jour.</div>
+      </div>
+    </div>
+    <div class="welcome-cta">
+      <button onclick="closeWelcome()">C'est compris →</button>
+    </div>
+  </div>
+</div>
 
 <footer>
   <div class="footer-logo">Curiosita.</div>
-  <p class="footer-copy">© 2025 — Apprendre n'a pas de fin</p>
+  <p class="footer-copy">© 2026 — Apprendre n'a pas de fin</p>
 </footer>
 
-<script src="assets/search.min.js?v=4" defer></script>
+<!-- SCRIPTS -->
+<script src="assets/sr-review.min.js?v=4"></script>
+<script>
+// Dashboard + Review — runs after SR engine is loaded
+document.addEventListener('DOMContentLoaded', function() {
 
-<footer class="site-footer">
-  <div class="footer-links">
-    <a href="index.html">Accueil</a>
-    <a href="cours/cours.html">Cours</a>
-    <a href="cours/apprendre.html">Apprendre</a>
-  </div>
-  <p>&copy; 2025 Curiosita</p>
-</footer>
+  // ── Welcome modal ──
+  if (!localStorage.getItem('curiosita_welcomed')) {
+    document.getElementById('welcomeOverlay').classList.add('open');
+  }
+
+  // ── Dashboard hydration ──
+  window.hydrateDashboard = function() {
+    if (typeof SR === 'undefined') return;
+
+    var stats = SR.getStats();
+    var due = stats.due || 0;
+    var total = stats.total || 0;
+
+    // Review card
+    var dueEl = document.getElementById('dash-due');
+    var dueLabelEl = document.getElementById('dash-due-label');
+    var reviewBtn = document.getElementById('dash-review-btn');
+    var reviewCard = document.getElementById('dash-review');
+
+    if (total === 0) {
+      // Empty state
+      document.getElementById('dash-review-content').innerHTML =
+        '<div class="dash-empty">Pas encore de cartes.<br><a href="#themes" class="dash-empty-link">Explorer les cours pour commencer →</a></div>';
+    } else {
+      dueEl.textContent = due;
+      if (due === 0) {
+        reviewCard.classList.add('all-done');
+        dueLabelEl.textContent = 'Tout est révisé !';
+        reviewBtn.textContent = 'Voir le deck →';
+        reviewBtn.setAttribute('onclick', "window.location.href='cours/apprendre.html#decks'");
+      } else {
+        dueLabelEl.textContent = due === 1 ? 'carte à réviser' : 'cartes à réviser';
+      }
+    }
+
+    // Stats
+    document.getElementById('dash-streak').textContent = stats.streakDays || 0;
+    document.getElementById('dash-rate').textContent = stats.successRate > 0 ? Math.round(stats.successRate) + '%' : '--';
+    document.getElementById('dash-total').textContent = total || '--';
+
+    // Active themes
+    var themes = SR.getThemes();
+    var themesList = document.getElementById('dash-themes-list');
+    if (themes.length > 0) {
+      themesList.innerHTML = themes.slice(0, 6).map(function(t) {
+        var label = t.theme.replace(/-/g, ' ');
+        return '<a href="cours/' + t.theme + '/index.html" class="dash-theme-chip">' +
+          '<span>' + label + '</span>' +
+          (t.dueCount > 0 ? '<span class="dash-theme-badge">' + t.dueCount + '</span>' : '') +
+          '</a>';
+      }).join('');
+      var fallback = document.getElementById('dash-themes-fallback-link');
+      if (fallback) fallback.style.display = 'none';
+    }
+  }
+
+  // Hydrate immediately and after short delay (SR engine may load async)
+  hydrateDashboard();
+  setTimeout(hydrateDashboard, 100);
+
+  // Discover is populated via _dashPopulateDiscover (defined before search.min.js)
+
+  // ── Review widget ──
+  var reviewQueue = [];
+  var reviewIndex = 0;
+  var sessionCorrect = 0;
+  var isFlipped = false;
+
+  window.openReview = function() {
+    if (typeof SR === 'undefined') return;
+    reviewQueue = SR.getDueCards();
+    if (!reviewQueue.length) return;
+    reviewIndex = 0;
+    sessionCorrect = 0;
+    isFlipped = false;
+    document.getElementById('reviewOverlay').classList.add('open');
+    document.getElementById('reviewOverlay').classList.remove('show-actions');
+    document.getElementById('reviewDone').style.display = 'none';
+    document.getElementById('reviewCard').style.display = '';
+    document.getElementById('reviewActions').style.display = '';
+    showCard();
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeReview = function() {
+    document.getElementById('reviewOverlay').classList.remove('open', 'show-actions');
+    document.body.style.overflow = '';
+    hydrateDashboard();
+  };
+
+  window.flipCard = function() {
+    if (isFlipped) return;
+    isFlipped = true;
+    document.getElementById('reviewCard').classList.add('flipped');
+    document.getElementById('reviewOverlay').classList.add('show-actions');
+  };
+
+  window.rateCard = function(quality) {
+    if (!isFlipped) return;
+    var card = reviewQueue[reviewIndex];
+    SR.reviewCard(card.id, quality);
+    if (quality >= 3) sessionCorrect++;
+    reviewIndex++;
+    isFlipped = false;
+
+    if (reviewIndex >= reviewQueue.length) {
+      // Done
+      document.getElementById('reviewCard').style.display = 'none';
+      document.getElementById('reviewActions').style.display = 'none';
+      document.getElementById('reviewOverlay').classList.remove('show-actions');
+      var doneEl = document.getElementById('reviewDone');
+      doneEl.style.display = 'block';
+      document.getElementById('reviewDoneStats').innerHTML =
+        reviewQueue.length + ' carte' + (reviewQueue.length > 1 ? 's' : '') + ' révisée' + (reviewQueue.length > 1 ? 's' : '') + '<br>' +
+        sessionCorrect + ' / ' + reviewQueue.length + ' correct' + (sessionCorrect > 1 ? 'es' : 'e');
+      document.getElementById('reviewProgressBar').style.width = '100%';
+      return;
+    }
+
+    showCard();
+  };
+
+  function showCard() {
+    var card = reviewQueue[reviewIndex];
+    document.getElementById('reviewFront').textContent = card.front;
+    document.getElementById('reviewBack').textContent = card.back;
+
+    var sourceHtml = '';
+    if (card.source) {
+      var url = card.source.replace(/^.*\/Curiosita\//, '');
+      sourceHtml = '<a href="' + url + '">' + (card.sourceTitle || 'Voir le cours') + '</a>';
+    }
+    document.getElementById('reviewSource').innerHTML = sourceHtml;
+
+    document.getElementById('reviewCard').classList.remove('flipped');
+    document.getElementById('reviewOverlay').classList.remove('show-actions');
+    document.getElementById('reviewProgressText').textContent = (reviewIndex + 1) + ' / ' + reviewQueue.length;
+    document.getElementById('reviewProgressBar').style.width = ((reviewIndex / reviewQueue.length) * 100) + '%';
+  }
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', function(e) {
+    var overlay = document.getElementById('reviewOverlay');
+    if (!overlay.classList.contains('open')) return;
+    if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); flipCard(); }
+    if (e.key === '1') rateCard(1);
+    if (e.key === '2') rateCard(3);
+    if (e.key === '3') rateCard(4);
+    if (e.key === '4') rateCard(5);
+    if (e.key === 'Escape') closeReview();
+  });
+
+  // ── Welcome modal ──
+  window.openWelcome = function() {
+    document.getElementById('welcomeOverlay').classList.add('open');
+  };
+
+  window.closeWelcome = function() {
+    document.getElementById('welcomeOverlay').classList.remove('open');
+    localStorage.setItem('curiosita_welcomed', '1');
+  };
+});
+</script>
+<script>
+// Discover callback — must be defined before search.min.js loads
+(function() {
+  var today = new Date().toISOString().slice(0, 10);
+  var seed = 0;
+  for (var i = 0; i < today.length; i++) seed = ((seed << 5) - seed) + today.charCodeAt(i);
+  seed = Math.abs(seed);
+
+  window._dashPopulateDiscover = function(searchData) {
+    var el = document.getElementById('dash-discover-content');
+    if (!el) return;
+    var courses = searchData.filter(function(d) { return d.t === 'cours'; });
+    if (!courses.length) return;
+    var userSources = {};
+    if (typeof SR !== 'undefined') {
+      SR.getAllCards().forEach(function(c) {
+        if (c.source) userSources[c.source.replace(/^.*\/Curiosita\//, '')] = true;
+      });
+    }
+    var pool = courses.filter(function(d) { return !userSources[d.u]; });
+    if (!pool.length) pool = courses;
+    function renderPick(p) {
+      return '<a href="' + p.u + '" class="dash-discover-link">' +
+        '<span class="dash-discover-icon">' + p.i + '</span>' +
+        '<div class="dash-discover-info"><div class="dash-discover-name">' + p.n + '</div>' +
+        '<div class="dash-discover-cat">' + p.c + '</div></div>' +
+        '<span class="dash-discover-arrow">→</span></a>';
+    }
+    var pick = pool[seed % pool.length];
+    el.innerHTML = renderPick(pick) +
+      '<button class="dash-random-btn" id="dash-random">🎲 Autre suggestion</button>';
+    document.getElementById('dash-random').addEventListener('click', function() {
+      var r = courses[Math.floor(Math.random() * courses.length)];
+      el.querySelector('.dash-discover-link').outerHTML = renderPick(r);
+    });
+  };
+})();
+</script>
+<script src="assets/search.min.js?v=4"></script>
+<script src="assets/card-browser.min.js?v=4"></script>
+
 </body>
 </html>

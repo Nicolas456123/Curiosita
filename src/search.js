@@ -65,6 +65,7 @@
       if (Array.isArray(data) && data.length > 0) {
         searchData = data;
         searchReady = true;
+        if (window._dashPopulateDiscover) window._dashPopulateDiscover(searchData);
         // Cache in sessionStorage
         try {
           sessionStorage.setItem('curiosita_search', JSON.stringify({ data: data, ts: Date.now() }));
@@ -138,6 +139,7 @@
 
     searchData = index;
     searchReady = true;
+    if (window._dashPopulateDiscover) window._dashPopulateDiscover(searchData);
     try {
       sessionStorage.setItem('curiosita_search', JSON.stringify({ data: index, ts: Date.now() }));
     } catch(e) {}
@@ -153,6 +155,7 @@
         if (Date.now() - ts < 10 * 60 * 1000) {
           searchData = data;
           searchReady = true;
+          if (window._dashPopulateDiscover) window._dashPopulateDiscover(searchData);
           return;
         }
       } catch(e) {}
