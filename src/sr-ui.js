@@ -195,7 +195,7 @@
         <div class="sr-empty">
           <div class="sr-empty-icon">📚</div>
           <h3>Aucune carte pour l'instant</h3>
-          <p>Commence par extraire des cartes depuis un cours ou en créer manuellement dans l'onglet "Ajouter".</p>
+          <p>Commence par extraire des cartes depuis une page ou en créer manuellement dans l'onglet "Ajouter".</p>
         </div>`;
     } else {
       el.innerHTML = `
@@ -382,7 +382,7 @@
         <div class="sr-empty">
           <div class="sr-empty-icon">📂</div>
           <h3>Aucun deck</h3>
-          <p>Les decks sont créés automatiquement quand tu extrais des cartes depuis un cours.</p>
+          <p>Les decks sont créés automatiquement quand tu extrais des cartes depuis une page.</p>
         </div>`;
       return;
     }

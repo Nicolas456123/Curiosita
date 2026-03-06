@@ -77,7 +77,7 @@
   }
 
   function getDiscipline(card) {
-    var m = card.s.match(/^cours\/([^/]+)\//);
+    var m = card.s.match(/^(?:cours|pages)\/([^/]+)\//);
     return m ? m[1] : 'autre';
   }
 
@@ -141,7 +141,7 @@
       if (!coursesByDisc[disc][course]) coursesByDisc[disc][course] = 0;
       coursesByDisc[disc][course]++;
 
-      // Resolve course display name from hub pages (cours/disc/hub.html = 3 segments)
+      // Resolve course display name from hub pages (pages/disc/hub.html = 3 segments)
       if (!courseNames[courseKey] && card.s.split('/').length === 3) {
         courseNames[courseKey] = card.st;
       }
@@ -291,11 +291,11 @@
       var card = visible[i];
       var isAdded = !!userCardIds[card.id];
       var tLabel = typeLabels[card.t] || card.t;
-      // Build course link from source path (cours/disc/hub/lesson.html → disc/hub/lesson)
+      // Build page link from source path (pages/disc/hub/lesson.html → disc/hub/lesson)
       var courseLink = '';
       if (hasCV && card.s) {
-        var slug = card.s.replace(/^cours\//, '').replace(/\.html$/, '');
-        courseLink = '<a href="#" class="cb-item-course" onclick="CV.open(\'' + slug + '\');CB.close();return false" title="Voir le cours">\ud83d\udcd6</a>';
+        var slug = card.s.replace(/^(?:cours|pages)\//, '').replace(/\.html$/, '');
+        courseLink = '<a href="#" class="cb-item-course" onclick="CV.open(\'' + slug + '\');CB.close();return false" title="Voir la page">\ud83d\udcd6</a>';
       }
       html += '<div class="cb-item' + (isAdded ? ' added' : '') + '" data-id="' + card.id + '">' +
         '<div class="cb-item-content">' +

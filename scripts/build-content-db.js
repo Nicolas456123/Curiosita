@@ -13,7 +13,7 @@ const cheerio = require('cheerio');
 const BASE = path.resolve(__dirname, '..');
 const ASSETS = path.join(BASE, 'assets');
 const CONTENT_DIR = path.join(ASSETS, 'content');
-const COURS_DIR = path.join(BASE, 'cours');
+const COURS_DIR = path.join(BASE, 'pages');
 
 // ── Theme → icon mapping (from index.html theme cards) ──
 
@@ -55,24 +55,24 @@ function loadThemeMap() {
 // ── Categorize page type from relative path ──
 
 function getPageType(relPath) {
-  // relPath like "cours/sciences-exactes.html" or "cours/maths/index.html" etc.
+  // relPath like "pages/sciences-exactes.html" or "pages/maths/index.html" etc.
   const parts = relPath.replace(/\\/g, '/').split('/');
-  // parts[0] = 'cours', parts[1] = discipline or theme, ...
+  // parts[0] = 'pages', parts[1] = discipline or theme, ...
 
   if (parts.length === 2) {
-    // cours/xxx.html — theme page or utility (cours.html, apprendre.html)
+    // pages/xxx.html — theme page or utility (apprendre.html, etc.)
     return 'theme';
   }
   if (parts.length === 3 && parts[2] === 'index.html') {
-    // cours/maths/index.html — discipline
+    // pages/maths/index.html — discipline
     return 'discipline';
   }
   if (parts.length === 3) {
-    // cours/maths/arithmetique.html — hub
+    // pages/maths/arithmetique.html — hub
     return 'hub';
   }
   if (parts.length === 4) {
-    // cours/maths/arithmetique/nombres-premiers.html — lesson
+    // pages/maths/arithmetique/nombres-premiers.html — lesson
     return 'lesson';
   }
   return 'unknown';
@@ -110,10 +110,10 @@ function resolveHrefToSlug(href, currentRelPath) {
   const dir = path.dirname(currentRelPath);
   // Resolve relative path
   let resolved = path.posix.normalize(path.posix.join(dir.replace(/\\/g, '/'), href));
-  // Must start with cours/
-  if (!resolved.startsWith('cours/')) return null;
+  // Must start with pages/
+  if (!resolved.startsWith('pages/')) return null;
   // Remove .html extension for slug
-  const slug = resolved.replace(/^cours\//, '').replace(/\.html$/, '');
+  const slug = resolved.replace(/^pages\//, '').replace(/\.html$/, '');
   return slug;
 }
 
@@ -300,7 +300,7 @@ function build() {
   if (fs.existsSync(cardsDbPath)) {
     const cards = JSON.parse(fs.readFileSync(cardsDbPath, 'utf-8'));
     for (const card of cards) {
-      const src = card.s; // 'cours/maths/arithmetique/nombres-premiers.html'
+      const src = card.s; // 'pages/maths/arithmetique/nombres-premiers.html'
       cardsBySource[src] = (cardsBySource[src] || 0) + 1;
     }
     console.log(`  Cards DB loaded: ${cards.length} cards across ${Object.keys(cardsBySource).length} pages\n`);
@@ -313,7 +313,7 @@ function build() {
     const pageKey = getPageKey(relPath);
 
     // Skip utility pages
-    if (['apprendre', 'cours'].includes(pageKey) && pageType === 'theme') {
+    if (['apprendre', 'catalogue'].includes(pageKey) && pageType === 'theme') {
       stats.skipped++;
       continue;
     }

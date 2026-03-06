@@ -55,7 +55,7 @@ function buildLesson(l) {
     s.p.forEach(pp => { body += P(pp); });
     if (s.hl) body += HL(s.hl);
   });
-  parts.push(sec('02','cours','Le cours','Approfondissement', body));
+  parts.push(sec('02','contenu','En détail','Approfondissement', body));
   // Quiz
   if (l.quiz && l.quiz.length > 0) {
     const qc = `<div class="quiz-container" data-total="${l.quiz.length}"><div class="quiz-header"><span class="quiz-score">Score : <span class="score-current">0</span>/<span class="score-total">${l.quiz.length}</span></span><span class="q-dots">${l.quiz.map((_,i)=>`<span class="q-dot" data-q="${i}"></span>`).join('')}</span></div>${quizHtml(l.quiz)}<div class="quiz-nav"><button class="quiz-prev" onclick="prevQ(this)">← Précédente</button><button class="quiz-next" onclick="nextQ(this)">Suivante →</button></div><div class="quiz-result"></div></div>`;
@@ -71,7 +71,7 @@ function buildHub(hub, discSlug) {
   return sec('01','presentation',hub.title,'Introduction et vue d\'ensemble',
     P(hub.intro) + (hub.hl ? HL(`<strong>L'idée fondamentale :</strong> ${hub.hl}`) : '')
   ) + '\n\n' +
-  sec('02','cours','Les cours',`${hub.lessons.length} cours disponibles`,
+  sec('02','contenu','Les pages',`${hub.lessons.length} pages disponibles`,
     `<div class="courses-grid">${links}</div>`
   );
 }
@@ -90,7 +90,7 @@ function buildDisc(disc) {
 
 function makeCards(l, discSlug, hubSlug) {
   const cards = [];
-  const src = `cours/${discSlug}/${hubSlug}/${l.slug}.html`;
+  const src = `pages/${discSlug}/${hubSlug}/${l.slug}.html`;
   if (l.defs) l.defs.forEach(d => {
     cards.push({ id: cardId(), t: 'definition', f: d[0], b: d[1], s: src, st: l.title, disc: discSlug });
   });
@@ -139,7 +139,7 @@ function processDiscipline(disc) {
     if (!db.pages[hub.slug] || (db.pages[hub.slug].content || '').length < 100) {
       db.pages[hub.slug] = {
         type: 'hub', title: hub.title, content: buildHub(hub, disc.slug),
-        nav: { sections: ['presentation','cours'], sectionTitles: { presentation: hub.title, cours: 'Les cours' }, siblings: hubSiblings },
+        nav: { sections: ['presentation','contenu'], sectionTitles: { presentation: hub.title, contenu: 'Les pages' }, siblings: hubSiblings },
         description: hub.desc, domain: disc.icon + ' ' + disc.title,
         level: 'Débutant → Avancé', time: '⏱ ~' + hub.lessons.length * 35 + ' min',
         heroDesc: hub.desc, heroVariant: 'hub', heroH1: '<em>' + hub.title + '</em>', accentHero: disc.accentHero
@@ -160,7 +160,7 @@ function processDiscipline(disc) {
       if (!db.pages[pageKey]) {
         db.pages[pageKey] = {
           type: 'course', title: lesson.title, content: buildLesson(lesson),
-          nav: { sections: ['introduction','cours','quiz'], sectionTitles: { introduction: 'Introduction', cours: 'Le cours', quiz: 'Quiz' }, siblings: lessonSiblings },
+          nav: { sections: ['introduction','contenu','quiz'], sectionTitles: { introduction: 'Introduction', contenu: 'En détail', quiz: 'Quiz' }, siblings: lessonSiblings },
           description: lesson.desc, domain: disc.icon + ' ' + hub.title,
           level: 'Débutant → Intermédiaire', time: '⏱ ~35 min',
           heroDesc: lesson.desc, heroVariant: 'course', heroH1: '<em>' + lesson.title + '</em>', accentHero: disc.accentHero

@@ -2,7 +2,7 @@
 //  Curiosita — Quiz + Navigation
 //  Logique quiz (answer, nextQ, prevQ, showResult, resetQuiz)
 //  + goTo() scroll navigation + scroll spy
-//  Chargé par toutes les pages cours et hub
+//  Loaded on all content pages and hubs
 // ══════════════════════════════════════════════════════
 
 (function () {

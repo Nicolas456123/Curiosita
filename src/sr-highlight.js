@@ -1,7 +1,7 @@
 // ══════════════════════════════════════════════════════
 //  Curiosita — SR Highlight + Extract
-//  Colore les termes-clés du cours qui ont une flashcard
-//  + bouton d'extraction en bas de chaque page de cours
+//  Highlights key terms that have a flashcard
+//  + extraction button at the bottom of each content page
 //  Bundled in sr-course.min.js with sr-engine.js + sr-extract.js
 // ══════════════════════════════════════════════════════
 

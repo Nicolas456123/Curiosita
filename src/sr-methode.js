@@ -16,7 +16,7 @@ const SRMethode = (function () {
       name: 'Répétition espacée',
       theory: 'Revoir l\'information à des intervalles de plus en plus longs renforce la mémoire à long terme. C\'est le principe fondamental derrière ce système : chaque révision réussie repousse la prochaine un peu plus loin.',
       steps: [
-        'Après un cours, crée ou extrais des flashcards sur les notions clés.',
+        'Après une lecture, crée ou extrais des flashcards sur les notions clés.',
         'Révise le jour même pour un premier ancrage.',
         'Laisse le système calculer le prochain intervalle optimal.',
         'Reviens chaque jour pour tes révisions planifiées.',
@@ -32,7 +32,7 @@ const SRMethode = (function () {
       name: 'Rappel actif (Active Recall)',
       theory: 'Se forcer à retrouver une information en mémoire est bien plus efficace que la relire passivement. Chaque effort de rappel renforce la trace mnésique.',
       steps: [
-        'Après avoir lu un cours, ferme-le.',
+        'Après avoir lu une page, ferme-la.',
         'Essaie de te remémorer les points clés sans regarder.',
         'Note ce dont tu te souviens sur une feuille ou mentalement.',
         'Vérifie ensuite ce que tu as oublié et reconcentre-toi dessus.',
@@ -53,7 +53,7 @@ const SRMethode = (function () {
         'Pour te rappeler, "parcours" mentalement ton lieu et visualise chaque scène.',
         'Plus les images sont absurdes, drôles ou choquantes, mieux tu les retiens !'
       ],
-      when: 'Idéal pour mémoriser des listes ordonnées, des séquences, des discours, ou des points clés d\'un cours.',
+      when: 'Idéal pour mémoriser des listes ordonnées, des séquences, des discours, ou des points clés d\'une page.',
       exercise: { type: 'loci' }
     },
     {
@@ -68,7 +68,7 @@ const SRMethode = (function () {
         'Mémorise les groupes plutôt que les éléments individuels.',
         'Exemple : 0-6-1-4-7-8-9-5-2-3 → 06 14 78 95 23 (5 blocs au lieu de 10 chiffres).'
       ],
-      when: 'Quand tu dois mémoriser des séries (numéros, listes, vocabulaire), ou structurer un cours dense.',
+      when: 'Quand tu dois mémoriser des séries (numéros, listes, vocabulaire), ou structurer une page dense.',
       exercise: { type: 'prompt', text: 'Essaie de regrouper cette série en blocs : M-A-T-H-E-M-A-T-I-Q-U-E-S. Combien de blocs significatifs trouves-tu ? (indice : MATH-ÉMA-TIQUES)' }
     },
     {
@@ -99,7 +99,7 @@ const SRMethode = (function () {
         'Quand tu révises, visualise le schéma en même temps que tu rappelles les mots.'
       ],
       when: 'Pour les matières visuelles (biologie, géographie, anatomie) et pour tout concept abstrait que tu peux représenter.',
-      exercise: { type: 'prompt', text: 'Choisis un concept de ton cours actuel. Dessine-le mentalement en 30 secondes : quelle forme, quelle couleur, quels éléments ? L\'image n\'a pas besoin d\'être réaliste, juste mémorable.' }
+      exercise: { type: 'prompt', text: 'Choisis un concept de ta lecture actuelle. Dessine-le mentalement en 30 secondes : quelle forme, quelle couleur, quels éléments ? L\'image n\'a pas besoin d\'être réaliste, juste mémorable.' }
     },
     {
       id: 'entrelacement',
@@ -126,7 +126,7 @@ const SRMethode = (function () {
         'Choisis un concept que tu veux maîtriser.',
         'Explique-le comme si tu parlais à un enfant de 10 ans.',
         'Utilise un langage simple, pas de jargon.',
-        'Quand tu bloques ou que tu utilises des termes techniques, retourne au cours.',
+        'Quand tu bloques ou que tu utilises des termes techniques, retourne à la page.',
         'Simplifie et retente jusqu\'à ce que l\'explication soit fluide.'
       ],
       when: 'Pour vérifier ta compréhension profonde de n\'importe quel sujet. Si tu peux l\'enseigner, tu le maîtrises.',
@@ -191,7 +191,7 @@ const SRMethode = (function () {
         'Tiens un journal d\'apprentissage pour suivre tes progrès et tes difficultés.'
       ],
       when: 'Tout le temps. La métacognition est la compétence qui améliore toutes les autres. C\'est le "super-pouvoir" des apprenants efficaces.',
-      exercise: { type: 'prompt', text: 'Auto-évaluation rapide : Sur une échelle de 1 à 5, comment juges-tu ta concentration aujourd\'hui ? Ta motivation ? Ta compréhension du dernier cours étudié ? Note mentalement tes réponses et identifie un point à améliorer.' }
+      exercise: { type: 'prompt', text: 'Auto-évaluation rapide : Sur une échelle de 1 à 5, comment juges-tu ta concentration aujourd\'hui ? Ta motivation ? Ta compréhension de la dernière page étudiée ? Note mentalement tes réponses et identifie un point à améliorer.' }
     }
   ];
 
@@ -345,7 +345,7 @@ const SRMethode = (function () {
     const tips = [];
 
     if (stats.total === 0) {
-      tips.push({ emoji: '🚀', text: 'Commence par extraire des cartes depuis un cours dans l\'onglet "Ajouter", puis reviens ici pour optimiser tes stratégies d\'apprentissage !', tech: null });
+      tips.push({ emoji: '🚀', text: 'Commence par extraire des cartes depuis une page dans l\'onglet "Ajouter", puis reviens ici pour optimiser tes stratégies d\'apprentissage !', tech: null });
     } else {
       if (ret.atRisk > 10) {
         tips.push({ emoji: '⚠️', text: `${ret.atRisk} cartes sont en danger d'oubli (rétention <50%). Une session de révision urgente s'impose ! La répétition espacée est ta meilleure alliée.`, tech: 'repetition-espacee' });

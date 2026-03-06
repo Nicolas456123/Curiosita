@@ -188,7 +188,7 @@ target.themes.forEach(function (theme) {
       padR(disc.name, 32) +
       bar(discCurrentLessons, discTargetLessons, 15) + ' ' +
       padL(String(discCurrentLessons), 3) + '/' + padL(String(discTargetLessons), 3) +
-      ' leçons  ' +
+      ' pages  ' +
       padL(String(discCurrentHubs), 2) + '/' + padL(String(disc.hubs.length), 2) + ' hubs' +
       '  ' + C.bold + padL(String(p) + '%', 4) + C.reset
     );
@@ -198,7 +198,7 @@ target.themes.forEach(function (theme) {
   console.log(
     C.dim + '  ' + padR('', 34) +
     'Total: ' +
-    padL(String(themeLessons.current), 3) + '/' + padL(String(themeLessons.target), 3) + ' leçons  ' +
+    padL(String(themeLessons.current), 3) + '/' + padL(String(themeLessons.target), 3) + ' pages  ' +
     padL(String(themeHubs.current), 2) + '/' + padL(String(themeHubs.target), 2) + ' hubs  ' +
     C.bold + padL(String(tp) + '%', 4) + C.reset
   );
@@ -215,7 +215,7 @@ console.log('');
 var metrics = [
   { label: 'Disciplines', current: globalDisc.current, target: globalDisc.target },
   { label: 'Hubs', current: globalHubs.current, target: globalHubs.target },
-  { label: 'Leçons', current: globalLessons.current, target: globalLessons.target },
+  { label: 'Pages', current: globalLessons.current, target: globalLessons.target },
   { label: 'Flashcards', current: totalCards.count, target: target.targets.cards },
 ];
 
@@ -258,7 +258,7 @@ if (emptyHubs.length > 0) {
 var newHubCount = missingHubs.length;
 if (newHubCount > 0) {
   console.log(C.dim + '  ' + newHubCount + ' nouveaux hubs à créer pour atteindre 100%' + C.reset);
-  console.log(C.dim + '  ' + (globalLessons.target - globalLessons.current) + ' nouvelles leçons nécessaires' + C.reset);
+  console.log(C.dim + '  ' + (globalLessons.target - globalLessons.current) + ' nouvelles pages nécessaires' + C.reset);
   console.log(C.dim + '  ' + (target.targets.cards - totalCards.count) + ' nouvelles flashcards nécessaires' + C.reset);
 }
 

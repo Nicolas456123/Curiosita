@@ -142,7 +142,7 @@ function build() {
       const subjectHtml = readHtml(subjectFile);
       const subjectName = subject.name || (subjectHtml ? extractTitle(subjectHtml) : '');
 
-      if (subjectUrl.endsWith('-page.html') || /cours\/[\w-]+\/index\.html$/.test(subjectUrl)) {
+      if (subjectUrl.endsWith('-page.html') || /pages\/[\w-]+\/index\.html$/.test(subjectUrl)) {
         index.push({ n: subjectName, c: theme.themeName, u: subjectUrl, t: 'matière', i: theme.icon });
 
         // 3. Hub pages (from subject page)
@@ -164,7 +164,7 @@ function build() {
             const courseUrl = resolveUrl(course.href, hubUrl);
             courseUrls.push('/Curiosita/' + courseUrl);
 
-            index.push({ n: course.name, c: `${subjectName} › ${hub.name}`, u: courseUrl, t: 'cours', i: theme.icon });
+            index.push({ n: course.name, c: `${subjectName} › ${hub.name}`, u: courseUrl, t: 'page', i: theme.icon });
           }
         }
       }

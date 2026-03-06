@@ -95,7 +95,7 @@ function buildLessonContent(lesson) {
       courseContent += '\n      ' + highlight(s.highlight);
     }
   });
-  parts.push(section('02', 'cours', 'Le cours', lesson.courseSub || 'Approfondissement', courseContent));
+  parts.push(section('02', 'contenu', 'En détail', lesson.courseSub || 'Approfondissement', courseContent));
 
   // 03 - Quiz
   if (lesson.quiz && lesson.quiz.length > 0) {
@@ -133,7 +133,7 @@ function buildHubContent(hub, discSlug) {
     p(hub.introText) +
     (hub.introHighlight ? '\n      ' + highlight(`<strong>L'idée fondamentale :</strong> ${hub.introHighlight}`) : '')
   ) + '\n\n' +
-  section('02', 'cours', 'Les cours', `${hub.lessons.length} cours disponibles`,
+  section('02', 'contenu', 'Les pages', `${hub.lessons.length} pages disponibles`,
     `<div class="courses-grid">\n${courseLinks}\n      </div>`
   );
 
@@ -166,7 +166,7 @@ function buildDiscContent(disc) {
 
 function generateCards(lesson, discSlug, hubSlug) {
   const cards = [];
-  const source = `cours/${discSlug}/${hubSlug}/${lesson.slug}.html`;
+  const source = `pages/${discSlug}/${hubSlug}/${lesson.slug}.html`;
 
   // Definition cards from key terms
   if (lesson.definitions) {
@@ -310,8 +310,8 @@ function processDiscipline(disc) {
         title: hub.title,
         content: buildHubContent(hub, disc.slug),
         nav: {
-          sections: ['presentation', 'cours'],
-          sectionTitles: { presentation: hub.title, cours: 'Les cours' },
+          sections: ['presentation', 'contenu'],
+          sectionTitles: { presentation: hub.title, contenu: 'Les pages' },
           siblings: hubSiblings
         },
         description: hub.description,
@@ -362,10 +362,10 @@ function processDiscipline(disc) {
           title: lesson.title,
           content: buildLessonContent(lesson),
           nav: {
-            sections: ['introduction', 'cours', 'quiz'],
+            sections: ['introduction', 'contenu', 'quiz'],
             sectionTitles: {
               introduction: 'Introduction',
-              cours: 'Le cours',
+              contenu: 'En détail',
               quiz: 'Quiz'
             },
             siblings: lessonSiblings

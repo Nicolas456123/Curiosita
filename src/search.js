@@ -59,15 +59,15 @@
   // ── Primary: load courses-index.json (rich data with CV ids) ──
   async function loadCoursesIndex() {
     try {
-      const resp = await fetch('assets/courses-index.json?v=4');
+      const resp = await fetch('assets/courses-index.json?v=5');
       if (!resp.ok) throw new Error(resp.status);
       const data = await resp.json();
       if (Array.isArray(data) && data.length > 0) {
-        const typeMap = { lesson: 'cours', hub: 'domaine', discipline: 'matière', theme: 'thème' };
+        const typeMap = { lesson: 'page', hub: 'domaine', discipline: 'matière', theme: 'thème' };
         searchData = data.map(d => ({
           n: d.t,
           c: d.cat,
-          u: d.tp === 'theme' ? ('cours/' + d.id + '.html') : ('cours/' + d.id + '.html'),
+          u: d.tp === 'theme' ? ('pages/' + d.id + '.html') : ('pages/' + d.id + '.html'),
           t: typeMap[d.tp] || d.tp,
           i: d.icon,
           id: d.id
@@ -86,7 +86,7 @@
   // ── Fallback: load search-index.json (no CV ids) ──
   async function loadStaticIndex() {
     try {
-      const resp = await fetch('assets/search-index.json?v=4');
+      const resp = await fetch('assets/search-index.json?v=5');
       if (!resp.ok) throw new Error(resp.status);
       const data = await resp.json();
       if (Array.isArray(data) && data.length > 0) {
@@ -125,7 +125,7 @@
         const doc = await fetchDoc(t.href);
         const cards = extractCourseCards(doc, t.href);
         for (const card of cards) {
-          if (card.url.endsWith('-page.html') || card.url.match(/cours\/[\w-]+\/index\.html$/)) {
+          if (card.url.endsWith('-page.html') || card.url.match(/pages\/[\w-]+\/index\.html$/)) {
             subjectLinks.push({ href: card.url, icon: t.icon, themeName: t.themeName, subjectHint: card.name });
           }
         }
@@ -154,7 +154,7 @@
           fetchDoc(hub.url).then(hubDoc => {
             const courses = extractCourseCards(hubDoc, hub.url);
             for (const course of courses) {
-              index.push({ n: course.name, c: `${subjectName} › ${hub.name}`, u: course.url, t: 'cours', i: icon });
+              index.push({ n: course.name, c: `${subjectName} › ${hub.name}`, u: course.url, t: 'page', i: icon });
             }
           }).catch(() => {})
         );
@@ -287,7 +287,7 @@
     return subjects.map(subject => {
       const domains = searchData.filter(d => d.t === 'domaine' && d.c === subject.n);
       const domainTree = domains.map(domain => {
-        const courses = searchData.filter(d => d.t === 'cours' && d.c === `${subject.n} › ${domain.n}`);
+        const courses = searchData.filter(d => d.t === 'page' && d.c === `${subject.n} › ${domain.n}`);
         return { ...domain, children: courses };
       });
       return { ...subject, children: domainTree };
@@ -309,7 +309,7 @@
       <div class="tree-node-header" data-toggle>
         <span class="tree-chevron">&#9654;</span>
         ${treeLink(d, 'tree-node-name', d.n)}
-        <span class="tree-node-count">${cnt} cours</span>
+        <span class="tree-node-count">${cnt} pages</span>
       </div>
       <div class="tree-children" style="display:none">${d.children.map(renderCourse).join('')}</div>
     </div>`;

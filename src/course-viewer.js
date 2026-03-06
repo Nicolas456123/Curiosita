@@ -81,7 +81,7 @@
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
     var content = $('cvContent');
-    if (content) content.innerHTML = '<div class="cv-loading">Chargement du cours\u2026</div>';
+    if (content) content.innerHTML = '<div class="cv-loading">Chargement\u2026</div>';
 
     // Load discipline data
     loadDisc(disc).then(function (data) {
@@ -232,8 +232,8 @@
     // Section nav
     var nav = page.nav || {};
     if (nav.sections && nav.sections.length > 1) {
-      html += '<p class="cv-sidebar-title">Ce cours</p>';
-      var sectionIcons = { introduction: '\ud83d\udcd6', cours: '\ud83d\udcdd', quiz: '\ud83c\udfaf', exercices: '\u270f\ufe0f', resume: '\ud83d\udcd6', presentation: '\ud83d\udcd6', memo: '\ud83d\udccc' };
+      html += '<p class="cv-sidebar-title">Cette page</p>';
+      var sectionIcons = { introduction: '\ud83d\udcd6', cours: '\ud83d\udcdd', contenu: '\ud83d\udcdd', quiz: '\ud83c\udfaf', exercices: '\u270f\ufe0f', resume: '\ud83d\udcd6', presentation: '\ud83d\udcd6', memo: '\ud83d\udccc' };
       for (var i = 0; i < nav.sections.length; i++) {
         var secId = nav.sections[i];
         var secTitle = (nav.sectionTitles && nav.sectionTitles[secId]) || secId;
@@ -244,7 +244,7 @@
 
     // Siblings
     if (nav.siblings && nav.siblings.length > 1) {
-      html += '<p class="cv-sidebar-title">Autres cours</p>';
+      html += '<p class="cv-sidebar-title">Autres pages</p>';
       for (var j = 0; j < nav.siblings.length; j++) {
         var sib = nav.siblings[j];
         var isActive = (sib.slug === slug) ? ' active' : '';
@@ -265,7 +265,7 @@
     if (!el || !cardsDb) return;
 
     // Find cards matching this page's source
-    var sourcePath = 'cours/' + slug + '.html';
+    var sourcePath = 'pages/' + slug + '.html';
     var matching = cardsDb.filter(function (c) { return c.s === sourcePath; });
 
     if (matching.length === 0) return;
@@ -336,8 +336,8 @@
 
   function addAllCards() {
     if (typeof SR === 'undefined' || !cardsDb || !currentSlug) return;
-    var sourcePath = 'cours/' + currentSlug + '.html';
-    var matching = cardsDb.filter(function (c) { return c.s === sourcePath; });
+    var sourcePath = 'pages/' + currentSlug + '.html';
+    var matching = cardsDb.filter(function (c) { return c.s === sourcePath || c.s === 'cours/' + currentSlug + '.html'; });
     var added = 0;
 
     var userCards = {};

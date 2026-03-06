@@ -315,7 +315,7 @@
     // Source link
     if (linkEl && footerDiv) {
       if (entry.s && entry.s !== currentSlug) {
-        linkEl.textContent = (entry.st || 'Voir le cours') + ' \u2192';
+        linkEl.textContent = (entry.st || 'Voir la page') + ' \u2192';
         linkEl.setAttribute('data-cv', entry.s);
         linkEl.href = '#';
         footerDiv.style.display = '';

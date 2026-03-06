@@ -28,8 +28,8 @@ function normalize(str) {
 }
 
 function slugFromSource(s) {
-  // "cours/philosophie/antiquite/aristote.html" → "philosophie/antiquite/aristote"
-  return s.replace(/^cours\//, '').replace(/\.html$/, '');
+  // "pages/philosophie/antiquite/aristote.html" → "philosophie/antiquite/aristote"
+  return s.replace(/^(?:cours|pages)\//, '').replace(/\.html$/, '');
 }
 
 // Lazy content file loader with cache

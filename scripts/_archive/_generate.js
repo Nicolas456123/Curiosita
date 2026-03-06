@@ -25,11 +25,11 @@ ${opts}
   }).join('\n');
 
   const navPrev = prevCourse ? `      <a href="${prevCourse.file}">
-        <span class="course-nav-label">Cours precedent</span>
+        <span class="course-nav-label">Page precedente</span>
         <span class="course-nav-title">&larr; ${prevCourse.name}</span>
       </a>` : '      <div></div>';
   const navNext = nextCourse ? `      <a href="${nextCourse.file}" class="next">
-        <span class="course-nav-label">Cours suivant</span>
+        <span class="course-nav-label">Page suivante</span>
         <span class="course-nav-title">${nextCourse.name} &rarr;</span>
       </a>` : '';
 
@@ -41,15 +41,15 @@ ${opts}
       <div class="course-content">
         <details>
           <summary>Exercice 1 &mdash; Analyse</summary>
-          <p>Choisissez une oeuvre etudiee dans ce cours et redigez une analyse de 200 mots couvrant : le contexte historique, les techniques utilisees et l'impact sur la discipline.</p>
+          <p>Choisissez une oeuvre etudiee dans cette page et redigez une analyse de 200 mots couvrant : le contexte historique, les techniques utilisees et l'impact sur la discipline.</p>
         </details>
         <details>
           <summary>Exercice 2 &mdash; Comparaison</summary>
-          <p>Comparez deux artistes ou oeuvres mentionnes dans ce cours. Identifiez les points communs, les differences et l'influence de l'un sur l'autre.</p>
+          <p>Comparez deux artistes ou oeuvres mentionnes dans cette page. Identifiez les points communs, les differences et l'influence de l'un sur l'autre.</p>
         </details>
         <details>
           <summary>Exercice 3 &mdash; Recherche</summary>
-          <p>Recherchez un artiste ou une oeuvre non mentionne(e) dans ce cours mais appartenant a la meme periode ou au meme mouvement. Presentez-le/la en un court paragraphe.</p>
+          <p>Recherchez un artiste ou une oeuvre non mentionne(e) dans cette page mais appartenant a la meme periode ou au meme mouvement. Presentez-le/la en un court paragraphe.</p>
         </details>
       </div>
     </section>`;
@@ -90,12 +90,12 @@ ${opts}
 <div class="layout">
   <aside class="sidebar">
     <a class="sidebar-link" href="../${hubFile}" style="color:var(--accent);margin-bottom:0.5rem;font-weight:500;">&larr; ${hubTitle}</a>
-    <p class="sidebar-title">Ce cours</p>
+    <p class="sidebar-title">Cette page</p>
     <a class="sidebar-link active" data-section="introduction" onclick="goTo('introduction',this)">&#128214; Introduction</a>
-    <a class="sidebar-link" data-section="cours" onclick="goTo('cours',this)">&#128221; Le cours</a>
+    <a class="sidebar-link" data-section="contenu" onclick="goTo('contenu',this)">&#128221; En détail</a>
     <a class="sidebar-link" data-section="quiz" onclick="goTo('quiz',this)">&#127919; Quiz</a>
     <a class="sidebar-link" data-section="exercices" onclick="goTo('exercices',this)">&#9999;&#65039; Exercices</a>
-    <p class="sidebar-title">Autres cours</p>
+    <p class="sidebar-title">Autres pages</p>
 ${sidebarSiblings}
   </aside>
   <main class="main">
@@ -110,10 +110,10 @@ ${sidebarSiblings}
       </div>
       <p class="resume-text">${introText2}</p>
     </section>
-    <section class="content-section" id="cours">
+    <section class="content-section" id="contenu">
       <div class="section-header">
         <div class="section-num">02</div>
-        <div class="section-info"><h2>Le cours</h2><p>${title}</p></div>
+        <div class="section-info"><h2>En détail</h2><p>${title}</p></div>
       </div>
       <div class="course-content">
 ${courseContent}
@@ -154,7 +154,7 @@ ${navNext}
 <footer class="site-footer">
   <div class="footer-links">
     <a href="../../../index.html">Accueil</a>
-    <a href="../../cours.html">Cours</a>
+    <a href="../../catalogue.html">Pages</a>
     <a href="../../apprendre.html">Apprendre</a>
   </div>
   <p>&copy; 2025 Curiosita</p>

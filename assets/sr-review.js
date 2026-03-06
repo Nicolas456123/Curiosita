@@ -62,14 +62,21 @@ const SR = (function () {
     migrateCoursPrefix();
   }
 
-  // ── Migration: add /cours/ prefix to card sources ──
+  // ── Migration: ensure /pages/ prefix on card sources ──
   function migrateCoursPrefix() {
     let changed = false;
     Object.values(_data.cards).forEach(c => {
-      if (c.source && c.source.includes('/Curiosita/') && !c.source.includes('/cours/')) {
+      if (!c.source || !c.source.includes('/Curiosita/')) return;
+      // Migrate old /cours/ paths to /pages/
+      if (c.source.includes('/Curiosita/cours/')) {
+        c.source = c.source.replace('/Curiosita/cours/', '/Curiosita/pages/');
+        changed = true;
+      }
+      // Legacy: add /pages/ prefix for bare paths (no cours/ or pages/)
+      else if (!c.source.includes('/pages/')) {
         const rest = c.source.slice(c.source.indexOf('/Curiosita/') + '/Curiosita/'.length);
         if (rest.includes('/')) {
-          c.source = c.source.replace('/Curiosita/', '/Curiosita/cours/');
+          c.source = c.source.replace('/Curiosita/', '/Curiosita/pages/');
           changed = true;
         }
       }
@@ -230,8 +237,9 @@ const SR = (function () {
     // Apply optional filter
     if (filter) {
       if (filter.type === 'theme') {
-        const prefix = '/Curiosita/' + filter.value + '/';
-        due = due.filter(c => (c.source || '').startsWith(prefix));
+        const prefix1 = '/Curiosita/pages/' + filter.value + '/';
+        const prefix2 = '/Curiosita/' + filter.value + '/';
+        due = due.filter(c => (c.source || '').startsWith(prefix1) || (c.source || '').startsWith(prefix2));
       } else if (filter.type === 'source') {
         due = due.filter(c => c.source === filter.value);
       }
@@ -453,7 +461,7 @@ const SR = (function () {
     const themes = {};
 
     cards.forEach(c => {
-      const match = (c.source || '').match(/\/Curiosita\/([^/]+)\//);
+      const match = (c.source || '').match(/\/Curiosita\/(?:pages\/)?([^/]+)\//);
       const theme = match ? match[1] : null;
       if (!theme) return;
 

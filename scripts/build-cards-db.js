@@ -363,7 +363,7 @@ function build() {
   ];
 
   for (const url of urls) {
-    // Convert /Curiosita/cours/... to local file path
+    // Convert /Curiosita/pages/... to local file path
     const relPath = url.replace(/^\/Curiosita\//, '');
     const filePath = path.join(BASE, relPath);
 
