@@ -410,7 +410,8 @@ button.option {
   font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700;
   margin: 2rem 0 1rem; color: var(--text);
 }
-.course-content p { color: var(--content-color); font-size: 0.95rem; line-height: 1.9; margin-bottom: 1.2rem; text-align: justify; }
+#cvContent p { text-align: justify; }
+.course-content p { color: var(--content-color); font-size: 0.95rem; line-height: 1.9; margin-bottom: 1.2rem; }
 .course-content ul, .course-content ol { color: var(--content-color); font-size: 0.92rem; line-height: 1.8; margin: 1rem 0 1.5rem 1.5rem; }
 .course-content li { margin-bottom: 0.5rem; }
 .course-content strong { color: var(--text); }
@@ -493,15 +494,19 @@ button.option {
   }
 }
 
-/* === GLOSSARY TERMS === */
+/* === GLOSSARY TERMS (Wikipedia-style links) === */
 .gl-term {
-  border-bottom: 1px dotted var(--accent);
-  cursor: help;
-  transition: color 0.2s, border-color 0.2s;
+  color: var(--accent2);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  cursor: pointer;
+  transition: color 0.2s, text-decoration-color 0.2s;
 }
 .gl-term:hover {
   color: var(--accent);
-  border-bottom-style: solid;
+  text-decoration-color: var(--accent);
 }
 
 /* === GLOSSARY POPOVER === */
@@ -576,15 +581,6 @@ button.option {
   font-size: 0.95rem;
   color: var(--accent);
 }
-.gl-popover-type {
-  font-size: 0.62rem;
-  padding: 0.12rem 0.45rem;
-  background: var(--accent-dim);
-  border-radius: 3px;
-  color: var(--accent);
-  white-space: nowrap;
-  letter-spacing: 0.03em;
-}
 .gl-popover-tag {
   font-size: 0.58rem;
   text-transform: uppercase;
@@ -601,27 +597,6 @@ button.option {
   color: var(--content-color);
   line-height: 1.65;
   font-size: 0.8rem;
-}
-
-.gl-popover-related {
-  padding: 0 1rem 0.6rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3rem;
-}
-.gl-popover-rel {
-  font-size: 0.68rem;
-  padding: 0.15rem 0.5rem;
-  background: var(--accent-dim);
-  border-radius: 3px;
-  color: var(--accent);
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.15s, color 0.15s;
-}
-.gl-popover-rel:hover {
-  background: var(--accent);
-  color: var(--bg);
 }
 
 .gl-popover-footer {
