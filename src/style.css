@@ -415,6 +415,162 @@ button.option {
 .course-content li { margin-bottom: 0.5rem; }
 .course-content strong { color: var(--text); }
 
+/* === GLOSSARY TERMS === */
+.gl-term {
+  border-bottom: 1px dotted var(--accent);
+  cursor: help;
+  transition: color 0.2s, border-color 0.2s;
+}
+.gl-term:hover {
+  color: var(--accent);
+  border-bottom-style: solid;
+}
+
+/* === GLOSSARY POPOVER === */
+.gl-popover {
+  position: fixed;
+  z-index: 500;
+  width: 320px;
+  max-width: calc(100vw - 2rem);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity 0.18s, transform 0.18s;
+  font-size: 0.85rem;
+}
+.gl-popover.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+/* Arrow pointing down (popover above term) */
+.gl-popover.arrow-below::after {
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  margin-left: -7px;
+  border: 7px solid transparent;
+  border-top-color: var(--surface);
+}
+.gl-popover.arrow-below::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  margin-left: -8px;
+  border: 8px solid transparent;
+  border-top-color: var(--border);
+}
+/* Arrow pointing up (popover below term) */
+.gl-popover.arrow-above::after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  margin-left: -7px;
+  border: 7px solid transparent;
+  border-bottom-color: var(--surface);
+}
+.gl-popover.arrow-above::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  margin-left: -8px;
+  border: 8px solid transparent;
+  border-bottom-color: var(--border);
+}
+
+.gl-popover-header {
+  padding: 0.75rem 1rem 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.gl-popover-term {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--accent);
+}
+.gl-popover-tag {
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.gl-popover-body {
+  padding: 0.2rem 1rem 0.6rem;
+  color: var(--content-color);
+  line-height: 1.65;
+  font-size: 0.8rem;
+}
+
+.gl-popover-related {
+  padding: 0 1rem 0.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.gl-popover-rel {
+  font-size: 0.68rem;
+  padding: 0.15rem 0.5rem;
+  background: var(--accent-dim);
+  border-radius: 3px;
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.gl-popover-rel:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.gl-popover-footer {
+  padding: 0.5rem 1rem;
+  border-top: 1px solid var(--border);
+}
+.gl-popover-link {
+  font-size: 0.72rem;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+.gl-popover-link:hover { text-decoration: underline; }
+
+/* Mobile: bottom sheet */
+@media (max-width: 600px) {
+  .gl-popover.mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 14px 14px 0 0;
+    max-height: 50vh;
+    overflow-y: auto;
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.5);
+  }
+  .gl-popover.mobile::before,
+  .gl-popover.mobile::after { display: none; }
+  .gl-popover-term { font-size: 1.05rem; }
+  .gl-popover-body { font-size: 0.88rem; }
+}
+
 /* === FOOTER === */
 .site-footer {
   border-top: 1px solid var(--border);

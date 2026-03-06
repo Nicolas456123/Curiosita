@@ -409,7 +409,7 @@ function build() {
   });
 
   // Write output
-  const output = JSON.stringify(unique);
+  const output = JSON.stringify(unique, null, 2);
   const outPath = path.join(ASSETS, 'cards-db.json');
   fs.writeFileSync(outPath, output, 'utf-8');
 

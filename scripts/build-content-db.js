@@ -461,7 +461,7 @@ function build() {
 
   // 1. courses-index.json
   const indexPath = path.join(ASSETS, 'courses-index.json');
-  fs.writeFileSync(indexPath, JSON.stringify(coursesIndex), 'utf-8');
+  fs.writeFileSync(indexPath, JSON.stringify(coursesIndex, null, 2), 'utf-8');
   const indexSize = (fs.statSync(indexPath).size / 1024).toFixed(1);
   console.log(`  courses-index.json: ${coursesIndex.length} entries (${indexSize} KB)`);
 
@@ -482,7 +482,7 @@ function build() {
     };
 
     const outPath = path.join(CONTENT_DIR, disc + '.json');
-    fs.writeFileSync(outPath, JSON.stringify(output), 'utf-8');
+    fs.writeFileSync(outPath, JSON.stringify(output, null, 2), 'utf-8');
     const size = fs.statSync(outPath).size;
     totalContentSize += size;
     const pageCount = Object.keys(byDisc[disc]).length;

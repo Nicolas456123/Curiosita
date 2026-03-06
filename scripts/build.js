@@ -59,7 +59,7 @@ const bundles = [
 ];
 
 // Standalone JS files to minify (not bundled)
-const standaloneJS = ['search.js', 'memo.js', 'card-browser.js', 'course-viewer.js'];
+const standaloneJS = ['search.js', 'memo.js', 'card-browser.js', 'course-viewer.js', 'glossary.js'];
 
 // CSS files to minify
 const cssFiles = ['style.css', 'sr-style.css'];

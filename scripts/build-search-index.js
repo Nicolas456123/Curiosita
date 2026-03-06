@@ -174,7 +174,7 @@ function build() {
   // Write search-index.json
   const ASSETS = path.join(BASE, 'assets');
   const jsonPath = path.join(ASSETS, 'search-index.json');
-  fs.writeFileSync(jsonPath, JSON.stringify(index, null, 0), 'utf-8');
+  fs.writeFileSync(jsonPath, JSON.stringify(index, null, 2), 'utf-8');
   console.log(`  search-index.json: ${index.length} entries (${(fs.statSync(jsonPath).size / 1024).toFixed(1)} KB)`);
 
   // Write sr-courses.js (auto-generated)

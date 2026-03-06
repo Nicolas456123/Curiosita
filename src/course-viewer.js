@@ -130,6 +130,22 @@
         renderSidebarCards(slug, disc);
       }).catch(function () {});
 
+      // Glossary annotation (non-blocking)
+      if (typeof GL !== 'undefined' && content) {
+        var annotateSlug = slug;
+        var annotateTarget = content;
+        var doAnnotate = function () {
+          GL.init(function () {
+            GL.annotate(annotateTarget, annotateSlug);
+          });
+        };
+        if (typeof requestIdleCallback !== 'undefined') {
+          requestIdleCallback(doAnnotate);
+        } else {
+          setTimeout(doAnnotate, 60);
+        }
+      }
+
     }).catch(function (e) {
       content.innerHTML = '<div class="cv-loading">Erreur : ' + escHtml(e.message) + '</div>';
     });
@@ -499,6 +515,9 @@
     document.body.style.overflow = '';
     currentSlug = null;
     currentDisc = null;
+
+    // Hide glossary popover
+    if (typeof GL !== 'undefined') GL.hidePopover();
 
     // Restore default accent colors
     var root = document.documentElement;
