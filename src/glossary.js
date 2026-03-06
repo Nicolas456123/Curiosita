@@ -69,7 +69,7 @@
     loading = true;
 
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'assets/glossary.json?v=1');
+    xhr.open('GET', 'assets/glossary.json?v=2');
     xhr.onload = function () {
       if (xhr.status >= 200 && xhr.status < 300) {
         try {
@@ -249,9 +249,50 @@
     var footerDiv = popoverEl.querySelector('.gl-popover-footer');
     var linkEl = popoverEl.querySelector('.gl-popover-link');
 
+    populatePopover(entry);
+
+    // Position
+    positionPopover(termEl);
+    popoverEl.classList.add('visible');
+  }
+
+  function showPopoverForKey(key) {
+    // Show popover for a key (from related term click)
+    if (!glossary.terms[key]) return;
+    populatePopover(glossary.terms[key]);
+  }
+
+  // Type labels for badges
+  var TYPE_LABELS = {
+    'p': '\ud83d\udc64 Personnage',
+    'd': '\ud83d\udcda Domaine',
+    'c': '\ud83d\udca1 Concept',
+    'f': '\ud83d\udcd0 Formule'
+  };
+
+  function populatePopover(entry) {
+    var termSpan = popoverEl.querySelector('.gl-popover-term');
+    var typeSpan = popoverEl.querySelector('.gl-popover-type');
+    var tagSpan = popoverEl.querySelector('.gl-popover-tag');
+    var bodyDiv = popoverEl.querySelector('.gl-popover-body');
+    var relDiv = popoverEl.querySelector('.gl-popover-related');
+    var footerDiv = popoverEl.querySelector('.gl-popover-footer');
+    var linkEl = popoverEl.querySelector('.gl-popover-link');
+
     if (termSpan) termSpan.textContent = entry.n;
     if (tagSpan) tagSpan.textContent = entry.tg || '';
     if (bodyDiv) bodyDiv.textContent = entry.d;
+
+    // Type badge (person, domain, concept, formula — not shown for plain definitions)
+    if (typeSpan) {
+      var label = entry.tp ? TYPE_LABELS[entry.tp] || '' : '';
+      if (label) {
+        typeSpan.textContent = label;
+        typeSpan.style.display = '';
+      } else {
+        typeSpan.style.display = 'none';
+      }
+    }
 
     // Related terms
     if (relDiv) {
@@ -274,56 +315,7 @@
     // Source link
     if (linkEl && footerDiv) {
       if (entry.s && entry.s !== currentSlug) {
-        linkEl.textContent = (entry.st || 'Voir le cours') + ' →';
-        linkEl.setAttribute('data-cv', entry.s);
-        linkEl.href = '#';
-        footerDiv.style.display = '';
-      } else {
-        footerDiv.style.display = 'none';
-      }
-    }
-
-    // Position
-    positionPopover(termEl);
-    popoverEl.classList.add('visible');
-  }
-
-  function showPopoverForKey(key) {
-    // Show popover for a key (from related term click)
-    if (!glossary.terms[key]) return;
-    var entry = glossary.terms[key];
-
-    var termSpan = popoverEl.querySelector('.gl-popover-term');
-    var tagSpan = popoverEl.querySelector('.gl-popover-tag');
-    var bodyDiv = popoverEl.querySelector('.gl-popover-body');
-    var relDiv = popoverEl.querySelector('.gl-popover-related');
-    var footerDiv = popoverEl.querySelector('.gl-popover-footer');
-    var linkEl = popoverEl.querySelector('.gl-popover-link');
-
-    if (termSpan) termSpan.textContent = entry.n;
-    if (tagSpan) tagSpan.textContent = entry.tg || '';
-    if (bodyDiv) bodyDiv.textContent = entry.d;
-
-    if (relDiv) {
-      if (entry.r && entry.r.length > 0) {
-        var html = '';
-        for (var i = 0; i < Math.min(entry.r.length, 5); i++) {
-          var rk = entry.r[i];
-          var re = glossary.terms[rk];
-          if (re) {
-            html += '<span class="gl-popover-rel" data-gl="' + rk + '">' + escHtml(re.n) + '</span>';
-          }
-        }
-        relDiv.innerHTML = html;
-        relDiv.style.display = '';
-      } else {
-        relDiv.style.display = 'none';
-      }
-    }
-
-    if (linkEl && footerDiv) {
-      if (entry.s && entry.s !== currentSlug) {
-        linkEl.textContent = (entry.st || 'Voir le cours') + ' →';
+        linkEl.textContent = (entry.st || 'Voir le cours') + ' \u2192';
         linkEl.setAttribute('data-cv', entry.s);
         linkEl.href = '#';
         footerDiv.style.display = '';

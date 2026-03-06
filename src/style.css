@@ -415,6 +415,84 @@ button.option {
 .course-content li { margin-bottom: 0.5rem; }
 .course-content strong { color: var(--text); }
 
+/* === PROGRESS SECTION (landing page) === */
+.progress-section {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  padding: 0 2rem;
+}
+.progress-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.2rem 1.8rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.progress-ring-wrap {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  flex-shrink: 0;
+}
+.progress-ring {
+  width: 68px;
+  height: 68px;
+  transform: rotate(-90deg);
+}
+.progress-ring-bg {
+  fill: none;
+  stroke: var(--surface2);
+  stroke-width: 5;
+}
+.progress-ring-fill {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 5;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.8s ease;
+}
+.progress-ring-pct {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+  font-family: 'DM Sans', sans-serif;
+}
+.progress-headline {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+.progress-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.2rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.progress-metric strong {
+  color: var(--text);
+  font-weight: 500;
+}
+@media (max-width: 600px) {
+  .progress-inner {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.2rem;
+  }
+  .progress-metrics {
+    justify-content: center;
+  }
+}
+
 /* === GLOSSARY TERMS === */
 .gl-term {
   border-bottom: 1px dotted var(--accent);
@@ -497,6 +575,15 @@ button.option {
   font-weight: 700;
   font-size: 0.95rem;
   color: var(--accent);
+}
+.gl-popover-type {
+  font-size: 0.62rem;
+  padding: 0.12rem 0.45rem;
+  background: var(--accent-dim);
+  border-radius: 3px;
+  color: var(--accent);
+  white-space: nowrap;
+  letter-spacing: 0.03em;
 }
 .gl-popover-tag {
   font-size: 0.58rem;

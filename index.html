@@ -1287,6 +1287,28 @@
   </div>
 </section>
 
+<!-- PROGRESS -->
+<section class="progress-section" id="progressSection" style="display:none">
+  <div class="progress-inner">
+    <div class="progress-ring-wrap">
+      <svg class="progress-ring" viewBox="0 0 80 80">
+        <circle class="progress-ring-bg" cx="40" cy="40" r="34" />
+        <circle class="progress-ring-fill" id="progressRingFill" cx="40" cy="40" r="34" />
+      </svg>
+      <span class="progress-ring-pct" id="progressPct">--%</span>
+    </div>
+    <div class="progress-info">
+      <div class="progress-headline">Couverture encyclopédique</div>
+      <div class="progress-metrics" id="progressMetrics">
+        <span class="progress-metric"><strong id="pmDisc">--</strong> / <span id="pmDiscT">--</span> disciplines</span>
+        <span class="progress-metric"><strong id="pmHubs">--</strong> / <span id="pmHubsT">--</span> domaines</span>
+        <span class="progress-metric"><strong id="pmLess">--</strong> / <span id="pmLessT">--</span> leçons</span>
+        <span class="progress-metric"><strong id="pmCards">--</strong> / <span id="pmCardsT">--</span> flashcards</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- THEMES -->
 <section class="themes-section" id="themes">
   <div class="section-header">
@@ -1294,7 +1316,7 @@
       <p class="section-number">Domaines</p>
       <h2 class="section-title">Les grands thèmes</h2>
     </div>
-    <p class="section-count">7 grands thèmes · 10 disciplines · 200+ cours</p>
+    <p class="section-count" id="themeCount">7 grands thèmes · 10 disciplines · 200+ cours</p>
   </div>
 
   <div class="themes-grid" id="themesGrid">
@@ -1486,6 +1508,7 @@
   <div class="gl-popover" id="glPopover">
     <div class="gl-popover-header">
       <span class="gl-popover-term"></span>
+      <span class="gl-popover-type"></span>
       <span class="gl-popover-tag"></span>
     </div>
     <div class="gl-popover-body"></div>
@@ -1743,7 +1766,57 @@ document.addEventListener('DOMContentLoaded', function() {
 <script src="assets/search.min.js?v=4"></script>
 <script src="assets/card-browser.min.js?v=4"></script>
 <script src="assets/course-viewer.min.js?v=5"></script>
-<script src="assets/glossary.min.js?v=1" defer></script>
+<script src="assets/glossary.min.js?v=2" defer></script>
+<script>
+// Coverage progress — loads target-structure.json + courses-index.json
+(function() {
+  function loadJSON(url, cb) {
+    var x = new XMLHttpRequest();
+    x.open('GET', url);
+    x.onload = function() { if (x.status < 300) cb(JSON.parse(x.responseText)); };
+    x.send();
+  }
+  var loaded = 0, tgt, idx;
+  function check() {
+    if (++loaded < 2) return;
+    // Count current from index
+    var discs = {}, hubs = {}, lessons = 0, cards = 0;
+    idx.forEach(function(e) {
+      if (!e.disc || e.disc === '_themes') return;
+      if (e.tp === 'discipline') discs[e.disc] = true;
+      if (e.tp === 'hub' && e.disc) { hubs[e.disc] = hubs[e.disc] || {}; hubs[e.disc][e.hub] = true; }
+      if (e.tp === 'lesson') { lessons++; cards += (e.cards || 0); }
+    });
+    var cDisc = Object.keys(discs).length;
+    var cHubs = 0;
+    Object.keys(hubs).forEach(function(d) { cHubs += Object.keys(hubs[d]).length; });
+    var t = tgt.targets;
+    var pct = Math.round((lessons / t.lessons) * 100);
+    // Populate
+    document.getElementById('progressPct').textContent = pct + '%';
+    document.getElementById('pmDisc').textContent = cDisc;
+    document.getElementById('pmDiscT').textContent = t.disciplines;
+    document.getElementById('pmHubs').textContent = cHubs;
+    document.getElementById('pmHubsT').textContent = t.hubs;
+    document.getElementById('pmLess').textContent = lessons;
+    document.getElementById('pmLessT').textContent = t.lessons;
+    document.getElementById('pmCards').textContent = cards.toLocaleString('fr-FR');
+    document.getElementById('pmCardsT').textContent = t.cards.toLocaleString('fr-FR');
+    // Ring
+    var circ = 2 * Math.PI * 34;
+    var fill = document.getElementById('progressRingFill');
+    fill.style.strokeDasharray = circ;
+    fill.style.strokeDashoffset = circ * (1 - pct / 100);
+    // Update theme count
+    var tc = document.getElementById('themeCount');
+    if (tc) tc.textContent = '7 grands thèmes · ' + cDisc + ' disciplines · ' + lessons + ' cours';
+    // Show
+    document.getElementById('progressSection').style.display = '';
+  }
+  loadJSON('assets/target-structure.json?v=1', function(d) { tgt = d; check(); });
+  loadJSON('assets/courses-index.json?v=4', function(d) { idx = d; check(); });
+})();
+</script>
 
 </body>
 </html>
