@@ -1016,6 +1016,11 @@
     padding: 0.1rem 0.4rem; border-radius: 3px;
   }
   .cb-item-source { color: var(--muted); }
+  .cb-item-course {
+    text-decoration: none; font-size: 0.85rem; margin-left: auto;
+    opacity: 0.5; transition: opacity 0.2s;
+  }
+  .cb-item-course:hover { opacity: 1; }
 
   .cb-item-btn {
     width: 36px; height: 36px; flex-shrink: 0;
@@ -1043,6 +1048,135 @@
     cursor: pointer; transition: all 0.2s;
   }
   .cb-load-more:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* === COURSE VIEWER === */
+  .cv-overlay {
+    position: fixed; inset: 0; z-index: 200;
+    background: var(--bg);
+    display: flex; flex-direction: column;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.25s;
+  }
+  .cv-overlay.open { opacity: 1; pointer-events: auto; }
+
+  .cv-header {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 0.8rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .cv-close {
+    background: none; border: none; color: var(--muted);
+    font-size: 1.2rem; cursor: pointer; padding: 0.3rem;
+    transition: color 0.2s;
+  }
+  .cv-close:hover { color: var(--text); }
+  .cv-breadcrumb { font-size: 0.78rem; color: var(--muted); flex: 1; }
+  .cv-breadcrumb a { color: var(--accent); text-decoration: none; }
+  .cv-breadcrumb a:hover { text-decoration: underline; }
+  .cv-sep { margin: 0 0.3rem; color: var(--border); }
+  .cv-sidebar-toggle {
+    display: none; background: none; border: 1px solid var(--border);
+    color: var(--muted); font-size: 0.75rem; padding: 0.4rem 0.8rem;
+    border-radius: 4px; cursor: pointer;
+  }
+
+  .cv-body { display: flex; flex: 1; overflow: hidden; }
+
+  .cv-sidebar {
+    width: 240px; flex-shrink: 0;
+    border-right: 1px solid var(--border);
+    padding: 1rem; overflow-y: auto;
+  }
+  .cv-sidebar-back {
+    display: block; font-size: 0.78rem; color: var(--accent);
+    text-decoration: none; margin-bottom: 1rem;
+  }
+  .cv-sidebar-back:hover { text-decoration: underline; }
+  .cv-sidebar-title {
+    font-size: 0.65rem; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--muted);
+    margin-top: 1.5rem; margin-bottom: 0.6rem;
+  }
+  .cv-sidebar-title:first-child { margin-top: 0; }
+  .cv-sidebar-link {
+    display: block; font-size: 0.78rem; color: var(--text);
+    text-decoration: none; padding: 0.25rem 0.4rem;
+    border-radius: 4px; transition: background 0.15s;
+  }
+  .cv-sidebar-link:hover { background: var(--surface); }
+  .cv-sidebar-link.active { color: var(--accent); background: var(--accent-dim); }
+
+  .cv-main {
+    flex: 1; overflow-y: auto;
+  }
+  .cv-main > .main {
+    max-width: 860px; padding: 0 3.5rem 3rem;
+  }
+
+  .cv-hero.hero {
+    padding-top: 3rem;
+    max-width: none;
+  }
+  .cv-hero.hero--course { padding: 2.5rem 2.5rem 2rem; }
+  .cv-hero.hero--hub { padding: 3rem 2.5rem 2.5rem; }
+  .cv-hero.hero--discipline { padding: 3.5rem 2.5rem 3rem; }
+
+  .cv-loading {
+    text-align: center; color: var(--muted);
+    padding: 3rem 1rem; font-size: 0.9rem;
+  }
+
+  /* CV Sidebar Cards */
+  .cv-cards-list { max-height: 300px; overflow-y: auto; }
+  .cv-card-item {
+    display: flex; align-items: center; gap: 0.4rem;
+    padding: 0.3rem 0; font-size: 0.72rem;
+  }
+  .cv-card-item.added { opacity: 0.6; }
+  .cv-card-front { flex: 1; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .cv-card-btn {
+    width: 22px; height: 22px; flex-shrink: 0;
+    border-radius: 50%; border: 1px solid var(--border);
+    background: none; color: var(--muted);
+    font-size: 0.7rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .cv-card-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .cv-card-btn.active { background: var(--green); border-color: var(--green); color: var(--bg); }
+  .cv-cards-more { font-size: 0.68rem; color: var(--muted); padding: 0.3rem 0; }
+  .cv-cards-add-all {
+    display: block; width: 100%; margin-top: 0.5rem;
+    padding: 0.5rem; background: none;
+    border: 1px solid var(--border); border-radius: 4px;
+    color: var(--accent); font-size: 0.72rem;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .cv-cards-add-all:hover { background: var(--accent-dim); }
+
+  /* CV sidebar close for mobile */
+  .cv-sidebar-close {
+    display: none; width: 100%; background: none;
+    border: 1px solid var(--border); color: var(--muted);
+    font-size: 0.78rem; padding: 0.6rem; margin-bottom: 1rem;
+    border-radius: 6px; cursor: pointer; text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .cv-sidebar { display: none; }
+    .cv-sidebar.mobile-open {
+      display: block; position: fixed; inset: 0; z-index: 300;
+      background: var(--bg); padding: 1rem 1.2rem; overflow-y: auto; width: auto;
+    }
+    .cv-sidebar.mobile-open .cv-sidebar-close { display: block; }
+    .cv-sidebar-toggle { display: flex !important; }
+    .cv-hero.hero { padding: 2rem 1.2rem 1.5rem; }
+    .cv-hero.hero--course { padding: 1.5rem 1.2rem 1rem; }
+    .cv-hero .hero-deco { font-size: 6rem; right: 0.5rem; top: 0.5rem; }
+    .cv-main > .main { padding: 0 1.2rem 2rem; }
+    .cv-header { padding: 0.6rem 1rem; flex-wrap: wrap; gap: 0.5rem; }
+  }
 </style>
 </head>
 <body>
@@ -1333,6 +1467,24 @@
   </div>
 </div>
 
+<!-- COURSE VIEWER -->
+<div class="cv-overlay" id="courseViewerOverlay">
+  <div class="cv-header">
+    <button class="cv-close" onclick="CV.close()">✕</button>
+    <div class="cv-breadcrumb" id="cvBreadcrumb"></div>
+    <button class="cv-sidebar-toggle" onclick="document.querySelector('.cv-sidebar').classList.toggle('mobile-open')">☰ Sommaire</button>
+  </div>
+  <div class="cv-body">
+    <aside class="cv-sidebar" id="cvSidebar">
+      <button class="cv-sidebar-close" onclick="this.parentElement.classList.remove('mobile-open')">✕ Fermer le sommaire</button>
+    </aside>
+    <div class="cv-main" id="cvMain">
+      <div class="cv-hero" id="cvHero"></div>
+      <main class="main" id="cvContent"></main>
+    </div>
+  </div>
+</div>
+
 <!-- WELCOME MODAL -->
 <div class="welcome-overlay" id="welcomeOverlay" onclick="if(event.target===this)closeWelcome()">
   <div class="welcome-box">
@@ -1560,7 +1712,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var pool = courses.filter(function(d) { return !userSources[d.u]; });
     if (!pool.length) pool = courses;
     function renderPick(p) {
-      return '<a href="' + p.u + '" class="dash-discover-link">' +
+      var cvAttr = p.id ? ' data-cv="' + p.id + '"' : '';
+      return '<a href="' + (p.u || '#') + '"' + cvAttr + ' class="dash-discover-link">' +
         '<span class="dash-discover-icon">' + p.i + '</span>' +
         '<div class="dash-discover-info"><div class="dash-discover-name">' + p.n + '</div>' +
         '<div class="dash-discover-cat">' + p.c + '</div></div>' +
@@ -1578,6 +1731,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script src="assets/search.min.js?v=4"></script>
 <script src="assets/card-browser.min.js?v=4"></script>
+<script src="assets/course-viewer.min.js?v=5"></script>
 
 </body>
 </html>

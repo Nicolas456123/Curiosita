@@ -56,7 +56,34 @@
     return new DOMParser().parseFromString(html, 'text/html');
   }
 
-  // ── Primary: load pre-built search-index.json ──
+  // ── Primary: load courses-index.json (rich data with CV ids) ──
+  async function loadCoursesIndex() {
+    try {
+      const resp = await fetch('assets/courses-index.json?v=4');
+      if (!resp.ok) throw new Error(resp.status);
+      const data = await resp.json();
+      if (Array.isArray(data) && data.length > 0) {
+        const typeMap = { lesson: 'cours', hub: 'domaine', discipline: 'matière', theme: 'thème' };
+        searchData = data.map(d => ({
+          n: d.t,
+          c: d.cat,
+          u: d.tp === 'theme' ? ('cours/' + d.id + '.html') : ('cours/' + d.id + '.html'),
+          t: typeMap[d.tp] || d.tp,
+          i: d.icon,
+          id: d.id
+        }));
+        searchReady = true;
+        if (window._dashPopulateDiscover) window._dashPopulateDiscover(searchData);
+        try {
+          sessionStorage.setItem('curiosita_search', JSON.stringify({ data: searchData, ts: Date.now() }));
+        } catch(e) {}
+        return true;
+      }
+    } catch(e) {}
+    return false;
+  }
+
+  // ── Fallback: load search-index.json (no CV ids) ──
   async function loadStaticIndex() {
     try {
       const resp = await fetch('assets/search-index.json?v=4');
@@ -66,7 +93,6 @@
         searchData = data;
         searchReady = true;
         if (window._dashPopulateDiscover) window._dashPopulateDiscover(searchData);
-        // Cache in sessionStorage
         try {
           sessionStorage.setItem('curiosita_search', JSON.stringify({ data: data, ts: Date.now() }));
         } catch(e) {}
@@ -161,11 +187,15 @@
       } catch(e) {}
     }
 
-    // Try pre-built JSON index
+    // Try courses-index.json first (rich data with CV support)
+    const loadedCourses = await loadCoursesIndex();
+    if (loadedCourses) return;
+
+    // Fallback: search-index.json
     const loaded = await loadStaticIndex();
     if (loaded) return;
 
-    // Fallback: scan pages dynamically
+    // Last resort: scan pages dynamically
     await buildSearchIndexDynamic();
   }
 
@@ -215,21 +245,26 @@
       return;
     }
 
-    results.innerHTML = scored.map(d => `
-      <a href="${d.u}" class="result-item">
+    results.innerHTML = scored.map(d => {
+      const cvAttr = d.id ? ` data-cv="${d.id}"` : '';
+      const tag = `<a href="${d.u || '#'}"${cvAttr} class="result-item">`;
+      return `${tag}
         <span class="result-icon">${d.i}</span>
         <span class="result-name">${d.n}</span>
         <span class="result-meta">
           <span class="result-cat">${d.c}</span>
           <span class="result-type">${d.t}</span>
         </span>
-      </a>
-    `).join('');
+      </a>`;
+    }).join('');
     results.classList.add('visible');
   });
 
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.search-wrap')) results.classList.remove('visible');
+    // Close search results when a viewer link is clicked inside results
+    var cvLink = e.target.closest('.result-item[data-cv]');
+    if (cvLink) results.classList.remove('visible');
   });
 
   // ── Card entrance animations ──
@@ -259,8 +294,13 @@
     });
   }
 
+  function treeLink(item, cls, content) {
+    const cvAttr = item.id ? ` data-cv="${item.id}"` : '';
+    return `<a href="${item.u || '#'}"${cvAttr} class="tree-link ${cls}">${content}</a>`;
+  }
+
   function renderCourse(c) {
-    return `<div class="tree-leaf"><a href="${c.u}" class="tree-link tree-course-link"><span class="tree-leaf-bullet">•</span>${c.n}</a></div>`;
+    return `<div class="tree-leaf">${treeLink(c, 'tree-course-link', '<span class="tree-leaf-bullet">•</span>' + c.n)}</div>`;
   }
 
   function renderDomain(d) {
@@ -268,7 +308,7 @@
     return `<div class="tree-node tree-domain">
       <div class="tree-node-header" data-toggle>
         <span class="tree-chevron">&#9654;</span>
-        <a href="${d.u}" class="tree-link tree-node-name">${d.n}</a>
+        ${treeLink(d, 'tree-node-name', d.n)}
         <span class="tree-node-count">${cnt} cours</span>
       </div>
       <div class="tree-children" style="display:none">${d.children.map(renderCourse).join('')}</div>
@@ -281,7 +321,7 @@
       <div class="tree-node-header" data-toggle>
         <span class="tree-chevron">&#9654;</span>
         <span class="tree-node-icon">${s.i}</span>
-        <a href="${s.u}" class="tree-link tree-node-name">${s.n}</a>
+        ${treeLink(s, 'tree-node-name', s.n)}
         <span class="tree-node-count">${cnt} domaine${cnt > 1 ? 's' : ''}</span>
       </div>
       <div class="tree-children" style="display:none">${s.children.map(renderDomain).join('')}</div>

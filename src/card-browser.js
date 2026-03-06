@@ -286,10 +286,17 @@
     }
 
     var html = '';
+    var hasCV = typeof CV !== 'undefined';
     for (var i = 0; i < visible.length; i++) {
       var card = visible[i];
       var isAdded = !!userCardIds[card.id];
       var tLabel = typeLabels[card.t] || card.t;
+      // Build course link from source path (cours/disc/hub/lesson.html → disc/hub/lesson)
+      var courseLink = '';
+      if (hasCV && card.s) {
+        var slug = card.s.replace(/^cours\//, '').replace(/\.html$/, '');
+        courseLink = '<a href="#" class="cb-item-course" onclick="CV.open(\'' + slug + '\');CB.close();return false" title="Voir le cours">\ud83d\udcd6</a>';
+      }
       html += '<div class="cb-item' + (isAdded ? ' added' : '') + '" data-id="' + card.id + '">' +
         '<div class="cb-item-content">' +
         '<div class="cb-item-front">' + escHtml(card.f) + '</div>' +
@@ -297,6 +304,7 @@
         '<div class="cb-item-meta">' +
         '<span class="cb-item-type">' + escHtml(tLabel) + '</span>' +
         '<span class="cb-item-source">' + escHtml(card.st) + '</span>' +
+        courseLink +
         '</div>' +
         '</div>' +
         '<button class="cb-item-btn' + (isAdded ? ' active' : '') + '" onclick="CB.toggle(\'' + card.id + '\')">' +
