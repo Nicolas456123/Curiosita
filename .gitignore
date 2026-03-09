@@ -1,14 +1,22 @@
-# Intermediate build artifacts (unminified bundles)
-assets/curiosita.js
-assets/sr-app.js
-assets/sr-course.js
-
-# Temporary migration scripts
-refactor_*.py
-
-# Node
-node_modules/
-
-# OS
 .DS_Store
 Thumbs.db
+tools/zim/
+archives/
+nul
+
+# Huge generated files
+assets/courses-index.json
+
+# 2.6M individual Wikipedia article JSONs (too large for git)
+# Discipline files already tracked by git are unaffected
+assets/content/*.json
+!assets/content/_*.json
+
+# Python cache
+__pycache__/
+
+# ZIM files
+*.zim
+
+# Portail data (large)
+tools/_all-portails.json
