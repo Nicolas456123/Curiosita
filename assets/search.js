@@ -1,15 +1,14 @@
 // ══════════════════════════════════════════════════════
-//  Curiosità — Search + Category Tree Navigation
-//  Uses _categories.json for hierarchical browsing
-//  Uses /api/search for text search (server-side)
+//  Curiosita — Search + Tree Navigation
+//  Index de recherche avec fallback dynamique
+//  Extrait de index.html pour meilleure mise en cache
 // ══════════════════════════════════════════════════════
 
 (function () {
   'use strict';
 
-  let categoriesData = null;
-  let iconMap = {};
-  let apiStats = null;
+  let searchData = [];
+  let searchReady = false;
 
   const input = document.getElementById('searchInput');
   const results = document.getElementById('searchResults');
@@ -21,286 +20,342 @@
     return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   }
 
-  // ── Load _categories.json (category tree) ──
-  async function loadCategories() {
-    if (categoriesData) return categoriesData;
-    try {
-      const resp = await fetch('assets/content/_categories.json?v=2');
-      if (!resp.ok) throw new Error(resp.status);
-      const raw = await resp.json();
-      categoriesData = raw.tree || raw;
-      for (const [key, cat] of Object.entries(categoriesData)) {
-        iconMap[key] = cat.icon || '\ud83d\udcd6';
+  // Extract the subject name from a *-page.html title
+  function extractTitle(doc) {
+    const t = doc.querySelector('title')?.textContent || '';
+    return t.split('—')[0].trim();
+  }
+
+  // Resolve a relative href against a base path
+  function resolveUrl(href, basePath) {
+    if (href.startsWith('/') || href.startsWith('http')) return href;
+    const dir = basePath.includes('/') ? basePath.substring(0, basePath.lastIndexOf('/') + 1) : '';
+    return dir + href;
+  }
+
+  // Parse .course-card links from a page document
+  function extractCourseCards(doc, basePath) {
+    const cards = [];
+    doc.querySelectorAll('.course-card[href]').forEach(card => {
+      const href = card.getAttribute('href');
+      const name = card.querySelector('h3')?.textContent?.trim();
+      const desc = card.querySelector('p')?.textContent?.trim() || '';
+      if (name && href) {
+        const url = resolveUrl(href, basePath);
+        cards.push({ name, desc, url });
       }
-      return categoriesData;
-    } catch (e) {
-      console.warn('Failed to load _categories.json:', e);
-      return {};
-    }
+    });
+    return cards;
   }
 
-  // ── Load stats from server API ──
-  async function loadStats() {
+  // Fetch and parse an HTML page
+  async function fetchDoc(url) {
+    const resp = await fetch(url);
+    if (!resp.ok) throw new Error(resp.status);
+    const html = await resp.text();
+    return new DOMParser().parseFromString(html, 'text/html');
+  }
+
+  // ── Primary: load courses-index.json (rich data with CV ids) ──
+  async function loadCoursesIndex() {
     try {
-      const resp = await fetch('/api/stats');
+      const resp = await fetch('assets/courses-index.json?v=5');
       if (!resp.ok) throw new Error(resp.status);
-      apiStats = await resp.json();
-    } catch (e) {
-      console.warn('Failed to load /api/stats:', e);
+      const data = await resp.json();
+      if (Array.isArray(data) && data.length > 0) {
+        const typeMap = { lesson: 'page', hub: 'domaine', discipline: 'matière', theme: 'thème' };
+        searchData = data.map(d => ({
+          n: d.t,
+          c: d.cat,
+          u: d.tp === 'theme' ? ('pages/' + d.id + '.html') : ('pages/' + d.id + '.html'),
+          t: typeMap[d.tp] || d.tp,
+          i: d.icon,
+          id: d.id
+        }));
+        searchReady = true;
+        if (window._dashPopulateDiscover) window._dashPopulateDiscover(searchData);
+        try {
+          sessionStorage.setItem('curiosita_search', JSON.stringify({ data: searchData, ts: Date.now() }));
+        } catch(e) {}
+        return true;
+      }
+    } catch(e) {}
+    return false;
+  }
+
+  // ── Fallback: load search-index.json (no CV ids) ──
+  async function loadStaticIndex() {
+    try {
+      const resp = await fetch('assets/search-index.json?v=5');
+      if (!resp.ok) throw new Error(resp.status);
+      const data = await resp.json();
+      if (Array.isArray(data) && data.length > 0) {
+        searchData = data;
+        searchReady = true;
+        if (window._dashPopulateDiscover) window._dashPopulateDiscover(searchData);
+        try {
+          sessionStorage.setItem('curiosita_search', JSON.stringify({ data: data, ts: Date.now() }));
+        } catch(e) {}
+        return true;
+      }
+    } catch(e) {}
+    return false;
+  }
+
+  // ── Fallback: build index dynamically by scanning pages ──
+  async function buildSearchIndexDynamic() {
+    const index = [];
+
+    // 1. Discover grand theme pages from theme-card links
+    const themeLinks = [];
+    document.querySelectorAll('.theme-card[href]').forEach(card => {
+      const href = card.getAttribute('href');
+      if (href && href.endsWith('.html')) {
+        const icon = card.querySelector('.theme-icon')?.textContent || '📖';
+        const themeName = card.querySelector('.theme-name')?.textContent?.trim() || '';
+        themeLinks.push({ href, icon, themeName });
+      }
+    });
+
+    // 2. Fetch grand theme pages and discover subject pages
+    const subjectLinks = [];
+    await Promise.allSettled(themeLinks.map(async (t) => {
+      index.push({ n: t.themeName, c: 'Curiosita', u: t.href, t: 'thème', i: t.icon });
+      try {
+        const doc = await fetchDoc(t.href);
+        const cards = extractCourseCards(doc, t.href);
+        for (const card of cards) {
+          if (card.url.endsWith('-page.html') || card.url.match(/pages\/[\w-]+\/index\.html$/)) {
+            subjectLinks.push({ href: card.url, icon: t.icon, themeName: t.themeName, subjectHint: card.name });
+          }
+        }
+      } catch(e) {}
+    }));
+
+    // 3. Fetch all subject pages in parallel
+    const subjectResults = await Promise.allSettled(
+      subjectLinks.map(async (s) => {
+        const doc = await fetchDoc(s.href);
+        const subjectName = s.subjectHint || extractTitle(doc);
+        index.push({ n: subjectName, c: s.themeName, u: s.href, t: 'matière', i: s.icon });
+        const hubs = extractCourseCards(doc, s.href);
+        return { subjectName, icon: s.icon, hubs, themeName: s.themeName };
+      })
+    );
+
+    // 4. Collect all hubs and fetch them in parallel
+    const hubFetches = [];
+    for (const result of subjectResults) {
+      if (result.status !== 'fulfilled') continue;
+      const { subjectName, icon, hubs, themeName } = result.value;
+      for (const hub of hubs) {
+        index.push({ n: hub.name, c: subjectName, u: hub.url, t: 'domaine', i: icon });
+        hubFetches.push(
+          fetchDoc(hub.url).then(hubDoc => {
+            const courses = extractCourseCards(hubDoc, hub.url);
+            for (const course of courses) {
+              index.push({ n: course.name, c: `${subjectName} › ${hub.name}`, u: course.url, t: 'page', i: icon });
+            }
+          }).catch(() => {})
+        );
+      }
     }
+
+    await Promise.allSettled(hubFetches);
+
+    searchData = index;
+    searchReady = true;
+    if (window._dashPopulateDiscover) window._dashPopulateDiscover(searchData);
+    try {
+      sessionStorage.setItem('curiosita_search', JSON.stringify({ data: index, ts: Date.now() }));
+    } catch(e) {}
   }
 
-  // ── Main init ──
-  async function init() {
-    await loadCategories();
-    generateThemeCards();
-    await loadStats();
+  // ── Main init: try static JSON first, then fallback to dynamic ──
+  async function buildSearchIndex() {
+    // Check sessionStorage cache (valid 10 minutes)
+    const cached = sessionStorage.getItem('curiosita_search');
+    if (cached) {
+      try {
+        const { data, ts } = JSON.parse(cached);
+        if (Date.now() - ts < 10 * 60 * 1000) {
+          searchData = data;
+          searchReady = true;
+          if (window._dashPopulateDiscover) window._dashPopulateDiscover(searchData);
+          return;
+        }
+      } catch(e) {}
+    }
+
+    // Try courses-index.json first (rich data with CV support)
+    const loadedCourses = await loadCoursesIndex();
+    if (loadedCourses) return;
+
+    // Fallback: search-index.json
+    const loaded = await loadStaticIndex();
+    if (loaded) return;
+
+    // Last resort: scan pages dynamically
+    await buildSearchIndexDynamic();
   }
 
-  init();
+  // Start building index immediately
+  buildSearchIndex();
 
   function fillSearch(text) {
     input.value = text;
     input.dispatchEvent(new Event('input'));
     input.focus();
   }
+  // Expose for tag buttons
   window.fillSearch = fillSearch;
-
-  // ── Search input handler (debounced API call) ──
-  let searchTimer = null;
 
   input.addEventListener('input', () => {
     const q = input.value.trim();
-    if (!q) {
-      results.classList.remove('visible');
-      clearTimeout(searchTimer);
-      return;
-    }
+    if (!q) { results.classList.remove('visible'); return; }
 
-    clearTimeout(searchTimer);
-    results.innerHTML = '<div class="search-loading">Recherche\u2026</div>';
-    results.classList.add('visible');
-
-    searchTimer = setTimeout(() => {
-      const currentQ = q;
-      fetch('/api/search?q=' + encodeURIComponent(q) + '&limit=12')
-        .then(r => r.json())
-        .then(data => {
-          // Ignore stale results
-          if (input.value.trim() !== currentQ) return;
-          renderResults(data, currentQ);
-        })
-        .catch(() => {
-          results.innerHTML = '<div class="search-loading">Erreur de recherche</div>';
-        });
-    }, 200);
-  });
-
-  function renderResults(data, q) {
-    if (!data.length) {
-      results.innerHTML = '<div class="search-loading">Aucun r\u00e9sultat pour \u00ab ' + q + ' \u00bb</div>';
+    if (!searchReady) {
+      results.innerHTML = '<div class="search-loading">Chargement de l\'index…</div>';
       results.classList.add('visible');
       return;
     }
 
-    results.innerHTML = data.map(d => {
-      const icon = d.icon || iconMap[d.disc] || '\ud83d\udcd6';
-      return `<a href="page.html?s=${encodeURIComponent(d.id)}" class="result-item">
-        <span class="result-icon">${icon}</span>
-        <span class="result-name">${d.t}</span>
+    const qn = normalize(q);
+    const words = qn.split(/\s+/).filter(Boolean);
+
+    // Compact keys: n=name, c=cat, u=url, t=type, i=icon
+    const scored = searchData.map(d => {
+      const nameN = normalize(d.n);
+      const kwN = normalize(d.c + ' ' + d.n);
+      let score = 0;
+      for (const w of words) {
+        if (nameN.includes(w)) score += 10;
+        else if (kwN.includes(w)) score += 3;
+      }
+      if (nameN === qn) score += 50;
+      if (nameN.startsWith(qn)) score += 20;
+      return { ...d, score };
+    }).filter(s => s.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 8);
+
+    if (!scored.length) {
+      results.innerHTML = '<div class="search-loading">Aucun résultat pour « ' + q + ' »</div>';
+      results.classList.add('visible');
+      return;
+    }
+
+    results.innerHTML = scored.map(d => {
+      const cvAttr = d.id ? ` data-cv="${d.id}"` : '';
+      const tag = `<a href="${d.u || '#'}"${cvAttr} class="result-item">`;
+      return `${tag}
+        <span class="result-icon">${d.i}</span>
+        <span class="result-name">${d.n}</span>
         <span class="result-meta">
-          <span class="result-cat">${d.cat || ''}</span>
-          <span class="result-type">page</span>
+          <span class="result-cat">${d.c}</span>
+          <span class="result-type">${d.t}</span>
         </span>
       </a>`;
     }).join('');
     results.classList.add('visible');
-  }
+  });
 
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.search-wrap')) results.classList.remove('visible');
+    // Close search results when a viewer link is clicked inside results
+    var cvLink = e.target.closest('.result-item[data-cv]');
+    if (cvLink) results.classList.remove('visible');
   });
 
-  // ══════════════════════════════════════════════════════
-  //  CATEGORY TREE — built from _categories.json
-  // ══════════════════════════════════════════════════════
-
-  // Format a slug into a readable group title
-  function formatGroupName(slug) {
-    return slug
-      .replace(/-/g, ' ')
-      .replace(/\b\w/g, c => c.toUpperCase());
-  }
-
-  // Build tree structure for a category from _categories.json
-  function buildTreeForCategory(catKey) {
-    if (!categoriesData || !categoriesData[catKey]) return [];
-    const cat = categoriesData[catKey];
-    const subs = cat.subs || {};
-
-    // Group subcategories by parent (if any)
-    const groups = {};
-    const ungrouped = [];
-    const groupOrder = [];
-
-    for (const [key, sub] of Object.entries(subs)) {
-      if (sub.parent) {
-        if (!groups[sub.parent]) {
-          groups[sub.parent] = [];
-          groupOrder.push(sub.parent);
-        }
-        groups[sub.parent].push({ key, label: sub.label });
-      } else {
-        ungrouped.push({ key, label: sub.label });
+  // ── Card entrance animations ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationDelay = (i * 0.05) + 's';
+        entry.target.style.animation = 'fadeUp 0.5s ease both';
+        observer.unobserve(entry.target);
       }
-    }
+    });
+  }, { threshold: 0.1 });
 
-    // Build result: grouped items first, then ungrouped
-    const nodes = [];
+  document.querySelectorAll('.theme-card').forEach(card => observer.observe(card));
 
-    for (const groupKey of groupOrder) {
-      nodes.push({
-        label: formatGroupName(groupKey),
-        isGroup: true,
-        children: groups[groupKey]
+  // ── Expandable tree on theme cards ──
+
+  function buildTreeForTheme(themeName) {
+    const subjects = searchData.filter(d => d.t === 'matière' && d.c === themeName);
+    return subjects.map(subject => {
+      const domains = searchData.filter(d => d.t === 'domaine' && d.c === subject.n);
+      const domainTree = domains.map(domain => {
+        const courses = searchData.filter(d => d.t === 'page' && d.c === `${subject.n} › ${domain.n}`);
+        return { ...domain, children: courses };
       });
-    }
-
-    // Ungrouped items as flat list
-    for (const item of ungrouped) {
-      nodes.push(item);
-    }
-
-    return nodes;
+      return { ...subject, children: domainTree };
+    });
   }
 
-  // Count articles per category from API stats
-  function countArticlesForCategory(catKey) {
-    if (!apiStats || !apiStats.categories) return 0;
-    const cat = apiStats.categories[catKey];
-    return cat ? cat.count : 0;
+  function treeLink(item, cls, content) {
+    const cvAttr = item.id ? ` data-cv="${item.id}"` : '';
+    return `<a href="${item.u || '#'}"${cvAttr} class="tree-link ${cls}">${content}</a>`;
   }
 
-  // Render a subcategory leaf (e.g. "Mathématiques")
-  function renderSubLeaf(sub) {
-    return `<div class="tree-leaf">
-      <a href="#" class="tree-link tree-course-link" onclick="fillSearch('${sub.label.replace(/'/g, "\\'")}'); return false;">
-        <span class="tree-leaf-bullet">\u2022</span>${sub.label}
-      </a>
+  function renderCourse(c) {
+    return `<div class="tree-leaf">${treeLink(c, 'tree-course-link', '<span class="tree-leaf-bullet">•</span>' + c.n)}</div>`;
+  }
+
+  function renderDomain(d) {
+    const cnt = d.children.length;
+    return `<div class="tree-node tree-domain">
+      <div class="tree-node-header" data-toggle>
+        <span class="tree-chevron">&#9654;</span>
+        ${treeLink(d, 'tree-node-name', d.n)}
+        <span class="tree-node-count">${cnt} pages</span>
+      </div>
+      <div class="tree-children" style="display:none">${d.children.map(renderCourse).join('')}</div>
     </div>`;
   }
 
-  // Render a group node (e.g. "Sciences formelles" with children)
-  function renderGroupNode(group) {
-    const cnt = group.children.length;
+  function renderSubject(s) {
+    const cnt = s.children.length;
     return `<div class="tree-node tree-subject">
       <div class="tree-node-header" data-toggle>
         <span class="tree-chevron">&#9654;</span>
-        <span class="tree-node-name tree-link">${group.label}</span>
-        <span class="tree-node-count">${cnt} sous-cat.</span>
+        <span class="tree-node-icon">${s.i}</span>
+        ${treeLink(s, 'tree-node-name', s.n)}
+        <span class="tree-node-count">${cnt} domaine${cnt > 1 ? 's' : ''}</span>
       </div>
-      <div class="tree-children" style="display:none">
-        ${group.children.map(renderSubLeaf).join('')}
-      </div>
+      <div class="tree-children" style="display:none">${s.children.map(renderDomain).join('')}</div>
     </div>`;
   }
 
-  // ── Theme cards generation from _categories.json ──
-
-  const categoryDescriptions = {
-    'arts': 'Architecture, cin\u00e9ma, litt\u00e9rature, musique, peinture, photographie, sculpture et arts du spectacle',
-    'sciences': 'Math\u00e9matiques, physique, chimie, biologie, histoire, philosophie, psychologie et toutes les sciences',
-    'societe': 'Droit, politique, religion, sport, sant\u00e9, \u00e9ducation, m\u00e9dias et vie en soci\u00e9t\u00e9',
-    'espace-temps': 'Chronologie, lieux, pays, villes, continents et rep\u00e8res spatio-temporels',
-    'technologies': 'Informatique, ing\u00e9nierie, \u00e9nergie, transports, robotique et innovations techniques',
-    'personne': 'Biographies par m\u00e9tier, nationalit\u00e9, p\u00e9riode historique et secteur d\'activit\u00e9'
-  };
-
-  function generateThemeCards() {
-    const grid = document.getElementById('themesGrid');
-    if (!grid || !categoriesData) return;
-
-    // Build cards HTML
-    let html = '';
-    for (const [key, cat] of Object.entries(categoriesData)) {
-      const subsKeys = Object.keys(cat.subs || {});
-      const topSubs = subsKeys.slice(0, 6).map(k => cat.subs[k].label);
-      const desc = categoryDescriptions[key] || topSubs.join(', ');
-
-      html += `<a href="#" class="theme-card" data-cat="${key}" style="--card-accent: ${cat.accent}">
-        <div class="theme-arrow">\u2192</div>
-        <span class="theme-icon">${cat.icon || '\ud83d\udcd6'}</span>
-        <div class="theme-name">${cat.label}</div>
-        <p class="theme-desc">${desc}</p>
-        <div class="theme-topics">
-          ${topSubs.map(s => `<span class="topic-chip">${s}</span>`).join('')}
-        </div>
-      </a>`;
-    }
-
-    grid.innerHTML = html;
-
-    // Observe cards for entrance animation
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          entry.target.style.animationDelay = (i * 0.05) + 's';
-          entry.target.style.animation = 'fadeUp 0.5s ease both';
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    grid.querySelectorAll('.theme-card').forEach(card => observer.observe(card));
-  }
-
-  // ── Expand / collapse cards ──
-
   function expandCard(card) {
-    const catKey = card.getAttribute('data-cat');
-    if (!catKey) return;
+    const themeName = card.querySelector('.theme-name').textContent.trim();
+    const themeUrl = card.getAttribute('href');
 
     card.classList.add('expanded');
 
     const container = document.createElement('div');
     container.className = 'tree-container';
 
-    fillTree(container, catKey);
-    card.appendChild(container);
-    requestAnimationFrame(() => {
-      container.classList.add('open');
-      container.style.maxHeight = container.scrollHeight + 'px';
-      container.style.opacity = '1';
-    });
+    if (!searchReady) {
+      container.innerHTML = `<div class="tree-header"><a href="${themeUrl}" class="tree-link tree-theme-link">Voir le thème complet →</a><button class="tree-close" aria-label="Fermer">✕</button></div><div class="tree-body"><div class="tree-empty">Chargement de l'arborescence…</div></div>`;
+      card.appendChild(container);
+      requestAnimationFrame(() => { container.classList.add('open'); container.style.maxHeight = container.scrollHeight + 'px'; container.style.opacity = '1'; });
+      const iv = setInterval(() => {
+        if (searchReady) { clearInterval(iv); fillTree(container, themeName, themeUrl); }
+      }, 300);
+    } else {
+      fillTree(container, themeName, themeUrl);
+      card.appendChild(container);
+      requestAnimationFrame(() => { container.classList.add('open'); container.style.maxHeight = container.scrollHeight + 'px'; container.style.opacity = '1'; });
+    }
 
     setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
   }
 
-  function fillTree(container, catKey) {
-    const tree = buildTreeForCategory(catKey);
-    const catMeta = categoriesData[catKey] || {};
-    const count = countArticlesForCategory(catKey);
-    const countLabel = count > 0 ? ` <span class="tree-article-count">${count.toLocaleString('fr-FR')} article${count > 1 ? 's' : ''}</span>` : '';
-
-    let bodyHtml = '';
-    if (tree.length === 0) {
-      bodyHtml = '<div class="tree-empty">Aucune sous-cat\u00e9gorie disponible.</div>';
-    } else {
-      bodyHtml = tree.map(node => {
-        if (node.isGroup) {
-          return renderGroupNode(node);
-        }
-        return renderSubLeaf(node);
-      }).join('');
-    }
-
-    container.innerHTML = `
-      <div class="tree-header">
-        <span class="tree-header-title">${catMeta.label || catKey}${countLabel}</span>
-        <button class="tree-close" aria-label="Fermer">\u2715</button>
-      </div>
-      <div class="tree-body">${bodyHtml}</div>`;
-
+  function fillTree(container, themeName, themeUrl) {
+    const tree = buildTreeForTheme(themeName);
+    container.innerHTML = `<div class="tree-header"><a href="${themeUrl}" class="tree-link tree-theme-link">Voir le thème complet →</a><button class="tree-close" aria-label="Fermer">✕</button></div><div class="tree-body">${tree.length ? tree.map(renderSubject).join('') : '<div class="tree-empty">Aucune discipline disponible pour le moment.</div>'}</div>`;
     container.style.maxHeight = container.scrollHeight + 'px';
   }
 
@@ -320,11 +375,9 @@
     if (container) container.style.maxHeight = container.scrollHeight + 'px';
   }
 
-  // ── Event delegation for theme grid ──
   const themesGrid = document.querySelector('.themes-grid');
   if (themesGrid) {
-    themesGrid.addEventListener('click', function (e) {
-      // Close button
+    themesGrid.addEventListener('click', function(e) {
       if (e.target.closest('.tree-close')) {
         e.preventDefault();
         e.stopPropagation();
@@ -332,10 +385,8 @@
         return;
       }
 
-      // Tree links (search fill)
       if (e.target.closest('.tree-link')) return;
 
-      // Tree node toggle (expand/collapse group)
       const toggleHeader = e.target.closest('[data-toggle]');
       if (toggleHeader) {
         e.preventDefault();
@@ -354,7 +405,6 @@
         return;
       }
 
-      // Theme card toggle (expand/collapse entire tree)
       const card = e.target.closest('.theme-card');
       if (!card) return;
       e.preventDefault();
