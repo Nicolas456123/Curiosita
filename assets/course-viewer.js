@@ -7,11 +7,32 @@
 (function () {
   'use strict';
 
-  var disciplinesCache = null; // { disc: { label, accent, ... } }
   var pageCache = {};          // { slug: pageData }
   var cardsDb = null;          // lazy-loaded from cards-db.json
   var currentSlug = null;
   var currentDisc = null;
+
+  // ── Discipline → theme mapping ──
+  var DISC_THEME = {
+    'maths':'sciences-exactes','informatique':'sciences-exactes','physique':'sciences-exactes',
+    'chimie':'sciences-exactes','statistiques':'sciences-exactes','logique':'sciences-exactes',
+    'python':'sciences-exactes',
+    'biologie':'sciences-nature','terre':'sciences-nature','astronomie':'sciences-nature',
+    'ecologie':'sciences-nature','environnement':'sciences-nature','agriculture':'sciences-nature',
+    'botanique-zoologie':'sciences-nature',
+    'histoire':'sciences-humaines','economie':'sciences-humaines','psychologie':'sciences-humaines',
+    'sociologie':'sciences-humaines','geographie':'sciences-humaines','anthropologie':'sciences-humaines',
+    'relations-internationales':'sciences-humaines','communication':'sciences-humaines',
+    'neurosciences':'sciences-humaines',
+    'philosophie':'lettres-langues','langues':'lettres-langues','linguistique':'lettres-langues',
+    'litterature-fr':'lettres-langues','litterature-monde':'lettres-langues','rhetorique':'lettres-langues',
+    'mythologie':'lettres-langues',
+    'arts':'arts-culture','musique':'arts-culture','cinema':'arts-culture','spectacle':'arts-culture',
+    'design':'arts-culture','histoire-art':'arts-culture',
+    'droit':'droit-politique','sciences-po':'droit-politique','civique':'droit-politique',
+    'artisanat':'savoir-faire','cuisine':'savoir-faire','sante':'savoir-faire',
+    'gestion':'savoir-faire','ingenierie':'savoir-faire'
+  };
 
   // ── Helpers ──
 
@@ -21,26 +42,34 @@
 
   function $(id) { return document.getElementById(id); }
 
-  // ── Load disciplines metadata (once) ──
+  // ── Resolve slug → file URL ──
+  // Slug format: "disc[/hub[/page]]" or "disc/index"
+  // Theme pages: "sciences-exactes", etc.
+  function slugToUrl(slug) {
+    var parts = slug.split('/');
+    var disc = parts[0];
+    var theme = DISC_THEME[disc];
 
-  function loadDisciplines() {
-    return new Promise(function (resolve, reject) {
-      if (disciplinesCache) return resolve(disciplinesCache);
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'assets/content/_categories.json?v=2');
-      xhr.onload = function () {
-        if (xhr.status >= 200 && xhr.status < 300) {
-          try {
-            var raw = JSON.parse(xhr.responseText);
-            // Extract { key: { label, accent, ... } } from tree
-            disciplinesCache = raw.tree || raw;
-            resolve(disciplinesCache);
-          } catch (e) { reject(e); }
-        } else { reject(new Error('HTTP ' + xhr.status)); }
-      };
-      xhr.onerror = function () { reject(new Error('Network error')); };
-      xhr.send();
-    });
+    // Grand theme index page (e.g. slug = "sciences-exactes")
+    if (!theme) {
+      return 'assets/content/' + disc + '/_index.json';
+    }
+
+    // Discipline index page: "disc" or "disc/index"
+    if (parts.length === 1 || (parts.length === 2 && parts[1] === 'index')) {
+      return 'assets/content/' + theme + '/' + disc + '/index.json';
+    }
+
+    var hub = parts[1];
+
+    // Hub index page: "disc/hub"
+    if (parts.length === 2) {
+      return 'assets/content/' + theme + '/' + disc + '/' + hub + '/index.json';
+    }
+
+    // Article page: "disc/hub/page"
+    var page = parts[2];
+    return 'assets/content/' + theme + '/' + disc + '/' + hub + '/' + page + '.json';
   }
 
   // ── Load individual page JSON ──
@@ -49,7 +78,8 @@
     return new Promise(function (resolve, reject) {
       if (pageCache[slug]) return resolve(pageCache[slug]);
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'assets/content/' + slug + '.json?v=1');
+      var url = slugToUrl(slug);
+      xhr.open('GET', url + '?v=2');
       xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
           try {
@@ -99,21 +129,18 @@
     var content = $('cvContent');
     if (content) content.innerHTML = '<div class="cv-loading">Chargement\u2026</div>';
 
-    // Load disciplines metadata + page data in parallel
-    Promise.all([loadDisciplines(), loadPage(slug)]).then(function (results) {
-      var disciplines = results[0];
-      var page = results[1];
-      // Read discipline from page JSON (flat structure)
-      var disc = page.discipline || '';
+    // Load page data
+    loadPage(slug).then(function (page) {
+      // Read discipline from slug or page JSON
+      var disc = slug.split('/')[0];
       currentDisc = disc;
-      var discMeta = disciplines[disc] || {};
 
-      // Apply accent colors from discipline metadata
+      // Apply accent colors embedded in page JSON (set by restructure script)
       var root = document.documentElement;
-      if (discMeta.accent) root.style.setProperty('--accent', discMeta.accent);
-      if (discMeta.accent2) root.style.setProperty('--accent2', discMeta.accent2);
-      if (discMeta.accentDim) root.style.setProperty('--accent-dim', discMeta.accentDim);
-      var heroAccent = page.accentHero || discMeta.accentHero || '';
+      if (page.accent) root.style.setProperty('--accent', page.accent);
+      if (page.accent2) root.style.setProperty('--accent2', page.accent2);
+      if (page.accentDim) root.style.setProperty('--accent-dim', page.accentDim);
+      var heroAccent = page.accentHero || '';
       if (heroAccent) root.style.setProperty('--accent-hero', heroAccent);
 
       // Build hero
@@ -131,7 +158,7 @@
       }
 
       // Build sidebar
-      renderSidebar(page, discMeta, slug);
+      renderSidebar(page, {}, slug);
 
       // Build breadcrumb
       renderBreadcrumb(page);
