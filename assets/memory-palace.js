@@ -4,7 +4,7 @@
 //  and practice recall with guided/free/reverse journeys
 // ══════════════════════════════════════════════════════
 
-const MemoryPalace = (function () {
+var MemoryPalace = (function () {
   'use strict';
 
   var STORAGE_KEY = 'curiosita_palaces';

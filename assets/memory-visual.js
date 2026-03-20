@@ -5,7 +5,7 @@
 //  No external images — CSS/SVG/Unicode only
 // ══════════════════════════════════════════════════════
 
-const MemoryVisual = (function () {
+var MemoryVisual = (function () {
   'use strict';
 
   var STORAGE_KEY = 'curiosita_memvisual';

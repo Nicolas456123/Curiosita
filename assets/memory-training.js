@@ -4,7 +4,7 @@
 //  Inspired by World Memory Championships techniques
 // ══════════════════════════════════════════════════════
 
-const MemoryTraining = (function () {
+var MemoryTraining = (function () {
   'use strict';
 
   var STORAGE_KEY = 'curiosita_memtrain';

@@ -5,7 +5,7 @@
 //  Exposes: MemoryAssoc.renderPanel(el), MemoryAssoc.launch(action, arg)
 // ══════════════════════════════════════════════════════
 
-const MemoryAssoc = (function () {
+var MemoryAssoc = (function () {
   'use strict';
 
   const STORAGE_KEY = 'curiosita_memassoc';

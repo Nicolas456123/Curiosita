@@ -4,7 +4,7 @@
 //  Aggregates stats, records, and training programs
 // ══════════════════════════════════════════════════════
 
-const TrainingHub = (function () {
+var TrainingHub = (function () {
   'use strict';
 
   var PROGRAM_KEY = 'curiosita_training_program';

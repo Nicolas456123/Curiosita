@@ -4,7 +4,7 @@
 //  3 additional World Memory Championship events
 // ══════════════════════════════════════════════════════
 
-const MemoryEvents = (function () {
+var MemoryEvents = (function () {
   'use strict';
 
   var STORAGE_KEY = 'curiosita_memevents';
