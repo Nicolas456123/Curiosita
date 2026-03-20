@@ -1288,28 +1288,6 @@
   </div>
 </section>
 
-<!-- PROGRESS -->
-<section class="progress-section" id="progressSection" style="display:none">
-  <div class="progress-inner">
-    <div class="progress-ring-wrap">
-      <svg class="progress-ring" viewBox="0 0 80 80">
-        <circle class="progress-ring-bg" cx="40" cy="40" r="34" />
-        <circle class="progress-ring-fill" id="progressRingFill" cx="40" cy="40" r="34" />
-      </svg>
-      <span class="progress-ring-pct" id="progressPct">--%</span>
-    </div>
-    <div class="progress-info">
-      <div class="progress-headline">Couverture encyclopédique</div>
-      <div class="progress-metrics" id="progressMetrics">
-        <span class="progress-metric"><strong id="pmDisc">--</strong> / <span id="pmDiscT">--</span> disciplines</span>
-        <span class="progress-metric"><strong id="pmHubs">--</strong> / <span id="pmHubsT">--</span> domaines</span>
-        <span class="progress-metric"><strong id="pmLess">--</strong> / <span id="pmLessT">--</span> pages</span>
-        <span class="progress-metric"><strong id="pmCards">--</strong> / <span id="pmCardsT">--</span> flashcards</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- THEMES -->
 <section class="themes-section" id="themes">
   <div class="section-header">
@@ -1321,7 +1299,7 @@
   </div>
 
   <div class="themes-grid" id="themesGrid">
-    <a href="pages/sciences-exactes.html" class="theme-card" style="--card-accent:#4fc3f7">
+    <a href="#" data-cv="sciences-exactes" class="theme-card" style="--card-accent:#4fc3f7">
       <div class="theme-arrow">→</div>
       <span class="theme-icon">🔬</span>
       <div class="theme-name">Sciences exactes & Informatique</div>
@@ -1334,7 +1312,7 @@
         <span class="topic-chip">Statistiques</span>
       </div>
     </a>
-    <a href="pages/sciences-nature.html" class="theme-card" style="--card-accent:#7ae8d8">
+    <a href="#" data-cv="sciences-nature" class="theme-card" style="--card-accent:#7ae8d8">
       <div class="theme-arrow">→</div>
       <span class="theme-icon">🌱</span>
       <div class="theme-name">Sciences de la nature</div>
@@ -1347,7 +1325,7 @@
         <span class="topic-chip">Évolution</span>
       </div>
     </a>
-    <a href="pages/sciences-humaines.html" class="theme-card" style="--card-accent:#7ae88a">
+    <a href="#" data-cv="sciences-humaines" class="theme-card" style="--card-accent:#7ae88a">
       <div class="theme-arrow">→</div>
       <span class="theme-icon">🌍</span>
       <div class="theme-name">Sciences humaines & sociales</div>
@@ -1360,7 +1338,7 @@
         <span class="topic-chip">Géographie</span>
       </div>
     </a>
-    <a href="pages/lettres-langues.html" class="theme-card" style="--card-accent:#9b7ae8">
+    <a href="#" data-cv="lettres-langues" class="theme-card" style="--card-accent:#9b7ae8">
       <div class="theme-arrow">→</div>
       <span class="theme-icon">📚</span>
       <div class="theme-name">Lettres, Langues & Philosophie</div>
@@ -1373,7 +1351,7 @@
         <span class="topic-chip">Linguistique</span>
       </div>
     </a>
-    <a href="pages/arts-culture.html" class="theme-card" style="--card-accent:#e87a7a">
+    <a href="#" data-cv="arts-culture" class="theme-card" style="--card-accent:#e87a7a">
       <div class="theme-arrow">→</div>
       <span class="theme-icon">🎨</span>
       <div class="theme-name">Arts & Culture</div>
@@ -1386,7 +1364,7 @@
         <span class="topic-chip">Design</span>
       </div>
     </a>
-    <a href="pages/droit-politique.html" class="theme-card" style="--card-accent:#e87a9b">
+    <a href="#" data-cv="droit-politique" class="theme-card" style="--card-accent:#e87a9b">
       <div class="theme-arrow">→</div>
       <span class="theme-icon">⚖️</span>
       <div class="theme-name">Droit, Politique & Société</div>
@@ -1398,7 +1376,7 @@
         <span class="topic-chip">Citoyenneté</span>
       </div>
     </a>
-    <a href="pages/savoir-faire.html" class="theme-card" style="--card-accent:#8ae87a">
+    <a href="#" data-cv="savoir-faire" class="theme-card" style="--card-accent:#8ae87a">
       <div class="theme-arrow">→</div>
       <span class="theme-icon">🔧</span>
       <div class="theme-name">Savoir-faire & Vie pratique</div>
@@ -1610,7 +1588,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (themes.length > 0) {
       themesList.innerHTML = themes.slice(0, 6).map(function(t) {
         var label = t.theme.replace(/-/g, ' ');
-        return '<a href="pages/' + t.theme + '/index.html" class="dash-theme-chip">' +
+        return '<a href="#" data-cv="' + t.theme + '" class="dash-theme-chip">' +
           '<span>' + label + '</span>' +
           (t.dueCount > 0 ? '<span class="dash-theme-badge">' + t.dueCount + '</span>' : '') +
           '</a>';
@@ -1768,56 +1746,26 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script src="assets/search.js"></script>
 <script src="assets/card-browser.js"></script>
-<script src="assets/course-viewer.js"></script>
+<script src="assets/course-viewer.js?v=2"></script>
 <script src="assets/glossary.js" defer></script>
 <script>
-// Coverage progress — loads target-structure.json + courses-index.json
+// Update theme count from courses-index
 (function() {
-  function loadJSON(url, cb) {
-    var x = new XMLHttpRequest();
-    x.open('GET', url);
-    x.onload = function() { if (x.status < 300) cb(JSON.parse(x.responseText)); };
-    x.send();
-  }
-  var loaded = 0, tgt, idx;
-  function check() {
-    if (++loaded < 2) return;
-    // Count current from index
-    var discs = {}, hubs = {}, lessons = 0, cards = 0;
+  var x = new XMLHttpRequest();
+  x.open('GET', 'assets/courses-index.json?v=5');
+  x.onload = function() {
+    if (x.status >= 300) return;
+    var idx = JSON.parse(x.responseText);
+    var discs = {}, lessons = 0;
     idx.forEach(function(e) {
       if (!e.disc || e.disc === '_themes') return;
       if (e.tp === 'discipline') discs[e.disc] = true;
-      if (e.tp === 'hub' && e.disc) { hubs[e.disc] = hubs[e.disc] || {}; hubs[e.disc][e.hub] = true; }
-      if (e.tp === 'lesson') { lessons++; cards += (e.cards || 0); }
+      if (e.tp === 'lesson') lessons++;
     });
-    var cDisc = Object.keys(discs).length;
-    var cHubs = 0;
-    Object.keys(hubs).forEach(function(d) { cHubs += Object.keys(hubs[d]).length; });
-    var t = tgt.targets;
-    var pct = Math.round((lessons / t.lessons) * 100);
-    // Populate
-    document.getElementById('progressPct').textContent = pct + '%';
-    document.getElementById('pmDisc').textContent = cDisc;
-    document.getElementById('pmDiscT').textContent = t.disciplines;
-    document.getElementById('pmHubs').textContent = cHubs;
-    document.getElementById('pmHubsT').textContent = t.hubs;
-    document.getElementById('pmLess').textContent = lessons;
-    document.getElementById('pmLessT').textContent = t.lessons;
-    document.getElementById('pmCards').textContent = cards.toLocaleString('fr-FR');
-    document.getElementById('pmCardsT').textContent = t.cards.toLocaleString('fr-FR');
-    // Ring
-    var circ = 2 * Math.PI * 34;
-    var fill = document.getElementById('progressRingFill');
-    fill.style.strokeDasharray = circ;
-    fill.style.strokeDashoffset = circ * (1 - pct / 100);
-    // Update theme count
     var tc = document.getElementById('themeCount');
-    if (tc) tc.textContent = '7 grands thèmes · ' + cDisc + ' disciplines · ' + lessons + ' pages';
-    // Show
-    document.getElementById('progressSection').style.display = '';
-  }
-  loadJSON('assets/target-structure.json?v=1', function(d) { tgt = d; check(); });
-  loadJSON('assets/courses-index.json?v=5', function(d) { idx = d; check(); });
+    if (tc) tc.textContent = '7 grands thèmes · ' + Object.keys(discs).length + ' disciplines · ' + lessons + ' pages';
+  };
+  x.send();
 })();
 </script>
 

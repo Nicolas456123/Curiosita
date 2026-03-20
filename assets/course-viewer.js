@@ -11,6 +11,7 @@
   var cardsDb = null;          // lazy-loaded from cards-db.json
   var currentSlug = null;
   var currentDisc = null;
+  var skipNextPush = false;    // flag to avoid pushing state on popstate-triggered open
 
   // ── Discipline → theme mapping ──
   var DISC_THEME = {
@@ -116,12 +117,18 @@
 
   // ── Open course viewer ──
 
-  function open(slug) {
+  function open(slug, pushHistory) {
     if (!slug) return;
     var overlay = $('courseViewerOverlay');
     if (!overlay) return;
 
     currentSlug = slug;
+
+    // Push browser history state (unless triggered by popstate)
+    if (pushHistory !== false && !skipNextPush) {
+      history.pushState({ cv: slug }, '', '#/' + slug);
+    }
+    skipNextPush = false;
 
     // Show overlay with loading state
     overlay.classList.add('open');
@@ -547,12 +554,18 @@
 
   // ── Close ──
 
-  function close() {
+  function close(pushHistory) {
     var overlay = $('courseViewerOverlay');
     if (overlay) overlay.classList.remove('open');
     document.body.style.overflow = '';
     currentSlug = null;
     currentDisc = null;
+
+    // Update browser history (unless triggered by popstate)
+    if (pushHistory !== false && !skipNextPush) {
+      history.pushState({ cv: null }, '', window.location.pathname);
+    }
+    skipNextPush = false;
 
     // Hide glossary popover
     if (typeof GL !== 'undefined') GL.hidePopover();
@@ -571,8 +584,26 @@
   // ── Navigate (internal) ──
 
   function navigate(slug) {
-    open(slug);
+    open(slug); // pushes history by default
   }
+
+  // ── Handle browser back/forward ──
+
+  window.addEventListener('popstate', function (e) {
+    var state = e.state;
+    if (state && state.cv) {
+      // Navigate to a CV page without pushing another history entry
+      skipNextPush = true;
+      open(state.cv, false);
+    } else {
+      // Back to main page — close overlay without pushing
+      var overlay = $('courseViewerOverlay');
+      if (overlay && overlay.classList.contains('open')) {
+        skipNextPush = true;
+        close(false);
+      }
+    }
+  });
 
   // ── Event: intercept data-cv clicks inside viewer ──
 
@@ -594,7 +625,7 @@
     if (e.key === 'Escape') {
       var overlay = $('courseViewerOverlay');
       if (overlay && overlay.classList.contains('open')) {
-        close();
+        history.back();
       }
     }
   });
@@ -617,6 +648,20 @@
         current.classList.add('active');
       }
     }, { passive: true });
+  })();
+
+  // ── Open page from hash on initial load ──
+
+  (function () {
+    var hash = window.location.hash;
+    if (hash && hash.indexOf('#/') === 0) {
+      var slug = hash.substring(2); // remove "#/"
+      if (slug) {
+        // Replace current history entry (don't push a new one)
+        history.replaceState({ cv: slug }, '', '#/' + slug);
+        open(slug, false);
+      }
+    }
   })();
 
   // ── Public API ──
