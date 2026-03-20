@@ -162,7 +162,8 @@
   // ══════════════════════════════
 
   function initReview() {
-    reviewQueue = SR.getDueCards(null, currentFilter);
+    var settings = SR.getSettings();
+    reviewQueue = SR.getDueCards(null, currentFilter, settings.interleave);
     reviewIndex = 0;
     sessionCorrect = 0;
     sessionTotal = 0;

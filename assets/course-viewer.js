@@ -153,51 +153,91 @@
       // Build hero
       renderHero(page);
 
-      // Inject content
-      if (content) content.innerHTML = page.content || '';
-
-      // Remove quiz and exercises sections from rendered content
-      if (content) {
-        ['quiz', 'exercices'].forEach(function (secId) {
-          var sec = content.querySelector('#' + secId);
-          if (sec) sec.remove();
+      // Pretest: show "Que sais-tu déjà ?" if page has quiz questions
+      if (typeof Pretest !== 'undefined' && page.content && page.type === 'page') {
+        Pretest.show(slug, page.content, function (result) {
+          renderPageContent(page, content, slug, disc);
+          if (result) {
+            setTimeout(function () { Pretest.showPostTestBanner(slug); }, 200);
+          }
         });
+        return;
       }
 
-      // Build sidebar
-      renderSidebar(page, {}, slug);
-
-      // Build breadcrumb
-      renderBreadcrumb(page);
-
-      // Scroll to top
-      var main = $('cvMain');
-      if (main) main.scrollTop = 0;
-
-      // Load cards for sidebar (non-blocking)
-      loadCards().then(function () {
-        renderSidebarCards(slug, disc);
-      }).catch(function () {});
-
-      // Glossary annotation (non-blocking)
-      if (typeof GL !== 'undefined' && content) {
-        var annotateSlug = slug;
-        var annotateTarget = content;
-        var doAnnotate = function () {
-          GL.init(function () {
-            GL.annotate(annotateTarget, annotateSlug);
-          });
-        };
-        if (typeof requestIdleCallback !== 'undefined') {
-          requestIdleCallback(doAnnotate);
-        } else {
-          setTimeout(doAnnotate, 60);
-        }
-      }
+      renderPageContent(page, content, slug, disc);
 
     }).catch(function (e) {
       content.innerHTML = '<div class="cv-loading">Erreur : ' + escHtml(e.message) + '</div>';
     });
+  }
+
+  // ── Render page content (after pretest or directly) ──
+  function renderPageContent(page, content, slug, disc) {
+    // Inject content
+    if (content) content.innerHTML = page.content || '';
+
+    // Remove exercices section; keep quiz for interactive use
+    if (content) {
+      var exSec = content.querySelector('#exercices');
+      if (exSec) exSec.remove();
+
+      var quizSec = content.querySelector('#quiz');
+      if (quizSec) {
+        var qc = quizSec.querySelector('.quiz-container');
+        if (qc) initQuiz(qc);
+        if (typeof QuizEngine !== 'undefined' && qc) QuizEngine.init(qc, slug);
+      }
+    }
+
+    // Elaborative interrogation prompts
+    if (typeof EI !== 'undefined') {
+      setTimeout(function () { EI.inject(slug); }, 80);
+    }
+
+    // Metacognition self-assessment
+    if (typeof Metacog !== 'undefined') {
+      setTimeout(function () { Metacog.inject(slug); }, 100);
+    }
+
+    // Build sidebar
+    renderSidebar(page, {}, slug);
+
+    // Build breadcrumb
+    renderBreadcrumb(page);
+
+    // Scroll to top
+    var main = $('cvMain');
+    if (main) main.scrollTop = 0;
+
+    // Track page visit
+    try {
+      var visited = JSON.parse(localStorage.getItem('curiosita_visited') || '[]');
+      if (visited.indexOf(slug) === -1) {
+        visited.push(slug);
+        localStorage.setItem('curiosita_visited', JSON.stringify(visited));
+      }
+    } catch (e) {}
+
+    // Load cards for sidebar (non-blocking)
+    loadCards().then(function () {
+      renderSidebarCards(slug, disc);
+    }).catch(function () {});
+
+    // Glossary annotation (non-blocking)
+    if (typeof GL !== 'undefined' && content) {
+      var annotateSlug = slug;
+      var annotateTarget = content;
+      var doAnnotate = function () {
+        GL.init(function () {
+          GL.annotate(annotateTarget, annotateSlug);
+        });
+      };
+      if (typeof requestIdleCallback !== 'undefined') {
+        requestIdleCallback(doAnnotate);
+      } else {
+        setTimeout(doAnnotate, 60);
+      }
+    }
   }
 
   // ── Render hero ──
@@ -272,9 +312,9 @@
       html += '<a href="#" class="cv-sidebar-back" onclick="CV.navigate(\'' + back.slug + '\');return false">\u2190 ' + escHtml(back.title) + '</a>';
     }
 
-    // Section nav (exclude quiz and exercices)
+    // Section nav (exclude exercices, keep quiz)
     var filteredSections = (nav.sections || []).filter(function (s) {
-      return s !== 'quiz' && s !== 'exercices';
+      return s !== 'exercices';
     });
     if (filteredSections.length > 1) {
       html += '<p class="cv-sidebar-title">Cette page</p>';
@@ -296,6 +336,16 @@
         html += '<a href="#" class="cv-sidebar-link' + isActive + '" onclick="CV.navigate(\'' + sib.slug + '\');return false">' + escHtml(sib.title) + '</a>';
       }
     }
+
+    // Memorize mode button
+    html += '<div class="cv-sidebar-tools">';
+    html += '<button class="cv-sidebar-tool" id="mem-toggle" onclick="MemorizeMode.toggle()" title="Mode m\u00e9moriser">';
+    html += '<span class="mem-icon">\uD83E\uDDE0</span><span class="mem-label">M\u00e9moriser</span>';
+    html += '</button>';
+    html += '<button class="cv-sidebar-tool" onclick="MemorizeMode.nextLevel()" title="Niveau suivant">';
+    html += '<span>\u25B6</span>';
+    html += '</button>';
+    html += '</div>';
 
     // Cards section placeholder
     html += '<div id="cvSidebarCards"></div>';

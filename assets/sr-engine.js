@@ -17,11 +17,13 @@ const SR = (function () {
       settings: {
         newCardsPerDay: 20,
         reviewsPerDay: 100,
-        autoExtract: true
+        autoExtract: true,
+        interleave: false
       },
       stats: {
         totalReviews: 0,
         streakDays: 0,
+        bestStreak: 0,
         lastStudyDate: null,
         reviewHistory: [] // { date: "YYYY-MM-DD", count: N, correct: N }
       }
@@ -146,6 +148,10 @@ const SR = (function () {
     } else if (_data.stats.lastStudyDate !== today) {
       _data.stats.streakDays = 1;
     }
+    // Update best streak
+    if (_data.stats.streakDays > (_data.stats.bestStreak || 0)) {
+      _data.stats.bestStreak = _data.stats.streakDays;
+    }
     _data.stats.lastStudyDate = today;
   }
 
@@ -159,9 +165,9 @@ const SR = (function () {
     entry.count += 1;
     if (correct) entry.correct += 1;
 
-    // Keep only last 90 days
-    if (_data.stats.reviewHistory.length > 90) {
-      _data.stats.reviewHistory = _data.stats.reviewHistory.slice(-90);
+    // Keep only last 365 days
+    if (_data.stats.reviewHistory.length > 365) {
+      _data.stats.reviewHistory = _data.stats.reviewHistory.slice(-365);
     }
   }
 
@@ -225,8 +231,45 @@ const SR = (function () {
     return _data.cards[id] || null;
   }
 
+  // ── Interleaving ──
+  function interleaveCards(cards) {
+    if (cards.length <= 1) return cards;
+
+    // Group cards by discipline (first path segment)
+    const groups = {};
+    cards.forEach(c => {
+      const match = (c.source || '').match(/\/Curiosita\/(?:pages\/)?([^/]+)\//);
+      const key = match ? match[1] : '_other';
+      if (!groups[key]) groups[key] = [];
+      groups[key].push(c);
+    });
+
+    const keys = Object.keys(groups);
+    if (keys.length <= 1) return cards;
+
+    // Sort groups by size descending for better spacing
+    keys.sort((a, b) => groups[b].length - groups[a].length);
+
+    // Round-robin interleave: avoid same discipline twice in a row
+    const result = [];
+    const indices = {};
+    keys.forEach(k => { indices[k] = 0; });
+    let lastKey = null;
+
+    while (result.length < cards.length) {
+      const available = keys.filter(k => indices[k] < groups[k].length);
+      if (!available.length) break;
+      let pick = available.find(k => k !== lastKey) || available[0];
+      result.push(groups[pick][indices[pick]]);
+      indices[pick]++;
+      lastKey = pick;
+    }
+
+    return result;
+  }
+
   // ── Review ──
-  function getDueCards(limit, filter) {
+  function getDueCards(limit, filter, interleave) {
     const now = Date.now();
     let due = Object.values(_data.cards)
       .filter(c => c.nextReview <= now);
@@ -250,7 +293,9 @@ const SR = (function () {
     });
 
     const max = limit || _data.settings.reviewsPerDay;
-    return due.slice(0, max);
+    let result = due.slice(0, max);
+    if (interleave) result = interleaveCards(result);
+    return result;
   }
 
   function getDueCount() {
@@ -309,8 +354,9 @@ const SR = (function () {
       learning,
       totalReviews: _data.stats.totalReviews,
       streakDays: _data.stats.streakDays,
+      bestStreak: _data.stats.bestStreak || 0,
       successRate,
-      reviewHistory: _data.stats.reviewHistory.slice(-90),
+      reviewHistory: _data.stats.reviewHistory.slice(-365),
       lastStudyDate: _data.stats.lastStudyDate
     };
   }
@@ -516,6 +562,7 @@ const SR = (function () {
 
     // Stats
     getStats,
+    getBestStreak: function () { return _data.stats.bestStreak || 0; },
     getForecast,
     getMaturityDistribution,
     getRetentionEstimate,
@@ -531,6 +578,7 @@ const SR = (function () {
 
     // Utilities
     generateId,
+    interleaveCards,
     save,
     load
   };

@@ -202,6 +202,31 @@
     margin-top: 0.2rem;
   }
 
+  /* Streak enrichi */
+  .dash-streak-display { text-align: center; margin: 0.8rem 0 0.5rem; }
+  .dash-streak-current {
+    font-family: 'Playfair Display', serif; font-size: 3.5rem;
+    font-weight: 700; color: var(--gold, #e8c97a); line-height: 1;
+  }
+  .dash-streak-unit { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .dash-streak-meta {
+    display: flex; justify-content: space-around; margin: 0.8rem 0;
+    padding-top: 0.8rem; border-top: 1px solid rgba(240,237,232,0.06);
+  }
+  .dash-streak-meta > div { text-align: center; }
+  .dash-streak-meta span:first-child {
+    display: block; font-size: 0.6rem; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .dash-streak-meta span:last-child {
+    font-family: 'Playfair Display', serif; font-size: 1.2rem;
+    font-weight: 700; color: var(--text);
+  }
+  .dash-streak-week { display: flex; justify-content: center; gap: 4px; margin-top: 0.6rem; }
+  .dash-streak-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(240,237,232,0.08); }
+  .dash-streak-dot.active { background: var(--gold, #e8c97a); }
+  .dash-streak-dot.today { box-shadow: 0 0 0 2px var(--gold, #e8c97a); }
+
   .dash-link {
     display: inline-block;
     margin-top: 1.2rem;
@@ -579,6 +604,44 @@
     height: 2px;
     background: var(--accent);
     transition: width 0.3s ease;
+  }
+
+  .review-interleave-btn {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--muted);
+    border-radius: 6px;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin-left: auto;
+  }
+  .review-interleave-btn:hover {
+    border-color: rgba(255,255,255,0.3);
+    color: var(--text);
+  }
+  .review-interleave-btn.active {
+    background: var(--accent-dim);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .review-discipline-badge {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    color: var(--accent);
+    text-transform: capitalize;
+    letter-spacing: 0.06em;
+    opacity: 0.7;
   }
 
   .review-card-container {
@@ -1213,24 +1276,19 @@
 
     <div class="dash-card dash-progress">
       <div class="dash-card-header">
-        <span class="dash-icon">📊</span>
-        <span class="dash-label">Progression</span>
+        <span class="dash-icon">🔥</span>
+        <span class="dash-label">Série</span>
       </div>
-      <div class="dash-stats">
-        <div class="dash-stat">
-          <div class="dash-stat-value" id="dash-streak">--</div>
-          <div class="dash-stat-label">jours de série</div>
-        </div>
-        <div class="dash-stat">
-          <div class="dash-stat-value" id="dash-rate">--</div>
-          <div class="dash-stat-label">taux de réussite</div>
-        </div>
-        <div class="dash-stat">
-          <div class="dash-stat-value" id="dash-total">--</div>
-          <div class="dash-stat-label">cartes totales</div>
-        </div>
+      <div class="dash-streak-display">
+        <div class="dash-streak-current" id="dash-streak">0</div>
+        <div class="dash-streak-unit">jours</div>
       </div>
-      <a href="pages/apprendre.html#progress" class="dash-link">Détails →</a>
+      <div class="dash-streak-meta">
+        <div><span>Record</span><span id="dash-streak-best">0</span></div>
+        <div><span>Taux</span><span id="dash-rate">--%</span></div>
+        <div><span>Cartes</span><span id="dash-total">--</span></div>
+      </div>
+      <div class="dash-streak-week" id="dash-streak-week"></div>
     </div>
 
     <div class="dash-card dash-discover">
@@ -1398,7 +1456,15 @@
   <div class="review-header">
     <button class="review-close" onclick="closeReview()">✕</button>
     <span class="review-progress-text" id="reviewProgressText">0 / 0</span>
+    <button class="review-interleave-btn" id="interleaveToggle" onclick="toggleInterleave()" title="Entrelacement des disciplines">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path d="M2 4 L7 4 L9 12 L14 12"/>
+        <path d="M2 12 L7 12 L9 4 L14 4"/>
+      </svg>
+      <span>Mélanger</span>
+    </button>
   </div>
+  <div class="review-discipline-badge" id="reviewDisciplineBadge" style="display:none"></div>
   <div class="review-card-container">
     <div class="review-card" id="reviewCard" onclick="flipCard()">
       <div class="review-card-front">
@@ -1577,10 +1643,29 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
-    // Stats
+    // Stats — streak enrichi
     document.getElementById('dash-streak').textContent = stats.streakDays || 0;
+    document.getElementById('dash-streak-best').textContent = stats.bestStreak || 0;
     document.getElementById('dash-rate').textContent = stats.successRate > 0 ? Math.round(stats.successRate) + '%' : '--';
     document.getElementById('dash-total').textContent = total || '--';
+
+    // Mini calendrier 7 jours
+    var weekEl = document.getElementById('dash-streak-week');
+    if (weekEl) {
+      var dots = '';
+      var today = new Date();
+      var histMap = {};
+      (stats.reviewHistory || []).forEach(function(h) { histMap[h.date] = h.count; });
+      for (var i = 6; i >= 0; i--) {
+        var d = new Date(today);
+        d.setDate(d.getDate() - i);
+        var ds = d.toISOString().slice(0, 10);
+        var active = histMap[ds] ? ' active' : '';
+        var isToday = i === 0 ? ' today' : '';
+        dots += '<div class="dash-streak-dot' + active + isToday + '" title="' + ds + '"></div>';
+      }
+      weekEl.innerHTML = dots;
+    }
 
     // Active themes
     var themes = SR.getThemes();
@@ -1598,6 +1683,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  // Badge toast notification
+  window.showBadgeToast = function(icon, name) {
+    var toast = document.createElement('div');
+    toast.className = 'badge-toast';
+    toast.innerHTML = '<span class="badge-toast-icon">' + icon + '</span> Nouveau badge : <strong>' + name + '</strong>';
+    document.body.appendChild(toast);
+    requestAnimationFrame(function() { toast.classList.add('show'); });
+    setTimeout(function() {
+      toast.classList.remove('show');
+      setTimeout(function() { toast.remove(); }, 400);
+    }, 3000);
+  };
+
   // Hydrate immediately and after short delay (SR engine may load async)
   hydrateDashboard();
   setTimeout(hydrateDashboard, 100);
@@ -1612,7 +1710,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   window.openReview = function() {
     if (typeof SR === 'undefined') return;
-    reviewQueue = SR.getDueCards();
+    var settings = SR.getSettings();
+    reviewQueue = SR.getDueCards(null, null, settings.interleave);
     if (!reviewQueue.length) return;
     reviewIndex = 0;
     sessionCorrect = 0;
@@ -1622,6 +1721,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('reviewDone').style.display = 'none';
     document.getElementById('reviewCard').style.display = '';
     document.getElementById('reviewActions').style.display = '';
+    var toggle = document.getElementById('interleaveToggle');
+    if (toggle) toggle.classList.toggle('active', !!settings.interleave);
     showCard();
     document.body.style.overflow = 'hidden';
   };
@@ -1664,6 +1765,18 @@ document.addEventListener('DOMContentLoaded', function() {
     showCard();
   };
 
+  window.toggleInterleave = function() {
+    var settings = SR.getSettings();
+    var newVal = !settings.interleave;
+    SR.updateSettings({ interleave: newVal });
+    document.getElementById('interleaveToggle').classList.toggle('active', newVal);
+    reviewQueue = SR.getDueCards(null, null, newVal);
+    reviewIndex = 0;
+    sessionCorrect = 0;
+    isFlipped = false;
+    showCard();
+  };
+
   function showCard() {
     var card = reviewQueue[reviewIndex];
     document.getElementById('reviewFront').textContent = card.front;
@@ -1675,6 +1788,17 @@ document.addEventListener('DOMContentLoaded', function() {
       sourceHtml = '<a href="' + url + '">' + (card.sourceTitle || 'Voir la page') + '</a>';
     }
     document.getElementById('reviewSource').innerHTML = sourceHtml;
+
+    // Show discipline badge when interleaving
+    var settings = SR.getSettings();
+    var badgeEl = document.getElementById('reviewDisciplineBadge');
+    if (badgeEl && settings.interleave) {
+      var match = (card.source || '').match(/\/Curiosita\/(?:pages\/)?([^/]+)\//);
+      badgeEl.textContent = match ? match[1].replace(/-/g, ' ') : '';
+      badgeEl.style.display = '';
+    } else if (badgeEl) {
+      badgeEl.style.display = 'none';
+    }
 
     document.getElementById('reviewCard').classList.remove('flipped');
     document.getElementById('reviewOverlay').classList.remove('show-actions');
@@ -1746,6 +1870,12 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script src="assets/search.js"></script>
 <script src="assets/card-browser.js"></script>
+<script src="assets/quiz.js"></script>
+<script src="assets/ei-prompts.js"></script>
+<script src="assets/memorize.js"></script>
+<script src="assets/memory-training.js"></script>
+<script src="assets/metacog.js"></script>
+<script src="assets/pretest.js"></script>
 <script src="assets/course-viewer.js?v=2"></script>
 <script src="assets/glossary.js" defer></script>
 <script>

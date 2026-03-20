@@ -20,12 +20,66 @@ const SRProgress = (function () {
 
     el.innerHTML = [
       buildRetentionOverview(),
+      buildMasteryTree(),
       buildForgettingCurve(),
       buildForecast(),
       buildMaturity(),
-      buildHeatmap(),
-      buildAtRisk()
+      buildHeatmap365(),
+      buildBadges(),
+      buildAtRisk(),
+      '<div id="mt-center-slot"></div>'
     ].join('');
+
+    initHeatmapTooltips();
+
+    // Memory training center
+    if (typeof MemoryTraining !== 'undefined') {
+      MemoryTraining.renderCenter(document.getElementById('mt-center-slot'));
+    }
+  }
+
+  // ── Theme → Disciplines mapping ──
+  const THEME_DISCIPLINES = {
+    'sciences-exactes': { label: 'Sciences exactes & Informatique', icon: '\uD83D\uDD2C',
+      disciplines: ['maths','informatique','physique','chimie','statistiques','logique','python'] },
+    'sciences-nature': { label: 'Sciences de la nature', icon: '\uD83C\uDF31',
+      disciplines: ['biologie','botanique-zoologie','astronomie','terre','ecologie','agriculture','sante','environnement'] },
+    'sciences-humaines': { label: 'Sciences humaines & sociales', icon: '\uD83C\uDF0D',
+      disciplines: ['histoire','psychologie','economie','sociologie','geographie','anthropologie','neurosciences'] },
+    'lettres-langues': { label: 'Lettres, Langues & Philosophie', icon: '\uD83D\uDCDA',
+      disciplines: ['philosophie','litterature-fr','litterature-monde','linguistique','langues','rhetorique'] },
+    'arts-culture': { label: 'Arts & Culture', icon: '\uD83C\uDFA8',
+      disciplines: ['arts','musique','cinema','spectacle','design','histoire-art'] },
+    'droit-politique': { label: 'Droit, Politique & Soci\u00e9t\u00e9', icon: '\u2696\uFE0F',
+      disciplines: ['droit','sciences-po','relations-internationales','civique','communication'] },
+    'savoir-faire': { label: 'Savoir-faire & Vie pratique', icon: '\uD83D\uDD27',
+      disciplines: ['artisanat','cuisine','ingenierie','gestion'] }
+  };
+
+  function extractDisc(source) {
+    if (!source) return null;
+    const m = source.match(/\/(?:pages\/)?([^/]+)\//);
+    return m ? m[1] : null;
+  }
+
+  function computeMastery() {
+    const cards = SR.getAllCards();
+    const byDisc = {};
+    cards.forEach(c => {
+      const disc = (c.tags && c.tags[0]) || extractDisc(c.source);
+      if (!disc) return;
+      if (!byDisc[disc]) byDisc[disc] = { total: 0, mastered: 0 };
+      byDisc[disc].total++;
+      if (c.repetition >= 6) byDisc[disc].mastered++;
+    });
+    return byDisc;
+  }
+
+  function masteryColor(pct) {
+    if (pct >= 75) return '#66bb6a';
+    if (pct >= 50) return '#fdd835';
+    if (pct >= 25) return '#ffa726';
+    return '#ef5350';
   }
 
   // ── Empty state ──
@@ -233,69 +287,266 @@ const SRProgress = (function () {
       </div>`;
   }
 
-  // ── E. Activity Heatmap (90 days) ──
-  function buildHeatmap() {
+  // ── NEW: Mastery Tree ──
+  function buildMasteryTree() {
+    const byDisc = computeMastery();
+    let html = '<div class="sr-p-section"><h3 class="sr-p-title">Arbre de ma\u00eetrise</h3>';
+    html += '<p class="sr-p-desc">Progression par th\u00e8me et discipline. Ma\u00eetrise = cartes r\u00e9vis\u00e9es 6+ fois avec succ\u00e8s.</p>';
+    html += '<div class="sr-p-mastery-grid">';
+
+    Object.entries(THEME_DISCIPLINES).forEach(([key, theme]) => {
+      let themeTotal = 0, themeMastered = 0;
+      theme.disciplines.forEach(d => {
+        if (byDisc[d]) { themeTotal += byDisc[d].total; themeMastered += byDisc[d].mastered; }
+      });
+      const themePct = themeTotal > 0 ? Math.round(themeMastered / themeTotal * 100) : 0;
+      const color = masteryColor(themePct);
+
+      html += '<div class="sr-mastery-theme" data-theme="' + key + '">';
+      html += '<div class="sr-mastery-theme-header" onclick="this.parentElement.classList.toggle(\'expanded\')">';
+      html += '<span class="sr-mastery-icon">' + theme.icon + '</span>';
+      html += '<span class="sr-mastery-name">' + theme.label + '</span>';
+      html += '<div class="sr-mastery-bar-wrap"><div class="sr-mastery-bar" style="width:' + themePct + '%;background:' + color + '"></div></div>';
+      html += '<span class="sr-mastery-pct" style="color:' + color + '">' + themePct + '%</span>';
+      html += '<span class="sr-mastery-chevron">\u25B8</span>';
+      html += '</div><div class="sr-mastery-disciplines">';
+
+      theme.disciplines.forEach(d => {
+        const data = byDisc[d] || { total: 0, mastered: 0 };
+        const pct = data.total > 0 ? Math.round(data.mastered / data.total * 100) : 0;
+        const c = masteryColor(pct);
+        const label = d.replace(/-/g, ' ').replace(/\b\w/g, ch => ch.toUpperCase());
+        html += '<div class="sr-mastery-disc">';
+        html += '<span class="sr-mastery-disc-name">' + label + '</span>';
+        html += '<div class="sr-mastery-bar-wrap"><div class="sr-mastery-bar" style="width:' + pct + '%;background:' + c + '"></div></div>';
+        html += '<span class="sr-mastery-disc-count">' + data.mastered + '/' + data.total + '</span>';
+        html += '<span class="sr-mastery-pct" style="color:' + c + '">' + pct + '%</span>';
+        html += '</div>';
+      });
+
+      html += '</div></div>';
+    });
+
+    html += '</div></div>';
+    return html;
+  }
+
+  // ── E. Activity Heatmap (365 days) ──
+  function buildHeatmap365() {
     const stats = SR.getStats();
     const history = stats.reviewHistory || [];
-
-    // Build date → count map
     const countMap = {};
     history.forEach(h => { countMap[h.date] = h.count; });
 
-    // Generate 91 days (13 weeks)
     const today = new Date();
     const cells = [];
-    for (let i = 90; i >= 0; i--) {
+    for (let i = 370; i >= 0; i--) {
       const d = new Date(today);
       d.setDate(d.getDate() - i);
       const dateStr = d.toISOString().slice(0, 10);
-      cells.push({ date: dateStr, count: countMap[dateStr] || 0, dow: d.getDay() });
+      cells.push({ date: dateStr, count: countMap[dateStr] || 0, dow: d.getDay(), month: d.getMonth() });
     }
 
     const maxCount = Math.max(...cells.map(c => c.count), 1);
-    const CELL = 13, GAP = 2, STEP = CELL + GAP;
+    const CELL = 11, GAP = 2, STEP = CELL + GAP;
     const startDow = cells[0].dow;
+    const monthNames = ['Jan','F\u00e9v','Mar','Avr','Mai','Jun','Jul','Ao\u00fb','Sep','Oct','Nov','D\u00e9c'];
+    let monthLabels = '', lastMonth = -1;
 
     let svgCells = '';
     cells.forEach((cell, idx) => {
       const weekOffset = Math.floor((idx + startDow) / 7);
       const row = (idx + startDow) % 7;
       const x = 28 + weekOffset * STEP;
-      const y = row * STEP;
+      const y = 18 + row * STEP;
 
-      const intensity = cell.count > 0 ? 0.2 + 0.8 * (cell.count / maxCount) : 0;
-      const fill = cell.count === 0 ? 'rgba(240,237,232,0.04)' :
-                   `rgba(232,201,122,${intensity.toFixed(2)})`;
+      if (cell.month !== lastMonth && row <= 1) {
+        monthLabels += `<text x="${x}" y="12" fill="var(--muted)" font-size="8" font-family="DM Sans,sans-serif">${monthNames[cell.month]}</text>`;
+        lastMonth = cell.month;
+      }
 
-      svgCells += `<rect x="${x}" y="${y}" width="${CELL}" height="${CELL}" rx="2" fill="${fill}">
-                     <title>${cell.date} : ${cell.count} révisions</title>
-                   </rect>`;
+      const intensity = cell.count > 0 ? 0.15 + 0.85 * (cell.count / maxCount) : 0;
+      const fill = cell.count === 0 ? 'rgba(240,237,232,0.04)' : `rgba(232,201,122,${intensity.toFixed(2)})`;
+      svgCells += `<rect x="${x}" y="${y}" width="${CELL}" height="${CELL}" rx="2" fill="${fill}" class="sr-hm-cell" data-date="${cell.date}" data-count="${cell.count}"/>`;
     });
 
-    // Day-of-week labels
     const dayLabels = ['D', 'L', 'M', 'M', 'J', 'V', 'S'];
     let dowLabels = '';
     [1, 3, 5].forEach(d => {
-      dowLabels += `<text x="18" y="${d * STEP + 10}" text-anchor="end" fill="var(--muted)" font-size="9" font-family="DM Sans,sans-serif">${dayLabels[d]}</text>`;
+      dowLabels += `<text x="18" y="${18 + d * STEP + 9}" text-anchor="end" fill="var(--muted)" font-size="8" font-family="DM Sans,sans-serif">${dayLabels[d]}</text>`;
     });
 
-    const svgW = 28 + 14 * STEP;
-    const svgH = 7 * STEP;
-
+    const numWeeks = Math.ceil((cells.length + startDow) / 7);
+    const svgW = 28 + numWeeks * STEP + 4;
+    const svgH = 18 + 7 * STEP + 4;
     const totalReviews = cells.reduce((s, c) => s + c.count, 0);
     const activeDays = cells.filter(c => c.count > 0).length;
 
+    const legendSteps = [0, 0.25, 0.5, 0.75, 1].map((i, idx) => {
+      const a = i === 0 ? 0 : (0.15 + 0.85 * i);
+      const f = i === 0 ? 'rgba(240,237,232,0.04)' : `rgba(232,201,122,${a.toFixed(2)})`;
+      return `<rect x="${idx * 14}" y="0" width="${CELL}" height="${CELL}" rx="2" fill="${f}"/>`;
+    });
+
     return `
       <div class="sr-p-section">
-        <h3 class="sr-p-title">Activité (90 jours)</h3>
-        <p class="sr-p-desc">${totalReviews} révisions en ${activeDays} jours actifs.</p>
-        <div class="sr-p-heatmap-wrap">
+        <h3 class="sr-p-title">Activit\u00e9 (12 mois)</h3>
+        <p class="sr-p-desc">${totalReviews} r\u00e9visions en ${activeDays} jours actifs sur les 12 derniers mois.</p>
+        <div class="sr-p-heatmap-wrap sr-p-heatmap-365">
           <svg viewBox="0 0 ${svgW} ${svgH}" class="sr-p-heatmap">
-            ${dowLabels}
-            ${svgCells}
+            ${monthLabels}${dowLabels}${svgCells}
           </svg>
         </div>
+        <div class="sr-p-heatmap-legend">
+          <span class="sr-p-heatmap-lbl">Moins</span>
+          <svg viewBox="0 0 ${5 * 14} ${CELL}" width="${5 * 14}" height="${CELL}">${legendSteps.join('')}</svg>
+          <span class="sr-p-heatmap-lbl">Plus</span>
+        </div>
+        <div class="sr-hm-tooltip" id="sr-hm-tooltip"></div>
       </div>`;
+  }
+
+  function initHeatmapTooltips() {
+    const wrap = document.querySelector('.sr-p-heatmap-365');
+    const tooltip = document.getElementById('sr-hm-tooltip');
+    if (!wrap || !tooltip) return;
+    const dayNames = ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
+    const mNames = ['janvier','f\u00e9vrier','mars','avril','mai','juin','juillet','ao\u00fbt','septembre','octobre','novembre','d\u00e9cembre'];
+
+    wrap.addEventListener('mouseover', function (e) {
+      const cell = e.target.closest('.sr-hm-cell');
+      if (!cell) { tooltip.style.display = 'none'; return; }
+      const date = cell.dataset.date;
+      const count = parseInt(cell.dataset.count);
+      const d = new Date(date);
+      tooltip.textContent = (count === 0 ? 'Aucune r\u00e9vision' : count + ' r\u00e9vision' + (count > 1 ? 's' : '')) +
+        ' \u2014 ' + dayNames[d.getDay()] + ' ' + d.getDate() + ' ' + mNames[d.getMonth()] + ' ' + d.getFullYear();
+      const rect = cell.getBoundingClientRect();
+      const wrapRect = wrap.getBoundingClientRect();
+      tooltip.style.display = 'block';
+      tooltip.style.left = (rect.left - wrapRect.left + rect.width / 2) + 'px';
+      tooltip.style.top = (rect.top - wrapRect.top - 28) + 'px';
+    });
+
+    wrap.addEventListener('mouseout', function (e) {
+      if (e.target.closest('.sr-hm-cell')) tooltip.style.display = 'none';
+    });
+  }
+
+  // ── NEW: Badges ──
+  const BADGE_DEFS = {
+    'streak-3':     { name: 'R\u00e9gulier',      icon: '\uD83D\uDD25', desc: '3 jours de s\u00e9rie' },
+    'streak-7':     { name: 'Assidu',            icon: '\uD83D\uDD25', desc: '7 jours de s\u00e9rie' },
+    'streak-30':    { name: 'Ind\u00e9fectible',  icon: '\uD83D\uDC8E', desc: '30 jours de s\u00e9rie' },
+    'streak-100':   { name: 'L\u00e9gendaire',    icon: '\uD83D\uDC51', desc: '100 jours de s\u00e9rie' },
+    'cards-50':     { name: 'Curieux',           icon: '\uD83D\uDCDD', desc: '50 cartes ajout\u00e9es' },
+    'cards-100':    { name: 'Studieux',          icon: '\uD83D\uDCDA', desc: '100 cartes ajout\u00e9es' },
+    'cards-500':    { name: '\u00c9rudit',        icon: '\uD83C\uDF93', desc: '500 cartes ajout\u00e9es' },
+    'cards-1000':   { name: 'Encyclop\u00e9diste', icon: '\uD83C\uDFDB\uFE0F', desc: '1000 cartes ajout\u00e9es' },
+    'reviews-100':  { name: 'Pratiquant',        icon: '\u26A1', desc: '100 r\u00e9visions' },
+    'reviews-1000': { name: 'Expert',            icon: '\u26A1', desc: '1000 r\u00e9visions' },
+    'reviews-5000': { name: 'Ma\u00eetre',        icon: '\u26A1', desc: '5000 r\u00e9visions' },
+    'retention-80': { name: 'Bonne m\u00e9moire', icon: '\uD83E\uDDE0', desc: 'R\u00e9tention \u2265 80%' },
+    'retention-95': { name: 'M\u00e9moire d\'or', icon: '\uD83E\uDDE0', desc: 'R\u00e9tention \u2265 95%' },
+  };
+
+  const BADGE_CHECKS = {
+    'streak-3':     s => s.streak >= 3,
+    'streak-7':     s => s.streak >= 7,
+    'streak-30':    s => s.streak >= 30,
+    'streak-100':   s => s.streak >= 100,
+    'cards-50':     s => s.total >= 50,
+    'cards-100':    s => s.total >= 100,
+    'cards-500':    s => s.total >= 500,
+    'cards-1000':   s => s.total >= 1000,
+    'reviews-100':  s => s.reviews >= 100,
+    'reviews-1000': s => s.reviews >= 1000,
+    'reviews-5000': s => s.reviews >= 5000,
+    'retention-80': s => s.retention >= 80,
+    'retention-95': s => s.retention >= 95,
+  };
+
+  function checkBadges() {
+    const stats = SR.getStats();
+    const ret = SR.getRetentionEstimate();
+    const ctx = { streak: stats.streakDays, total: stats.total, reviews: stats.totalReviews, retention: ret.overall };
+
+    let bd;
+    try { bd = JSON.parse(localStorage.getItem('curiosita_badges')); } catch (e) {}
+    if (!bd) bd = { earned: {}, newBadges: [] };
+
+    const newlyEarned = [];
+    Object.entries(BADGE_CHECKS).forEach(([id, check]) => {
+      if (!bd.earned[id] && check(ctx)) {
+        bd.earned[id] = new Date().toISOString().slice(0, 10);
+        newlyEarned.push(id);
+      }
+    });
+
+    // Discipline badges
+    const mastery = computeMastery();
+    const TIERS = [
+      { suffix: 'debutant', name: 'D\u00e9butant', icon: '\uD83C\uDF31', min: 10, pct: 0 },
+      { suffix: 'intermediaire', name: 'Interm\u00e9diaire', icon: '\uD83D\uDCD7', min: 20, pct: 50 },
+      { suffix: 'avance', name: 'Avanc\u00e9', icon: '\uD83D\uDCD8', min: 30, pct: 75 },
+      { suffix: 'maitre', name: 'Ma\u00eetre', icon: '\uD83C\uDFC6', min: 40, pct: 90 },
+    ];
+    Object.entries(mastery).forEach(([disc, data]) => {
+      TIERS.forEach(tier => {
+        const id = 'disc-' + disc + '-' + tier.suffix;
+        if (bd.earned[id]) return;
+        const p = data.total > 0 ? Math.round(data.mastered / data.total * 100) : 0;
+        if (data.total >= tier.min && p >= tier.pct) {
+          bd.earned[id] = new Date().toISOString().slice(0, 10);
+          newlyEarned.push(id);
+        }
+      });
+    });
+
+    if (newlyEarned.length > 0) {
+      bd.newBadges = (bd.newBadges || []).concat(newlyEarned);
+      localStorage.setItem('curiosita_badges', JSON.stringify(bd));
+    }
+    return { bd, newlyEarned };
+  }
+
+  function buildBadges() {
+    const { bd } = checkBadges();
+    const earned = bd.earned || {};
+
+    let globalHtml = '';
+    Object.entries(BADGE_DEFS).forEach(([id, def]) => {
+      const has = !!earned[id];
+      globalHtml += `<div class="sr-badge ${has ? 'earned' : 'locked'}" title="${def.desc}${has ? ' \u2014 obtenu le ' + earned[id] : ''}">` +
+        `<span class="sr-badge-icon">${has ? def.icon : '\uD83D\uDD12'}</span>` +
+        `<span class="sr-badge-name">${def.name}</span></div>`;
+    });
+
+    // Discipline badges for disciplines with enough cards
+    const mastery = computeMastery();
+    const TIERS = [
+      { suffix: 'debutant', icon: '\uD83C\uDF31' },
+      { suffix: 'intermediaire', icon: '\uD83D\uDCD7' },
+      { suffix: 'avance', icon: '\uD83D\uDCD8' },
+      { suffix: 'maitre', icon: '\uD83C\uDFC6' },
+    ];
+    let discHtml = '';
+    Object.entries(mastery).filter(([, d]) => d.total >= 5).sort((a, b) => b[1].total - a[1].total).forEach(([disc]) => {
+      const label = disc.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+      let tierHtml = '';
+      TIERS.forEach(t => {
+        const id = 'disc-' + disc + '-' + t.suffix;
+        const has = !!earned[id];
+        tierHtml += `<span class="sr-badge-mini ${has ? 'earned' : 'locked'}" title="${label}">${has ? t.icon : '\uD83D\uDD12'}</span>`;
+      });
+      discHtml += `<div class="sr-badge-disc-row"><span class="sr-badge-disc-name">${label}</span><div class="sr-badge-disc-tiers">${tierHtml}</div></div>`;
+    });
+
+    return `<div class="sr-p-section"><h3 class="sr-p-title">Badges</h3>` +
+      `<p class="sr-p-desc">Tes accomplissements. Continue \u00e0 r\u00e9viser pour d\u00e9bloquer de nouveaux badges.</p>` +
+      `<div class="sr-badges-global">${globalHtml}</div>` +
+      (discHtml ? '<h4 class="sr-p-subtitle">Par discipline</h4><div class="sr-badges-disc">' + discHtml + '</div>' : '') +
+      '</div>';
   }
 
   // ── F. At-Risk Cards ──
