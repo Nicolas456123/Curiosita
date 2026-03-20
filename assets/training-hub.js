@@ -438,6 +438,80 @@ var TrainingHub = (function () {
     return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
   }
 
+  // ── Courses view ──────────────────────────────────
+
+  var COURSE_CATALOG = [
+    { slug: 'arts/architecture/gothique', title: 'Architecture gothique', icon: '⛪', domain: 'Arts', theme: 'arts-culture' },
+    { slug: 'arts/peinture/impressionnisme', title: 'L\'Impressionnisme', icon: '🎨', domain: 'Arts', theme: 'arts-culture' },
+    { slug: 'chimie/biochimie/adn-arn', title: 'ADN et ARN', icon: '🧬', domain: 'Chimie', theme: 'sciences-exactes' },
+    { slug: 'philosophie/antiquite/aristote', title: 'Aristote', icon: '🏛️', domain: 'Philosophie', theme: 'lettres-langues' },
+    { slug: 'histoire/moderne/revolution-industrielle', title: 'Révolution industrielle', icon: '🏭', domain: 'Histoire', theme: 'sciences-humaines' },
+    { slug: 'histoire/antiquite/rome', title: 'Rome antique', icon: '🏛️', domain: 'Histoire', theme: 'sciences-humaines' },
+    { slug: 'histoire/contemporaine/guerre-froide', title: 'Guerre froide', icon: '🌐', domain: 'Histoire', theme: 'sciences-humaines' },
+    { slug: 'physique/mecanique/energie', title: 'Énergie et travail', icon: '⚡', domain: 'Physique', theme: 'sciences-exactes' },
+    { slug: 'astronomie/observation/astronomie-amateur', title: 'Astronomie amateur', icon: '🔭', domain: 'Astronomie', theme: 'sciences-nature' },
+    { slug: 'botanique-zoologie/ethologie/cognition-animale', title: 'Cognition animale', icon: '🧠', domain: 'Éthologie', theme: 'sciences-nature' },
+    { slug: 'neurosciences/neurochimie/serotonine', title: 'La sérotonine', icon: '💊', domain: 'Neurosciences', theme: 'sciences-humaines' },
+    { slug: 'cuisine/nutrition/equilibre', title: 'Équilibre alimentaire', icon: '🥗', domain: 'Nutrition', theme: 'savoir-faire' },
+    { slug: 'environnement/solutions-durables/energies-renouvelables', title: 'Énergies renouvelables', icon: '☀️', domain: 'Environnement', theme: 'sciences-nature' },
+    { slug: 'droit/international/humanitaire', title: 'Droit humanitaire', icon: '⚖️', domain: 'Droit', theme: 'droit-politique' },
+    { slug: 'botanique-zoologie/botanique/anatomie-vegetale', title: 'Anatomie végétale', icon: '🌱', domain: 'Botanique', theme: 'sciences-nature' }
+  ];
+
+  function getCourseProgress(slug) {
+    var data = loadStorage('curiosita_courselearn');
+    if (!data || !data.scores) return { done: 0, total: 0 };
+    var done = 0, total = 0;
+    Object.keys(data.scores).forEach(function (k) {
+      if (k.indexOf(slug + '::') === 0) { total++; if (data.scores[k].pct >= 70) done++; }
+    });
+    return { done: done, total: total };
+  }
+
+  function renderCourses() {
+    var html = '<div class="th-records" style="padding:20px">';
+    html += '<h3 class="th-section-title">Cours avec exercices d\u2019apprentissage</h3>';
+    html += '<p style="color:var(--muted,#7a7870);font-size:0.85rem;margin-bottom:20px;">Chaque cours a été analysé manuellement pour en extraire les meilleurs exercices. Clique pour ouvrir le cours et accéder aux activités.</p>';
+
+    // Group by domain
+    var domains = {};
+    COURSE_CATALOG.forEach(function (c) {
+      if (!domains[c.domain]) domains[c.domain] = [];
+      domains[c.domain].push(c);
+    });
+
+    Object.keys(domains).forEach(function (domain) {
+      html += '<div class="th-category" style="margin-bottom:24px">' +
+        '<div class="th-cat-header">' +
+          '<span class="th-cat-name" style="font-size:1rem">' + domain + '</span>' +
+          '<span class="th-cat-line"></span>' +
+        '</div>' +
+        '<div class="th-grid">';
+
+      domains[domain].forEach(function (course) {
+        var progress = getCourseProgress(course.slug);
+        var progressHtml = progress.total > 0
+          ? '<div class="th-card-stats"><span>' + progress.done + '/' + progress.total + ' maîtrisés</span></div>'
+          : '';
+
+        html += '<div class="th-card th-course-card" data-cv="' + course.slug + '" style="cursor:pointer">' +
+          '<div class="th-card-icon">' + course.icon + '</div>' +
+          '<div class="th-card-body">' +
+            '<div class="th-card-name">' + course.title + '</div>' +
+            '<div class="th-card-desc" style="font-size:0.75rem;color:var(--muted)">' + course.domain + '</div>' +
+            progressHtml +
+          '</div>' +
+          '<span style="color:var(--muted);font-size:1.2rem;align-self:center">›</span>' +
+        '</div>';
+      });
+
+      html += '</div></div>';
+    });
+
+    html += '</div>';
+    return html;
+  }
+
   function renderProgram() {
     var prog = loadProgram();
     var level = prog.level || 'debutant';
@@ -511,6 +585,7 @@ var TrainingHub = (function () {
 
     var tabData = [
       { id: 'dashboard', label: 'Exercices' },
+      { id: 'courses', label: 'Cours' },
       { id: 'records', label: 'Records' },
       { id: 'program', label: 'Programme' },
     ];
@@ -527,6 +602,7 @@ var TrainingHub = (function () {
     html += '</div></div>';
 
     if (currentView === 'dashboard') html += renderDashboard();
+    else if (currentView === 'courses') html += renderCourses();
     else if (currentView === 'records') html += renderRecords();
     else if (currentView === 'program') html += renderProgram();
 
@@ -581,6 +657,16 @@ var TrainingHub = (function () {
         else prog.completed.splice(idx, 1);
         saveProgram(prog);
         update();
+      });
+    });
+
+    // Course card clicks — open in Course Viewer
+    rootEl.querySelectorAll('.th-course-card[data-cv]').forEach(function (card) {
+      card.addEventListener('click', function () {
+        var slug = card.getAttribute('data-cv');
+        if (typeof CV !== 'undefined' && CV.open) {
+          CV.open(slug);
+        }
       });
     });
 
