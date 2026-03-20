@@ -53,7 +53,7 @@
 
     // Grand theme index page (e.g. slug = "sciences-exactes")
     if (!theme) {
-      return 'assets/content/' + disc + '/_index.json';
+      return 'assets/content/' + disc + '/index.json';
     }
 
     // Discipline index page: "disc" or "disc/index"
