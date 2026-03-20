@@ -936,6 +936,65 @@
     .welcome-title { font-size: 1.3rem; }
   }
 
+  /* === ADAPTIVE DASHBOARD === */
+  .dash-todo-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .dash-todo-item:last-child { border-bottom: none; }
+  .dash-todo-item:hover { opacity: 0.8; }
+  .dash-todo-icon { font-size: 1.2rem; flex-shrink: 0; }
+  .dash-todo-text { flex: 1; font-size: 0.88rem; color: var(--text); }
+  .dash-todo-action { font-size: 0.78rem; color: var(--accent); white-space: nowrap; }
+
+  .dash-btn-secondary {
+    background: transparent !important;
+    border: 1px solid var(--border) !important;
+    color: var(--text) !important;
+  }
+  .dash-btn-secondary:hover { border-color: var(--accent) !important; }
+
+  .dash-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 0.8rem;
+    padding: 0.5rem 0;
+  }
+  .dash-stat-item { text-align: center; }
+  .dash-stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1.2;
+  }
+  .dash-stat-label {
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 0.2rem;
+  }
+
+  .dash-recent-list { display: flex; flex-direction: column; gap: 0.3rem; }
+  .dash-recent-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.6rem;
+    font-size: 0.85rem;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.15s;
+  }
+  .dash-recent-link:hover { background: var(--surface2); }
+
   /* === TRAINING SECTION === */
   .training-section {
     padding: 4rem 3rem;
@@ -1062,61 +1121,7 @@
 
 <!-- DASHBOARD -->
 <section class="dashboard" id="dashboard">
-  <div class="dash-grid">
-
-    <div class="dash-card dash-review" id="dash-review">
-      <div class="dash-card-header">
-        <span class="dash-icon">🔄</span>
-        <span class="dash-label">Révisions du jour</span>
-      </div>
-      <div id="dash-review-content">
-        <div class="dash-due-count" id="dash-due">--</div>
-        <div class="dash-due-label" id="dash-due-label">cartes à réviser</div>
-        <button class="dash-btn" id="dash-review-btn" onclick="openReview()">Réviser maintenant →</button>
-      </div>
-    </div>
-
-    <div class="dash-card dash-progress">
-      <div class="dash-card-header">
-        <span class="dash-icon">🔥</span>
-        <span class="dash-label">Série</span>
-      </div>
-      <div class="dash-streak-display">
-        <div class="dash-streak-current" id="dash-streak">0</div>
-        <div class="dash-streak-unit">jours</div>
-      </div>
-      <div class="dash-streak-meta">
-        <div><span>Record</span><span id="dash-streak-best">0</span></div>
-        <div><span>Taux</span><span id="dash-rate">--%</span></div>
-        <div><span>Cartes</span><span id="dash-total">--</span></div>
-      </div>
-      <div class="dash-streak-week" id="dash-streak-week"></div>
-    </div>
-
-    <div class="dash-card dash-discover">
-      <div class="dash-card-header">
-        <span class="dash-icon">✨</span>
-        <span class="dash-label">Découverte du jour</span>
-      </div>
-      <div id="dash-discover-content">
-        <div class="dash-discover-skeleton"></div>
-      </div>
-    </div>
-
-    <div class="dash-card dash-themes">
-      <div class="dash-card-header">
-        <span class="dash-icon">📚</span>
-        <span class="dash-label">Thèmes actifs</span>
-      </div>
-      <div id="dash-themes-list">
-        <div class="dash-empty">
-          <a href="#themes" class="dash-empty-link">Commencer par un thème →</a>
-        </div>
-      </div>
-      <a href="#themes" class="dash-link" id="dash-themes-fallback-link">Toutes les pages →</a>
-    </div>
-
-  </div>
+  <div id="dash-adaptive"></div>
 </section>
 
 <!-- SEARCH -->
@@ -1372,74 +1377,129 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('welcomeOverlay').classList.add('open');
   }
 
-  // ── Dashboard hydration ──
+  // ── Adaptive Dashboard ──
   window.hydrateDashboard = function() {
-    if (typeof SR === 'undefined') return;
+    var el = document.getElementById('dash-adaptive');
+    if (!el) return;
 
-    var stats = SR.getStats();
-    var due = stats.due || 0;
-    var total = stats.total || 0;
+    // Gather data from all sources
+    var visited = [];
+    try { visited = JSON.parse(localStorage.getItem('curiosita_visited') || '[]'); } catch(e) {}
 
-    // Review card
-    var dueEl = document.getElementById('dash-due');
-    var dueLabelEl = document.getElementById('dash-due-label');
-    var reviewBtn = document.getElementById('dash-review-btn');
-    var reviewCard = document.getElementById('dash-review');
+    var hasSR = typeof SR !== 'undefined';
+    var srStats = hasSR ? SR.getStats() : { due: 0, total: 0, streakDays: 0, bestStreak: 0, successRate: 0, reviewHistory: [] };
+    var hasCards = srStats.total > 0;
+    var dueSR = srStats.due || 0;
 
-    if (total === 0) {
-      // Empty state
-      document.getElementById('dash-review-content').innerHTML =
-        '<div class="dash-empty">Pas encore de cartes.<br><a href="#themes" class="dash-empty-link">Explorer les pages pour commencer →</a></div>';
+    // Training history across all modules
+    var allKeys = ['curiosita_memtrain','curiosita_memevents','curiosita_memassoc','curiosita_memvisual','curiosita_palaces','curiosita_membeginner','curiosita_mempractical','curiosita_memlife','curiosita_memculture'];
+    var totalTrainingSessions = 0;
+    allKeys.forEach(function(k) {
+      try { var d = JSON.parse(localStorage.getItem(k) || '{}'); totalTrainingSessions += (d.history || []).length; } catch(e) {}
+    });
+
+    // Course learning progress
+    var courseLearnData = {};
+    try { courseLearnData = JSON.parse(localStorage.getItem('curiosita_courselearn') || '{}'); } catch(e) {}
+    var courseScores = courseLearnData.scores || {};
+    var coursesStarted = [];
+    var uniqueSlugs = {};
+    Object.keys(courseScores).forEach(function(k) {
+      var slug = k.split('::')[0];
+      if (!uniqueSlugs[slug]) { uniqueSlugs[slug] = true; coursesStarted.push(slug); }
+    });
+
+    // Practical mastery
+    var practicalKeys = ['curiosita_mempractical','curiosita_memculture','curiosita_memlife'];
+    var totalMastered = 0;
+    practicalKeys.forEach(function(k) {
+      try {
+        var d = JSON.parse(localStorage.getItem(k) || '{}');
+        if (d.mastery) Object.values(d.mastery).forEach(function(v) { if (v >= 3) totalMastered++; });
+      } catch(e) {}
+    });
+
+    var isNew = visited.length === 0 && !hasCards && totalTrainingSessions === 0;
+    var html = '<div class="dash-grid">';
+
+    // ── CARD 1: À faire aujourd'hui ──
+    html += '<div class="dash-card dash-review">';
+    html += '<div class="dash-card-header"><span class="dash-icon">📋</span><span class="dash-label">Aujourd\u2019hui</span></div>';
+
+    if (isNew) {
+      html += '<div class="dash-today-new">' +
+        '<div style="font-size:1.1rem;margin-bottom:0.8rem;color:var(--text)">Bienvenue sur Curiosità !</div>' +
+        '<div style="font-size:0.85rem;color:var(--muted);line-height:1.6;margin-bottom:1.2rem">Commence par explorer un sujet qui t\u2019intéresse, ou essaie un exercice de mémoire.</div>' +
+        '<a href="#themes" class="dash-btn" style="margin-bottom:0.5rem;display:block;text-align:center">Explorer les thèmes →</a>' +
+        '<a href="#training" class="dash-btn dash-btn-secondary" style="display:block;text-align:center">Essayer un jeu de mémoire →</a>' +
+      '</div>';
     } else {
-      dueEl.textContent = due;
-      if (due === 0) {
-        reviewCard.classList.add('all-done');
-        dueLabelEl.textContent = 'Tout est révisé !';
-        reviewBtn.textContent = 'Voir le deck →';
-        reviewBtn.setAttribute('onclick', "window.location.href='pages/apprendre.html#decks'");
-      } else {
-        dueLabelEl.textContent = due === 1 ? 'carte à réviser' : 'cartes à réviser';
+      var todoItems = [];
+      if (hasCards && dueSR > 0) {
+        todoItems.push('<div class="dash-todo-item" onclick="openReview()"><span class="dash-todo-icon">🔄</span><span class="dash-todo-text">' + dueSR + ' carte' + (dueSR > 1 ? 's' : '') + ' à réviser</span><span class="dash-todo-action">Réviser →</span></div>');
       }
-    }
-
-    // Stats — streak enrichi
-    document.getElementById('dash-streak').textContent = stats.streakDays || 0;
-    document.getElementById('dash-streak-best').textContent = stats.bestStreak || 0;
-    document.getElementById('dash-rate').textContent = stats.successRate > 0 ? Math.round(stats.successRate) + '%' : '--';
-    document.getElementById('dash-total').textContent = total || '--';
-
-    // Mini calendrier 7 jours
-    var weekEl = document.getElementById('dash-streak-week');
-    if (weekEl) {
-      var dots = '';
-      var today = new Date();
-      var histMap = {};
-      (stats.reviewHistory || []).forEach(function(h) { histMap[h.date] = h.count; });
-      for (var i = 6; i >= 0; i--) {
-        var d = new Date(today);
-        d.setDate(d.getDate() - i);
-        var ds = d.toISOString().slice(0, 10);
-        var active = histMap[ds] ? ' active' : '';
-        var isToday = i === 0 ? ' today' : '';
-        dots += '<div class="dash-streak-dot' + active + isToday + '" title="' + ds + '"></div>';
+      if (visited.length > 0 && visited.length < 5) {
+        todoItems.push('<div class="dash-todo-item" onclick="location.hash=\'themes\'"><span class="dash-todo-icon">📖</span><span class="dash-todo-text">Continuer à explorer (' + visited.length + ' page' + (visited.length > 1 ? 's' : '') + ' lue' + (visited.length > 1 ? 's' : '') + ')</span><span class="dash-todo-action">Explorer →</span></div>');
       }
-      weekEl.innerHTML = dots;
+      if (totalTrainingSessions > 0 && totalTrainingSessions < 20) {
+        todoItems.push('<div class="dash-todo-item" onclick="location.hash=\'training\'"><span class="dash-todo-icon">🧠</span><span class="dash-todo-text">S\u2019entraîner</span><span class="dash-todo-action">Exercices →</span></div>');
+      }
+      if (todoItems.length === 0) {
+        todoItems.push('<div class="dash-todo-item" onclick="location.hash=\'themes\'"><span class="dash-todo-icon">✨</span><span class="dash-todo-text">Tout est à jour ! Découvre un nouveau sujet.</span><span class="dash-todo-action">Explorer →</span></div>');
+      }
+      html += todoItems.join('');
+    }
+    html += '</div>';
+
+    // ── CARD 2: Progression globale ──
+    html += '<div class="dash-card dash-progress">';
+    html += '<div class="dash-card-header"><span class="dash-icon">📊</span><span class="dash-label">Progression</span></div>';
+
+    if (isNew) {
+      html += '<div class="dash-empty" style="padding:1rem 0;color:var(--muted);font-size:0.85rem">Tes statistiques apparaîtront ici dès que tu commences.</div>';
+    } else {
+      html += '<div class="dash-stats-grid">';
+      html += '<div class="dash-stat-item"><div class="dash-stat-value">' + visited.length + '</div><div class="dash-stat-label">pages lues</div></div>';
+      html += '<div class="dash-stat-item"><div class="dash-stat-value">' + totalTrainingSessions + '</div><div class="dash-stat-label">exercices faits</div></div>';
+      if (hasCards) {
+        html += '<div class="dash-stat-item"><div class="dash-stat-value">' + srStats.total + '</div><div class="dash-stat-label">flashcards</div></div>';
+      }
+      if (totalMastered > 0) {
+        html += '<div class="dash-stat-item"><div class="dash-stat-value">' + totalMastered + '</div><div class="dash-stat-label">faits maîtrisés</div></div>';
+      }
+      if (srStats.streakDays > 0) {
+        html += '<div class="dash-stat-item"><div class="dash-stat-value">' + srStats.streakDays + '<small style="font-size:0.6em;color:var(--muted)">j</small></div><div class="dash-stat-label">série en cours</div></div>';
+      }
+      if (coursesStarted.length > 0) {
+        html += '<div class="dash-stat-item"><div class="dash-stat-value">' + coursesStarted.length + '</div><div class="dash-stat-label">cours en exercice</div></div>';
+      }
+      html += '</div>';
+    }
+    html += '</div>';
+
+    // ── CARD 3: Dernières pages lues ──
+    if (visited.length > 0) {
+      html += '<div class="dash-card dash-themes">';
+      html += '<div class="dash-card-header"><span class="dash-icon">📚</span><span class="dash-label">Pages récentes</span></div>';
+      var recent = visited.slice(-5).reverse();
+      html += '<div class="dash-recent-list">';
+      recent.forEach(function(slug) {
+        var label = slug.split('/').pop().replace(/-/g, ' ');
+        label = label.charAt(0).toUpperCase() + label.slice(1);
+        html += '<a href="#" data-cv="' + slug + '" class="dash-recent-link">' + label + ' <span style="color:var(--accent)">→</span></a>';
+      });
+      html += '</div>';
+      html += '</div>';
     }
 
-    // Active themes
-    var themes = SR.getThemes();
-    var themesList = document.getElementById('dash-themes-list');
-    if (themes.length > 0) {
-      themesList.innerHTML = themes.slice(0, 6).map(function(t) {
-        var label = t.theme.replace(/-/g, ' ');
-        return '<a href="#" data-cv="' + t.theme + '" class="dash-theme-chip">' +
-          '<span>' + label + '</span>' +
-          (t.dueCount > 0 ? '<span class="dash-theme-badge">' + t.dueCount + '</span>' : '') +
-          '</a>';
-      }).join('');
-      var fallback = document.getElementById('dash-themes-fallback-link');
-      if (fallback) fallback.style.display = 'none';
-    }
+    // ── CARD 4: Découverte du jour ──
+    html += '<div class="dash-card dash-discover">';
+    html += '<div class="dash-card-header"><span class="dash-icon">✨</span><span class="dash-label">Découverte du jour</span></div>';
+    html += '<div id="dash-discover-content"><div class="dash-discover-skeleton"></div></div>';
+    html += '</div>';
+
+    html += '</div>';
+    el.innerHTML = html;
   }
 
   // Badge toast notification
