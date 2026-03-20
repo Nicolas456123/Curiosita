@@ -887,6 +887,7 @@
     .search-section { padding: 2rem 1.5rem; }
     .search-input { font-size: 1rem; }
 
+    .training-section { padding: 2.5rem 1.5rem; }
     .themes-section { padding: 2.5rem 1.5rem; }
     .section-title { font-size: 1.6rem; }
     .themes-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
@@ -918,6 +919,7 @@
     .search-hint { gap: 0.5rem; }
     .tag { font-size: 0.65rem; padding: 0.25rem 0.6rem; }
     .result-item { padding: 0.7rem 0.9rem; font-size: 0.8rem; }
+    .training-section { padding: 2rem 1rem; }
     .themes-section { padding: 2rem 1rem; }
     .section-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; margin-bottom: 1.5rem; }
     .section-title { font-size: 1.4rem; }
@@ -932,186 +934,13 @@
     footer { padding: 1.5rem 1rem; font-size: 0.75rem; }
     .welcome-box { padding: 2rem 1.5rem; }
     .welcome-title { font-size: 1.3rem; }
-    .cb-sidebar { display: none !important; }
-    .cb-sidebar.mobile-open { display: block !important; position: fixed; inset: 0; z-index: 300; background: var(--bg); padding: 1rem 1.2rem; overflow-y: auto; }
-    .cb-body { flex-direction: column; }
-    .cb-main { min-height: 0; }
-    .cb-filter-toggle { display: flex !important; }
-    .cb-header { flex-wrap: wrap; gap: 0.5rem; padding: 0.8rem 1rem; }
-    .cb-search-wrap { width: 100%; max-width: 100%; }
-    .cb-search { font-size: 0.85rem; }
-    .cb-item { flex-direction: column; align-items: stretch; overflow: hidden; }
-    .cb-item-front { white-space: normal !important; -webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
-    .cb-item-btn { align-self: flex-end; margin-top: 0.5rem; }
   }
 
-  /* === CARD BROWSER === */
-  .cb-overlay {
-    position: fixed; inset: 0; z-index: 200;
-    background: var(--bg);
-    display: flex; flex-direction: column;
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.25s;
+  /* === TRAINING SECTION === */
+  .training-section {
+    padding: 4rem 3rem;
+    border-top: 1px solid var(--border);
   }
-  .cb-overlay.open { opacity: 1; pointer-events: auto; }
-
-  .cb-header {
-    display: flex; align-items: center; gap: 1rem;
-    padding: 0.8rem 1.5rem;
-    border-bottom: 1px solid var(--border);
-    flex-shrink: 0;
-  }
-  .cb-close {
-    background: none; border: none; color: var(--muted);
-    font-size: 1.2rem; cursor: pointer; padding: 0.3rem;
-    transition: color 0.2s;
-  }
-  .cb-close:hover { color: var(--text); }
-  .cb-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem; font-weight: 700;
-    flex-shrink: 0;
-  }
-  .cb-search-wrap { flex: 1; max-width: 400px; margin-left: auto; }
-  .cb-search {
-    width: 100%; background: var(--surface); border: 1px solid var(--border);
-    border-radius: 6px; padding: 0.5rem 0.8rem;
-    color: var(--text); font-size: 0.85rem;
-    font-family: 'DM Sans', sans-serif;
-    outline: none; transition: border-color 0.2s;
-  }
-  .cb-search:focus { border-color: var(--accent); }
-  .cb-deck-count { font-size: 0.75rem; color: var(--accent); flex-shrink: 0; }
-  .cb-filter-toggle {
-    display: none; background: none; border: 1px solid var(--border);
-    color: var(--muted); font-size: 0.75rem; padding: 0.4rem 0.8rem;
-    border-radius: 4px; cursor: pointer;
-  }
-
-  .cb-body {
-    display: flex; flex: 1; overflow: hidden;
-  }
-
-  .cb-sidebar {
-    width: 220px; flex-shrink: 0;
-    border-right: 1px solid var(--border);
-    padding: 1rem; overflow-y: auto;
-  }
-  .cb-sidebar-close {
-    display: none; width: 100%; background: none;
-    border: 1px solid var(--border); color: var(--muted);
-    font-size: 0.78rem; padding: 0.6rem; margin-bottom: 1rem;
-    border-radius: 6px; cursor: pointer; text-align: center;
-  }
-  .cb-sidebar.mobile-open .cb-sidebar-close { display: block; }
-  .cb-filter-section { margin-bottom: 1.5rem; }
-  .cb-filter-title {
-    font-size: 0.65rem; text-transform: uppercase;
-    letter-spacing: 0.1em; color: var(--muted);
-    margin-bottom: 0.6rem;
-  }
-  .cb-filter-opt {
-    display: flex; align-items: center; gap: 0.4rem;
-    font-size: 0.78rem; color: var(--text);
-    padding: 0.2rem 0; cursor: pointer;
-  }
-  .cb-filter-opt input[type="checkbox"],
-  .cb-filter-opt input[type="radio"] {
-    accent-color: var(--accent);
-  }
-  .cb-filter-count {
-    margin-left: auto; font-size: 0.65rem; color: var(--muted);
-  }
-
-  .cb-main {
-    flex: 1; display: flex; flex-direction: column;
-    overflow: hidden;
-  }
-  .cb-toolbar {
-    display: flex; align-items: center; gap: 1rem;
-    padding: 0.8rem 1.5rem;
-    border-bottom: 1px solid var(--border);
-    flex-shrink: 0;
-  }
-  .cb-result-count { font-size: 0.8rem; color: var(--muted); }
-  .cb-add-all {
-    margin-left: auto; background: none;
-    border: 1px solid var(--border); color: var(--muted);
-    font-size: 0.72rem; padding: 0.35rem 0.8rem;
-    border-radius: 4px; cursor: pointer;
-    transition: all 0.2s;
-  }
-  .cb-add-all:hover { border-color: var(--accent); color: var(--accent); }
-  .cb-add-all.active { border-color: var(--green); color: var(--green); }
-
-  #cbCardList {
-    flex: 1; overflow-y: auto; padding: 0.5rem 1.5rem;
-  }
-
-  .cb-item {
-    display: flex; align-items: center; gap: 1rem;
-    padding: 0.8rem 1rem;
-    border-bottom: 1px solid var(--border);
-    transition: background 0.15s;
-  }
-  .cb-item:hover { background: var(--surface); }
-  .cb-item.added { opacity: 0.7; }
-  .cb-item.added:hover { opacity: 1; }
-
-  .cb-item-content { flex: 1; min-width: 0; }
-  .cb-item-front {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700; font-size: 0.92rem;
-    margin-bottom: 0.2rem;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-  }
-  .cb-item-back {
-    font-size: 0.78rem; color: var(--muted);
-    display: -webkit-box; -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical; overflow: hidden;
-    line-height: 1.4;
-  }
-  .cb-item-meta {
-    display: flex; gap: 0.6rem; margin-top: 0.3rem;
-    font-size: 0.68rem;
-  }
-  .cb-item-type {
-    color: var(--accent); background: rgba(232,201,122,0.1);
-    padding: 0.1rem 0.4rem; border-radius: 3px;
-  }
-  .cb-item-source { color: var(--muted); }
-  .cb-item-course {
-    text-decoration: none; font-size: 0.85rem; margin-left: auto;
-    opacity: 0.5; transition: opacity 0.2s;
-  }
-  .cb-item-course:hover { opacity: 1; }
-
-  .cb-item-btn {
-    width: 36px; height: 36px; flex-shrink: 0;
-    border-radius: 50%; border: 1px solid var(--border);
-    background: none; color: var(--muted);
-    font-size: 1rem; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.2s;
-  }
-  .cb-item-btn:hover { border-color: var(--accent); color: var(--accent); }
-  .cb-item-btn.active {
-    background: var(--green); border-color: var(--green);
-    color: var(--bg); font-size: 0.8rem;
-  }
-
-  .cb-loading, .cb-empty {
-    text-align: center; color: var(--muted);
-    padding: 3rem 1rem; font-size: 0.9rem;
-  }
-  .cb-load-more {
-    display: block; width: 100%; margin: 1rem 0;
-    padding: 0.8rem; background: var(--surface);
-    border: 1px solid var(--border); border-radius: 6px;
-    color: var(--muted); font-size: 0.8rem;
-    cursor: pointer; transition: all 0.2s;
-  }
-  .cb-load-more:hover { border-color: var(--accent); color: var(--accent); }
 
   /* === COURSE VIEWER === */
   .cv-overlay {
@@ -1191,34 +1020,6 @@
     padding: 3rem 1rem; font-size: 0.9rem;
   }
 
-  /* CV Sidebar Cards */
-  .cv-cards-list { max-height: 300px; overflow-y: auto; }
-  .cv-card-item {
-    display: flex; align-items: center; gap: 0.4rem;
-    padding: 0.3rem 0; font-size: 0.72rem;
-  }
-  .cv-card-item.added { opacity: 0.6; }
-  .cv-card-front { flex: 1; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .cv-card-btn {
-    width: 22px; height: 22px; flex-shrink: 0;
-    border-radius: 50%; border: 1px solid var(--border);
-    background: none; color: var(--muted);
-    font-size: 0.7rem; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.2s;
-  }
-  .cv-card-btn:hover { border-color: var(--accent); color: var(--accent); }
-  .cv-card-btn.active { background: var(--green); border-color: var(--green); color: var(--bg); }
-  .cv-cards-more { font-size: 0.68rem; color: var(--muted); padding: 0.3rem 0; }
-  .cv-cards-add-all {
-    display: block; width: 100%; margin-top: 0.5rem;
-    padding: 0.5rem; background: none;
-    border: 1px solid var(--border); border-radius: 4px;
-    color: var(--accent); font-size: 0.72rem;
-    cursor: pointer; transition: all 0.2s;
-  }
-  .cv-cards-add-all:hover { background: var(--accent-dim); }
-
   /* CV sidebar close for mobile */
   .cv-sidebar-close {
     display: none; width: 100%; background: none;
@@ -1253,6 +1054,7 @@
   </button>
   <ul class="nav-links">
     <li><a href="#themes">Thèmes</a></li>
+    <li><a href="#training">S'entraîner</a></li>
     <li><a href="pages/apprendre.html">Apprendre</a></li>
     <li><button class="nav-help" onclick="openWelcome()" title="Guide d'utilisation">?</button></li>
   </ul>
@@ -1312,18 +1114,6 @@
         </div>
       </div>
       <a href="#themes" class="dash-link" id="dash-themes-fallback-link">Toutes les pages →</a>
-    </div>
-
-    <div class="dash-card dash-library">
-      <div class="dash-card-header">
-        <span class="dash-icon">📖</span>
-        <span class="dash-label">Bibliothèque de cartes</span>
-      </div>
-      <div id="dash-library-content">
-        <div class="dash-stat-value" id="dash-library-count">--</div>
-        <div class="dash-due-label">cartes disponibles</div>
-        <button class="dash-btn" onclick="CB.open()">Parcourir →</button>
-      </div>
     </div>
 
   </div>
@@ -1450,6 +1240,18 @@
   </div>
 </section>
 
+<!-- TRAINING CENTER -->
+<section class="training-section" id="training">
+  <div class="section-header">
+    <div>
+      <p class="section-number">Entraînement</p>
+      <h2 class="section-title">Centre d'entraînement mémoire</h2>
+    </div>
+    <p class="section-count">11 exercices inspirés des Championnats du Monde de Mémoire</p>
+  </div>
+  <div id="training-hub-root"></div>
+</section>
+
 <!-- REVIEW MODAL -->
 <div class="review-overlay" id="reviewOverlay">
   <div class="review-progress-bar" id="reviewProgressBar"></div>
@@ -1490,48 +1292,6 @@
   </div>
 </div>
 
-<!-- CARD BROWSER -->
-<div class="cb-overlay" id="cardBrowserOverlay">
-  <div class="cb-header">
-    <button class="cb-close" onclick="CB.close()">✕</button>
-    <span class="cb-title">Bibliothèque de cartes</span>
-    <span class="cb-deck-count" id="cbDeckCount"></span>
-    <button class="cb-filter-toggle" onclick="document.querySelector('.cb-sidebar').classList.toggle('mobile-open')">Filtres</button>
-    <div class="cb-search-wrap">
-      <input class="cb-search" type="text" id="cbSearch" placeholder="Rechercher une carte…" autocomplete="off">
-    </div>
-  </div>
-  <div class="cb-body">
-    <aside class="cb-sidebar">
-      <button class="cb-sidebar-close" onclick="this.parentElement.classList.remove('mobile-open')">✕ Fermer les filtres</button>
-      <div class="cb-filter-section">
-        <div class="cb-filter-title">Disciplines</div>
-        <div id="cbDisciplineList"></div>
-      </div>
-      <div class="cb-filter-section" id="cbCourseSection" style="display:none">
-        <div class="cb-filter-title">Pages</div>
-        <div id="cbCourseList"></div>
-      </div>
-      <div class="cb-filter-section">
-        <div class="cb-filter-title">Type de carte</div>
-        <div id="cbTypeList"></div>
-      </div>
-      <div class="cb-filter-section">
-        <div class="cb-filter-title">Statut</div>
-        <label class="cb-filter-opt"><input type="radio" name="cbStatus" value="all" checked> Toutes</label>
-        <label class="cb-filter-opt"><input type="radio" name="cbStatus" value="not-added"> Non ajoutées</label>
-        <label class="cb-filter-opt"><input type="radio" name="cbStatus" value="added"> Dans le deck</label>
-      </div>
-    </aside>
-    <div class="cb-main">
-      <div class="cb-toolbar">
-        <span class="cb-result-count" id="cbResultCount">-- cartes</span>
-        <button class="cb-add-all" id="cbAddFiltered">+ Ajouter les cartes filtrées</button>
-      </div>
-      <div id="cbCardList"></div>
-    </div>
-  </div>
-</div>
 
 <!-- COURSE VIEWER -->
 <div class="cv-overlay" id="courseViewerOverlay">
@@ -1600,7 +1360,6 @@
 
 <!-- SCRIPTS -->
 <script src="assets/sr-engine.js"></script>
-<script src="assets/sr-extract.js"></script>
 <script src="assets/sr-ui.js"></script>
 <script src="assets/sr-progress.js"></script>
 <script src="assets/sr-methode.js"></script>
@@ -1869,11 +1628,15 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 </script>
 <script src="assets/search.js"></script>
-<script src="assets/card-browser.js"></script>
 <script src="assets/quiz.js"></script>
 <script src="assets/ei-prompts.js"></script>
 <script src="assets/memorize.js"></script>
 <script src="assets/memory-training.js"></script>
+<script src="assets/memory-events.js"></script>
+<script src="assets/memory-palace.js"></script>
+<script src="assets/memory-assoc.js"></script>
+<script src="assets/memory-visual.js"></script>
+<script src="assets/training-hub.js"></script>
 <script src="assets/metacog.js"></script>
 <script src="assets/pretest.js"></script>
 <script src="assets/course-viewer.js?v=2"></script>
@@ -1896,6 +1659,15 @@ document.addEventListener('DOMContentLoaded', function() {
     if (tc) tc.textContent = '7 grands thèmes · ' + Object.keys(discs).length + ' disciplines · ' + lessons + ' pages';
   };
   x.send();
+})();
+</script>
+<script>
+// Initialize Training Hub
+(function() {
+  var el = document.getElementById('training-hub-root');
+  if (el && typeof TrainingHub !== 'undefined') {
+    TrainingHub.render(el);
+  }
 })();
 </script>
 
