@@ -8,7 +8,6 @@
   'use strict';
 
   var pageCache = {};          // { slug: pageData }
-  var cardsDb = null;          // lazy-loaded from cards-db.json
   var currentSlug = null;
   var currentDisc = null;
   var skipNextPush = false;    // flag to avoid pushing state on popstate-triggered open
@@ -95,25 +94,6 @@
     });
   }
 
-  // ── Load cards DB (lazy, for sidebar cards) ──
-
-  function loadCards() {
-    return new Promise(function (resolve, reject) {
-      if (cardsDb) return resolve(cardsDb);
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'assets/cards-db.json?v=4');
-      xhr.onload = function () {
-        if (xhr.status >= 200 && xhr.status < 300) {
-          try {
-            cardsDb = JSON.parse(xhr.responseText);
-            resolve(cardsDb);
-          } catch (e) { reject(e); }
-        } else { reject(new Error('HTTP ' + xhr.status)); }
-      };
-      xhr.onerror = function () { reject(new Error('Network error')); };
-      xhr.send();
-    });
-  }
 
   // ── Open course viewer ──
 
@@ -199,6 +179,11 @@
       setTimeout(function () { Metacog.inject(slug); }, 100);
     }
 
+    // Course-specific learning exercises
+    if (typeof CourseLearning !== 'undefined') {
+      setTimeout(function () { CourseLearning.inject(slug); }, 120);
+    }
+
     // Build sidebar
     renderSidebar(page, {}, slug);
 
@@ -218,10 +203,6 @@
       }
     } catch (e) {}
 
-    // Load cards for sidebar (non-blocking)
-    loadCards().then(function () {
-      renderSidebarCards(slug, disc);
-    }).catch(function () {});
 
     // Glossary annotation (non-blocking)
     if (typeof GL !== 'undefined' && content) {
@@ -347,114 +328,10 @@
     html += '</button>';
     html += '</div>';
 
-    // Cards section placeholder
-    html += '<div id="cvSidebarCards"></div>';
 
     sidebar.innerHTML = html;
   }
 
-  // ── Render sidebar cards ──
-
-  function renderSidebarCards(slug, disc) {
-    var el = $('cvSidebarCards');
-    if (!el || !cardsDb) return;
-
-    // Find cards matching this page's source
-    var sourcePath = 'pages/' + slug + '.html';
-    var matching = cardsDb.filter(function (c) { return c.s === sourcePath; });
-
-    if (matching.length === 0) return;
-
-    // Get user cards
-    var userCardIds = {};
-    if (typeof SR !== 'undefined') {
-      SR.getAllCards().forEach(function (c) { userCardIds[c.id] = true; });
-    }
-
-    var html = '<p class="cv-sidebar-title">\ud83c\udccf Cartes (' + matching.length + ')</p>';
-    html += '<div class="cv-cards-list">';
-
-    var shown = matching.slice(0, 20); // Show max 20
-    for (var i = 0; i < shown.length; i++) {
-      var card = shown[i];
-      var isAdded = !!userCardIds[card.id];
-      html += '<div class="cv-card-item' + (isAdded ? ' added' : '') + '">' +
-        '<span class="cv-card-front">' + escHtml(card.f) + '</span>' +
-        '<button class="cv-card-btn' + (isAdded ? ' active' : '') + '" onclick="CV.toggleCard(\'' + card.id + '\',this)">' +
-        (isAdded ? '\u2713' : '+') + '</button></div>';
-    }
-    if (matching.length > 20) {
-      html += '<div class="cv-cards-more">' + (matching.length - 20) + ' autres cartes\u2026</div>';
-    }
-    html += '</div>';
-
-    // Add all button
-    var notAdded = matching.filter(function (c) { return !userCardIds[c.id]; }).length;
-    if (notAdded > 0) {
-      html += '<button class="cv-cards-add-all" onclick="CV.addAllCards()">+ Ajouter les ' + matching.length + ' cartes</button>';
-    }
-
-    el.innerHTML = html;
-  }
-
-  // ── Toggle card ──
-
-  function toggleCard(id, btn) {
-    if (typeof SR === 'undefined' || !cardsDb) return;
-
-    var userCards = {};
-    SR.getAllCards().forEach(function (c) { userCards[c.id] = true; });
-
-    if (userCards[id]) {
-      SR.removeCard(id);
-      if (btn) { btn.classList.remove('active'); btn.textContent = '+'; btn.parentElement.classList.remove('added'); }
-    } else {
-      var card = null;
-      for (var i = 0; i < cardsDb.length; i++) {
-        if (cardsDb[i].id === id) { card = cardsDb[i]; break; }
-      }
-      if (card) {
-        SR.addCard({
-          front: card.f,
-          back: card.b,
-          type: card.t,
-          source: '/Curiosita/' + card.s,
-          sourceTitle: card.st,
-          tags: card.tg
-        });
-        if (btn) { btn.classList.add('active'); btn.textContent = '\u2713'; btn.parentElement.classList.add('added'); }
-      }
-    }
-  }
-
-  // ── Add all cards for current page ──
-
-  function addAllCards() {
-    if (typeof SR === 'undefined' || !cardsDb || !currentSlug) return;
-    var sourcePath = 'pages/' + currentSlug + '.html';
-    var matching = cardsDb.filter(function (c) { return c.s === sourcePath || c.s === 'cours/' + currentSlug + '.html'; });
-    var added = 0;
-
-    var userCards = {};
-    SR.getAllCards().forEach(function (c) { userCards[c.id] = true; });
-
-    matching.forEach(function (card) {
-      if (!userCards[card.id]) {
-        SR.addCard({
-          front: card.f,
-          back: card.b,
-          type: card.t,
-          source: '/Curiosita/' + card.s,
-          sourceTitle: card.st,
-          tags: card.tg
-        });
-        added++;
-      }
-    });
-
-    // Refresh sidebar cards display
-    if (currentDisc) renderSidebarCards(currentSlug, currentDisc);
-  }
 
   // ── Quiz initialization ──
 
@@ -720,9 +597,7 @@
     open: open,
     close: close,
     navigate: navigate,
-    scrollTo: scrollToSection,
-    toggleCard: toggleCard,
-    addAllCards: addAllCards
+    scrollTo: scrollToSection
   };
 
 })();
