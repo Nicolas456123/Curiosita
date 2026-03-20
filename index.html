@@ -981,6 +981,70 @@
     margin-top: 0.2rem;
   }
 
+  /* Forecast bar chart */
+  .dash-forecast {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0.4rem;
+    padding: 0.8rem 0 0.3rem;
+    height: 100px;
+  }
+  .dash-forecast-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .dash-forecast-count {
+    font-size: 0.72rem;
+    color: var(--text);
+    font-weight: 600;
+  }
+  .dash-forecast-bar {
+    width: 100%;
+    max-width: 32px;
+    border-radius: 3px 3px 0 0;
+    transition: height 0.3s;
+  }
+  .dash-forecast-label {
+    font-size: 0.62rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  /* Memory state bar */
+  .dash-mem-bar {
+    display: flex;
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 0.8rem;
+  }
+  .dash-mem-seg { min-width: 3px; transition: width 0.3s; }
+  .dash-mem-new { background: var(--muted); }
+  .dash-mem-short { background: var(--accent2); }
+  .dash-mem-mid { background: var(--accent); }
+  .dash-mem-long { background: var(--green); }
+
+  .dash-mem-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.2rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  .dash-mem-leg { display: flex; align-items: center; gap: 0.35rem; }
+  .dash-mem-leg b { color: var(--text); }
+  .dash-mem-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
   .dash-recent-list { display: flex; flex-direction: column; gap: 0.3rem; }
   .dash-recent-link {
     display: flex;
@@ -1476,6 +1540,89 @@ document.addEventListener('DOMContentLoaded', function() {
       html += '</div>';
     }
     html += '</div>';
+
+    // ── CARD 2b: Prévisions de révision (courbe 7 jours) ──
+    if (hasCards && srStats.total >= 3) {
+      var allCards = SR.getAllCards();
+      var now = Date.now();
+      var forecast = [0,0,0,0,0,0,0];
+      var dayLabels = ['Auj.','Dem.','J+2','J+3','J+4','J+5','J+6'];
+      allCards.forEach(function(c) {
+        if (!c.nextReview) return;
+        var daysUntil = Math.floor((c.nextReview - now) / 86400000);
+        if (daysUntil < 0) daysUntil = 0;
+        if (daysUntil < 7) forecast[daysUntil]++;
+      });
+      var maxForecast = Math.max.apply(null, forecast) || 1;
+
+      html += '<div class="dash-card">';
+      html += '<div class="dash-card-header"><span class="dash-icon">📈</span><span class="dash-label">Révisions à venir</span></div>';
+      html += '<div class="dash-forecast">';
+      for (var fi = 0; fi < 7; fi++) {
+        var barH = Math.max(4, Math.round((forecast[fi] / maxForecast) * 60));
+        var barColor = fi === 0 ? 'var(--accent)' : 'var(--surface2)';
+        html += '<div class="dash-forecast-col">' +
+          '<div class="dash-forecast-count">' + forecast[fi] + '</div>' +
+          '<div class="dash-forecast-bar" style="height:' + barH + 'px;background:' + barColor + '"></div>' +
+          '<div class="dash-forecast-label">' + dayLabels[fi] + '</div>' +
+        '</div>';
+      }
+      html += '</div>';
+      html += '</div>';
+    }
+
+    // ── CARD 2c: État de la mémoire (court/moyen/long terme) ──
+    if (hasCards && srStats.total >= 3) {
+      var allCards2 = SR.getAllCards();
+      var shortTerm = 0, midTerm = 0, longTerm = 0, newCount = 0;
+      allCards2.forEach(function(c) {
+        if (!c.lastReview) { newCount++; return; }
+        var interval = c.interval || 0;
+        if (interval < 7) shortTerm++;
+        else if (interval < 30) midTerm++;
+        else longTerm++;
+      });
+      var memTotal = shortTerm + midTerm + longTerm + newCount;
+      var pctShort = memTotal ? Math.round(shortTerm / memTotal * 100) : 0;
+      var pctMid = memTotal ? Math.round(midTerm / memTotal * 100) : 0;
+      var pctLong = memTotal ? Math.round(longTerm / memTotal * 100) : 0;
+      var pctNew = memTotal ? Math.round(newCount / memTotal * 100) : 0;
+
+      // Retention estimate
+      var retention = SR.getRetentionEstimate ? SR.getRetentionEstimate() : null;
+      var retPct = retention ? retention.overall : null;
+      var atRisk = retention ? retention.atRisk : 0;
+
+      html += '<div class="dash-card">';
+      html += '<div class="dash-card-header"><span class="dash-icon">🧠</span><span class="dash-label">État de la mémoire</span></div>';
+
+      // Retention gauge
+      if (retPct !== null) {
+        var retColor = retPct >= 80 ? 'var(--green)' : retPct >= 60 ? 'var(--accent)' : 'var(--accent2)';
+        html += '<div style="text-align:center;margin-bottom:1rem">' +
+          '<div style="font-family:Playfair Display,serif;font-size:2.2rem;font-weight:700;color:' + retColor + '">' + retPct + '%</div>' +
+          '<div style="font-size:0.75rem;color:var(--muted)">rétention estimée' + (atRisk > 0 ? ' · <span style="color:var(--accent2)">' + atRisk + ' en danger</span>' : '') + '</div>' +
+        '</div>';
+      }
+
+      // Memory distribution bar
+      html += '<div class="dash-mem-bar">' +
+        (pctNew > 0 ? '<div class="dash-mem-seg dash-mem-new" style="width:' + pctNew + '%" title="Nouvelles : ' + newCount + '"></div>' : '') +
+        (pctShort > 0 ? '<div class="dash-mem-seg dash-mem-short" style="width:' + pctShort + '%" title="Court terme : ' + shortTerm + '"></div>' : '') +
+        (pctMid > 0 ? '<div class="dash-mem-seg dash-mem-mid" style="width:' + pctMid + '%" title="Moyen terme : ' + midTerm + '"></div>' : '') +
+        (pctLong > 0 ? '<div class="dash-mem-seg dash-mem-long" style="width:' + pctLong + '%" title="Long terme : ' + longTerm + '"></div>' : '') +
+      '</div>';
+
+      // Legend
+      html += '<div class="dash-mem-legend">' +
+        '<div class="dash-mem-leg"><span class="dash-mem-dot dash-mem-new"></span>Nouvelles <b>' + newCount + '</b></div>' +
+        '<div class="dash-mem-leg"><span class="dash-mem-dot dash-mem-short"></span>Court terme <b>' + shortTerm + '</b></div>' +
+        '<div class="dash-mem-leg"><span class="dash-mem-dot dash-mem-mid"></span>Moyen terme <b>' + midTerm + '</b></div>' +
+        '<div class="dash-mem-leg"><span class="dash-mem-dot dash-mem-long"></span>Long terme <b>' + longTerm + '</b></div>' +
+      '</div>';
+
+      html += '</div>';
+    }
 
     // ── CARD 3: Dernières pages lues ──
     if (visited.length > 0) {
