@@ -42,6 +42,24 @@
 
   function $(id) { return document.getElementById(id); }
 
+  // Find direct children of a slug from the search index
+  function findChildren(slug) {
+    var index = [];
+    try {
+      var cached = sessionStorage.getItem('curiosita_search');
+      if (cached) index = JSON.parse(cached).data || [];
+    } catch(e) {}
+    if (!index.length) return [];
+    // Direct children: their id starts with slug + '/' and has exactly one more segment
+    var prefix = slug + '/';
+    var slugDepth = slug.split('/').length;
+    return index.filter(function (item) {
+      return item.id && item.id.indexOf(prefix) === 0
+        && item.id.split('/').length === slugDepth + 1
+        && item.id !== slug + '/index';
+    });
+  }
+
   // ── Resolve slug → file URL ──
   // Slug format: "disc[/hub[/page]]" or "disc/index"
   // Theme pages: "sciences-exactes", etc.
@@ -110,14 +128,23 @@
     }
     skipNextPush = false;
 
-    // Show overlay with loading state
+    // Show CV as a page section
     overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    document.querySelectorAll('.page-section').forEach(function(s) { s.classList.remove('active'); });
+    var viewerPage = document.getElementById('page-viewer');
+    if (viewerPage) viewerPage.classList.add('active');
+    // Update nav active states
+    document.querySelectorAll('.nav-page-link').forEach(function(a) { a.classList.remove('active'); });
+    document.querySelectorAll('.nav-drop-trigger').forEach(function(b) { b.classList.remove('active'); });
+    window.scrollTo(0, 0);
     var content = $('cvContent');
     if (content) content.innerHTML = '<div class="cv-loading">Chargement\u2026</div>';
 
     // Load page data
     loadPage(slug).then(function (page) {
+      // Abort if viewer was closed while loading
+      if (currentSlug !== slug) return;
+
       // Read discipline from slug or page JSON
       var disc = slug.split('/')[0];
       currentDisc = disc;
@@ -285,12 +312,15 @@
 
     var html = '<button class="cv-sidebar-close" onclick="this.parentElement.classList.remove(\'mobile-open\')">\u2715 Fermer</button>';
 
-    // Back link from breadcrumb
+    // Back link from breadcrumb or first ← sibling
     var nav = page.nav || {};
     var breadcrumb = nav.breadcrumb || [];
     if (breadcrumb.length > 0) {
       var back = breadcrumb[breadcrumb.length - 1]; // closest ancestor
       html += '<a href="#" class="cv-sidebar-back" onclick="CV.navigate(\'' + back.slug + '\');return false">\u2190 ' + escHtml(back.title) + '</a>';
+    } else if (nav.siblings && nav.siblings.length > 0 && nav.siblings[0].title.indexOf('\u2190') === 0) {
+      var back = nav.siblings[0];
+      html += '<a href="#" class="cv-sidebar-back" onclick="CV.navigate(\'' + back.slug + '\');return false">' + escHtml(back.title) + '</a>';
     }
 
     // Section nav (exclude exercices, keep quiz)
@@ -308,13 +338,25 @@
       }
     }
 
-    // Siblings
-    if (nav.siblings && nav.siblings.length > 1) {
-      html += '<p class="cv-sidebar-title">Autres pages</p>';
-      for (var j = 0; j < nav.siblings.length; j++) {
-        var sib = nav.siblings[j];
-        var isActive = (sib.slug === slug) ? ' active' : '';
-        html += '<a href="#" class="cv-sidebar-link' + isActive + '" onclick="CV.navigate(\'' + sib.slug + '\');return false">' + escHtml(sib.title) + '</a>';
+    // Children: find sub-pages from search index (courses-index.json)
+    var children = findChildren(slug);
+    if (children.length > 0) {
+      html += '<p class="cv-sidebar-title">Sous-pages</p>';
+      for (var k = 0; k < children.length; k++) {
+        html += '<a href="#" class="cv-sidebar-link" onclick="CV.navigate(\'' + children[k].id + '\');return false">' + escHtml(children[k].n) + '</a>';
+      }
+    } else if (nav.siblings && nav.siblings.length > 1) {
+      // No children — show siblings (filter out back link)
+      var filteredSiblings = nav.siblings.filter(function (s) {
+        return s.title.indexOf('\u2190') !== 0;
+      });
+      if (filteredSiblings.length > 0) {
+        html += '<p class="cv-sidebar-title">Autres pages</p>';
+        for (var j = 0; j < filteredSiblings.length; j++) {
+          var sib = filteredSiblings[j];
+          var isActive = (sib.slug === slug) ? ' active' : '';
+          html += '<a href="#" class="cv-sidebar-link' + isActive + '" onclick="CV.navigate(\'' + sib.slug + '\');return false">' + escHtml(sib.title) + '</a>';
+        }
       }
     }
 
@@ -484,15 +526,8 @@
   function close(pushHistory) {
     var overlay = $('courseViewerOverlay');
     if (overlay) overlay.classList.remove('open');
-    document.body.style.overflow = '';
     currentSlug = null;
     currentDisc = null;
-
-    // Update browser history (unless triggered by popstate)
-    if (pushHistory !== false && !skipNextPush) {
-      history.pushState({ cv: null }, '', window.location.pathname);
-    }
-    skipNextPush = false;
 
     // Hide glossary popover
     if (typeof GL !== 'undefined') GL.hidePopover();
@@ -504,8 +539,24 @@
     root.style.removeProperty('--accent-dim');
     root.style.removeProperty('--accent-hero');
 
-    // Refresh dashboard
-    if (typeof hydrateDashboard === 'function') hydrateDashboard();
+    // Navigate back to previous page or home
+    if (pushHistory !== false && !skipNextPush) {
+      if (typeof navigateTo === 'function') {
+        navigateTo('home');
+      }
+    } else {
+      // Triggered by popstate — just show the right page section
+      skipNextPush = false;
+      if (typeof navigateTo === 'function') {
+        var hash = location.hash.replace('#','');
+        if (hash === 'cours' || hash === 'entrainer') {
+          navigateTo(hash);
+        } else {
+          navigateTo('home');
+        }
+      }
+    }
+    skipNextPush = false;
   }
 
   // ── Navigate (internal) ──
@@ -523,11 +574,25 @@
       skipNextPush = true;
       open(state.cv, false);
     } else {
-      // Back to main page — close overlay without pushing
+      // Back to main page — close CV without pushing
       var overlay = $('courseViewerOverlay');
       if (overlay && overlay.classList.contains('open')) {
         skipNextPush = true;
-        close(false);
+        overlay.classList.remove('open');
+        currentSlug = null;
+        currentDisc = null;
+        if (typeof GL !== 'undefined') GL.hidePopover();
+        var root = document.documentElement;
+        root.style.removeProperty('--accent');
+        root.style.removeProperty('--accent2');
+        root.style.removeProperty('--accent-dim');
+        root.style.removeProperty('--accent-hero');
+        // Let the page routing handle showing the right section
+        var hash = location.hash.replace('#','');
+        if (typeof navigateTo === 'function') {
+          if (hash === 'cours' || hash === 'entrainer') navigateTo(hash);
+          else navigateTo('home');
+        }
       }
     }
   });

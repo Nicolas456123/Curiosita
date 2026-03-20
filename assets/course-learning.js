@@ -1317,7 +1317,6 @@ var CourseLearning = (function () {
             { label: 'Population de l\'Empire à son apogée', value: '~60 millions', hint: 'Pendant la Pax Romana (27 av. J.-C. - 180 apr. J.-C.)' },
             { label: 'Réseau routier romain', value: '85 000 km', hint: 'Reliant tout l\'Empire — base des routes européennes actuelles' },
             { label: 'Romains tués à Cannes en un seul jour', value: '50 000', hint: 'Pire défaite de Rome face à Hannibal (216 av. J.-C.)' },
-            { label: 'Aide du plan Marshall (pour comparaison impériale)', value: '13 milliards $', hint: 'Non, ça c\'est la Guerre froide — Rome, c\'est le Colisée inauguré en 80 apr. J.-C.' },
             { label: 'Empereurs en 49 ans (crise du IIIe siècle)', value: '26 empereurs', hint: 'Entre 235 et 284 apr. J.-C. — instabilité totale' },
             { label: 'Survie de l\'Empire d\'Orient après 476', value: '~977 ans', hint: 'Constantinople tombe en 1453 seulement' }
           ]

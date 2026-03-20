@@ -1,7 +1,7 @@
 // ══════════════════════════════════════════════════════
 //  Curiosità — SR UI Controller
 //  SR UI: review, decks, add, settings panels
-//  Depends: sr-engine.js (SR), sr-extract.js (SRExtract)
+//  Depends: sr-engine.js (SR)
 // ══════════════════════════════════════════════════════
 
 (function () {
@@ -507,7 +507,7 @@
   }
 
   // ══════════════════════════════
-  //  ADD CARD (manual + extract)
+  //  ADD CARD (manual)
   // ══════════════════════════════
 
   function initAddPanel() {
@@ -536,114 +536,6 @@
         }
       });
     }
-
-    // Extract (single URL)
-    const extractBtn = $('#extract-btn');
-    if (extractBtn) {
-      extractBtn.addEventListener('click', async () => {
-        const url = $('#extract-url').value.trim();
-        if (!url) return;
-
-        extractBtn.textContent = 'Extraction...';
-        extractBtn.disabled = true;
-
-        const result = await SRExtract.extractFromUrl(url);
-
-        extractBtn.textContent = 'Extraire';
-        extractBtn.disabled = false;
-
-        if (result.error) {
-          showResult('#extract-result', '❌ Erreur : ' + result.error, 'info');
-        } else {
-          showResult('#extract-result',
-            `✅ ${result.newCount} nouvelles cartes ajoutées` +
-            (result.existingCount > 0 ? `, ${result.existingCount} existantes ignorées` : ''),
-            'success');
-          updateDashboard();
-        }
-      });
-    }
-
-    // Bulk extract (all courses)
-    initBulkExtract();
-  }
-
-  function initBulkExtract() {
-    const btn = $('#bulk-extract-btn');
-    const stopBtn = $('#bulk-extract-stop');
-    const progressWrap = $('#bulk-extract-progress');
-    const progressBar = $('#bulk-progress-bar');
-    const progressText = $('#bulk-progress-text');
-    const resultEl = $('#bulk-extract-result');
-    const countEl = $('#bulk-count');
-
-    if (!btn) return;
-
-    const urls = (typeof SR_COURSE_URLS !== 'undefined') ? SR_COURSE_URLS : [];
-    if (countEl) countEl.textContent = urls.length;
-
-    let running = false;
-
-    btn.addEventListener('click', async () => {
-      if (running) return;
-      running = true;
-      btn.style.display = 'none';
-      stopBtn.style.display = '';
-      progressWrap.style.display = '';
-      resultEl.innerHTML = '';
-
-      let totalNew = 0;
-      let totalExisting = 0;
-      let errors = 0;
-
-      for (let i = 0; i < urls.length; i++) {
-        if (!running) break;
-
-        const url = urls[i];
-        const pct = Math.round((i / urls.length) * 100);
-        progressBar.style.width = pct + '%';
-        progressText.textContent = `${i + 1} / ${urls.length} — ${url.split('/').pop()}`;
-
-        try {
-          const result = await SRExtract.extractFromUrl(url);
-          totalNew += result.newCount || 0;
-          totalExisting += result.existingCount || 0;
-          if (result.error) errors++;
-        } catch (e) {
-          errors++;
-        }
-
-        // Yield to UI thread to avoid freezing
-        await new Promise(r => setTimeout(r, 8));
-      }
-
-      running = false;
-      btn.style.display = '';
-      stopBtn.style.display = 'none';
-      progressBar.style.width = '100%';
-
-      if ($('#bulk-progress-text')) {
-        progressText.textContent = running === false && totalNew + totalExisting === 0
-          ? 'Arrêté.'
-          : 'Terminé !';
-      }
-
-      resultEl.innerHTML = `
-        <div class="sr-extract-result success">
-          ✅ <strong>${totalNew}</strong> nouvelles cartes ajoutées
-          ${totalExisting > 0 ? `· ${totalExisting} existantes ignorées` : ''}
-          ${errors > 0 ? `· ${errors} erreurs` : ''}
-        </div>`;
-
-      updateDashboard();
-    });
-
-    stopBtn.addEventListener('click', () => {
-      running = false;
-      stopBtn.style.display = 'none';
-      btn.style.display = '';
-      if (progressText) progressText.textContent = 'Arrêté.';
-    });
   }
 
   function showResult(selector, message, type) {

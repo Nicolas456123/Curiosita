@@ -375,49 +375,6 @@
     if (container) container.style.maxHeight = container.scrollHeight + 'px';
   }
 
-  const themesGrid = document.querySelector('.themes-grid');
-  if (themesGrid) {
-    themesGrid.addEventListener('click', function(e) {
-      if (e.target.closest('.tree-close')) {
-        e.preventDefault();
-        e.stopPropagation();
-        collapseCard(e.target.closest('.theme-card'));
-        return;
-      }
-
-      if (e.target.closest('.tree-link')) return;
-
-      const toggleHeader = e.target.closest('[data-toggle]');
-      if (toggleHeader) {
-        e.preventDefault();
-        e.stopPropagation();
-        const node = toggleHeader.closest('.tree-node');
-        const children = node.querySelector('.tree-children');
-        const chevron = toggleHeader.querySelector('.tree-chevron');
-        if (children.style.display === 'none') {
-          children.style.display = 'block';
-          chevron.classList.add('open');
-        } else {
-          children.style.display = 'none';
-          chevron.classList.remove('open');
-        }
-        updateTreeHeight(node);
-        return;
-      }
-
-      const card = e.target.closest('.theme-card');
-      if (!card) return;
-      e.preventDefault();
-
-      if (card.classList.contains('expanded')) {
-        collapseCard(card);
-        return;
-      }
-
-      const prev = themesGrid.querySelector('.theme-card.expanded');
-      if (prev) collapseCard(prev);
-
-      expandCard(card);
-    });
-  }
+  // Theme cards: let data-cv click handler (in course-viewer.js) handle navigation
+  // Tree expansion disabled — CV page has its own sidebar navigation
 })();
