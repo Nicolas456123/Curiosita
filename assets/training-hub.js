@@ -68,6 +68,30 @@ var TrainingHub = (function () {
         { id: 'firstaid', name: 'Premiers secours', icon: '🚑', desc: 'Les bons réflexes en situation d\u2019urgence', module: 'MemoryPractical', action: 'firstaid', arg: null, storageKey: 'curiosita_mempractical', type: 'firstaid', containerId: 'mk-active', useRenderPanel: true },
         { id: 'trivia', name: 'Culture générale', icon: '💡', desc: '50 questions incontournables', module: 'MemoryPractical', action: 'trivia', arg: null, storageKey: 'curiosita_mempractical', type: 'trivia', containerId: 'mk-active', useRenderPanel: true },
       ]
+    },
+    {
+      id: 'life', name: 'Vie quotidienne', icon: '🏠',
+      exercises: [
+        { id: 'vault', name: 'Coffre-fort personnel', icon: '🔐', desc: 'Mémorise tes n° de tél, codes, sécu...', module: 'MemoryLife', action: 'vault', arg: null, storageKey: 'curiosita_memlife', type: 'vault', containerId: 'ml-active', useRenderPanel: true },
+        { id: 'departments', name: 'Départements français', icon: '🗺️', desc: '101 départements et préfectures', module: 'MemoryLife', action: 'departments', arg: null, storageKey: 'curiosita_memlife', type: 'departments', containerId: 'ml-active', useRenderPanel: true },
+        { id: 'phonecodes', name: 'Indicatifs internationaux', icon: '📞', desc: '30 indicatifs téléphoniques', module: 'MemoryLife', action: 'phonecodes', arg: null, storageKey: 'curiosita_memlife', type: 'phonecodes', containerId: 'ml-active', useRenderPanel: true },
+        { id: 'emergency', name: 'Numéros d\u2019urgence', icon: '🚨', desc: 'Les numéros à connaître par cœur', module: 'MemoryLife', action: 'emergency', arg: null, storageKey: 'curiosita_memlife', type: 'emergency', containerId: 'ml-active', useRenderPanel: true },
+      ]
+    },
+    {
+      id: 'culture', name: 'Culture & Savoirs', icon: '📖',
+      exercises: [
+        { id: 'multiplication', name: 'Tables de multiplication', icon: '✖️', desc: 'De 2×2 à 12×12', module: 'MemoryCulture', action: 'multiplication', arg: null, storageKey: 'curiosita_memculture', type: 'multiplication', containerId: 'mc-active', useRenderPanel: true },
+        { id: 'presidents', name: 'Présidents français', icon: '🇫🇷', desc: 'Ve République en ordre', module: 'MemoryCulture', action: 'presidents', arg: null, storageKey: 'curiosita_memculture', type: 'presidents', containerId: 'mc-active', useRenderPanel: true },
+        { id: 'greek', name: 'Alphabet grec', icon: '🏛️', desc: '24 lettres et leur usage', module: 'MemoryCulture', action: 'greek', arg: null, storageKey: 'curiosita_memculture', type: 'greek', containerId: 'mc-active', useRenderPanel: true },
+        { id: 'solar', name: 'Système solaire', icon: '🪐', desc: '8 planètes et leurs secrets', module: 'MemoryCulture', action: 'solar', arg: null, storageKey: 'curiosita_memculture', type: 'solar', containerId: 'mc-active', useRenderPanel: true },
+        { id: 'roman', name: 'Chiffres romains', icon: '🏛️', desc: 'Lire et écrire en romain', module: 'MemoryCulture', action: 'roman', arg: null, storageKey: 'curiosita_memculture', type: 'roman', containerId: 'mc-active', useRenderPanel: true },
+        { id: 'proverbs', name: 'Proverbes français', icon: '📜', desc: '40 proverbes à compléter', module: 'MemoryCulture', action: 'proverbs', arg: null, storageKey: 'curiosita_memculture', type: 'proverbs', containerId: 'mc-active', useRenderPanel: true },
+        { id: 'inventions', name: 'Inventions & Inventeurs', icon: '💡', desc: '40 inventions qui ont changé le monde', module: 'MemoryCulture', action: 'inventions', arg: null, storageKey: 'curiosita_memculture', type: 'inventions', containerId: 'mc-active', useRenderPanel: true },
+        { id: 'units', name: 'Unités & Conversions', icon: '📏', desc: '30 conversions essentielles', module: 'MemoryCulture', action: 'units', arg: null, storageKey: 'curiosita_memculture', type: 'units', containerId: 'mc-active', useRenderPanel: true },
+        { id: 'expressions', name: 'Expressions anglaises', icon: '🗣️', desc: '40 expressions idiomatiques', module: 'MemoryCulture', action: 'expressions', arg: null, storageKey: 'curiosita_memculture', type: 'expressions', containerId: 'mc-active', useRenderPanel: true },
+        { id: 'records', name: 'Records du monde', icon: '🏆', desc: '30 records étonnants', module: 'MemoryCulture', action: 'records', arg: null, storageKey: 'curiosita_memculture', type: 'records', containerId: 'mc-active', useRenderPanel: true },
+      ]
     }
   ];
 
@@ -92,7 +116,7 @@ var TrainingHub = (function () {
   }
 
   function getAllHistory() {
-    var keys = ['curiosita_memtrain', 'curiosita_memevents', 'curiosita_memassoc', 'curiosita_memvisual', 'curiosita_palaces'];
+    var keys = ['curiosita_memtrain', 'curiosita_memevents', 'curiosita_memassoc', 'curiosita_memvisual', 'curiosita_palaces', 'curiosita_membeginner', 'curiosita_mempractical', 'curiosita_memlife', 'curiosita_memculture'];
     var all = [];
     keys.forEach(function (k) { all = all.concat(getHistory(k)); });
     return all;
