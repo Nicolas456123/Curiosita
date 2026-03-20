@@ -1541,85 +1541,162 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     html += '</div>';
 
-    // ── CARD 2b: Prévisions de révision (courbe 7 jours) ──
-    if (hasCards && srStats.total >= 3) {
-      var allCards = SR.getAllCards();
-      var now = Date.now();
-      var forecast = [0,0,0,0,0,0,0];
-      var dayLabels = ['Auj.','Dem.','J+2','J+3','J+4','J+5','J+6'];
-      allCards.forEach(function(c) {
-        if (!c.nextReview) return;
-        var daysUntil = Math.floor((c.nextReview - now) / 86400000);
-        if (daysUntil < 0) daysUntil = 0;
-        if (daysUntil < 7) forecast[daysUntil]++;
-      });
-      var maxForecast = Math.max.apply(null, forecast) || 1;
+    // ── Aggregate ALL learning data ──
+    var mem = { nouveau: 0, court: 0, moyen: 0, long_terme: 0 };
 
+    // 1. SR flashcards → interval-based classification
+    if (hasCards) {
+      var allCards = SR.getAllCards();
+      allCards.forEach(function(c) {
+        if (!c.lastReview) { mem.nouveau++; return; }
+        var interval = c.interval || 0;
+        if (interval < 7) mem.court++;
+        else if (interval < 30) mem.moyen++;
+        else mem.long_terme++;
+      });
+    }
+
+    // 2. Knowledge mastery (practical, culture, life) → level-based classification
+    var masteryKeys = [
+      'curiosita_mempractical',
+      'curiosita_memculture',
+      'curiosita_memlife'
+    ];
+    masteryKeys.forEach(function(k) {
+      try {
+        var d = JSON.parse(localStorage.getItem(k) || '{}');
+        if (!d.mastery) return;
+        Object.keys(d.mastery).forEach(function(domain) {
+          var items = d.mastery[domain];
+          Object.keys(items).forEach(function(idx) {
+            var level = items[idx];
+            if (level === 0) mem.nouveau++;
+            else if (level === 1) mem.court++;
+            else if (level === 2) mem.moyen++;
+            else if (level >= 3) mem.long_terme++;
+          });
+        });
+      } catch(e) {}
+    });
+
+    // 3. Course learning scores → percentage-based classification
+    Object.keys(courseScores).forEach(function(k) {
+      var s = courseScores[k];
+      if (!s || !s.pct) { mem.nouveau++; return; }
+      if (s.pct < 50) mem.court++;
+      else if (s.pct < 80) mem.moyen++;
+      else mem.long_terme++;
+    });
+
+    var memTotal = mem.nouveau + mem.court + mem.moyen + mem.long_terme;
+    var hasLearningData = memTotal > 0;
+
+    // ── CARD 2b: Prévisions / À renforcer ──
+    if (hasLearningData) {
       html += '<div class="dash-card">';
-      html += '<div class="dash-card-header"><span class="dash-icon">📈</span><span class="dash-label">Révisions à venir</span></div>';
-      html += '<div class="dash-forecast">';
-      for (var fi = 0; fi < 7; fi++) {
-        var barH = Math.max(4, Math.round((forecast[fi] / maxForecast) * 60));
-        var barColor = fi === 0 ? 'var(--accent)' : 'var(--surface2)';
-        html += '<div class="dash-forecast-col">' +
-          '<div class="dash-forecast-count">' + forecast[fi] + '</div>' +
-          '<div class="dash-forecast-bar" style="height:' + barH + 'px;background:' + barColor + '"></div>' +
-          '<div class="dash-forecast-label">' + dayLabels[fi] + '</div>' +
-        '</div>';
+      html += '<div class="dash-card-header"><span class="dash-icon">📈</span><span class="dash-label">À renforcer</span></div>';
+
+      var reinforceItems = [];
+
+      // SR cards due
+      if (hasCards && dueSR > 0) {
+        reinforceItems.push({ icon: '🔄', text: dueSR + ' flashcard' + (dueSR > 1 ? 's' : '') + ' à réviser', action: 'openReview()', priority: 1 });
       }
-      html += '</div>';
+
+      // Knowledge items at mastery 1 (fragile)
+      var fragileCount = mem.court;
+      if (fragileCount > 0) {
+        reinforceItems.push({ icon: '⚠️', text: fragileCount + ' connaissance' + (fragileCount > 1 ? 's' : '') + ' fragile' + (fragileCount > 1 ? 's' : '') + ' (court terme)', action: "location.hash='training'", priority: 2 });
+      }
+
+      // New items not yet started
+      if (mem.nouveau > 0) {
+        reinforceItems.push({ icon: '🆕', text: mem.nouveau + ' élément' + (mem.nouveau > 1 ? 's' : '') + ' pas encore pratiqué' + (mem.nouveau > 1 ? 's' : ''), action: "location.hash='training'", priority: 3 });
+      }
+
+      // SR forecast chart (if cards exist)
+      if (hasCards && srStats.total >= 3) {
+        var now = Date.now();
+        var forecast = [0,0,0,0,0,0,0];
+        var dayLabels = ['Auj.','Dem.','J+2','J+3','J+4','J+5','J+6'];
+        SR.getAllCards().forEach(function(c) {
+          if (!c.nextReview) return;
+          var daysUntil = Math.floor((c.nextReview - now) / 86400000);
+          if (daysUntil < 0) daysUntil = 0;
+          if (daysUntil < 7) forecast[daysUntil]++;
+        });
+        var maxForecast = Math.max.apply(null, forecast) || 1;
+
+        html += '<div style="font-size:0.75rem;color:var(--muted);margin-bottom:0.5rem">Flashcards — 7 prochains jours</div>';
+        html += '<div class="dash-forecast">';
+        for (var fi = 0; fi < 7; fi++) {
+          var barH = Math.max(4, Math.round((forecast[fi] / maxForecast) * 60));
+          var barColor = fi === 0 ? 'var(--accent)' : 'var(--surface2)';
+          html += '<div class="dash-forecast-col">' +
+            '<div class="dash-forecast-count">' + forecast[fi] + '</div>' +
+            '<div class="dash-forecast-bar" style="height:' + barH + 'px;background:' + barColor + '"></div>' +
+            '<div class="dash-forecast-label">' + dayLabels[fi] + '</div>' +
+          '</div>';
+        }
+        html += '</div>';
+      }
+
+      // Reinforce action items
+      if (reinforceItems.length > 0 && !(hasCards && srStats.total >= 3)) {
+        reinforceItems.forEach(function(item) {
+          html += '<div class="dash-todo-item" onclick="' + item.action + '"><span class="dash-todo-icon">' + item.icon + '</span><span class="dash-todo-text">' + item.text + '</span><span class="dash-todo-action">→</span></div>';
+        });
+      }
+
       html += '</div>';
     }
 
-    // ── CARD 2c: État de la mémoire (court/moyen/long terme) ──
-    if (hasCards && srStats.total >= 3) {
-      var allCards2 = SR.getAllCards();
-      var shortTerm = 0, midTerm = 0, longTerm = 0, newCount = 0;
-      allCards2.forEach(function(c) {
-        if (!c.lastReview) { newCount++; return; }
-        var interval = c.interval || 0;
-        if (interval < 7) shortTerm++;
-        else if (interval < 30) midTerm++;
-        else longTerm++;
-      });
-      var memTotal = shortTerm + midTerm + longTerm + newCount;
-      var pctShort = memTotal ? Math.round(shortTerm / memTotal * 100) : 0;
-      var pctMid = memTotal ? Math.round(midTerm / memTotal * 100) : 0;
-      var pctLong = memTotal ? Math.round(longTerm / memTotal * 100) : 0;
-      var pctNew = memTotal ? Math.round(newCount / memTotal * 100) : 0;
-
-      // Retention estimate
-      var retention = SR.getRetentionEstimate ? SR.getRetentionEstimate() : null;
-      var retPct = retention ? retention.overall : null;
-      var atRisk = retention ? retention.atRisk : 0;
+    // ── CARD 2c: État de la mémoire (tous outils confondus) ──
+    if (hasLearningData) {
+      var pctNew = memTotal ? Math.round(mem.nouveau / memTotal * 100) : 0;
+      var pctShort = memTotal ? Math.round(mem.court / memTotal * 100) : 0;
+      var pctMid = memTotal ? Math.round(mem.moyen / memTotal * 100) : 0;
+      var pctLong = memTotal ? Math.round(mem.long_terme / memTotal * 100) : 0;
 
       html += '<div class="dash-card">';
       html += '<div class="dash-card-header"><span class="dash-icon">🧠</span><span class="dash-label">État de la mémoire</span></div>';
 
-      // Retention gauge
-      if (retPct !== null) {
-        var retColor = retPct >= 80 ? 'var(--green)' : retPct >= 60 ? 'var(--accent)' : 'var(--accent2)';
-        html += '<div style="text-align:center;margin-bottom:1rem">' +
-          '<div style="font-family:Playfair Display,serif;font-size:2.2rem;font-weight:700;color:' + retColor + '">' + retPct + '%</div>' +
-          '<div style="font-size:0.75rem;color:var(--muted)">rétention estimée' + (atRisk > 0 ? ' · <span style="color:var(--accent2)">' + atRisk + ' en danger</span>' : '') + '</div>' +
-        '</div>';
-      }
+      // Global mastery percentage
+      var globalMastery = memTotal ? Math.round(((mem.moyen * 0.5 + mem.long_terme) / memTotal) * 100) : 0;
+      var masteryColor = globalMastery >= 60 ? 'var(--green)' : globalMastery >= 30 ? 'var(--accent)' : 'var(--accent2)';
+      html += '<div style="text-align:center;margin-bottom:1rem">' +
+        '<div style="font-family:Playfair Display,serif;font-size:2.2rem;font-weight:700;color:' + masteryColor + '">' + globalMastery + '%</div>' +
+        '<div style="font-size:0.75rem;color:var(--muted)">maîtrise globale · ' + memTotal + ' éléments suivis</div>' +
+      '</div>';
 
       // Memory distribution bar
       html += '<div class="dash-mem-bar">' +
-        (pctNew > 0 ? '<div class="dash-mem-seg dash-mem-new" style="width:' + pctNew + '%" title="Nouvelles : ' + newCount + '"></div>' : '') +
-        (pctShort > 0 ? '<div class="dash-mem-seg dash-mem-short" style="width:' + pctShort + '%" title="Court terme : ' + shortTerm + '"></div>' : '') +
-        (pctMid > 0 ? '<div class="dash-mem-seg dash-mem-mid" style="width:' + pctMid + '%" title="Moyen terme : ' + midTerm + '"></div>' : '') +
-        (pctLong > 0 ? '<div class="dash-mem-seg dash-mem-long" style="width:' + pctLong + '%" title="Long terme : ' + longTerm + '"></div>' : '') +
+        (pctNew > 0 ? '<div class="dash-mem-seg dash-mem-new" style="width:' + pctNew + '%"></div>' : '') +
+        (pctShort > 0 ? '<div class="dash-mem-seg dash-mem-short" style="width:' + pctShort + '%"></div>' : '') +
+        (pctMid > 0 ? '<div class="dash-mem-seg dash-mem-mid" style="width:' + pctMid + '%"></div>' : '') +
+        (pctLong > 0 ? '<div class="dash-mem-seg dash-mem-long" style="width:' + pctLong + '%"></div>' : '') +
       '</div>';
 
       // Legend
       html += '<div class="dash-mem-legend">' +
-        '<div class="dash-mem-leg"><span class="dash-mem-dot dash-mem-new"></span>Nouvelles <b>' + newCount + '</b></div>' +
-        '<div class="dash-mem-leg"><span class="dash-mem-dot dash-mem-short"></span>Court terme <b>' + shortTerm + '</b></div>' +
-        '<div class="dash-mem-leg"><span class="dash-mem-dot dash-mem-mid"></span>Moyen terme <b>' + midTerm + '</b></div>' +
-        '<div class="dash-mem-leg"><span class="dash-mem-dot dash-mem-long"></span>Long terme <b>' + longTerm + '</b></div>' +
+        '<div class="dash-mem-leg"><span class="dash-mem-dot dash-mem-new"></span>Nouveau <b>' + mem.nouveau + '</b></div>' +
+        '<div class="dash-mem-leg"><span class="dash-mem-dot dash-mem-short"></span>Court terme <b>' + mem.court + '</b></div>' +
+        '<div class="dash-mem-leg"><span class="dash-mem-dot dash-mem-mid"></span>Moyen terme <b>' + mem.moyen + '</b></div>' +
+        '<div class="dash-mem-leg"><span class="dash-mem-dot dash-mem-long"></span>Long terme <b>' + mem.long_terme + '</b></div>' +
       '</div>';
+
+      // SR retention if available
+      if (hasCards) {
+        var retention = SR.getRetentionEstimate ? SR.getRetentionEstimate() : null;
+        if (retention && retention.reviewedCount > 0) {
+          var retPct = retention.overall;
+          var retColor = retPct >= 80 ? 'var(--green)' : retPct >= 60 ? 'var(--accent)' : 'var(--accent2)';
+          html += '<div style="margin-top:1rem;padding-top:0.8rem;border-top:1px solid var(--border);font-size:0.8rem;color:var(--muted)">' +
+            'Rétention flashcards : <span style="color:' + retColor + ';font-weight:600">' + retPct + '%</span>' +
+            (retention.atRisk > 0 ? ' · <span style="color:var(--accent2)">' + retention.atRisk + ' en danger</span>' : '') +
+          '</div>';
+        }
+      }
 
       html += '</div>';
     }
