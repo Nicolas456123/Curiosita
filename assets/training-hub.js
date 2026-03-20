@@ -16,12 +16,22 @@ var TrainingHub = (function () {
 
   var CATEGORIES = [
     {
+      id: 'beginner', name: 'Découverte — Pour commencer', icon: '🌱',
+      exercises: [
+        { id: 'simon', name: 'Simon', icon: '🎯', desc: 'Reproduis la séquence de couleurs', module: 'MemoryBeginner', action: 'simon', arg: 'easy', storageKey: 'curiosita_membeginner', type: 'simon', containerId: 'mb-active', useRenderPanel: true },
+        { id: 'pairs', name: 'Paires', icon: '🃏', desc: 'Retrouve les paires cachées', module: 'MemoryBeginner', action: 'pairs', arg: 'easy', storageKey: 'curiosita_membeginner', type: 'pairs', containerId: 'mb-active', useRenderPanel: true },
+        { id: 'missing', name: 'Objet manquant', icon: '❓', desc: 'Quel objet a disparu ?', module: 'MemoryBeginner', action: 'missing', arg: 'easy', storageKey: 'curiosita_membeginner', type: 'missing', containerId: 'mb-active', useRenderPanel: true },
+        { id: 'sequence', name: 'Suite de chiffres', icon: '🔢', desc: 'Retiens une courte suite de chiffres', module: 'MemoryBeginner', action: 'sequence', arg: 'easy', storageKey: 'curiosita_membeginner', type: 'sequence', containerId: 'mb-active', useRenderPanel: true },
+        { id: 'flash-grid', name: 'Grille éclair', icon: '⚡', desc: 'Mémorise les cases illuminées', module: 'MemoryBeginner', action: 'flashGrid', arg: 'easy', storageKey: 'curiosita_membeginner', type: 'flash-grid', containerId: 'mb-active', useRenderPanel: true },
+      ]
+    },
+    {
       id: 'speed', name: 'Épreuves de Rapidité', icon: '⚡',
       exercises: [
-        { id: 'speed-numbers', name: 'Speed Numbers', icon: '🔢', desc: 'Mémorise des séquences de chiffres', module: 'MemoryTraining', action: 'speedNumbers', arg: 20, storageKey: 'curiosita_memtrain', type: 'speed-numbers' },
-        { id: 'speed-cards', name: 'Speed Cards', icon: '🃁', desc: 'Mémorise un jeu de cartes dans l\u2019ordre', module: 'MemoryTraining', action: 'speedCards', arg: 10, storageKey: 'curiosita_memtrain', type: 'speed-cards' },
-        { id: 'speed-words', name: 'Mots Rapides', icon: '💬', desc: 'Retiens un maximum de mots en ordre', module: 'MemoryEvents', action: 'speedWords', arg: 20, storageKey: 'curiosita_memevents', type: 'speed-words', containerId: 'me-active' },
-        { id: 'binary-numbers', name: 'Nombres Binaires', icon: '0️⃣', desc: 'Mémorise des séquences binaires', module: 'MemoryEvents', action: 'binaryNumbers', arg: 30, storageKey: 'curiosita_memevents', type: 'binary-numbers', containerId: 'me-active' },
+        { id: 'speed-numbers', name: 'Speed Numbers', icon: '🔢', desc: 'Mémorise des séquences de chiffres', module: 'MemoryTraining', action: 'speedNumbers', arg: 5, storageKey: 'curiosita_memtrain', type: 'speed-numbers' },
+        { id: 'speed-cards', name: 'Speed Cards', icon: '🃁', desc: 'Mémorise un jeu de cartes dans l\u2019ordre', module: 'MemoryTraining', action: 'speedCards', arg: 3, storageKey: 'curiosita_memtrain', type: 'speed-cards' },
+        { id: 'speed-words', name: 'Mots Rapides', icon: '💬', desc: 'Retiens un maximum de mots en ordre', module: 'MemoryEvents', action: 'speedWords', arg: 5, storageKey: 'curiosita_memevents', type: 'speed-words', containerId: 'me-active' },
+        { id: 'binary-numbers', name: 'Nombres Binaires', icon: '0️⃣', desc: 'Mémorise des séquences binaires', module: 'MemoryEvents', action: 'binaryNumbers', arg: 8, storageKey: 'curiosita_memevents', type: 'binary-numbers', containerId: 'me-active' },
       ]
     },
     {
@@ -44,6 +54,19 @@ var TrainingHub = (function () {
       id: 'special', name: 'Épreuves Spéciales', icon: '🏆',
       exercises: [
         { id: 'historic-dates', name: 'Dates Historiques', icon: '📅', desc: 'Associe événements et dates de mémoire', module: 'MemoryEvents', action: 'historicalDates', arg: null, storageKey: 'curiosita_memevents', type: 'historic-dates', containerId: 'me-active' },
+      ]
+    },
+    {
+      id: 'practical', name: 'Connaissances utiles', icon: '🌍',
+      exercises: [
+        { id: 'capitals', name: 'Capitales du monde', icon: '🗺️', desc: 'Apprends les capitales de 80 pays', module: 'MemoryPractical', action: 'capitals', arg: null, storageKey: 'curiosita_mempractical', type: 'capitals', containerId: 'mk-active', useRenderPanel: true },
+        { id: 'flags', name: 'Drapeaux d\u2019Europe', icon: '🏳️', desc: 'Reconnais les drapeaux européens', module: 'MemoryPractical', action: 'flags', arg: null, storageKey: 'curiosita_mempractical', type: 'flags', containerId: 'mk-active', useRenderPanel: true },
+        { id: 'elements', name: 'Table périodique', icon: '⚗️', desc: 'Symboles et noms des éléments', module: 'MemoryPractical', action: 'elements', arg: null, storageKey: 'curiosita_mempractical', type: 'elements', containerId: 'mk-active', useRenderPanel: true },
+        { id: 'english', name: 'Vocabulaire anglais', icon: '🇬🇧', desc: '100 mots essentiels en anglais', module: 'MemoryPractical', action: 'english', arg: null, storageKey: 'curiosita_mempractical', type: 'english', containerId: 'mk-active', useRenderPanel: true },
+        { id: 'spanish', name: 'Vocabulaire espagnol', icon: '🇪🇸', desc: '80 mots essentiels en espagnol', module: 'MemoryPractical', action: 'spanish', arg: null, storageKey: 'curiosita_mempractical', type: 'spanish', containerId: 'mk-active', useRenderPanel: true },
+        { id: 'anatomy', name: 'Anatomie de base', icon: '🫀', desc: 'Organes, systèmes et fonctions', module: 'MemoryPractical', action: 'anatomy', arg: null, storageKey: 'curiosita_mempractical', type: 'anatomy', containerId: 'mk-active', useRenderPanel: true },
+        { id: 'firstaid', name: 'Premiers secours', icon: '🚑', desc: 'Les bons réflexes en situation d\u2019urgence', module: 'MemoryPractical', action: 'firstaid', arg: null, storageKey: 'curiosita_mempractical', type: 'firstaid', containerId: 'mk-active', useRenderPanel: true },
+        { id: 'trivia', name: 'Culture générale', icon: '💡', desc: '50 questions incontournables', module: 'MemoryPractical', action: 'trivia', arg: null, storageKey: 'curiosita_mempractical', type: 'trivia', containerId: 'mk-active', useRenderPanel: true },
       ]
     }
   ];

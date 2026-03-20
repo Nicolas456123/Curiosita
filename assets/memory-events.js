@@ -262,7 +262,7 @@ var MemoryEvents = (function () {
     }
 
     function renderDifficultyPicker() {
-      var levels = [15, 20, 30];
+      var levels = [5, 8, 15, 20, 30];
       container.innerHTML =
         '<div class="me-exercise">' +
           '<div class="me-header">' +
@@ -438,7 +438,7 @@ var MemoryEvents = (function () {
     }
 
     function renderDifficultyPicker() {
-      var levels = [10, 15, 20];
+      var levels = [5, 8, 10, 15, 20];
       container.innerHTML =
         '<div class="me-exercise">' +
           '<div class="me-header">' +
@@ -636,7 +636,7 @@ var MemoryEvents = (function () {
     }
 
     function renderDifficultyPicker() {
-      var levels = [20, 40, 60];
+      var levels = [8, 12, 20, 40, 60];
       container.innerHTML =
         '<div class="me-exercise">' +
           '<div class="me-header">' +
